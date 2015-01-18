@@ -1,0 +1,60 @@
+#!/bin/bash
+
+SDKVERSION="8.1"
+MINIOSVERSION="6.1"
+
+ARCHS="i386"
+
+DEVELOPER=`xcode-select -print-path`
+REPOROOT=$(pwd)
+
+OUTPUTDIR="${REPOROOT}/dependencies"
+mkdir -p ${OUTPUTDIR}/include
+mkdir -p ${OUTPUTDIR}/lib
+
+BUILDDIR="${REPOROOT}/build"
+
+INTERDIR="${BUILDDIR}/built"
+mkdir -p $INTERDIR
+
+lipo -create ${DEVELOPER}/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator${SDKVERSION}.sdk/usr/lib/libz.dylib \
+${DEVELOPER}/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS${SDKVERSION}.sdk/usr/lib/libz.dylib \
+-output ${OUTPUTDIR}/lib/libz.a
+
+cp -R ${DEVELOPER}/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator${SDKVERSION}.sdk/usr/include/zlib* ${OUTPUTDIR}/include/
+
+
+export ORIGINALPATH=$PATH
+
+for ARCH in ${ARCHS}
+do
+	if [ "${ARCH}" == "i386" ] || [ "${ARCH}" == "x86_64" ]; then
+		PLATFORM="iPhoneSimulator"
+		EXTRA_CONFIG=""
+	else
+		PLATFORM="iPhoneOS"
+		EXTRA_CONFIG="--disable-tool-name-check --host=arm-apple-darwin14 --target=arm-apple-darwin14 --disable-gcc-hardening --disable-linker-hardening"
+	fi
+
+mkdir -p "${INTERDIR}/${PLATFORM}${SDKVERSION}-${ARCH}.sdk"
+	mkdir -p "${INTERDIR}/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/include"
+	mkdir -p "${INTERDIR}/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/lib"
+
+export PATH="${DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr/bin/:${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/usr/bin/:${DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr/bin:${DEVELOPER}/usr/bin:${ORIGINALPATH}"
+
+export CC="/usr/bin/gcc -arch ${ARCH} -miphoneos-version-min=${MINIOSVERSION}"
+export CXX="/usr/bin/g++ -arch ${ARCH} -miphoneos-version-min=${MINIOSVERSION}"
+
+echo "${INTERDIR}/${PLATFORM}${SDKVERSION}-${ARCH}.sdk"
+
+./configure ${EXTRA_CONFIG} \
+	--prefix="${INTERDIR}/${PLATFORM}${SDKVERSION}-${ARCH}.sdk" \
+    --with-libevent="${REPOROOT}/../iOS-OnionBrowser/dependencies" \
+    LDFLAGS="$LDFLAGS -L${OUTPUTDIR}/lib" \
+	CFLAGS="$CFLAGS -O2 -I${OUTPUTDIR}/include -isysroot ${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDKVERSION}.sdk" \
+	CPPFLAGS="$CPPFLAGS -I${OUTPUTDIR}/include -isysroot ${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDKVERSION}.sdk" \
+    CXXFLAGS="$CXXFLAGS -I${OUTPUTDIR}/include -isysroot ${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDKVERSION}.sdk"
+
+make -j4
+
+done

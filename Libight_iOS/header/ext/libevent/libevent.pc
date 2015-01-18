@@ -1,0 +1,16 @@
+#libevent pkg-config source file
+
+prefix=/Users/simonebasso/Documents/libight/build/built/iPhoneSimulator8.1-i386.sdk
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libevent
+Description: libevent is an asynchronous notification event loop library
+Version: 2.0.21-stable-dev
+Requires:
+Conflicts:
+Libs: -L${libdir} -levent
+Libs.private: 
+Cflags: -I${includedir}
+
