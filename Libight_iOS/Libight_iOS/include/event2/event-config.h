@@ -357,12 +357,13 @@
 #define _EVENT_HAVE_VASPRINTF 1
 
 /* Define if kqueue works correctly with pipes */
-/* #undef _EVENT_HAVE_WORKING_KQUEUE */
+#define _EVENT_HAVE_WORKING_KQUEUE 1
 
 /* Define to 1 if you have the <zlib.h> header file. */
 #define _EVENT_HAVE_ZLIB_H 1
 
-/* Define to the sub-directory where libtool stores uninstalled libraries. */
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
 #define _EVENT_LT_OBJDIR ".libs/"
 
 /* Numeric representation of the version */
@@ -397,22 +398,22 @@
 #define _EVENT_SIZEOF_INT 4
 
 /* The size of `long', as computed by sizeof. */
-#define _EVENT_SIZEOF_LONG 8
+#define _EVENT_SIZEOF_LONG 4
 
 /* The size of `long long', as computed by sizeof. */
 #define _EVENT_SIZEOF_LONG_LONG 8
 
 /* The size of `pthread_t', as computed by sizeof. */
-#define _EVENT_SIZEOF_PTHREAD_T 8
+#define _EVENT_SIZEOF_PTHREAD_T 4
 
 /* The size of `short', as computed by sizeof. */
 #define _EVENT_SIZEOF_SHORT 2
 
 /* The size of `size_t', as computed by sizeof. */
-#define _EVENT_SIZEOF_SIZE_T 8
+#define _EVENT_SIZEOF_SIZE_T 4
 
 /* The size of `void *', as computed by sizeof. */
-#define _EVENT_SIZEOF_VOID_P 8
+#define _EVENT_SIZEOF_VOID_P 4
 
 /* Define to 1 if you have the ANSI C header files. */
 #define _EVENT_STDC_HEADERS 1
