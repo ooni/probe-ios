@@ -11,7 +11,6 @@
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
 		D4A2F5E51A6C3244001B8460 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E41A6C3244001B8460 /* ViewController.mm */; };
-		D4A2F5E81A6C3244001B8460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E61A6C3244001B8460 /* Main.storyboard */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
 		D4A2F5F91A6C3244001B8460 /* Libight_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5F81A6C3244001B8460 /* Libight_iOSTests.m */; };
@@ -47,7 +46,6 @@
 		D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		D4A2F5E31A6C3244001B8460 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D4A2F5E41A6C3244001B8460 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		D4A2F5E71A6C3244001B8460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4A2F5E91A6C3244001B8460 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4A2F5EC1A6C3244001B8460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D4A2F5F21A6C3244001B8460 /* Libight_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Libight_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2124,7 +2122,6 @@
 				17DA64721AA8A1D900E218BD /* NetworkMeasurement.h */,
 				17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */,
 				ED4D60541A7162C400777275 /* Localizable.strings */,
-				D4A2F5E61A6C3244001B8460 /* Main.storyboard */,
 				ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */,
 				ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */,
 				D4A2F5E91A6C3244001B8460 /* Images.xcassets */,
@@ -5292,7 +5289,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D4A2F5D41A6C3244001B8460 /* Build configuration list for PBXProject "libight_ios" */;
+			buildConfigurationList = D4A2F5D41A6C3244001B8460 /* Build configuration list for PBXProject "Libight_iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -5318,7 +5315,6 @@
 			files = (
 				ED24D0B41AA4D33900F6936D /* utf8_codecvt_facet.ipp in Resources */,
 				D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */,
-				D4A2F5E81A6C3244001B8460 /* Main.storyboard in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
 				ED4D60501A7139C400777275 /* Storyboard_iPhone.storyboard in Resources */,
 				D4A2F63F1A6C33F7001B8460 /* Inconsolata.otf in Resources */,
@@ -5368,14 +5364,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D4A2F5E61A6C3244001B8460 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4A2F5E71A6C3244001B8460 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -5578,7 +5566,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4A2F5D41A6C3244001B8460 /* Build configuration list for PBXProject "libight_ios" */ = {
+		D4A2F5D41A6C3244001B8460 /* Build configuration list for PBXProject "Libight_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4A2F5FA1A6C3244001B8460 /* Debug */,

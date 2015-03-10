@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2TR-Dd-UZ1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2TR-Dd-UZ1">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TESTING HISTORY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CE-Rq-CiP">
-                                <rect key="frame" x="16" y="33" width="698" height="55"/>
+                                <rect key="frame" x="16" y="33" width="736" height="55"/>
                                 <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="39"/>
                                 <color key="textColor" red="0.63529411764705879" green="0.60784313725490191" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -63,7 +63,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dns_injectionClick:forEvent:" destination="2TR-Dd-UZ1" eventType="touchUpInside" id="6zf-Rw-1rb"/>
+                                    <action selector="buttonClick:forEvent:" destination="2TR-Dd-UZ1" eventType="touchUpInside" id="QXx-9G-LFY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUU-ke-9iy">
+                                <rect key="frame" x="24" y="517" width="50" height="50"/>
+                                <state key="normal" image="not-selected">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClick:forEvent:" destination="2TR-Dd-UZ1" eventType="touchUpInside" id="XMh-Pz-Hiu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxO-Js-hbF">
@@ -72,7 +81,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="http_invalid_request_lineClick:forEvent:" destination="2TR-Dd-UZ1" eventType="touchUpInside" id="YNA-bE-vu8"/>
+                                    <action selector="buttonClick:forEvent:" destination="2TR-Dd-UZ1" eventType="touchUpInside" id="cRE-UC-HuS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyQ-07-PJL">
@@ -107,9 +116,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ENX-Q8-Io2">
-                                                    <rect key="frame" x="325" y="23" width="417" height="2"/>
+                                                    <rect key="frame" x="325" y="21" width="384" height="2"/>
                                                     <color key="progressTintColor" red="0.59607843137254901" green="0.84313725490196079" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                                                 </progressView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79e-Nh-JG2">
+                                                    <rect key="frame" x="717" y="9" width="43" height="25"/>
+                                                    <state key="normal" title="Log">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -120,21 +135,6 @@
                                     <outlet property="delegate" destination="2TR-Dd-UZ1" id="p5Y-zG-oKm"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJk-Yh-JAv">
-                                <rect key="frame" x="722" y="46" width="30" height="30"/>
-                                <state key="normal" title="Log">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUU-ke-9iy">
-                                <rect key="frame" x="24" y="517" width="50" height="50"/>
-                                <state key="normal" image="not-selected">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tcp_connectClick:forEvent:" destination="2TR-Dd-UZ1" eventType="touchUpInside" id="vdM-Tt-tVi"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431372549018" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ouc-hP-WxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="450" y="518"/>
+            <point key="canvasLocation" x="450" y="514"/>
         </scene>
     </scenes>
     <resources>

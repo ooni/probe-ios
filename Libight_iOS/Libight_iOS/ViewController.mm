@@ -85,6 +85,28 @@
     [self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
 }
 
+//TODO one function click - example
+- (IBAction)buttonClick:(id)sender forEvent:(UIEvent *)event {
+    UIButton *tappedButton = (UIButton*)sender;
+    [self unselectAll];
+    [tappedButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+    if (tappedButton == self.dns_injectionButton){
+        //[self.dns_injectionButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+        DNSInjection *dns_injectionMeasurement = [[DNSInjection alloc] init];
+        self.selectedMeasurement = dns_injectionMeasurement;
+    }
+    else if (tappedButton == self.tcp_connectButton) {
+        //[self.tcp_connectButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+        TCPConnect *tcp_connectMeasurement = [[TCPConnect alloc] init];
+        self.selectedMeasurement = tcp_connectMeasurement;
+    }
+    else if (tappedButton == self.http_invalid_request_lineButton){
+        //[self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+        HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
+        self.selectedMeasurement = http_invalid_request_lineMeasurement;
+    }
+}
+
 - (IBAction)dns_injectionClick:(id)sender forEvent:(UIEvent *)event {
     [self unselectAll];
     [self.dns_injectionButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
