@@ -66,15 +66,6 @@
                                     <action selector="dns_injectionClick:forEvent:" destination="2TR-Dd-UZ1" eventType="touchUpInside" id="6zf-Rw-1rb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUU-ke-9iy">
-                                <rect key="frame" x="24" y="517" width="50" height="50"/>
-                                <state key="normal" image="not-selected">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tcp_connectClick:forEvent:" destination="2TR-Dd-UZ1" eventType="touchUpInside" id="vdM-Tt-tVi"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxO-Js-hbF">
                                 <rect key="frame" x="24" y="581" width="50" height="50"/>
                                 <state key="normal" image="not-selected">
@@ -134,6 +125,15 @@
                                 <state key="normal" title="Log">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUU-ke-9iy">
+                                <rect key="frame" x="24" y="517" width="50" height="50"/>
+                                <state key="normal" image="not-selected">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tcp_connectClick:forEvent:" destination="2TR-Dd-UZ1" eventType="touchUpInside" id="vdM-Tt-tVi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431372549018" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>

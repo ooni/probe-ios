@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17DA64741AA8A1D900E218BD /* NetworkMeasurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
 		D4A2F5E51A6C3244001B8460 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E41A6C3244001B8460 /* ViewController.mm */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17DA64721AA8A1D900E218BD /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = libight_ios/NetworkMeasurement.h; sourceTree = SOURCE_ROOT; };
+		17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkMeasurement.mm; path = libight_ios/NetworkMeasurement.mm; sourceTree = SOURCE_ROOT; };
 		D4A2F5D91A6C3244001B8460 /* Libight_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Libight_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2F5DE1A6C3244001B8460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2118,6 +2121,8 @@
 				D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */,
 				D4A2F5E31A6C3244001B8460 /* ViewController.h */,
 				D4A2F5E41A6C3244001B8460 /* ViewController.mm */,
+				17DA64721AA8A1D900E218BD /* NetworkMeasurement.h */,
+				17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */,
 				ED4D60541A7162C400777275 /* Localizable.strings */,
 				D4A2F5E61A6C3244001B8460 /* Main.storyboard */,
 				ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */,
@@ -5340,6 +5345,7 @@
 				D4A2F5E51A6C3244001B8460 /* ViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
+				17DA64741AA8A1D900E218BD /* NetworkMeasurement.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

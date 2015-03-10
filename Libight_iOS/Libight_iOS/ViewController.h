@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkMeasurement.h"
 
 @interface ViewController : UIViewController
+
+@property NSMutableArray *availableNetworkMeasurements;
+
+@property NSMutableArray *runningNetworkMeasurements;
+@property NSMutableArray *completedNetworkMeasurements;
 
 @property (strong, nonatomic) IBOutlet UILabel *testing_historyLabel;
 @property (strong, nonatomic) IBOutlet UILabel *pending_testsLabel;
@@ -29,5 +35,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *runButton;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@end
 
+@property (strong, nonatomic) NetworkMeasurement *selectedMeasurement;
+
+@end

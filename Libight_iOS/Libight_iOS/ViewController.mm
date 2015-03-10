@@ -17,15 +17,20 @@
 #include "common/log.h"
 #include "common/utils.hpp"
 
+@implementation ViewController : UIViewController
 
-@interface ViewController ()
-@end
+- (void) loadAvailableMeasurements {
+    DNSInjection *dns_injectionMeasurement = [[DNSInjection alloc] init];
+    [self.availableNetworkMeasurements addObject:dns_injectionMeasurement];
 
+    TCPConnect *tcp_connectMeasurement = [[TCPConnect alloc] init];
+    [self.availableNetworkMeasurements addObject:tcp_connectMeasurement];
 
-@implementation ViewController
+    HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
+    [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
+}
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void) setLabels {
     [self.testing_historyLabel setText:NSLocalizedString(@"testing_history", nil)];
     [self.pending_testsLabel setText:NSLocalizedString(@"pending_tests", nil)];
     [self.run_testLabel setText:NSLocalizedString(@"run_test", nil)];
@@ -35,89 +40,73 @@
     [self.http_invalid_request_lineLabel setText:NSLocalizedString(@"http_invalid_request_line", nil)];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
+    [self loadAvailableMeasurements];
+    
+    self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
+    
+    [self setLabels];
+}
+
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(IBAction)runTests:(id)sender{
-    [self dns_injection_test];
+
+- (IBAction) runTests:(id)sender {
+    [self.selectedMeasurement run];
+    [self.runningNetworkMeasurements addObject:self.selectedMeasurement];
+    self.selectedMeasurement = nullptr;
 }
 
-- (void)dns_injection_test {
-    NSString *pathToHost = [[NSBundle mainBundle] pathForResource:@"hosts" ofType:@"txt"];
-    
-    /*DNS_INJECTION TEST*/
-    ight_set_verbose(1);
-    ight::common::Settings options;
-    options["nameserver"] = "8.8.8.8:53";
-    ight::ooni::dns_injection::DNSInjection dns_injection([pathToHost UTF8String], options);
-    dns_injection.begin([&](){
-        dns_injection.end([](){
-            ight_break_loop();
-        });
-    });
-    ight_loop();
-}
-
--(void)http_invalid_request_line_test{
-    /*HTTP INVALID REQUEST LINE TEST*/
-    ight_set_verbose(1);
-    ight::common::Settings options;
-    options["backend"] = "http://google.com/";
-    ight::ooni::http_invalid_request_line::HTTPInvalidRequestLine http_invalid_request_line(options);
-    http_invalid_request_line.begin([&](){
-        http_invalid_request_line.end([](){
-            ight_break_loop();
-        });
-    });
-    ight_loop();
-}
-
--(void)tcp_connect_test{
-    /*TCP CONNECT TEST*/
-    NSString *pathToHost = [[NSBundle mainBundle] pathForResource:@"hosts" ofType:@"txt"];
-
-    ight_set_verbose(1);
-    ight::ooni::tcp_connect::TCPConnect tcp_connect([pathToHost UTF8String], {
-        {"port", "80"},
-    });
-    tcp_connect.begin([&]() {
-        tcp_connect.end([]() {
-            ight_break_loop();
-        });
-    });
-    ight_loop();
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [self.runningNetworkMeasurements count];
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     return cell;
 }
 
+- (void) unselectAll {
+    [self.dns_injectionButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
+    [self.tcp_connectButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
+    [self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
+}
 
 - (IBAction)dns_injectionClick:(id)sender forEvent:(UIEvent *)event {
-    printf("DNS Injection clicked");
-
+    [self unselectAll];
+    [self.dns_injectionButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+    
+    DNSInjection *dns_injectionMeasurement = [[DNSInjection alloc] init];
+    self.selectedMeasurement = dns_injectionMeasurement;
 }
 
 - (IBAction)tcp_connectClick:(id)sender forEvent:(UIEvent *)event {
-    printf("TCP clicked");
+    [self unselectAll];
+    [self.tcp_connectButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
 
+    TCPConnect *tcp_connectMeasurement = [[TCPConnect alloc] init];
+    self.selectedMeasurement = tcp_connectMeasurement;
 }
 
 - (IBAction)http_invalid_request_lineClick:(id)sender forEvent:(UIEvent *)event {
-    printf("HTTP clicked");
+    [self unselectAll];
+    [self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+
+    HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
+    self.selectedMeasurement = http_invalid_request_lineMeasurement;
 }
+
 @end
