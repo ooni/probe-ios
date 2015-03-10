@@ -14,7 +14,7 @@
 #include "ooni/tcp_connect.hpp"
 
 #include "common/poller.h"
-#include "common/log.h"
+#include "common/log.hpp"
 #include "common/utils.hpp"
 
 @implementation ViewController : UIViewController
@@ -107,28 +107,5 @@
     }
 }
 
-- (IBAction)dns_injectionClick:(id)sender forEvent:(UIEvent *)event {
-    [self unselectAll];
-    [self.dns_injectionButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
-    
-    DNSInjection *dns_injectionMeasurement = [[DNSInjection alloc] init];
-    self.selectedMeasurement = dns_injectionMeasurement;
-}
-
-- (IBAction)tcp_connectClick:(id)sender forEvent:(UIEvent *)event {
-    [self unselectAll];
-    [self.tcp_connectButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
-
-    TCPConnect *tcp_connectMeasurement = [[TCPConnect alloc] init];
-    self.selectedMeasurement = tcp_connectMeasurement;
-}
-
-- (IBAction)http_invalid_request_lineClick:(id)sender forEvent:(UIEvent *)event {
-    [self unselectAll];
-    [self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
-
-    HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
-    self.selectedMeasurement = http_invalid_request_lineMeasurement;
-}
 
 @end

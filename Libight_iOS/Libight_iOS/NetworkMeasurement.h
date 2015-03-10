@@ -8,11 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+/*Include header from test*/
+#include "ooni/dns_injection.hpp"
+#include "ooni/http_invalid_request_line.hpp"
+#include "ooni/tcp_connect.hpp"
+
+#include "common/poller.h"
+#include "common/log.hpp"
+#include "common/utils.hpp"
+
 @interface NetworkMeasurement : NSObject
 
 @property NSString *name;
 @property NSString *status;
-@property (readonly) void *(*run)();
+@property NSMutableArray *logLines;
+@property ight::common::Settings options;
+
+-(void) run;
+-(void) setupLogger;
 
 @end
 

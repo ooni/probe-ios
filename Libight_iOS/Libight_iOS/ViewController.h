@@ -26,10 +26,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *tcp_connectLabel;
 @property (strong, nonatomic) IBOutlet UILabel *http_invalid_request_lineLabel;
 
-- (IBAction)dns_injectionClick:(id)sender forEvent:(UIEvent *)event;
-- (IBAction)tcp_connectClick:(id)sender forEvent:(UIEvent *)event;
-- (IBAction)http_invalid_request_lineClick:(id)sender forEvent:(UIEvent *)event;
-
 @property (strong, nonatomic) IBOutlet UIButton *dns_injectionButton;
 @property (strong, nonatomic) IBOutlet UIButton *tcp_connectButton;
 @property (strong, nonatomic) IBOutlet UIButton *http_invalid_request_lineButton;
