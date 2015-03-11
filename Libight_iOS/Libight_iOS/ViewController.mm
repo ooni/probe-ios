@@ -8,47 +8,104 @@
 
 #import "ViewController.h"
 
-/*Include header from dns_injection test*/
+/*Include header from test*/
 #include "ooni/dns_injection.hpp"
+#include "ooni/http_invalid_request_line.hpp"
+#include "ooni/tcp_connect.hpp"
+
 #include "common/poller.h"
-#include "common/log.h"
+#include "common/log.hpp"
 #include "common/utils.hpp"
 
+@implementation ViewController : UIViewController
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *label;
+- (void) loadAvailableMeasurements {
+    DNSInjection *dns_injectionMeasurement = [[DNSInjection alloc] init];
+    [self.availableNetworkMeasurements addObject:dns_injectionMeasurement];
 
-@end
+    TCPConnect *tcp_connectMeasurement = [[TCPConnect alloc] init];
+    [self.availableNetworkMeasurements addObject:tcp_connectMeasurement];
 
-
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
+    [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void) setLabels {
+    [self.testing_historyLabel setText:NSLocalizedString(@"testing_history", nil)];
+    [self.pending_testsLabel setText:NSLocalizedString(@"pending_tests", nil)];
+    [self.run_testLabel setText:NSLocalizedString(@"run_test", nil)];
+    
+    [self.dns_injectionLabel setText:NSLocalizedString(@"dns_injection", nil)];
+    [self.tcp_connectLabel setText:NSLocalizedString(@"tcp_connect", nil)];
+    [self.http_invalid_request_lineLabel setText:NSLocalizedString(@"http_invalid_request_line", nil)];
+}
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
+    [self loadAvailableMeasurements];
+    
+    self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
+    
+    [self setLabels];
+}
+
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)changelabel:(id)sender {
-    
-    
-    
-    /*DNS_INJECTION TEST*/
-    ight_set_verbose(1);
-    ight::common::Settings options;
-    options["nameserver"] = "8.8.8.8:53";
-    ight::ooni::dns_injection::DNSInjection dns_injection("/Users/simonebasso/Documents/Libight_iOS/Libight_iOS/Resources/fixtures/hosts.txt", options);
-    dns_injection.begin([&](){
-        dns_injection.end([](){
-            ight_break_loop();
-        });
-    });
-    ight_loop();
-    
-    _label.text = @"Test eseguito!";
+
+- (IBAction) runTests:(id)sender {
+    [self.selectedMeasurement run];
+    [self.runningNetworkMeasurements addObject:self.selectedMeasurement];
+    self.selectedMeasurement = nullptr;
 }
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.runningNetworkMeasurements count];
+}
+
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    return cell;
+}
+
+- (void) unselectAll {
+    [self.dns_injectionButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
+    [self.tcp_connectButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
+    [self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
+}
+
+//TODO one function click - example
+- (IBAction)buttonClick:(id)sender forEvent:(UIEvent *)event {
+    UIButton *tappedButton = (UIButton*)sender;
+    [self unselectAll];
+    [tappedButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+    if (tappedButton == self.dns_injectionButton){
+        //[self.dns_injectionButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+        DNSInjection *dns_injectionMeasurement = [[DNSInjection alloc] init];
+        self.selectedMeasurement = dns_injectionMeasurement;
+    }
+    else if (tappedButton == self.tcp_connectButton) {
+        //[self.tcp_connectButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+        TCPConnect *tcp_connectMeasurement = [[TCPConnect alloc] init];
+        self.selectedMeasurement = tcp_connectMeasurement;
+    }
+    else if (tappedButton == self.http_invalid_request_lineButton){
+        //[self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+        HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
+        self.selectedMeasurement = http_invalid_request_lineMeasurement;
+    }
+}
+
 
 @end
