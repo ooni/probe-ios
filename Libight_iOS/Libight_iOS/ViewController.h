@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkMeasurement.h"
-
+#import "LogViewController.h"
 
 
 @interface ViewController : UIViewController

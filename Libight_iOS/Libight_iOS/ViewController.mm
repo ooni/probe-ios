@@ -19,13 +19,22 @@
 
 @implementation ViewController : UIViewController
 
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
+    [self loadAvailableMeasurements];
+    self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
+    [self setLabels];
+}
+
 - (void) loadAvailableMeasurements {
     DNSInjection *dns_injectionMeasurement = [[DNSInjection alloc] init];
     [self.availableNetworkMeasurements addObject:dns_injectionMeasurement];
-
+    
     TCPConnect *tcp_connectMeasurement = [[TCPConnect alloc] init];
     [self.availableNetworkMeasurements addObject:tcp_connectMeasurement];
-
+    
     HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
     [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
 }
@@ -40,16 +49,6 @@
     [self.http_invalid_request_lineLabel setText:NSLocalizedString(@"http_invalid_request_line", nil)];
 }
 
-- (void) viewDidLoad {
-    [super viewDidLoad];
-    
-    self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
-    [self loadAvailableMeasurements];
-    
-    self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
-    
-    [self setLabels];
-}
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -59,6 +58,7 @@
 - (IBAction) runTests:(id)sender {
     [self.selectedMeasurement run];
     [self.runningNetworkMeasurements addObject:self.selectedMeasurement];
+    [self.tableView reloadData];
     self.selectedMeasurement = nullptr;
 }
 
@@ -76,8 +76,15 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UILabel *title = (UILabel*)[cell viewWithTag:1];
+    UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
+    UIButton *go_log = (UIButton *)[cell viewWithTag:3];
+    NetworkMeasurement *current = [self.runningNetworkMeasurements objectAtIndex:indexPath.row];
+    //[title setText:current.name];
+    [bar setProgress:0.4 animated:YES];
     return cell;
 }
+
 
 - (void) unselectAll {
     [self.dns_injectionButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
@@ -107,5 +114,10 @@
     }
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    LogViewController *lvc = (LogViewController *)[segue destinationViewController];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    [lvc setTest:[self.runningNetworkMeasurements objectAtIndex:indexPath.row]];
+}
 
 @end
