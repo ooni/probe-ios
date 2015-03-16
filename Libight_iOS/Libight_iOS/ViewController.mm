@@ -87,6 +87,9 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return NSLocalizedString(@"running_tests", nil);
+}
 
 - (void) unselectAll {
     [self.dns_injectionButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
