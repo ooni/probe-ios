@@ -33,6 +33,12 @@
 
 @implementation DNSInjection : NetworkMeasurement
 
+-(id) init {
+    self = [super init];
+    self.name = @"dns_injection";
+    return self;
+}
+
 - (void) run {
     [super run];
 
@@ -55,6 +61,12 @@
 
 @implementation HTTPInvalidRequestLine : NetworkMeasurement
 
+-(id) init {
+    self = [super init];
+    self.name = @"http_invalid_request_line";
+    return self;
+}
+
 -(void) run {
     [super run];
     
@@ -73,6 +85,12 @@
 @end
 
 @implementation TCPConnect : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    self.name = @"tcp_connect";
+    return self;
+}
 
 -(void) run {
     [super run];
