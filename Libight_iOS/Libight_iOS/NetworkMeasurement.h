@@ -17,14 +17,20 @@
 #include "common/log.hpp"
 #include "common/utils.hpp"
 
+#include "NetworkManager.h"
+
 @interface NetworkMeasurement : NSObject
 
 @property NSString *name;
 @property NSString *status;
 @property NSMutableArray *logLines;
 @property ight::common::Settings options;
+@property NetworkManager *manager;
 
 -(void) run;
+-(void) loop;
+-(void) break_loop;
+
 -(void) setupLogger;
 
 @end
