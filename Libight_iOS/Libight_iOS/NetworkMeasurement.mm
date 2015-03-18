@@ -20,11 +20,33 @@
     [self setupLogger];
 }
 
+-(void) loop {
+    if (self.manager.running == FALSE) {
+        self.manager.running = TRUE;
+        [self bk_ight_loop];
+    }
+}
+
+-(void) break_loop {
+    [self.manager.runningNetworkMeasurements removeObject:self];
+    if (self.manager.running == TRUE && [self.manager.runningNetworkMeasurements count] == 0) {
+        self.manager.running = FALSE;
+        ight_break_loop();
+    }
+}
+
 -(void) setupLogger {
     ight_set_verbose(1);
 
     ight_set_logger([self](const char *s) {
         [self.logLines addObject:[NSString stringWithUTF8String:s]];
+    });
+}
+
+-(void) bk_ight_loop
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        ight_loop();
     });
 }
 
@@ -49,11 +71,11 @@
 
     ight::ooni::dns_injection::DNSInjection dns_injection([pathToHost UTF8String], options);
     dns_injection.begin([&](){
-        dns_injection.end([](){
-            ight_break_loop();
+        dns_injection.end([self](){
+            [self break_loop];
         });
     });
-    ight_loop();
+    [self loop];
 }
 
 
@@ -101,11 +123,11 @@
         {"port", "80"},
     });
     tcp_connect.begin([&]() {
-        tcp_connect.end([]() {
-            ight_break_loop();
+        tcp_connect.end([self]() {
+            [self break_loop];
         });
     });
-    ight_loop();
+    [self loop];
 }
 
 @end

@@ -25,6 +25,7 @@
 		ED4D60501A7139C400777275 /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */; };
 		ED4D60531A7139D200777275 /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
+		EDA1061D1AB9B7C900901236 /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA1061C1AB9B7C900901236 /* NetworkManager.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2071,6 +2072,8 @@
 		ED4D604F1A7139C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
 		ED4D60521A7139D200777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPad.storyboard; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EDA1061B1AB9B7C900901236 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		EDA1061C1AB9B7C900901236 /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2126,6 +2129,8 @@
 				17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */,
 				ED3DEB501AB1AC040027097A /* LogViewController.h */,
 				ED3DEB511AB1AC040027097A /* LogViewController.mm */,
+				EDA1061B1AB9B7C900901236 /* NetworkManager.h */,
+				EDA1061C1AB9B7C900901236 /* NetworkManager.mm */,
 				ED4D60541A7162C400777275 /* Localizable.strings */,
 				ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */,
 				ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */,
@@ -5347,6 +5352,7 @@
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				17DA64741AA8A1D900E218BD /* NetworkMeasurement.mm in Sources */,
+				EDA1061D1AB9B7C900901236 /* NetworkManager.mm in Sources */,
 				ED3DEB521AB1AC040027097A /* LogViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
