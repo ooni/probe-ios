@@ -21,6 +21,7 @@
 		ED24D0B61AA4D33A00F6936D /* libight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED24D0B11AA4D33900F6936D /* libight.a */; };
 		ED24D0B71AA4D33A00F6936D /* libyaml-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED24D0B21AA4D33900F6936D /* libyaml-cpp.a */; };
 		ED24D0B81AA4D33A00F6936D /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED24D0B31AA4D33900F6936D /* libz.a */; };
+		ED3DEB521AB1AC040027097A /* LogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3DEB511AB1AC040027097A /* LogViewController.mm */; };
 		ED4D60501A7139C400777275 /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */; };
 		ED4D60531A7139D200777275 /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
@@ -2002,7 +2003,6 @@
 		ED24D0691AA4D33900F6936D /* emitter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = emitter.hpp; sourceTree = "<group>"; };
 		ED24D06A1AA4D33900F6936D /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
 		ED24D06B1AA4D33900F6936D /* libevent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libevent.h; sourceTree = "<group>"; };
-		ED24D06C1AA4D33900F6936D /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
 		ED24D06D1AA4D33900F6936D /* pointer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pointer.hpp; sourceTree = "<group>"; };
 		ED24D06E1AA4D33900F6936D /* poller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poller.h; sourceTree = "<group>"; };
 		ED24D06F1AA4D33900F6936D /* settings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = settings.hpp; sourceTree = "<group>"; };
@@ -2065,6 +2065,9 @@
 		ED24D0B11AA4D33900F6936D /* libight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libight.a; sourceTree = "<group>"; };
 		ED24D0B21AA4D33900F6936D /* libyaml-cpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libyaml-cpp.a"; sourceTree = "<group>"; };
 		ED24D0B31AA4D33900F6936D /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libz.a; sourceTree = "<group>"; };
+		ED3DEB4F1AB1AB0F0027097A /* log.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = log.hpp; sourceTree = "<group>"; };
+		ED3DEB501AB1AC040027097A /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		ED3DEB511AB1AC040027097A /* LogViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LogViewController.mm; sourceTree = "<group>"; };
 		ED4D604F1A7139C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
 		ED4D60521A7139D200777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPad.storyboard; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -2121,6 +2124,8 @@
 				D4A2F5E41A6C3244001B8460 /* ViewController.mm */,
 				17DA64721AA8A1D900E218BD /* NetworkMeasurement.h */,
 				17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */,
+				ED3DEB501AB1AC040027097A /* LogViewController.h */,
+				ED3DEB511AB1AC040027097A /* LogViewController.mm */,
 				ED4D60541A7162C400777275 /* Localizable.strings */,
 				ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */,
 				ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */,
@@ -5101,7 +5106,7 @@
 				ED24D0691AA4D33900F6936D /* emitter.hpp */,
 				ED24D06A1AA4D33900F6936D /* error.h */,
 				ED24D06B1AA4D33900F6936D /* libevent.h */,
-				ED24D06C1AA4D33900F6936D /* log.h */,
+				ED3DEB4F1AB1AB0F0027097A /* log.hpp */,
 				ED24D06D1AA4D33900F6936D /* pointer.hpp */,
 				ED24D06E1AA4D33900F6936D /* poller.h */,
 				ED24D06F1AA4D33900F6936D /* settings.hpp */,
@@ -5342,6 +5347,7 @@
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				17DA64741AA8A1D900E218BD /* NetworkMeasurement.mm in Sources */,
+				ED3DEB521AB1AC040027097A /* LogViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
