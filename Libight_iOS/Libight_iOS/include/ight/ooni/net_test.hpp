@@ -1,5 +1,11 @@
-#ifndef LIBIGHT_OONI_NET_TEST_HPP
-# define LIBIGHT_OONI_NET_TEST_HPP
+/*-
+ * This file is part of Libight <https://libight.github.io/>.
+ *
+ * Libight is free software. See AUTHORS and LICENSE for more
+ * information on the copying conditions.
+ */
+#ifndef IGHT_OONI_NET_TEST_HPP
+# define IGHT_OONI_NET_TEST_HPP
 
 #include <iterator>
 #include <iostream>
@@ -8,15 +14,22 @@
 #include <ight/report/file.hpp>
 
 #include <ight/common/pointer.hpp>
-#include <ight/common/poller.h>
+#include <ight/common/poller.hpp>
 #include <ight/common/settings.hpp>
 #include <ight/common/log.hpp>
+#include <ight/common/net_test.hpp>
 
 namespace ight {
 namespace ooni {
 namespace net_test {
 
+using namespace ight::common::libevent;
+using namespace ight::common::log;
 using namespace ight::common::pointer;
+using namespace ight::common::poller;
+using namespace ight::common::settings;
+
+using namespace ight::report::file;
 
 class InputGenerator {
 
@@ -34,7 +47,8 @@ class InputFileGenerator : public InputGenerator
 public:
   InputFileGenerator() {}
 
-  InputFileGenerator(std::string input_filepath) {
+  InputFileGenerator(std::string input_filepath,
+      SharedPointer<Logger> lp = DefaultLogger::get()) : logger(lp) {
     is = new std::ifstream(input_filepath);
   }
 
@@ -50,27 +64,27 @@ public:
   void
   next(std::function<void(std::string)>&& new_line,
        std::function<void()>&& done) override {
-    ight_debug("Getting next line");
+    logger->debug("InputFileGenerator: getting next line");
     std::string line;
     if (*is && !std::getline(*is, line).eof()) {
-      ight_debug("Returning new line");
+      logger->debug("InputFileGenerator: returning new line");
       new_line(line);
     } else {
-      ight_debug("EOF reached.");
+      logger->debug("InputFileGenerator: EOF reached.");
       done(); 
     }
   }
 
 private:
   std::ifstream *is = nullptr;
-
+  SharedPointer<Logger> logger = DefaultLogger::get();
 };
 
-class NetTest {
+class NetTest : public ight::common::net_test::NetTest {
   std::string input_filepath;
   FileReporter file_report;
 
-  SharedPointer<IghtDelayedCall> delayed_call;
+  SharedPointer<DelayedCall> delayed_call;
 
   void run_next_measurement(const std::function<void()>&& cb);
 
@@ -81,7 +95,7 @@ class NetTest {
   std::string get_report_filename();
 
 protected:
-  IghtLibevent *libevent = IghtGlobalLibevent::get();
+  Libevent *libevent = GlobalLibevent::get();
 
   virtual void setup(std::string input);
   virtual void setup();
@@ -89,16 +103,16 @@ protected:
   virtual void teardown(std::string input);
   virtual void teardown();
 
-  virtual void main(ight::common::Settings options,
+  virtual void main(Settings options,
                     std::function<void(ReportEntry)>&& func);
 
 
-  virtual void main(std::string input, ight::common::Settings options,
+  virtual void main(std::string input, Settings options,
                     std::function<void(ReportEntry)>&& func);
 
 public:
   ReportEntry entry;
-  ight::common::Settings options;
+  Settings options;
   InputGenerator* input = nullptr;
 
   std::string test_name;
@@ -119,7 +133,7 @@ public:
 
   NetTest(std::string input_filepath);
 
-  NetTest(std::string input_filepath, ight::common::Settings options);
+  NetTest(std::string input_filepath, Settings options);
 
   InputGenerator* input_generator();
 
@@ -127,15 +141,14 @@ public:
    * \brief Start iterating over the input.
    * \param cb Callback called when we are done.
    */
-  void begin(std::function<void()>&& cb);
+  virtual void begin(std::function<void()> cb) override;
 
   /*!
    * \brief Make sure that the report is written.
    * \param cb Callback called when the report is written.
    */
-  void end(std::function<void()>&& cb);
+  virtual void end(std::function<void()> cb) override;
 };
 
 }}}
-
-#endif  // LIBIGHT_OONI_NET_TEST_HPP
+#endif

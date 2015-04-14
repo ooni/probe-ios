@@ -1,5 +1,11 @@
-#ifndef LIBIGHT_OONI_HTTP_TEST_HPP
-# define LIBIGHT_OONI_HTTP_TEST_HPP
+/*-
+ * This file is part of Libight <https://libight.github.io/>.
+ *
+ * Libight is free software. See AUTHORS and LICENSE for more
+ * information on the copying conditions.
+ */
+#ifndef IGHT_OONI_HTTP_TEST_HPP
+# define IGHT_OONI_HTTP_TEST_HPP
 
 #include <ight/common/settings.hpp>
 #include <ight/protocols/http.hpp>
@@ -9,28 +15,31 @@ namespace ight {
 namespace ooni {
 namespace http_test {
 
+using namespace ight::common::error;
+using namespace ight::common::settings;
+
 class HTTPTest : public net_test::NetTest {
     using net_test::NetTest::NetTest;
 
     protocols::http::Client http_client;
 
 public:
-    HTTPTest(std::string input_filepath_, ight::common::Settings options_) : 
+    HTTPTest(std::string input_filepath_, Settings options_) : 
       net_test::NetTest(input_filepath_, options_) {
         test_name = "tcp_test";
         test_version = "0.0.1";
     };
 
-    HTTPTest(ight::common::Settings options_) : 
+    HTTPTest(Settings options_) : 
       HTTPTest("", options_)  {};
 
 
-    void request(ight::common::Settings settings, protocols::http::Headers headers,
+    void request(Settings settings, protocols::http::Headers headers,
                  std::string body,
                  protocols::http::RequestCallback&& callback) {
 
         http_client.request(settings, headers, body,
-                            [=](IghtError error, protocols::http::Response&& response) {
+                            [=](Error error, protocols::http::Response&& response) {
 
             YAML::Node rr;
             rr["request"]["headers"] = std::map<std::string, std::string>(headers);
@@ -57,11 +66,10 @@ public:
             entry["agent"] = "agent";
             entry["socksproxy"] = "";
             callback(error, std::move(response));
-        });
+        }, logger);
     };
     
 };
 
 }}}
-
 #endif

@@ -4,9 +4,8 @@
  * Libight is free software. See AUTHORS and LICENSE for more
  * information on the copying conditions.
  */
-
-#ifndef LIBIGHT_PROTOCOLS_HTTP_HPP
-# define LIBIGHT_PROTOCOLS_HTTP_HPP
+#ifndef IGHT_PROTOCOLS_HTTP_HPP
+# define IGHT_PROTOCOLS_HTTP_HPP
 
 #include <functional>
 #include <map>
@@ -17,7 +16,7 @@
 #include <ight/common/constraints.hpp>
 #include <ight/common/settings.hpp>
 #include <ight/common/log.hpp>
-#include <ight/common/error.h>
+#include <ight/common/error.hpp>
 #include <ight/common/pointer.hpp>
 
 #include <ight/net/buffer.hpp>
@@ -35,9 +34,13 @@ namespace protocols {
 namespace http {
 
 using namespace ight::common::constraints;
+using namespace ight::common::error;
+using namespace ight::common::log;
 using namespace ight::common::pointer;
+using namespace ight::common::settings;
 
 using namespace ight::net;
+using namespace ight::net::buffer;
 using namespace ight::net::transport;
 
 /*!
@@ -106,13 +109,11 @@ typedef std::map<std::string, std::string> Headers;
  *
  *     auto connection = ight::net::transport::connect(...);
  *
- *     connection.on_data([&](SharedPointer<IghtBuffer> data) {
+ *     connection.on_data([&](SharedPointer<Buffer> data) {
  *         parser.feed(data);
  *     });
  */
 class ResponseParser {
-
-    ResponseParserImpl *get_impl();
 
 protected:
     ResponseParserImpl *impl = nullptr;
@@ -121,9 +122,7 @@ public:
     /*!
      * \brief Default constructor.
      */
-    ResponseParser() {
-        /* nothing done here */
-    }
+    ResponseParser(SharedPointer<Logger> = DefaultLogger::get());
 
     /*!
      * \brief Deleted copy constructor.
@@ -195,7 +194,7 @@ public:
      * \throws std::runtime_error This method throws std::runtime_error (or
      *         a class derived from it) on several error conditions.
      */
-    void feed(SharedPointer<IghtBuffer> data);
+    void feed(SharedPointer<Buffer> data);
 
     /*!
      * \brief Feed the parser.
@@ -235,23 +234,27 @@ public:
 class Stream {
     SharedPointer<Transport> connection;
     SharedPointer<ResponseParser> parser;
-    std::function<void(IghtError)> error_handler;
+    std::function<void(Error)> error_handler;
     std::function<void()> connect_handler;
 
     void connection_ready(void) {
-        connection->on_data([&](SharedPointer<IghtBuffer> data) {
+        connection->on_data([&](SharedPointer<Buffer> data) {
             parser->feed(data);
         });
         //
         // Intercept EOF error to implement body-ends-at-EOF semantic.
         // TODO: convert error from integer to exception.
         //
-        connection->on_error([&](IghtError error) {
+        connection->on_error([&](Error error) {
+            auto safe_eh = error_handler;
             if (error.error == 0) {
                 parser->eof();
             }
-            if (error_handler) {
-                error_handler(error);
+            // parser->eof() may cause this object to go out of
+            // the scope, therefore we cannot trust `this` to be
+            // valid in the following code.
+            if (safe_eh) {
+                safe_eh(error);
             }
         });
         connect_handler();
@@ -312,15 +315,15 @@ public:
      * \param settings Settings passed to the transport to initialize
      *        it (see transport.cpp for more info).
      */
-    Stream(Settings settings) {
-        parser = std::make_shared<ResponseParser>();
-        connection = transport::connect(settings);
+    Stream(Settings settings, SharedPointer<Logger> lp = DefaultLogger::get()) {
+        parser = std::make_shared<ResponseParser>(lp);
+        connection = transport::connect(settings, lp);
         //
         // While the connection is in progress, just forward the
         // error if needed, we'll deal with body-terminated-by-EOF
         // semantic when we know we are actually connected.
         //
-        connection->on_error([&](IghtError error) {
+        connection->on_error([&](Error error) {
             if (error_handler) {
                 error_handler(error);
             }
@@ -426,7 +429,7 @@ public:
      * \brief Register `error` event handler.
      * \param fn The `error event handler.
      */
-    void on_error(std::function<void(IghtError)>&& fn) {
+    void on_error(std::function<void(Error)>&& fn) {
         error_handler = std::move(fn);
     }
 
@@ -476,7 +479,7 @@ struct RequestSerializer {
      * \param headers HTTP headers (moved for efficiency).
      * \param body Request body (moved for efficiency).
      */
-    RequestSerializer(ight::common::Settings s, Headers headers,
+    RequestSerializer(Settings s, Headers headers,
                       std::string body);
 
     RequestSerializer() {
@@ -487,7 +490,7 @@ struct RequestSerializer {
      * \brief Serialize request.
      * \param buff Buffer where to serialize request.
      */
-    void serialize(IghtBuffer& buff) {
+    void serialize(Buffer& buff) {
         buff << method << " " << pathquery << " " << protocol << "\r\n";
         for (auto& kv : headers) {
             buff << kv.first << ": " << kv.second << "\r\n";
@@ -523,12 +526,12 @@ struct Response {
     unsigned int status_code;       /*!< HTTP status code */
     std::string reason;             /*!< HTTP reason string */
     Headers headers;                /*!< Response headers */
-    IghtBuffer body;                /*!< Response body */
+    Buffer body;                    /*!< Response body */
 };
 
 class Request;  // Forward declaration
 
-typedef std::function<void(IghtError, Response&&)> RequestCallback;
+typedef std::function<void(Error, Response&&)> RequestCallback;
 
 /*!
  * \brief HTTP request.
@@ -540,8 +543,9 @@ class Request : public NonCopyable, public NonMovable {
     SharedPointer<Stream> stream;
     Response response;
     std::set<Request *> *parent = nullptr;
+    SharedPointer<Logger> logger = DefaultLogger::get();
 
-    void emit_end(IghtError error, Response&& response) {
+    void emit_end(Error error, Response&& response) {
         close();
         callback(error, std::move(response));
         //
@@ -571,12 +575,14 @@ public:
      *                     }
      * \param headers Request headers.
      * \param callback Function invoked when request is complete.
+     * \param logger Logger to be used.
      * \param parent Pointer to parent to implement self clean up.
      */
-    Request(const ight::common::Settings settings_, Headers headers,
+    Request(const Settings settings_, Headers headers,
             std::string body, RequestCallback&& callback_,
+            SharedPointer<Logger> lp = DefaultLogger::get(),
             std::set<Request *> *parent_ = nullptr)
-                : callback(callback_), parent(parent_) {
+                : callback(callback_), parent(parent_), logger(lp) {
         auto settings = settings_;  // Make a copy and work on that
         serializer = RequestSerializer(settings, headers, body);
         // Extend settings with address and port to connect to
@@ -593,8 +599,8 @@ public:
                 settings["socks5_proxy"] = "127.0.0.1:9050";
             }
         }
-        stream = std::make_shared<Stream>(settings);
-        stream->on_error([this](IghtError err) {
+        stream = std::make_shared<Stream>(settings, logger);
+        stream->on_error([this](Error err) {
             if (err.error != 0) {
                 emit_end(err, std::move(response));
             } else {
@@ -605,18 +611,18 @@ public:
         stream->on_connect([this](void) {
             // TODO: improve the way in which we serialize the request
             //       to reduce unnecessary copies
-            IghtBuffer buf;
+            Buffer buf;
             serializer.serialize(buf);
             *stream << buf.read<char>();
 
-            stream->on_flush([]() {
-                ight_debug("http: request sent... waiting for response");
+            stream->on_flush([this]() {
+                logger->debug("http: request sent... waiting for response");
             });
 
             stream->on_headers_complete([&](unsigned short major,
                     unsigned short minor, unsigned int status,
                     std::string&& reason, Headers&& headers) {
-                ight_debug("http: headers received...");
+                logger->debug("http: headers received...");
                 response.http_major = major;
                 response.http_minor = minor;
                 response.status_code = status;
@@ -625,15 +631,15 @@ public:
             });
 
             stream->on_body([&](std::string&& chunk) {
-                ight_debug("http: received body chunk...");
+                logger->debug("http: received body chunk...");
                 // FIXME: I am not sure whether the body callback
                 //        is still needed or not...
                 response.body << chunk;
             });
 
             stream->on_end([&]() {
-                ight_debug("http: we have reached end of response");
-                emit_end(IghtError(0), std::move(response));
+                logger->debug("http: we have reached end of response");
+                emit_end(Error(0), std::move(response));
             });
 
         });
@@ -673,10 +679,11 @@ public:
      * \brief Issue HTTP request.
      * \see Request::Request.
      */
-    void request(ight::common::Settings settings, Headers headers,
-            std::string body, RequestCallback&& callback) {
+    void request(Settings settings, Headers headers,
+            std::string body, RequestCallback&& callback,
+            SharedPointer<Logger> lp = DefaultLogger::get()) {
         auto r = new Request(settings, headers, body,
-                std::move(callback), &pending);
+                std::move(callback), lp, &pending);
         pending.insert(r);
     }
 
@@ -702,5 +709,5 @@ public:
     //
 };
 
-}}}  // namespaces
-#endif  // LIBIGHT_NET_HTTP_HPP
+}}}
+#endif

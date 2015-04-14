@@ -9,13 +9,13 @@
 #import "ViewController.h"
 
 /*Include header from test*/
-#include "ooni/dns_injection.hpp"
-#include "ooni/http_invalid_request_line.hpp"
-#include "ooni/tcp_connect.hpp"
+#include "ight/ooni/dns_injection.hpp"
+#include "ight/ooni/http_invalid_request_line.hpp"
+#include "ight/ooni/tcp_connect.hpp"
 
-#include "common/poller.h"
-#include "common/log.hpp"
-#include "common/utils.hpp"
+#include "ight/common/poller.hpp"
+#include "ight/common/log.hpp"
+#include "ight/common/utils.hpp"
 
 @implementation ViewController : UIViewController
 
