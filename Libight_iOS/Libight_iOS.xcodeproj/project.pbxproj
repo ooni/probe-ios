@@ -25,7 +25,22 @@
 		ED4D60501A7139C400777275 /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */; };
 		ED4D60531A7139D200777275 /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
+		ED7AB6FD1ADD6A27002A4B12 /* css in Resources */ = {isa = PBXBuildFile; fileRef = ED7AB6FC1ADD6A27002A4B12 /* css */; };
 		EDA1061D1AB9B7C900901236 /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA1061C1AB9B7C900901236 /* NetworkManager.mm */; };
+		EDD22D0D1ADD5B67006EA0C8 /* TestInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD22D0C1ADD5B67006EA0C8 /* TestInfoViewController.m */; };
+		EDD22D1F1ADD6251006EA0C8 /* ts-00x-nat.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */; };
+		EDD22D201ADD6251006EA0C8 /* ts-001-bridget.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D121ADD6251006EA0C8 /* ts-001-bridget.html */; };
+		EDD22D211ADD6251006EA0C8 /* ts-002-dnsconsistency.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D131ADD6251006EA0C8 /* ts-002-dnsconsistency.html */; };
+		EDD22D221ADD6251006EA0C8 /* ts-003-http-requests.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D141ADD6251006EA0C8 /* ts-003-http-requests.html */; };
+		EDD22D231ADD6251006EA0C8 /* ts-004-httphost.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D151ADD6251006EA0C8 /* ts-004-httphost.html */; };
+		EDD22D241ADD6251006EA0C8 /* ts-005-dnsspoof.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D161ADD6251006EA0C8 /* ts-005-dnsspoof.html */; };
+		EDD22D251ADD6251006EA0C8 /* ts-006-header-field-manipulation.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D171ADD6251006EA0C8 /* ts-006-header-field-manipulation.html */; };
+		EDD22D261ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D181ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html */; };
+		EDD22D271ADD6251006EA0C8 /* ts-008-tcpconnect.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D191ADD6251006EA0C8 /* ts-008-tcpconnect.html */; };
+		EDD22D281ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1A1ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html */; };
+		EDD22D291ADD6251006EA0C8 /* ts-010-captive-portal.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1B1ADD6251006EA0C8 /* ts-010-captive-portal.html */; };
+		EDD22D2A1ADD6251006EA0C8 /* ts-011-bridge-reachability.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1C1ADD6251006EA0C8 /* ts-011-bridge-reachability.html */; };
+		EDD22D2B1ADD6251006EA0C8 /* ts-012-dns-injection.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1D1ADD6251006EA0C8 /* ts-012-dns-injection.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2072,8 +2087,24 @@
 		ED4D604F1A7139C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
 		ED4D60521A7139D200777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPad.storyboard; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED7AB6FC1ADD6A27002A4B12 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = html/css; sourceTree = "<group>"; };
 		EDA1061B1AB9B7C900901236 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		EDA1061C1AB9B7C900901236 /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
+		EDD22D0B1ADD5B67006EA0C8 /* TestInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInfoViewController.h; sourceTree = "<group>"; };
+		EDD22D0C1ADD5B67006EA0C8 /* TestInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInfoViewController.m; sourceTree = "<group>"; };
+		EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-00x-nat.html"; path = "html/ts-00x-nat.html"; sourceTree = "<group>"; };
+		EDD22D121ADD6251006EA0C8 /* ts-001-bridget.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-001-bridget.html"; path = "html/ts-001-bridget.html"; sourceTree = "<group>"; };
+		EDD22D131ADD6251006EA0C8 /* ts-002-dnsconsistency.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-002-dnsconsistency.html"; path = "html/ts-002-dnsconsistency.html"; sourceTree = "<group>"; };
+		EDD22D141ADD6251006EA0C8 /* ts-003-http-requests.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-003-http-requests.html"; path = "html/ts-003-http-requests.html"; sourceTree = "<group>"; };
+		EDD22D151ADD6251006EA0C8 /* ts-004-httphost.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-004-httphost.html"; path = "html/ts-004-httphost.html"; sourceTree = "<group>"; };
+		EDD22D161ADD6251006EA0C8 /* ts-005-dnsspoof.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-005-dnsspoof.html"; path = "html/ts-005-dnsspoof.html"; sourceTree = "<group>"; };
+		EDD22D171ADD6251006EA0C8 /* ts-006-header-field-manipulation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-006-header-field-manipulation.html"; path = "html/ts-006-header-field-manipulation.html"; sourceTree = "<group>"; };
+		EDD22D181ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-007-http-invalid-request-line.html"; path = "html/ts-007-http-invalid-request-line.html"; sourceTree = "<group>"; };
+		EDD22D191ADD6251006EA0C8 /* ts-008-tcpconnect.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-008-tcpconnect.html"; path = "html/ts-008-tcpconnect.html"; sourceTree = "<group>"; };
+		EDD22D1A1ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-009-multi-port-traceroute.html"; path = "html/ts-009-multi-port-traceroute.html"; sourceTree = "<group>"; };
+		EDD22D1B1ADD6251006EA0C8 /* ts-010-captive-portal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-010-captive-portal.html"; path = "html/ts-010-captive-portal.html"; sourceTree = "<group>"; };
+		EDD22D1C1ADD6251006EA0C8 /* ts-011-bridge-reachability.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-011-bridge-reachability.html"; path = "html/ts-011-bridge-reachability.html"; sourceTree = "<group>"; };
+		EDD22D1D1ADD6251006EA0C8 /* ts-012-dns-injection.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-012-dns-injection.html"; path = "html/ts-012-dns-injection.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2131,6 +2162,8 @@
 				ED3DEB511AB1AC040027097A /* LogViewController.mm */,
 				EDA1061B1AB9B7C900901236 /* NetworkManager.h */,
 				EDA1061C1AB9B7C900901236 /* NetworkManager.mm */,
+				EDD22D0B1ADD5B67006EA0C8 /* TestInfoViewController.h */,
+				EDD22D0C1ADD5B67006EA0C8 /* TestInfoViewController.m */,
 				ED4D60541A7162C400777275 /* Localizable.strings */,
 				ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */,
 				ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */,
@@ -2170,6 +2203,7 @@
 		D4A2F62D1A6C33F7001B8460 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDD22D101ADD6248006EA0C8 /* html */,
 				D4A2F62E1A6C33F7001B8460 /* fixtures */,
 				D4A2F6301A6C33F7001B8460 /* Fonts */,
 			);
@@ -5243,6 +5277,27 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		EDD22D101ADD6248006EA0C8 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				ED7AB6FC1ADD6A27002A4B12 /* css */,
+				EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */,
+				EDD22D121ADD6251006EA0C8 /* ts-001-bridget.html */,
+				EDD22D131ADD6251006EA0C8 /* ts-002-dnsconsistency.html */,
+				EDD22D141ADD6251006EA0C8 /* ts-003-http-requests.html */,
+				EDD22D151ADD6251006EA0C8 /* ts-004-httphost.html */,
+				EDD22D161ADD6251006EA0C8 /* ts-005-dnsspoof.html */,
+				EDD22D171ADD6251006EA0C8 /* ts-006-header-field-manipulation.html */,
+				EDD22D181ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html */,
+				EDD22D191ADD6251006EA0C8 /* ts-008-tcpconnect.html */,
+				EDD22D1A1ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html */,
+				EDD22D1B1ADD6251006EA0C8 /* ts-010-captive-portal.html */,
+				EDD22D1C1ADD6251006EA0C8 /* ts-011-bridge-reachability.html */,
+				EDD22D1D1ADD6251006EA0C8 /* ts-012-dns-injection.html */,
+			);
+			name = html;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -5323,14 +5378,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD22D1F1ADD6251006EA0C8 /* ts-00x-nat.html in Resources */,
 				ED24D0B41AA4D33900F6936D /* utf8_codecvt_facet.ipp in Resources */,
+				EDD22D211ADD6251006EA0C8 /* ts-002-dnsconsistency.html in Resources */,
 				D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */,
+				EDD22D281ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
+				EDD22D241ADD6251006EA0C8 /* ts-005-dnsspoof.html in Resources */,
+				EDD22D251ADD6251006EA0C8 /* ts-006-header-field-manipulation.html in Resources */,
+				EDD22D221ADD6251006EA0C8 /* ts-003-http-requests.html in Resources */,
 				ED4D60501A7139C400777275 /* Storyboard_iPhone.storyboard in Resources */,
 				D4A2F63F1A6C33F7001B8460 /* Inconsolata.otf in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
+				ED7AB6FD1ADD6A27002A4B12 /* css in Resources */,
+				EDD22D2B1ADD6251006EA0C8 /* ts-012-dns-injection.html in Resources */,
+				EDD22D2A1ADD6251006EA0C8 /* ts-011-bridge-reachability.html in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
+				EDD22D231ADD6251006EA0C8 /* ts-004-httphost.html in Resources */,
+				EDD22D271ADD6251006EA0C8 /* ts-008-tcpconnect.html in Resources */,
+				EDD22D291ADD6251006EA0C8 /* ts-010-captive-portal.html in Resources */,
 				ED4D60531A7139D200777275 /* Storyboard_iPad.storyboard in Resources */,
+				EDD22D201ADD6251006EA0C8 /* ts-001-bridget.html in Resources */,
+				EDD22D261ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5348,6 +5417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD22D0D1ADD5B67006EA0C8 /* TestInfoViewController.m in Sources */,
 				D4A2F5E51A6C3244001B8460 /* ViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
