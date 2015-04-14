@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LogViewController.h"
 #import "NetworkManager.h"
+#import "TestInfoViewController.h"
 
 @interface ViewController : UIViewController
 

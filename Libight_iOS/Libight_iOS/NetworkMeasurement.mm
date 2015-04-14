@@ -97,11 +97,11 @@
     
     ight::ooni::http_invalid_request_line::HTTPInvalidRequestLine http_invalid_request_line(options);
     http_invalid_request_line.begin([&](){
-        http_invalid_request_line.end([](){
-            ight_break_loop();
+        http_invalid_request_line.end([self](){
+            [self break_loop];
         });
     });
-    ight_loop();
+    [self loop];
 }
 
 @end
