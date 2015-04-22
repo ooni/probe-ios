@@ -9,13 +9,13 @@
 #import "ViewController.h"
 
 /*Include header from test*/
-#include "ooni/dns_injection.hpp"
-#include "ooni/http_invalid_request_line.hpp"
-#include "ooni/tcp_connect.hpp"
+#include "ight/ooni/dns_injection.hpp"
+#include "ight/ooni/http_invalid_request_line.hpp"
+#include "ight/ooni/tcp_connect.hpp"
 
-#include "common/poller.h"
-#include "common/log.hpp"
-#include "common/utils.hpp"
+#include "ight/common/poller.hpp"
+#include "ight/common/log.hpp"
+#include "ight/common/utils.hpp"
 
 @implementation ViewController : UIViewController
 
@@ -24,7 +24,10 @@
     [super viewDidLoad];
     self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
     [self loadAvailableMeasurements];
-    self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
+    self.manager = [[NetworkManager alloc] init];
+    self.manager.running = false;
+    self.manager.runningNetworkMeasurements = [[NSMutableArray alloc] init];
+
     [self setLabels];
 }
 
@@ -58,9 +61,10 @@
 - (IBAction) runTests:(id)sender {
     if (self.selectedMeasurement != nil){
         [self.selectedMeasurement run];
-        [self.runningNetworkMeasurements addObject:self.selectedMeasurement];
+        [self.manager.runningNetworkMeasurements addObject:self.selectedMeasurement];
         [self.tableView reloadData];
-        self.selectedMeasurement = nullptr;
+        self.selectedMeasurement = nil;
+        [self unselectAll];
     }
 }
 
@@ -71,7 +75,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.runningNetworkMeasurements count];
+    return [self.manager.runningNetworkMeasurements count];
 }
 
 
@@ -81,8 +85,9 @@
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
     UIButton *go_log = (UIButton *)[cell viewWithTag:3];
-    NetworkMeasurement *current = [self.runningNetworkMeasurements objectAtIndex:indexPath.row];
+    NetworkMeasurement *current = [self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row];
     [title setText:NSLocalizedString(current.name, nil)];
+    //[title setText:NSLocalizedString(@"dns_injection", nil)];
     [bar setProgress:0.4 animated:YES];
     return cell;
 }
@@ -114,12 +119,30 @@
         HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
         self.selectedMeasurement = http_invalid_request_lineMeasurement;
     }
+    self.selectedMeasurement.manager = self.manager;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    LogViewController *lvc = (LogViewController *)[segue destinationViewController];
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    [lvc setTest:[self.runningNetworkMeasurements objectAtIndex:indexPath.row]];
+    if ([[segue identifier] isEqualToString:@"toLog"]){
+        UINavigationController *navigationController = segue.destinationViewController;
+        LogViewController *vc = (LogViewController * )navigationController.topViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        [vc setTest:[self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row]];
+    }
+    else if ([[segue identifier] isEqualToString:@"toInfo"]){
+        UINavigationController *navigationController = segue.destinationViewController;
+        TestInfoViewController *vc = (TestInfoViewController * )navigationController.topViewController;
+        UIButton *tappedButton = (UIButton*)sender;
+        if (tappedButton.tag == 1){
+            [vc setFileName:@"ts-012-dns-injection"];
+        }
+        else if (tappedButton.tag == 2){
+            [vc setFileName:@"ts-008-tcpconnect"];
+        }
+        else if (tappedButton.tag == 3){
+            [vc setFileName:@"ts-007-http-invalid-request-line"];
+        }
+    }
 }
 
 @end

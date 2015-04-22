@@ -4,9 +4,8 @@
  * Libight is free software. See AUTHORS and LICENSE for more
  * information on the copying conditions.
  */
-
-#ifndef LIBIGHT_PROTOCOLS_DNS_HPP
-# define LIBIGHT_PROTOCOLS_DNS_HPP
+#ifndef IGHT_PROTOCOLS_DNS_HPP
+# define IGHT_PROTOCOLS_DNS_HPP
 
 //
 // DNS client functionality
@@ -15,7 +14,7 @@
 #include <ight/common/constraints.hpp>
 #include <ight/common/log.hpp>
 #include <ight/common/pointer.hpp>
-#include <ight/common/poller.h>
+#include <ight/common/poller.hpp>
 #include <ight/common/settings.hpp>
 
 #include <functional>
@@ -29,7 +28,11 @@ namespace protocols {
 namespace dns {
 
 using namespace ight::common::constraints;
+using namespace ight::common::libevent;
+using namespace ight::common::log;
 using namespace ight::common::pointer;
+using namespace ight::common::poller;
+using namespace ight::common::settings;
 
 /*!
  * \brief DNS response.
@@ -72,13 +75,16 @@ public:
      * \param ttl the records time to live.
      * \param started time when the DNS request was started.
      * \param addresses data returned by evdns as an opaque pointer.
+     * \param lp pointer to custom logger object.
      * \param libevent optional pointer to igth's libevent wrapper.
      * \param start_from optional parameter to start from the specified
      *        record, rather than from zero, when processing the results
      *        (this is only used for implementing some test cases).
      */
     Response(int code, char type, int count, int ttl, double started,
-             void *addresses, IghtLibevent *libevent = NULL,
+             void *addresses,
+             SharedPointer<Logger> lp = DefaultLogger::get(),
+             Libevent *libevent = NULL,
              int start_from = 0);
 
     /*!
@@ -201,6 +207,7 @@ public:
      * \param func The callback to call when the response is received; the
      *        callback receives a Response object, make sure you check
      *        the Response status code to see whether there was an error.
+     * \param lp Custom logger object.
      * \param dnsb Optional evdns_base structure to use instead of the
      *        default one. This parameter is not meant to be used directly
      *        by the programmer. To issue requests using a specific evdns_base
@@ -211,8 +218,10 @@ public:
      * \throws std::runtime_error if some edvns API fails.
      */
     Request(std::string query, std::string address,
-            std::function<void(Response&&)>&& func, evdns_base *dnsb = NULL,
-            IghtLibevent *libevent = NULL);
+            std::function<void(Response&&)>&& func,
+            SharedPointer<Logger> lp = DefaultLogger::get(),
+            evdns_base *dnsb = NULL,
+            Libevent *libevent = NULL);
 
     Request(Request&) = default;
     Request& operator=(Request&) = default;
@@ -269,10 +278,11 @@ class Resolver : public NonCopyable, public NonMovable {
     void cleanup(void);
 
 protected:
-    ight::common::Settings settings;
-    IghtLibevent *libevent = IghtGlobalLibevent::get();
-    IghtPoller *poller = ight_get_global_poller();
+    Settings settings;
+    Libevent *libevent = GlobalLibevent::get();
+    Poller *poller = ight_get_global_poller();
     evdns_base *base = NULL;
+    SharedPointer<Logger> logger = DefaultLogger::get();
 
 public:
     /*!
@@ -297,8 +307,9 @@ public:
      *        3 attempts, to timeout after 5.0 seconds, not to randomize
      *        the case.
      */
-    Resolver(ight::common::Settings settings_,
-            IghtLibevent *lev = NULL, IghtPoller *plr = NULL) {
+    Resolver(Settings settings_,
+             SharedPointer<Logger> lp = DefaultLogger::get(),
+             Libevent *lev = NULL, Poller *plr = NULL) {
         if (lev != NULL) {
             libevent = lev;
         }
@@ -306,6 +317,7 @@ public:
             poller = plr;
         }
         settings = settings_;
+        logger = lp;
     }
 
     /*!
@@ -333,5 +345,5 @@ public:
     }
 };
 
-}}}  // namespace
-#endif  // LIBIGHT_PROTOCOLS_DNS_HPP
+}}}
+#endif

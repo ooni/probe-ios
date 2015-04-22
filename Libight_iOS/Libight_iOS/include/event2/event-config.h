@@ -362,8 +362,7 @@
 /* Define to 1 if you have the <zlib.h> header file. */
 #define _EVENT_HAVE_ZLIB_H 1
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 #define _EVENT_LT_OBJDIR ".libs/"
 
 /* Numeric representation of the version */
