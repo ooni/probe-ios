@@ -4,9 +4,8 @@
  * Libight is free software. See AUTHORS and LICENSE for more
  * information on the copying conditions.
  */
-
-#ifndef LIBIGHT_NET_SOCKS5_HPP
-# define LIBIGHT_NET_SOCKS5_HPP
+#ifndef IGHT_NET_SOCKS5_HPP
+# define IGHT_NET_SOCKS5_HPP
 
 #include <ight/common/log.hpp>
 
@@ -18,9 +17,11 @@ namespace ight {
 namespace net {
 namespace socks5 {
 
+using namespace ight::common::error;
 using namespace ight::common::pointer;
 using namespace ight::common;
 
+using namespace ight::net::buffer;
 using namespace ight::net::connection;
 using namespace ight::net::transport;
 
@@ -29,15 +30,16 @@ class Socks5 : public Transport {
 protected:
     SharedPointer<Connection> conn;
     std::function<void()> on_connect_fn;
-    std::function<void(SharedPointer<IghtBuffer>)> on_data_fn;
+    std::function<void(SharedPointer<Buffer>)> on_data_fn;
     std::function<void()> on_flush_fn;
     Settings settings;
-    SharedPointer<IghtBuffer> buffer{
-        std::make_shared<IghtBuffer>()
+    SharedPointer<Buffer> buffer{
+        std::make_shared<Buffer>()
     };
     bool isclosed = false;
     std::string proxy_address;
     std::string proxy_port;
+    SharedPointer<Logger> logger = DefaultLogger::get();
 
 public:
 
@@ -45,7 +47,7 @@ public:
         conn->emit_connect();
     }
 
-    virtual void emit_data(SharedPointer<IghtBuffer> data) override {
+    virtual void emit_data(SharedPointer<Buffer> data) override {
         conn->emit_data(data);
     }
 
@@ -53,11 +55,11 @@ public:
         conn->emit_flush();
     }
 
-    virtual void emit_error(IghtError err) override {
+    virtual void emit_error(Error err) override {
         conn->emit_error(err);
     }
 
-    Socks5(Settings);
+    Socks5(Settings, SharedPointer<Logger> lp = DefaultLogger::get());
 
     virtual void on_connect(std::function<void()> fn) override {
         on_connect_fn = fn;
@@ -68,7 +70,7 @@ public:
     }
 
     virtual void on_data(std::function<void(SharedPointer<
-            IghtBuffer>)> fn) override {
+            Buffer>)> fn) override {
         on_data_fn = fn;
     }
 
@@ -76,7 +78,7 @@ public:
         on_flush_fn = fn;
     }
 
-    virtual void on_error(std::function<void(IghtError)> fn) override {
+    virtual void on_error(std::function<void(Error)> fn) override {
         conn->on_error(fn);
     }
 
@@ -96,11 +98,11 @@ public:
         conn->send(data);
     }
 
-    virtual void send(IghtBuffer& data) override {
+    virtual void send(Buffer& data) override {
         conn->send(data);
     }
 
-    virtual void send(SharedPointer<IghtBuffer> data) override {
+    virtual void send(SharedPointer<Buffer> data) override {
         conn->send(data);
     }
 
@@ -120,4 +122,4 @@ public:
 };
 
 }}}
-#endif  // LIBIGHT_NET_SOCKS5_HPP
+#endif
