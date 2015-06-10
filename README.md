@@ -11,7 +11,7 @@ git clone --recursive https://github.com/TheTorProject/libight-ios
 Then build the library for iOS with:
 
 ```
-XXX insert commands here
+./build.sh
 ```
 
 Then open the xcode project located in `Libight_iOS/Libight_iOS.xcodeproj` and
