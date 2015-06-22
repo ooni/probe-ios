@@ -1,10 +1,6 @@
-//
-//  NetworkMeasurement.h
-//  libight_ios
-//
-//  Created by x on 3/5/15.
-//  Copyright (c) 2015 Simone Basso. All rights reserved.
-//
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
 
 #import <Foundation/Foundation.h>
 
@@ -29,11 +25,6 @@
 @property NetworkManager *manager;
 
 -(void) run;
--(void) loop;
--(void) break_loop;
-
--(void) setupLogger;
-
 @end
 
 
