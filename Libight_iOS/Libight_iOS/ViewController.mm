@@ -59,12 +59,10 @@
 }
 
 - (IBAction) runTests:(id)sender {
-    if (self.selectedMeasurement != nil){
+    if (self.selectedMeasurement != nil) {
         [self.selectedMeasurement run];
         [self.manager.runningNetworkMeasurements addObject:self.selectedMeasurement];
         [self.tableView reloadData];
-        self.selectedMeasurement = nil;
-        [self unselectAll];
     }
 }
 
