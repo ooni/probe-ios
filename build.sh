@@ -1,6 +1,3 @@
 #!/bin/sh -e
-cd libight-build-ios/
-./build.sh 
-cd ..
-cp -Rf libight-build-ios/dist/lib/* Libight_iOS/Libight_iOS/lib/
-cp -Rf libight-build-ios/dist/include/* Libight_iOS/Libight_iOS/include/
+(cd measurement-kit-build-ios/ && ./scripts/build.sh)
+cp -Rf measurement-kit-build-ios/*.framework Libight_iOS/Libight_iOS/Frameworks/
