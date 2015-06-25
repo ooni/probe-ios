@@ -1,11 +1,11 @@
-# Libight iOS
+# MeasurementKit iOS demo App
 
-This is the example libight iOS application.
+This is the example MeasurementKit iOS application.
 
 To see how it work you should get a copy of this repository with:
 
 ```
-git clone --recursive https://github.com/TheTorProject/libight-ios
+git clone --recursive https://github.com/measurement-kit/measurement-kit-app-ios
 ```
 
 Then build the library for iOS with:
