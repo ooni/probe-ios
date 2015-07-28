@@ -8,6 +8,15 @@ To see how it work you should get a copy of this repository with:
 git clone --recursive https://github.com/measurement-kit/measurement-kit-app-ios
 ```
 
+To make sure that subrepositories are up to date, you can use the
+following commands:
+
+```
+git submodule deinit -f .
+git pull
+git submodule update --init --recursive
+```
+
 Then build the library for iOS with:
 
 ```
