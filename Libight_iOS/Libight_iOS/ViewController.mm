@@ -27,7 +27,7 @@
     self.manager = [[NetworkManager alloc] init];
     self.manager.running = false;
     self.manager.runningNetworkMeasurements = [[NSMutableArray alloc] init];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:@"refreshTable" object:nil];
     [self setLabels];
 }
 
@@ -40,6 +40,10 @@
     
     HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
     [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
+}
+
+-(void)refreshTable{
+    [self.tableView reloadData];
 }
 
 - (void) setLabels {
@@ -86,7 +90,8 @@
     NetworkMeasurement *current = [self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row];
     [title setText:NSLocalizedString(current.name, nil)];
     //[title setText:NSLocalizedString(@"dns_injection", nil)];
-    [bar setProgress:0.4 animated:YES];
+    if (current.finished) [bar setProgress:1.0 animated:YES];
+    else [bar setProgress:0.2 animated:YES];
     return cell;
 }
 

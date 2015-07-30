@@ -34,6 +34,7 @@ static ight::common::async::Async& get_async() {
 -(id) init {
     self = [super init];
     self.logLines = [[NSMutableArray alloc] init];
+    self.finished = FALSE;
     return self;
 }
 
@@ -67,7 +68,12 @@ static ight::common::async::Async& get_async() {
         [self.logLines addObject:[NSString stringWithUTF8String:s]];
         NSLog(@"%s", s);
     });
-    async.run_test(test);
+    async.run_test(test, [self](ight::common::async::SharedPointer<
+                                ight::common::net_test::NetTest> t) {
+        NSLog(@"dns_injection testEnded");
+        self.finished = TRUE;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+    });
 }
 
 
@@ -96,7 +102,12 @@ static ight::common::async::Async& get_async() {
         [self.logLines addObject:[NSString stringWithUTF8String:s]];
         NSLog(@"%s", s);
     });
-    async.run_test(test);
+    async.run_test(test, [self](ight::common::async::SharedPointer<
+                                ight::common::net_test::NetTest> t) {
+        NSLog(@"http_invalid_request_line testEnded");
+        self.finished = TRUE;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+    });
 }
 
 @end
@@ -124,7 +135,12 @@ static ight::common::async::Async& get_async() {
         [self.logLines addObject:[NSString stringWithUTF8String:s]];
         NSLog(@"%s", s);
     });
-    async.run_test(test);
+    async.run_test(test, [self](ight::common::async::SharedPointer<
+                                ight::common::net_test::NetTest> t) {
+        NSLog(@"tcp_connect testEnded");
+        self.finished = TRUE;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+    });
 }
 
 @end

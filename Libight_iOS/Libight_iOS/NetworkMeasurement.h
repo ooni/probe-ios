@@ -20,6 +20,7 @@
 @property NSString *name;
 @property NSNumber *test_id;
 @property NSString *status;
+@property BOOL finished;
 @property NSMutableArray *logLines;
 @property ight::common::settings::Settings options;
 @property NetworkManager *manager;
