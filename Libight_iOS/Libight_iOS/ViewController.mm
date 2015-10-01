@@ -23,6 +23,7 @@
     self.manager = [[NetworkManager alloc] init];
     self.manager.running = false;
     self.manager.runningNetworkMeasurements = [[NSMutableArray alloc] init];
+    self.manager.completedNetworkMeasurements = [[NSMutableArray alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:@"refreshTable" object:nil];
     [self setLabels];
 }
@@ -39,6 +40,14 @@
 }
 
 -(void)refreshTable{
+    NSLog(@"refreshTable notification");
+    NSArray *copyArray = [[NSArray alloc] initWithArray:self.manager.runningNetworkMeasurements];
+    for (NetworkMeasurement *current in copyArray){
+        if (current.finished) {
+            [self.manager.runningNetworkMeasurements removeObject:current];
+            [self.manager.completedNetworkMeasurements addObject:current];
+        }
+    }
     [self.tableView reloadData];
 }
 
@@ -62,37 +71,68 @@
     if (self.selectedMeasurement != nil) {
         [self.selectedMeasurement run];
         [self.manager.runningNetworkMeasurements addObject:self.selectedMeasurement];
+        [self unselectAll];
+        self.selectedMeasurement = nil;
         [self.tableView reloadData];
     }
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.manager.runningNetworkMeasurements count];
+    switch (section)
+    {
+        case 0:
+            return [self.manager.runningNetworkMeasurements count];
+            break;
+        case 1:
+            return [self.manager.completedNetworkMeasurements count];
+            break;
+        default:
+            return 0;
+            break;
+    }
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = NSLocalizedString(@"running_tests", @"");
+            break;
+        case 1:
+            sectionName = NSLocalizedString(@"finished_tests", @"");
+            break;
+        default:
+            sectionName = @"";
+            break;
+    }
+    return sectionName;
+}
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
-    UIButton *go_log = (UIButton *)[cell viewWithTag:3];
-    NetworkMeasurement *current = [self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row];
-    [title setText:NSLocalizedString(current.name, nil)];
-    //[title setText:NSLocalizedString(@"dns_injection", nil)];
-    if (current.finished) [bar setProgress:1.0 animated:YES];
-    else [bar setProgress:0.2 animated:YES];
-    return cell;
-}
+    //UIButton *go_log = (UIButton *)[cell viewWithTag:3];
+    NetworkMeasurement *current;
+    if (indexPath.section == 0)
+        current = [self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row];
+    else
+        current = [self.manager.completedNetworkMeasurements objectAtIndex:indexPath.row];
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return NSLocalizedString(@"running_tests", nil);
+    [title setText:NSLocalizedString(current.name, nil)];
+    
+    if (!current.finished) [bar setProgress:0.2 animated:NO];
+    else [bar setProgress:1.0 animated:NO];
+    return cell;
 }
 
 - (void) unselectAll {
@@ -125,8 +165,14 @@
     if ([[segue identifier] isEqualToString:@"toLog"]){
         UINavigationController *navigationController = segue.destinationViewController;
         LogViewController *vc = (LogViewController * )navigationController.topViewController;
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        [vc setTest:[self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row]];
+        UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
+        NetworkMeasurement *current;
+        if (indexPath.section == 0)
+            current = [self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row];
+        else
+            current = [self.manager.completedNetworkMeasurements objectAtIndex:indexPath.row];
+        [vc setTest:current];
     }
     else if ([[segue identifier] isEqualToString:@"toInfo"]){
         UINavigationController *navigationController = segue.destinationViewController;

@@ -14,7 +14,7 @@ static void init_async_logger() {
         measurement_kit::set_verbose(1);
         // XXX Ok to call NSLog() from another thread?
         measurement_kit::on_log([](const char *s) {
-            NSLog(@"%s", s);
+            //NSLog(@"%s", s);
         });
         initialized = true;
     }
@@ -64,14 +64,19 @@ static measurement_kit::common::Async& get_async() {
     test->set_verbose(1);
     // XXX OK to send messages to object from another thread?
     test->on_log([self](const char *s) {
-        [self.logLines addObject:[NSString stringWithUTF8String:s]];
-        NSLog(@"%s", s);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.logLines addObject:[NSString stringWithUTF8String:s]];
+        });
+        //[self.logLines addObject:[NSString stringWithUTF8String:s]];
+        //NSLog(@"%s", s);
     });
     async.run_test(test, [self](measurement_kit::common::SharedPointer<
                                 measurement_kit::common::NetTest> t) {
         NSLog(@"dns_injection testEnded");
-        self.finished = TRUE;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.finished = TRUE;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        });
     });
 }
 
@@ -98,14 +103,18 @@ static measurement_kit::common::Async& get_async() {
     test->set_verbose(1);
     // XXX OK to send messages to object from another thread?
     test->on_log([self](const char *s) {
-        [self.logLines addObject:[NSString stringWithUTF8String:s]];
-        NSLog(@"%s", s);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.logLines addObject:[NSString stringWithUTF8String:s]];
+        });
+        //NSLog(@"%s", s);
     });
     async.run_test(test, [self](measurement_kit::common::SharedPointer<
                                 measurement_kit::common::NetTest> t) {
         NSLog(@"http_invalid_request_line testEnded");
-        self.finished = TRUE;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.finished = TRUE;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        });
     });
 }
 
@@ -131,14 +140,18 @@ static measurement_kit::common::Async& get_async() {
     test->set_verbose(1);
     // XXX OK to send messages to object from another thread?
     test->on_log([self](const char *s) {
-        [self.logLines addObject:[NSString stringWithUTF8String:s]];
-        NSLog(@"%s", s);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.logLines addObject:[NSString stringWithUTF8String:s]];
+        });
+        //NSLog(@"%s", s);
     });
     async.run_test(test, [self](measurement_kit::common::SharedPointer<
                                 measurement_kit::common::NetTest> t) {
         NSLog(@"tcp_connect testEnded");
-        self.finished = TRUE;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.finished = TRUE;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+        });
     });
 }
 
