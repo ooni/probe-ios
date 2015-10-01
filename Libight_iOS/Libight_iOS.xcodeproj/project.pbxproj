@@ -10,7 +10,6 @@
 		06C9F4FF1B38068000574B27 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C9F4FA1B38068000574B27 /* boost.framework */; };
 		06C9F5001B38068000574B27 /* event2_pthreads.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C9F4FB1B38068000574B27 /* event2_pthreads.framework */; };
 		06C9F5011B38068000574B27 /* event2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C9F4FC1B38068000574B27 /* event2.framework */; };
-		06C9F5021B38068000574B27 /* ight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C9F4FD1B38068000574B27 /* ight.framework */; };
 		06C9F5031B38068000574B27 /* yaml-cpp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C9F4FE1B38068000574B27 /* yaml-cpp.framework */; };
 		17DA64741AA8A1D900E218BD /* NetworkMeasurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
@@ -25,6 +24,7 @@
 		ED4D60501A7139C400777275 /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */; };
 		ED4D60531A7139D200777275 /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
+		ED74BDB61BBD7244003EB18B /* measurement_kit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED74BDB51BBD7244003EB18B /* measurement_kit.framework */; settings = {ASSET_TAGS = (); }; };
 		ED7AB6FD1ADD6A27002A4B12 /* css in Resources */ = {isa = PBXBuildFile; fileRef = ED7AB6FC1ADD6A27002A4B12 /* css */; };
 		EDA1061D1AB9B7C900901236 /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA1061C1AB9B7C900901236 /* NetworkManager.mm */; };
 		EDD22D0D1ADD5B67006EA0C8 /* TestInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD22D0C1ADD5B67006EA0C8 /* TestInfoViewController.m */; };
@@ -57,7 +57,6 @@
 		06C9F4FA1B38068000574B27 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = Frameworks/boost.framework; sourceTree = "<group>"; };
 		06C9F4FB1B38068000574B27 /* event2_pthreads.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = event2_pthreads.framework; path = Frameworks/event2_pthreads.framework; sourceTree = "<group>"; };
 		06C9F4FC1B38068000574B27 /* event2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = event2.framework; path = Frameworks/event2.framework; sourceTree = "<group>"; };
-		06C9F4FD1B38068000574B27 /* ight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ight.framework; path = Frameworks/ight.framework; sourceTree = "<group>"; };
 		06C9F4FE1B38068000574B27 /* yaml-cpp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "yaml-cpp.framework"; path = "Frameworks/yaml-cpp.framework"; sourceTree = "<group>"; };
 		17DA64721AA8A1D900E218BD /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = libight_ios/NetworkMeasurement.h; sourceTree = SOURCE_ROOT; };
 		17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkMeasurement.mm; path = libight_ios/NetworkMeasurement.mm; sourceTree = SOURCE_ROOT; };
@@ -80,6 +79,7 @@
 		ED4D604F1A7139C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
 		ED4D60521A7139D200777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPad.storyboard; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED74BDB51BBD7244003EB18B /* measurement_kit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = measurement_kit.framework; path = Frameworks/measurement_kit.framework; sourceTree = "<group>"; };
 		ED7AB6FC1ADD6A27002A4B12 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = html/css; sourceTree = "<group>"; };
 		EDA1061B1AB9B7C900901236 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		EDA1061C1AB9B7C900901236 /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
@@ -105,10 +105,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED74BDB61BBD7244003EB18B /* measurement_kit.framework in Frameworks */,
 				06C9F4FF1B38068000574B27 /* boost.framework in Frameworks */,
 				06C9F5001B38068000574B27 /* event2_pthreads.framework in Frameworks */,
 				06C9F5011B38068000574B27 /* event2.framework in Frameworks */,
-				06C9F5021B38068000574B27 /* ight.framework in Frameworks */,
 				06C9F5031B38068000574B27 /* yaml-cpp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,10 +223,10 @@
 		ED24C8561AA4D32700F6936D /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				ED74BDB51BBD7244003EB18B /* measurement_kit.framework */,
 				06C9F4FA1B38068000574B27 /* boost.framework */,
 				06C9F4FB1B38068000574B27 /* event2_pthreads.framework */,
 				06C9F4FC1B38068000574B27 /* event2.framework */,
-				06C9F4FD1B38068000574B27 /* ight.framework */,
 				06C9F4FE1B38068000574B27 /* yaml-cpp.framework */,
 			);
 			name = Framework;

@@ -5,13 +5,9 @@
 #import <Foundation/Foundation.h>
 
 /*Include header from test*/
-#include "ight/ooni/dns_injection.hpp"
-#include "ight/ooni/http_invalid_request_line.hpp"
-#include "ight/ooni/tcp_connect.hpp"
+#include "measurement_kit/ooni.hpp"
 
-#include "ight/common/poller.hpp"
-#include "ight/common/log.hpp"
-#include "ight/common/utils.hpp"
+#include "measurement_kit/common.hpp"
 
 #include "NetworkManager.h"
 
@@ -22,7 +18,7 @@
 @property NSString *status;
 @property BOOL finished;
 @property NSMutableArray *logLines;
-@property ight::common::settings::Settings options;
+@property measurement_kit::common::Settings options;
 @property NetworkManager *manager;
 
 -(void) run;
