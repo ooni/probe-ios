@@ -64,11 +64,11 @@ static measurement_kit::common::Async& get_async() {
     test->set_verbose(1);
     // XXX OK to send messages to object from another thread?
     test->on_log([self](const char *s) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.logLines addObject:[NSString stringWithUTF8String:s]];
-        });
-        //[self.logLines addObject:[NSString stringWithUTF8String:s]];
+        NSString *current = [NSString stringWithUTF8String:s];
         //NSLog(@"%s", s);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.logLines addObject:current];
+        });
     });
     async.run_test(test, [self](measurement_kit::common::SharedPointer<
                                 measurement_kit::common::NetTest> t) {
@@ -103,10 +103,11 @@ static measurement_kit::common::Async& get_async() {
     test->set_verbose(1);
     // XXX OK to send messages to object from another thread?
     test->on_log([self](const char *s) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.logLines addObject:[NSString stringWithUTF8String:s]];
-        });
+        NSString *current = [NSString stringWithUTF8String:s];
         //NSLog(@"%s", s);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.logLines addObject:current];
+        });
     });
     async.run_test(test, [self](measurement_kit::common::SharedPointer<
                                 measurement_kit::common::NetTest> t) {
@@ -140,10 +141,11 @@ static measurement_kit::common::Async& get_async() {
     test->set_verbose(1);
     // XXX OK to send messages to object from another thread?
     test->on_log([self](const char *s) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.logLines addObject:[NSString stringWithUTF8String:s]];
-        });
+        NSString *current = [NSString stringWithUTF8String:s];
         //NSLog(@"%s", s);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.logLines addObject:current];
+        });
     });
     async.run_test(test, [self](measurement_kit::common::SharedPointer<
                                 measurement_kit::common::NetTest> t) {
