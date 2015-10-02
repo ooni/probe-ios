@@ -41,6 +41,7 @@
 		EDD22D291ADD6251006EA0C8 /* ts-010-captive-portal.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1B1ADD6251006EA0C8 /* ts-010-captive-portal.html */; };
 		EDD22D2A1ADD6251006EA0C8 /* ts-011-bridge-reachability.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1C1ADD6251006EA0C8 /* ts-011-bridge-reachability.html */; };
 		EDD22D2B1ADD6251006EA0C8 /* ts-012-dns-injection.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1D1ADD6251006EA0C8 /* ts-012-dns-injection.html */; };
+		EDF5E0991BBED88600326DC8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF5E0981BBED88600326DC8 /* libresolv.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		EDD22D1B1ADD6251006EA0C8 /* ts-010-captive-portal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-010-captive-portal.html"; path = "html/ts-010-captive-portal.html"; sourceTree = "<group>"; };
 		EDD22D1C1ADD6251006EA0C8 /* ts-011-bridge-reachability.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-011-bridge-reachability.html"; path = "html/ts-011-bridge-reachability.html"; sourceTree = "<group>"; };
 		EDD22D1D1ADD6251006EA0C8 /* ts-012-dns-injection.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-012-dns-injection.html"; path = "html/ts-012-dns-injection.html"; sourceTree = "<group>"; };
+		EDF5E0981BBED88600326DC8 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF5E0991BBED88600326DC8 /* libresolv.tbd in Frameworks */,
 				ED74BDB61BBD7244003EB18B /* measurement_kit.framework in Frameworks */,
 				06C9F4FF1B38068000574B27 /* boost.framework in Frameworks */,
 				06C9F5001B38068000574B27 /* event2_pthreads.framework in Frameworks */,
@@ -126,6 +129,7 @@
 		D4A2F5D01A6C3244001B8460 = {
 			isa = PBXGroup;
 			children = (
+				EDF5E0981BBED88600326DC8 /* libresolv.tbd */,
 				D4A2F5DB1A6C3244001B8460 /* Libight_iOS */,
 				D4A2F5F51A6C3244001B8460 /* Libight_iOSTests */,
 				D4A2F5DA1A6C3244001B8460 /* Products */,
@@ -521,6 +525,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Libight_iOS",
@@ -536,7 +541,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9db2f2b0-8576-4fea-82a4-6c3cb4550d11";
+				PROVISIONING_PROFILE = "e96ea3ad-2e7f-4e46-b259-afdff0a1281a";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -547,6 +552,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Libight_iOS",
@@ -562,7 +568,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9db2f2b0-8576-4fea-82a4-6c3cb4550d11";
+				PROVISIONING_PROFILE = "e96ea3ad-2e7f-4e46-b259-afdff0a1281a";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
