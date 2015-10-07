@@ -1,4 +1,4 @@
-# MeasurementKit iOS demo App
+# MeasurementKit iOS demo App 
 
 This is the example MeasurementKit iOS application.
 
