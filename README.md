@@ -1,32 +1,27 @@
-# MeasurementKit iOS demo App
+# MeasurementKit iOS demo App 
 
 This is the example MeasurementKit iOS application.
 
 To see how it work you should get a copy of this repository with:
 
 ```
-git clone --recursive https://github.com/measurement-kit/measurement-kit-app-ios
+git clone https://github.com/measurement-kit/measurement-kit-app-ios
 ```
+To download and install the measurement-kit library we use [cocoapod](https://cocoapods.org). 
 
-To make sure that subrepositories are up to date, you can use the
-following commands:
+To install cocoapod use 
 
-```
-git submodule deinit -f .
-git pull
-git submodule update --init --recursive
-```
+	$ sudo gem install cocoapods
 
-Then build the library for iOS with:
+Then use the command 
+	
+	pod install
 
-```
-./build.sh
-```
 
-This command will compile measurement-kit and its dependencies and
-install them as frameworks inside Libight_iOS/Libight_iOS/Frameworks.
+This command will compile measurement-kit and its dependencies and install 
+the frameworks inside the Xcode Workspace. 
 
-Then open the xcode project located in `Libight_iOS/Libight_iOS.xcodeproj` and
+Then open the xcode workspace (not the xcode project!)  located in `Libight_iOS.xcworkspace` and
 click on run to build it.
 
 ## Contributing
