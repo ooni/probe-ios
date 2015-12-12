@@ -5,7 +5,6 @@
 #import "NetworkMeasurement.h"
 
 #import "measurement_kit/common.hpp"
-#import "event2/dns.h"
 
 #include <arpa/inet.h>
 #include <ifaddrs.h>
@@ -37,9 +36,9 @@ static NSArray *getDeviceDNS()
 static void init_async_logger() {
     static bool initialized = false;
     if (!initialized) {
-        measurement_kit::set_verbose(1);
+        mk::set_verbose(1);
         // XXX Ok to call NSLog() from another thread?
-        measurement_kit::on_log([](const char *s) {
+        mk::on_log([](const char *s) {
             //NSLog(@"%s", s);
         });
         
@@ -52,7 +51,7 @@ static void init_async_logger() {
             NSLog(@"%@", hello);
             NSArray *dnsServers = getDeviceDNS();
             if ([dnsServers count] > 0) {
-                evdns_base *ns = measurement_kit::get_global_evdns_base();
+                evdns_base *ns = mk::get_global_evdns_base();
                 if (evdns_base_nameserver_ip_add(ns, [[dnsServers objectAtIndex:0] UTF8String])){
                     throw std::runtime_error("Cannot set server address");
                 }
@@ -68,8 +67,8 @@ static void init_async_logger() {
 
 // Access static async instance. Currently there is a static instance to
 // guarantee that such instance has the same lifecycle of the App
-static measurement_kit::common::Async& get_async() {
-    static measurement_kit::common::Async async;
+static mk::Async& get_async() {
+    static mk::Async async;
     init_async_logger();
     return async;
 }
@@ -107,32 +106,26 @@ static measurement_kit::common::Async& get_async() {
 }
 
 - (void) run {
-    measurement_kit::common::Async& async = get_async();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
-    const char *ppath = [path UTF8String];
-    measurement_kit::common::Settings settings({{"nameserver", "8.8.8.8:53"}});
-    measurement_kit::common::SharedPointer<
-        measurement_kit::ooni::DNSInjection> test{
-            new measurement_kit::ooni::DNSInjection(ppath, settings)
-        };
-    test->set_verbose(1);
-    // XXX OK to send messages to object from another thread?
-    test->on_log([self](const char *s) {
-        NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate], [NSString stringWithUTF8String:s]];
-        //NSLog(@"%s", s);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.logLines addObject:current];
+    mk::ooni::DnsInjectionTest()
+        .set_backend("8.8.8.8:53")
+        .set_input_file_path([path UTF8String])
+        .set_verbose()
+        .on_log([self](const char *s) {
+            NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate], [NSString stringWithUTF8String:s]];
+            NSLog(@"%s", s);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.logLines addObject:current];
+            });
+        })
+        .run([self]() {
+            NSLog(@"dns_injection testEnded");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.finished = TRUE;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+            });
         });
-    });
-    async.run_test(test, [self](measurement_kit::common::SharedPointer<
-                                measurement_kit::common::NetTest> t) {
-        NSLog(@"dns_injection testEnded");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.finished = TRUE;
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
-        });
-    });
 }
 
 
@@ -147,25 +140,19 @@ static measurement_kit::common::Async& get_async() {
 }
 
 -(void) run {
-    measurement_kit::common::Async& async = get_async();
-    measurement_kit::common::Settings settings({
-        {"backend", "http://www.google.com/"}
-    });
-    measurement_kit::common::SharedPointer<
-        measurement_kit::ooni::HTTPInvalidRequestLine> test{
-            new measurement_kit::ooni::HTTPInvalidRequestLine(
-                settings)};
-    test->set_verbose(1);
-    // XXX OK to send messages to object from another thread?
-    test->on_log([self](const char *s) {
-        NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate], [NSString stringWithUTF8String:s]];
-        //NSLog(@"%s", s);
+    mk::ooni::HttpInvalidRequestLineTest()
+    .set_backend("http://www.google.com/")
+    .set_verbose()
+    .on_log([self](const char *s) {
+        // XXX OK to send messages to object from another thread?
+        NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
+                             [NSString stringWithUTF8String:s]];
+        NSLog(@"%s", s);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.logLines addObject:current];
         });
-    });
-    async.run_test(test, [self](measurement_kit::common::SharedPointer<
-                                measurement_kit::common::NetTest> t) {
+    })
+    .run([self]() {
         NSLog(@"http_invalid_request_line testEnded");
         dispatch_async(dispatch_get_main_queue(), ^{
             self.finished = TRUE;
@@ -185,25 +172,22 @@ static measurement_kit::common::Async& get_async() {
 }
 
 -(void) run {
-    measurement_kit::common::Async& async = get_async();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
-    const char *ppath = [path UTF8String];
-    measurement_kit::common::Settings settings({{"port", "80"}});
-    measurement_kit::common::SharedPointer<
-        measurement_kit::ooni::TCPConnect> test{
-            new measurement_kit::ooni::TCPConnect(ppath, settings)};
-    test->set_verbose(1);
-    // XXX OK to send messages to object from another thread?
-    test->on_log([self](const char *s) {
-        NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate], [NSString stringWithUTF8String:s]];
-        //NSLog(@"%s", s);
+
+    mk::ooni::TcpConnectTest()
+    .set_port("80")
+    .set_input_file_path([path UTF8String])
+    .set_verbose()
+    .on_log([self](const char *s) {
+        NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
+                             [NSString stringWithUTF8String:s]];
+        NSLog(@"%s", s);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.logLines addObject:current];
         });
-    });
-    async.run_test(test, [self](measurement_kit::common::SharedPointer<
-                                measurement_kit::common::NetTest> t) {
+    })
+    .run([self]() {
         NSLog(@"tcp_connect testEnded");
         dispatch_async(dispatch_get_main_queue(), ^{
             self.finished = TRUE;
