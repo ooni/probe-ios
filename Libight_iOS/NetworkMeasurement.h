@@ -5,9 +5,9 @@
 #import <Foundation/Foundation.h>
 
 /*Include header from test*/
-#include "measurement_kit/ooni.hpp"
+#include <measurement_kit/ooni.hpp>
 
-#include "measurement_kit/common.hpp"
+#include <measurement_kit/common.hpp>
 
 #include "NetworkManager.h"
 
@@ -18,7 +18,7 @@
 @property NSString *status;
 @property BOOL finished;
 @property NSMutableArray *logLines;
-@property measurement_kit::common::Settings options;
+@property mk::Settings options;
 @property NetworkManager *manager;
 
 -(void) run;
