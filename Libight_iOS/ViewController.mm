@@ -52,13 +52,13 @@
 }
 
 - (void) setLabels {
-    [self.testing_historyLabel setText:NSLocalizedString(@"testing_history", nil)];
-    [self.pending_testsLabel setText:NSLocalizedString(@"pending_tests", nil)];
-    [self.run_testLabel setText:NSLocalizedString(@"run_test", nil)];
+    [self.testing_historyLabel setText:[NSLocalizedString(@"testing_history", nil) uppercaseString]];
+    [self.pending_testsLabel setText:[NSLocalizedString(@"pending_tests", nil)  uppercaseString]];
+    [self.run_testLabel setText:[NSLocalizedString(@"run_test", nil)  uppercaseString]];
     
-    [self.dns_injectionLabel setText:NSLocalizedString(@"dns_injection", nil)];
-    [self.tcp_connectLabel setText:NSLocalizedString(@"tcp_connect", nil)];
-    [self.http_invalid_request_lineLabel setText:NSLocalizedString(@"http_invalid_request_line", nil)];
+    [self.dns_injectionLabel setText:[NSLocalizedString(@"dns_injection", nil) uppercaseString]];
+    [self.tcp_connectLabel setText:[NSLocalizedString(@"tcp_connect", nil) uppercaseString]];
+    [self.http_invalid_request_lineLabel setText:[NSLocalizedString(@"http_invalid_request_line", nil) uppercaseString]];
 }
 
 

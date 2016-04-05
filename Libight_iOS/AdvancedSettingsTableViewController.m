@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = NSLocalizedString(@"advanced_settings", nil);
     settingsItems = @[@"collector_address", @"bouncer_address"];
 }
 

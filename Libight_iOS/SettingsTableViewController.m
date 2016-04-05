@@ -25,6 +25,7 @@
         - Indirizzo collector da usare - Stringa
         - Indirizzo bouncer - Stringa
      */
+    self.title = NSLocalizedString(@"settings", nil);
     settingsItems = @[@"include_ip", @"include_asn", @"gps_position", @"advanced_settings"];
 }
 
