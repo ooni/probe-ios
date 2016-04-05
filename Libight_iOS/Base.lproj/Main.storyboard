@@ -14,6 +14,10 @@
             <string>Inconsolata</string>
             <string>Inconsolata</string>
             <string>Inconsolata</string>
+            <string>Inconsolata</string>
+            <string>Inconsolata</string>
+            <string>Inconsolata</string>
+            <string>Inconsolata</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -252,13 +256,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTP HEADER FIELD MANIPULATION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CvX-kb-lmc">
-                                                    <rect key="frame" x="40" y="12" width="520" height="26"/>
+                                                    <rect key="frame" x="40" y="12" width="519" height="26"/>
                                                     <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="16"/>
                                                     <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IB8-gG-G0v">
-                                                    <rect key="frame" x="568" y="12" width="24" height="25"/>
+                                                    <rect key="frame" x="567" y="12" width="25" height="25"/>
                                                     <state key="normal" image="log_icon">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -357,22 +361,53 @@
             </objects>
             <point key="canvasLocation" x="1644" y="998"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Settings Table View Controller-->
         <scene sceneID="fBl-jm-kgo">
             <objects>
-                <tableViewController id="4NI-i4-ymJ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FCb-bw-Xfd">
+                <tableViewController id="4NI-i4-ymJ" customClass="SettingsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="FCb-bw-Xfd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rfp-WS-EUF">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="KqI-ul-ABU" style="IBUITableViewCellStyleDefault" id="rfp-WS-EUF">
+                                <rect key="frame" x="0.0" y="92" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rfp-WS-EUF" id="Y43-fx-lO4">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KqI-ul-ABU">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
+                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellAdvanced" textLabel="WiZ-fv-f0B" style="IBUITableViewCellStyleDefault" id="5nO-63-FPz">
+                                <rect key="frame" x="0.0" y="142" width="600" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5nO-63-FPz" id="oZp-1o-4Jm">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WiZ-fv-f0B">
+                                            <rect key="frame" x="15" y="0.0" width="550" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
+                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="5kt-mt-ZQ4" kind="show" id="nex-KP-a4n"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -425,12 +460,57 @@
             </objects>
             <point key="canvasLocation" x="1632" y="253"/>
         </scene>
+        <!--Advanced Settings Table View Controller-->
+        <scene sceneID="oig-Kb-uRB">
+            <objects>
+                <tableViewController id="5kt-mt-ZQ4" customClass="AdvancedSettingsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="mbz-tQ-A3d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="2Jl-dN-JK9" detailTextLabel="MMf-Jg-Z4S" style="IBUITableViewCellStyleSubtitle" id="Arz-2J-FqZ">
+                                <rect key="frame" x="0.0" y="92" width="600" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Arz-2J-FqZ" id="bme-vD-VbX">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Jl-dN-JK9">
+                                            <rect key="frame" x="15" y="8" width="45" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
+                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MMf-Jg-Z4S">
+                                            <rect key="frame" x="15" y="27" width="42" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5kt-mt-ZQ4" id="xHm-ZY-xng"/>
+                            <outlet property="delegate" destination="5kt-mt-ZQ4" id="ZFv-bV-QGD"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cyu-50-dWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2309" y="-444"/>
+        </scene>
     </scenes>
     <resources>
         <image name="button-run-test" width="374" height="79"/>
         <image name="icon-info" width="24" height="24"/>
         <image name="icon-settings" width="24" height="24"/>
-        <image name="log_icon" width="208" height="208"/>
+        <image name="log_icon" width="25" height="25"/>
         <image name="not-selected" width="52" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>

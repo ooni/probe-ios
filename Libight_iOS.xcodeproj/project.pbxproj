@@ -22,6 +22,8 @@
 		EDA1061D1AB9B7C900901236 /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA1061C1AB9B7C900901236 /* NetworkManager.mm */; };
 		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
 		EDCB9D8F1CB3F0BE00BBA3BC /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCB9D8E1CB3F0BE00BBA3BC /* SettingsTableViewController.m */; };
+		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
+		EDCB9D941CB4028900BBA3BC /* AdvancedSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCB9D931CB4028900BBA3BC /* AdvancedSettingsTableViewController.m */; };
 		EDD22D0D1ADD5B67006EA0C8 /* TestInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD22D0C1ADD5B67006EA0C8 /* TestInfoViewController.m */; };
 		EDD22D1F1ADD6251006EA0C8 /* ts-00x-nat.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */; };
 		EDD22D201ADD6251006EA0C8 /* ts-001-bridget.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D121ADD6251006EA0C8 /* ts-001-bridget.html */; };
@@ -65,6 +67,9 @@
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDCB9D8D1CB3F0BE00BBA3BC /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		EDCB9D8E1CB3F0BE00BBA3BC /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
+		EDCB9D921CB4028900BBA3BC /* AdvancedSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSettingsTableViewController.h; sourceTree = "<group>"; };
+		EDCB9D931CB4028900BBA3BC /* AdvancedSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSettingsTableViewController.m; sourceTree = "<group>"; };
 		EDD22D0B1ADD5B67006EA0C8 /* TestInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInfoViewController.h; sourceTree = "<group>"; };
 		EDD22D0C1ADD5B67006EA0C8 /* TestInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInfoViewController.m; sourceTree = "<group>"; };
 		EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-00x-nat.html"; path = "html/ts-00x-nat.html"; sourceTree = "<group>"; };
@@ -147,6 +152,8 @@
 				D4A2F5DC1A6C3244001B8460 /* Supporting Files */,
 				EDCB9D8D1CB3F0BE00BBA3BC /* SettingsTableViewController.h */,
 				EDCB9D8E1CB3F0BE00BBA3BC /* SettingsTableViewController.m */,
+				EDCB9D921CB4028900BBA3BC /* AdvancedSettingsTableViewController.h */,
+				EDCB9D931CB4028900BBA3BC /* AdvancedSettingsTableViewController.m */,
 			);
 			path = Libight_iOS;
 			sourceTree = "<group>";
@@ -154,6 +161,7 @@
 		D4A2F5DC1A6C3244001B8460 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */,
 				D4A2F5DD1A6C3244001B8460 /* Info.plist */,
 				D4A2F5DE1A6C3244001B8460 /* main.m */,
 			);
@@ -278,6 +286,7 @@
 			files = (
 				EDD22D1F1ADD6251006EA0C8 /* ts-00x-nat.html in Resources */,
 				EDD22D211ADD6251006EA0C8 /* ts-002-dnsconsistency.html in Resources */,
+				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
 				D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */,
 				EDD22D281ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
@@ -359,6 +368,7 @@
 				D4A2F5E51A6C3244001B8460 /* ViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
+				EDCB9D941CB4028900BBA3BC /* AdvancedSettingsTableViewController.m in Sources */,
 				17DA64741AA8A1D900E218BD /* NetworkMeasurement.mm in Sources */,
 				EDA1061D1AB9B7C900901236 /* NetworkManager.mm in Sources */,
 				ED3DEB521AB1AC040027097A /* LogViewController.mm in Sources */,
