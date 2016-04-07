@@ -17,11 +17,13 @@
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
 		D4A2F63F1A6C33F7001B8460 /* Inconsolata.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F6311A6C33F7001B8460 /* Inconsolata.otf */; };
 		ED3DEB521AB1AC040027097A /* LogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3DEB511AB1AC040027097A /* LogViewController.mm */; };
-		ED4D60501A7139C400777275 /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */; };
-		ED4D60531A7139D200777275 /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED7AB6FD1ADD6A27002A4B12 /* css in Resources */ = {isa = PBXBuildFile; fileRef = ED7AB6FC1ADD6A27002A4B12 /* css */; };
 		EDA1061D1AB9B7C900901236 /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA1061C1AB9B7C900901236 /* NetworkManager.mm */; };
+		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
+		EDCB9D8F1CB3F0BE00BBA3BC /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCB9D8E1CB3F0BE00BBA3BC /* SettingsTableViewController.m */; };
+		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
+		EDCB9D941CB4028900BBA3BC /* AdvancedSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCB9D931CB4028900BBA3BC /* AdvancedSettingsTableViewController.m */; };
 		EDD22D0D1ADD5B67006EA0C8 /* TestInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD22D0C1ADD5B67006EA0C8 /* TestInfoViewController.m */; };
 		EDD22D1F1ADD6251006EA0C8 /* ts-00x-nat.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */; };
 		EDD22D201ADD6251006EA0C8 /* ts-001-bridget.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D121ADD6251006EA0C8 /* ts-001-bridget.html */; };
@@ -58,12 +60,16 @@
 		D4A2F6311A6C33F7001B8460 /* Inconsolata.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inconsolata.otf; sourceTree = "<group>"; };
 		ED3DEB501AB1AC040027097A /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		ED3DEB511AB1AC040027097A /* LogViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LogViewController.mm; sourceTree = "<group>"; };
-		ED4D604F1A7139C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
-		ED4D60521A7139D200777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard_iPad.storyboard; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED7AB6FC1ADD6A27002A4B12 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = html/css; sourceTree = "<group>"; };
 		EDA1061B1AB9B7C900901236 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		EDA1061C1AB9B7C900901236 /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
+		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDCB9D8D1CB3F0BE00BBA3BC /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		EDCB9D8E1CB3F0BE00BBA3BC /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
+		EDCB9D921CB4028900BBA3BC /* AdvancedSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSettingsTableViewController.h; sourceTree = "<group>"; };
+		EDCB9D931CB4028900BBA3BC /* AdvancedSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSettingsTableViewController.m; sourceTree = "<group>"; };
 		EDD22D0B1ADD5B67006EA0C8 /* TestInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInfoViewController.h; sourceTree = "<group>"; };
 		EDD22D0C1ADD5B67006EA0C8 /* TestInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInfoViewController.m; sourceTree = "<group>"; };
 		EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-00x-nat.html"; path = "html/ts-00x-nat.html"; sourceTree = "<group>"; };
@@ -140,11 +146,14 @@
 				EDD22D0B1ADD5B67006EA0C8 /* TestInfoViewController.h */,
 				EDD22D0C1ADD5B67006EA0C8 /* TestInfoViewController.m */,
 				ED4D60541A7162C400777275 /* Localizable.strings */,
-				ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */,
-				ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */,
+				EDA193D81C9AE36F00A49EAA /* Main.storyboard */,
 				D4A2F5E91A6C3244001B8460 /* Images.xcassets */,
 				D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */,
 				D4A2F5DC1A6C3244001B8460 /* Supporting Files */,
+				EDCB9D8D1CB3F0BE00BBA3BC /* SettingsTableViewController.h */,
+				EDCB9D8E1CB3F0BE00BBA3BC /* SettingsTableViewController.m */,
+				EDCB9D921CB4028900BBA3BC /* AdvancedSettingsTableViewController.h */,
+				EDCB9D931CB4028900BBA3BC /* AdvancedSettingsTableViewController.m */,
 			);
 			path = Libight_iOS;
 			sourceTree = "<group>";
@@ -152,6 +161,7 @@
 		D4A2F5DC1A6C3244001B8460 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */,
 				D4A2F5DD1A6C3244001B8460 /* Info.plist */,
 				D4A2F5DE1A6C3244001B8460 /* main.m */,
 			);
@@ -247,6 +257,7 @@
 				TargetAttributes = {
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = YUY24YXWK4;
 					};
 				};
 			};
@@ -275,13 +286,14 @@
 			files = (
 				EDD22D1F1ADD6251006EA0C8 /* ts-00x-nat.html in Resources */,
 				EDD22D211ADD6251006EA0C8 /* ts-002-dnsconsistency.html in Resources */,
+				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
 				D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */,
 				EDD22D281ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
+				EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */,
 				EDD22D241ADD6251006EA0C8 /* ts-005-dnsspoof.html in Resources */,
 				EDD22D251ADD6251006EA0C8 /* ts-006-header-field-manipulation.html in Resources */,
 				EDD22D221ADD6251006EA0C8 /* ts-003-http-requests.html in Resources */,
-				ED4D60501A7139C400777275 /* Storyboard_iPhone.storyboard in Resources */,
 				D4A2F63F1A6C33F7001B8460 /* Inconsolata.otf in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
 				ED7AB6FD1ADD6A27002A4B12 /* css in Resources */,
@@ -291,7 +303,6 @@
 				EDD22D231ADD6251006EA0C8 /* ts-004-httphost.html in Resources */,
 				EDD22D271ADD6251006EA0C8 /* ts-008-tcpconnect.html in Resources */,
 				EDD22D291ADD6251006EA0C8 /* ts-010-captive-portal.html in Resources */,
-				ED4D60531A7139D200777275 /* Storyboard_iPad.storyboard in Resources */,
 				EDD22D201ADD6251006EA0C8 /* ts-001-bridget.html in Resources */,
 				EDD22D261ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html in Resources */,
 			);
@@ -352,10 +363,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCB9D8F1CB3F0BE00BBA3BC /* SettingsTableViewController.m in Sources */,
 				EDD22D0D1ADD5B67006EA0C8 /* TestInfoViewController.m in Sources */,
 				D4A2F5E51A6C3244001B8460 /* ViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
+				EDCB9D941CB4028900BBA3BC /* AdvancedSettingsTableViewController.m in Sources */,
 				17DA64741AA8A1D900E218BD /* NetworkMeasurement.mm in Sources */,
 				EDA1061D1AB9B7C900901236 /* NetworkManager.mm in Sources */,
 				ED3DEB521AB1AC040027097A /* LogViewController.mm in Sources */,
@@ -373,28 +386,20 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		ED4D604E1A7139C400777275 /* Storyboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED4D604F1A7139C400777275 /* Base */,
-			);
-			name = Storyboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		ED4D60511A7139D200777275 /* Storyboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED4D60521A7139D200777275 /* Base */,
-			);
-			name = Storyboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		ED4D60541A7162C400777275 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ED4D60551A7162C400777275 /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		EDA193D81C9AE36F00A49EAA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDA193D91C9AE36F00A49EAA /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -487,7 +492,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -501,11 +508,12 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = Libight_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nexa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e96ea3ad-2e7f-4e46-b259-afdff0a1281a";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -516,7 +524,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,11 +540,12 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = Libight_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nexa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e96ea3ad-2e7f-4e46-b259-afdff0a1281a";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

@@ -52,13 +52,13 @@
 }
 
 - (void) setLabels {
-    [self.testing_historyLabel setText:NSLocalizedString(@"testing_history", nil)];
-    [self.pending_testsLabel setText:NSLocalizedString(@"pending_tests", nil)];
-    [self.run_testLabel setText:NSLocalizedString(@"run_test", nil)];
+    [self.testing_historyLabel setText:[NSLocalizedString(@"testing_history", nil) uppercaseString]];
+    [self.pending_testsLabel setText:[NSLocalizedString(@"pending_tests", nil)  uppercaseString]];
+    [self.run_testLabel setText:[NSLocalizedString(@"run_test", nil)  uppercaseString]];
     
-    [self.dns_injectionLabel setText:NSLocalizedString(@"dns_injection", nil)];
-    [self.tcp_connectLabel setText:NSLocalizedString(@"tcp_connect", nil)];
-    [self.http_invalid_request_lineLabel setText:NSLocalizedString(@"http_invalid_request_line", nil)];
+    [self.dns_injectionLabel setText:[NSLocalizedString(@"dns_injection", nil) uppercaseString]];
+    [self.tcp_connectLabel setText:[NSLocalizedString(@"tcp_connect", nil) uppercaseString]];
+    [self.http_invalid_request_lineLabel setText:[NSLocalizedString(@"http_invalid_request_line", nil) uppercaseString]];
 }
 
 
@@ -118,20 +118,24 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    UILabel *title = (UILabel*)[cell viewWithTag:1];
-    UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
-    //UIButton *go_log = (UIButton *)[cell viewWithTag:3];
+    UITableViewCell *cell;
     NetworkMeasurement *current;
-    if (indexPath.section == 0)
-        current = [self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row];
-    else
-        current = [self.manager.completedNetworkMeasurements objectAtIndex:indexPath.row];
 
+    if (indexPath.section == 0){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_running" forIndexPath:indexPath];
+        current = [self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row];
+        UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
+        if (!current.finished) [bar setProgress:0.2 animated:NO];
+        else [bar setProgress:1.0 animated:NO];
+    }
+    else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
+        current = [self.manager.completedNetworkMeasurements objectAtIndex:indexPath.row];
+        //UIButton *log_button = (UIButton *)[cell viewWithTag:3];
+    }
+    UILabel *title = (UILabel*)[cell viewWithTag:1];
     [title setText:NSLocalizedString(current.name, nil)];
-    
-    if (!current.finished) [bar setProgress:0.2 animated:NO];
-    else [bar setProgress:1.0 animated:NO];
+
     return cell;
 }
 
@@ -163,8 +167,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toLog"]){
-        UINavigationController *navigationController = segue.destinationViewController;
-        LogViewController *vc = (LogViewController * )navigationController.topViewController;
+        LogViewController *vc = (LogViewController * )segue.destinationViewController;
         UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
         NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
         NetworkMeasurement *current;
@@ -175,8 +178,9 @@
         [vc setTest:current];
     }
     else if ([[segue identifier] isEqualToString:@"toInfo"]){
-        UINavigationController *navigationController = segue.destinationViewController;
-        TestInfoViewController *vc = (TestInfoViewController * )navigationController.topViewController;
+        //UINavigationController *navigationController = segue.destinationViewController;
+        //TestInfoViewController *vc = (TestInfoViewController * )navigationController.topViewController;
+        TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;
         UIButton *tappedButton = (UIButton*)sender;
         if (tappedButton.tag == 1){
             [vc setFileName:@"ts-012-dns-injection"];
