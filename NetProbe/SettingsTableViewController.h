@@ -1,6 +1,6 @@
 //
 //  SettingsTableViewController.h
-//  Libight_iOS
+//  NetProbe
 //
 //  Created by Lorenzo Primiterra on 05/04/16.
 //  Copyright © 2016 Simone Basso. All rights reserved.
