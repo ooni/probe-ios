@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17DA64741AA8A1D900E218BD /* NetworkMeasurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = 17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */; };
-		A1F4E483FCE227B1529FD5EA /* libPods-Libight_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC5C42634A0189D0D21A268 /* libPods-Libight_iOS.a */; };
+		1F308FE104F7B2C5B20DF781 /* libPods-NetProbe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E4303D9FD65C9F0C88FD5E /* libPods-NetProbe.a */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
 		D4A2F5E51A6C3244001B8460 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E41A6C3244001B8460 /* ViewController.mm */; };
@@ -42,12 +42,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D639259CD8F84F46830FAB4 /* Pods-Libight_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Libight_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Libight_iOS/Pods-Libight_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		17DA64721AA8A1D900E218BD /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = libight_ios/NetworkMeasurement.h; sourceTree = SOURCE_ROOT; };
-		17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkMeasurement.mm; path = libight_ios/NetworkMeasurement.mm; sourceTree = SOURCE_ROOT; };
-		4BC5C42634A0189D0D21A268 /* libPods-Libight_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Libight_iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DD56F60D379C20C58BEC5F9 /* Pods-Libight_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Libight_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Libight_iOS/Pods-Libight_iOS.release.xcconfig"; sourceTree = "<group>"; };
-		D4A2F5D91A6C3244001B8460 /* Libight_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Libight_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17DA64721AA8A1D900E218BD /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = NetProbe/NetworkMeasurement.h; sourceTree = SOURCE_ROOT; };
+		17DA64731AA8A1D900E218BD /* NetworkMeasurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkMeasurement.mm; path = NetProbe/NetworkMeasurement.mm; sourceTree = SOURCE_ROOT; };
+		48E4303D9FD65C9F0C88FD5E /* libPods-NetProbe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetProbe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6577C315896C4FF051388766 /* Pods-NetProbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetProbe.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe.release.xcconfig"; sourceTree = "<group>"; };
+		A8B33771C93BC62C261C469A /* Pods-NetProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe.debug.xcconfig"; sourceTree = "<group>"; };
+		D4A2F5D91A6C3244001B8460 /* NetProbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetProbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2F5DE1A6C3244001B8460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4A2F5E01A6C3244001B8460 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,42 +94,50 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF5E0991BBED88600326DC8 /* libresolv.tbd in Frameworks */,
-				A1F4E483FCE227B1529FD5EA /* libPods-Libight_iOS.a in Frameworks */,
+				1F308FE104F7B2C5B20DF781 /* libPods-NetProbe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1D2BD376584593D0F130240C /* Pods */ = {
+		9AEF1BFD788DFEF247722701 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0D639259CD8F84F46830FAB4 /* Pods-Libight_iOS.debug.xcconfig */,
-				7DD56F60D379C20C58BEC5F9 /* Pods-Libight_iOS.release.xcconfig */,
+				A8B33771C93BC62C261C469A /* Pods-NetProbe.debug.xcconfig */,
+				6577C315896C4FF051388766 /* Pods-NetProbe.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E46A51D09388CFDA7DC6AA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				48E4303D9FD65C9F0C88FD5E /* libPods-NetProbe.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D4A2F5D01A6C3244001B8460 = {
 			isa = PBXGroup;
 			children = (
 				EDF5E0981BBED88600326DC8 /* libresolv.tbd */,
-				D4A2F5DB1A6C3244001B8460 /* Libight_iOS */,
+				D4A2F5DB1A6C3244001B8460 /* NetProbe */,
 				D4A2F5DA1A6C3244001B8460 /* Products */,
-				1D2BD376584593D0F130240C /* Pods */,
-				EC7510A836784E9F23547D55 /* Frameworks */,
+				9AEF1BFD788DFEF247722701 /* Pods */,
+				9E46A51D09388CFDA7DC6AA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		D4A2F5DA1A6C3244001B8460 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4A2F5D91A6C3244001B8460 /* Libight_iOS.app */,
+				D4A2F5D91A6C3244001B8460 /* NetProbe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D4A2F5DB1A6C3244001B8460 /* Libight_iOS */ = {
+		D4A2F5DB1A6C3244001B8460 /* NetProbe */ = {
 			isa = PBXGroup;
 			children = (
 				D4A2F62D1A6C33F7001B8460 /* Resources */,
@@ -155,7 +163,7 @@
 				EDCB9D921CB4028900BBA3BC /* AdvancedSettingsTableViewController.h */,
 				EDCB9D931CB4028900BBA3BC /* AdvancedSettingsTableViewController.m */,
 			);
-			path = Libight_iOS;
+			path = NetProbe;
 			sourceTree = "<group>";
 		};
 		D4A2F5DC1A6C3244001B8460 /* Supporting Files */ = {
@@ -194,14 +202,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		EC7510A836784E9F23547D55 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4BC5C42634A0189D0D21A268 /* libPods-Libight_iOS.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		EDD22D101ADD6248006EA0C8 /* html */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,24 +226,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4A2F5D81A6C3244001B8460 /* Libight_iOS */ = {
+		D4A2F5D81A6C3244001B8460 /* NetProbe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4A2F5FC1A6C3244001B8460 /* Build configuration list for PBXNativeTarget "Libight_iOS" */;
+			buildConfigurationList = D4A2F5FC1A6C3244001B8460 /* Build configuration list for PBXNativeTarget "NetProbe" */;
 			buildPhases = (
-				580C124B2DBC022E9B1209F6 /* Check Pods Manifest.lock */,
+				8FCCF67F7777F9FE84F78AAD /* Check Pods Manifest.lock */,
 				D4A2F5D51A6C3244001B8460 /* Sources */,
 				D4A2F5D61A6C3244001B8460 /* Frameworks */,
 				D4A2F5D71A6C3244001B8460 /* Resources */,
-				6B1F9A2956953873F33EAD3C /* Embed Pods Frameworks */,
-				0424F71695556781B9D2E234 /* Copy Pods Resources */,
+				9695E5E23E91197E8796BD69 /* Embed Pods Frameworks */,
+				2C4FB5DFBFDA171F1687CA6A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Libight_iOS;
-			productName = Libight_iOS;
-			productReference = D4A2F5D91A6C3244001B8460 /* Libight_iOS.app */;
+			name = NetProbe;
+			productName = NetProbe;
+			productReference = D4A2F5D91A6C3244001B8460 /* NetProbe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -261,7 +261,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D4A2F5D41A6C3244001B8460 /* Build configuration list for PBXProject "Libight_iOS" */;
+			buildConfigurationList = D4A2F5D41A6C3244001B8460 /* Build configuration list for PBXProject "NetProbe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -274,7 +274,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4A2F5D81A6C3244001B8460 /* Libight_iOS */,
+				D4A2F5D81A6C3244001B8460 /* NetProbe */,
 			);
 		};
 /* End PBXProject section */
@@ -311,7 +311,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0424F71695556781B9D2E234 /* Copy Pods Resources */ = {
+		2C4FB5DFBFDA171F1687CA6A /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,10 +323,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Libight_iOS/Pods-Libight_iOS-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		580C124B2DBC022E9B1209F6 /* Check Pods Manifest.lock */ = {
+		8FCCF67F7777F9FE84F78AAD /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -341,7 +341,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		6B1F9A2956953873F33EAD3C /* Embed Pods Frameworks */ = {
+		9695E5E23E91197E8796BD69 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -353,7 +353,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Libight_iOS/Pods-Libight_iOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -422,7 +422,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -443,6 +444,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "e7499b75-38e5-4dcb-9cda-ab5aa7ea6eb2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x84_64";
@@ -466,7 +468,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -479,6 +482,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "e7499b75-38e5-4dcb-9cda-ab5aa7ea6eb2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -488,64 +492,56 @@
 		};
 		D4A2F5FD1A6C3244001B8460 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D639259CD8F84F46830FAB4 /* Pods-Libight_iOS.debug.xcconfig */;
+			baseConfigurationReference = A8B33771C93BC62C261C469A /* Pods-NetProbe.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Libight_iOS",
-					"$(PROJECT_DIR)/Libight_iOS/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = Libight_iOS/Info.plist;
+				INFOPLIST_FILE = NetProbe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "Nexa.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
+				PRODUCT_NAME = NetProbe;
+				PROVISIONING_PROFILE = "e7499b75-38e5-4dcb-9cda-ab5aa7ea6eb2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		D4A2F5FE1A6C3244001B8460 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DD56F60D379C20C58BEC5F9 /* Pods-Libight_iOS.release.xcconfig */;
+			baseConfigurationReference = 6577C315896C4FF051388766 /* Pods-NetProbe.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Libight_iOS",
-					"$(PROJECT_DIR)/Libight_iOS/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = Libight_iOS/Info.plist;
+				INFOPLIST_FILE = NetProbe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "Nexa.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
+				PRODUCT_NAME = NetProbe;
+				PROVISIONING_PROFILE = "e7499b75-38e5-4dcb-9cda-ab5aa7ea6eb2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
@@ -553,7 +549,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4A2F5D41A6C3244001B8460 /* Build configuration list for PBXProject "Libight_iOS" */ = {
+		D4A2F5D41A6C3244001B8460 /* Build configuration list for PBXProject "NetProbe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4A2F5FA1A6C3244001B8460 /* Debug */,
@@ -562,7 +558,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4A2F5FC1A6C3244001B8460 /* Build configuration list for PBXNativeTarget "Libight_iOS" */ = {
+		D4A2F5FC1A6C3244001B8460 /* Build configuration list for PBXNativeTarget "NetProbe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4A2F5FD1A6C3244001B8460 /* Debug */,

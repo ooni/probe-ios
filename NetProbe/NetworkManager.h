@@ -1,6 +1,6 @@
 //
 //  NetworkManager.h
-//  Libight_iOS
+//  NetProbe
 //
 //  Created by Lorenzo Primiterra on 18/03/15.
 //  Copyright (c) 2015 Simone Basso. All rights reserved.
