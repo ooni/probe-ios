@@ -40,7 +40,6 @@
 }
 
 -(void)refreshTable{
-    NSLog(@"refreshTable notification");
     NSArray *copyArray = [[NSArray alloc] initWithArray:self.manager.runningNetworkMeasurements];
     for (NetworkMeasurement *current in copyArray){
         if (current.finished) {
