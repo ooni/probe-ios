@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "LogViewController.h"
-#import "NetworkManager.h"
 #import "TestInfoViewController.h"
 
 @interface ViewController : UIViewController
@@ -31,8 +30,10 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) NetworkManager *manager;
-
 @property (strong, nonatomic) NetworkMeasurement *selectedMeasurement;
+
+//TODO move them in a specific class
+@property (strong, nonatomic)NSMutableArray *runningNetworkMeasurements;
+@property (strong, nonatomic) NSMutableArray *completedNetworkMeasurements;
 
 @end
