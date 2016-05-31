@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D20E4CEE43A896FF224BCC4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86741885D9E098B37D1331D6 /* libPods.a */; };
+		5ADD214B8ED592591E3C4426 /* libPods-NetProbe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4705450A1464066F177D3B02 /* libPods-NetProbe.a */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
@@ -41,8 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		86741885D9E098B37D1331D6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D27B49FC7EE0F40A1CAA4967 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		02468CFCD003A0240766EB64 /* Pods-NetProbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetProbe.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe.release.xcconfig"; sourceTree = "<group>"; };
+		4705450A1464066F177D3B02 /* libPods-NetProbe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetProbe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF90C09697EAA5D5CE0E745A /* Pods-NetProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A2F5D91A6C3244001B8460 /* NetProbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetProbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2F5DE1A6C3244001B8460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		EDD22D1C1ADD6251006EA0C8 /* ts-011-bridge-reachability.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-011-bridge-reachability.html"; path = "html/ts-011-bridge-reachability.html"; sourceTree = "<group>"; };
 		EDD22D1D1ADD6251006EA0C8 /* ts-012-dns-injection.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-012-dns-injection.html"; path = "html/ts-012-dns-injection.html"; sourceTree = "<group>"; };
 		EDF5E0981BBED88600326DC8 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
-		EF677BCF8491528C0D2EF062 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,19 +91,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF5E0991BBED88600326DC8 /* libresolv.tbd in Frameworks */,
-				2D20E4CEE43A896FF224BCC4 /* libPods.a in Frameworks */,
+				5ADD214B8ED592591E3C4426 /* libPods-NetProbe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D9072CA1171D276E5B81613 /* Frameworks */ = {
+		2B17922096E2EC05352EA45F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				86741885D9E098B37D1331D6 /* libPods.a */,
+				4705450A1464066F177D3B02 /* libPods-NetProbe.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5B4557EC885CECF020DFDF4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF90C09697EAA5D5CE0E745A /* Pods-NetProbe.debug.xcconfig */,
+				02468CFCD003A0240766EB64 /* Pods-NetProbe.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D4A2F5D01A6C3244001B8460 = {
@@ -112,8 +121,8 @@
 				EDF5E0981BBED88600326DC8 /* libresolv.tbd */,
 				D4A2F5DB1A6C3244001B8460 /* NetProbe */,
 				D4A2F5DA1A6C3244001B8460 /* Products */,
-				D6C26FF807169A80E5819B3C /* Pods */,
-				5D9072CA1171D276E5B81613 /* Frameworks */,
+				A5B4557EC885CECF020DFDF4 /* Pods */,
+				2B17922096E2EC05352EA45F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,15 +187,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		D6C26FF807169A80E5819B3C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D27B49FC7EE0F40A1CAA4967 /* Pods.debug.xcconfig */,
-				EF677BCF8491528C0D2EF062 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		ED25280F1CEA34DA0073A29B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,12 +241,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4A2F5FC1A6C3244001B8460 /* Build configuration list for PBXNativeTarget "NetProbe" */;
 			buildPhases = (
-				F2D9121327E66EBCB2E36123 /* Check Pods Manifest.lock */,
+				91679BEAF149A11B116CCF92 /* 📦 Check Pods Manifest.lock */,
 				D4A2F5D51A6C3244001B8460 /* Sources */,
 				D4A2F5D61A6C3244001B8460 /* Frameworks */,
 				D4A2F5D71A6C3244001B8460 /* Resources */,
-				02F49FABDCF9AA87F836C601 /* Embed Pods Frameworks */,
-				2CED17AB6310B0A4F6D8798F /* Copy Pods Resources */,
+				3F0C7F3A91B57AD7A02D5ABC /* 📦 Embed Pods Frameworks */,
+				0AD66303F2DB54A436934513 /* 📦 Copy Pods Resources */,
+				ED54FF141CFD901B00769EC6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -322,50 +323,63 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02F49FABDCF9AA87F836C601 /* Embed Pods Frameworks */ = {
+		0AD66303F2DB54A436934513 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2CED17AB6310B0A4F6D8798F /* Copy Pods Resources */ = {
+		3F0C7F3A91B57AD7A02D5ABC /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F2D9121327E66EBCB2E36123 /* Check Pods Manifest.lock */ = {
+		91679BEAF149A11B116CCF92 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		ED54FF141CFD901B00769EC6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 529a3ff33bd5359fe86c53f6252035178bdb03a1 86750672d61af87e007dc755cb420380fa7027b48ac0c9cc5464d5231846dab8";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -502,13 +516,13 @@
 		};
 		D4A2F5FD1A6C3244001B8460 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D27B49FC7EE0F40A1CAA4967 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CF90C09697EAA5D5CE0E745A /* Pods-NetProbe.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lorenzo Primiterra (YUY24YXWK4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lorenzo Primiterra (YUY24YXWK4)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -523,20 +537,20 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
 				PRODUCT_NAME = NetProbe;
-				PROVISIONING_PROFILE = "e7499b75-38e5-4dcb-9cda-ab5aa7ea6eb2";
+				PROVISIONING_PROFILE = "b507a79d-0085-4062-ad8b-4563cf91ce35";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		D4A2F5FE1A6C3244001B8460 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF677BCF8491528C0D2EF062 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 02468CFCD003A0240766EB64 /* Pods-NetProbe.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lorenzo Primiterra (YUY24YXWK4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lorenzo Primiterra (YUY24YXWK4)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -551,7 +565,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
 				PRODUCT_NAME = NetProbe;
-				PROVISIONING_PROFILE = "e7499b75-38e5-4dcb-9cda-ab5aa7ea6eb2";
+				PROVISIONING_PROFILE = "b507a79d-0085-4062-ad8b-4563cf91ce35";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

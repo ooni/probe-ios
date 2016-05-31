@@ -1,2 +1,7 @@
 platform :ios, '7.1'
-pod 'measurement_kit'
+target 'NetProbe' do
+	pod 'measurement_kit'
+	pod 'Fabric'
+	pod 'Crashlytics'
+end
+
