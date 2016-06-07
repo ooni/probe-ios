@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5ADD214B8ED592591E3C4426 /* libPods-NetProbe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4705450A1464066F177D3B02 /* libPods-NetProbe.a */; };
+		2358F33DA7440C48913E0A69 /* libPods-NetProbe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEFCC3E82596938AAD77A99 /* libPods-NetProbe.a */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
 		D4A2F63F1A6C33F7001B8460 /* Inconsolata.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F6311A6C33F7001B8460 /* Inconsolata.otf */; };
+		ED09BE311D07083A00757F4D /* dns-injection.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2D1D07083A00757F4D /* dns-injection.html */; };
+		ED09BE321D07083A00757F4D /* http-invalid-request-line.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2E1D07083A00757F4D /* http-invalid-request-line.html */; };
+		ED09BE331D07083A00757F4D /* tcp-connect.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2F1D07083A00757F4D /* tcp-connect.html */; };
+		ED09BE341D07083A00757F4D /* web-connectivity.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE301D07083A00757F4D /* web-connectivity.html */; };
 		ED25282A1CEA35640073A29B /* AdvancedSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2528211CEA35640073A29B /* AdvancedSettingsTableViewController.m */; };
 		ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528231CEA35640073A29B /* LogViewController.mm */; };
 		ED25282C1CEA35640073A29B /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2528251CEA35640073A29B /* SettingsTableViewController.m */; };
@@ -21,29 +25,15 @@
 		ED25282E1CEA35640073A29B /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528291CEA35640073A29B /* ViewController.mm */; };
 		ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528301CEA35770073A29B /* NetworkMeasurement.mm */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
-		ED7AB6FD1ADD6A27002A4B12 /* css in Resources */ = {isa = PBXBuildFile; fileRef = ED7AB6FC1ADD6A27002A4B12 /* css */; };
 		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
-		EDD22D1F1ADD6251006EA0C8 /* ts-00x-nat.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */; };
-		EDD22D201ADD6251006EA0C8 /* ts-001-bridget.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D121ADD6251006EA0C8 /* ts-001-bridget.html */; };
-		EDD22D211ADD6251006EA0C8 /* ts-002-dnsconsistency.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D131ADD6251006EA0C8 /* ts-002-dnsconsistency.html */; };
-		EDD22D221ADD6251006EA0C8 /* ts-003-http-requests.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D141ADD6251006EA0C8 /* ts-003-http-requests.html */; };
-		EDD22D231ADD6251006EA0C8 /* ts-004-httphost.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D151ADD6251006EA0C8 /* ts-004-httphost.html */; };
-		EDD22D241ADD6251006EA0C8 /* ts-005-dnsspoof.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D161ADD6251006EA0C8 /* ts-005-dnsspoof.html */; };
-		EDD22D251ADD6251006EA0C8 /* ts-006-header-field-manipulation.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D171ADD6251006EA0C8 /* ts-006-header-field-manipulation.html */; };
-		EDD22D261ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D181ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html */; };
-		EDD22D271ADD6251006EA0C8 /* ts-008-tcpconnect.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D191ADD6251006EA0C8 /* ts-008-tcpconnect.html */; };
-		EDD22D281ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1A1ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html */; };
-		EDD22D291ADD6251006EA0C8 /* ts-010-captive-portal.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1B1ADD6251006EA0C8 /* ts-010-captive-portal.html */; };
-		EDD22D2A1ADD6251006EA0C8 /* ts-011-bridge-reachability.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1C1ADD6251006EA0C8 /* ts-011-bridge-reachability.html */; };
-		EDD22D2B1ADD6251006EA0C8 /* ts-012-dns-injection.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD22D1D1ADD6251006EA0C8 /* ts-012-dns-injection.html */; };
 		EDF5E0991BBED88600326DC8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF5E0981BBED88600326DC8 /* libresolv.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02468CFCD003A0240766EB64 /* Pods-NetProbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetProbe.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe.release.xcconfig"; sourceTree = "<group>"; };
-		4705450A1464066F177D3B02 /* libPods-NetProbe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetProbe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF90C09697EAA5D5CE0E745A /* Pods-NetProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe.debug.xcconfig"; sourceTree = "<group>"; };
+		5AEFCC3E82596938AAD77A99 /* libPods-NetProbe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetProbe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		816BE0B1A2448329BA443445 /* Pods-NetProbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetProbe.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe.release.xcconfig"; sourceTree = "<group>"; };
+		CC6E340DB27B3994578F0C78 /* Pods-NetProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A2F5D91A6C3244001B8460 /* NetProbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetProbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2F5DE1A6C3244001B8460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +43,10 @@
 		D4A2F5EC1A6C3244001B8460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D4A2F62F1A6C33F7001B8460 /* hosts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hosts.txt; sourceTree = "<group>"; };
 		D4A2F6311A6C33F7001B8460 /* Inconsolata.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inconsolata.otf; sourceTree = "<group>"; };
+		ED09BE2D1D07083A00757F4D /* dns-injection.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "dns-injection.html"; path = "html/dns-injection.html"; sourceTree = "<group>"; };
+		ED09BE2E1D07083A00757F4D /* http-invalid-request-line.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "http-invalid-request-line.html"; path = "html/http-invalid-request-line.html"; sourceTree = "<group>"; };
+		ED09BE2F1D07083A00757F4D /* tcp-connect.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "tcp-connect.html"; path = "html/tcp-connect.html"; sourceTree = "<group>"; };
+		ED09BE301D07083A00757F4D /* web-connectivity.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "web-connectivity.html"; path = "html/web-connectivity.html"; sourceTree = "<group>"; };
 		ED2528201CEA35640073A29B /* AdvancedSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSettingsTableViewController.h; sourceTree = "<group>"; };
 		ED2528211CEA35640073A29B /* AdvancedSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSettingsTableViewController.m; sourceTree = "<group>"; };
 		ED2528221CEA35640073A29B /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
@@ -66,22 +60,8 @@
 		ED25282F1CEA35770073A29B /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = Model/NetworkMeasurement.h; sourceTree = "<group>"; };
 		ED2528301CEA35770073A29B /* NetworkMeasurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkMeasurement.mm; path = Model/NetworkMeasurement.mm; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ED7AB6FC1ADD6A27002A4B12 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = html/css; sourceTree = "<group>"; };
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
-		EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-00x-nat.html"; path = "html/ts-00x-nat.html"; sourceTree = "<group>"; };
-		EDD22D121ADD6251006EA0C8 /* ts-001-bridget.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-001-bridget.html"; path = "html/ts-001-bridget.html"; sourceTree = "<group>"; };
-		EDD22D131ADD6251006EA0C8 /* ts-002-dnsconsistency.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-002-dnsconsistency.html"; path = "html/ts-002-dnsconsistency.html"; sourceTree = "<group>"; };
-		EDD22D141ADD6251006EA0C8 /* ts-003-http-requests.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-003-http-requests.html"; path = "html/ts-003-http-requests.html"; sourceTree = "<group>"; };
-		EDD22D151ADD6251006EA0C8 /* ts-004-httphost.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-004-httphost.html"; path = "html/ts-004-httphost.html"; sourceTree = "<group>"; };
-		EDD22D161ADD6251006EA0C8 /* ts-005-dnsspoof.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-005-dnsspoof.html"; path = "html/ts-005-dnsspoof.html"; sourceTree = "<group>"; };
-		EDD22D171ADD6251006EA0C8 /* ts-006-header-field-manipulation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-006-header-field-manipulation.html"; path = "html/ts-006-header-field-manipulation.html"; sourceTree = "<group>"; };
-		EDD22D181ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-007-http-invalid-request-line.html"; path = "html/ts-007-http-invalid-request-line.html"; sourceTree = "<group>"; };
-		EDD22D191ADD6251006EA0C8 /* ts-008-tcpconnect.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-008-tcpconnect.html"; path = "html/ts-008-tcpconnect.html"; sourceTree = "<group>"; };
-		EDD22D1A1ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-009-multi-port-traceroute.html"; path = "html/ts-009-multi-port-traceroute.html"; sourceTree = "<group>"; };
-		EDD22D1B1ADD6251006EA0C8 /* ts-010-captive-portal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-010-captive-portal.html"; path = "html/ts-010-captive-portal.html"; sourceTree = "<group>"; };
-		EDD22D1C1ADD6251006EA0C8 /* ts-011-bridge-reachability.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-011-bridge-reachability.html"; path = "html/ts-011-bridge-reachability.html"; sourceTree = "<group>"; };
-		EDD22D1D1ADD6251006EA0C8 /* ts-012-dns-injection.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "ts-012-dns-injection.html"; path = "html/ts-012-dns-injection.html"; sourceTree = "<group>"; };
 		EDF5E0981BBED88600326DC8 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -91,26 +71,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF5E0991BBED88600326DC8 /* libresolv.tbd in Frameworks */,
-				5ADD214B8ED592591E3C4426 /* libPods-NetProbe.a in Frameworks */,
+				2358F33DA7440C48913E0A69 /* libPods-NetProbe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B17922096E2EC05352EA45F /* Frameworks */ = {
+		1E5E9CEE91065C6AB36C5DDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4705450A1464066F177D3B02 /* libPods-NetProbe.a */,
+				5AEFCC3E82596938AAD77A99 /* libPods-NetProbe.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A5B4557EC885CECF020DFDF4 /* Pods */ = {
+		5CE929E22E2F1AE4218CD070 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CF90C09697EAA5D5CE0E745A /* Pods-NetProbe.debug.xcconfig */,
-				02468CFCD003A0240766EB64 /* Pods-NetProbe.release.xcconfig */,
+				CC6E340DB27B3994578F0C78 /* Pods-NetProbe.debug.xcconfig */,
+				816BE0B1A2448329BA443445 /* Pods-NetProbe.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -121,8 +101,8 @@
 				EDF5E0981BBED88600326DC8 /* libresolv.tbd */,
 				D4A2F5DB1A6C3244001B8460 /* NetProbe */,
 				D4A2F5DA1A6C3244001B8460 /* Products */,
-				A5B4557EC885CECF020DFDF4 /* Pods */,
-				2B17922096E2EC05352EA45F /* Frameworks */,
+				5CE929E22E2F1AE4218CD070 /* Pods */,
+				1E5E9CEE91065C6AB36C5DDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,20 +196,10 @@
 		EDD22D101ADD6248006EA0C8 /* html */ = {
 			isa = PBXGroup;
 			children = (
-				ED7AB6FC1ADD6A27002A4B12 /* css */,
-				EDD22D111ADD6251006EA0C8 /* ts-00x-nat.html */,
-				EDD22D121ADD6251006EA0C8 /* ts-001-bridget.html */,
-				EDD22D131ADD6251006EA0C8 /* ts-002-dnsconsistency.html */,
-				EDD22D141ADD6251006EA0C8 /* ts-003-http-requests.html */,
-				EDD22D151ADD6251006EA0C8 /* ts-004-httphost.html */,
-				EDD22D161ADD6251006EA0C8 /* ts-005-dnsspoof.html */,
-				EDD22D171ADD6251006EA0C8 /* ts-006-header-field-manipulation.html */,
-				EDD22D181ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html */,
-				EDD22D191ADD6251006EA0C8 /* ts-008-tcpconnect.html */,
-				EDD22D1A1ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html */,
-				EDD22D1B1ADD6251006EA0C8 /* ts-010-captive-portal.html */,
-				EDD22D1C1ADD6251006EA0C8 /* ts-011-bridge-reachability.html */,
-				EDD22D1D1ADD6251006EA0C8 /* ts-012-dns-injection.html */,
+				ED09BE2D1D07083A00757F4D /* dns-injection.html */,
+				ED09BE2E1D07083A00757F4D /* http-invalid-request-line.html */,
+				ED09BE2F1D07083A00757F4D /* tcp-connect.html */,
+				ED09BE301D07083A00757F4D /* web-connectivity.html */,
 			);
 			name = html;
 			sourceTree = "<group>";
@@ -241,13 +211,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4A2F5FC1A6C3244001B8460 /* Build configuration list for PBXNativeTarget "NetProbe" */;
 			buildPhases = (
-				91679BEAF149A11B116CCF92 /* 📦 Check Pods Manifest.lock */,
+				89DAFA52349FD62AC9879675 /* 📦 Check Pods Manifest.lock */,
 				D4A2F5D51A6C3244001B8460 /* Sources */,
 				D4A2F5D61A6C3244001B8460 /* Frameworks */,
 				D4A2F5D71A6C3244001B8460 /* Resources */,
-				3F0C7F3A91B57AD7A02D5ABC /* 📦 Embed Pods Frameworks */,
-				0AD66303F2DB54A436934513 /* 📦 Copy Pods Resources */,
 				ED54FF141CFD901B00769EC6 /* ShellScript */,
+				2853605B2A5FFC8857B869CA /* 📦 Embed Pods Frameworks */,
+				E0D25D150F78ED64BDE0E3F1 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,49 +266,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD22D1F1ADD6251006EA0C8 /* ts-00x-nat.html in Resources */,
-				EDD22D211ADD6251006EA0C8 /* ts-002-dnsconsistency.html in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
 				D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */,
-				EDD22D281ADD6251006EA0C8 /* ts-009-multi-port-traceroute.html in Resources */,
+				ED09BE311D07083A00757F4D /* dns-injection.html in Resources */,
+				ED09BE331D07083A00757F4D /* tcp-connect.html in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
 				EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */,
-				EDD22D241ADD6251006EA0C8 /* ts-005-dnsspoof.html in Resources */,
-				EDD22D251ADD6251006EA0C8 /* ts-006-header-field-manipulation.html in Resources */,
-				EDD22D221ADD6251006EA0C8 /* ts-003-http-requests.html in Resources */,
 				D4A2F63F1A6C33F7001B8460 /* Inconsolata.otf in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
-				ED7AB6FD1ADD6A27002A4B12 /* css in Resources */,
-				EDD22D2B1ADD6251006EA0C8 /* ts-012-dns-injection.html in Resources */,
-				EDD22D2A1ADD6251006EA0C8 /* ts-011-bridge-reachability.html in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
-				EDD22D231ADD6251006EA0C8 /* ts-004-httphost.html in Resources */,
-				EDD22D271ADD6251006EA0C8 /* ts-008-tcpconnect.html in Resources */,
-				EDD22D291ADD6251006EA0C8 /* ts-010-captive-portal.html in Resources */,
-				EDD22D201ADD6251006EA0C8 /* ts-001-bridget.html in Resources */,
-				EDD22D261ADD6251006EA0C8 /* ts-007-http-invalid-request-line.html in Resources */,
+				ED09BE321D07083A00757F4D /* http-invalid-request-line.html in Resources */,
+				ED09BE341D07083A00757F4D /* web-connectivity.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0AD66303F2DB54A436934513 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3F0C7F3A91B57AD7A02D5ABC /* 📦 Embed Pods Frameworks */ = {
+		2853605B2A5FFC8857B869CA /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -353,7 +298,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		91679BEAF149A11B116CCF92 /* 📦 Check Pods Manifest.lock */ = {
+		89DAFA52349FD62AC9879675 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -366,6 +311,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E0D25D150F78ED64BDE0E3F1 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED54FF141CFD901B00769EC6 /* ShellScript */ = {
@@ -516,7 +476,7 @@
 		};
 		D4A2F5FD1A6C3244001B8460 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF90C09697EAA5D5CE0E745A /* Pods-NetProbe.debug.xcconfig */;
+			baseConfigurationReference = CC6E340DB27B3994578F0C78 /* Pods-NetProbe.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -545,7 +505,7 @@
 		};
 		D4A2F5FE1A6C3244001B8460 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02468CFCD003A0240766EB64 /* Pods-NetProbe.release.xcconfig */;
+			baseConfigurationReference = 816BE0B1A2448329BA443445 /* Pods-NetProbe.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
