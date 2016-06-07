@@ -178,13 +178,13 @@
         TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;
         UIButton *tappedButton = (UIButton*)sender;
         if (tappedButton.tag == 1){
-            [vc setFileName:@"ts-012-dns-injection"];
+            [vc setFileName:@"dns-injection"];
         }
         else if (tappedButton.tag == 2){
-            [vc setFileName:@"ts-008-tcpconnect"];
+            [vc setFileName:@"tcp_connect"];
         }
         else if (tappedButton.tag == 3){
-            [vc setFileName:@"ts-007-http-invalid-request-line"];
+            [vc setFileName:@"http-invalid-request-line"];
         }
     }
 }
