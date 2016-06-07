@@ -20,10 +20,8 @@
     [super viewDidLoad];
     self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
     [self loadAvailableMeasurements];
-    self.manager = [[NetworkManager alloc] init];
-    self.manager.running = false;
-    self.manager.runningNetworkMeasurements = [[NSMutableArray alloc] init];
-    self.manager.completedNetworkMeasurements = [[NSMutableArray alloc] init];
+    self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
+    self.completedNetworkMeasurements = [[NSMutableArray alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:@"refreshTable" object:nil];
     [self setLabels];
 }
@@ -40,11 +38,11 @@
 }
 
 -(void)refreshTable{
-    NSArray *copyArray = [[NSArray alloc] initWithArray:self.manager.runningNetworkMeasurements];
+    NSArray *copyArray = [[NSArray alloc] initWithArray:self.runningNetworkMeasurements];
     for (NetworkMeasurement *current in copyArray){
         if (current.finished) {
-            [self.manager.runningNetworkMeasurements removeObject:current];
-            [self.manager.completedNetworkMeasurements addObject:current];
+            [self.runningNetworkMeasurements removeObject:current];
+            [self.completedNetworkMeasurements addObject:current];
         }
     }
     [self.tableView reloadData];
@@ -69,7 +67,7 @@
 - (IBAction) runTests:(id)sender {
     if (self.selectedMeasurement != nil) {
         [self.selectedMeasurement run];
-        [self.manager.runningNetworkMeasurements addObject:self.selectedMeasurement];
+        [self.runningNetworkMeasurements addObject:self.selectedMeasurement];
         [self unselectAll];
         self.selectedMeasurement = nil;
         [self.tableView reloadData];
@@ -86,10 +84,10 @@
     switch (section)
     {
         case 0:
-            return [self.manager.runningNetworkMeasurements count];
+            return [self.runningNetworkMeasurements count];
             break;
         case 1:
-            return [self.manager.completedNetworkMeasurements count];
+            return [self.completedNetworkMeasurements count];
             break;
         default:
             return 0;
@@ -122,14 +120,14 @@
 
     if (indexPath.section == 0){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_running" forIndexPath:indexPath];
-        current = [self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row];
+        current = [self.runningNetworkMeasurements objectAtIndex:indexPath.row];
         UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
         if (!current.finished) [bar setProgress:0.2 animated:NO];
         else [bar setProgress:1.0 animated:NO];
     }
     else{
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
-        current = [self.manager.completedNetworkMeasurements objectAtIndex:indexPath.row];
+        current = [self.completedNetworkMeasurements objectAtIndex:indexPath.row];
         //UIButton *log_button = (UIButton *)[cell viewWithTag:3];
     }
     UILabel *title = (UILabel*)[cell viewWithTag:1];
@@ -144,7 +142,6 @@
     [self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
 }
 
-//TODO one function click - example
 - (IBAction)buttonClick:(id)sender forEvent:(UIEvent *)event {
     UIButton *tappedButton = (UIButton*)sender;
     [self unselectAll];
@@ -161,7 +158,6 @@
         HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
         self.selectedMeasurement = http_invalid_request_lineMeasurement;
     }
-    self.selectedMeasurement.manager = self.manager;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -171,9 +167,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
         NetworkMeasurement *current;
         if (indexPath.section == 0)
-            current = [self.manager.runningNetworkMeasurements objectAtIndex:indexPath.row];
+            current = [self.runningNetworkMeasurements objectAtIndex:indexPath.row];
         else
-            current = [self.manager.completedNetworkMeasurements objectAtIndex:indexPath.row];
+            current = [self.completedNetworkMeasurements objectAtIndex:indexPath.row];
         [vc setTest:current];
     }
     else if ([[segue identifier] isEqualToString:@"toInfo"]){

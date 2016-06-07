@@ -9,8 +9,6 @@
 
 #include <measurement_kit/common.hpp>
 
-#include "NetworkManager.h"
-
 @interface NetworkMeasurement : NSObject
 
 @property NSString *name;
@@ -19,7 +17,6 @@
 @property BOOL finished;
 @property NSMutableArray *logLines;
 @property mk::Settings options;
-@property NetworkManager *manager;
 
 -(void) run;
 @end
