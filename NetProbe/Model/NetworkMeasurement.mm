@@ -86,6 +86,7 @@ static std::string get_dns_server() {
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
     mk::ooni::DnsInjectionTest()
         .set_options("backend", "8.8.8.1:53")
+        .set_options("dns/nameserver", get_dns_server())
         .set_input_file_path([path UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
