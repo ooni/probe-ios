@@ -1,6 +1,9 @@
 language: objective-c
 osx_image: xcode7.3
 install:
+    - brew update
+    - brew upgrade
+    - brew install gpg2
     - sudo gem install cocoapods
     - pod repo update 2>&1 >/dev/null
     - pod install --verbose
