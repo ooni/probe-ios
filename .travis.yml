@@ -4,6 +4,7 @@ install:
     - brew update
     - brew upgrade
     - brew install gpg2
+    - gpg2 --reck-keys 7733D95B
     - sudo gem install cocoapods
     - pod repo update 2>&1 >/dev/null
     - pod install --verbose
