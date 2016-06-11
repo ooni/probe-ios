@@ -25,6 +25,7 @@
 		ED25282E1CEA35640073A29B /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528291CEA35640073A29B /* ViewController.mm */; };
 		ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528301CEA35770073A29B /* NetworkMeasurement.mm */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
+		ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* TestStorage.mm */; };
 		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDF5E0991BBED88600326DC8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF5E0981BBED88600326DC8 /* libresolv.tbd */; };
@@ -59,6 +60,8 @@
 		ED25282F1CEA35770073A29B /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = Model/NetworkMeasurement.h; sourceTree = "<group>"; };
 		ED2528301CEA35770073A29B /* NetworkMeasurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkMeasurement.mm; path = Model/NetworkMeasurement.mm; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED58E8C81D0C627D00C74F10 /* TestStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestStorage.h; path = Utility/TestStorage.h; sourceTree = "<group>"; };
+		ED58E8C91D0C627D00C74F10 /* TestStorage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestStorage.mm; path = Utility/TestStorage.mm; sourceTree = "<group>"; };
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDED1BEA3FBDB8550C3B5582 /* Pods-NetProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 		D4A2F5DB1A6C3244001B8460 /* NetProbe */ = {
 			isa = PBXGroup;
 			children = (
+				ED58E8C71D0C625300C74F10 /* Utility */,
 				ED25281F1CEA353A0073A29B /* View */,
 				ED25280F1CEA34DA0073A29B /* Model */,
 				D4A2F62D1A6C33F7001B8460 /* Resources */,
@@ -191,6 +195,15 @@
 				ED2528211CEA35640073A29B /* AdvancedSettingsTableViewController.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		ED58E8C71D0C625300C74F10 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				ED58E8C81D0C627D00C74F10 /* TestStorage.h */,
+				ED58E8C91D0C627D00C74F10 /* TestStorage.mm */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		EDD22D101ADD6248006EA0C8 /* html */ = {
@@ -355,6 +368,7 @@
 				ED25282D1CEA35640073A29B /* TestInfoViewController.m in Sources */,
 				ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */,
 				ED25282E1CEA35640073A29B /* ViewController.mm in Sources */,
+				ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */,
 				ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

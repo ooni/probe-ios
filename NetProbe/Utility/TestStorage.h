@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NetworkMeasurement.h"
 
 @interface TestStorage : NSObject
+
++ (NSArray*)get_tests;
+
++ (void)add_test:(NetworkMeasurement*)test;
+
++ (NSArray*)remove_test:(int)index;
+
++ (void)remove_all_tests;
 
 @end

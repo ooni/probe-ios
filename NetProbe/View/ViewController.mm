@@ -22,6 +22,20 @@
     [self loadAvailableMeasurements];
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
     self.completedNetworkMeasurements = [[NSMutableArray alloc] init];
+    
+    NSFileManager *filemgr;
+    NSString *currentpath;
+    filemgr = [[NSFileManager alloc] init];
+    currentpath = [filemgr currentDirectoryPath];
+    NSLog(@"%@", currentpath);
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [documentsDirectory stringByAppendingPathComponent:@"Words.txt"];
+    NSString *content = @"Apple";
+    [content writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:@"refreshTable" object:nil];
     [self setLabels];
 }
