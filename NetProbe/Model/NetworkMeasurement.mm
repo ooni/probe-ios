@@ -68,6 +68,13 @@ static std::string get_dns_server() {
     return [dateformatter stringFromDate:[NSDate date]];
 }
 
+-(NSString*) getFileName{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@/test-%f.json", documentsDirectory, [[NSDate date] timeIntervalSince1970]];
+    NSLog(@"documentsDirectory %@", fileName);
+    return fileName;
+}
 
 @end
 
@@ -81,10 +88,6 @@ static std::string get_dns_server() {
 }
 
 - (void) run {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [NSString stringWithFormat:@"%@/test.json", documentsDirectory];
-    NSLog(@"documentsDirectory %@", fileName);
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
@@ -92,7 +95,7 @@ static std::string get_dns_server() {
         .set_options("backend", "8.8.8.1:53")
         .set_options("dns/nameserver", get_dns_server())
         .set_input_file_path([path UTF8String])
-        .set_output_file_path([fileName UTF8String])
+        .set_output_file_path([[self getFileName] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
             NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate], [NSString stringWithUTF8String:s]];
@@ -126,6 +129,7 @@ static std::string get_dns_server() {
     mk::ooni::HttpInvalidRequestLineTest()
         .set_options("backend", "http://213.138.109.232/")
         .set_options("dns/nameserver", get_dns_server())
+        .set_output_file_path([[self getFileName] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
             // XXX OK to send messages to object from another thread?
@@ -163,6 +167,7 @@ static std::string get_dns_server() {
         .set_options("port", "80")
         .set_options("dns/nameserver", get_dns_server())
         .set_input_file_path([path UTF8String])
+        .set_output_file_path([[self getFileName] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
             NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],

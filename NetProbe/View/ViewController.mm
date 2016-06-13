@@ -23,12 +23,6 @@
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
     self.completedNetworkMeasurements = [[NSMutableArray alloc] init];
     
-    NSFileManager *filemgr;
-    NSString *currentpath;
-    filemgr = [[NSFileManager alloc] init];
-    currentpath = [filemgr currentDirectoryPath];
-    NSLog(@"%@", currentpath);
-    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *fileName = [documentsDirectory stringByAppendingPathComponent:@"Words.txt"];

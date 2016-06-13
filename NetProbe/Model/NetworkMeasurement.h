@@ -3,6 +3,7 @@
 // information on the copying conditions.
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /*Include header from test*/
 #include <measurement_kit/ooni.hpp>
