@@ -13,8 +13,14 @@
 @interface NetworkMeasurement : NSObject
 
 @property NSString *name;
+
+//Not used
 @property NSNumber *test_id;
+//Not used
 @property NSString *status;
+
+@property NSString *json_file;
+@property NSString *log_file;
 @property BOOL finished;
 @property NSMutableArray *logLines;
 @property mk::Settings options;
