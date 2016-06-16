@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LogViewController.h"
 #import "TestInfoViewController.h"
+#import "TestStorage.h"
 
 @interface ViewController : UIViewController
 
@@ -32,8 +33,6 @@
 
 @property (strong, nonatomic) NetworkMeasurement *selectedMeasurement;
 
-//TODO move them in a specific class
-@property (strong, nonatomic)NSMutableArray *runningNetworkMeasurements;
-@property (strong, nonatomic) NSMutableArray *completedNetworkMeasurements;
+@property (strong, nonatomic) NSMutableArray *runningNetworkMeasurements;
 
 @end

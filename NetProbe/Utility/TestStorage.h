@@ -15,7 +15,11 @@
 
 + (void)add_test:(NetworkMeasurement*)test;
 
-+ (NSArray*)remove_test:(int)index;
++ (NSArray*)remove_test:(NSNumber*)test_id;
+
++ (NSArray*)remove_test_atindex:(int)index;
+
++ (void)set_completed:(NSNumber*)test_id;
 
 + (void)remove_all_tests;
 

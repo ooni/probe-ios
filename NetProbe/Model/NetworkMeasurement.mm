@@ -3,6 +3,7 @@
 // information on the copying conditions.
 
 #import "NetworkMeasurement.h"
+#import "TestStorage.h"
 
 #import "measurement_kit/common.hpp"
 
@@ -53,8 +54,7 @@ static std::string get_dns_server() {
 
 -(id) init {
     self = [super init];
-    self.logLines = [[NSMutableArray alloc] init];
-    self.finished = FALSE;
+    self.completed = FALSE;
     return self;
 }
 
@@ -68,27 +68,52 @@ static std::string get_dns_server() {
     return [dateformatter stringFromDate:[NSDate date]];
 }
 
--(NSString*) getFileName {
+-(NSString*) getFileName:(NSString*)ext {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [NSString stringWithFormat:@"%@/test-%f", documentsDirectory, [[NSDate date] timeIntervalSince1970]];
-    NSLog(@"documentsDirectory %@", fileName);
+    //double timestamp = mk::time_now();
+    NSString *fileName = [NSString stringWithFormat:@"%@/test-%@.%@", documentsDirectory, self.test_id, ext];
+    //NSLog(@"fileName %@", fileName);
     return fileName;
 }
 
 -(void)writeOrAppend:(NSString*)string{
+    NSString *fileName = [self getFileName:@"txt"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if(![fileManager fileExistsAtPath:self.log_file])
+    if(![fileManager fileExistsAtPath:fileName])
     {
-        [string writeToFile:self.log_file atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+        [string writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
     }
     else
     {
-        NSFileHandle *myHandle = [NSFileHandle fileHandleForWritingAtPath:self.log_file];
+        NSFileHandle *myHandle = [NSFileHandle fileHandleForWritingAtPath:fileName];
         [myHandle seekToEndOfFile];
         [myHandle writeData:[[NSString stringWithFormat:@"\n%@",string] dataUsingEncoding:NSUTF8StringEncoding]];
     }
 }
+
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.name forKey:@"Test_name"];
+    [coder encodeObject:self.test_id forKey:@"Test_id"];
+    [coder encodeObject:self.json_file forKey:@"Test_jsonfile"];
+    [coder encodeObject:self.log_file forKey:@"Test_logfile"];
+    [coder encodeObject:[NSNumber numberWithBool:self.completed] forKey:@"test_completed"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    self.name = [coder decodeObjectForKey:@"Test_name"];
+    self.test_id = [coder decodeObjectForKey:@"Test_id"];
+    self.json_file = [coder decodeObjectForKey:@"Test_jsonfile"];
+    self.log_file = [coder decodeObjectForKey:@"Test_logfile"];
+    self.completed = [[coder decodeObjectForKey:@"test_completed"] boolValue];
+    return self;
+}
+
 @end
 
 
@@ -101,9 +126,10 @@ static std::string get_dns_server() {
 }
 
 - (void) run {
-    self.json_file = [NSString stringWithFormat:@"%@.json", [self getFileName]];
-    self.log_file = [NSString stringWithFormat:@"%@.txt", [self getFileName]];
-
+    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
+    self.log_file = [NSString stringWithFormat:@"test-%@.txt", self.test_id];
+    [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
@@ -111,25 +137,24 @@ static std::string get_dns_server() {
         .set_options("backend", "8.8.8.1:53")
         .set_options("dns/nameserver", get_dns_server())
         .set_input_file_path([path UTF8String])
-        .set_output_file_path([self.json_file UTF8String])
+        .set_output_file_path([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
             NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate], [NSString stringWithUTF8String:s]];
             NSLog(@"%s", s);
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self writeOrAppend:current];
-                [self.logLines addObject:current];
             });
         })
         .run([self]() {
             NSLog(@"dns_injection testEnded");
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.finished = TRUE;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+                self.completed = TRUE;
+                [TestStorage set_completed:self.test_id];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
             });
         });
 }
-
 
 @end
 
@@ -142,14 +167,15 @@ static std::string get_dns_server() {
 }
 
 -(void) run {
-    self.json_file = [NSString stringWithFormat:@"%@.json", [self getFileName]];
-    self.log_file = [NSString stringWithFormat:@"%@.txt", [self getFileName]];
-
+    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
+    self.log_file = [NSString stringWithFormat:@"test-%@.txt", self.test_id];
+    [TestStorage add_test:self];
     setup_idempotent();
     mk::ooni::HttpInvalidRequestLineTest()
         .set_options("backend", "http://213.138.109.232/")
         .set_options("dns/nameserver", get_dns_server())
-        .set_output_file_path([self.json_file UTF8String])
+        .set_output_file_path([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
             // XXX OK to send messages to object from another thread?
@@ -158,14 +184,14 @@ static std::string get_dns_server() {
             NSLog(@"%s", s);
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self writeOrAppend:current];
-                [self.logLines addObject:current];
             });
         })
         .run([self]() {
             NSLog(@"http_invalid_request_line testEnded");
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.finished = TRUE;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+                self.completed = TRUE;
+                [TestStorage set_completed:self.test_id];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
             });
         });
 }
@@ -181,9 +207,10 @@ static std::string get_dns_server() {
 }
 
 -(void) run {
-    self.json_file = [NSString stringWithFormat:@"%@.json", [self getFileName]];
-    self.log_file = [NSString stringWithFormat:@"%@.txt", [self getFileName]];
-
+    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
+    self.log_file = [NSString stringWithFormat:@"test-%@.txt", self.test_id];
+    [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
@@ -191,7 +218,7 @@ static std::string get_dns_server() {
         .set_options("port", "80")
         .set_options("dns/nameserver", get_dns_server())
         .set_input_file_path([path UTF8String])
-        .set_output_file_path([self.json_file UTF8String])
+        .set_output_file_path([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
             NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
@@ -199,14 +226,14 @@ static std::string get_dns_server() {
             NSLog(@"%s", s);
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self writeOrAppend:current];
-                [self.logLines addObject:current];
             });
         })
         .run([self]() {
             NSLog(@"tcp_connect testEnded");
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.finished = TRUE;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+                self.completed = TRUE;
+                [TestStorage set_completed:self.test_id];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
             });
         });
 }

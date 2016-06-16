@@ -21,9 +21,7 @@
     self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
     [self loadAvailableMeasurements];
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
-    self.completedNetworkMeasurements = [[NSMutableArray alloc] init];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:@"refreshTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
     [self setLabels];
 }
 
@@ -38,14 +36,9 @@
     [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
 }
 
--(void)refreshTable{
-    NSArray *copyArray = [[NSArray alloc] initWithArray:self.runningNetworkMeasurements];
-    for (NetworkMeasurement *current in copyArray){
-        if (current.finished) {
-            [self.runningNetworkMeasurements removeObject:current];
-            [self.completedNetworkMeasurements addObject:current];
-        }
-    }
+-(void)refreshTable:(NSNotification *)notification{
+    NetworkMeasurement *current  = (NetworkMeasurement*)[notification object];
+    [self.runningNetworkMeasurements removeObject:current];
     [self.tableView reloadData];
 }
 
@@ -88,7 +81,7 @@
             return [self.runningNetworkMeasurements count];
             break;
         case 1:
-            return [self.completedNetworkMeasurements count];
+            return [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
             break;
         default:
             return 0;
@@ -123,19 +116,39 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_running" forIndexPath:indexPath];
         current = [self.runningNetworkMeasurements objectAtIndex:indexPath.row];
         UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
-        if (!current.finished) [bar setProgress:0.2 animated:NO];
-        else [bar setProgress:1.0 animated:NO];
+        [bar setProgress:0.2 animated:NO];
     }
-    else{
+    else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
-        current = [self.completedNetworkMeasurements objectAtIndex:indexPath.row];
-        //UIButton *log_button = (UIButton *)[cell viewWithTag:3];
+        current = [NSKeyedUnarchiver unarchiveObjectWithData:[[TestStorage get_tests] objectAtIndex:indexPath.row]];
+        //TODO grafica test non finiti ma errati
+        UIButton *logbutton = (UIButton*)[cell viewWithTag:3];
+        if (!current.completed) [logbutton setHidden:YES];
+        else [logbutton setHidden:NO];
     }
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     [title setText:NSLocalizedString(current.name, nil)];
 
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //TODO can we delete running tests?
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //TODO delete test and refresh table
+    }
+}
+
 
 - (void) unselectAll {
     [self.dns_injectionButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
@@ -166,16 +179,10 @@
         LogViewController *vc = (LogViewController * )segue.destinationViewController;
         UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
         NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
-        NetworkMeasurement *current;
-        if (indexPath.section == 0)
-            current = [self.runningNetworkMeasurements objectAtIndex:indexPath.row];
-        else
-            current = [self.completedNetworkMeasurements objectAtIndex:indexPath.row];
+        NetworkMeasurement *current = [NSKeyedUnarchiver unarchiveObjectWithData:[[TestStorage get_tests] objectAtIndex:indexPath.row]];
         [vc setTest:current];
     }
     else if ([[segue identifier] isEqualToString:@"toInfo"]){
-        //UINavigationController *navigationController = segue.destinationViewController;
-        //TestInfoViewController *vc = (TestInfoViewController * )navigationController.topViewController;
         TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;
         UIButton *tappedButton = (UIButton*)sender;
         if (tappedButton.tag == 1){
