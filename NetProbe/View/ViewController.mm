@@ -121,7 +121,7 @@
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
         current = [NSKeyedUnarchiver unarchiveObjectWithData:[[TestStorage get_tests] objectAtIndex:indexPath.row]];
-        //TODO grafica test non finiti ma errati
+        //TODO for now I hide the logbutton on aborted test. need an icon
         UIButton *logbutton = (UIButton*)[cell viewWithTag:3];
         if (!current.completed) [logbutton setHidden:YES];
         else [logbutton setHidden:NO];
@@ -138,14 +138,16 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TODO can we delete running tests?
-    return YES;
+    if (indexPath.section == 1)
+        return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //TODO delete test and refresh table
+        [TestStorage remove_test_atindex:indexPath.row];
+        [self.tableView reloadData];
     }
 }
 
