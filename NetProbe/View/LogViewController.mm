@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //TODO format json
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:self.test.json_file];
@@ -24,8 +23,26 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if([fileManager fileExistsAtPath:filePath]) {
         NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
-        [self.logView setText:content];
+        //NSLog(@"%@", content);
+        NSMutableString *prettyJson = [[NSMutableString alloc] init];
+        NSArray *separateJson = [content componentsSeparatedByString:@"\n"];
+        for (NSString* json in separateJson)
+            if([json length] > 0)
+                [prettyJson appendFormat:@"%@\n", [self prettyJson:json]];
+        [self.logView setText:prettyJson];
     }
+}
+
+-(NSString*)prettyJson:(NSString*)jsonString{
+    NSError *error;
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    if (jsonObject){
+        NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&error];
+        NSString *prettyPrintedJson = [[NSString alloc] initWithData:prettyJsonData encoding:NSUTF8StringEncoding];
+        return prettyPrintedJson;
+    }
+    return @"";
 }
 
 -(IBAction)close:(id)sender{
@@ -36,15 +53,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

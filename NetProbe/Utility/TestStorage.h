@@ -19,6 +19,8 @@
 
 + (NSArray*)remove_test_atindex:(int)index;
 
++ (NetworkMeasurement*)get_test_atindex:(int)index;
+
 + (void)set_completed:(NSNumber*)test_id;
 
 + (void)remove_all_tests;

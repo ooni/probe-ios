@@ -12,8 +12,6 @@
 
 + (NSArray*)get_tests{
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
-        //TODO slow reloading?
-        NSLog(@"%d", [[[NSUserDefaults standardUserDefaults] objectForKey:@"tests"] count]);
         return [[NSUserDefaults standardUserDefaults] objectForKey:@"tests"];
     }
     return nil;
@@ -65,6 +63,16 @@
     }
 }
 
++ (NetworkMeasurement*)get_test_atindex:(int)index{
+    [self checkTests];
+    NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
+    if ([cache count] > index) {
+        NetworkMeasurement* test = [NSKeyedUnarchiver unarchiveObjectWithData:[cache objectAtIndex:index]];
+        return test;
+    }
+    return nil;
+}
+
 + (void)set_completed:(NSNumber*)test_id {
     [self checkTests];
     NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
@@ -88,9 +96,9 @@
 + (void)removeFile:(NSString*)fileName {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    //NSString *filePath = [documentsPath stringByAppendingPathComponent:filename];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
     NSError *error;
-    BOOL success = [fileManager removeItemAtPath:fileName error:&error];
+    BOOL success = [fileManager removeItemAtPath:filePath error:&error];
     if (success) {
         NSLog(@"File %@ deleted", fileName);
     }

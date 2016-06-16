@@ -120,7 +120,7 @@
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
-        current = [NSKeyedUnarchiver unarchiveObjectWithData:[[TestStorage get_tests] objectAtIndex:indexPath.row]];
+        current = [TestStorage get_test_atindex:indexPath.row];
         //TODO for now I hide the logbutton on aborted test. need an icon
         UIButton *logbutton = (UIButton*)[cell viewWithTag:3];
         if (!current.completed) [logbutton setHidden:YES];
@@ -181,8 +181,7 @@
         LogViewController *vc = (LogViewController * )segue.destinationViewController;
         UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
         NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
-        NetworkMeasurement *current = [NSKeyedUnarchiver unarchiveObjectWithData:[[TestStorage get_tests] objectAtIndex:indexPath.row]];
-        [vc setTest:current];
+        [vc setTest:[TestStorage get_test_atindex:indexPath.row]];
     }
     else if ([[segue identifier] isEqualToString:@"toInfo"]){
         TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;
