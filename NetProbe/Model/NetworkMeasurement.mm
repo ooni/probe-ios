@@ -133,11 +133,11 @@ static std::string get_dns_server() {
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
-    mk::ooni::DnsInjectionTest()
+    mk::ooni::DnsInjection()
         .set_options("backend", "8.8.8.1:53")
         .set_options("dns/nameserver", get_dns_server())
-        .set_input_file_path([path UTF8String])
-        .set_output_file_path([[self getFileName:@"json"] UTF8String])
+        .set_input_filepath([path UTF8String])
+        .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
             NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate], [NSString stringWithUTF8String:s]];
@@ -172,10 +172,10 @@ static std::string get_dns_server() {
     self.log_file = [NSString stringWithFormat:@"test-%@.txt", self.test_id];
     [TestStorage add_test:self];
     setup_idempotent();
-    mk::ooni::HttpInvalidRequestLineTest()
+    mk::ooni::HttpInvalidRequestLine()
         .set_options("backend", "http://213.138.109.232/")
         .set_options("dns/nameserver", get_dns_server())
-        .set_output_file_path([[self getFileName:@"json"] UTF8String])
+        .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
             // XXX OK to send messages to object from another thread?
@@ -214,11 +214,11 @@ static std::string get_dns_server() {
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
-    mk::ooni::TcpConnectTest()
+    mk::ooni::TcpConnect()
         .set_options("port", "80")
         .set_options("dns/nameserver", get_dns_server())
-        .set_input_file_path([path UTF8String])
-        .set_output_file_path([[self getFileName:@"json"] UTF8String])
+        .set_input_filepath([path UTF8String])
+        .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
             NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
