@@ -41,7 +41,7 @@
     return cache;
 }
 
-+ (NSArray*)remove_test_atindex:(int)index{
++ (NSArray*)remove_test_atindex:(long)index{
     [self checkTests];
     NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
     if ([cache count] > index) {
@@ -63,7 +63,7 @@
     }
 }
 
-+ (NetworkMeasurement*)get_test_atindex:(int)index{
++ (NetworkMeasurement*)get_test_atindex:(long)index{
     [self checkTests];
     NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
     if ([cache count] > index) {
