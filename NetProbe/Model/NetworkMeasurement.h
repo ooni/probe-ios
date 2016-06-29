@@ -10,7 +10,11 @@
 
 #include <measurement_kit/common.hpp>
 
-@interface NetworkMeasurement : NSObject
+@interface NetworkMeasurement : NSObject {
+    NSString *geoip_asn;
+    NSString *geoip_country;
+    NSString *ca_cert;
+}
 
 @property NSString *name;
 

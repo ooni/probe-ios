@@ -54,6 +54,10 @@ static std::string get_dns_server() {
 
 -(id) init {
     self = [super init];
+    NSBundle *bundle = [NSBundle mainBundle];
+    geoip_asn = [bundle pathForResource:@"GeoIPASNum" ofType:@"dat"];
+    geoip_country = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
+    ca_cert = [bundle pathForResource:@"cacert" ofType:@"pem"];
     self.completed = FALSE;
     return self;
 }
@@ -136,6 +140,9 @@ static std::string get_dns_server() {
     mk::ooni::DnsInjection()
         .set_options("backend", "8.8.8.1:53")
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("net/ca_bundle_path", [ca_cert UTF8String])
+        .set_options("geoip_country_path", [geoip_country UTF8String])
+        .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
@@ -175,6 +182,9 @@ static std::string get_dns_server() {
     mk::ooni::HttpInvalidRequestLine()
         .set_options("backend", "http://213.138.109.232/")
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("net/ca_bundle_path", [ca_cert UTF8String])
+        .set_options("geoip_country_path", [geoip_country UTF8String])
+        .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
         .on_log([self](uint32_t, const char *s) {
@@ -217,6 +227,9 @@ static std::string get_dns_server() {
     mk::ooni::TcpConnect()
         .set_options("port", "80")
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("net/ca_bundle_path", [ca_cert UTF8String])
+        .set_options("geoip_country_path", [geoip_country UTF8String])
+        .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_DEBUG2)
