@@ -75,14 +75,12 @@ static std::string get_dns_server() {
 -(NSString*) getFileName:(NSString*)ext {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    //double timestamp = mk::time_now();
     NSString *fileName = [NSString stringWithFormat:@"%@/test-%@.%@", documentsDirectory, self.test_id, ext];
-    //NSLog(@"fileName %@", fileName);
     return fileName;
 }
 
 -(void)writeOrAppend:(NSString*)string{
-    NSString *fileName = [self getFileName:@"txt"];
+    NSString *fileName = [self getFileName:@"log"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if(![fileManager fileExistsAtPath:fileName])
     {
@@ -132,7 +130,7 @@ static std::string get_dns_server() {
 - (void) run {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.txt", self.test_id];
+    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
@@ -176,7 +174,7 @@ static std::string get_dns_server() {
 -(void) run {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.txt", self.test_id];
+    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     [TestStorage add_test:self];
     setup_idempotent();
     mk::ooni::HttpInvalidRequestLine()
@@ -219,7 +217,7 @@ static std::string get_dns_server() {
 -(void) run {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.txt", self.test_id];
+    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];

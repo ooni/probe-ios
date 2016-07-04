@@ -23,7 +23,6 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if([fileManager fileExistsAtPath:filePath]) {
         NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
-        //NSLog(@"%@", content);
         NSMutableString *prettyJson = [[NSMutableString alloc] init];
         NSArray *separateJson = [content componentsSeparatedByString:@"\n"];
         for (NSString* json in separateJson)

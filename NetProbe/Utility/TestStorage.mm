@@ -88,7 +88,7 @@
 }
 
 + (void)remove_all_tests{
-    //TODO not used
+    //Not used for now
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
