@@ -16,7 +16,7 @@ static void setup_idempotent() {
     static bool initialized = false;
     if (!initialized) {
         // Set the logger verbose and make sure it logs on the "logcat"
-        mk::set_verbosity(MK_LOG_DEBUG2);
+        mk::set_verbosity(MK_LOG_INFO);
         // XXX Ok to call NSLog() from another thread?
         mk::on_log([](uint32_t, const char *s) {
             NSLog(@"%s", s);
@@ -82,6 +82,9 @@ static std::string get_dns_server() {
 -(void)writeOrAppend:(NSString*)string{
     NSString *fileName = [self getFileName:@"log"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    // Note: It is not optimal to open(), close(), and seek() each time
+    // but we agreed not to touch this code because MK should soon add the
+    // code to specify the file where to save log files.
     if(![fileManager fileExistsAtPath:fileName])
     {
         [string writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
@@ -143,7 +146,7 @@ static std::string get_dns_server() {
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
-        .set_verbosity(MK_LOG_DEBUG2)
+        .set_verbosity(MK_LOG_INFO)
         .on_log([self](uint32_t, const char *s) {
             NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate], [NSString stringWithUTF8String:s]];
             NSLog(@"%s", s);
@@ -184,9 +187,8 @@ static std::string get_dns_server() {
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
-        .set_verbosity(MK_LOG_DEBUG2)
+        .set_verbosity(MK_LOG_INFO)
         .on_log([self](uint32_t, const char *s) {
-            // XXX OK to send messages to object from another thread?
             NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
                                  [NSString stringWithUTF8String:s]];
             NSLog(@"%s", s);
@@ -223,14 +225,14 @@ static std::string get_dns_server() {
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
     mk::ooni::TcpConnect()
-        .set_options("port", "80")
+        .set_options("port", 80)
         .set_options("dns/nameserver", get_dns_server())
         .set_options("net/ca_bundle_path", [ca_cert UTF8String])
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
-        .set_verbosity(MK_LOG_DEBUG2)
+        .set_verbosity(MK_LOG_INFO)
         .on_log([self](uint32_t, const char *s) {
             NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
                                  [NSString stringWithUTF8String:s]];
