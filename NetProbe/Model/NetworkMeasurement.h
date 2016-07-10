@@ -3,19 +3,28 @@
 // information on the copying conditions.
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /*Include header from test*/
 #include <measurement_kit/ooni.hpp>
 
 #include <measurement_kit/common.hpp>
 
-@interface NetworkMeasurement : NSObject
+@interface NetworkMeasurement : NSObject {
+    NSString *geoip_asn;
+    NSString *geoip_country;
+    NSString *ca_cert;
+}
 
 @property NSString *name;
+
 @property NSNumber *test_id;
+//Not used
 @property NSString *status;
-@property BOOL finished;
-@property NSMutableArray *logLines;
+
+@property NSString *json_file;
+@property NSString *log_file;
+@property BOOL completed;
 @property mk::Settings options;
 
 -(void) run;
