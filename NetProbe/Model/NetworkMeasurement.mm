@@ -17,7 +17,6 @@ static void setup_idempotent() {
     if (!initialized) {
         // Set the logger verbose and make sure it logs on the "logcat"
         mk::set_verbosity(MK_LOG_INFO);
-        // XXX Ok to call NSLog() from another thread?
         mk::on_log([](uint32_t, const char *s) {
             NSLog(@"%s", s);
         });

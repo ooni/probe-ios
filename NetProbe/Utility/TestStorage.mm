@@ -7,6 +7,7 @@
 @implementation TestStorage
 
 + (NSArray*)get_tests{
+    [self checkTests];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
         return [[NSUserDefaults standardUserDefaults] objectForKey:@"tests"];
     }
@@ -26,14 +27,15 @@
     NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
     for (int i = 0; i < [cache count]; i++) {
         NetworkMeasurement* test = [NSKeyedUnarchiver unarchiveObjectWithData:[cache objectAtIndex:i]];
-        if (test.test_id == test_id){
+        if ([test.test_id isEqualToNumber:test_id]){
             [self removeFile:test.json_file];
             [self removeFile:test.log_file];
             [cache removeObjectAtIndex:i];
+            [[NSUserDefaults standardUserDefaults] setObject:cache forKey:@"tests"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            return cache;
         }
     }
-    [[NSUserDefaults standardUserDefaults] setObject:cache forKey:@"tests"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     return cache;
 }
 
@@ -77,14 +79,16 @@
         if ([test.test_id isEqualToNumber:test_id]){
             test.completed = TRUE;
             [cache setObject:[NSKeyedArchiver archivedDataWithRootObject:test] atIndexedSubscript:i];
+            [[NSUserDefaults standardUserDefaults] setObject:cache forKey:@"tests"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            return;
         }
     }
-    [[NSUserDefaults standardUserDefaults] setObject:cache forKey:@"tests"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void)remove_all_tests{
     //Not used for now
+    //TODO add functions to remove files on disk
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -111,6 +115,5 @@
     NSLog(@"size of yourdictionary: %f", kbytes);
     return kbytes;
 }
-
 
 @end
