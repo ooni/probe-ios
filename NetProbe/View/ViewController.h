@@ -10,6 +10,7 @@
 #import "LogViewController.h"
 #import "TestInfoViewController.h"
 #import "TestStorage.h"
+#import "ResultViewController.h"
 
 @interface ViewController : UIViewController
 

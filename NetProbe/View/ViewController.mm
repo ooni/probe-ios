@@ -183,6 +183,12 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
         [vc setTest:[TestStorage get_test_atindex:indexPath.row]];
     }
+    else if ([[segue identifier] isEqualToString:@"toResult"]){
+        ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
+        UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
+        [vc setJson_file:[TestStorage get_test_atindex:indexPath.row].json_file];
+    }
     else if ([[segue identifier] isEqualToString:@"toInfo"]){
         TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;
         UIButton *tappedButton = (UIButton*)sender;
