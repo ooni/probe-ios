@@ -14,6 +14,9 @@
     NSString *geoip_asn;
     NSString *geoip_country;
     NSString *ca_cert;
+    bool include_ip;
+    bool include_asn;
+    NSString *collector_address;
 }
 
 @property NSString *name;

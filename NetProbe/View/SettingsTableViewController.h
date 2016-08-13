@@ -10,6 +10,7 @@
 
 @interface SettingsTableViewController : UITableViewController {
     NSArray *settingsItems;
+    UITextField *value;
 }
 
 @end
