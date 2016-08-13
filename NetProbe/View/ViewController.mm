@@ -196,7 +196,7 @@
             [vc setFileName:@"dns-injection"];
         }
         else if (tappedButton.tag == 2){
-            [vc setFileName:@"tcp_connect"];
+            [vc setFileName:@"tcp-connect"];
         }
         else if (tappedButton.tag == 3){
             [vc setFileName:@"http-invalid-request-line"];

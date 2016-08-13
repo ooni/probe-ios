@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AYN-ls-CZF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AYN-ls-CZF">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -53,7 +53,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eqf-c4-hHz">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="yvt-3c-zLz">
                                     <rect key="frame" x="0.0" y="64" width="600" height="250"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -142,7 +142,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="c40-gM-JvH" kind="show" identifier="toInfo" id="nNT-KV-QxD"/>
+                                                <segue destination="xen-m4-yvO" kind="show" identifier="toInfo" id="oYe-DM-LHo"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYO-Rt-3xb">
@@ -154,7 +154,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="c40-gM-JvH" kind="show" identifier="toInfo" id="FEA-3M-x0u"/>
+                                                <segue destination="xen-m4-yvO" kind="show" identifier="toInfo" id="Gui-sC-S4f"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiP-3O-yhy">
@@ -167,7 +167,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="c40-gM-JvH" kind="show" identifier="toInfo" id="rKR-UR-WoM"/>
+                                                <segue destination="xen-m4-yvO" kind="show" identifier="toInfo" id="9DJ-nQ-Yin"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -438,44 +438,34 @@
             <point key="canvasLocation" x="1632" y="-444"/>
         </scene>
         <!--Test Info View Controller-->
-        <scene sceneID="NXd-IE-YqF">
+        <scene sceneID="kmZ-kg-Hz2">
             <objects>
-                <viewController id="c40-gM-JvH" customClass="TestInfoViewController" sceneMemberID="viewController">
+                <viewController id="xen-m4-yvO" customClass="TestInfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JBH-uD-fEE"/>
-                        <viewControllerLayoutGuide type="bottom" id="4j2-4m-HcZ"/>
+                        <viewControllerLayoutGuide type="top" id="Prd-re-RCx"/>
+                        <viewControllerLayoutGuide type="bottom" id="3d1-7m-Eoa"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="p3j-4c-SNN">
+                    <view key="view" contentMode="scaleToFill" id="tq1-ua-1rT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWY-6a-o9U">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-44-JYr">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xen-m4-yvO" id="R8Q-pX-52i"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="IWY-6a-o9U" firstAttribute="leading" secondItem="p3j-4c-SNN" secondAttribute="leading" id="28I-a7-9Pm"/>
-                            <constraint firstItem="IWY-6a-o9U" firstAttribute="top" secondItem="p3j-4c-SNN" secondAttribute="top" id="Gxj-Ba-Mnn"/>
-                            <constraint firstAttribute="trailing" secondItem="IWY-6a-o9U" secondAttribute="trailing" id="Htd-6m-an4"/>
-                            <constraint firstItem="IWY-6a-o9U" firstAttribute="bottom" secondItem="4j2-4m-HcZ" secondAttribute="top" id="Wf9-Pd-Hcu"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xWR-Nh-asR">
-                        <barButtonItem key="leftBarButtonItem" id="q3O-J0-wKC">
-                            <connections>
-                                <action selector="close:" destination="c40-gM-JvH" id="JEw-FF-4m8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
-                        <outlet property="webView" destination="IWY-6a-o9U" id="LUN-8r-mrh"/>
+                        <outlet property="webView" destination="AJc-44-JYr" id="y8G-Dc-Zjy"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M6m-rj-20a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eID-nf-yW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1632" y="253"/>
+            <point key="canvasLocation" x="1620" y="257"/>
         </scene>
         <!--Advanced Settings Table View Controller-->
         <scene sceneID="oig-Kb-uRB">
@@ -531,6 +521,6 @@
         <image name="not-selected" width="52" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rKR-UR-WoM"/>
+        <segue reference="oYe-DM-LHo"/>
     </inferredMetricsTieBreakers>
 </document>
