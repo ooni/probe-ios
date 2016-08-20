@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
-@interface ResultViewController : UIViewController 
+@interface ResultViewController : UIViewController <UIActionSheetDelegate> 
 
 @property (nonatomic, strong)NSString *json_file;
-@property (nonatomic, strong) IBOutlet WKWebView *webView;
+@property (nonatomic, strong) WKWebView *webView;
 
 @end
