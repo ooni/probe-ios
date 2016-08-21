@@ -1,10 +1,6 @@
-//
-//  SettingsTableViewController.h
-//  NetProbe
-//
-//  Created by Lorenzo Primiterra on 05/04/16.
-//  Copyright © 2016 Simone Basso. All rights reserved.
-//
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
 
 #import <UIKit/UIKit.h>
 

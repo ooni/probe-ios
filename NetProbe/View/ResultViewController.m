@@ -1,10 +1,6 @@
-//
-//  ResultViewController.m
-//  NetProbe
-//
-//  Created by Lorenzo Primiterra on 22/07/16.
-//  Copyright © 2016 Simone Basso. All rights reserved.
-//
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
 
 #import "ResultViewController.h"
 
@@ -18,8 +14,8 @@
     [super viewDidLoad];
     NSArray *items = [self getItems];
     if ([items count] > 1){
-        UIBarButtonItem *chiudi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(selectTest)];
-        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:chiudi, nil];
+        UIBarButtonItem *closeBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(selectTest)];
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:closeBtn, nil];
     }
     [self loadScreen:[items objectAtIndex:0]];
 }
@@ -32,11 +28,9 @@
     NSString* MeasurementJSON = [NSString stringWithFormat:@"\n var MeasurementJSON = {  \n"
                                  "get: function() {  \n"
                                  "return "
-                                 //"'%@';"
                                  "%@;"
                                  "   } \n"
                                  "}", content];
-    //NSLog(@"%@", MeasurementJSON);
     
     WKUserScript* userScript = [[WKUserScript alloc]initWithSource:MeasurementJSON
                                                      injectionTime: WKUserScriptInjectionTimeAtDocumentStart
@@ -102,17 +96,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -1,10 +1,7 @@
-//
-//  LogViewController.h
-//  NetProbe
-//
-//  Created by Lorenzo Primiterra on 10/03/15.
-//  Copyright (c) 2015 Simone Basso. All rights reserved.
-//
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
+
 
 #import <UIKit/UIKit.h>
 #import "NetworkMeasurement.h"
