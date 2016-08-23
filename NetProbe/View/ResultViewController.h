@@ -2,13 +2,12 @@
 // MeasurementKit is free software. See AUTHORS and LICENSE for more
 // information on the copying conditions.
 
-
 #import <UIKit/UIKit.h>
-#import "NetworkMeasurement.h"
+#import <WebKit/WebKit.h>
 
-@interface LogViewController : UIViewController
+@interface ResultViewController : UIViewController <UIActionSheetDelegate> 
 
-@property (nonatomic, strong) NetworkMeasurement *test;
-@property (nonatomic, strong) IBOutlet UITextView *logView;
+@property (nonatomic, strong)NSString *json_file;
+@property (nonatomic, strong) WKWebView *webView;
 
 @end

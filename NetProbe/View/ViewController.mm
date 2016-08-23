@@ -1,10 +1,6 @@
-//
-//  ViewController.m
-//  test8
-//
-//  Created by Simone Basso on 18/01/15.
-//  Copyright (c) 2015 Simone Basso. All rights reserved.
-//
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
 
 #import "ViewController.h"
 
@@ -183,6 +179,12 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
         [vc setTest:[TestStorage get_test_atindex:indexPath.row]];
     }
+    else if ([[segue identifier] isEqualToString:@"toResult"]){
+        ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
+        UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
+        [vc setJson_file:[TestStorage get_test_atindex:indexPath.row].json_file];
+    }
     else if ([[segue identifier] isEqualToString:@"toInfo"]){
         TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;
         UIButton *tappedButton = (UIButton*)sender;
@@ -190,7 +192,7 @@
             [vc setFileName:@"dns-injection"];
         }
         else if (tappedButton.tag == 2){
-            [vc setFileName:@"tcp_connect"];
+            [vc setFileName:@"tcp-connect"];
         }
         else if (tappedButton.tag == 3){
             [vc setFileName:@"http-invalid-request-line"];

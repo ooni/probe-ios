@@ -1,15 +1,13 @@
-//
-//  ViewController.h
-//  NetProbe
-//
-//  Created by Simone Basso on 18/01/15.
-//  Copyright (c) 2015 Simone Basso. All rights reserved.
-//
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
+
 
 #import <UIKit/UIKit.h>
 #import "LogViewController.h"
 #import "TestInfoViewController.h"
 #import "TestStorage.h"
+#import "ResultViewController.h"
 
 @interface ViewController : UIViewController
 

@@ -1,10 +1,6 @@
-//
-//  SettingsTableViewController.m
-//  NetProbe
-//
-//  Created by Lorenzo Primiterra on 05/04/16.
-//  Copyright © 2016 Simone Basso. All rights reserved.
-//
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
 
 #import "SettingsTableViewController.h"
 
@@ -26,7 +22,8 @@
         - Indirizzo bouncer - Stringa
      */
     self.title = NSLocalizedString(@"settings", nil);
-    settingsItems = @[@"include_ip", @"include_asn", @"gps_position", @"advanced_settings"];
+    settingsItems = @[@"include_ip", @"include_asn", @"collector_address"];
+    //removed @"gps_position", advanced_settings
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +43,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     if (indexPath.row < [settingsItems count] -1){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CellSwitch" forIndexPath:indexPath];
         NSString *current = [settingsItems objectAtIndex:indexPath.row];
         cell.textLabel.text = NSLocalizedString(current, nil);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -58,11 +55,18 @@
         cell.accessoryView = switchview;
     }
     else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
+        NSString *current = [settingsItems objectAtIndex:indexPath.row];
+        cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
+    }
+    /*
+    else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellAdvanced" forIndexPath:indexPath];
         NSString *current = [settingsItems objectAtIndex:indexPath.row];
         cell.textLabel.text = NSLocalizedString(current, nil);
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    }
+    }*/
     return cell;
 }
 
@@ -80,7 +84,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == [settingsItems count] -1){
+        NSString *current = [settingsItems objectAtIndex:indexPath.row];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(current, @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
+        alert.tag = indexPath.row;
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        value = [alert textFieldAtIndex:0];
+        value.autocorrectionType = UITextAutocorrectionTypeNo;
+        [value setKeyboardType:UIKeyboardTypeURL];
+        [alert show];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1 && value.text.length > 0) {
+        NSString *current = [settingsItems objectAtIndex:alertView.tag];
+        [[NSUserDefaults standardUserDefaults] setObject:value.text forKey:current];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.tableView reloadData];
+    }
 }
 
 @end
