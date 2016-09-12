@@ -25,14 +25,13 @@
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     WKUserContentController* userController = [[WKUserContentController alloc] init];
     
-    
     NSString* MeasurementJSON = [NSString stringWithFormat:@"\n var MeasurementJSON = {  \n"
                                  "get: function() {  \n"
                                  "return "
-                                 "%@;"
+                                 "'%@';"
                                  "   } \n"
                                  "}", content];
-    
+
     WKUserScript* userScript = [[WKUserScript alloc]initWithSource:MeasurementJSON
                                                      injectionTime: WKUserScriptInjectionTimeAtDocumentStart
                                                   forMainFrameOnly:NO];

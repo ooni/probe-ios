@@ -29,6 +29,7 @@
 		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* TestStorage.mm */; };
+		ED9BBAAD1D847182005A3A57 /* urls.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED9BBAAC1D847182005A3A57 /* urls.txt */; };
 		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDE32B5D1D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B441D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff */; };
@@ -94,6 +95,7 @@
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED58E8C81D0C627D00C74F10 /* TestStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestStorage.h; path = Utility/TestStorage.h; sourceTree = "<group>"; };
 		ED58E8C91D0C627D00C74F10 /* TestStorage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestStorage.mm; path = Utility/TestStorage.mm; sourceTree = "<group>"; };
+		ED9BBAAC1D847182005A3A57 /* urls.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = urls.txt; sourceTree = "<group>"; };
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDE32B441D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0c4500a9d203a33bd879a9a0bee1190d.woff; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		D4A2F62E1A6C33F7001B8460 /* fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				ED9BBAAC1D847182005A3A57 /* urls.txt */,
 				D4A2F62F1A6C33F7001B8460 /* hosts.txt */,
 			);
 			path = fixtures;
@@ -379,6 +382,7 @@
 				ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */,
 				EDE32B5E1D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf in Resources */,
 				EDE32B6B1D5CCABB00D7B4CF /* c8ddf1e5e5bf3682bc7bebf30f394148.woff in Resources */,
+				ED9BBAAD1D847182005A3A57 /* urls.txt in Resources */,
 				ED3AB3301D2337920061F266 /* cacert.pem in Resources */,
 				EDE32B731D5CCABB00D7B4CF /* index.html in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,

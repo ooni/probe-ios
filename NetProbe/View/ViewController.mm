@@ -18,6 +18,7 @@
     [self loadAvailableMeasurements];
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [self setLabels];
 }
 
@@ -30,6 +31,12 @@
     
     HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
     [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
+    
+    WebConnectivity *web_connectivityMeasurement = [[WebConnectivity alloc] init];
+    [self.availableNetworkMeasurements addObject:web_connectivityMeasurement];
+    
+    NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
+    [self.availableNetworkMeasurements addObject:ndt_testMeasurement];
 }
 
 -(void)refreshTable:(NSNotification *)notification{
@@ -38,14 +45,18 @@
     [self.tableView reloadData];
 }
 
+-(void)reloadTable{
+    [self.tableView reloadData];
+}
 - (void) setLabels {
     [self.testing_historyLabel setText:[NSLocalizedString(@"testing_history", nil) uppercaseString]];
-    [self.pending_testsLabel setText:[NSLocalizedString(@"pending_tests", nil)  uppercaseString]];
     [self.run_testLabel setText:[NSLocalizedString(@"run_test", nil)  uppercaseString]];
     
     [self.dns_injectionLabel setText:[NSLocalizedString(@"dns_injection", nil) uppercaseString]];
     [self.tcp_connectLabel setText:[NSLocalizedString(@"tcp_connect", nil) uppercaseString]];
     [self.http_invalid_request_lineLabel setText:[NSLocalizedString(@"http_invalid_request_line", nil) uppercaseString]];
+    [self.web_connectivityLabel setText:[NSLocalizedString(@"web_connectivity", nil) uppercaseString]];
+    [self.ndt_testLabel setText:[NSLocalizedString(@"ndt_test", nil) uppercaseString]];
 }
 
 
@@ -107,12 +118,12 @@
 {
     UITableViewCell *cell;
     NetworkMeasurement *current;
-
     if (indexPath.section == 0){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_running" forIndexPath:indexPath];
         current = [self.runningNetworkMeasurements objectAtIndex:indexPath.row];
         UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
-        [bar setProgress:0.2 animated:NO];
+        [bar setProgress:current.progress animated:NO];
+        NSLog(@"setting progress %f", current.progress);
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
@@ -152,6 +163,8 @@
     [self.dns_injectionButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
     [self.tcp_connectButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
     [self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
+    [self.web_connectivityButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
+    [self.ndt_testButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
 }
 
 - (IBAction)buttonClick:(id)sender forEvent:(UIEvent *)event {
@@ -169,6 +182,14 @@
     else if (tappedButton == self.http_invalid_request_lineButton){
         HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
         self.selectedMeasurement = http_invalid_request_lineMeasurement;
+    }
+    else if (tappedButton == self.web_connectivityButton){
+        WebConnectivity *web_connectivityMeasurement = [[WebConnectivity alloc] init];
+        self.selectedMeasurement = web_connectivityMeasurement;
+    }
+    else if (tappedButton == self.ndt_testButton){
+        NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
+        self.selectedMeasurement = ndt_testMeasurement;
     }
 }
 
@@ -196,6 +217,9 @@
         }
         else if (tappedButton.tag == 3){
             [vc setFileName:@"http-invalid-request-line"];
+        }
+        else if (tappedButton.tag == 4){
+            [vc setFileName:@"web-connectivity"];
         }
     }
 }

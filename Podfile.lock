@@ -1,28 +1,29 @@
 PODS:
-  - Crashlytics (3.7.2):
+  - Crashlytics (3.8.1):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.7)
-  - measurement_kit (0.2.3)
+  - Fabric (1.6.8)
+  - measurement_kit (0.3.0-beta.1)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`)
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `release/v0.3.0`)
 
 EXTERNAL SOURCES:
   measurement_kit:
+    :branch: release/v0.3.0
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 CHECKOUT OPTIONS:
   measurement_kit:
-    :commit: b7a73a2fde1dba895429a8ad0dd47a6def61a161
+    :commit: ce47988d9d69ea977f87b14edd858606d740228d
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 SPEC CHECKSUMS:
-  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  measurement_kit: 7655cb0f75c3e00d2e60e54d866881a25e497f43
+  Crashlytics: 4391d8df0b125345e9f209c5db6e7f40a6a8435d
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  measurement_kit: 7eb26d5314f8fcfc0cce2a8f9bd60a723e5f3ccf
 
-PODFILE CHECKSUM: a976d718a97181c5f6f0a7242faae8835848a03a
+PODFILE CHECKSUM: 92a52b191aa7fd7f2f7a6165fde782189d6c1ca1
 
 COCOAPODS: 1.0.0
