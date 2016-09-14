@@ -18,7 +18,7 @@ static void setup_idempotent() {
     if (!initialized) {
         // Set the logger verbose and make sure it logs on the "logcat"
         mk::set_verbosity(MK_LOG_INFO);
-        mk::on_log([](uint32_t type, const char *s) {
+        mk::on_log([](uint32_t, const char *s) {
             NSLog(@"%s", s);
         });
         initialized = true;
@@ -158,11 +158,14 @@ static std::string get_dns_server() {
             NSLog(@"%s", s);
             if ((type & MK_LOG_JSON) != 0) {
                 NSData *data = [[NSString stringWithUTF8String:s] dataUsingEncoding:NSUTF8StringEncoding];
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                self.progress = [[json objectForKey:@"progress"] floatValue];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-                });
+                NSError *err = nil;
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+                if ([json objectForKey:@"progress"]){
+                    self.progress = [[json objectForKey:@"progress"] floatValue];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+                    });
+                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self writeOrAppend:current];
@@ -211,11 +214,14 @@ static std::string get_dns_server() {
             NSLog(@"%s", s);
             if ((type & MK_LOG_JSON) != 0) {
                 NSData *data = [[NSString stringWithUTF8String:s] dataUsingEncoding:NSUTF8StringEncoding];
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                self.progress = [[json objectForKey:@"progress"] floatValue];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-                });
+                NSError *err = nil;
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+                if ([json objectForKey:@"progress"]){
+                    self.progress = [[json objectForKey:@"progress"] floatValue];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+                    });
+                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self writeOrAppend:current];
@@ -267,11 +273,14 @@ static std::string get_dns_server() {
             NSLog(@"%s", s);
             if ((type & MK_LOG_JSON) != 0) {
                 NSData *data = [[NSString stringWithUTF8String:s] dataUsingEncoding:NSUTF8StringEncoding];
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                self.progress = [[json objectForKey:@"progress"] floatValue];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-                });
+                NSError *err = nil;
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+                if ([json objectForKey:@"progress"]){
+                    self.progress = [[json objectForKey:@"progress"] floatValue];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+                    });
+                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self writeOrAppend:current];
@@ -324,11 +333,14 @@ static std::string get_dns_server() {
         NSLog(@"%s", s);
         if ((type & MK_LOG_JSON) != 0) {
             NSData *data = [[NSString stringWithUTF8String:s] dataUsingEncoding:NSUTF8StringEncoding];
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            self.progress = [[json objectForKey:@"progress"] floatValue];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-            });
+            NSError *err = nil;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+            if ([json objectForKey:@"progress"]){
+                self.progress = [[json objectForKey:@"progress"] floatValue];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+                });
+            }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self writeOrAppend:current];
@@ -359,39 +371,7 @@ static std::string get_dns_server() {
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     [TestStorage add_test:self];
-
-    /*
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *geoip_asn = [bundle pathForResource:@"GeoIPASNum" ofType:@"dat"];
-    NSString *geoip_country = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
-    NSString *ca_cert = [bundle pathForResource:@"cacert" ofType:@"pem"];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *docs_dir = [paths objectAtIndex:0];
-    NSString *ofile = [NSString stringWithFormat:@"%@/output.json", docs_dir];
-    */
-    
-    // Note: the emulator does not cope well with receiving
-    // a signal of type SIGPIPE when the debugger is attached
-    // See http://stackoverflow.com/questions/1294436
-    
-    // XXX: MK_LOG_DEBUG2 sends app to deadlock?!
-    
-    /* Note: this experiment is about comparing the performance of one and
-     multiple streams using the same server; this is why the server address
-     has been explicitly provided below */
-    
-    const char *servers[2] = {
-        "neubot.mlab.mlab1.nuq0t.measurement-lab.org",
-        "52.43.197.62",
-    };
-    static int previous_index = 0;
-    const char *server_address = servers[previous_index++];
-    if (previous_index > 1) {
-        previous_index = 0;
-    }
-    
+        
     mk::ndt::NdtTest()
     .set_options("test_suite", MK_NDT_DOWNLOAD)
     .set_verbosity(MK_LOG_INFO)
@@ -402,11 +382,14 @@ static std::string get_dns_server() {
         NSLog(@"%s", s);
         if ((type & MK_LOG_JSON) != 0) {
             NSData *data = [[NSString stringWithUTF8String:s] dataUsingEncoding:NSUTF8StringEncoding];
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            self.progress = [[json objectForKey:@"progress"] floatValue];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-            });
+            NSError *err = nil;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+            if ([json objectForKey:@"progress"]){
+                self.progress = [[json objectForKey:@"progress"] floatValue];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+                });
+            }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self writeOrAppend:current];
@@ -419,8 +402,6 @@ static std::string get_dns_server() {
     .set_options("save_real_probe_ip", include_ip)
     .set_options("save_real_probe_asn", include_asn)
     .set_options("collector_base_url", [collector_address UTF8String])
-    // TODO: set here the specific testing server
-    .set_options("address", server_address)
     .run([self]() {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.completed = TRUE;
