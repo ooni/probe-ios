@@ -24,15 +24,18 @@
 -(void) loadScreen :(NSString*) content{
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     WKUserContentController* userController = [[WKUserContentController alloc] init];
-    content = [content stringByReplacingOccurrencesOfString:@"'" withString:@"\'"];
+
+    // Here we sanitize the content. Note: order matters.
+    content = [content stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+    content = [content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
 
     NSString* MeasurementJSON = [NSString stringWithFormat:@"\n var MeasurementJSON = {  \n"
                                  "get: function() {  \n"
                                  "return "
-                                 "'%@';"
+                                 "'%s';"
                                  "   } \n"
-                                 "}", content];
-    NSLog(@"%@", MeasurementJSON);
+                                 "};", [content UTF8String]]; // Cast to c type string
+
     WKUserScript* userScript = [[WKUserScript alloc]initWithSource:MeasurementJSON
                                                      injectionTime: WKUserScriptInjectionTimeAtDocumentStart
                                                   forMainFrameOnly:NO];
@@ -53,7 +56,7 @@
     
     self.webView = [[WKWebView alloc] initWithFrame:frame configuration:configuration];
     [self.view addSubview:self.webView];
-    [self.webView loadHTMLString:htmlData baseURL:[[NSBundle mainBundle] bundleURL]];
+    [self.webView loadHTMLString:htmlData baseURL: [NSURL fileURLWithPath:pathToHtml]];
 }
 
 -(void) selectTest{
