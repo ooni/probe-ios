@@ -24,15 +24,15 @@
 -(void) loadScreen :(NSString*) content{
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     WKUserContentController* userController = [[WKUserContentController alloc] init];
-    
-    
+    content = [content stringByReplacingOccurrencesOfString:@"'" withString:@"\'"];
+
     NSString* MeasurementJSON = [NSString stringWithFormat:@"\n var MeasurementJSON = {  \n"
                                  "get: function() {  \n"
                                  "return "
-                                 "%@;"
+                                 "'%@';"
                                  "   } \n"
                                  "}", content];
-    
+    NSLog(@"%@", MeasurementJSON);
     WKUserScript* userScript = [[WKUserScript alloc]initWithSource:MeasurementJSON
                                                      injectionTime: WKUserScriptInjectionTimeAtDocumentStart
                                                   forMainFrameOnly:NO];

@@ -22,8 +22,7 @@
 @property NSString *name;
 
 @property NSNumber *test_id;
-//Not used
-@property NSString *status;
+@property float progress;
 
 @property NSString *json_file;
 @property NSString *log_file;
@@ -41,4 +40,10 @@
 @end
 
 @interface TCPConnect : NetworkMeasurement
+@end
+
+@interface WebConnectivity : NetworkMeasurement
+@end
+
+@interface NdtTest : NetworkMeasurement
 @end

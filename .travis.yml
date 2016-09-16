@@ -8,5 +8,7 @@ install:
     - sudo gem install cocoapods
     - pod repo update 2>&1 >/dev/null
     - pod install --verbose
-    - xcodebuild -workspace NetProbe.xcworkspace/ -scheme NetProbe
-      CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+    - sudo gem install xcpretty
+    - set -o pipefail && xcodebuild -workspace NetProbe.xcworkspace/
+        -scheme NetProbe CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          | xcpretty
