@@ -48,17 +48,27 @@
     }
     else {
         cell.textLabel.font = [UIFont systemFontOfSize:17.0];
-        if(indexPath.section == 0) cell.textLabel.text = [firstQuestion objectAtIndex:indexPath.row-1];
-        else if(indexPath.section == 1) cell.textLabel.text = [secondQuestion objectAtIndex:indexPath.row-1];
         cell.imageView.image = [UIImage imageNamed:@"not-selected"];
+        if(indexPath.section == 0) {
+            cell.textLabel.text = [firstQuestion objectAtIndex:indexPath.row-1];
+            if (indexPath.row == firstAnswer) cell.imageView.image = [UIImage imageNamed:@"selected"];
+        }
+        else if(indexPath.section == 1) {
+            cell.textLabel.text = [secondQuestion objectAtIndex:indexPath.row-1];
+            if (indexPath.row == secondAnswer) cell.imageView.image = [UIImage imageNamed:@"selected"];
+        }
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"section %ld row %ld", (long)indexPath.section, (long)indexPath.row);
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (indexPath.row != 0){
+        if(indexPath.section == 0) firstAnswer = indexPath.row;
+        else if(indexPath.section == 1) secondAnswer = indexPath.row;
+        [self.tableView reloadData];
+    }
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

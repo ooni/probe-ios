@@ -12,6 +12,8 @@
     NSArray *firstQuestion;
     NSArray *secondQuestion;
     NSArray *headers;
+    long firstAnswer;
+    long secondAnswer;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
