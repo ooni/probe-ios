@@ -65,21 +65,30 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"section %ld row %ld", (long)indexPath.section, (long)indexPath.row);
     if (indexPath.row != 0){
         if(indexPath.section == 0) firstAnswer = indexPath.row;
         else if(indexPath.section == 1) secondAnswer = indexPath.row;
         [self.tableView reloadData];
     }
-    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)next{
-    CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
-    style.messageColor = [UIColor redColor];
-    [self.view makeToast:@"Your answers to one or more of the quiz questions is wrong. Please read the Risks documentation and try again." duration:3.0 position:CSToastPositionBottom style:style];
-    
-    //[self performSegueWithIdentifier:@"toConfiguration" sender:self];
+    if ([self checkAnswers]){
+        [self performSegueWithIdentifier:@"toConfiguration" sender:self];
+    }
+    else {
+        CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
+        style.messageAlignment = NSTextAlignmentCenter;
+        style.messageColor = [UIColor colorWithRed:169.0/255.0 green:68.0/255.0 blue:66.0/255.0 alpha:1.0];
+        style.backgroundColor = [UIColor colorWithRed:242.0/255.0 green:222.0/255.0 blue:222.0/255.0 alpha:1.0];
+        [self.view makeToast:NSLocalizedString(@"wrong", nil) duration:3.0 position:CSToastPositionBottom style:style];
+    }
+}
+
+-(BOOL) checkAnswers{
+    if (firstAnswer == 1 && secondAnswer == 2) return TRUE;
+    return false;
 }
 
 /*
