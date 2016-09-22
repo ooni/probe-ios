@@ -355,7 +355,6 @@
 				D4A2F5D51A6C3244001B8460 /* Sources */,
 				D4A2F5D61A6C3244001B8460 /* Frameworks */,
 				D4A2F5D71A6C3244001B8460 /* Resources */,
-				ED54FF141CFD901B00769EC6 /* ShellScript */,
 				F70B8E4CF287D112F3E711C7 /* 📦 Embed Pods Frameworks */,
 				CD390BE1AF46A5AFAC8E83E4 /* 📦 Copy Pods Resources */,
 			);
@@ -480,19 +479,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetProbe/Pods-NetProbe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		ED54FF141CFD901B00769EC6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 529a3ff33bd5359fe86c53f6252035178bdb03a1 86750672d61af87e007dc755cb420380fa7027b48ac0c9cc5464d5231846dab8";
 		};
 		F70B8E4CF287D112F3E711C7 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

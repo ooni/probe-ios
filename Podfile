@@ -4,7 +4,6 @@ target 'NetProbe' do
 	pod 'measurement_kit',  
 		:git => 'https://github.com/measurement-kit/measurement-kit.git',
 		:branch => 'release/v0.3.0'
-	pod 'Fabric'
-	pod 'Crashlytics'
+	pod 'Toast'
 end
 

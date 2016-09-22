@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+Toast.h"
 
 @interface QuizViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *firstQuestion;
