@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.textView scrollRangeToVisible:NSMakeRange(0, 0)];
+    //[self.textView scrollRangeToVisible:NSMakeRange(0, 0)];
     //self.title = NSLocalizedString(@"", nil);
     UIBarButtonItem *next = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"next", nil) style:UIBarButtonItemStylePlain target:self action:@selector(next)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:next, nil];
@@ -25,6 +25,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.textView.scrollEnabled = YES;
 }
 
 -(void)next{
