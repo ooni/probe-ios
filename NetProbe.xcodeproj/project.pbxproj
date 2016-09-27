@@ -35,6 +35,7 @@
 		ED8816BA1D8C6A6100D5D725 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */; };
 		ED9BBAAD1D847182005A3A57 /* urls.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED9BBAAC1D847182005A3A57 /* urls.txt */; };
 		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
+		EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDE32B5D1D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B441D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff */; };
 		EDE32B5E1D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B451D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf */; };
@@ -109,6 +110,8 @@
 		ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurationViewController.m; path = "Informed consent/ConfigurationViewController.m"; sourceTree = "<group>"; };
 		ED9BBAAC1D847182005A3A57 /* urls.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = urls.txt; sourceTree = "<group>"; };
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectorViewController.h; sourceTree = "<group>"; };
+		EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultSelectorViewController.m; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDE32B441D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0c4500a9d203a33bd879a9a0bee1190d.woff; sourceTree = "<group>"; };
 		EDE32B451D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1dc35d25e61d819a9c357074014867ab.ttf; sourceTree = "<group>"; };
@@ -273,6 +276,8 @@
 				ED2528211CEA35640073A29B /* AdvancedSettingsTableViewController.m */,
 				EDE344801D42151C00BAEB10 /* ResultViewController.h */,
 				EDE344811D42151C00BAEB10 /* ResultViewController.m */,
+				EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */,
+				EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.m in Sources */,
 				ED25282C1CEA35640073A29B /* SettingsTableViewController.m in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,

@@ -12,13 +12,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    items = [self getItems];
     self.title = NSLocalizedString(@"test_result", nil);
-    NSArray *items = [self getItems];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inputSelected:) name:@"inputSelected" object:nil];
+    [self loadScreen:0];
     if ([items count] > 1){
+        [self performSegueWithIdentifier:@"toResultSelector" sender:self];
         UIBarButtonItem *closeBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(selectTest)];
         self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:closeBtn, nil];
     }
-    [self loadScreen:[items objectAtIndex:0]];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+-(void) inputSelected:(NSNotification *) notification{
+    NSDictionary *userInfo = notification.userInfo;
+    [self loadScreen:[items objectAtIndex:[[userInfo objectForKey:@"input_id"] longValue]]];
 }
 
 -(void) loadScreen :(NSString*) content{
@@ -43,7 +54,6 @@
     NSString *htmlData = [NSString stringWithContentsOfFile:pathToHtml encoding:NSUTF8StringEncoding error:NULL];
 
     CGRect frame = self.view.frame;
-    
     //BUG FIX: when alloc the second time the webview goes under top bar
     if (self.webView != nil) {
         [self.webView removeFromSuperview];
@@ -57,14 +67,15 @@
 }
 
 -(void) selectTest{
+    [self performSegueWithIdentifier:@"toResultSelector" sender:self];
+    /*
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:NSLocalizedString(@"select_test", nil)
                                   delegate:self
                                   cancelButtonTitle:nil
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:nil];
-    NSArray *tests = [self getItems];
-    for(NSString *content in tests){
+    for(NSString *content in items){
         NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"input %@", [json objectForKey:@"input"]]];
@@ -72,6 +83,18 @@
     actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
     actionSheet.tag = 1;
     [actionSheet showInView:self.view];
+     */
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 1){
+        [self loadScreen:[items objectAtIndex:buttonIndex]];
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
 -(NSArray*)getItems{
@@ -89,15 +112,13 @@
     return [content componentsSeparatedByString:@"\n"];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (actionSheet.tag == 1){
-        [self loadScreen:[[self getItems] objectAtIndex:buttonIndex]];
-    }
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navController = [segue destinationViewController];
+    ResultSelectorViewController *rvc = (ResultSelectorViewController *)([navController viewControllers][0]);
+    //ResultSelectorViewController *rvc = [segue destinationViewController];
+    [rvc setItems:items];
 }
 
 @end

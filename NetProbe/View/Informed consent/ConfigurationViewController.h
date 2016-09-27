@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "UIView+Toast.h"
 
-@interface ConfigurationViewController : UIViewController
+@interface ConfigurationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+    NSArray *settingsTitles;
+    NSArray *settingsItems;
+    NSMutableArray *settingsValues;
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+
 
 @end

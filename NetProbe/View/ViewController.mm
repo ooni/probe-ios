@@ -19,7 +19,17 @@
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
     [self setLabels];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"]){
+        [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
+        [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void) loadAvailableMeasurements {
@@ -191,6 +201,14 @@
         NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
         self.selectedMeasurement = ndt_testMeasurement;
     }
+}
+
+-(void)showToast{
+    CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
+    style.messageAlignment = NSTextAlignmentCenter;
+    style.messageColor = [UIColor colorWithRed:60.0/255.0 green:118.0/255.0 blue:61.0/255.0 alpha:1.0];
+    style.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:240.0/255.0 blue:216.0/255.0 alpha:1.0];
+    [self.view makeToast:NSLocalizedString(@"netprobe_configured", nil) duration:3.0 position:CSToastPositionBottom style:style];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
