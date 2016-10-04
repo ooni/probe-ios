@@ -27,8 +27,6 @@
     [super viewDidAppear:animated];
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"]){
         [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
-        [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 

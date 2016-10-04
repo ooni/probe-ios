@@ -17,9 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //[self.textView scrollRangeToVisible:NSMakeRange(0, 0)];
-    //self.title = NSLocalizedString(@"", nil);
+    self.title = NSLocalizedString(@"risks", nil);
     UIBarButtonItem *next = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"next", nil) style:UIBarButtonItemStylePlain target:self action:@selector(next)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:next, nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSAttributedString *risks_text = [[NSAttributedString alloc] initWithData:[NSLocalizedString(@"risks_text", nil) dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}documentAttributes:nil error:nil];
+        self.textView.attributedText = risks_text;
+    });
 }
 
 - (void)didReceiveMemoryWarning {

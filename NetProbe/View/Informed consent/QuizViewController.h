@@ -18,6 +18,8 @@
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *subtitleLabel;
 
 
 @end

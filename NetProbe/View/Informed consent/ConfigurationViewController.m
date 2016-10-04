@@ -16,6 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = NSLocalizedString(@"configuration", nil);
+    self.titleLabel.text = NSLocalizedString(@"configuration", nil);
+    self.subtitleLabel.text = NSLocalizedString(@"configuration_text", nil);
+
     CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
     style.messageAlignment = NSTextAlignmentCenter;
     style.messageColor = [UIColor colorWithRed:60.0/255.0 green:118.0/255.0 blue:61.0/255.0 alpha:1.0];
@@ -51,7 +55,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UIImageView *image = (UIImageView*)[cell viewWithTag:2];
-    title.text = [settingsTitles objectAtIndex:indexPath.row];
+    title.text = NSLocalizedString([settingsTitles objectAtIndex:indexPath.row], nil);
     if ([[settingsValues objectAtIndex:indexPath.row] boolValue])
         image.image = [UIImage imageNamed:@"selected"];
     else
@@ -74,6 +78,8 @@
 
 -(void)configure{
     //save prefs
+    [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"showToast" object:nil];
     }];
