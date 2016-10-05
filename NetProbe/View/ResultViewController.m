@@ -86,7 +86,9 @@
     if([fileManager fileExistsAtPath:filePath]) {
         content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
         //Cut out the last \n
-        content = [content substringToIndex:[content length]-1];
+        if ([content length] > 0) {
+            content = [content substringToIndex:[content length]-1];
+        }
     }
     return [content componentsSeparatedByString:@"\n"];
 }

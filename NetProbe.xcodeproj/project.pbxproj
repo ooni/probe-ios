@@ -323,13 +323,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4A2F5FC1A6C3244001B8460 /* Build configuration list for PBXNativeTarget "NetProbe" */;
 			buildPhases = (
-				5D6428D6FA150D41DC1F6906 /* 📦 Check Pods Manifest.lock */,
+				5D6428D6FA150D41DC1F6906 /* [CP] Check Pods Manifest.lock */,
 				D4A2F5D51A6C3244001B8460 /* Sources */,
 				D4A2F5D61A6C3244001B8460 /* Frameworks */,
 				D4A2F5D71A6C3244001B8460 /* Resources */,
 				ED54FF141CFD901B00769EC6 /* ShellScript */,
-				F70B8E4CF287D112F3E711C7 /* 📦 Embed Pods Frameworks */,
-				CD390BE1AF46A5AFAC8E83E4 /* 📦 Copy Pods Resources */,
+				F70B8E4CF287D112F3E711C7 /* [CP] Embed Pods Frameworks */,
+				CD390BE1AF46A5AFAC8E83E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -423,14 +423,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5D6428D6FA150D41DC1F6906 /* 📦 Check Pods Manifest.lock */ = {
+		5D6428D6FA150D41DC1F6906 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,14 +438,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		CD390BE1AF46A5AFAC8E83E4 /* 📦 Copy Pods Resources */ = {
+		CD390BE1AF46A5AFAC8E83E4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,14 +466,14 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 529a3ff33bd5359fe86c53f6252035178bdb03a1 86750672d61af87e007dc755cb420380fa7027b48ac0c9cc5464d5231846dab8";
 		};
-		F70B8E4CF287D112F3E711C7 /* 📦 Embed Pods Frameworks */ = {
+		F70B8E4CF287D112F3E711C7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
