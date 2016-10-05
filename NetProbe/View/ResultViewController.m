@@ -35,15 +35,18 @@
 -(void) loadScreen :(NSString*) content{
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     WKUserContentController* userController = [[WKUserContentController alloc] init];
-    content = [content stringByReplacingOccurrencesOfString:@"'" withString:@"\'"];
+
+    // Here we sanitize the content. Note: order matters.
+    content = [content stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+    content = [content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
 
     NSString* MeasurementJSON = [NSString stringWithFormat:@"\n var MeasurementJSON = {  \n"
                                  "get: function() {  \n"
                                  "return "
-                                 "'%@';"
+                                 "'%s';"
                                  "   } \n"
-                                 "}", content];
-    NSLog(@"%@", MeasurementJSON);
+                                 "};", [content UTF8String]]; // Cast to c type string
+
     WKUserScript* userScript = [[WKUserScript alloc]initWithSource:MeasurementJSON
                                                      injectionTime: WKUserScriptInjectionTimeAtDocumentStart
                                                   forMainFrameOnly:NO];
@@ -63,7 +66,7 @@
     
     self.webView = [[WKWebView alloc] initWithFrame:frame configuration:configuration];
     [self.view addSubview:self.webView];
-    [self.webView loadHTMLString:htmlData baseURL:[[NSBundle mainBundle] bundleURL]];
+    [self.webView loadHTMLString:htmlData baseURL: [NSURL fileURLWithPath:pathToHtml]];
 }
 
 -(void) selectTest{
@@ -106,8 +109,9 @@
     if([fileManager fileExistsAtPath:filePath]) {
         content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
         //Cut out the last \n
-        if([content length] > 1)
+        if ([content length] > 0) {
             content = [content substringToIndex:[content length]-1];
+        }
     }
     return [content componentsSeparatedByString:@"\n"];
 }
