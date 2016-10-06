@@ -71,7 +71,7 @@
 
 -(void) switchRow:(long)idx{
     NSString *current = [settingsItems objectAtIndex:idx];
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
