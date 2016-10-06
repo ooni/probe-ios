@@ -1,13 +1,10 @@
 PODS:
-  - Crashlytics (3.8.2):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.9)
   - measurement_kit (0.3.2)
+  - Toast (3.0)
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
   - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `stable`)
+  - Toast
 
 EXTERNAL SOURCES:
   measurement_kit:
@@ -20,10 +17,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 SPEC CHECKSUMS:
-  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
-  Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
   measurement_kit: 4e19232813e59f5d64fb8418fab34fd65077eee9
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
 
-PODFILE CHECKSUM: 88ba7df5e4119d410ed6ca3867e75a14630dce6b
+PODFILE CHECKSUM: 19c0bcc0539523c58b44871b653e6dcd37bf028b
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.0.0
