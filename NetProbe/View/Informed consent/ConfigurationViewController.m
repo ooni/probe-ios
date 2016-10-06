@@ -32,8 +32,7 @@
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:configure, nil];
 
     settingsTitles = @[@"Should we include your IP address in results?", @"Should we include your network information in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?", @"Should we include your country name in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?", @"Should we upload your results to the default ooni collector?"];
-    settingsItems = @[@"include_ip", @"include_asn", @"include_country", @"upload_collector"];
-    settingsValues = [[NSMutableArray alloc] initWithArray:@[[NSNumber numberWithBool:FALSE], [NSNumber numberWithBool:TRUE], [NSNumber numberWithBool:TRUE], [NSNumber numberWithBool:TRUE]]];
+    settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,8 +54,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UIImageView *image = (UIImageView*)[cell viewWithTag:2];
-    title.text = NSLocalizedString([settingsTitles objectAtIndex:indexPath.row], nil);
-    if ([[settingsValues objectAtIndex:indexPath.row] boolValue])
+    NSString *current = [settingsItems objectAtIndex:indexPath.row];
+    title.text = NSLocalizedString(current, nil);
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
         image.image = [UIImage imageNamed:@"selected"];
     else
         image.image = [UIImage imageNamed:@"not-selected"];
@@ -70,10 +70,12 @@
 }
 
 -(void) switchRow:(long)idx{
-    if ([[settingsValues objectAtIndex:idx] boolValue])
-        [settingsValues setObject:[NSNumber numberWithBool:FALSE] atIndexedSubscript:idx];
+    NSString *current = [settingsItems objectAtIndex:idx];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
-        [settingsValues setObject:[NSNumber numberWithBool:TRUE] atIndexedSubscript:idx];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)configure{

@@ -12,7 +12,6 @@
 @interface ConfigurationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *settingsTitles;
     NSArray *settingsItems;
-    NSMutableArray *settingsValues;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

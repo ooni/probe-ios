@@ -60,6 +60,7 @@ static std::string get_dns_server() {
     ca_cert = [bundle pathForResource:@"cacert" ofType:@"pem"];
     include_ip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_ip"] boolValue];
     include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
+    include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
     collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
     self.completed = FALSE;
     return self;
@@ -149,6 +150,7 @@ static std::string get_dns_server() {
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
         .set_options("save_real_probe_asn", include_asn)
+        .set_options("save_real_probe_cc", include_cc)
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
@@ -205,6 +207,7 @@ static std::string get_dns_server() {
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
         .set_options("save_real_probe_asn", include_asn)
+        .set_options("save_real_probe_cc", include_cc)
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
@@ -263,6 +266,7 @@ static std::string get_dns_server() {
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
         .set_options("save_real_probe_asn", include_asn)
+        .set_options("save_real_probe_cc", include_cc)
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
@@ -323,6 +327,7 @@ static std::string get_dns_server() {
     .set_options("net/ca_bundle_path", [ca_cert UTF8String])
     .set_options("save_real_probe_ip", include_ip)
     .set_options("save_real_probe_asn", include_asn)
+    .set_options("save_real_probe_cc", include_cc)
     .set_options("collector_base_url", [collector_address UTF8String])
     .set_input_filepath([path UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
@@ -401,6 +406,7 @@ static std::string get_dns_server() {
     .set_options("geoip_asn_path", [geoip_asn UTF8String])
     .set_options("save_real_probe_ip", include_ip)
     .set_options("save_real_probe_asn", include_asn)
+    .set_options("save_real_probe_cc", include_cc)
     .set_options("collector_base_url", [collector_address UTF8String])
     .run([self]() {
         dispatch_async(dispatch_get_main_queue(), ^{

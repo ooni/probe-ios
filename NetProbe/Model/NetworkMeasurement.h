@@ -16,6 +16,7 @@
     NSString *ca_cert;
     bool include_ip;
     bool include_asn;
+    bool include_cc;
     NSString *collector_address;
 }
 
