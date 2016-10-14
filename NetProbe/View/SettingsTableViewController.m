@@ -12,18 +12,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*
-     Settings:
-     - Includere ip nel report ON/OFF
-     - Includere asn ON/OFF
-     - Posizione gps (non precisa) ON/OFF
-     - Impostazioni avanzate
-        - Indirizzo collector da usare - Stringa
-        - Indirizzo bouncer - Stringa
-     */
     self.title = NSLocalizedString(@"settings", nil);
-    settingsItems = @[@"include_ip", @"include_asn", @"collector_address"];
-    //removed @"gps_position", advanced_settings
+    settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results", @"collector_address"];
+    self.tableView.estimatedRowHeight = 80.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +43,7 @@
         [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
         else switchview.on = NO;
+        switchview.tag = indexPath.row;
         switchview.onTintColor = [UIColor colorWithRed:162.0/255.0 green:155.0/255.0 blue:130.0/255.0 alpha:1.0];
         cell.accessoryView = switchview;
     }
@@ -59,27 +52,32 @@
         NSString *current = [settingsItems objectAtIndex:indexPath.row];
         cell.textLabel.text = NSLocalizedString(current, nil);
         cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue]){
+            cell.userInteractionEnabled = YES;
+            cell.hidden = NO;
+        }
+        else {
+            cell.userInteractionEnabled = NO;
+            cell.hidden = YES;
+        }
     }
-    /*
-    else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CellAdvanced" forIndexPath:indexPath];
-        NSString *current = [settingsItems objectAtIndex:indexPath.row];
-        cell.textLabel.text = NSLocalizedString(current, nil);
-        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    }*/
     return cell;
 }
 
 -(void)setSwitch:(id)sender{
     UISwitch* switchControl = sender;
-    UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
-    NSString *current = [settingsItems objectAtIndex:indexPath.row];
+    NSString *current = [settingsItems objectAtIndex:switchControl.tag];
     if (switchControl.on)
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    if ([current isEqualToString:@"upload_results"]){
+        NSIndexPath *indexPath_R = [NSIndexPath indexPathForRow:4 inSection:0];
+        [self.tableView beginUpdates];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath_R] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView endUpdates];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

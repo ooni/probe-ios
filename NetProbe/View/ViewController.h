@@ -8,6 +8,7 @@
 #import "TestInfoViewController.h"
 #import "TestStorage.h"
 #import "ResultViewController.h"
+#import "UIView+Toast.h"
 
 @interface ViewController : UIViewController
 
