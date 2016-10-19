@@ -322,9 +322,9 @@ static std::string get_dns_server() {
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"urls" ofType:@"txt"];
-    
+    //TODO DEFINE backend string in header
     mk::ooni::WebConnectivity()
-    .set_options("backend", "https://a.collector.test.ooni.io:4444")
+    .set_options("backend", "https://a.web-connectivity.th.ooni.io:4442")
     .set_options("nameserver", get_dns_server())
     .set_options("geoip_country_path", [geoip_country UTF8String])
     .set_options("geoip_asn_path", [geoip_asn UTF8String])

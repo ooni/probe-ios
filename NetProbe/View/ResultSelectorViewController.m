@@ -41,6 +41,13 @@
     NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     cell.textLabel.text = [NSString stringWithFormat:@"input %@", [json objectForKey:@"input"]];
+    if ([[json objectForKey:@"test_keys"] objectForKey:@"blocking"] != [NSNull null]){
+        if ([[[json objectForKey:@"test_keys"] objectForKey:@"blocking"] boolValue]){
+            cell.imageView.image = [UIImage imageNamed:@"result_1"];
+        }
+        else cell.imageView.image = [UIImage imageNamed:@"result_0"];
+    }
+    else cell.imageView.image = [UIImage imageNamed:@"result_0"];
     return cell;
 }
 
