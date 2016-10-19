@@ -16,16 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //[self.textView scrollRangeToVisible:NSMakeRange(0, 0)];
     self.title = NSLocalizedString(@"introduction", nil);
     UIBarButtonItem *next = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"next", nil) style:UIBarButtonItemStylePlain target:self action:@selector(next)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:next, nil];
+    /*
     dispatch_async(dispatch_get_main_queue(), ^{
         NSAttributedString *intro_text = [[NSAttributedString alloc] initWithData:[NSLocalizedString(@"intro_text", nil) dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}documentAttributes:nil error:nil];
         self.textView.attributedText = intro_text;
     });
-
+     */
     /*
     NSAttributedString *intro_text = [[NSAttributedString alloc] initWithData:[NSLocalizedString(@"intro_text", nil) dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}documentAttributes:nil error:nil];
     self.textView.attributedText = intro_text;
@@ -36,6 +35,12 @@
      */
 }
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.textView.scrollEnabled = NO;
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {

@@ -57,9 +57,9 @@
     NSString *current = [settingsItems objectAtIndex:indexPath.row];
     title.text = NSLocalizedString(current, nil);
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
-        image.image = [UIImage imageNamed:@"selected"];
+        image.image = [UIImage imageNamed:@"checked_checkbox"];
     else
-        image.image = [UIImage imageNamed:@"not-selected"];
+        image.image = [UIImage imageNamed:@"unchecked_checkbox"];
     return cell;
 }
 

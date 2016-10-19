@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+Toast.h"
 
 @interface RisksViewController : UIViewController
 
