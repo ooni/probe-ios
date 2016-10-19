@@ -15,7 +15,7 @@
     items = [self getItems];
     self.title = NSLocalizedString(@"test_result", nil);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inputSelected:) name:@"inputSelected" object:nil];
-    [self loadScreen:0];
+    [self loadScreen:[items objectAtIndex:0]];
     if ([items count] > 1){
         [self performSegueWithIdentifier:@"toResultSelector" sender:self];
         UIBarButtonItem *closeBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(selectTest)];
