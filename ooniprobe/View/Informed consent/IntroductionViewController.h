@@ -6,6 +6,7 @@
 
 @interface IntroductionViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UILabel *greetingsLabel;
 @property (nonatomic, strong) IBOutlet UITextView *textView;
 
 @end

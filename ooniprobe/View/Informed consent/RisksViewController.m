@@ -16,30 +16,18 @@
     UIBarButtonItem *next = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"next", nil) style:UIBarButtonItemStylePlain target:self action:@selector(next)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:next, nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToastWrong" object:nil];
-
-/*
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSAttributedString *risks_text = [[NSAttributedString alloc] initWithData:[NSLocalizedString(@"risks_text", nil) dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}documentAttributes:nil error:nil];
-        self.textView.attributedText = risks_text;
-    });
- */
+    
+    NSString *pathToiOSCss = [[NSBundle mainBundle] pathForResource:@"setup-mobile" ofType:@"css"];
+    NSString *iOSCssData = [NSString stringWithContentsOfFile:pathToiOSCss encoding:NSUTF8StringEncoding error:NULL];
+    NSString *pathToHtml = [[NSBundle mainBundle] pathForResource:@"step2" ofType:@"html"];
+    NSString *htmlData = [NSString stringWithContentsOfFile:pathToHtml encoding:NSUTF8StringEncoding error:NULL];
+    NSString *html = [NSString stringWithFormat:@"<head><style>%@</style></head>%@", iOSCssData, htmlData];
+    [self.webView loadHTMLString:html baseURL:[[NSBundle mainBundle] bundleURL]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.textView.scrollEnabled = NO;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    self.textView.scrollEnabled = YES;
 }
 
 -(void)showToast{
