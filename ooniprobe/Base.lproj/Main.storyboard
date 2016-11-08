@@ -83,13 +83,16 @@ The next two steps of this wizard will walk you through some of the potential da
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3o-kG-oX5">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3o-kG-oX5">
                                 <rect key="frame" x="360" y="698" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="EFv-f7-rBN"/>
                                     <constraint firstAttribute="height" constant="30" id="hWK-FC-QwY"/>
                                 </constraints>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="next" destination="XIr-Ue-RDu" eventType="touchUpInside" id="vbD-f8-Qld"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
