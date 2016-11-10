@@ -1,0 +1,69 @@
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
+"app_name" = "ooniprobe";
+"testing_history" = "Tests";
+"select_test" = "Select test";
+"run_test" = "Run test";
+
+"dns_injection" = "DNS Injection";
+"tcp_connect" = "TCP Connect";
+"http_invalid_request_line" = "HTTP Invalid request line";
+"http_header_field_manipulation" = "HTTP Header field manipulation";
+"web_connectivity" = "Web Connectivity";
+"ndt_test" = "Ndt Test";
+
+"check_port" = "Check port";
+"traceroute" = "Traceroute";
+
+"running_tests" = "Running tests";
+"finished_tests" = "Finished tests";
+
+"settings" = "Settings";
+"collector_address" = "Collector Address";
+
+"cancel" = "Cancel";
+"ok" = "OK";
+"delete" = "Delete";
+
+"test_result" = "Test result";
+"change" = "Change";
+
+"next" = "Next";
+"previous" = "Previous";
+
+"wrong" = "Your answers to one or more of the quiz questions is wrong. Please read the Risks documentation and try again.";
+"correct" = "You answered to the quiz correctly. Carry on.";
+
+"configure" = "Configure";
+"ooniprobe_configured" = "Successfully configured ooniprobe. You are all set to go!";
+
+"introduction" = "Introduction";
+"risks" = "Risks";
+"quiz" = "Quiz";
+"configuration" = "Configuration";
+
+"greetings" = "Greetings!";
+"intro_text_1" = "This setup wizard will help you get started with ooniprobe. It should take about 5 minutes.";
+"intro_text_2" = "The Open Observatory of Network Interference (OONI) works to fight network censorship and surveillance.";
+"intro_text_3" = "By running this software, you may be putting yourself at risk.";
+"intro_text_4" = "The next two steps of this wizard will walk you through some of the potential dangers. Please bear with us, as this is important!";
+
+"quiz_text" = "Please answer the following questions to ensure you have understood what ooniprobe does and that you are aware of risks associated with running the software.";
+
+"header_1" = "In regards to how detectable ooniprobe is, which of the following statements is true?";
+"answer_1_1" = "Anyone monitoring my internet activity (e.g. ISP, government or employer) might be able to see that I am running ooniprobe, even though OONI takes precautions to make this hard";
+"answer_1_2" = "Anyone monitoring my internet activity (e.g. ISP, government or employer) will not be able to see that I am running ooniprobe";
+"answer_1_3" = "ooniprobe is designed to protect my privacy and therefore my use of ooniprobe cannot be detected";
+
+"header_2" = "In regards to the publication of measurements, which of the following statements is true?";
+"answer_2_1" = "My measurements will not by default get published on OONI Explorer";
+"answer_2_2" = "My measurements will by default get published on OONI Explorer and might include personally-identifiable information.";
+"answer_2_3" = "My measurements will by default get published to OONI Explorer and will never include any personally-identifiable information";
+
+"configuration_text" = "Certain aspects of how ooniprobe operates can be customized. Usually the default values are the best option, so only change these if you really have to.";
+
+"include_ip" = "Should we include your IP address in results?";
+"include_asn" = "Should we include your network information in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?";
+"include_cc" = "Should we include your country name in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?";
+"upload_results" = "Should we upload your results to the default ooni collector?";
