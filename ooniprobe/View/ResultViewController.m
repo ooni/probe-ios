@@ -71,22 +71,6 @@
 
 -(void) selectTest{
     [self performSegueWithIdentifier:@"toResultSelector" sender:self];
-    /*
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:NSLocalizedString(@"select_test", nil)
-                                  delegate:self
-                                  cancelButtonTitle:nil
-                                  destructiveButtonTitle:nil
-                                  otherButtonTitles:nil];
-    for(NSString *content in items){
-        NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"input %@", [json objectForKey:@"input"]]];
-    }
-    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-    actionSheet.tag = 1;
-    [actionSheet showInView:self.view];
-     */
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
