@@ -131,9 +131,9 @@ The next two steps of this wizard will walk you through some of the potential da
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eqf-c4-hHz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eqf-c4-hHz">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="yvt-3c-zLz">
                                     <rect key="frame" x="0.0" y="64" width="414" height="336"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -144,25 +144,25 @@ The next two steps of this wizard will walk you through some of the potential da
                                                 <constraint firstAttribute="height" constant="35" id="B7c-Ld-WGT"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DNS INJECTION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TuE-Lh-5rO">
                                             <rect key="frame" x="51" y="51" width="339" height="34"/>
                                             <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTP INVALID REQUEST LINE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uD6-M3-cn8">
                                             <rect key="frame" x="51" y="135" width="339" height="34"/>
                                             <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TCP CONNECT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-Ki-cSl">
                                             <rect key="frame" x="51" y="93" width="339" height="34"/>
                                             <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mH-uO-976">
@@ -210,7 +210,7 @@ The next two steps of this wizard will walk you through some of the potential da
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TESTS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="irP-Gt-CcC">
                                             <rect key="frame" x="8" y="297" width="382" height="39"/>
                                             <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCW-EC-59F">
@@ -253,7 +253,7 @@ The next two steps of this wizard will walk you through some of the potential da
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WEB CONNECTIVITY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1FT-Q5-wZF">
                                             <rect key="frame" x="51" y="177" width="339" height="34"/>
                                             <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-hz-xLt">
@@ -280,7 +280,7 @@ The next two steps of this wizard will walk you through some of the potential da
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NDT TEST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fup-AB-lQM">
                                             <rect key="frame" x="51" y="219" width="339" height="36"/>
                                             <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A47-FZ-BmP">
@@ -302,7 +302,6 @@ The next two steps of this wizard will walk you through some of the potential da
                                             </state>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="MYO-Rt-3xb" firstAttribute="trailing" secondItem="bCW-EC-59F" secondAttribute="trailing" id="1aU-5y-A79"/>
                                         <constraint firstItem="2pm-Cs-6hq" firstAttribute="leading" secondItem="yG6-hz-xLt" secondAttribute="leading" id="28n-GH-UCu"/>
@@ -380,7 +379,7 @@ The next two steps of this wizard will walk you through some of the potential da
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTP HEADER FIELD MANIPULATION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cDr-t8-hRC">
                                                     <rect key="frame" x="8" y="8" width="398" height="26"/>
                                                     <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="16"/>
-                                                    <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" tag="2" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hKV-az-L21">
@@ -388,7 +387,6 @@ The next two steps of this wizard will walk you through some of the potential da
                                                     <color key="progressTintColor" red="0.19215686269999999" green="0.43921568630000002" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </progressView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hKV-az-L21" secondAttribute="bottom" constant="-1" id="em7-lm-bWq"/>
                                                 <constraint firstItem="hKV-az-L21" firstAttribute="trailing" secondItem="cDr-t8-hRC" secondAttribute="trailing" id="j2H-xS-Euq"/>
@@ -399,44 +397,28 @@ The next two steps of this wizard will walk you through some of the potential da
                                                 <constraint firstItem="hKV-az-L21" firstAttribute="top" secondItem="cDr-t8-hRC" secondAttribute="bottom" constant="6" id="vHD-1e-fA0"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell_finished" id="6mA-rY-ehE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell_finished" id="6mA-rY-ehE">
                                         <rect key="frame" x="0.0" y="408" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6mA-rY-ehE" id="Nde-6H-f7r">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="49.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTP HEADER FIELD MANIPULATION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CvX-kb-lmc">
-                                                    <rect key="frame" x="40" y="12" width="334" height="25"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="26"/>
                                                     <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="16"/>
-                                                    <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IB8-gG-G0v">
-                                                    <rect key="frame" x="382" y="12" width="24" height="25"/>
-                                                    <state key="normal" image="log_icon">
-                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="Vz7-Bz-dUa" kind="show" identifier="toResult" id="KiM-aS-nlo"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="IB8-gG-G0v" firstAttribute="leading" secondItem="CvX-kb-lmc" secondAttribute="trailing" constant="8" symbolic="YES" id="A3i-EE-Cyq"/>
-                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="centerY" secondItem="IB8-gG-G0v" secondAttribute="centerY" id="Gdr-Ju-2go"/>
-                                                <constraint firstItem="IB8-gG-G0v" firstAttribute="trailing" secondItem="Nde-6H-f7r" secondAttribute="trailingMargin" id="HvB-Qj-FM5"/>
-                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="leading" secondItem="Nde-6H-f7r" secondAttribute="leadingMargin" constant="32" id="UCi-vq-d4g"/>
-                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="centerY" secondItem="Nde-6H-f7r" secondAttribute="centerY" id="cUW-vt-IKO"/>
-                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="centerX" secondItem="Nde-6H-f7r" secondAttribute="centerX" id="ng1-oq-LsB"/>
-                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="top" secondItem="IB8-gG-G0v" secondAttribute="top" id="qYa-hM-fdX"/>
-                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="top" secondItem="Nde-6H-f7r" secondAttribute="topMargin" constant="4" id="xhS-e1-UNv"/>
+                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="leading" secondItem="Nde-6H-f7r" secondAttribute="leadingMargin" id="UCi-vq-d4g"/>
+                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="centerY" secondItem="Nde-6H-f7r" secondAttribute="centerY" constant="-3.8333333333333321" id="cUW-vt-IKO"/>
+                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="centerX" secondItem="Nde-6H-f7r" secondAttribute="centerX" constant="16.5" id="ng1-oq-LsB"/>
+                                                <constraint firstItem="CvX-kb-lmc" firstAttribute="top" secondItem="Nde-6H-f7r" secondAttribute="topMargin" id="xhS-e1-UNv"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -445,7 +427,6 @@ The next two steps of this wizard will walk you through some of the potential da
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eqf-c4-hHz" firstAttribute="bottom" secondItem="yf1-cL-hEA" secondAttribute="top" id="IQ6-os-Fgj"/>
                             <constraint firstItem="eqf-c4-hHz" firstAttribute="top" secondItem="cGW-Il-HzK" secondAttribute="top" id="JOh-Ac-O7t"/>
@@ -476,6 +457,8 @@ The next two steps of this wizard will walk you through some of the potential da
                         <outlet property="web_connectivityButton" destination="yG6-hz-xLt" id="zmk-LM-yKY"/>
                         <outlet property="web_connectivityLabel" destination="1FT-Q5-wZF" id="1Ci-d3-6GT"/>
                         <segue destination="ttE-KP-jYH" kind="presentation" identifier="showInformedConsent" id="4mw-O8-kXL"/>
+                        <segue destination="Vz7-Bz-dUa" kind="show" identifier="toResult" id="dP6-fo-HCz"/>
+                        <segue destination="Y0O-uX-BoF" kind="show" identifier="toInputList" id="UdA-jF-jQv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10k-jQ-j1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,13 +478,10 @@ The next two steps of this wizard will walk you through some of the potential da
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <connections>
-                        <segue destination="kRa-zG-fdP" kind="presentation" identifier="toResultSelector" id="C3r-kQ-4Q8"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IU-79-CXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="1073"/>
+            <point key="canvasLocation" x="1757" y="1088"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="fBl-jm-kgo">
@@ -510,28 +490,10 @@ The next two steps of this wizard will walk you through some of the potential da
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="FCb-bw-Xfd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSwitch" textLabel="KqI-ul-ABU" style="IBUITableViewCellStyleDefault" id="rfp-WS-EUF">
-                                <rect key="frame" x="0.0" y="28" width="414" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rfp-WS-EUF" id="Y43-fx-lO4">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KqI-ul-ABU">
-                                            <rect key="frame" x="15" y="0.0" width="384" height="49.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSub" textLabel="Xz6-Gr-pNf" detailTextLabel="wnX-3b-3ez" style="IBUITableViewCellStyleSubtitle" id="Ys4-cd-IGz">
-                                <rect key="frame" x="0.0" y="78" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ys4-cd-IGz" id="SPI-Ng-m2G">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
@@ -541,37 +503,52 @@ The next two steps of this wizard will walk you through some of the potential da
                                             <rect key="frame" x="15" y="8.9999999999999982" width="45" height="18.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wnX-3b-3ez">
                                             <rect key="frame" x="15" y="27.333333333333332" width="42" height="14.333333333333334"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="14"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellAdvanced" textLabel="WiZ-fv-f0B" style="IBUITableViewCellStyleDefault" id="5nO-63-FPz">
-                                <rect key="frame" x="0.0" y="128" width="414" height="50"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="x2U-jv-ehv">
+                                <rect key="frame" x="0.0" y="78" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5nO-63-FPz" id="oZp-1o-4Jm">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="49.666666666666664"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x2U-jv-ehv" id="MNd-YU-feK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WiZ-fv-f0B">
-                                            <rect key="frame" x="15" y="0.0" width="364" height="49.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Inconsolata" family="Inconsolata" pointSize="18"/>
-                                            <color key="textColor" red="0.63529411759999999" green="0.60784313729999995" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0E-vt-TeJ">
+                                            <rect key="frame" x="48" y="8" width="358" height="34"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked_checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="vih-q6-TaK">
+                                            <rect key="frame" x="8" y="9" width="32" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="32" id="3sL-6F-B0h"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="DtL-T6-QXi"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="EBi-07-3pb"/>
+                                                <constraint firstAttribute="width" constant="32" id="FXK-Mf-Dk0"/>
+                                                <constraint firstAttribute="height" constant="32" id="KcS-wo-ehb"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="y0E-vt-TeJ" secondAttribute="bottom" constant="7.6699999999999999" id="5I5-gH-8XE"/>
+                                        <constraint firstItem="y0E-vt-TeJ" firstAttribute="top" secondItem="MNd-YU-feK" secondAttribute="top" constant="8" id="MPQ-0c-gQi"/>
+                                        <constraint firstAttribute="trailing" secondItem="y0E-vt-TeJ" secondAttribute="trailing" constant="8" id="MVf-ah-AK5"/>
+                                        <constraint firstItem="vih-q6-TaK" firstAttribute="leading" secondItem="MNd-YU-feK" secondAttribute="leadingMargin" id="S7a-lr-5EM"/>
+                                        <constraint firstItem="y0E-vt-TeJ" firstAttribute="leading" secondItem="vih-q6-TaK" secondAttribute="trailing" constant="8" id="f9R-SU-Gze"/>
+                                        <constraint firstItem="vih-q6-TaK" firstAttribute="centerY" secondItem="y0E-vt-TeJ" secondAttribute="centerY" id="oKO-9Y-tt0"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -653,10 +630,13 @@ The next two steps of this wizard will walk you through some of the potential da
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="hAH-tl-kWf"/>
+                    <connections>
+                        <segue destination="Vz7-Bz-dUa" kind="show" identifier="toResult" id="DPk-AR-Qwc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weK-2P-fMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2342" y="1073"/>
+            <point key="canvasLocation" x="825" y="1088"/>
         </scene>
         <!--RISKS-->
         <scene sceneID="Y7k-aZ-6HN">
@@ -925,35 +905,17 @@ The next two steps of this wizard will walk you through some of the potential da
             </objects>
             <point key="canvasLocation" x="3173.5999999999999" y="-1147.3763118440781"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="LVF-t8-IS7">
-            <objects>
-                <navigationController id="kRa-zG-fdP" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LTa-wc-jEc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.16078431369999999" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Y0O-uX-BoF" kind="relationship" relationship="rootViewController" id="5rQ-eU-vuh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rbI-Z8-vOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1599" y="1073"/>
-        </scene>
     </scenes>
     <resources>
         <image name="button-run-test" width="374" height="79"/>
         <image name="checked_checkbox" width="51" height="51"/>
         <image name="icon-info" width="24" height="24"/>
         <image name="icon-settings" width="24" height="24"/>
-        <image name="log_icon" width="25" height="25"/>
         <image name="not-selected" width="52" height="52"/>
         <image name="selected" width="51" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mx8-nx-LDL"/>
+        <segue reference="dP6-fo-HCz"/>
     </inferredMetricsTieBreakers>
 </document>

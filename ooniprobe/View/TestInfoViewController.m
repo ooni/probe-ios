@@ -12,9 +12,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *pathToiOSCss = [[NSBundle mainBundle] pathForResource:@"setup-mobile" ofType:@"css"];
+    NSString *iOSCssData = [NSString stringWithContentsOfFile:pathToiOSCss encoding:NSUTF8StringEncoding error:NULL];
     NSString *pathToHtml = [[NSBundle mainBundle] pathForResource:self.fileName ofType:@"html"];
     NSString *htmlData = [NSString stringWithContentsOfFile:pathToHtml encoding:NSUTF8StringEncoding error:NULL];
-    [self.webView loadHTMLString:htmlData baseURL:[[NSBundle mainBundle] bundleURL]];
+    NSString *html = [NSString stringWithFormat:@"<head><style>%@</style></head>%@", iOSCssData, htmlData];
+    [self.webView loadHTMLString:html baseURL:[[NSBundle mainBundle] bundleURL]];
 }
 
 - (void)didReceiveMemoryWarning {

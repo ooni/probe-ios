@@ -3,6 +3,7 @@
 // information on the copying conditions.
 
 #import <UIKit/UIKit.h>
+#import "ResultViewController.h"
 
 @interface ResultSelectorViewController : UITableViewController
 

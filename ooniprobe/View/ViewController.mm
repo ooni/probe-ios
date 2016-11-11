@@ -131,23 +131,29 @@
         current = [self.runningNetworkMeasurements objectAtIndex:indexPath.row];
         UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
         [bar setProgress:current.progress animated:NO];
-        NSLog(@"setting progress %f", current.progress);
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
         current = [TestStorage get_test_atindex:indexPath.row];
-        //TODO for now I hide the logbutton on aborted test. need an icon
-        UIButton *logbutton = (UIButton*)[cell viewWithTag:3];
-        if (!current.completed) [logbutton setHidden:YES];
-        else [logbutton setHidden:NO];
     }
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     [title setText:NSLocalizedString(current.name, nil)];
-
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1){
+        NetworkMeasurement *current = [TestStorage get_test_atindex:indexPath.row];
+        NSArray *items = [self getItems:current.json_file];
+        if ([items count] > 1)
+            [self performSegueWithIdentifier:@"toInputList" sender:self];
+        else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0)
+            [self performSegueWithIdentifier:@"toResult" sender:self];
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"no_result", nil) message:NSLocalizedString(@"no_result_msg", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"ok", @"") otherButtonTitles:nil];
+            [alert show];
+        }
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -209,18 +215,41 @@
     [self.view makeToast:NSLocalizedString(@"ooniprobe_configured", nil) duration:3.0 position:CSToastPositionBottom style:style];
 }
 
+-(NSArray*)getItems:(NSString*)json_file{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:json_file];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *content = @"";
+    if([fileManager fileExistsAtPath:filePath]) {
+        content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+        //Cut out the last \n
+        if ([content length] > 0) {
+            content = [content substringToIndex:[content length]-1];
+        }
+    }
+    return [content componentsSeparatedByString:@"\n"];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //This screen is hidden for the moment
     if ([[segue identifier] isEqualToString:@"toLog"]){
         LogViewController *vc = (LogViewController * )segue.destinationViewController;
-        UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [vc setTest:[TestStorage get_test_atindex:indexPath.row]];
     }
     else if ([[segue identifier] isEqualToString:@"toResult"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NetworkMeasurement *current = [TestStorage get_test_atindex:indexPath.row];
+        NSArray *items = [self getItems:current.json_file];
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
-        UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:clickedCell];
-        [vc setJson_file:[TestStorage get_test_atindex:indexPath.row].json_file];
+        [vc setContent:[items objectAtIndex:0]];
+    }
+    else if ([[segue identifier] isEqualToString:@"toInputList"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NetworkMeasurement *current = [TestStorage get_test_atindex:indexPath.row];
+        ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
+        [vc setItems:[self getItems:current.json_file]];
     }
     else if ([[segue identifier] isEqualToString:@"toInfo"]){
         TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;

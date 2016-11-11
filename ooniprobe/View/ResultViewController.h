@@ -6,11 +6,9 @@
 #import <WebKit/WebKit.h>
 #import "ResultSelectorViewController.h"
 
-@interface ResultViewController : UIViewController <UIActionSheetDelegate> {
-    NSArray *items;
-}
+@interface ResultViewController : UIViewController
 
-@property (nonatomic, strong) NSString *json_file;
+@property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) WKWebView *webView;
 
 @end

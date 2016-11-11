@@ -27,7 +27,7 @@
     UIBarButtonItem *configure = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"configure", nil) style:UIBarButtonItemStylePlain target:self action:@selector(configure)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:configure, nil];
 
-    settingsTitles = @[@"Should we include your IP address in results?", @"Should we include your network information in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?", @"Should we include your country name in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?", @"Should we upload your results to the default ooni collector?"];
+    settingsTitles = @[@"include_ip_ic", @"include_asn_ic", @"include_cc_ic", @"upload_results_ic"];
     settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results"];
 }
 

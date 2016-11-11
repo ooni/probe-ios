@@ -63,7 +63,15 @@
 
 "configuration_text" = "Certain aspects of how ooniprobe operates can be customized. Usually the default values are the best option, so only change these if you really have to.";
 
-"include_ip" = "Should we include your IP address in results?";
-"include_asn" = "Should we include your network information in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?";
-"include_cc" = "Should we include your country name in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?";
-"upload_results" = "Should we upload your results to the default ooni collector?";
+"include_ip" = "Include IP address in results";
+"include_asn" = "Include your network information in the reports";
+"include_cc" = "Include your country name in the reports";
+"upload_results" = "Upload results to the default ooni collector";
+
+"include_ip_ic" = "Should we include your IP address in results?";
+"include_asn_ic" = "Should we include your network information in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?";
+"include_cc_ic" = "Should we include your country name in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?";
+"upload_results_ic" = "Should we upload your results to the default ooni collector?";
+
+"no_result" = "No results";
+"no_result_msg" = "The test has no results or it was aborted";

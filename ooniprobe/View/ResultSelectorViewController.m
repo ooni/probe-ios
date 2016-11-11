@@ -49,11 +49,16 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self dismissViewControllerAnimated:YES completion:^{
-        NSDictionary *noteInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithLong:indexPath.row] forKey:@"input_id"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"inputSelected" object:nil userInfo:noteInfo];
-    }];
+    [self performSegueWithIdentifier:@"toResult" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toResult"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
+        [vc setContent:[items objectAtIndex:indexPath.row]];
+    }
 }
 
 @end

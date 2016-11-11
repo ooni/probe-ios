@@ -27,7 +27,7 @@ static void setup_idempotent() {
 
 static std::string get_dns_server() {
     std::string dns_server = "8.8.4.4:53";
-    res_state res = nullptr;
+    /*res_state res = nullptr;
     res = (res_state) malloc(sizeof(struct __res_state));
     if (res == nullptr) {
         return dns_server;
@@ -46,7 +46,7 @@ static std::string get_dns_server() {
         dns_server = addr;
         break;
     }
-    free(res);
+    free(res);*/
     return dns_server;
 }
 
@@ -322,9 +322,10 @@ static std::string get_dns_server() {
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"urls" ofType:@"txt"];
-    //TODO DEFINE backend string in header
     mk::ooni::WebConnectivity()
-    .set_options("backend", "https://a.web-connectivity.th.ooni.io:4442")
+    .set_options("backend", BACKEND)
+    .set_options("port", 80)
+    .set_options("dns/nameserver", get_dns_server())
     .set_options("nameserver", get_dns_server())
     .set_options("geoip_country_path", [geoip_country UTF8String])
     .set_options("geoip_asn_path", [geoip_asn UTF8String])

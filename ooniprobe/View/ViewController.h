@@ -9,6 +9,7 @@
 #import "TestStorage.h"
 #import "ResultViewController.h"
 #import "UIView+Toast.h"
+#import "ResultSelectorViewController.h"
 
 @interface ViewController : UIViewController
 
