@@ -48,13 +48,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    UILabel *title = (UILabel*)[cell viewWithTag:1];
     NSString *current = [settingsItems objectAtIndex:indexPath.row];
     NSString *currentTitle = [settingsTitles objectAtIndex:indexPath.row];
-    title.text = NSLocalizedString(currentTitle, nil);
-    UISwitch *switchview  = (UISwitch*)[cell viewWithTag:2];
+    cell.textLabel.text = NSLocalizedString(currentTitle, nil);
+    UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
+    [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
     else switchview.on = NO;
+    cell.accessoryView = switchview;
     return cell;
 }
 

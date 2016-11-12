@@ -36,12 +36,13 @@
     UITableViewCell *cell;
     if (indexPath.row < [settingsItems count] -1){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        UILabel *title = (UILabel*)[cell viewWithTag:1];
         NSString *current = [settingsItems objectAtIndex:indexPath.row];
-        title.text = NSLocalizedString(current, nil);
-        UISwitch *switchview  = (UISwitch*)[cell viewWithTag:2];
+        cell.textLabel.text = NSLocalizedString(current, nil);
+        UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
+        [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
         else switchview.on = NO;
+        cell.accessoryView = switchview;
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];

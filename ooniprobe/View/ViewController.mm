@@ -14,6 +14,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
+    self.runningMeasurementNames = [[NSMutableArray alloc] init];
     [self loadAvailableMeasurements];
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
@@ -42,6 +43,7 @@
 
 -(void)refreshTable:(NSNotification *)notification{
     NetworkMeasurement *current  = (NetworkMeasurement*)[notification object];
+    [self.runningMeasurementNames removeObject:current.name];
     [self.runningNetworkMeasurements removeObject:current];
     [self.tableView reloadData];
 }
@@ -59,8 +61,9 @@
     CGPoint currentTouchPosition = [[[event allTouches] anyObject] locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
     NetworkMeasurement *current = [self.availableNetworkMeasurements objectAtIndex:indexPath.row];
-    [current run];
+    [self.runningMeasurementNames addObject:current.name];
     [self.runningNetworkMeasurements addObject:current];
+    [current run];
     [self.tableView reloadData];
 }
 
@@ -109,12 +112,23 @@
         UILabel *subtitle = (UILabel*)[cell viewWithTag:2];
         UIImageView *image = (UIImageView*)[cell viewWithTag:3];
         RunButton *runTest = (RunButton*)[cell viewWithTag:4];
+        UIActivityIndicatorView *indicator = (UIActivityIndicatorView*)[cell viewWithTag:5];
         [title setText:NSLocalizedString(current.name, nil)];
         NSString *test_desc = [NSString stringWithFormat:@"%@_desc", current.name];
         [subtitle setText:NSLocalizedString(test_desc, nil)];
         [runTest setTitle:[NSLocalizedString(@"run", nil) uppercaseString] forState:UIControlStateNormal];
         image.layer.cornerRadius = 20.0;
         image.clipsToBounds = YES;
+        if ([self.runningMeasurementNames containsObject:current.name]){
+            [indicator setHidden:FALSE];
+            [runTest setHidden:TRUE];
+            [indicator startAnimating];
+        }
+        else {
+            [indicator setHidden:TRUE];
+            [runTest setHidden:FALSE];
+            [indicator stopAnimating];
+        }
     }
     else if (indexPath.section == 1){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_running" forIndexPath:indexPath];

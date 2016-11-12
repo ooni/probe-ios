@@ -11,8 +11,6 @@
 #import "UIView+Toast.h"
 #import "ResultSelectorViewController.h"
 #import "RunButton.h"
-#import <QuartzCore/QuartzCore.h>
-#import <QuartzCore/CALayer.h>
 
 @interface ViewController : UIViewController
 
@@ -37,7 +35,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-//@property (strong, nonatomic) NetworkMeasurement *selectedMeasurement;
+@property (strong, nonatomic) NSMutableArray *runningMeasurementNames;
 
 @property (strong, nonatomic) NSMutableArray *runningNetworkMeasurements;
 
