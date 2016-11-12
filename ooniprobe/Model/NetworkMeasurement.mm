@@ -27,7 +27,7 @@ static void setup_idempotent() {
 
 static std::string get_dns_server() {
     std::string dns_server = "8.8.4.4:53";
-    /*res_state res = nullptr;
+    res_state res = nullptr;
     res = (res_state) malloc(sizeof(struct __res_state));
     if (res == nullptr) {
         return dns_server;
@@ -46,7 +46,7 @@ static std::string get_dns_server() {
         dns_server = addr;
         break;
     }
-    free(res);*/
+    free(res);
     return dns_server;
 }
 

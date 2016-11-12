@@ -15,12 +15,11 @@
     [super viewDidLoad];
     self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
     self.runningMeasurementNames = [[NSMutableArray alloc] init];
-    [self loadAvailableMeasurements];
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
+    [self loadAvailableMeasurements];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
-    //[self setLabels];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

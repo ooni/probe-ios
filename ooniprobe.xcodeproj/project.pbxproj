@@ -13,7 +13,6 @@
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
-		D4A2F63F1A6C33F7001B8460 /* Inconsolata.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F6311A6C33F7001B8460 /* Inconsolata.otf */; };
 		ED09BE311D07083A00757F4D /* dns-injection.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2D1D07083A00757F4D /* dns-injection.html */; };
 		ED09BE331D07083A00757F4D /* tcp-connect.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2F1D07083A00757F4D /* tcp-connect.html */; };
 		ED0D35B61DD72112005C863F /* http_invalid_request_line.md in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35B31DD72112005C863F /* http_invalid_request_line.md */; };
@@ -83,7 +82,6 @@
 		D4A2F5E91A6C3244001B8460 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4A2F5EC1A6C3244001B8460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D4A2F62F1A6C33F7001B8460 /* hosts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hosts.txt; sourceTree = "<group>"; };
-		D4A2F6311A6C33F7001B8460 /* Inconsolata.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inconsolata.otf; sourceTree = "<group>"; };
 		ED09BE2D1D07083A00757F4D /* dns-injection.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "dns-injection.html"; path = "html/dns-injection.html"; sourceTree = "<group>"; };
 		ED09BE2F1D07083A00757F4D /* tcp-connect.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "tcp-connect.html"; path = "html/tcp-connect.html"; sourceTree = "<group>"; };
 		ED0D35B31DD72112005C863F /* http_invalid_request_line.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = http_invalid_request_line.md; path = md/http_invalid_request_line.md; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				EDE32B431D5CCABB00D7B4CF /* webui */,
 				EDD22D101ADD6248006EA0C8 /* html */,
 				D4A2F62E1A6C33F7001B8460 /* fixtures */,
-				D4A2F6301A6C33F7001B8460 /* Fonts */,
 				ED3AB32D1D2337920061F266 /* cacert.pem */,
 				ED3AB32E1D2337920061F266 /* GeoIP.dat */,
 				ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */,
@@ -256,14 +253,6 @@
 				D4A2F62F1A6C33F7001B8460 /* hosts.txt */,
 			);
 			path = fixtures;
-			sourceTree = "<group>";
-		};
-		D4A2F6301A6C33F7001B8460 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				D4A2F6311A6C33F7001B8460 /* Inconsolata.otf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		ED25280F1CEA34DA0073A29B /* Model */ = {
@@ -461,7 +450,6 @@
 				EDEDE80C1DD1EB01002C732A /* setup-mobile.css in Resources */,
 				EDE32B621D5CCABB00D7B4CF /* 5310ca5fb41a915987df5663660da770.otf in Resources */,
 				EDE32B651D5CCABB00D7B4CF /* 7e5b1b977ba8a582d81367d2940e8150.woff in Resources */,
-				D4A2F63F1A6C33F7001B8460 /* Inconsolata.otf in Resources */,
 				EDE32B5D1D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */,
 				EDE32B6E1D5CCABB00D7B4CF /* e18bbf611f2a2e43afc071aa2f4e1512.ttf in Resources */,
 				EDE32B5F1D5CCABB00D7B4CF /* 25a32416abee198dd821b0b17a198a8f.eot in Resources */,
