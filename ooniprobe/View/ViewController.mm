@@ -11,7 +11,6 @@
 
 @implementation ViewController : UIViewController
 
-
 - (void) viewDidLoad {
     [super viewDidLoad];
     self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
@@ -20,7 +19,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
-    [self setLabels];
+    //[self setLabels];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -31,18 +30,12 @@
 }
 
 - (void) loadAvailableMeasurements {
-    DNSInjection *dns_injectionMeasurement = [[DNSInjection alloc] init];
-    [self.availableNetworkMeasurements addObject:dns_injectionMeasurement];
-    
-    TCPConnect *tcp_connectMeasurement = [[TCPConnect alloc] init];
-    [self.availableNetworkMeasurements addObject:tcp_connectMeasurement];
-    
-    HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
-    [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
-    
     WebConnectivity *web_connectivityMeasurement = [[WebConnectivity alloc] init];
     [self.availableNetworkMeasurements addObject:web_connectivityMeasurement];
     
+    HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
+    [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
+
     NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
     [self.availableNetworkMeasurements addObject:ndt_testMeasurement];
 }
@@ -56,70 +49,53 @@
 -(void)reloadTable{
     [self.tableView reloadData];
 }
-- (void) setLabels {
-    [self.testing_historyLabel setText:[NSLocalizedString(@"testing_history", nil) uppercaseString]];
-    [self.run_testLabel setText:[NSLocalizedString(@"run_test", nil)  uppercaseString]];
-    
-    [self.dns_injectionLabel setText:[NSLocalizedString(@"dns_injection", nil) uppercaseString]];
-    [self.tcp_connectLabel setText:[NSLocalizedString(@"tcp_connect", nil) uppercaseString]];
-    [self.http_invalid_request_lineLabel setText:[NSLocalizedString(@"http_invalid_request_line", nil) uppercaseString]];
-    [self.web_connectivityLabel setText:[NSLocalizedString(@"web_connectivity", nil) uppercaseString]];
-    [self.ndt_testLabel setText:[NSLocalizedString(@"ndt_test", nil) uppercaseString]];
-}
-
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction) runTests:(id)sender {
-    if (self.selectedMeasurement != nil) {
-        [self.selectedMeasurement run];
-        [self.runningNetworkMeasurements addObject:self.selectedMeasurement];
-        [self unselectAll];
-        self.selectedMeasurement = nil;
-        [self.tableView reloadData];
-    }
+- (IBAction)runTests:(id)sender event:(id)event {
+    CGPoint currentTouchPosition = [[[event allTouches] anyObject] locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
+    NetworkMeasurement *current = [self.availableNetworkMeasurements objectAtIndex:indexPath.row];
+    [current run];
+    [self.runningNetworkMeasurements addObject:current];
+    [self.tableView reloadData];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    switch (section)
-    {
-        case 0:
-            return [self.runningNetworkMeasurements count];
-            break;
-        case 1:
-            return [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
-            break;
-        default:
-            return 0;
-            break;
-    }
+    if (section == 0)
+        return [self.availableNetworkMeasurements count];
+    else if (section == 1)
+        return [self.runningNetworkMeasurements count];
+    else if (section == 2)
+        return [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
+    return 0;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *sectionName;
-    switch (section)
-    {
-        case 0:
-            sectionName = NSLocalizedString(@"running_tests", @"");
-            break;
-        case 1:
-            sectionName = NSLocalizedString(@"finished_tests", @"");
-            break;
-        default:
-            sectionName = @"";
-            break;
+    if (section == 0)
+        return nil;
+    else if (section == 1)
+        return NSLocalizedString(@"running_tests", @"");
+    else if (section == 2)
+        return NSLocalizedString(@"finished_tests", @"");
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 80;
     }
-    return sectionName;
+    return 50;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,23 +103,61 @@
     UITableViewCell *cell;
     NetworkMeasurement *current;
     if (indexPath.section == 0){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_test" forIndexPath:indexPath];
+        current = [self.availableNetworkMeasurements objectAtIndex:indexPath.row];
+        UILabel *title = (UILabel*)[cell viewWithTag:1];
+        UILabel *subtitle = (UILabel*)[cell viewWithTag:2];
+        UIImageView *image = (UIImageView*)[cell viewWithTag:3];
+        RunButton *runTest = (RunButton*)[cell viewWithTag:4];
+        [title setText:NSLocalizedString(current.name, nil)];
+        NSString *test_desc = [NSString stringWithFormat:@"%@_desc", current.name];
+        [subtitle setText:NSLocalizedString(test_desc, nil)];
+        [runTest setTitle:[NSLocalizedString(@"run", nil) uppercaseString] forState:UIControlStateNormal];
+        image.layer.cornerRadius = 20.0;
+        image.clipsToBounds = YES;
+    }
+    else if (indexPath.section == 1){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_running" forIndexPath:indexPath];
         current = [self.runningNetworkMeasurements objectAtIndex:indexPath.row];
+        UILabel *title = (UILabel*)[cell viewWithTag:1];
+        [title setText:NSLocalizedString(current.name, nil)];
         UIProgressView *bar = (UIProgressView*)[cell viewWithTag:2];
         [bar setProgress:current.progress animated:NO];
     }
-    else {
+    else if (indexPath.section == 2){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
-        current = [TestStorage get_test_atindex:indexPath.row];
+        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
+        NSUInteger idx = a - 1 - indexPath.row;
+        current = [TestStorage get_test_atindex:idx];
+        UILabel *title = (UILabel*)[cell viewWithTag:1];
+        [title setText:NSLocalizedString(current.name, nil)];
+        
+        UILabel *subTitle = (UILabel*)[cell viewWithTag:3];
+        NSDate *timestampDate = [NSDate dateWithTimeIntervalSince1970:[current.test_id doubleValue]];
+        NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [subTitle setText:[formatter stringFromDate:timestampDate]];
+
+        UIImageView *status = (UIImageView*)[cell viewWithTag:2];
+        NSArray *items = [self getItems:current.json_file];
+        if ([items count] > 1)
+            [status setImage:[UIImage imageNamed:@"test_multi"]];
+        else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0)
+            [status setImage:nil];
+        else
+            [status setImage:[UIImage imageNamed:@"test_aborted"]];
     }
-    UILabel *title = (UILabel*)[cell viewWithTag:1];
-    [title setText:NSLocalizedString(current.name, nil)];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1){
-        NetworkMeasurement *current = [TestStorage get_test_atindex:indexPath.row];
+    if (indexPath.section == 0){
+        [self performSegueWithIdentifier:@"toInfo" sender:self];
+    }
+    else if (indexPath.section == 2){
+        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
+        NSUInteger idx = a - 1 - indexPath.row;
+        NetworkMeasurement *current = [TestStorage get_test_atindex:idx];
         NSArray *items = [self getItems:current.json_file];
         if ([items count] > 1)
             [self performSegueWithIdentifier:@"toInputList" sender:self];
@@ -157,9 +171,21 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 2)
+        return UITableViewCellEditingStyleDelete;
+    return UITableViewCellEditingStyleNone;
+}
+
+-(BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 2)
+        return YES;
+    return NO;
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1)
+    if (indexPath.section == 2)
         return YES;
     return NO;
 }
@@ -167,43 +193,10 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [TestStorage remove_test_atindex:indexPath.row];
+        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
+        NSUInteger idx = a - 1 - indexPath.row;
+        [TestStorage remove_test_atindex:idx];
         [self.tableView reloadData];
-    }
-}
-
-
-- (void) unselectAll {
-    [self.dns_injectionButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
-    [self.tcp_connectButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
-    [self.http_invalid_request_lineButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
-    [self.web_connectivityButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
-    [self.ndt_testButton setImage:[UIImage imageNamed:@"not-selected"] forState:UIControlStateNormal];
-}
-
-- (IBAction)buttonClick:(id)sender forEvent:(UIEvent *)event {
-    UIButton *tappedButton = (UIButton*)sender;
-    [self unselectAll];
-    [tappedButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
-    if (tappedButton == self.dns_injectionButton){
-        DNSInjection *dns_injectionMeasurement = [[DNSInjection alloc] init];
-        self.selectedMeasurement = dns_injectionMeasurement;
-    }
-    else if (tappedButton == self.tcp_connectButton) {
-        TCPConnect *tcp_connectMeasurement = [[TCPConnect alloc] init];
-        self.selectedMeasurement = tcp_connectMeasurement;
-    }
-    else if (tappedButton == self.http_invalid_request_lineButton){
-        HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
-        self.selectedMeasurement = http_invalid_request_lineMeasurement;
-    }
-    else if (tappedButton == self.web_connectivityButton){
-        WebConnectivity *web_connectivityMeasurement = [[WebConnectivity alloc] init];
-        self.selectedMeasurement = web_connectivityMeasurement;
-    }
-    else if (tappedButton == self.ndt_testButton){
-        NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
-        self.selectedMeasurement = ndt_testMeasurement;
     }
 }
 
@@ -233,39 +226,32 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //This screen is hidden for the moment
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     if ([[segue identifier] isEqualToString:@"toLog"]){
         LogViewController *vc = (LogViewController * )segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [vc setTest:[TestStorage get_test_atindex:indexPath.row]];
     }
     else if ([[segue identifier] isEqualToString:@"toResult"]){
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NetworkMeasurement *current = [TestStorage get_test_atindex:indexPath.row];
+        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
+        NSUInteger idx = a - 1 - indexPath.row;
+        NetworkMeasurement *current = [TestStorage get_test_atindex:idx];
         NSArray *items = [self getItems:current.json_file];
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
         [vc setContent:[items objectAtIndex:0]];
     }
     else if ([[segue identifier] isEqualToString:@"toInputList"]){
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NetworkMeasurement *current = [TestStorage get_test_atindex:indexPath.row];
+        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
+        NSUInteger idx = a - 1 - indexPath.row;
+        NetworkMeasurement *current = [TestStorage get_test_atindex:idx];
         ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
         [vc setItems:[self getItems:current.json_file]];
     }
     else if ([[segue identifier] isEqualToString:@"toInfo"]){
         TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;
-        UIButton *tappedButton = (UIButton*)sender;
-        if (tappedButton.tag == 1){
-            [vc setFileName:@"dns-injection"];
-        }
-        else if (tappedButton.tag == 2){
-            [vc setFileName:@"tcp-connect"];
-        }
-        else if (tappedButton.tag == 3){
-            [vc setFileName:@"http-invalid-request-line"];
-        }
-        else if (tappedButton.tag == 4){
-            [vc setFileName:@"web-connectivity"];
-        }
+        NetworkMeasurement *current = [self.availableNetworkMeasurements objectAtIndex:indexPath.row];
+        [vc setFileName:current.name];
+        [vc setFileType:@"md"];
     }
 }
 

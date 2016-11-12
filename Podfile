@@ -5,5 +5,6 @@ target 'ooniprobe' do
 		:git => 'https://github.com/measurement-kit/measurement-kit.git',
 		:branch => 'stable'
 	pod 'Toast'
+	pod 'sundown'
 end
 

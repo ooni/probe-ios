@@ -15,9 +15,14 @@
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
 		D4A2F63F1A6C33F7001B8460 /* Inconsolata.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F6311A6C33F7001B8460 /* Inconsolata.otf */; };
 		ED09BE311D07083A00757F4D /* dns-injection.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2D1D07083A00757F4D /* dns-injection.html */; };
-		ED09BE321D07083A00757F4D /* http-invalid-request-line.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2E1D07083A00757F4D /* http-invalid-request-line.html */; };
 		ED09BE331D07083A00757F4D /* tcp-connect.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2F1D07083A00757F4D /* tcp-connect.html */; };
-		ED09BE341D07083A00757F4D /* web-connectivity.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE301D07083A00757F4D /* web-connectivity.html */; };
+		ED0D35B61DD72112005C863F /* http_invalid_request_line.md in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35B31DD72112005C863F /* http_invalid_request_line.md */; };
+		ED0D35B71DD72112005C863F /* ndt_test.md in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35B41DD72112005C863F /* ndt_test.md */; };
+		ED0D35B81DD72112005C863F /* web_connectivity.md in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35B51DD72112005C863F /* web_connectivity.md */; };
+		ED0D35B91DD72121005C863F /* http_invalid_request_line.md in Resources */ = {isa = PBXBuildFile; fileRef = ED0D35B31DD72112005C863F /* http_invalid_request_line.md */; };
+		ED0D35BA1DD72123005C863F /* ndt_test.md in Resources */ = {isa = PBXBuildFile; fileRef = ED0D35B41DD72112005C863F /* ndt_test.md */; };
+		ED0D35BB1DD72125005C863F /* web_connectivity.md in Resources */ = {isa = PBXBuildFile; fileRef = ED0D35B51DD72112005C863F /* web_connectivity.md */; };
+		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528231CEA35640073A29B /* LogViewController.mm */; };
 		ED25282C1CEA35640073A29B /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2528251CEA35640073A29B /* SettingsTableViewController.m */; };
 		ED25282D1CEA35640073A29B /* TestInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.m */; };
@@ -34,6 +39,7 @@
 		ED8816BA1D8C6A6100D5D725 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */; };
 		ED9BBAAD1D847182005A3A57 /* urls.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED9BBAAC1D847182005A3A57 /* urls.txt */; };
 		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
+		EDA22FFE1DD61B6400BD8708 /* UIWebView+Markdown.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA22FFD1DD61B6300BD8708 /* UIWebView+Markdown.m */; };
 		EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDE32B5D1D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B441D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff */; };
@@ -79,9 +85,12 @@
 		D4A2F62F1A6C33F7001B8460 /* hosts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hosts.txt; sourceTree = "<group>"; };
 		D4A2F6311A6C33F7001B8460 /* Inconsolata.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inconsolata.otf; sourceTree = "<group>"; };
 		ED09BE2D1D07083A00757F4D /* dns-injection.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "dns-injection.html"; path = "html/dns-injection.html"; sourceTree = "<group>"; };
-		ED09BE2E1D07083A00757F4D /* http-invalid-request-line.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "http-invalid-request-line.html"; path = "html/http-invalid-request-line.html"; sourceTree = "<group>"; };
 		ED09BE2F1D07083A00757F4D /* tcp-connect.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "tcp-connect.html"; path = "html/tcp-connect.html"; sourceTree = "<group>"; };
-		ED09BE301D07083A00757F4D /* web-connectivity.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "web-connectivity.html"; path = "html/web-connectivity.html"; sourceTree = "<group>"; };
+		ED0D35B31DD72112005C863F /* http_invalid_request_line.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = http_invalid_request_line.md; path = md/http_invalid_request_line.md; sourceTree = "<group>"; };
+		ED0D35B41DD72112005C863F /* ndt_test.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = ndt_test.md; path = md/ndt_test.md; sourceTree = "<group>"; };
+		ED0D35B51DD72112005C863F /* web_connectivity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = web_connectivity.md; path = md/web_connectivity.md; sourceTree = "<group>"; };
+		ED0D35BC1DD72824005C863F /* RunButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RunButton.h; path = Utility/RunButton.h; sourceTree = "<group>"; };
+		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RunButton.m; path = Utility/RunButton.m; sourceTree = "<group>"; };
 		ED2528221CEA35640073A29B /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		ED2528231CEA35640073A29B /* LogViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LogViewController.mm; sourceTree = "<group>"; };
 		ED2528241CEA35640073A29B /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -109,6 +118,8 @@
 		ED9BBAAC1D847182005A3A57 /* urls.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = urls.txt; sourceTree = "<group>"; };
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		EDA22FFC1DD61B6300BD8708 /* UIWebView+Markdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+Markdown.h"; path = "Utility/UIWebView+Markdown.h"; sourceTree = "<group>"; };
+		EDA22FFD1DD61B6300BD8708 /* UIWebView+Markdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+Markdown.m"; path = "Utility/UIWebView+Markdown.m"; sourceTree = "<group>"; };
 		EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectorViewController.h; sourceTree = "<group>"; };
 		EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultSelectorViewController.m; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
@@ -226,6 +237,7 @@
 		D4A2F62D1A6C33F7001B8460 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDA230011DD6241C00BD8708 /* md */,
 				EDE32B431D5CCABB00D7B4CF /* webui */,
 				EDD22D101ADD6248006EA0C8 /* html */,
 				D4A2F62E1A6C33F7001B8460 /* fixtures */,
@@ -288,6 +300,10 @@
 			children = (
 				ED58E8C81D0C627D00C74F10 /* TestStorage.h */,
 				ED58E8C91D0C627D00C74F10 /* TestStorage.mm */,
+				EDA22FFC1DD61B6300BD8708 /* UIWebView+Markdown.h */,
+				EDA22FFD1DD61B6300BD8708 /* UIWebView+Markdown.m */,
+				ED0D35BC1DD72824005C863F /* RunButton.h */,
+				ED0D35BD1DD72824005C863F /* RunButton.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -307,15 +323,23 @@
 			name = "Informed consent";
 			sourceTree = "<group>";
 		};
+		EDA230011DD6241C00BD8708 /* md */ = {
+			isa = PBXGroup;
+			children = (
+				ED0D35B31DD72112005C863F /* http_invalid_request_line.md */,
+				ED0D35B41DD72112005C863F /* ndt_test.md */,
+				ED0D35B51DD72112005C863F /* web_connectivity.md */,
+			);
+			name = md;
+			sourceTree = "<group>";
+		};
 		EDD22D101ADD6248006EA0C8 /* html */ = {
 			isa = PBXGroup;
 			children = (
 				EDEDE80A1DD1EB01002C732A /* setup-mobile.css */,
 				EDEDE80B1DD1EB01002C732A /* step2.html */,
 				ED09BE2D1D07083A00757F4D /* dns-injection.html */,
-				ED09BE2E1D07083A00757F4D /* http-invalid-request-line.html */,
 				ED09BE2F1D07083A00757F4D /* tcp-connect.html */,
-				ED09BE301D07083A00757F4D /* web-connectivity.html */,
 			);
 			name = html;
 			sourceTree = "<group>";
@@ -449,11 +473,12 @@
 				EDEDE80D1DD1EB01002C732A /* step2.html in Resources */,
 				EDE32B691D5CCABB00D7B4CF /* b78a2d32658068a52eab4b7f8f7d366e.woff in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
-				ED09BE321D07083A00757F4D /* http-invalid-request-line.html in Resources */,
 				EDE32B721D5CCABB00D7B4CF /* fa2772327f55d8198301fdb8bcfc8158.woff in Resources */,
 				EDE32B671D5CCABB00D7B4CF /* 89889688147bd7575d6327160d64e760.svg in Resources */,
-				ED09BE341D07083A00757F4D /* web-connectivity.html in Resources */,
 				EDE32B641D5CCABB00D7B4CF /* 7dd0ad25580893d980bbf0475f88aead.otf in Resources */,
+				ED0D35BB1DD72125005C863F /* web_connectivity.md in Resources */,
+				ED0D35BA1DD72123005C863F /* ndt_test.md in Resources */,
+				ED0D35B91DD72121005C863F /* http_invalid_request_line.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,9 +544,14 @@
 				ED8816BA1D8C6A6100D5D725 /* ConfigurationViewController.m in Sources */,
 				EDE344821D42151C00BAEB10 /* ResultViewController.m in Sources */,
 				ED8816AE1D8C6A3400D5D725 /* IntroductionViewController.m in Sources */,
+				ED0D35B81DD72112005C863F /* web_connectivity.md in Sources */,
+				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED25282D1CEA35640073A29B /* TestInfoViewController.m in Sources */,
+				ED0D35B61DD72112005C863F /* http_invalid_request_line.md in Sources */,
 				ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */,
 				ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */,
+				EDA22FFE1DD61B6400BD8708 /* UIWebView+Markdown.m in Sources */,
+				ED0D35B71DD72112005C863F /* ndt_test.md in Sources */,
 				ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */,
 				ED25282E1CEA35640073A29B /* ViewController.mm in Sources */,
 				ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */,
@@ -651,8 +681,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Lorenzo Primiterra (YUY24YXWK4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lorenzo Primiterra (YUY24YXWK4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
 				DEVELOPMENT_TEAM = YUY24YXWK4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -670,8 +700,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "f5941269-8ba7-4c3f-b553-1e7483e96894";
-				PROVISIONING_PROFILE_SPECIFIER = "NetProbe-distr";
+				PROVISIONING_PROFILE = "c5d9cb6f-de80-490e-8130-cc0d4e7da888";
+				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe-dev";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};

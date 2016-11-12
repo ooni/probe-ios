@@ -48,11 +48,12 @@
     NSString *htmlData = [NSString stringWithContentsOfFile:pathToHtml encoding:NSUTF8StringEncoding error:NULL];
 
     CGRect frame = self.view.frame;
-    
+    frame.size.height -= 64;
+
     //BUG FIX: when alloc the second time the webview goes under top bar
     /*if (self.webView != nil) {
         [self.webView removeFromSuperview];
-        frame.origin.y +=64;
+        //frame.origin.y +=64;
         frame.size.height -= 64;
     }*/
     

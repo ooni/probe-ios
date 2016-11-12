@@ -202,7 +202,7 @@ static std::string get_dns_server() {
     [TestStorage add_test:self];
     setup_idempotent();
     mk::ooni::HttpInvalidRequestLine()
-        .set_options("backend", "http://213.138.109.232/")
+        .set_options("backend", [HIRL_BACKEND UTF8String])
         .set_options("dns/nameserver", get_dns_server())
         .set_options("net/ca_bundle_path", [ca_cert UTF8String])
         .set_options("geoip_country_path", [geoip_country UTF8String])
@@ -323,7 +323,7 @@ static std::string get_dns_server() {
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"urls" ofType:@"txt"];
     mk::ooni::WebConnectivity()
-    .set_options("backend", BACKEND)
+    .set_options("backend", [WC_BACKEND UTF8String])
     .set_options("port", 80)
     .set_options("dns/nameserver", get_dns_server())
     .set_options("nameserver", get_dns_server())

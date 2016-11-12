@@ -14,10 +14,13 @@
     [super viewDidLoad];
     NSString *pathToiOSCss = [[NSBundle mainBundle] pathForResource:@"setup-mobile" ofType:@"css"];
     NSString *iOSCssData = [NSString stringWithContentsOfFile:pathToiOSCss encoding:NSUTF8StringEncoding error:NULL];
-    NSString *pathToHtml = [[NSBundle mainBundle] pathForResource:self.fileName ofType:@"html"];
-    NSString *htmlData = [NSString stringWithContentsOfFile:pathToHtml encoding:NSUTF8StringEncoding error:NULL];
-    NSString *html = [NSString stringWithFormat:@"<head><style>%@</style></head>%@", iOSCssData, htmlData];
-    [self.webView loadHTMLString:html baseURL:[[NSBundle mainBundle] bundleURL]];
+    NSString *pathToFile = [[NSBundle mainBundle] pathForResource:self.fileName ofType:self.fileType];
+    NSString *fileData = [NSString stringWithContentsOfFile:pathToFile encoding:NSUTF8StringEncoding error:NULL];
+    if ([self.fileType isEqualToString:@"md"])
+        [self.webView loadMarkdownString:fileData atBaseURL:[[NSBundle mainBundle] bundleURL] withStylesheet:iOSCssData];
+    else if ([self.fileType isEqualToString:@"html"])
+        [self.webView loadHTMLString:fileData baseURL:[[NSBundle mainBundle] bundleURL]];
+
 }
 
 - (void)didReceiveMemoryWarning {

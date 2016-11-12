@@ -38,12 +38,12 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     cell.textLabel.text = [NSString stringWithFormat:@"input %@", [json objectForKey:@"input"]];
     if ([[json objectForKey:@"test_keys"] objectForKey:@"blocking"] != [NSNull null]){
-        if ([[[json objectForKey:@"test_keys"] objectForKey:@"blocking"] boolValue]){
-            cell.imageView.image = [UIImage imageNamed:@"result_1"];
+        if (![[[json objectForKey:@"test_keys"] objectForKey:@"blocking"] boolValue]){
+            cell.imageView.image = [UIImage imageNamed:@"censorship_no"];
         }
-        else cell.imageView.image = [UIImage imageNamed:@"result_0"];
+        else cell.imageView.image = [UIImage imageNamed:@"censorship_yes"];
     }
-    else cell.imageView.image = [UIImage imageNamed:@"result_0"];
+    else cell.imageView.image = [UIImage imageNamed:@"censorship_yes"];
     return cell;
 }
 

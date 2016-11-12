@@ -54,14 +54,14 @@
         UILabel *title = (UILabel*)[cell viewWithTag:1];
         UIImageView *image = (UIImageView*)[cell viewWithTag:2];
         title.font = [UIFont systemFontOfSize:17.0];
-        image.image = [UIImage imageNamed:@"not-selected"];
+        image.image = [UIImage imageNamed:@"radio_button_off"];
         if(indexPath.section == 0) {
             title.text = NSLocalizedString([firstQuestion objectAtIndex:indexPath.row-1], nil);
-            if (indexPath.row == firstAnswer) image.image = [UIImage imageNamed:@"selected"];
+            if (indexPath.row == firstAnswer) image.image = [UIImage imageNamed:@"radio_button_on"];
         }
         else if(indexPath.section == 1) {
             title.text = NSLocalizedString([secondQuestion objectAtIndex:indexPath.row-1], nil);
-            if (indexPath.row == secondAnswer) image.image = [UIImage imageNamed:@"selected"];
+            if (indexPath.row == secondAnswer) image.image = [UIImage imageNamed:@"radio_button_on"];
         }
     }
     return cell;

@@ -43,31 +43,26 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [settingsTitles count];
+    return [settingsItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     UILabel *title = (UILabel*)[cell viewWithTag:1];
-    UIImageView *image = (UIImageView*)[cell viewWithTag:2];
     NSString *current = [settingsItems objectAtIndex:indexPath.row];
-    title.text = NSLocalizedString(current, nil);
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
-        image.image = [UIImage imageNamed:@"checked_checkbox"];
-    else
-        image.image = [UIImage imageNamed:@"unchecked_checkbox"];
+    NSString *currentTitle = [settingsTitles objectAtIndex:indexPath.row];
+    title.text = NSLocalizedString(currentTitle, nil);
+    UISwitch *switchview  = (UISwitch*)[cell viewWithTag:2];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
+    else switchview.on = NO;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self switchRow:indexPath.row];
-    [self.tableView reloadData];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
--(void) switchRow:(long)idx{
-    NSString *current = [settingsItems objectAtIndex:idx];
-    if (![[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
+-(IBAction)setSwitch:(UISwitch *)mySwitch{
+    UITableViewCell *cell = (UITableViewCell *)mySwitch.superview.superview;
+    NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
+    NSString *current = [settingsItems objectAtIndex:indexpath.row];
+    if (mySwitch.on)
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];

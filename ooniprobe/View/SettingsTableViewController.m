@@ -14,8 +14,8 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"settings", nil);
     settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results", @"collector_address"];
-    self.tableView.estimatedRowHeight = 80.0;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //self.tableView.estimatedRowHeight = 80.0;
+    //self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,13 +37,11 @@
     if (indexPath.row < [settingsItems count] -1){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         UILabel *title = (UILabel*)[cell viewWithTag:1];
-        UIImageView *image = (UIImageView*)[cell viewWithTag:2];
         NSString *current = [settingsItems objectAtIndex:indexPath.row];
         title.text = NSLocalizedString(current, nil);
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
-            image.image = [UIImage imageNamed:@"checked_checkbox"];
-        else
-            image.image = [UIImage imageNamed:@"unchecked_checkbox"];
+        UISwitch *switchview  = (UISwitch*)[cell viewWithTag:2];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
+        else switchview.on = NO;
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
@@ -62,6 +60,7 @@
     return cell;
 }
 
+//TODO not used with uiSwitch
 -(void) switchRow:(long)idx{
     NSString *current = [settingsItems objectAtIndex:idx];
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
@@ -69,6 +68,23 @@
     else
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(IBAction)setSwitch:(UISwitch *)mySwitch{
+    UITableViewCell *cell = (UITableViewCell *)mySwitch.superview.superview;
+    NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
+    NSString *current = [settingsItems objectAtIndex:indexpath.row];
+    if (mySwitch.on)
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
+    else
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    if ([current isEqualToString:@"upload_results"]){
+        NSIndexPath *indexPath_R = [NSIndexPath indexPathForRow:4 inSection:0];
+        [self.tableView beginUpdates];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath_R] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView endUpdates];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,10 +98,6 @@
         value.autocorrectionType = UITextAutocorrectionTypeNo;
         [value setKeyboardType:UIKeyboardTypeURL];
         [alert show];
-    }
-    else {
-        [self switchRow:indexPath.row];
-        [self.tableView reloadData];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
