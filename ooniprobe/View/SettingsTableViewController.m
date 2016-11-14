@@ -72,7 +72,7 @@
 }
 
 -(IBAction)setSwitch:(UISwitch *)mySwitch{
-    UITableViewCell *cell = (UITableViewCell *)mySwitch.superview.superview;
+    UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
     NSString *current = [settingsItems objectAtIndex:indexpath.row];
     if (mySwitch.on)
@@ -86,6 +86,7 @@
         [self.tableView reloadRowsAtIndexPaths:@[indexPath_R] withRowAnimation:UITableViewRowAnimationNone];
         [self.tableView endUpdates];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loadAvailableMeasurements" object:nil];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,6 +110,7 @@
         NSString *current = [settingsItems objectAtIndex:alertView.tag];
         [[NSUserDefaults standardUserDefaults] setObject:value.text forKey:current];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadAvailableMeasurements" object:nil];
         [self.tableView reloadData];
     }
 }
