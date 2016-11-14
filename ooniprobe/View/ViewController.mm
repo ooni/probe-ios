@@ -16,10 +16,12 @@
     self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
     self.runningMeasurementNames = [[NSMutableArray alloc] init];
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
+    self.finishedNetworkMeasurements = [[TestStorage get_tests] mutableCopy];
     [self loadAvailableMeasurements];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadAvailableMeasurements) name:@"loadAvailableMeasurements" object:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -30,6 +32,8 @@
 }
 
 - (void) loadAvailableMeasurements {
+    [self.availableNetworkMeasurements removeAllObjects];
+    
     WebConnectivity *web_connectivityMeasurement = [[WebConnectivity alloc] init];
     [self.availableNetworkMeasurements addObject:web_connectivityMeasurement];
     
@@ -38,12 +42,14 @@
 
     NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
     [self.availableNetworkMeasurements addObject:ndt_testMeasurement];
+    [self.tableView reloadData];
 }
 
 -(void)refreshTable:(NSNotification *)notification{
     NetworkMeasurement *current  = (NetworkMeasurement*)[notification object];
     [self.runningMeasurementNames removeObject:current.name];
     [self.runningNetworkMeasurements removeObject:current];
+    [self.finishedNetworkMeasurements addObject:current];
     [self.tableView reloadData];
 }
 
@@ -78,7 +84,7 @@
     else if (section == 1)
         return [self.runningNetworkMeasurements count];
     else if (section == 2)
-        return [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
+        return [self.finishedNetworkMeasurements count];
     return 0;
 }
 
@@ -139,9 +145,8 @@
     }
     else if (indexPath.section == 2){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
-        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
-        NSUInteger idx = a - 1 - indexPath.row;
-        current = [TestStorage get_test_atindex:idx];
+        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
+        current = [self.finishedNetworkMeasurements objectAtIndex:idx];
         UILabel *title = (UILabel*)[cell viewWithTag:1];
         [title setText:NSLocalizedString(current.name, nil)];
         
@@ -168,9 +173,8 @@
         [self performSegueWithIdentifier:@"toInfo" sender:self];
     }
     else if (indexPath.section == 2){
-        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
-        NSUInteger idx = a - 1 - indexPath.row;
-        NetworkMeasurement *current = [TestStorage get_test_atindex:idx];
+        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
+        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:idx];
         NSArray *items = [self getItems:current.json_file];
         if ([items count] > 1)
             [self performSegueWithIdentifier:@"toInputList" sender:self];
@@ -206,9 +210,9 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
-        NSUInteger idx = a - 1 - indexPath.row;
-        [TestStorage remove_test_atindex:idx];
+        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
+        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:idx];
+        [TestStorage remove_test:current.test_id];
         [self.tableView reloadData];
     }
 }
@@ -243,20 +247,18 @@
     if ([[segue identifier] isEqualToString:@"toLog"]){
         LogViewController *vc = (LogViewController * )segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        [vc setTest:[TestStorage get_test_atindex:indexPath.row]];
+        [vc setTest:[self.finishedNetworkMeasurements objectAtIndex:indexPath.row]];
     }
     else if ([[segue identifier] isEqualToString:@"toResult"]){
-        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
-        NSUInteger idx = a - 1 - indexPath.row;
-        NetworkMeasurement *current = [TestStorage get_test_atindex:idx];
+        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
+        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:idx];
         NSArray *items = [self getItems:current.json_file];
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
         [vc setContent:[items objectAtIndex:0]];
     }
     else if ([[segue identifier] isEqualToString:@"toInputList"]){
-        NSUInteger a = [[TestStorage get_tests] count]-[self.runningNetworkMeasurements count];
-        NSUInteger idx = a - 1 - indexPath.row;
-        NetworkMeasurement *current = [TestStorage get_test_atindex:idx];
+        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
+        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:idx];
         ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
         [vc setItems:[self getItems:current.json_file]];
     }

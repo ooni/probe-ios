@@ -9,29 +9,27 @@
 + (NSArray*)get_tests{
     [self checkTests];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
-        return [[NSUserDefaults standardUserDefaults] objectForKey:@"tests"];
+        return [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]];
     }
     return nil;
 }
 
 + (void)add_test:(NetworkMeasurement*)test{
-    [self checkTests];
-    NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
-    [cache addObject:[NSKeyedArchiver archivedDataWithRootObject:test]];
-    [[NSUserDefaults standardUserDefaults] setObject:cache forKey:@"tests"];
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
+    [cache addObject:test];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (NSArray*)remove_test:(NSNumber*)test_id{
-    [self checkTests];
-    NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
     for (int i = 0; i < [cache count]; i++) {
-        NetworkMeasurement* test = [NSKeyedUnarchiver unarchiveObjectWithData:[cache objectAtIndex:i]];
+        NetworkMeasurement* test = [cache objectAtIndex:i];
         if ([test.test_id isEqualToNumber:test_id]){
             [self removeFile:test.json_file];
             [self removeFile:test.log_file];
             [cache removeObjectAtIndex:i];
-            [[NSUserDefaults standardUserDefaults] setObject:cache forKey:@"tests"];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             return cache;
         }
@@ -40,46 +38,43 @@
 }
 
 + (NSArray*)remove_test_atindex:(long)index{
-    [self checkTests];
-    NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
     if ([cache count] > index) {
-        NetworkMeasurement* test = [NSKeyedUnarchiver unarchiveObjectWithData:[cache objectAtIndex:index]];
+        NetworkMeasurement* test = [cache objectAtIndex:index];
         [self removeFile:test.json_file];
         [self removeFile:test.log_file];
         [cache removeObjectAtIndex:index];
     }
-    [[NSUserDefaults standardUserDefaults] setObject:cache forKey:@"tests"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     return cache;
 }
 
 + (void)checkTests{
-    if (![[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"]){
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
         NSMutableArray *cache = [[NSMutableArray alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:cache forKey:@"tests"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
 + (NetworkMeasurement*)get_test_atindex:(long)index{
-    [self checkTests];
-    NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
     if ([cache count] > index) {
-        NetworkMeasurement* test = [NSKeyedUnarchiver unarchiveObjectWithData:[cache objectAtIndex:index]];
+        NetworkMeasurement* test = [cache objectAtIndex:index];
         return test;
     }
     return nil;
 }
 
 + (void)set_completed:(NSNumber*)test_id {
-    [self checkTests];
-    NSMutableArray *cache = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"tests"] mutableCopy];
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
     for (int i = 0; i < [cache count]; i++) {
-        NetworkMeasurement* test = [NSKeyedUnarchiver unarchiveObjectWithData:[cache objectAtIndex:i]];
+        NetworkMeasurement* test = [cache objectAtIndex:i];
         if ([test.test_id isEqualToNumber:test_id]){
             test.completed = TRUE;
-            [cache setObject:[NSKeyedArchiver archivedDataWithRootObject:test] atIndexedSubscript:i];
-            [[NSUserDefaults standardUserDefaults] setObject:cache forKey:@"tests"];
+            [cache setObject:test atIndexedSubscript:i];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             return;
         }

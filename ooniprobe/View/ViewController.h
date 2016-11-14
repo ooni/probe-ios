@@ -39,4 +39,6 @@
 
 @property (strong, nonatomic) NSMutableArray *runningNetworkMeasurements;
 
+@property (strong, nonatomic) NSMutableArray *finishedNetworkMeasurements;
+
 @end

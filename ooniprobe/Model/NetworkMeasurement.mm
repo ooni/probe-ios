@@ -63,6 +63,7 @@ static std::string get_dns_server() {
     include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
     upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
     collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
+    self.progress = 0;
     self.completed = FALSE;
     return self;
 }
@@ -139,6 +140,7 @@ static std::string get_dns_server() {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
+    self.progress = 0;
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
@@ -199,6 +201,7 @@ static std::string get_dns_server() {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
+    self.progress = 0;
     [TestStorage add_test:self];
     setup_idempotent();
     mk::ooni::HttpInvalidRequestLine()
@@ -257,6 +260,7 @@ static std::string get_dns_server() {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
+    self.progress = 0;
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
@@ -318,6 +322,7 @@ static std::string get_dns_server() {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
+    self.progress = 0;
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
@@ -381,8 +386,8 @@ static std::string get_dns_server() {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
+    self.progress = 0;
     [TestStorage add_test:self];
-        
     mk::ndt::NdtTest()
     .set_options("test_suite", MK_NDT_DOWNLOAD)
     .set_verbosity(MK_LOG_INFO)
