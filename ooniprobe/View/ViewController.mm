@@ -16,7 +16,7 @@
     self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
     self.runningMeasurementNames = [[NSMutableArray alloc] init];
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
-    self.finishedNetworkMeasurements = [[TestStorage get_tests] mutableCopy];
+    self.finishedNetworkMeasurements = [[TestStorage get_tests_rev] mutableCopy];
     [self loadAvailableMeasurements];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
@@ -49,7 +49,7 @@
     NetworkMeasurement *current  = (NetworkMeasurement*)[notification object];
     [self.runningMeasurementNames removeObject:current.name];
     [self.runningNetworkMeasurements removeObject:current];
-    [self.finishedNetworkMeasurements addObject:current];
+    [self.finishedNetworkMeasurements insertObject:current atIndex:0];
     [self.tableView reloadData];
 }
 
@@ -145,8 +145,8 @@
     }
     else if (indexPath.section == 2){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_finished" forIndexPath:indexPath];
-        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
-        current = [self.finishedNetworkMeasurements objectAtIndex:idx];
+        
+        current = [self.finishedNetworkMeasurements objectAtIndex:indexPath.row];
         UILabel *title = (UILabel*)[cell viewWithTag:1];
         [title setText:NSLocalizedString(current.name, nil)];
         
@@ -173,8 +173,7 @@
         [self performSegueWithIdentifier:@"toInfo" sender:self];
     }
     else if (indexPath.section == 2){
-        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
-        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:idx];
+        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:indexPath.row];
         NSArray *items = [self getItems:current.json_file];
         if ([items count] > 1)
             [self performSegueWithIdentifier:@"toInputList" sender:self];
@@ -210,8 +209,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
-        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:idx];
+        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:indexPath.row];
+        [self.finishedNetworkMeasurements removeObjectAtIndex:indexPath.row];
         [TestStorage remove_test:current.test_id];
         [self.tableView reloadData];
     }
@@ -250,15 +249,15 @@
         [vc setTest:[self.finishedNetworkMeasurements objectAtIndex:indexPath.row]];
     }
     else if ([[segue identifier] isEqualToString:@"toResult"]){
-        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
-        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:idx];
+        
+        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:indexPath.row];
         NSArray *items = [self getItems:current.json_file];
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
         [vc setContent:[items objectAtIndex:0]];
     }
     else if ([[segue identifier] isEqualToString:@"toInputList"]){
-        NSUInteger idx = [self.finishedNetworkMeasurements count] - 1 - indexPath.row;
-        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:idx];
+        
+        NetworkMeasurement *current = [self.finishedNetworkMeasurements objectAtIndex:indexPath.row];
         ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
         [vc setItems:[self getItems:current.json_file]];
     }

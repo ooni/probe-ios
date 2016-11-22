@@ -9,6 +9,8 @@
 
 + (NSArray*)get_tests;
 
++ (NSArray*)get_tests_rev;
+
 + (void)add_test:(NetworkMeasurement*)test;
 
 + (NSArray*)remove_test:(NSNumber*)test_id;

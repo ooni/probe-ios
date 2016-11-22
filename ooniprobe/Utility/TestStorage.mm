@@ -14,6 +14,16 @@
     return nil;
 }
 
++ (NSArray*)get_tests_rev{
+    [self checkTests];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
+        NSArray* test_array = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]];
+        NSArray* reversedArray = [[test_array reverseObjectEnumerator] allObjects];
+        return reversedArray;
+    }
+    return nil;
+}
+
 + (void)add_test:(NetworkMeasurement*)test{
     NSMutableArray *cache = [[self get_tests] mutableCopy];
     [cache addObject:test];
