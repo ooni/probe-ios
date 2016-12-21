@@ -7,6 +7,7 @@
 
 /*Include header from test*/
 #include <measurement_kit/ooni.hpp>
+#include <measurement_kit/nettests.hpp>
 
 #include <measurement_kit/common.hpp>
 

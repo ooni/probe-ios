@@ -97,6 +97,7 @@
         alert.tag = indexPath.row;
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         value = [alert textFieldAtIndex:0];
+        value.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"collector_address"];
         value.autocorrectionType = UITextAutocorrectionTypeNo;
         [value setKeyboardType:UIKeyboardTypeURL];
         [alert show];
