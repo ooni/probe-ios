@@ -400,6 +400,12 @@
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = YUY24YXWK4;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -676,8 +682,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (XUC4X5K526)";
-				DEVELOPMENT_TEAM = YUY24YXWK4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -694,8 +700,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "c5d9cb6f-de80-490e-8130-cc0d4e7da888";
-				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe-dev";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -709,8 +715,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Lorenzo Primiterra (YUY24YXWK4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lorenzo Primiterra (YUY24YXWK4)";
-				DEVELOPMENT_TEAM = YUY24YXWK4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -727,8 +733,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "f5941269-8ba7-4c3f-b553-1e7483e96894";
-				PROVISIONING_PROFILE_SPECIFIER = "NetProbe-distr";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};

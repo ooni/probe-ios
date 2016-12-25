@@ -63,6 +63,7 @@ static std::string get_dns_server() {
     include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
     upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
     collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
+    self.backgroundTask = UIBackgroundTaskInvalid;
     return self;
 }
 
@@ -375,7 +376,16 @@ static std::string get_dns_server() {
     return self;
 }
 
--(void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        NSLog(@"Background handler called. Not running background tasks anymore.");
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -416,8 +426,28 @@ static std::string get_dns_server() {
             self.completed = TRUE;
             [TestStorage set_completed:self.test_id];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+            [self showNotification];
+            [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+            self.backgroundTask = UIBackgroundTaskInvalid;
         });
     });
+}
+
+- (void)showNotification
+{
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    
+    /*
+    NSTimeInterval secondsForOneDay = 60 * 60 * 24;
+    NSDate *futureDate = [[NSDate alloc] init];
+    futureDate = [NSDate dateWithTimeIntervalSinceNow:secondsForOneDay];
+    */
+    
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    localNotification.alertBody = @"Your alert message";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    //localNotification.repeatInterval = NSCalendarUnitDay;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 @end

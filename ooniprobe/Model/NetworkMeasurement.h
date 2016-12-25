@@ -31,6 +31,7 @@
 @property NSString *log_file;
 @property BOOL completed;
 @property mk::Settings options;
+@property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 
 -(void) run;
 @end
