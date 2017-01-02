@@ -436,17 +436,9 @@ static std::string get_dns_server() {
 - (void)showNotification
 {
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    
-    /*
-    NSTimeInterval secondsForOneDay = 60 * 60 * 24;
-    NSDate *futureDate = [[NSDate alloc] init];
-    futureDate = [NSDate dateWithTimeIntervalSinceNow:secondsForOneDay];
-    */
-    
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-    localNotification.alertBody = @"Your alert message";
+    localNotification.alertBody = @"Test x finished running";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    //localNotification.repeatInterval = NSCalendarUnitDay;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 

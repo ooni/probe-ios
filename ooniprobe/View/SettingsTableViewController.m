@@ -13,7 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"settings", nil);
-    settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results", @"collector_address"];
+    settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results", @"local_notifications", @"collector_address"];
     //self.tableView.estimatedRowHeight = 80.0;
     //self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
@@ -80,6 +80,13 @@
     else
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    if ([current isEqualToString:@"local_notifications"]){
+        //TODO add time of notification and new row to select it
+        if (mySwitch.on)
+            [self showNotification];
+        else
+            [self cancelScheduledNotifications];
+    }
     if ([current isEqualToString:@"upload_results"]){
         NSIndexPath *indexPath_R = [NSIndexPath indexPathForRow:4 inSection:0];
         [self.tableView beginUpdates];
@@ -114,6 +121,20 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loadAvailableMeasurements" object:nil];
         [self.tableView reloadData];
     }
+}
+
+- (void)showNotification
+{
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    localNotification.alertBody = @"Time to run tests";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.repeatInterval = NSCalendarUnitDay;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
+-(void)cancelScheduledNotifications{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 @end

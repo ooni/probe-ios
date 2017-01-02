@@ -1,28 +1,28 @@
 PODS:
-  - measurement_kit (0.4.0-alpha)
+  - measurement_kit (0.4.0-alpha.1)
   - sundown (0.1.0)
   - Toast (3.1.0)
 
 DEPENDENCIES:
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `stable`)
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `release/v0.4.0-beta`)
   - sundown
   - Toast
 
 EXTERNAL SOURCES:
   measurement_kit:
-    :branch: stable
+    :branch: release/v0.4.0-beta
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 CHECKOUT OPTIONS:
   measurement_kit:
-    :commit: 40cb030240bb20d1a686a770e818d5e818f3909d
+    :commit: 6293a559862ad80eac07fa39e4fad5f0d498d090
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 SPEC CHECKSUMS:
-  measurement_kit: 02e47e4625e882c7a28ff6b7eae1c9752431e4c9
+  measurement_kit: 67366ca6b923160b53389140b687aa6c7823eb00
   sundown: 240edd458462fd773a474023559622c3a8566b5e
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
 
-PODFILE CHECKSUM: b1d8130a811b7b0a00f119d95a460f16367657b9
+PODFILE CHECKSUM: 1c31b9407f9e4c5f4271952ccbfb07abb1d581fe
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.1.1
