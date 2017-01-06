@@ -20,16 +20,6 @@
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
     }
-    /*
-    NSDateComponents *timeComponents = [[NSDateComponents alloc] init];
-    NSDate *currentDate = [NSDate date];
-    [timeComponents setHour:18];
-    [timeComponents setMinute:0];
-    [timeComponents setSecond:0];
-    NSDate *fireDate = [[NSCalendar currentCalendar] dateByAddingComponents:timeComponents toDate:currentDate options:0];
-    [[NSUserDefaults standardUserDefaults] setObject:fireDate forKey:@"local_notifications_time"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-     */
     return YES;
 }
 
