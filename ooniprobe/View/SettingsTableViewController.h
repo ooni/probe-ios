@@ -6,7 +6,12 @@
 
 @interface SettingsTableViewController : UITableViewController {
     NSArray *settingsItems;
+    NSArray *otherItems;
     UITextField *value;
+    UIDatePicker *datePicker;
+    NSDateFormatter *dateFormatter;
+    UITextField *timeField;
+    UIToolbar *keyboardToolbar;
 }
 
 @end

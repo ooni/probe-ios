@@ -16,9 +16,20 @@
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"HelveticaNeue" size:20], NSFontAttributeName, nil]];
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
     }
+    /*
+    NSDateComponents *timeComponents = [[NSDateComponents alloc] init];
+    NSDate *currentDate = [NSDate date];
+    [timeComponents setHour:18];
+    [timeComponents setMinute:0];
+    [timeComponents setSecond:0];
+    NSDate *fireDate = [[NSCalendar currentCalendar] dateByAddingComponents:timeComponents toDate:currentDate options:0];
+    [[NSUserDefaults standardUserDefaults] setObject:fireDate forKey:@"local_notifications_time"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+     */
     return YES;
 }
 

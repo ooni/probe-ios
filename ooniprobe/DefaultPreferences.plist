@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>local_notifications</key>
+	<false/>
 	<key>include_ip</key>
 	<false/>
 	<key>include_asn</key>
@@ -10,6 +12,8 @@
 	<string>YES</string>
 	<key>upload_results</key>
 	<string>YES</string>
+	<key>local_notifications_time</key>
+	<date>2017-01-01T17:00:00Z</date>
 	<key>collector_address</key>
 	<string>https://measurement-kit-collector.herokuapp.com</string>
 </dict>

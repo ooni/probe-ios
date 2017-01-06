@@ -3,6 +3,8 @@
 // information on the copying conditions.
 
 #import "SettingsTableViewController.h"
+#define settings 4
+#define notification 1
 
 @interface SettingsTableViewController ()
 
@@ -13,9 +15,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"settings", nil);
-    settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results", @"local_notifications", @"collector_address"];
-    //self.tableView.estimatedRowHeight = 80.0;
-    //self.tableView.rowHeight = UITableViewAutomaticDimension;
+    [self reloadSettings];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+
+    datePicker = [[UIDatePicker alloc] init];
+    [datePicker setDatePickerMode:UIDatePickerModeTime];
+    [datePicker setLocale:[NSLocale currentLocale]];
+    NSDate *time = [[NSUserDefaults standardUserDefaults] objectForKey:@"local_notifications_time"];
+    [datePicker setDate:time];
+    [datePicker addTarget:self action:@selector(timeChanged:) forControlEvents:UIControlEventValueChanged];
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,80 +35,108 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [settingsItems count];
+    if (section == 0)
+        return [settingsItems count];
+    return [otherItems count];
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return @"Collector settings";
+    else
+        return @"Notifications";
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    if (indexPath.row < [settingsItems count] -1){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        NSString *current = [settingsItems objectAtIndex:indexPath.row];
-        cell.textLabel.text = NSLocalizedString(current, nil);
-        UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
-        [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
-        else switchview.on = NO;
-        cell.accessoryView = switchview;
-    }
-    else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
-        NSString *current = [settingsItems objectAtIndex:indexPath.row];
-        cell.textLabel.text = NSLocalizedString(current, nil);
-        cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue]){
-            cell.userInteractionEnabled = YES;
-            cell.hidden = NO;
+    if (indexPath.section == 0){
+        if (indexPath.row < settings){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+            NSString *current = [settingsItems objectAtIndex:indexPath.row];
+            cell.textLabel.text = NSLocalizedString(current, nil);
+            UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
+            [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
+            if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
+            else switchview.on = NO;
+            cell.accessoryView = switchview;
         }
         else {
-            cell.userInteractionEnabled = NO;
-            cell.hidden = YES;
+            cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
+            NSString *current = [settingsItems objectAtIndex:indexPath.row];
+            cell.textLabel.text = NSLocalizedString(current, nil);
+            cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
+        }
+    }
+    else {
+        if (indexPath.row < notification){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+            NSString *current = [otherItems objectAtIndex:indexPath.row];
+            cell.textLabel.text = NSLocalizedString(current, nil);
+            UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
+            [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
+            if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
+            else switchview.on = NO;
+            cell.accessoryView = switchview;
+        }
+        else {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"CellText" forIndexPath:indexPath];
+            NSString *current = [otherItems objectAtIndex:indexPath.row];
+            UILabel *title = (UILabel*)[cell viewWithTag:1];
+            UITextField *textView = (UITextField*)[cell viewWithTag:2];
+            title.text = NSLocalizedString(current, nil);
+            textView.inputView = datePicker;
+            NSDate *time = [[NSUserDefaults standardUserDefaults] objectForKey:@"local_notifications_time"];
+            textView.text = [dateFormatter stringFromDate:time];
+            timeField = textView;
         }
     }
     return cell;
 }
 
-//TODO not used with uiSwitch
--(void) switchRow:(long)idx{
-    NSString *current = [settingsItems objectAtIndex:idx];
-    if (![[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
-    else
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
 -(IBAction)setSwitch:(UISwitch *)mySwitch{
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
-    NSString *current = [settingsItems objectAtIndex:indexpath.row];
+    NSString *current;
+    if (indexpath.section == 0)
+        current = [settingsItems objectAtIndex:indexpath.row];
+    else
+        current = [otherItems objectAtIndex:indexpath.row];
     if (mySwitch.on)
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    if ([current isEqualToString:@"local_notifications"]){
-        //TODO add time of notification and new row to select it
-        if (mySwitch.on)
-            [self showNotification];
-        else
-            [self cancelScheduledNotifications];
-    }
-    if ([current isEqualToString:@"upload_results"]){
-        NSIndexPath *indexPath_R = [NSIndexPath indexPathForRow:4 inSection:0];
-        [self.tableView beginUpdates];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath_R] withRowAnimation:UITableViewRowAnimationNone];
-        [self.tableView endUpdates];
+    if ([current isEqualToString:@"upload_results"] || [current isEqualToString:@"local_notifications"]){
+        if ([current isEqualToString:@"local_notifications"]) [self showNotification:nil];
+        [self reloadSettings];
+
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"loadAvailableMeasurements" object:nil];
 }
 
+-(void)reloadSettings {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue])
+        settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results", @"collector_address"];
+    else
+        settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results"];
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"local_notifications"] boolValue])
+        otherItems = @[@"local_notifications", @"local_notifications_time"];
+    else
+        otherItems = @[@"local_notifications"];
+    [self.tableView reloadData];
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == [settingsItems count] -1){
+    if (indexPath.section == 0 && indexPath.row == [settingsItems count] -1){
         NSString *current = [settingsItems objectAtIndex:indexPath.row];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(current, @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
         alert.tag = indexPath.row;
@@ -109,6 +147,11 @@
         [value setKeyboardType:UIKeyboardTypeURL];
         [alert show];
     }
+    else if (indexPath.section == 1){
+        if (indexPath.row == 1) [self showNotification:nil];
+        //&& indexPath.row == [otherItems count] -1){
+    }
+    [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -123,11 +166,13 @@
     }
 }
 
-- (void)showNotification
+- (void)showNotification:(NSDate*)fireDate
 {
+    [self cancelScheduledNotifications];
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-    localNotification.alertBody = @"Time to run tests";
+    if (fireDate == nil) fireDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"local_notifications_time"];
+    localNotification.fireDate = fireDate;
+    localNotification.alertBody = NSLocalizedString(@"local_notifications_text", nil);
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.repeatInterval = NSCalendarUnitDay;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -136,5 +181,14 @@
 -(void)cancelScheduledNotifications{
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
+
+
+-(void)timeChanged:(UIDatePicker*)sender{
+    [[NSUserDefaults standardUserDefaults] setObject:datePicker.date forKey:@"local_notifications_time"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [timeField setText:[dateFormatter stringFromDate:datePicker.date]];
+    [self showNotification:datePicker.date];
+}
+
 
 @end
