@@ -20,6 +20,7 @@
     bool include_cc;
     bool upload_results;
     NSString *collector_address;
+    NSNumber *max_runtime;
 }
 
 @property NSString *name;

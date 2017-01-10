@@ -16,8 +16,6 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"settings", nil);
     [self reloadSettings];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-
     datePicker = [[UIDatePicker alloc] init];
     [datePicker setDatePickerMode:UIDatePickerModeTime];
     [datePicker setLocale:[NSLocale currentLocale]];
@@ -35,21 +33,23 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)
         return [settingsItems count];
-    return [otherItems count];
+    else if (section == 1) return [otherItems count];
+    return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
-        return @"Collector settings";
-    else
-        return @"Notifications";
+        return NSLocalizedString(@"collector_settings", nil);
+    else if (section == 1)
+        return NSLocalizedString(@"notifications", nil);
+    return NSLocalizedString(@"test_limits", nil);
 }
 
 
@@ -73,7 +73,7 @@
             cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         }
     }
-    else {
+    else if (indexPath.section == 1) {
         if (indexPath.row < notification){
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
             NSString *current = [otherItems objectAtIndex:indexPath.row];
@@ -96,7 +96,26 @@
             timeField = textView;
         }
     }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CellText" forIndexPath:indexPath];
+        UILabel *title = (UILabel*)[cell viewWithTag:1];
+        UITextField *textView = (UITextField*)[cell viewWithTag:2];
+        NSNumber *time = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
+        textView.text = [NSString stringWithFormat:@"%@", time];
+        title.text = NSLocalizedString(@"max_runtime", nil);
+        textView.keyboardType = UIKeyboardTypeNumberPad;
+        textView.delegate = self;
+    }
     return cell;
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString * str = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    [[NSUserDefaults standardUserDefaults] setObject:[f numberFromString:str] forKey:@"max_runtime"];
+    return YES;
 }
 
 -(IBAction)setSwitch:(UISwitch *)mySwitch{
@@ -111,6 +130,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
     if ([current isEqualToString:@"upload_results"] || [current isEqualToString:@"local_notifications"]){
         if ([current isEqualToString:@"local_notifications"]) [self showNotification:nil];

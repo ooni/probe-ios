@@ -63,6 +63,7 @@ static std::string get_dns_server() {
     include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
     upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
     collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
+    max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     self.backgroundTask = UIBackgroundTaskInvalid;
     return self;
 }
@@ -126,7 +127,7 @@ static std::string get_dns_server() {
 
 @end
 
-
+//NOT USED
 @implementation DNSInjection : NetworkMeasurement
 
 -(id) init {
@@ -135,7 +136,6 @@ static std::string get_dns_server() {
     return self;
 }
 
-//NOT USED
 - (void) run {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
@@ -323,7 +323,7 @@ static std::string get_dns_server() {
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"urls" ofType:@"txt"];
+    NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     mk::nettests::WebConnectivityTest()
     .set_options("backend", [WC_BACKEND UTF8String])
     .set_options("port", 80)
@@ -337,6 +337,7 @@ static std::string get_dns_server() {
     .set_options("save_real_probe_cc", include_cc)
     .set_options("no_collector", !upload_results)
     .set_options("collector_base_url", [collector_address UTF8String])
+    .set_options("max_runtime", [max_runtime doubleValue])
     .set_input_filepath([path UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
     .set_verbosity(MK_LOG_INFO)
