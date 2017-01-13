@@ -53,9 +53,12 @@
 
 -(void)refreshTable:(NSNotification *)notification{
     NetworkMeasurement *current  = (NetworkMeasurement*)[notification object];
+    NSLog(@"finishedNetworkMeasurements: %@", self.finishedNetworkMeasurements);
     [self.runningMeasurementNames removeObject:current.name];
     [self.runningNetworkMeasurements removeObject:current];
-    [self.finishedNetworkMeasurements insertObject:current atIndex:0];
+    //Temp fix for this GUI
+    self.finishedNetworkMeasurements = [[TestStorage get_tests_rev] mutableCopy];
+    //[self.finishedNetworkMeasurements insertObject:current atIndex:0];
     [self.tableView reloadData];
 }
 
