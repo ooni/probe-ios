@@ -240,6 +240,19 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *content = @"";
     if([fileManager fileExistsAtPath:filePath]) {
+
+        NSLog(@"now processing: %@", filePath);
+        std::ifstream reader([filePath UTF8String]);
+        std::string myline;
+        while ((std::getline(reader, myline))) {
+            //NSLog(@"now processing: %s", myline.c_str());
+            try {
+                nlohmann::json::parse(myline);
+            } catch (const std::exception &) {
+                NSLog(@"failed line: %s", myline.c_str());
+            }
+        }
+
         NSError *error;
         content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
         //Cut out the last \n
