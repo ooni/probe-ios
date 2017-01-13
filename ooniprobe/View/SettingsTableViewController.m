@@ -133,9 +133,13 @@
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     if ([current isEqualToString:@"upload_results"] || [current isEqualToString:@"local_notifications"]){
-        if ([current isEqualToString:@"local_notifications"]) [self showNotification:nil];
+        if ([current isEqualToString:@"local_notifications"]) {
+            if (mySwitch.on)
+                [self showNotification:nil];
+            else
+                [self cancelScheduledNotifications];
+        }
         [self reloadSettings];
-
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"loadAvailableMeasurements" object:nil];
 }
