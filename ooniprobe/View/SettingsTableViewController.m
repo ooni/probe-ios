@@ -171,10 +171,6 @@
         [value setKeyboardType:UIKeyboardTypeURL];
         [alert show];
     }
-    else if (indexPath.section == 1){
-        if (indexPath.row == 1) [self showNotification:nil];
-        //&& indexPath.row == [otherItems count] -1){
-    }
     [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

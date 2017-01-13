@@ -4,18 +4,18 @@ PODS:
   - Toast (3.1.0)
 
 DEPENDENCIES:
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `feature/recognize_utf8`)
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `stable`)
   - sundown
   - Toast
 
 EXTERNAL SOURCES:
   measurement_kit:
-    :branch: feature/recognize_utf8
+    :branch: stable
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 CHECKOUT OPTIONS:
   measurement_kit:
-    :commit: 31a0038d26e36d8b84ee04eed34efbf03890a07d
+    :commit: 4ec6bb48ee4388403bb8df7333d6bd8d54d16728
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 SPEC CHECKSUMS:
@@ -23,6 +23,6 @@ SPEC CHECKSUMS:
   sundown: 240edd458462fd773a474023559622c3a8566b5e
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
 
-PODFILE CHECKSUM: 026d0a4ee73f07afbb232001101beda8a0b0f1d0
+PODFILE CHECKSUM: b1d8130a811b7b0a00f119d95a460f16367657b9
 
 COCOAPODS: 1.1.1

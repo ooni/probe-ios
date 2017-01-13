@@ -75,12 +75,12 @@ static std::string get_dns_server() {
 
 - (void)showNotification
 {
-    NSLog(@"showNotification");
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:15];
-    localNotification.alertBody = [NSString stringWithFormat:@"Test %@ finished running", self.name];
+    localNotification.fireDate = [NSDate date];
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    localNotification.alertBody = [NSString stringWithFormat:@"Test %@ finished running", self.name];
+    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber]+1];
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
 -(NSString*) getDate {
