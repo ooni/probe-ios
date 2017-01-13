@@ -50,6 +50,7 @@ static std::string get_dns_server() {
     return dns_server;
 }
 
+
 @implementation NetworkMeasurement
 
 -(id) init {
@@ -70,6 +71,15 @@ static std::string get_dns_server() {
 
 -(void) run {
     // Nothing to do here
+}
+
+- (void)showNotification
+{
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    localNotification.alertBody = [NSString stringWithFormat:@"Test %@ finished running", self.name];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 -(NSString*) getDate {
@@ -136,7 +146,15 @@ static std::string get_dns_server() {
     return self;
 }
 
-- (void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+- (void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -182,6 +200,9 @@ static std::string get_dns_server() {
                 self.completed = TRUE;
                 [TestStorage set_completed:self.test_id];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+                [self showNotification];
+                [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+                self.backgroundTask = UIBackgroundTaskInvalid;
             });
         });
 }
@@ -196,7 +217,15 @@ static std::string get_dns_server() {
     return self;
 }
 
--(void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -239,6 +268,9 @@ static std::string get_dns_server() {
                 self.completed = TRUE;
                 [TestStorage set_completed:self.test_id];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+                [self showNotification];
+                [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+                self.backgroundTask = UIBackgroundTaskInvalid;
             });
         });
 }
@@ -254,7 +286,15 @@ static std::string get_dns_server() {
     return self;
 }
 
--(void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -300,6 +340,9 @@ static std::string get_dns_server() {
                 self.completed = TRUE;
                 [TestStorage set_completed:self.test_id];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+                [self showNotification];
+                [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+                self.backgroundTask = UIBackgroundTaskInvalid;
             });
         });
 }
@@ -314,7 +357,15 @@ static std::string get_dns_server() {
     return self;
 }
 
--(void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -363,6 +414,9 @@ static std::string get_dns_server() {
             self.completed = TRUE;
             [TestStorage set_completed:self.test_id];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+            [self showNotification];
+            [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+            self.backgroundTask = UIBackgroundTaskInvalid;
         });
     });
 }
@@ -379,7 +433,6 @@ static std::string get_dns_server() {
 
 -(void)run{
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        NSLog(@"Background handler called. Not running background tasks anymore.");
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
@@ -432,15 +485,6 @@ static std::string get_dns_server() {
             self.backgroundTask = UIBackgroundTaskInvalid;
         });
     });
-}
-
-- (void)showNotification
-{
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-    localNotification.alertBody = @"Test x finished running";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 @end
