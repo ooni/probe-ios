@@ -410,6 +410,13 @@ static std::string get_dns_server() {
     })
     .start([self]() {
         NSLog(@"web_connectivity testEnded");
+        self.completed = TRUE;
+        [TestStorage set_completed:self.test_id];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+        [self showNotification];
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+        /*
         dispatch_async(dispatch_get_main_queue(), ^{
             self.completed = TRUE;
             [TestStorage set_completed:self.test_id];
@@ -417,7 +424,7 @@ static std::string get_dns_server() {
             [self showNotification];
             [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
             self.backgroundTask = UIBackgroundTaskInvalid;
-        });
+        });*/
     });
 }
 
@@ -476,6 +483,7 @@ static std::string get_dns_server() {
     .set_options("no_collector", !upload_results)
     .set_options("collector_base_url", [collector_address UTF8String])
     .start([self]() {
+        NSLog(@"ndt testEnded");
         dispatch_async(dispatch_get_main_queue(), ^{
             self.completed = TRUE;
             [TestStorage set_completed:self.test_id];

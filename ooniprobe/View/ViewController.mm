@@ -24,6 +24,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadAvailableMeasurements) name:@"loadAvailableMeasurements" object:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"]){
