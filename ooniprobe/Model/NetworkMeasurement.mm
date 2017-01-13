@@ -390,6 +390,7 @@ static std::string get_dns_server() {
     .set_options("collector_base_url", [collector_address UTF8String])
     .set_options("max_runtime", [max_runtime doubleValue])
     .set_input_filepath([path UTF8String])
+    .set_error_filepath([[self getFileName:@"log"] UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
     .set_verbosity(MK_LOG_INFO)
     .on_progress([self](double prog, const char *s) {
@@ -404,27 +405,27 @@ static std::string get_dns_server() {
         NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
                              [NSString stringWithUTF8String:s]];
         NSLog(@"%s", s);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self writeOrAppend:current];
-        });
     })
     .start([self]() {
         NSLog(@"web_connectivity testEnded");
         self.completed = TRUE;
         [TestStorage set_completed:self.test_id];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+        //[[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
         [self showNotification];
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
-        /*
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"dispatch_async web_connectivity testEnded");
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+            /*
             self.completed = TRUE;
             [TestStorage set_completed:self.test_id];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
             [self showNotification];
             [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
             self.backgroundTask = UIBackgroundTaskInvalid;
-        });*/
+             */
+        });
     });
 }
 
