@@ -75,8 +75,9 @@ static std::string get_dns_server() {
 
 - (void)showNotification
 {
+    NSLog(@"showNotification");
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:15];
     localNotification.alertBody = [NSString stringWithFormat:@"Test %@ finished running", self.name];
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -342,7 +343,7 @@ static std::string get_dns_server() {
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"urls" ofType:@"txt"];
+    NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     mk::nettests::WebConnectivityTest()
     .set_options("backend", [WC_BACKEND UTF8String])
     .set_options("port", 80)
@@ -360,8 +361,7 @@ static std::string get_dns_server() {
     .set_input_filepath([path UTF8String])
     .set_error_filepath([[self getFileName:@"log"] UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
-    .set_verbosity(MK_LOG_DEBUG)
-    .set_options("parallelism", 1)
+    .set_verbosity(MK_LOG_INFO)
     .on_progress([self](double prog, const char *s) {
         [self updateProgress:prog];
     })
