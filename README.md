@@ -1,26 +1,32 @@
-# MeasurementKit iOS demo App 
+# ooniprobe iOS
 
-This is the example MeasurementKit iOS application.
+This is the iOS version of [ooniprobe](https://ooni.torproject.org/).
 
-To see how it work you should get a copy of this repository with:
+It is currently **not released** on the Apple Store, however if you would
+like to be a beta tester for our App, please send your iCloud account to
+contact@openobservatory.org and we will invite you to TestFlight.
+
+If you are interested in building the app to try it for yourself, read on.
+
+To download and install the measurement-kit library we use [cocoapod](https://cocoapods.org).
+
+To install cocoapod use
 
 ```
-git clone https://github.com/measurement-kit/measurement-kit-app-ios
+sudo gem install cocoapods # brew install cocoapods on macOS
 ```
-To download and install the measurement-kit library we use [cocoapod](https://cocoapods.org). 
 
-To install cocoapod use 
+Then use the command:
 
-	$ sudo gem install cocoapods
+```
+pod install
+```
 
-Then use the command 
-	
-	pod install
+This command will install the latest stable binary measurement-kit library
+and its dependencies and install the frameworks inside the Xcode Workspace.
 
-
-This command will install the latest stable binary measurement-kit library and its dependencies and install the frameworks inside the Xcode Workspace. 
-
-Then open the xcode workspace (not the xcode project!)  located in `NetProbe.xcworkspace` and click on run to build it.
+Then open the xcode workspace (not the xcode project!)  located in
+`ooniprobe.xcworkspace` and click on run to build it.
 
 ### How to complile a specific version of measurement-kit for an Xcode project.
 
