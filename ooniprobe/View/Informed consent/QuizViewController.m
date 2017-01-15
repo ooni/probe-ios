@@ -91,4 +91,12 @@
     return false;
 }
 
+-(void)showToast{
+    CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
+    style.messageAlignment = NSTextAlignmentCenter;
+    style.messageColor = [UIColor colorWithRed:169.0/255.0 green:68.0/255.0 blue:66.0/255.0 alpha:1.0];
+    style.backgroundColor = [UIColor colorWithRed:242.0/255.0 green:222.0/255.0 blue:222.0/255.0 alpha:1.0];
+    [self.view makeToast:NSLocalizedString(@"wrong", nil) duration:3.0 position:CSToastPositionBottom style:style];
+}
+
 @end

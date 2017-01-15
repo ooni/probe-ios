@@ -12,13 +12,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"introduction", nil);
+    [self.titleLabel setText:NSLocalizedString(@"welcome_ooniprobe", nil)];
+
+    UISwipeGestureRecognizer *oneFingerSwipeLeft = [[UISwipeGestureRecognizer alloc]
+                                                    initWithTarget:self
+                                                    action:@selector(next)] ;
+    [oneFingerSwipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [[self view] addGestureRecognizer:oneFingerSwipeLeft];
     
-    UIBarButtonItem *next = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"next", nil) style:UIBarButtonItemStylePlain target:self action:@selector(next)];
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:next, nil];
-    
-    [self.greetingsLabel setText:NSLocalizedString(@"greetings", nil)];
-    [self.textView setText:[NSString stringWithFormat:@"%@\n\n%@\n\n%@\n\n%@", NSLocalizedString(@"intro_text_1", nil) , NSLocalizedString(@"intro_text_2", nil) , NSLocalizedString(@"intro_text_3", nil) , NSLocalizedString(@"intro_text_4", nil)]];
+    [self.nextButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"get_started", nil)] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

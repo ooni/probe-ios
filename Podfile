@@ -6,5 +6,6 @@ target 'ooniprobe' do
 		:branch => 'stable'
 	pod 'Toast'
 	pod 'sundown'
+	pod 'SWRevealViewController'
 end
 

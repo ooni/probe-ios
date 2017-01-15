@@ -13,8 +13,6 @@
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
-		ED09BE311D07083A00757F4D /* dns-injection.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2D1D07083A00757F4D /* dns-injection.html */; };
-		ED09BE331D07083A00757F4D /* tcp-connect.html in Resources */ = {isa = PBXBuildFile; fileRef = ED09BE2F1D07083A00757F4D /* tcp-connect.html */; };
 		ED0D35B61DD72112005C863F /* http_invalid_request_line.md in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35B31DD72112005C863F /* http_invalid_request_line.md */; };
 		ED0D35B71DD72112005C863F /* ndt_test.md in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35B41DD72112005C863F /* ndt_test.md */; };
 		ED0D35B81DD72112005C863F /* web_connectivity.md in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35B51DD72112005C863F /* web_connectivity.md */; };
@@ -40,6 +38,8 @@
 		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
 		EDA22FFE1DD61B6400BD8708 /* UIWebView+Markdown.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA22FFD1DD61B6300BD8708 /* UIWebView+Markdown.m */; };
 		EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */; };
+		EDCAB39D1E2BC699000878CA /* ButtonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB39C1E2BC699000878CA /* ButtonUtility.m */; };
+		EDCAB3A01E2BC6BD000878CA /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDE32B5D1D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B441D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff */; };
 		EDE32B5E1D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B451D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf */; };
@@ -66,8 +66,6 @@
 		EDE32B731D5CCABB00D7B4CF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B5A1D5CCABB00D7B4CF /* index.html */; };
 		EDE32B741D5CCABB00D7B4CF /* mobile.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B5B1D5CCABB00D7B4CF /* mobile.bundle.js */; };
 		EDE344821D42151C00BAEB10 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE344811D42151C00BAEB10 /* ResultViewController.m */; };
-		EDEDE80C1DD1EB01002C732A /* setup-mobile.css in Resources */ = {isa = PBXBuildFile; fileRef = EDEDE80A1DD1EB01002C732A /* setup-mobile.css */; };
-		EDEDE80D1DD1EB01002C732A /* step2.html in Resources */ = {isa = PBXBuildFile; fileRef = EDEDE80B1DD1EB01002C732A /* step2.html */; };
 		EDF5E0991BBED88600326DC8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF5E0981BBED88600326DC8 /* libresolv.tbd */; };
 /* End PBXBuildFile section */
 
@@ -82,8 +80,6 @@
 		D4A2F5E91A6C3244001B8460 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4A2F5EC1A6C3244001B8460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D4A2F62F1A6C33F7001B8460 /* hosts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hosts.txt; sourceTree = "<group>"; };
-		ED09BE2D1D07083A00757F4D /* dns-injection.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "dns-injection.html"; path = "html/dns-injection.html"; sourceTree = "<group>"; };
-		ED09BE2F1D07083A00757F4D /* tcp-connect.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "tcp-connect.html"; path = "html/tcp-connect.html"; sourceTree = "<group>"; };
 		ED0D35B31DD72112005C863F /* http_invalid_request_line.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = http_invalid_request_line.md; path = md/http_invalid_request_line.md; sourceTree = "<group>"; };
 		ED0D35B41DD72112005C863F /* ndt_test.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = ndt_test.md; path = md/ndt_test.md; sourceTree = "<group>"; };
 		ED0D35B51DD72112005C863F /* web_connectivity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = web_connectivity.md; path = md/web_connectivity.md; sourceTree = "<group>"; };
@@ -120,6 +116,10 @@
 		EDA22FFD1DD61B6300BD8708 /* UIWebView+Markdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+Markdown.m"; path = "Utility/UIWebView+Markdown.m"; sourceTree = "<group>"; };
 		EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectorViewController.h; sourceTree = "<group>"; };
 		EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultSelectorViewController.m; sourceTree = "<group>"; };
+		EDCAB39B1E2BC699000878CA /* ButtonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonUtility.h; path = Utility/ButtonUtility.h; sourceTree = "<group>"; };
+		EDCAB39C1E2BC699000878CA /* ButtonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonUtility.m; path = Utility/ButtonUtility.m; sourceTree = "<group>"; };
+		EDCAB39E1E2BC6BD000878CA /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundedButton.h; path = Utility/RoundedButton.h; sourceTree = "<group>"; };
+		EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoundedButton.m; path = Utility/RoundedButton.m; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDE32B441D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0c4500a9d203a33bd879a9a0bee1190d.woff; sourceTree = "<group>"; };
 		EDE32B451D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1dc35d25e61d819a9c357074014867ab.ttf; sourceTree = "<group>"; };
@@ -148,8 +148,6 @@
 		EDE32B5C1D5CCABB00D7B4CF /* mobile.bundle.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = mobile.bundle.js.map; sourceTree = "<group>"; };
 		EDE344801D42151C00BAEB10 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		EDE344811D42151C00BAEB10 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
-		EDEDE80A1DD1EB01002C732A /* setup-mobile.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "setup-mobile.css"; path = "html/setup-mobile.css"; sourceTree = "<group>"; };
-		EDEDE80B1DD1EB01002C732A /* step2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = step2.html; path = html/step2.html; sourceTree = "<group>"; };
 		EDF5E0981BBED88600326DC8 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		F1B186BA220D66F21AE3EDD4 /* Pods-ooniprobe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,7 +235,6 @@
 			children = (
 				EDA230011DD6241C00BD8708 /* md */,
 				EDE32B431D5CCABB00D7B4CF /* webui */,
-				EDD22D101ADD6248006EA0C8 /* html */,
 				D4A2F62E1A6C33F7001B8460 /* fixtures */,
 				ED3AB32D1D2337920061F266 /* cacert.pem */,
 				ED3AB32E1D2337920061F266 /* GeoIP.dat */,
@@ -293,6 +290,10 @@
 				EDA22FFD1DD61B6300BD8708 /* UIWebView+Markdown.m */,
 				ED0D35BC1DD72824005C863F /* RunButton.h */,
 				ED0D35BD1DD72824005C863F /* RunButton.m */,
+				EDCAB39B1E2BC699000878CA /* ButtonUtility.h */,
+				EDCAB39C1E2BC699000878CA /* ButtonUtility.m */,
+				EDCAB39E1E2BC6BD000878CA /* RoundedButton.h */,
+				EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -320,17 +321,6 @@
 				ED0D35B51DD72112005C863F /* web_connectivity.md */,
 			);
 			name = md;
-			sourceTree = "<group>";
-		};
-		EDD22D101ADD6248006EA0C8 /* html */ = {
-			isa = PBXGroup;
-			children = (
-				EDEDE80A1DD1EB01002C732A /* setup-mobile.css */,
-				EDEDE80B1DD1EB01002C732A /* step2.html */,
-				ED09BE2D1D07083A00757F4D /* dns-injection.html */,
-				ED09BE2F1D07083A00757F4D /* tcp-connect.html */,
-			);
-			name = html;
 			sourceTree = "<group>";
 		};
 		EDE32B431D5CCABB00D7B4CF /* webui */ = {
@@ -441,19 +431,16 @@
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
 				EDE32B631D5CCABB00D7B4CF /* 78342dfad83c591ee5e926f2ffbd0671.woff in Resources */,
 				D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */,
-				ED09BE311D07083A00757F4D /* dns-injection.html in Resources */,
 				EDE32B6C1D5CCABB00D7B4CF /* ce51bc9d6fb58706a01f11db88b8b5df.svg in Resources */,
 				EDE32B741D5CCABB00D7B4CF /* mobile.bundle.js in Resources */,
 				EDE32B711D5CCABB00D7B4CF /* f4769f9bdb7466be65088239c12046d1.eot in Resources */,
 				EDE32B6A1D5CCABB00D7B4CF /* bc21a555f392171b222bab4097344850.svg in Resources */,
 				EDE32B661D5CCABB00D7B4CF /* 7f721a571194837f629b6dd86a703ca5.eot in Resources */,
-				ED09BE331D07083A00757F4D /* tcp-connect.html in Resources */,
 				EDE32B611D5CCABB00D7B4CF /* 448c34a56d699c29117adc64c43affeb.woff2 in Resources */,
 				EDE32B6D1D5CCABB00D7B4CF /* d7c639084f684d66a1bc66855d193ed8.svg in Resources */,
 				ED5AFD661E2529400039ECCB /* global.txt in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
 				EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */,
-				EDEDE80C1DD1EB01002C732A /* setup-mobile.css in Resources */,
 				EDE32B621D5CCABB00D7B4CF /* 5310ca5fb41a915987df5663660da770.otf in Resources */,
 				EDE32B651D5CCABB00D7B4CF /* 7e5b1b977ba8a582d81367d2940e8150.woff in Resources */,
 				EDE32B5D1D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */,
@@ -464,7 +451,6 @@
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
 				EDE32B681D5CCABB00D7B4CF /* a043b97f0bac1546f96bc31abd6956bb.woff in Resources */,
 				EDE32B6F1D5CCABB00D7B4CF /* e5c78e2789ec748d8c7f5adccad90e0b.woff in Resources */,
-				EDEDE80D1DD1EB01002C732A /* step2.html in Resources */,
 				EDE32B691D5CCABB00D7B4CF /* b78a2d32658068a52eab4b7f8f7d366e.woff in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
 				EDE32B721D5CCABB00D7B4CF /* fa2772327f55d8198301fdb8bcfc8158.woff in Resources */,
@@ -545,10 +531,12 @@
 				ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */,
 				ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */,
 				EDA22FFE1DD61B6400BD8708 /* UIWebView+Markdown.m in Sources */,
+				EDCAB3A01E2BC6BD000878CA /* RoundedButton.m in Sources */,
 				ED0D35B71DD72112005C863F /* ndt_test.md in Sources */,
 				ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */,
 				ED25282E1CEA35640073A29B /* ViewController.mm in Sources */,
 				ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */,
+				EDCAB39D1E2BC699000878CA /* ButtonUtility.m in Sources */,
 				ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

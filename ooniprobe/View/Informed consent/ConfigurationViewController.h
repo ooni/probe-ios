@@ -4,6 +4,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+Toast.h"
+#import "RoundedButton.h"
 
 @interface ConfigurationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *settingsTitles;
