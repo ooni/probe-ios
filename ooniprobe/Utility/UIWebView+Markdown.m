@@ -6,7 +6,7 @@
 //
 
 #import "UIWebView+Markdown.h"
-#import <Sundown/SundownWrapper.h>
+#import <sundown/SundownWrapper.h>
 
 @implementation UIWebView (Markdown)
 
