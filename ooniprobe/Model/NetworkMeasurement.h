@@ -20,6 +20,7 @@
     bool include_cc;
     bool upload_results;
     NSString *collector_address;
+    NSNumber *max_runtime;
 }
 
 @property NSString *name;
@@ -31,6 +32,7 @@
 @property NSString *log_file;
 @property BOOL completed;
 @property mk::Settings options;
+@property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 
 -(void) run;
 @end

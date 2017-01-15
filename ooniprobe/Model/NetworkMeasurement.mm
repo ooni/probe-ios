@@ -50,6 +50,7 @@ static std::string get_dns_server() {
     return dns_server;
 }
 
+
 @implementation NetworkMeasurement
 
 -(id) init {
@@ -63,11 +64,23 @@ static std::string get_dns_server() {
     include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
     upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
     collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
+    max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
+    self.backgroundTask = UIBackgroundTaskInvalid;
     return self;
 }
 
 -(void) run {
     // Nothing to do here
+}
+
+- (void)showNotification
+{
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate date];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"finished_running", nil), NSLocalizedString(self.name, nil)];
+    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber]+1];
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
 -(NSString*) getDate {
@@ -101,6 +114,26 @@ static std::string get_dns_server() {
     }
 }
 
+-(void)updateProgress:(double)prog{
+    NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
+    self.progress = prog;
+    NSLog(@"%@", os);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+    });
+}
+
+-(void)testEnded{
+    NSLog(@"%@ testEnded", self.name);
+    self.completed = TRUE;
+    [TestStorage set_completed:self.test_id];
+    [self showNotification];
+    [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+    self.backgroundTask = UIBackgroundTaskInvalid;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+    });
+}
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.name forKey:@"Test_name"];
@@ -125,7 +158,7 @@ static std::string get_dns_server() {
 
 @end
 
-
+//NOT USED
 @implementation DNSInjection : NetworkMeasurement
 
 -(id) init {
@@ -134,8 +167,15 @@ static std::string get_dns_server() {
     return self;
 }
 
-//NOT USED
-- (void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+- (void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -158,30 +198,16 @@ static std::string get_dns_server() {
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
+        .set_error_filepath([[self getFileName:@"log"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
         .on_progress([self](double prog, const char *s) {
-            NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%: %s", prog * 100.0, s];
-            self.progress = prog;
-            NSLog(@"%@", os);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-            });
+            [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
-            NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
-                             [NSString stringWithUTF8String:s]];
-            NSLog(@"%s", s);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self writeOrAppend:current];
-            });
+                NSLog(@"%s", s);
         })
         .start([self]() {
-            NSLog(@"dns_injection testEnded");
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.completed = TRUE;
-                [TestStorage set_completed:self.test_id];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-            });
+            [self testEnded];
         });
 }
 
@@ -195,7 +221,15 @@ static std::string get_dns_server() {
     return self;
 }
 
--(void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -215,30 +249,16 @@ static std::string get_dns_server() {
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
+        .set_error_filepath([[self getFileName:@"log"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
         .on_progress([self](double prog, const char *s) {
-            NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%: %s", prog * 100.0, s];
-            self.progress = prog;
-            NSLog(@"%@", os);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-            });
+            [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
-                NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
-                             [NSString stringWithUTF8String:s]];
-            NSLog(@"%s", s);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self writeOrAppend:current];
-            });
+                NSLog(@"%s", s);
         })
         .start([self]() {
-            NSLog(@"http_invalid_request_line testEnded");
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.completed = TRUE;
-                [TestStorage set_completed:self.test_id];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-            });
+            [self testEnded];
         });
 }
 
@@ -253,7 +273,15 @@ static std::string get_dns_server() {
     return self;
 }
 
--(void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -278,28 +306,13 @@ static std::string get_dns_server() {
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
         .on_progress([self](double prog, const char *s) {
-            NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%: %s", prog * 100.0, s];
-            self.progress = prog;
-            NSLog(@"%@", os);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-            });
+            [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
-            NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
-                             [NSString stringWithUTF8String:s]];
             NSLog(@"%s", s);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self writeOrAppend:current];
-            });
         })
         .start([self]() {
-            NSLog(@"tcp_connect testEnded");
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.completed = TRUE;
-                [TestStorage set_completed:self.test_id];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-            });
+            [self testEnded];
         });
 }
 
@@ -313,7 +326,15 @@ static std::string get_dns_server() {
     return self;
 }
 
--(void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -322,7 +343,7 @@ static std::string get_dns_server() {
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"urls" ofType:@"txt"];
+    NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     mk::nettests::WebConnectivityTest()
     .set_options("backend", [WC_BACKEND UTF8String])
     .set_options("port", 80)
@@ -336,32 +357,19 @@ static std::string get_dns_server() {
     .set_options("save_real_probe_cc", include_cc)
     .set_options("no_collector", !upload_results)
     .set_options("collector_base_url", [collector_address UTF8String])
+    .set_options("max_runtime", [max_runtime doubleValue])
     .set_input_filepath([path UTF8String])
+    .set_error_filepath([[self getFileName:@"log"] UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
     .set_verbosity(MK_LOG_INFO)
     .on_progress([self](double prog, const char *s) {
-        NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%: %s", prog * 100.0, s];
-        self.progress = prog;
-        NSLog(@"%@", os);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-        });
+        [self updateProgress:prog];
     })
     .on_log([self](uint32_t type, const char *s) {
-        NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
-                             [NSString stringWithUTF8String:s]];
         NSLog(@"%s", s);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self writeOrAppend:current];
-        });
     })
     .start([self]() {
-        NSLog(@"web_connectivity testEnded");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.completed = TRUE;
-            [TestStorage set_completed:self.test_id];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-        });
+        [self testEnded];
     });
 }
 
@@ -375,7 +383,15 @@ static std::string get_dns_server() {
     return self;
 }
 
--(void) run {
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -384,24 +400,6 @@ static std::string get_dns_server() {
     [TestStorage add_test:self];
     mk::nettests::NdtTest()
     .set_options("test_suite", MK_NDT_DOWNLOAD)
-    .set_verbosity(MK_LOG_INFO)
-    .set_output_filepath([[self getFileName:@"json"] UTF8String])
-    .on_progress([self](double prog, const char *s) {
-        NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%: %s", prog * 100.0, s];
-        self.progress = prog;
-        NSLog(@"%@", os);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-        });
-    })
-    .on_log([self](uint32_t type, const char *s) {
-        NSString *current = [NSString stringWithFormat:@"%@: %@", [super getDate],
-                             [NSString stringWithUTF8String:s]];
-        NSLog(@"%s", s);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self writeOrAppend:current];
-        });
-    })
     .set_options("net/ca_bundle_path", [ca_cert UTF8String])
     .set_options("dns/nameserver", get_dns_server())
     .set_options("geoip_country_path", [geoip_country UTF8String])
@@ -411,12 +409,17 @@ static std::string get_dns_server() {
     .set_options("save_real_probe_cc", include_cc)
     .set_options("no_collector", !upload_results)
     .set_options("collector_base_url", [collector_address UTF8String])
+    .set_verbosity(MK_LOG_INFO)
+    .set_output_filepath([[self getFileName:@"json"] UTF8String])
+    .set_error_filepath([[self getFileName:@"log"] UTF8String])
+    .on_progress([self](double prog, const char *s) {
+        [self updateProgress:prog];
+    })
+    .on_log([self](uint32_t type, const char *s) {
+        NSLog(@"%s", s);
+    })
     .start([self]() {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.completed = TRUE;
-            [TestStorage set_completed:self.test_id];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-        });
+        [self testEnded];
     });
 }
 

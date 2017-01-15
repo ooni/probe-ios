@@ -4,9 +4,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsTableViewController : UITableViewController {
+@interface SettingsTableViewController : UITableViewController <UITextFieldDelegate> {
     NSArray *settingsItems;
+    NSArray *otherItems;
     UITextField *value;
+    UIDatePicker *datePicker;
+    NSDateFormatter *dateFormatter;
+    UITextField *timeField;
+    UIToolbar *keyboardToolbar;
 }
 
 @end
