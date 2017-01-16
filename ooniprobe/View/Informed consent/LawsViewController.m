@@ -1,14 +1,18 @@
-// Part of MeasurementKit <https://measurement-kit.github.io/>.
-// MeasurementKit is free software. See AUTHORS and LICENSE for more
-// information on the copying conditions.
+//
+//  LawsViewController.m
+//  ooniprobe
+//
+//  Created by Lorenzo Primiterra on 15/01/17.
+//  Copyright © 2017 Simone Basso. All rights reserved.
+//
 
-#import "RisksViewController.h"
+#import "LawsViewController.h"
 
-@interface RisksViewController ()
+@interface LawsViewController ()
 
 @end
 
-@implementation RisksViewController
+@implementation LawsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,16 +28,10 @@
     [oneFingerSwipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [[self view] addGestureRecognizer:oneFingerSwipeRight];
     
-
-    [self.titleLabel setText:NSLocalizedString(@"know_the_risks", nil)];
+    
+    [self.titleLabel setText:NSLocalizedString(@"understand_the_laws", nil)];
     [self.nextButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"i_understand", nil)] forState:UIControlStateNormal];
-        
-    NSMutableAttributedString *muAtrStr = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"risks_text_1", nil) attributes:@{NSForegroundColorAttributeName : color_ooni_blue}];
-    NSAttributedString *atrStr = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(@"risks_text_2", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
-    NSAttributedString *atrStr2 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(@"risks_text_3", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
-    [muAtrStr appendAttributedString:atrStr];
-    [muAtrStr appendAttributedString:atrStr2];
-    [self.textLabel setAttributedText:muAtrStr];
+    [self.textLabel setText:[NSString stringWithFormat:@"%@\n\n%@\n\n%@",NSLocalizedString(@"laws_text_1", nil),  NSLocalizedString(@"laws_text_2", nil), NSLocalizedString(@"laws_text_3", nil)]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,11 +40,12 @@
 }
 
 -(IBAction)next{
-    [self performSegueWithIdentifier:@"toLaws" sender:self];
+    [self performSegueWithIdentifier:@"toQuiz" sender:self];
 }
 
 -(void)previous{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 @end

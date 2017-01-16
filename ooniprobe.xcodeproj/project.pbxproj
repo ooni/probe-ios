@@ -40,6 +40,7 @@
 		EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */; };
 		EDCAB39D1E2BC699000878CA /* ButtonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB39C1E2BC699000878CA /* ButtonUtility.m */; };
 		EDCAB3A01E2BC6BD000878CA /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */; };
+		EDCAB3A31E2BDD22000878CA /* LawsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB3A21E2BDD22000878CA /* LawsViewController.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDE32B5D1D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B441D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff */; };
 		EDE32B5E1D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDE32B451D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf */; };
@@ -120,6 +121,8 @@
 		EDCAB39C1E2BC699000878CA /* ButtonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonUtility.m; path = Utility/ButtonUtility.m; sourceTree = "<group>"; };
 		EDCAB39E1E2BC6BD000878CA /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundedButton.h; path = Utility/RoundedButton.h; sourceTree = "<group>"; };
 		EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoundedButton.m; path = Utility/RoundedButton.m; sourceTree = "<group>"; };
+		EDCAB3A11E2BDD22000878CA /* LawsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LawsViewController.h; path = "Informed consent/LawsViewController.h"; sourceTree = "<group>"; };
+		EDCAB3A21E2BDD22000878CA /* LawsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LawsViewController.m; path = "Informed consent/LawsViewController.m"; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDE32B441D5CCABB00D7B4CF /* 0c4500a9d203a33bd879a9a0bee1190d.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0c4500a9d203a33bd879a9a0bee1190d.woff; sourceTree = "<group>"; };
 		EDE32B451D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1dc35d25e61d819a9c357074014867ab.ttf; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				ED8816AD1D8C6A3400D5D725 /* IntroductionViewController.m */,
 				ED8816B21D8C6A4B00D5D725 /* RisksViewController.h */,
 				ED8816B31D8C6A4B00D5D725 /* RisksViewController.m */,
+				EDCAB3A11E2BDD22000878CA /* LawsViewController.h */,
+				EDCAB3A21E2BDD22000878CA /* LawsViewController.m */,
 				ED8816B51D8C6A5600D5D725 /* QuizViewController.h */,
 				ED8816B61D8C6A5600D5D725 /* QuizViewController.m */,
 				ED8816B81D8C6A6100D5D725 /* ConfigurationViewController.h */,
@@ -528,6 +533,7 @@
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED25282D1CEA35640073A29B /* TestInfoViewController.m in Sources */,
 				ED0D35B61DD72112005C863F /* http_invalid_request_line.md in Sources */,
+				EDCAB3A31E2BDD22000878CA /* LawsViewController.m in Sources */,
 				ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */,
 				ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */,
 				EDA22FFE1DD61B6400BD8708 /* UIWebView+Markdown.m in Sources */,

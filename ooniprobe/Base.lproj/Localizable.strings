@@ -37,16 +37,39 @@
 "welcome_ooniprobe" = "Welcome to ooniprobe!";
 "get_started" = "Get Started!";
 
-"what_is_ooniprobe" = "What is ooniprobe?";
-"i_understand_the_risk" = "I understand the risk.";
+"know_the_risks" = "Know the Risks";
+"i_understand" = "I understand";
 
+"risks_text_1" = "OONI's software is an investigatory tool used to test networks for censorship events and, like all investigations, comes with some risks.";
+"risks_text_2" = "To our knowledge, no ooniprobe user has ever faced consequences from the use of our platform. However, many countries have a lengthy history of targeting and abusing digital rights activists, which could leave ooniprobe users subject to severe civil, criminal, or extra-judicial penalties.";
+"risks_text_3" = "The use of ooniprobe is at your own risk in accordance to OONI's software license and neither the OONI project nor its parent organization, the Tor Project, can be held liable. Therefore, we strongly encourage you to understand the risks associated with using ooniprobe, and discuss these risks with a qualified legal professional in your area before using ooniprobe.";
+
+"understand_the_laws" = "Understand the Laws";
+"laws_text_1" = "While most countries don't have laws which specifically prohibit the use of network measurement software, it's important to note that the use of ooniprobe can still potentially be criminalized in certain countries under other, broader laws.";
+"laws_text_2" = "The use of ooniprobe might subject users to, and such sanctions can potentially include: Imprisonment, Physical assaults, Large fines, Receiving threats, Being placed on government watch lists, and/or Targeted for surveillance.";
+"laws_text_3" = "While most countries don't have laws which specifically prohibit the use of network measurement software, it's important to note that the use of ooniprobe can still potentially be criminalized in certain countries under other, broader laws.";
+
+"pop_quiz" = "Pop Quiz!";
+"question_1" = "Question 1: Anyone monitoring my internet activity (e.g. ISP, government or employer) might be able to see that I am running ooniprobe, even though OONI takes precautions to make this hard";
+"question_2" = "Question 2: My measurements will by default get published on OONI Explorer and might include personally-identifiable information.";
+"true" = "True";
+"false" = "False";
+"how_did_i_do" = "How did I do?";
+
+"wrong" = "Your answers to one or more of the quiz questions is wrong. Please read the Risks documentation and try again.";
+"correct" = "You answered to the quiz correctly. Carry on.";
+
+"set_up_sharing" = "Set Up Sharing";
+"include_ip" = "Include your IP?";
+"include_asn" = "Include your network info?";
+"include_cc" = "Include your country name?";
+"upload_results" = "Share results publicly?";
+"settings_text" = "All measurements are sent by default to OONI's measurement collector and automately published through the OONI explorer and OONI's list of measurements.";
+"im_all_set" = "I'm all \"set\" - let's run a test!";
 /*
  
 "next" = "Next";
 "previous" = "Previous";
-
-"wrong" = "Your answers to one or more of the quiz questions is wrong. Please read the Risks documentation and try again.";
-"correct" = "You answered to the quiz correctly. Carry on.";
 
 "configure" = "Configure";
 "ooniprobe_configured" = "Successfully configured ooniprobe. You are all set to go!";
@@ -75,17 +98,13 @@
 "answer_2_3" = "My measurements will by default get published to OONI Explorer and will never include any personally-identifiable information";
 
 "configuration_text" = "Certain aspects of how ooniprobe operates can be customized. Usually the default values are the best option, so only change these if you really have to.";
-*/
 
 "include_ip" = "Include IP address in results";
 "include_asn" = "Include your network information in the reports";
 "include_cc" = "Include your country name in the reports";
 "upload_results" = "Upload results to the default ooni collector";
+*/
 
-"include_ip_ic" = "Should we include your IP address in results?";
-"include_asn_ic" = "Should we include your network information in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?";
-"include_cc_ic" = "Should we include your country name in the reports (note: disabling this will make it much harder for us to draw conclusions from the measurements)?";
-"upload_results_ic" = "Should we upload your results to the default ooni collector?";
 
 "no_result" = "No results";
 "no_result_msg" = "The test has no results or it was aborted";
