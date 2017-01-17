@@ -27,7 +27,6 @@
 		ED25282D1CEA35640073A29B /* TestInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.m */; };
 		ED25282E1CEA35640073A29B /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528291CEA35640073A29B /* ViewController.mm */; };
 		ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528301CEA35770073A29B /* NetworkMeasurement.mm */; };
-		ED3AB3301D2337920061F266 /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32D1D2337920061F266 /* cacert.pem */; };
 		ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32E1D2337920061F266 /* GeoIP.dat */; };
 		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
@@ -99,7 +98,6 @@
 		ED2528291CEA35640073A29B /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		ED25282F1CEA35770073A29B /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = Model/NetworkMeasurement.h; sourceTree = "<group>"; };
 		ED2528301CEA35770073A29B /* NetworkMeasurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkMeasurement.mm; path = Model/NetworkMeasurement.mm; sourceTree = "<group>"; };
-		ED3AB32D1D2337920061F266 /* cacert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cacert.pem; sourceTree = "<group>"; };
 		ED3AB32E1D2337920061F266 /* GeoIP.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIP.dat; sourceTree = "<group>"; };
 		ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIPASNum.dat; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 				EDE32B431D5CCABB00D7B4CF /* webui */,
 				EDD22D101ADD6248006EA0C8 /* html */,
 				D4A2F62E1A6C33F7001B8460 /* fixtures */,
-				ED3AB32D1D2337920061F266 /* cacert.pem */,
 				ED3AB32E1D2337920061F266 /* GeoIP.dat */,
 				ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */,
 			);
@@ -436,7 +433,6 @@
 				ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */,
 				EDE32B5E1D5CCABB00D7B4CF /* 1dc35d25e61d819a9c357074014867ab.ttf in Resources */,
 				EDE32B6B1D5CCABB00D7B4CF /* c8ddf1e5e5bf3682bc7bebf30f394148.woff in Resources */,
-				ED3AB3301D2337920061F266 /* cacert.pem in Resources */,
 				EDE32B731D5CCABB00D7B4CF /* index.html in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
 				EDE32B631D5CCABB00D7B4CF /* 78342dfad83c591ee5e926f2ffbd0671.woff in Resources */,
