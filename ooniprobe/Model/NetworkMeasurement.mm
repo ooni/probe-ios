@@ -68,6 +68,7 @@ static std::string get_dns_server() {
     collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
     max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     self.backgroundTask = UIBackgroundTaskInvalid;
+    self.running = FALSE;
     return self;
 }
 
@@ -109,6 +110,7 @@ static std::string get_dns_server() {
 -(void)testEnded{
     NSLog(@"%@ testEnded", self.name);
     self.completed = TRUE;
+    self.running = FALSE;
     [TestStorage set_completed:self.test_id];
     [self showNotification];
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
@@ -164,6 +166,7 @@ static std::string get_dns_server() {
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.completed = FALSE;
+    self.running = TRUE;
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
@@ -217,6 +220,7 @@ static std::string get_dns_server() {
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.completed = FALSE;
+    self.running = TRUE;
     [TestStorage add_test:self];
     setup_idempotent();
     mk::nettests::HttpInvalidRequestLineTest()
@@ -268,6 +272,7 @@ static std::string get_dns_server() {
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.completed = FALSE;
+    self.running = TRUE;
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
@@ -320,6 +325,7 @@ static std::string get_dns_server() {
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.completed = FALSE;
+    self.running = TRUE;
     [TestStorage add_test:self];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
@@ -380,6 +386,7 @@ static std::string get_dns_server() {
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.completed = FALSE;
+    self.running = TRUE;
     [TestStorage add_test:self];
     mk::nettests::NdtTest()
         .set_options("test_suite", MK_NDT_DOWNLOAD | MK_NDT_UPLOAD)

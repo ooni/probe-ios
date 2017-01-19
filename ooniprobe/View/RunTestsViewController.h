@@ -6,13 +6,14 @@
 #import "LogViewController.h"
 #import "TestInfoViewController.h"
 #import "TestStorage.h"
-#import "ResultViewController.h"
 #import "UIView+Toast.h"
-#import "ResultSelectorViewController.h"
 #import "RunButton.h"
 #import "SWRevealViewController.h"
+#import "Tests.h"
 
-@interface RunTestsViewController : UIViewController
+@interface RunTestsViewController : UIViewController {
+    Tests *currentTests;
+}
 
 @property NSMutableArray *availableNetworkMeasurements;
 
@@ -31,14 +32,14 @@
 @property (strong, nonatomic) IBOutlet UIButton *web_connectivityButton;
 @property (strong, nonatomic) IBOutlet UIButton *ndt_testButton;
 
-@property (strong, nonatomic) IBOutlet UIButton *runButton;
-
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+/*
 @property (strong, nonatomic) NSMutableArray *runningMeasurementNames;
 
 @property (strong, nonatomic) NSMutableArray *runningNetworkMeasurements;
 
 @property (strong, nonatomic) NSMutableArray *finishedNetworkMeasurements;
+*/
 
 @end

@@ -64,6 +64,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
             NSString *current = [settingsItems objectAtIndex:indexPath.row];
             cell.textLabel.text = NSLocalizedString(current, nil);
+            cell.imageView.image = [UIImage imageNamed:current];
             UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
             [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
             if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
@@ -78,10 +79,11 @@
         }
     }
     else if (indexPath.section == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        NSString *current = [otherItems objectAtIndex:indexPath.row];
+        cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.imageView.image = [UIImage imageNamed:current];
         if (indexPath.row < notification){
-            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-            NSString *current = [otherItems objectAtIndex:indexPath.row];
-            cell.textLabel.text = NSLocalizedString(current, nil);
             UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
             [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
             if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
@@ -89,28 +91,33 @@
             cell.accessoryView = switchview;
         }
         else {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"CellText" forIndexPath:indexPath];
-            NSString *current = [otherItems objectAtIndex:indexPath.row];
-            UILabel *title = (UILabel*)[cell viewWithTag:1];
-            UITextField *textView = (UITextField*)[cell viewWithTag:2];
-            title.text = NSLocalizedString(current, nil);
-            textView.inputView = datePicker;
             NSDate *time = [[NSUserDefaults standardUserDefaults] objectForKey:@"local_notifications_time"];
-            textView.text = [dateFormatter stringFromDate:time];
-            timeField = textView;
+            UITextField *textField = [self createTextField:[dateFormatter stringFromDate:time]];
+            textField.inputView = datePicker;
+            timeField = textField;
+            cell.accessoryView = textField;
         }
     }
     else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CellText" forIndexPath:indexPath];
-        UILabel *title = (UILabel*)[cell viewWithTag:1];
-        UITextField *textView = (UITextField*)[cell viewWithTag:2];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         NSNumber *time = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-        textView.text = [NSString stringWithFormat:@"%@", time];
-        title.text = NSLocalizedString(@"max_runtime", nil);
-        textView.keyboardType = UIKeyboardTypeNumberPad;
-        textView.delegate = self;
+        cell.textLabel.text = NSLocalizedString(@"max_runtime", nil);
+        cell.imageView.image = [UIImage imageNamed:@"max_runtime"];
+        UITextField *textField = [self createTextField:[NSString stringWithFormat:@"%@", time]];
+        cell.accessoryView = textField;
     }
     return cell;
+}
+
+- (UITextField*)createTextField:(NSString*)text{
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
+    textField.delegate = self;
+    textField.font = [UIFont fontWithName:@"FiraSans-Bold" size:15.0f];
+    textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.text = text;
+    textField.keyboardType = UIKeyboardTypeNumberPad;
+    return textField;
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

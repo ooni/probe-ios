@@ -26,6 +26,7 @@
 @property NSString *json_file;
 @property NSString *log_file;
 @property BOOL completed;
+@property BOOL running;
 @property mk::Settings options;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 
