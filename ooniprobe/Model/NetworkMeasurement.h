@@ -5,16 +5,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-/*Include header from test*/
-#include <measurement_kit/ooni.hpp>
-#include <measurement_kit/nettests.hpp>
-
-#include <measurement_kit/common.hpp>
+#import <measurement_kit/common.hpp>
 
 @interface NetworkMeasurement : NSObject {
     NSString *geoip_asn;
     NSString *geoip_country;
-    NSString *ca_cert;
     bool include_ip;
     bool include_asn;
     bool include_cc;

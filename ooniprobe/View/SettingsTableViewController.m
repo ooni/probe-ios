@@ -7,13 +7,17 @@
 #define notification 1
 
 @interface SettingsTableViewController ()
-
+@property (readwrite) IBOutlet UIBarButtonItem* revealButtonItem;
 @end
 
 @implementation SettingsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
     self.title = NSLocalizedString(@"settings", nil);
     [self reloadSettings];
     datePicker = [[UIDatePicker alloc] init];

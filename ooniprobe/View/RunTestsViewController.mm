@@ -2,18 +2,18 @@
 // MeasurementKit is free software. See AUTHORS and LICENSE for more
 // information on the copying conditions.
 
-#import "ViewController.h"
+#import "RunTestsViewController.h"
 
 /*Include header from test*/
 #include "measurement_kit/ooni.hpp"
 
 #include "measurement_kit/common.hpp"
 
-@interface ViewController ()
+@interface RunTestsViewController ()
 @property (readwrite) IBOutlet UIBarButtonItem* revealButtonItem;
 @end
 
-@implementation ViewController : UIViewController
+@implementation RunTestsViewController : UIViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];

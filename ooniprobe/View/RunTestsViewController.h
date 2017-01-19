@@ -12,7 +12,7 @@
 #import "RunButton.h"
 #import "SWRevealViewController.h"
 
-@interface ViewController : UIViewController
+@interface RunTestsViewController : UIViewController
 
 @property NSMutableArray *availableNetworkMeasurements;
 

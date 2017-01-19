@@ -3,6 +3,7 @@
 // information on the copying conditions.
 
 #import <UIKit/UIKit.h>
+#import "SWRevealViewController.h"
 
 @interface SettingsTableViewController : UITableViewController <UITextFieldDelegate> {
     NSArray *settingsItems;

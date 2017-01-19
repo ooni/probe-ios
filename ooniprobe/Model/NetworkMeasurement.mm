@@ -5,8 +5,9 @@
 #import "NetworkMeasurement.h"
 #import "TestStorage.h"
 
-#import "measurement_kit/common.hpp"
-#import "measurement_kit/ndt.hpp"
+#include <measurement_kit/ooni.hpp>
+#include <measurement_kit/nettests.hpp>
+#include <measurement_kit/ndt.hpp>
 
 #include <arpa/inet.h>
 #include <ifaddrs.h>
@@ -26,7 +27,7 @@ static void setup_idempotent() {
 }
 
 static std::string get_dns_server() {
-    std::string dns_server = "8.8.4.4:53";
+    std::string dns_server = "8.8.4.4";
     res_state res = nullptr;
     res = (res_state) malloc(sizeof(struct __res_state));
     if (res == nullptr) {
@@ -50,15 +51,16 @@ static std::string get_dns_server() {
     return dns_server;
 }
 
-
 @implementation NetworkMeasurement
 
 -(id) init {
     self = [super init];
+    if (!self) {
+        return nil;
+    }
     NSBundle *bundle = [NSBundle mainBundle];
     geoip_asn = [bundle pathForResource:@"GeoIPASNum" ofType:@"dat"];
     geoip_country = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
-    ca_cert = [bundle pathForResource:@"cacert" ofType:@"pem"];
     include_ip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_ip"] boolValue];
     include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
     include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
@@ -73,13 +75,12 @@ static std::string get_dns_server() {
     // Nothing to do here
 }
 
-- (void)showNotification
-{
+- (void)showNotification {
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate date];
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"finished_running", nil), NSLocalizedString(self.name, nil)];
-    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber]+1];
+    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
@@ -96,25 +97,7 @@ static std::string get_dns_server() {
     return fileName;
 }
 
--(void)writeOrAppend:(NSString*)string{
-    NSString *fileName = [self getFileName:@"log"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    // Note: It is not optimal to open(), close(), and seek() each time
-    // but we agreed not to touch this code because MK should soon add the
-    // code to specify the file where to save log files.
-    if(![fileManager fileExistsAtPath:fileName])
-    {
-        [string writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
-    }
-    else
-    {
-        NSFileHandle *myHandle = [NSFileHandle fileHandleForWritingAtPath:fileName];
-        [myHandle seekToEndOfFile];
-        [myHandle writeData:[[NSString stringWithFormat:@"\n%@",string] dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-}
-
--(void)updateProgress:(double)prog{
+-(void)updateProgress:(double)prog {
     NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
     self.progress = prog;
     NSLog(@"%@", os);
@@ -158,7 +141,7 @@ static std::string get_dns_server() {
 
 @end
 
-//NOT USED
+// NOT USED
 @implementation DNSInjection : NetworkMeasurement
 
 -(id) init {
@@ -188,7 +171,6 @@ static std::string get_dns_server() {
     mk::nettests::DnsInjectionTest()
         .set_options("backend", "8.8.8.1:53")
         .set_options("dns/nameserver", get_dns_server())
-        .set_options("net/ca_bundle_path", [ca_cert UTF8String])
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -204,7 +186,7 @@ static std::string get_dns_server() {
             [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
-                NSLog(@"%s", s);
+            NSLog(@"%s", s);
         })
         .start([self]() {
             [self testEnded];
@@ -221,7 +203,7 @@ static std::string get_dns_server() {
     return self;
 }
 
--(void)run{
+-(void)run {
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
@@ -240,7 +222,6 @@ static std::string get_dns_server() {
     mk::nettests::HttpInvalidRequestLineTest()
         .set_options("backend", [HIRL_BACKEND UTF8String])
         .set_options("dns/nameserver", get_dns_server())
-        .set_options("net/ca_bundle_path", [ca_cert UTF8String])
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -255,7 +236,7 @@ static std::string get_dns_server() {
             [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
-                NSLog(@"%s", s);
+            NSLog(@"%s", s);
         })
         .start([self]() {
             [self testEnded];
@@ -264,7 +245,7 @@ static std::string get_dns_server() {
 
 @end
 
-//NOT USED
+// NOT USED
 @implementation TCPConnect : NetworkMeasurement
 
 -(id) init {
@@ -294,7 +275,6 @@ static std::string get_dns_server() {
     mk::nettests::TcpConnectTest()
         .set_options("port", 80)
         .set_options("dns/nameserver", get_dns_server())
-        .set_options("net/ca_bundle_path", [ca_cert UTF8String])
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -345,32 +325,35 @@ static std::string get_dns_server() {
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     mk::nettests::WebConnectivityTest()
-    .set_options("backend", [WC_BACKEND UTF8String])
-    .set_options("port", 80)
-    .set_options("dns/nameserver", get_dns_server())
-    .set_options("nameserver", get_dns_server())
-    .set_options("geoip_country_path", [geoip_country UTF8String])
-    .set_options("geoip_asn_path", [geoip_asn UTF8String])
-    .set_options("net/ca_bundle_path", [ca_cert UTF8String])
-    .set_options("save_real_probe_ip", include_ip)
-    .set_options("save_real_probe_asn", include_asn)
-    .set_options("save_real_probe_cc", include_cc)
-    .set_options("no_collector", !upload_results)
-    .set_options("collector_base_url", [collector_address UTF8String])
-    .set_options("max_runtime", [max_runtime doubleValue])
-    .set_input_filepath([path UTF8String])
-    .set_error_filepath([[self getFileName:@"log"] UTF8String])
-    .set_output_filepath([[self getFileName:@"json"] UTF8String])
-    .set_verbosity(MK_LOG_INFO)
-    .on_progress([self](double prog, const char *s) {
-        [self updateProgress:prog];
-    })
-    .on_log([self](uint32_t type, const char *s) {
-        NSLog(@"%s", s);
-    })
-    .start([self]() {
-        [self testEnded];
-    });
+        .set_options("backend", [WC_BACKEND UTF8String])
+        /*
+         * XXX nameserver is the nameserver to be used by web connectivity to
+         * perform its DNS checks. In theory it may differ from dns/nameserver
+         * but, in practice, does it make sense to have two settings?
+         */
+        .set_options("dns/nameserver", get_dns_server())
+        .set_options("nameserver", get_dns_server())
+        .set_options("geoip_country_path", [geoip_country UTF8String])
+        .set_options("geoip_asn_path", [geoip_asn UTF8String])
+        .set_options("save_real_probe_ip", include_ip)
+        .set_options("save_real_probe_asn", include_asn)
+        .set_options("save_real_probe_cc", include_cc)
+        .set_options("no_collector", !upload_results)
+        .set_options("collector_base_url", [collector_address UTF8String])
+        .set_options("max_runtime", [max_runtime doubleValue])
+        .set_input_filepath([path UTF8String])
+        .set_error_filepath([[self getFileName:@"log"] UTF8String])
+        .set_output_filepath([[self getFileName:@"json"] UTF8String])
+        .set_verbosity(MK_LOG_INFO)
+        .on_progress([self](double prog, const char *s) {
+            [self updateProgress:prog];
+        })
+        .on_log([self](uint32_t type, const char *s) {
+            NSLog(@"%s", s);
+        })
+        .start([self]() {
+            [self testEnded];
+        });
 }
 
 @end
@@ -399,28 +382,27 @@ static std::string get_dns_server() {
     self.completed = FALSE;
     [TestStorage add_test:self];
     mk::nettests::NdtTest()
-    .set_options("test_suite", MK_NDT_DOWNLOAD)
-    .set_options("net/ca_bundle_path", [ca_cert UTF8String])
-    .set_options("dns/nameserver", get_dns_server())
-    .set_options("geoip_country_path", [geoip_country UTF8String])
-    .set_options("geoip_asn_path", [geoip_asn UTF8String])
-    .set_options("save_real_probe_ip", include_ip)
-    .set_options("save_real_probe_asn", include_asn)
-    .set_options("save_real_probe_cc", include_cc)
-    .set_options("no_collector", !upload_results)
-    .set_options("collector_base_url", [collector_address UTF8String])
-    .set_verbosity(MK_LOG_INFO)
-    .set_output_filepath([[self getFileName:@"json"] UTF8String])
-    .set_error_filepath([[self getFileName:@"log"] UTF8String])
-    .on_progress([self](double prog, const char *s) {
-        [self updateProgress:prog];
-    })
-    .on_log([self](uint32_t type, const char *s) {
-        NSLog(@"%s", s);
-    })
-    .start([self]() {
-        [self testEnded];
-    });
+        .set_options("test_suite", MK_NDT_DOWNLOAD | MK_NDT_UPLOAD)
+        .set_options("dns/nameserver", get_dns_server())
+        .set_options("geoip_country_path", [geoip_country UTF8String])
+        .set_options("geoip_asn_path", [geoip_asn UTF8String])
+        .set_options("save_real_probe_ip", include_ip)
+        .set_options("save_real_probe_asn", include_asn)
+        .set_options("save_real_probe_cc", include_cc)
+        .set_options("no_collector", !upload_results)
+        .set_options("collector_base_url", [collector_address UTF8String])
+        .set_verbosity(MK_LOG_INFO)
+        .set_output_filepath([[self getFileName:@"json"] UTF8String])
+        .set_error_filepath([[self getFileName:@"log"] UTF8String])
+        .on_progress([self](double prog, const char *s) {
+            [self updateProgress:prog];
+        })
+        .on_log([self](uint32_t type, const char *s) {
+            NSLog(@"%s", s);
+        })
+        .start([self]() {
+            [self testEnded];
+        });
 }
 
 @end
