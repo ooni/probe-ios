@@ -2,9 +2,12 @@
 // MeasurementKit is free software. See AUTHORS and LICENSE for more
 // information on the copying conditions.
 "app_name" = "ooniprobe";
-//"testing_history" = "Tests";
-//"select_test" = "Select test";
+
 "run_test" = "Run";
+"run_tests" = "Run Tests";
+"past_tests" = "Past Tests";
+"settings" = "Settings";
+"about" = "About";
 
 "dns_injection" = "DNS Injection";
 "tcp_connect" = "TCP Connect";
@@ -37,17 +40,24 @@
 "welcome_ooniprobe" = "Welcome to ooniprobe!";
 "get_started" = "Get Started!";
 
-"know_the_risks" = "Know the Risks";
-"i_understand" = "I understand";
+"what_is_ooniprobe" = "What is ooniprobe?";
+"learn_more" = "Learn more";
 
-"risks_text_1" = "OONI's software is an investigatory tool used to test networks for censorship events and, like all investigations, comes with some risks.";
-"risks_text_2" = "To our knowledge, no ooniprobe user has ever faced consequences from the use of our platform. However, many countries have a lengthy history of targeting and abusing digital rights activists, which could leave ooniprobe users subject to severe civil, criminal, or extra-judicial penalties.";
-"risks_text_3" = "The use of ooniprobe is at your own risk in accordance to OONI's software license and neither the OONI project nor its parent organization, the Tor Project, can be held liable. Therefore, we strongly encourage you to understand the risks associated with using ooniprobe, and discuss these risks with a qualified legal professional in your area before using ooniprobe.";
+"risks_text_1" = "Ooniprobe is free and open source software that enables you to examine i  nternet censorship  in your network!";
+"risks_text_2" = "By running this app, you can examine whether and how websites are blocked,  and whether  censorship and/or surveillance systems  are present in your network.";
+"risks_text_3" = "You can also run this app to measure the speed and performance of your network.";
+"risks_text_4" = "The data that you can collect through this app can serve as  e  vidence of censorship events .";
+"risks_text_5" = "Since ooniprobe is an i  nves tigatory tool and as such, may pose some risks.";
 
-"understand_the_laws" = "Understand the Laws";
-"laws_text_1" = "While most countries don't have laws which specifically prohibit the use of network measurement software, it's important to note that the use of ooniprobe can still potentially be criminalized in certain countries under other, broader laws.";
-"laws_text_2" = "The use of ooniprobe might subject users to, and such sanctions can potentially include: Imprisonment, Physical assaults, Large fines, Receiving threats, Being placed on government watch lists, and/or Targeted for surveillance.";
-"laws_text_3" = "While most countries don't have laws which specifically prohibit the use of network measurement software, it's important to note that the use of ooniprobe can still potentially be criminalized in certain countries under other, broader laws.";
+"potential_risks" = "Potential risks";
+"laws_text_1" = "Anyone monitoring your internet activity (e.g. ISP, government, employer) can know that you are running ooniprobe (even though OONI tries to make this hard).";
+"laws_text_2" = "When testing websites for censorship, you will connect to and download data from provocative or objectionable sites (e.g. pornography) that might be illegal in your country.";
+"laws_text_3" = "OONI’s HTTP invalid request line test might trigger the suspicion of your ISP and could be viewed as a form of “hacking”.";
+"laws_text_4" = "Unless you configure your settings otherwise, all data collected from your tests will by default be published by OONI and might include some personally- identifiable information (though OONI tries to prevent this from happening).";
+"laws_text_5" = "The mere use of ooniprobe might be viewed as a form of espionage, regardless of the laws in your country.";
+"laws_text_6" = "To our knowledge, no ooniprobe user has ever faced consequences from the use of our platform. However, many countries have a lengthy history of targeting and abusing digital rights activists, which could leave ooniprobe users subject to severe civil, criminal, or extra-judicial penalties. Learn more here.";
+"laws_text_6" = "We encourage you to consult with a lawyer prior to installing and running ooniprobe.";
+"i_understand_the_risks" = "I understand the risks.";
 
 "pop_quiz" = "Pop Quiz!";
 "question_1" = "Question 1: Anyone monitoring my internet activity (e.g. ISP, government or employer) might be able to see that I am running ooniprobe, even though OONI takes precautions to make this hard";
@@ -56,8 +66,8 @@
 "false" = "False";
 "how_did_i_do" = "How did I do?";
 
-"wrong" = "Your answers to one or more of the quiz questions is wrong. Please read the Risks documentation and try again.";
-"correct" = "You answered to the quiz correctly. Carry on.";
+"wrong" = "A little bit more reading is required for you to proceed.";
+"correct" = "Good job! You have answered the quiz correctly.";
 
 "set_up_sharing" = "Set Up Sharing";
 "include_ip" = "Include your IP?";

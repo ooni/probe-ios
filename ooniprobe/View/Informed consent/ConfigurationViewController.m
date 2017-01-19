@@ -20,7 +20,6 @@
                                                      action:@selector(previous)] ;
     [oneFingerSwipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [[self view] addGestureRecognizer:oneFingerSwipeRight];
-
     
     CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
     style.messageAlignment = NSTextAlignmentCenter;
@@ -82,7 +81,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(void)configure{
+-(IBAction)configure:(id)sender{
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:^{

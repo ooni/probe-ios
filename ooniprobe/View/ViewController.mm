@@ -9,10 +9,18 @@
 
 #include "measurement_kit/common.hpp"
 
+@interface ViewController ()
+@property (readwrite) IBOutlet UIBarButtonItem* revealButtonItem;
+@end
+
 @implementation ViewController : UIViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
     self.availableNetworkMeasurements = [[NSMutableArray alloc] init];
     self.runningMeasurementNames = [[NSMutableArray alloc] init];
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];

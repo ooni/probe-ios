@@ -25,14 +25,20 @@
     [[self view] addGestureRecognizer:oneFingerSwipeRight];
     
 
-    [self.titleLabel setText:NSLocalizedString(@"know_the_risks", nil)];
-    [self.nextButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"i_understand", nil)] forState:UIControlStateNormal];
+    [self.titleLabel setText:NSLocalizedString(@"what_is_ooniprobe", nil)];
+    [self.nextButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"learn_more", nil)] forState:UIControlStateNormal];
         
     NSMutableAttributedString *muAtrStr = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"risks_text_1", nil) attributes:@{NSForegroundColorAttributeName : color_ooni_blue}];
-    NSAttributedString *atrStr = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(@"risks_text_2", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
-    NSAttributedString *atrStr2 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(@"risks_text_3", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
-    [muAtrStr appendAttributedString:atrStr];
+    NSAttributedString *atrStr2 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n%@", NSLocalizedString(@"risks_text_2", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
+    NSAttributedString *atrStr3 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n%@", NSLocalizedString(@"risks_text_3", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
+    NSAttributedString *atrStr4 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n%@", NSLocalizedString(@"risks_text_4", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
+    NSAttributedString *atrStr5 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n%@", NSLocalizedString(@"risks_text_5", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
+
     [muAtrStr appendAttributedString:atrStr2];
+    [muAtrStr appendAttributedString:atrStr3];
+    [muAtrStr appendAttributedString:atrStr4];
+    [muAtrStr appendAttributedString:atrStr5];
+
     [self.textLabel setAttributedText:muAtrStr];
 }
 
