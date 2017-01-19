@@ -15,7 +15,7 @@
     Tests *currentTests;
 }
 
-@property NSMutableArray *availableNetworkMeasurements;
+//@property NSMutableArray *availableNetworkMeasurements;
 
 @property (strong, nonatomic) IBOutlet UILabel *testing_historyLabel;
 @property (strong, nonatomic) IBOutlet UILabel *run_testLabel;

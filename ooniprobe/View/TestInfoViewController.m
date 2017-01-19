@@ -9,18 +9,16 @@
 @end
 
 @implementation TestInfoViewController
+@synthesize testName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *pathToiOSCss = [[NSBundle mainBundle] pathForResource:@"setup-mobile" ofType:@"css"];
-    NSString *iOSCssData = [NSString stringWithContentsOfFile:pathToiOSCss encoding:NSUTF8StringEncoding error:NULL];
-    NSString *pathToFile = [[NSBundle mainBundle] pathForResource:self.fileName ofType:self.fileType];
-    NSString *fileData = [NSString stringWithContentsOfFile:pathToFile encoding:NSUTF8StringEncoding error:NULL];
-    if ([self.fileType isEqualToString:@"md"])
-        [self.webView loadMarkdownString:fileData atBaseURL:[[NSBundle mainBundle] bundleURL] withStylesheet:iOSCssData];
-    else if ([self.fileType isEqualToString:@"html"])
-        [self.webView loadHTMLString:fileData baseURL:[[NSBundle mainBundle] bundleURL]];
+    self.title = NSLocalizedString(testName, nil);
 
+    [self.imageView setImage:[UIImage imageNamed:testName]];
+    [self.nextButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"learn_more", nil)] forState:UIControlStateNormal];
+    NSString *test_desc = [NSString stringWithFormat:@"%@_longdesc", testName];
+    [self.textLabel setText:NSLocalizedString(test_desc, nil)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,8 +26,14 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)close:(id)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
+-(IBAction)learn_more:(id)sender{
+    if ([testName isEqualToString:@"web_connectivity"])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/nettest/web-connectivity/"]];
+    else if ([testName isEqualToString:@"http_invalid_request_line"])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/nettest/http-invalid-request-line/"]];
+    else if ([testName isEqualToString:@"ndt_test"])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/TheTorProject/ooni-web/blob/master/content/nettest/ndt.md"]];
+
 }
 
 @end

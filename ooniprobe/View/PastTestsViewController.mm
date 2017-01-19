@@ -26,17 +26,20 @@
     self.runningNetworkMeasurements = [[NSMutableArray alloc] init];
     self.finishedNetworkMeasurements = [[TestStorage get_tests_rev] mutableCopy];
     [self loadAvailableMeasurements];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadAvailableMeasurements) name:@"loadAvailableMeasurements" object:nil];
 }
 
-/*
- -(void)viewWillAppear:(BOOL)animated{
- [super viewWillAppear:animated];
- [self.tableView reloadData];
- }*/
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.title = NSLocalizedString(@"past_test", nil);
+    [self.tableView reloadData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.title = nil;
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -59,6 +62,7 @@
     [self.tableView reloadData];
 }
 
+//NOT USED
 -(void)refreshTable:(NSNotification *)notification{
     NetworkMeasurement *current  = (NetworkMeasurement*)[notification object];
     NSLog(@"finishedNetworkMeasurements: %@", self.finishedNetworkMeasurements);

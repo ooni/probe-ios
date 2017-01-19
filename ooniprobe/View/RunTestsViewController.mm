@@ -23,15 +23,20 @@
 
     currentTests = [Tests currentTests];
     
-    //TODO check the observers
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable:) name:@"refreshTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.title = NSLocalizedString(@"run_tests", nil);
     [self.tableView reloadData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.title = nil;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -53,7 +58,7 @@
 - (IBAction)runTests:(id)sender event:(id)event {
     CGPoint currentTouchPosition = [[[event allTouches] anyObject] locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
-    NetworkMeasurement *current = [self.availableNetworkMeasurements objectAtIndex:indexPath.row];
+    NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
     [current run];
     [self.tableView reloadData];
 }
@@ -73,7 +78,7 @@
     UITableViewCell *cell;
     NetworkMeasurement *current;
     cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_test" forIndexPath:indexPath];
-    current = [self.availableNetworkMeasurements objectAtIndex:indexPath.row];
+    current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UILabel *subtitle = (UILabel*)[cell viewWithTag:2];
     UIImageView *image = (UIImageView*)[cell viewWithTag:3];
@@ -104,7 +109,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"toInfo" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -137,9 +141,8 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     if ([[segue identifier] isEqualToString:@"toInfo"]){
         TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;
-        NetworkMeasurement *current = [self.availableNetworkMeasurements objectAtIndex:indexPath.row];
-        [vc setFileName:current.name];
-        [vc setFileType:@"md"];
+        NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
+        [vc setTestName:current.name];
     }
 }
 

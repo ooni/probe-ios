@@ -103,7 +103,7 @@ static std::string get_dns_server() {
     self.progress = prog;
     NSLog(@"%@", os);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateProgress" object:nil];
     });
 }
 
@@ -116,7 +116,7 @@ static std::string get_dns_server() {
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
     });
 }
 

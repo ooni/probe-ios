@@ -3,13 +3,14 @@
 // information on the copying conditions.
 
 #import <UIKit/UIKit.h>
-#import "UIWebView+Markdown.h"
+#import "RoundedButton.h"
 
 @interface TestInfoViewController : UIViewController
+@property (nonatomic, strong) IBOutlet NSString *testName;
 
-@property (nonatomic, strong) IBOutlet NSString *fileName;
-@property (nonatomic, strong) IBOutlet NSString *fileType;
-@property (nonatomic, strong) IBOutlet UIWebView *webView;
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) IBOutlet UILabel *textLabel;
+@property (nonatomic, strong) IBOutlet RoundedButton *nextButton;
 
 @end
 
