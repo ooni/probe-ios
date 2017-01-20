@@ -24,6 +24,8 @@
     finishedTests = [[TestStorage get_tests_rev] mutableCopy];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:FALSE] forKey:@"new_tests"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -89,6 +91,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NetworkMeasurement *current = [finishedTests objectAtIndex:indexPath.row];
+    [self goToTest:current];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(IBAction)viewTest:(id)sender event:(id)event{
+    CGPoint currentTouchPosition = [[[event allTouches] anyObject] locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
+    NetworkMeasurement *current = [finishedTests objectAtIndex:indexPath.row];
+    [self goToTest:current];
+}
+
+-(void)goToTest:(NetworkMeasurement*)current{
     NSArray *items = [self getItems:current.json_file];
     if ([items count] > 1)
         [self performSegueWithIdentifier:@"toInputList" sender:self];
@@ -98,7 +112,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"no_result", nil) message:NSLocalizedString(@"no_result_msg", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"ok", @"") otherButtonTitles:nil];
         [alert show];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -162,12 +175,13 @@
         NSArray *items = [self getItems:current.json_file];
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
         [vc setContent:[items objectAtIndex:0]];
+        [vc setTestName:current.name];
     }
     else if ([[segue identifier] isEqualToString:@"toInputList"]){
-        
         NetworkMeasurement *current = [finishedTests objectAtIndex:indexPath.row];
         ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
         [vc setItems:[self getItems:current.json_file]];
+        [vc setTestName:current.name];
     }
 }
 

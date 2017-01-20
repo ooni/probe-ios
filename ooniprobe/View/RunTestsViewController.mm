@@ -30,7 +30,7 @@
     [super viewWillAppear:animated];
     currentTests = [Tests currentTests];
     self.title = NSLocalizedString(@"run_tests", nil);
-    [self.tableView reloadData];
+    [self reloadTable];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -46,6 +46,11 @@
 }
 
 -(void)reloadTable{
+    if ([TestStorage new_tests]){
+        self.navigationItem.leftBarButtonItem.badgeValue = @" ";
+        self.navigationItem.leftBarButtonItem.shouldHideBadgeAtZero = NO;
+        self.navigationItem.leftBarButtonItem.badgeBGColor = color_ok_green;
+    }
     [self.tableView reloadData];
 }
 

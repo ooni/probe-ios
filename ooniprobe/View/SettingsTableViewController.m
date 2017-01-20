@@ -75,6 +75,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
             NSString *current = [settingsItems objectAtIndex:indexPath.row];
             cell.textLabel.text = NSLocalizedString(current, nil);
+            cell.imageView.image = [UIImage imageNamed:current];
             cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         }
     }

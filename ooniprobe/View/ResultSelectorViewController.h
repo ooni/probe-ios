@@ -4,8 +4,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ResultViewController.h"
+#import "RunButton.h"
 
-@interface ResultSelectorViewController : UITableViewController
+@interface ResultSelectorViewController : UITableViewController {
+    NSString *nextTest;
+}
 
 @property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) IBOutlet NSString *testName;
+
 @end

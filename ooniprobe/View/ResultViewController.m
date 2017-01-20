@@ -9,11 +9,11 @@
 @end
 
 @implementation ResultViewController
-@synthesize content;
+@synthesize content, testName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"test_result", nil);
+    self.title = NSLocalizedString(testName, nil);
     [self loadScreen];
 }
 

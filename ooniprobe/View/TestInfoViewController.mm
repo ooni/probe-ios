@@ -49,6 +49,9 @@
 }
 
 -(IBAction)runTest:(id)sender{
+    NetworkMeasurement *current = [currentTests getTestWithName:testName];
+    [current run];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
 }
 
 -(IBAction)learn_more:(id)sender{

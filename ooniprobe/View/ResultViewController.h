@@ -10,5 +10,6 @@
 
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, strong) IBOutlet NSString *testName;
 
 @end

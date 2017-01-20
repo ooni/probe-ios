@@ -5,4 +5,5 @@ target 'ooniprobe' do
         :branch => 'stable'
     pod 'Toast'
     pod 'SWRevealViewController'
+    pod 'UIBarButtonItem-Badge-Coding'
 end

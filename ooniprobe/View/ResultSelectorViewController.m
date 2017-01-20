@@ -9,10 +9,11 @@
 @end
 
 @implementation ResultSelectorViewController;
-@synthesize items;
+@synthesize items, testName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = NSLocalizedString(testName, nil);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,31 +34,44 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UILabel *title = (UILabel*)[cell viewWithTag:1];
+    RunButton *viewButton = (RunButton*)[cell viewWithTag:2];
+    [viewButton setTitle:NSLocalizedString(@"view", nil) forState:UIControlStateNormal];
     NSString *content = [items objectAtIndex:indexPath.row];
     NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    cell.textLabel.text = [NSString stringWithFormat:@"input %@", [json objectForKey:@"input"]];
+    title.text = [NSString stringWithFormat:@"%@", [json objectForKey:@"input"]];
     if ([[json objectForKey:@"test_keys"] objectForKey:@"blocking"] != [NSNull null]){
-        if (![[[json objectForKey:@"test_keys"] objectForKey:@"blocking"] boolValue]){
-            cell.imageView.image = [UIImage imageNamed:@"censorship_no"];
-        }
-        else cell.imageView.image = [UIImage imageNamed:@"censorship_yes"];
+        if (![[[json objectForKey:@"test_keys"] objectForKey:@"blocking"] boolValue])
+            title.textColor = color_off_black;
+        else title.textColor = color_bad_red;
     }
-    else cell.imageView.image = [UIImage imageNamed:@"censorship_yes"];
+    else title.textColor = color_bad_red;
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    nextTest = [items objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"toResult" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(IBAction)viewTest:(id)sender event:(id)event{
+    CGPoint currentTouchPosition = [[[event allTouches] anyObject] locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
+    nextTest = [items objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"toResult" sender:self];
+}
+
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toResult"]){
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
-        [vc setContent:[items objectAtIndex:indexPath.row]];
+        [vc setContent:nextTest];
+        NSData *data = [nextTest dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        [vc setTestName:[json objectForKey:@"input"]];
     }
 }
 
