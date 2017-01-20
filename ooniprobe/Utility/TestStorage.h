@@ -4,6 +4,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NetworkMeasurement.h"
+#import "Tests.h"
 
 @interface TestStorage : NSObject
 
@@ -20,6 +21,10 @@
 + (NetworkMeasurement*)get_test_atindex:(long)index;
 
 + (void)set_completed:(NSNumber*)test_id;
+
++ (void)remove_running_tests;
+
++ (BOOL)new_tests;
 
 + (void)remove_all_tests;
 

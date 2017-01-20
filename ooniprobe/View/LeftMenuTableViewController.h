@@ -4,6 +4,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
+#import "TestStorage.h"
 
 @interface LeftMenuTableViewController : UITableViewController
 

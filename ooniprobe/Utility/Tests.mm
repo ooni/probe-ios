@@ -44,4 +44,13 @@
     NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
     [self.availableNetworkMeasurements addObject:ndt_testMeasurement];
 }
+
+- (NetworkMeasurement*)getTestWithName:(NSString*)testName{
+    for (NetworkMeasurement *current in self.availableNetworkMeasurements){
+        if ([current.name isEqualToString:testName])
+            return current;
+    }
+    return nil;
+}
+
 @end

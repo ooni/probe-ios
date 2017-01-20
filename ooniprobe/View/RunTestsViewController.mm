@@ -13,15 +13,13 @@
 @property (readwrite) IBOutlet UIBarButtonItem* revealButtonItem;
 @end
 
-@implementation RunTestsViewController : UIViewController
+@implementation RunTestsViewController : UITableViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
     [self.revealButtonItem setAction: @selector( revealToggle: )];
     [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
-
-    currentTests = [Tests currentTests];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
@@ -30,6 +28,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    currentTests = [Tests currentTests];
     self.title = NSLocalizedString(@"run_tests", nil);
     [self.tableView reloadData];
 }
@@ -88,7 +87,7 @@
     [title setText:NSLocalizedString(current.name, nil)];
     NSString *test_desc = [NSString stringWithFormat:@"%@_desc", current.name];
     [subtitle setText:NSLocalizedString(test_desc, nil)];
-    [runTest setTitle:[NSLocalizedString(@"run", nil) uppercaseString] forState:UIControlStateNormal];
+    [runTest setTitle:NSLocalizedString(@"run", nil) forState:UIControlStateNormal];
     [image setImage:[UIImage imageNamed:current.name]];
     if (current.running){
         [bar setHidden:NO];

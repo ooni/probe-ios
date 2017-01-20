@@ -12,15 +12,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //UIView *myNav = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 640, 20)];
-    //[myNav setBackgroundColor:color_ooni_blue];
-    //[self.revealViewController.view addSubview:myNav];
     _menuItems = @[@"run_tests", @"past_tests", @"settings", @"about"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -46,13 +48,10 @@
     NSString *CellIdentifier = [self.menuItems objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@", NSLocalizedString([_menuItems objectAtIndex:indexPath.row], nil)];
-    //cell.textLabel.text = NSLocalizedString([_menuItems objectAtIndex:indexPath.row], nil);
-    //[cell.imageView setImage:[UIImage imageNamed:[_menuItems objectAtIndex:indexPath.row]]];
-    if (indexPath.row == 1)
+    if (indexPath.row == 1 && [TestStorage new_tests])
         [cell.imageView setImage:[UIImage imageNamed:@"green_dot"]];
     else
         [cell.imageView setImage:nil];
-            //cell.textLabel.textColor = [UIColor darkGrayColor];
     return cell;
 }
 

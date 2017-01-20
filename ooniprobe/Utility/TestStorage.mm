@@ -19,7 +19,15 @@
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
         NSArray* test_array = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]];
         NSArray* reversedArray = [[test_array reverseObjectEnumerator] allObjects];
-        return reversedArray;
+        NSMutableArray *returnArray = [[NSMutableArray alloc] init];
+        for (NetworkMeasurement *test in reversedArray){
+            if (!test.running)
+                [returnArray addObject:test];
+            //if a test is status running and is not the current running test, probably has failed to complete
+            else if (![[[Tests currentTests] getTestWithName:test.name].test_id isEqualToNumber:test.test_id])
+                [returnArray addObject:test];
+        }
+        return returnArray;
     }
     return nil;
 }
@@ -82,19 +90,41 @@
     for (int i = 0; i < [cache count]; i++) {
         NetworkMeasurement* test = [cache objectAtIndex:i];
         if ([test.test_id isEqualToNumber:test_id]){
-            test.completed = TRUE;
+            test.running = FALSE;
             [cache setObject:test atIndexedSubscript:i];
             [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:TRUE] forKey:@"new_tests"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             return;
         }
     }
 }
 
+//Not used for now
++ (void)remove_running_tests{
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
+    for (int i = 0; i < [cache count]; i++) {
+        NetworkMeasurement* test = [cache objectAtIndex:i];
+        if (test.running){
+            [cache removeObject:test];
+        }
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+//Not used for now
 + (void)remove_all_tests{
-    //Not used for now
-    //TODO add functions to remove files on disk
+    [self checkTests];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
+        NSArray* test_array = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]];
+        for (NetworkMeasurement *test in test_array){
+            [self removeFile:test.json_file];
+            [self removeFile:test.log_file];
+        }
+    }
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"tests"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"new_tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -113,6 +143,12 @@
     }
 }
 
++ (BOOL)new_tests{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"new_tests"]){
+        return [[[NSUserDefaults standardUserDefaults] objectForKey:@"new_tests"] boolValue];
+    }
+    return [[NSNumber numberWithBool:FALSE] boolValue];
+}
 
 +(float) getCacheSize{
     NSData * data = [NSPropertyListSerialization dataFromPropertyList:[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"cache"] format:NSPropertyListBinaryFormat_v1_0 errorDescription:NULL];

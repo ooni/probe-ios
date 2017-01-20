@@ -76,6 +76,15 @@ static std::string get_dns_server() {
     // Nothing to do here
 }
 
+- (void) run_test {
+    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
+    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
+    self.progress = 0;
+    self.running = TRUE;
+    [TestStorage add_test:self];
+}
+
 - (void)showNotification {
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate date];
@@ -109,7 +118,6 @@ static std::string get_dns_server() {
 
 -(void)testEnded{
     NSLog(@"%@ testEnded", self.name);
-    self.completed = TRUE;
     self.running = FALSE;
     [TestStorage set_completed:self.test_id];
     [self showNotification];
@@ -125,7 +133,7 @@ static std::string get_dns_server() {
     [coder encodeObject:self.test_id forKey:@"Test_id"];
     [coder encodeObject:self.json_file forKey:@"Test_jsonfile"];
     [coder encodeObject:self.log_file forKey:@"Test_logfile"];
-    [coder encodeObject:[NSNumber numberWithBool:self.completed] forKey:@"test_completed"];
+    [coder encodeObject:[NSNumber numberWithBool:self.running] forKey:@"test_running"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
@@ -137,7 +145,7 @@ static std::string get_dns_server() {
     self.test_id = [coder decodeObjectForKey:@"Test_id"];
     self.json_file = [coder decodeObjectForKey:@"Test_jsonfile"];
     self.log_file = [coder decodeObjectForKey:@"Test_logfile"];
-    self.completed = [[coder decodeObjectForKey:@"test_completed"] boolValue];
+    self.running = [[coder decodeObjectForKey:@"test_running"] boolValue];
     return self;
 }
 
@@ -161,13 +169,7 @@ static std::string get_dns_server() {
 }
 
 - (void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    self.running = TRUE;
-    [TestStorage add_test:self];
+    [super run_test];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
@@ -215,13 +217,7 @@ static std::string get_dns_server() {
 }
 
 -(void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    self.running = TRUE;
-    [TestStorage add_test:self];
+    [super run_test];
     setup_idempotent();
     mk::nettests::HttpInvalidRequestLineTest()
         .set_options("backend", [HIRL_BACKEND UTF8String])
@@ -267,16 +263,10 @@ static std::string get_dns_server() {
 }
 
 -(void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    self.running = TRUE;
-    [TestStorage add_test:self];
-    setup_idempotent();
+    [super run_test];
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
+    setup_idempotent();
     mk::nettests::TcpConnectTest()
         .set_options("port", 80)
         .set_options("dns/nameserver", get_dns_server())
@@ -320,16 +310,10 @@ static std::string get_dns_server() {
 }
 
 -(void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    self.running = TRUE;
-    [TestStorage add_test:self];
-    setup_idempotent();
+    [super run_test];
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
+    setup_idempotent();
     mk::nettests::WebConnectivityTest()
         .set_options("backend", [WC_BACKEND UTF8String])
         /*
@@ -381,13 +365,7 @@ static std::string get_dns_server() {
 }
 
 -(void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    self.running = TRUE;
-    [TestStorage add_test:self];
+    [super run_test];
     mk::nettests::NdtTest()
         .set_options("test_suite", MK_NDT_DOWNLOAD | MK_NDT_UPLOAD)
         .set_options("dns/nameserver", get_dns_server())

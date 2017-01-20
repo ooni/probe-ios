@@ -13,4 +13,5 @@
 @property (strong, nonatomic) NSMutableArray *availableNetworkMeasurements;
 + (id)currentTests;
 - (void) loadAvailableMeasurements;
+- (NetworkMeasurement*)getTestWithName:(NSString*)testName;
 @end

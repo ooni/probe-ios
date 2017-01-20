@@ -16,7 +16,7 @@
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528231CEA35640073A29B /* LogViewController.mm */; };
 		ED25282C1CEA35640073A29B /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2528251CEA35640073A29B /* SettingsTableViewController.m */; };
-		ED25282D1CEA35640073A29B /* TestInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.m */; };
+		ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.mm */; };
 		ED25282E1CEA35640073A29B /* RunTestsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528291CEA35640073A29B /* RunTestsViewController.mm */; };
 		ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528301CEA35770073A29B /* NetworkMeasurement.mm */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.m */; };
@@ -30,7 +30,7 @@
 		ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B31D8C6A4B00D5D725 /* RisksViewController.m */; };
 		ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B61D8C6A5600D5D725 /* QuizViewController.m */; };
 		ED8816BA1D8C6A6100D5D725 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */; };
-		ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.m */; };
+		ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */; };
 		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
 		EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */; };
 		EDC869C91E3178A800124C46 /* Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDC869C81E3178A800124C46 /* Tests.mm */; };
@@ -84,7 +84,7 @@
 		ED2528241CEA35640073A29B /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		ED2528251CEA35640073A29B /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		ED2528261CEA35640073A29B /* TestInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInfoViewController.h; sourceTree = "<group>"; };
-		ED2528271CEA35640073A29B /* TestInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInfoViewController.m; sourceTree = "<group>"; };
+		ED2528271CEA35640073A29B /* TestInfoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestInfoViewController.mm; sourceTree = "<group>"; };
 		ED2528281CEA35640073A29B /* RunTestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTestsViewController.h; sourceTree = "<group>"; };
 		ED2528291CEA35640073A29B /* RunTestsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RunTestsViewController.mm; sourceTree = "<group>"; };
 		ED25282F1CEA35770073A29B /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = Model/NetworkMeasurement.h; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		ED8816B81D8C6A6100D5D725 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurationViewController.h; path = "Informed consent/ConfigurationViewController.h"; sourceTree = "<group>"; };
 		ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurationViewController.m; path = "Informed consent/ConfigurationViewController.m"; sourceTree = "<group>"; };
 		ED923AAD1E2FA9FE00407EB6 /* LeftMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuTableViewController.h; sourceTree = "<group>"; };
-		ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuTableViewController.m; sourceTree = "<group>"; };
+		ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LeftMenuTableViewController.mm; sourceTree = "<group>"; };
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectorViewController.h; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 				ED2528221CEA35640073A29B /* LogViewController.h */,
 				ED2528231CEA35640073A29B /* LogViewController.mm */,
 				ED2528261CEA35640073A29B /* TestInfoViewController.h */,
-				ED2528271CEA35640073A29B /* TestInfoViewController.m */,
+				ED2528271CEA35640073A29B /* TestInfoViewController.mm */,
 				ED2528241CEA35640073A29B /* SettingsTableViewController.h */,
 				ED2528251CEA35640073A29B /* SettingsTableViewController.m */,
 				EDE344801D42151C00BAEB10 /* ResultViewController.h */,
@@ -279,7 +279,7 @@
 				EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */,
 				EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.m */,
 				ED923AAD1E2FA9FE00407EB6 /* LeftMenuTableViewController.h */,
-				ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.m */,
+				ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */,
 				ED3932C21E3114740064CD11 /* AboutViewController.h */,
 				ED3932C31E3114740064CD11 /* AboutViewController.m */,
 			);
@@ -519,7 +519,7 @@
 				EDE344821D42151C00BAEB10 /* ResultViewController.m in Sources */,
 				ED8816AE1D8C6A3400D5D725 /* IntroductionViewController.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
-				ED25282D1CEA35640073A29B /* TestInfoViewController.m in Sources */,
+				ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */,
 				EDCAB3A31E2BDD22000878CA /* LawsViewController.m in Sources */,
 				ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */,
 				ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */,
@@ -530,7 +530,7 @@
 				ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */,
 				EDCAB39D1E2BC699000878CA /* ButtonUtility.m in Sources */,
 				ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */,
-				ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.m in Sources */,
+				ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm in Sources */,
 				ED3932C71E3114BA0064CD11 /* PastTestsViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
