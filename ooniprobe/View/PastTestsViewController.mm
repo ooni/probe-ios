@@ -80,12 +80,18 @@
     [subtitle setText:[formatter stringFromDate:timestampDate]];
     
     NSArray *items = [self getItems:current.json_file];
-    if ([items count] > 1)
+    if ([items count] > 1){
         [image setImage:[UIImage imageNamed:current.name]];
-    else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0)
+        title.textColor = color_off_black;
+    }
+    else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0){
         [image setImage:[UIImage imageNamed:current.name]];
-    else
+        title.textColor = color_off_black;
+    }
+    else {
         [image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_no", current.name]]];
+        title.textColor = color_bad_red;
+    }
     return cell;
 }
 
@@ -103,7 +109,8 @@
 }
 
 -(void)goToTest:(NetworkMeasurement*)current{
-    NSArray *items = [self getItems:current.json_file];
+    nextTest = current;
+    NSArray *items = [self getItems:nextTest.json_file];
     if ([items count] > 1)
         [self performSegueWithIdentifier:@"toInputList" sender:self];
     else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0)
@@ -169,19 +176,16 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     if ([[segue identifier] isEqualToString:@"toResult"]){
-        NetworkMeasurement *current = [finishedTests objectAtIndex:indexPath.row];
-        NSArray *items = [self getItems:current.json_file];
+        NSArray *items = [self getItems:nextTest.json_file];
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
         [vc setContent:[items objectAtIndex:0]];
-        [vc setTestName:current.name];
+        [vc setTestName:nextTest.name];
     }
     else if ([[segue identifier] isEqualToString:@"toInputList"]){
-        NetworkMeasurement *current = [finishedTests objectAtIndex:indexPath.row];
         ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
-        [vc setItems:[self getItems:current.json_file]];
-        [vc setTestName:current.name];
+        [vc setItems:[self getItems:nextTest.json_file]];
+        [vc setTestName:nextTest.name];
     }
 }
 

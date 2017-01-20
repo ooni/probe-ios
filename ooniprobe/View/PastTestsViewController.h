@@ -13,6 +13,7 @@
 
 @interface PastTestsViewController : UITableViewController {
     NSMutableArray *finishedTests;
+    NetworkMeasurement *nextTest;
 }
 
 
