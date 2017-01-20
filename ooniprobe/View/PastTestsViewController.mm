@@ -21,7 +21,6 @@
     [self.revealButtonItem setAction: @selector( revealToggle: )];
     [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     
-    finishedTests = [[TestStorage get_tests_rev] mutableCopy];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:FALSE] forKey:@"new_tests"];
@@ -31,6 +30,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.title = NSLocalizedString(@"past_tests", nil);
+    finishedTests = [[TestStorage get_tests_rev] mutableCopy];
     [self.tableView reloadData];
 }
 
@@ -64,13 +64,21 @@
     UITableViewCell *cell;
     NetworkMeasurement *current;
     cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_test" forIndexPath:indexPath];
-    
     current = [finishedTests objectAtIndex:indexPath.row];
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UILabel *subtitle = (UILabel*)[cell viewWithTag:2];
     UIImageView *image = (UIImageView*)[cell viewWithTag:3];
     RunButton *viewTest = (RunButton*)[cell viewWithTag:4];
-    
+    if (!current.viewed){
+        viewTest.badgeValue = @" ";
+        viewTest.badgeBGColor = color_ok_green;
+        viewTest.badgeOriginX   = viewTest.frame.size.width - viewTest.badge.frame.size.width/2 -2;
+        viewTest.badgeOriginY   = -5;
+        viewTest.badgePadding = 1;
+     }
+    else
+        viewTest.badgeValue = 0;
+
     [title setText:NSLocalizedString(current.name, nil)];
     [viewTest setTitle:NSLocalizedString(@"view", nil) forState:UIControlStateNormal];
     
@@ -181,11 +189,13 @@
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
         [vc setContent:[items objectAtIndex:0]];
         [vc setTestName:nextTest.name];
+        [TestStorage set_viewed:nextTest.test_id];
     }
     else if ([[segue identifier] isEqualToString:@"toInputList"]){
         ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
         [vc setItems:[self getItems:nextTest.json_file]];
         [vc setTestName:nextTest.name];
+        [TestStorage set_viewed:nextTest.test_id];
     }
 }
 

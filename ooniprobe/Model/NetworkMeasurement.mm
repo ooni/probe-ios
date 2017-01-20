@@ -69,6 +69,7 @@ static std::string get_dns_server() {
     max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     self.backgroundTask = UIBackgroundTaskInvalid;
     self.running = FALSE;
+    self.viewed = FALSE;
     return self;
 }
 
@@ -134,6 +135,7 @@ static std::string get_dns_server() {
     [coder encodeObject:self.json_file forKey:@"Test_jsonfile"];
     [coder encodeObject:self.log_file forKey:@"Test_logfile"];
     [coder encodeObject:[NSNumber numberWithBool:self.running] forKey:@"test_running"];
+    [coder encodeObject:[NSNumber numberWithBool:self.viewed] forKey:@"test_viewed"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
@@ -146,6 +148,7 @@ static std::string get_dns_server() {
     self.json_file = [coder decodeObjectForKey:@"Test_jsonfile"];
     self.log_file = [coder decodeObjectForKey:@"Test_logfile"];
     self.running = [[coder decodeObjectForKey:@"test_running"] boolValue];
+    self.viewed = [[coder decodeObjectForKey:@"test_viewed"] boolValue];
     return self;
 }
 

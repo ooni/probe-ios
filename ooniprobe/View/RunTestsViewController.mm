@@ -48,7 +48,6 @@
 -(void)reloadTable{
     if ([TestStorage new_tests]){
         self.navigationItem.leftBarButtonItem.badgeValue = @" ";
-        self.navigationItem.leftBarButtonItem.shouldHideBadgeAtZero = NO;
         self.navigationItem.leftBarButtonItem.badgeBGColor = color_ok_green;
     }
     [self.tableView reloadData];

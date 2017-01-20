@@ -10,6 +10,7 @@
 #import "UIView+Toast.h"
 #import "RunButton.h"
 #import "SWRevealViewController.h"
+#import "UIButton+Badge.h"
 
 @interface PastTestsViewController : UITableViewController {
     NSMutableArray *finishedTests;

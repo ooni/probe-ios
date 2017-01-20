@@ -142,7 +142,6 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version 0.1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SC-VG-VFl">
                                             <rect key="frame" x="40" y="32" width="204" height="16"/>
-                                            <color key="tintColor" red="0.30980392156862746" green="0.81960784313725488" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="imZ-59-9UV"/>
                                             </constraints>
@@ -152,7 +151,7 @@
                                         </label>
                                         <progressView opaque="NO" tag="6" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Da-Lb-eei">
                                             <rect key="frame" x="40" y="39" width="204" height="2"/>
-                                            <color key="progressTintColor" red="0.19215686269999999" green="0.43921568630000002" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="progressTintColor" red="0.30980392159999998" green="0.81960784310000001" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </progressView>
                                         <activityIndicatorView hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="isC-WH-iDo">
                                             <rect key="frame" x="272" y="19" width="20" height="20"/>
@@ -968,7 +967,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="AYN-ls-CZF" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ULy-MW-EOd"/>
+                                    <segue destination="AYN-ls-CZF" kind="custom" identifier="toRun_tests" customClass="SWRevealViewControllerSeguePushController" id="ULy-MW-EOd"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="past_tests" textLabel="U3b-h3-AuZ" style="IBUITableViewCellStyleDefault" id="tgk-qO-5SJ">
@@ -990,7 +989,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="gQD-G7-FtD" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="5Z3-k1-KYQ"/>
+                                    <segue destination="gQD-G7-FtD" kind="custom" identifier="toPast_tests" customClass="SWRevealViewControllerSeguePushController" id="5Z3-k1-KYQ"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settings" textLabel="QMr-xX-vcw" style="IBUITableViewCellStyleDefault" id="4Zc-yk-zbe">
@@ -1012,7 +1011,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="iav-Mo-gHu" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="QLz-vz-cjf"/>
+                                    <segue destination="iav-Mo-gHu" kind="custom" identifier="toSettings" customClass="SWRevealViewControllerSeguePushController" id="QLz-vz-cjf"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="about" textLabel="YW3-gC-SlX" style="IBUITableViewCellStyleDefault" id="oBz-D1-6nL">
@@ -1034,7 +1033,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="LC9-Tt-RYT" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ghB-hV-2lj"/>
+                                    <segue destination="LC9-Tt-RYT" kind="custom" identifier="toAbout" customClass="SWRevealViewControllerSeguePushController" id="ghB-hV-2lj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

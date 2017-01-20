@@ -22,6 +22,10 @@
 
 + (void)set_completed:(NSNumber*)test_id;
 
++ (void)set_viewed:(NSNumber*)test_id;
+
++ (void)set_all_viewed;
+
 + (void)remove_running_tests;
 
 + (BOOL)new_tests;

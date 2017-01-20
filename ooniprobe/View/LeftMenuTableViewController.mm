@@ -55,4 +55,9 @@
     return cell;
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toRun_tests"] || [[segue identifier] isEqualToString:@"toSettings"] || [[segue identifier] isEqualToString:@"toAbout"])
+        [TestStorage set_all_viewed];
+}
+
 @end

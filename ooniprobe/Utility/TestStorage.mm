@@ -100,6 +100,33 @@
     }
 }
 
++ (void)set_viewed:(NSNumber*)test_id {
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
+    for (int i = 0; i < [cache count]; i++) {
+        NetworkMeasurement* test = [cache objectAtIndex:i];
+        if ([test.test_id isEqualToNumber:test_id]){
+            test.viewed = TRUE;
+            [cache setObject:test atIndexedSubscript:i];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            return;
+        }
+    }
+}
+
++ (void)set_all_viewed {
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
+    for (int i = 0; i < [cache count]; i++) {
+        NetworkMeasurement* test = [cache objectAtIndex:i];
+        if (!test.viewed){
+            test.viewed = TRUE;
+            [cache setObject:test atIndexedSubscript:i];
+        }
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 //Not used for now
 + (void)remove_running_tests{
     NSMutableArray *cache = [[self get_tests] mutableCopy];
