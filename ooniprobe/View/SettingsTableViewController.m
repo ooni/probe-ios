@@ -113,7 +113,7 @@
 - (UITextField*)createTextField:(NSString*)text{
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
     textField.delegate = self;
-    textField.font = [UIFont fontWithName:@"FiraSans-Bold" size:15.0f];
+    textField.font = [UIFont fontWithName:@"FiraSansOT-Bold" size:15.0f];
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.text = text;

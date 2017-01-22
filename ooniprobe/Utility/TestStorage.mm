@@ -178,7 +178,8 @@
 }
 
 +(float) getCacheSize{
-    NSData * data = [NSPropertyListSerialization dataFromPropertyList:[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"cache"] format:NSPropertyListBinaryFormat_v1_0 errorDescription:NULL];
+    NSError *err;
+    NSData * data = [NSPropertyListSerialization dataWithPropertyList:[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"cache"] format:NSPropertyListBinaryFormat_v1_0 options:NULL error:&err];
     float kbytes=[data length]/1024.0;
     NSLog(@"size of yourdictionary: %f", kbytes);
     return kbytes;
