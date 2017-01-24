@@ -5,19 +5,19 @@ PODS:
   - UIBarButtonItem-Badge-Coding (0.0.1)
 
 DEPENDENCIES:
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `stable`)
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `feature/ndt-stats`)
   - SWRevealViewController
   - Toast
   - UIBarButtonItem-Badge-Coding
 
 EXTERNAL SOURCES:
   measurement_kit:
-    :branch: stable
+    :branch: feature/ndt-stats
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 CHECKOUT OPTIONS:
   measurement_kit:
-    :commit: bb12ec38315c8f8265d022fe7259b2e2db9c2b0f
+    :commit: dad1b3703ecd6cbc081b1eacccdb97966ec39eac
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 SPEC CHECKSUMS:
@@ -26,6 +26,6 @@ SPEC CHECKSUMS:
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UIBarButtonItem-Badge-Coding: 3f8e96f75f7d7c7516c1a1706b566892bf2db134
 
-PODFILE CHECKSUM: 6c4e6f7e74d7870cef1f7d82fa6116ba093ee92e
+PODFILE CHECKSUM: 5c3d4b7a0dd1f894c2a2cf035ab44d9dd3d15375
 
 COCOAPODS: 1.1.1
