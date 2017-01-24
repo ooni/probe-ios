@@ -118,8 +118,9 @@
 -(void)showToast{
     CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
     style.messageAlignment = NSTextAlignmentCenter;
-    style.messageColor = [UIColor colorWithRed:60.0/255.0 green:118.0/255.0 blue:61.0/255.0 alpha:1.0];
-    style.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:240.0/255.0 blue:216.0/255.0 alpha:1.0];
+    style.messageColor = color_off_white;
+    style.backgroundColor = color_ok_green;
+    style.titleFont = [UIFont fontWithName:@"FiraSansOT-Bold" size:15];
     [self.view makeToast:NSLocalizedString(@"ooniprobe_configured", nil) duration:3.0 position:CSToastPositionBottom style:style];
 }
 
