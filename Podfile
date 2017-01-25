@@ -4,6 +4,6 @@ target 'ooniprobe' do
         :git => 'https://github.com/measurement-kit/measurement-kit.git',
         :branch => 'feature/ndt-stats'
     pod 'Toast'
-    pod 'SWRevealViewController'
+    pod 'PBRevealViewController'
     pod 'UIBarButtonItem-Badge-Coding'
 end

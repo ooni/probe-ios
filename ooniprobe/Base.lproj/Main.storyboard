@@ -11,11 +11,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="3de79d2eb33e18bba8f5f5834a3d9d05.otf">
-            <string>FiraSansOTMedium</string>
-        </array>
-        <array key="5310ca5fb41a915987df5663660da770.otf">
+        <array key="fira-sans-bold.5310ca5fb41a915987df5663660da770.otf">
             <string>FiraSansOT-Bold</string>
+        </array>
+        <array key="fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf">
+            <string>FiraSansOTMedium</string>
         </array>
     </customFonts>
     <scenes>
@@ -228,7 +228,7 @@
                         <barButtonItem key="leftBarButtonItem" image="menu_white" id="anJ-N5-jov"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="revealButtonItem" destination="anJ-N5-jov" id="hwf-jt-46K"/>
+                        <outlet property="revealButtonItem" destination="anJ-N5-jov" id="pPm-Am-PXt"/>
                         <segue destination="ttE-KP-jYH" kind="show" identifier="showInformedConsent" id="gu1-Pu-vTs"/>
                     </connections>
                 </tableViewController>
@@ -949,11 +949,11 @@
         <!--Reveal View Controller-->
         <scene sceneID="cin-nY-e6b">
             <objects>
-                <viewController id="mPv-Lc-eHV" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController id="mPv-Lc-eHV" customClass="PBRevealViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="IXo-d2-wGn"/>
                     <connections>
-                        <segue destination="AYN-ls-CZF" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="TKr-0u-V8U"/>
-                        <segue destination="sSR-4b-iaY" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="d3a-zP-8bF"/>
+                        <segue destination="AYN-ls-CZF" kind="custom" identifier="pb_main" customClass="PBRevealViewControllerSegueSetController" id="TKr-0u-V8U"/>
+                        <segue destination="sSR-4b-iaY" kind="custom" identifier="pb_left" customClass="PBRevealViewControllerSegueSetController" id="d3a-zP-8bF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4y-GP-BS7" sceneMemberID="firstResponder"/>
@@ -989,7 +989,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="AYN-ls-CZF" kind="custom" identifier="toRun_tests" customClass="SWRevealViewControllerSeguePushController" id="ULy-MW-EOd"/>
+                                    <segue destination="AYN-ls-CZF" kind="custom" identifier="toRun_tests" customClass="PBRevealViewControllerSeguePushController" id="ULy-MW-EOd"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="past_tests" textLabel="U3b-h3-AuZ" style="IBUITableViewCellStyleDefault" id="tgk-qO-5SJ">
@@ -1011,7 +1011,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="gQD-G7-FtD" kind="custom" identifier="toPast_tests" customClass="SWRevealViewControllerSeguePushController" id="5Z3-k1-KYQ"/>
+                                    <segue destination="gQD-G7-FtD" kind="custom" identifier="toPast_tests" customClass="PBRevealViewControllerSeguePushController" id="5Z3-k1-KYQ"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settings" textLabel="QMr-xX-vcw" style="IBUITableViewCellStyleDefault" id="4Zc-yk-zbe">
@@ -1033,7 +1033,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="iav-Mo-gHu" kind="custom" identifier="toSettings" customClass="SWRevealViewControllerSeguePushController" id="QLz-vz-cjf"/>
+                                    <segue destination="iav-Mo-gHu" kind="custom" identifier="toSettings" customClass="PBRevealViewControllerSeguePushController" id="QLz-vz-cjf"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="about" textLabel="YW3-gC-SlX" style="IBUITableViewCellStyleDefault" id="oBz-D1-6nL">
@@ -1055,7 +1055,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="LC9-Tt-RYT" kind="custom" identifier="toAbout" customClass="SWRevealViewControllerSeguePushController" id="ghB-hV-2lj"/>
+                                    <segue destination="LC9-Tt-RYT" kind="custom" identifier="toAbout" customClass="PBRevealViewControllerSeguePushController" id="ghB-hV-2lj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -18,11 +18,11 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
-    [self.revealButtonItem setAction: @selector( revealToggle: )];
-    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    [self.revealButtonItem setAction: @selector(revealLeftView)];
+    self.revealViewController.leftPresentViewHierarchically = YES;
+    self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:FALSE] forKey:@"new_tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -156,14 +156,6 @@
         [TestStorage remove_test:current.test_id];
         [self.tableView reloadData];
     }
-}
-
--(void)showToast{
-    CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
-    style.messageAlignment = NSTextAlignmentCenter;
-    style.messageColor = [UIColor colorWithRed:60.0/255.0 green:118.0/255.0 blue:61.0/255.0 alpha:1.0];
-    style.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:240.0/255.0 blue:216.0/255.0 alpha:1.0];
-    [self.view makeToast:NSLocalizedString(@"ooniprobe_configured", nil) duration:3.0 position:CSToastPositionBottom style:style];
 }
 
 -(NSArray*)getItems:(NSString*)json_file{

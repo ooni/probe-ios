@@ -15,8 +15,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
-    [self.revealButtonItem setAction: @selector( revealToggle: )];
-    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    [self.revealButtonItem setAction: @selector(revealLeftView)];
+    self.revealViewController.leftPresentViewHierarchically = YES;
+    self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
 
     self.title = NSLocalizedString(@"settings", nil);
     [self reloadSettings];

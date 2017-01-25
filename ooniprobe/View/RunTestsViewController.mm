@@ -18,8 +18,12 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
-    [self.revealButtonItem setAction: @selector( revealToggle: )];
-    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    [self.revealButtonItem setAction: @selector(revealLeftView)];
+    self.revealViewController.leftPresentViewHierarchically = YES;
+    //self.revealViewController.leftToggleAnimationDuration = 0.8;
+    self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
+
+    //[self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
@@ -118,8 +122,9 @@
 -(void)showToast{
     CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
     style.messageAlignment = NSTextAlignmentCenter;
-    style.messageColor = [UIColor colorWithRed:60.0/255.0 green:118.0/255.0 blue:61.0/255.0 alpha:1.0];
-    style.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:240.0/255.0 blue:216.0/255.0 alpha:1.0];
+    style.messageColor = color_off_white;
+    style.backgroundColor = color_ok_green;
+    style.titleFont = [UIFont fontWithName:@"FiraSansOT-Bold" size:15];
     [self.view makeToast:NSLocalizedString(@"ooniprobe_configured", nil) duration:3.0 position:CSToastPositionBottom style:style];
 }
 

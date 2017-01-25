@@ -8,7 +8,7 @@
 #import "TestStorage.h"
 #import "UIView+Toast.h"
 #import "RunButton.h"
-#import "SWRevealViewController.h"
+#import "PBRevealViewController.h"
 #import "Tests.h"
 #import "UIBarButtonItem+Badge.h"
 

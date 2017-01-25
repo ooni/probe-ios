@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SWRevealViewController.h"
+#import "PBRevealViewController.h"
 #import "RoundedButton.h"
 
 @interface AboutViewController : UIViewController

@@ -9,7 +9,7 @@
 #import "TestStorage.h"
 #import "UIView+Toast.h"
 #import "RunButton.h"
-#import "SWRevealViewController.h"
+#import "PBRevealViewController.h"
 #import "UIButton+Badge.h"
 
 @interface PastTestsViewController : UITableViewController {
