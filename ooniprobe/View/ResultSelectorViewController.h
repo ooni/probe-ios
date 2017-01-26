@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, strong) IBOutlet NSString *testName;
+@property (nonatomic, strong) NSString *log_file;
 
 @end

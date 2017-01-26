@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1724A71E1E37EABC004A1242 /* app.307ea7e0b371632a940e5fabe5d176ef.css in Resources */ = {isa = PBXBuildFile; fileRef = 1724A7181E37EABC004A1242 /* app.307ea7e0b371632a940e5fabe5d176ef.css */; };
-		1724A71F1E37EABC004A1242 /* app.ebe9a493ee8dd087876d.js in Resources */ = {isa = PBXBuildFile; fileRef = 1724A7191E37EABC004A1242 /* app.ebe9a493ee8dd087876d.js */; };
-		1724A7201E37EABC004A1242 /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 1724A71A1E37EABC004A1242 /* favicon.ico */; };
-		1724A7221E37EABC004A1242 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1724A71C1E37EABC004A1242 /* index.html */; };
-		1724A7231E37EABC004A1242 /* vendor.ebe9a493ee8dd087876d.js in Resources */ = {isa = PBXBuildFile; fileRef = 1724A71D1E37EABC004A1242 /* vendor.ebe9a493ee8dd087876d.js */; };
 		91B760965D3796A4B1EB357A /* libPods-ooniprobe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AE8FCA4984110A49F98C17 /* libPods-ooniprobe.a */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
@@ -24,20 +19,25 @@
 		ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.mm */; };
 		ED25282E1CEA35640073A29B /* RunTestsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528291CEA35640073A29B /* RunTestsViewController.mm */; };
 		ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528301CEA35770073A29B /* NetworkMeasurement.mm */; };
-		ED2A59811E38A8CB00B171E8 /* charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2A59731E38A8CB00B171E8 /* charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff */; };
-		ED2A59821E38A8CB00B171E8 /* charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2A59741E38A8CB00B171E8 /* charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff */; };
-		ED2A59831E38A8CB00B171E8 /* charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2A59751E38A8CB00B171E8 /* charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff */; };
-		ED2A59841E38A8CB00B171E8 /* charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2A59761E38A8CB00B171E8 /* charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff */; };
-		ED2A59851E38A8CB00B171E8 /* fira-sans-bold.5310ca5fb41a915987df5663660da770.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED2A59771E38A8CB00B171E8 /* fira-sans-bold.5310ca5fb41a915987df5663660da770.otf */; };
-		ED2A59861E38A8CB00B171E8 /* fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED2A59781E38A8CB00B171E8 /* fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf */; };
-		ED2A59871E38A8CB00B171E8 /* fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED2A59791E38A8CB00B171E8 /* fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf */; };
-		ED2A59881E38A8CB00B171E8 /* fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot in Resources */ = {isa = PBXBuildFile; fileRef = ED2A597A1E38A8CB00B171E8 /* fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot */; };
-		ED2A59891E38A8CB00B171E8 /* fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = ED2A597B1E38A8CB00B171E8 /* fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 */; };
-		ED2A598A1E38A8CB00B171E8 /* fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2A597C1E38A8CB00B171E8 /* fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf */; };
-		ED2A598B1E38A8CB00B171E8 /* fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2A597D1E38A8CB00B171E8 /* fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff */; };
-		ED2A598C1E38A8CB00B171E8 /* ooni-icons.7f721a571194837f629b6dd86a703ca5.eot in Resources */ = {isa = PBXBuildFile; fileRef = ED2A597E1E38A8CB00B171E8 /* ooni-icons.7f721a571194837f629b6dd86a703ca5.eot */; };
-		ED2A598D1E38A8CB00B171E8 /* source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2A597F1E38A8CB00B171E8 /* source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff */; };
-		ED2A598E1E38A8CB00B171E8 /* source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2A59801E38A8CB00B171E8 /* source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff */; };
+		ED2F5D6D1E38F13900BEBC1D /* app.87a6abc30fdbbf90416461dbe4159b4e.css in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D5A1E38F13900BEBC1D /* app.87a6abc30fdbbf90416461dbe4159b4e.css */; };
+		ED2F5D6E1E38F13900BEBC1D /* app.be8d92f369333790a796.js in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D5B1E38F13900BEBC1D /* app.be8d92f369333790a796.js */; };
+		ED2F5D6F1E38F13900BEBC1D /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D5C1E38F13900BEBC1D /* favicon.ico */; };
+		ED2F5D701E38F13900BEBC1D /* font-charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D5D1E38F13900BEBC1D /* font-charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff */; };
+		ED2F5D711E38F13900BEBC1D /* font-charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D5E1E38F13900BEBC1D /* font-charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff */; };
+		ED2F5D721E38F13900BEBC1D /* font-charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D5F1E38F13900BEBC1D /* font-charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff */; };
+		ED2F5D731E38F13900BEBC1D /* font-charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D601E38F13900BEBC1D /* font-charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff */; };
+		ED2F5D741E38F13900BEBC1D /* font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D611E38F13900BEBC1D /* font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf */; };
+		ED2F5D751E38F13900BEBC1D /* font-fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D621E38F13900BEBC1D /* font-fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf */; };
+		ED2F5D761E38F13900BEBC1D /* font-fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D631E38F13900BEBC1D /* font-fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf */; };
+		ED2F5D771E38F13900BEBC1D /* font-fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D641E38F13900BEBC1D /* font-fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot */; };
+		ED2F5D781E38F13900BEBC1D /* font-fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D651E38F13900BEBC1D /* font-fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 */; };
+		ED2F5D791E38F13900BEBC1D /* font-fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D661E38F13900BEBC1D /* font-fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf */; };
+		ED2F5D7A1E38F13900BEBC1D /* font-fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D671E38F13900BEBC1D /* font-fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff */; };
+		ED2F5D7B1E38F13900BEBC1D /* font-ooni-icons.7f721a571194837f629b6dd86a703ca5.eot in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D681E38F13900BEBC1D /* font-ooni-icons.7f721a571194837f629b6dd86a703ca5.eot */; };
+		ED2F5D7C1E38F13900BEBC1D /* font-source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D691E38F13900BEBC1D /* font-source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff */; };
+		ED2F5D7D1E38F13900BEBC1D /* font-source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D6A1E38F13900BEBC1D /* font-source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff */; };
+		ED2F5D7E1E38F13900BEBC1D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D6B1E38F13900BEBC1D /* index.html */; };
+		ED2F5D7F1E38F13900BEBC1D /* vendor.be8d92f369333790a796.js in Resources */ = {isa = PBXBuildFile; fileRef = ED2F5D6C1E38F13900BEBC1D /* vendor.be8d92f369333790a796.js */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.m */; };
 		ED3932C71E3114BA0064CD11 /* PastTestsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C61E3114BA0064CD11 /* PastTestsViewController.mm */; };
 		ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32E1D2337920061F266 /* GeoIP.dat */; };
@@ -62,11 +62,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1724A7181E37EABC004A1242 /* app.307ea7e0b371632a940e5fabe5d176ef.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = app.307ea7e0b371632a940e5fabe5d176ef.css; sourceTree = "<group>"; };
-		1724A7191E37EABC004A1242 /* app.ebe9a493ee8dd087876d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = app.ebe9a493ee8dd087876d.js; sourceTree = "<group>"; };
-		1724A71A1E37EABC004A1242 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
-		1724A71C1E37EABC004A1242 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		1724A71D1E37EABC004A1242 /* vendor.ebe9a493ee8dd087876d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vendor.ebe9a493ee8dd087876d.js; sourceTree = "<group>"; };
 		74C92BF501350522800AA020 /* Pods-ooniprobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.debug.xcconfig"; sourceTree = "<group>"; };
 		C3AE8FCA4984110A49F98C17 /* libPods-ooniprobe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ooniprobe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5D91A6C3244001B8460 /* ooniprobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ooniprobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,20 +84,25 @@
 		ED2528291CEA35640073A29B /* RunTestsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RunTestsViewController.mm; sourceTree = "<group>"; };
 		ED25282F1CEA35770073A29B /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = Model/NetworkMeasurement.h; sourceTree = "<group>"; };
 		ED2528301CEA35770073A29B /* NetworkMeasurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkMeasurement.mm; path = Model/NetworkMeasurement.mm; sourceTree = "<group>"; };
-		ED2A59731E38A8CB00B171E8 /* charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff"; sourceTree = "<group>"; };
-		ED2A59741E38A8CB00B171E8 /* charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff"; sourceTree = "<group>"; };
-		ED2A59751E38A8CB00B171E8 /* charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff"; sourceTree = "<group>"; };
-		ED2A59761E38A8CB00B171E8 /* charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff"; sourceTree = "<group>"; };
-		ED2A59771E38A8CB00B171E8 /* fira-sans-bold.5310ca5fb41a915987df5663660da770.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fira-sans-bold.5310ca5fb41a915987df5663660da770.otf"; sourceTree = "<group>"; };
-		ED2A59781E38A8CB00B171E8 /* fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf"; sourceTree = "<group>"; };
-		ED2A59791E38A8CB00B171E8 /* fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf"; sourceTree = "<group>"; };
-		ED2A597A1E38A8CB00B171E8 /* fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot"; sourceTree = "<group>"; };
-		ED2A597B1E38A8CB00B171E8 /* fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2"; sourceTree = "<group>"; };
-		ED2A597C1E38A8CB00B171E8 /* fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf"; sourceTree = "<group>"; };
-		ED2A597D1E38A8CB00B171E8 /* fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff"; sourceTree = "<group>"; };
-		ED2A597E1E38A8CB00B171E8 /* ooni-icons.7f721a571194837f629b6dd86a703ca5.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ooni-icons.7f721a571194837f629b6dd86a703ca5.eot"; sourceTree = "<group>"; };
-		ED2A597F1E38A8CB00B171E8 /* source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff"; sourceTree = "<group>"; };
-		ED2A59801E38A8CB00B171E8 /* source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff"; sourceTree = "<group>"; };
+		ED2F5D5A1E38F13900BEBC1D /* app.87a6abc30fdbbf90416461dbe4159b4e.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = app.87a6abc30fdbbf90416461dbe4159b4e.css; sourceTree = "<group>"; };
+		ED2F5D5B1E38F13900BEBC1D /* app.be8d92f369333790a796.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = app.be8d92f369333790a796.js; sourceTree = "<group>"; };
+		ED2F5D5C1E38F13900BEBC1D /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = favicon.ico; sourceTree = "<group>"; };
+		ED2F5D5D1E38F13900BEBC1D /* font-charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff"; sourceTree = "<group>"; };
+		ED2F5D5E1E38F13900BEBC1D /* font-charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff"; sourceTree = "<group>"; };
+		ED2F5D5F1E38F13900BEBC1D /* font-charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff"; sourceTree = "<group>"; };
+		ED2F5D601E38F13900BEBC1D /* font-charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff"; sourceTree = "<group>"; };
+		ED2F5D611E38F13900BEBC1D /* font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf"; sourceTree = "<group>"; };
+		ED2F5D621E38F13900BEBC1D /* font-fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf"; sourceTree = "<group>"; };
+		ED2F5D631E38F13900BEBC1D /* font-fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf"; sourceTree = "<group>"; };
+		ED2F5D641E38F13900BEBC1D /* font-fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot"; sourceTree = "<group>"; };
+		ED2F5D651E38F13900BEBC1D /* font-fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2"; sourceTree = "<group>"; };
+		ED2F5D661E38F13900BEBC1D /* font-fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf"; sourceTree = "<group>"; };
+		ED2F5D671E38F13900BEBC1D /* font-fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff"; sourceTree = "<group>"; };
+		ED2F5D681E38F13900BEBC1D /* font-ooni-icons.7f721a571194837f629b6dd86a703ca5.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-ooni-icons.7f721a571194837f629b6dd86a703ca5.eot"; sourceTree = "<group>"; };
+		ED2F5D691E38F13900BEBC1D /* font-source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff"; sourceTree = "<group>"; };
+		ED2F5D6A1E38F13900BEBC1D /* font-source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "font-source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff"; sourceTree = "<group>"; };
+		ED2F5D6B1E38F13900BEBC1D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		ED2F5D6C1E38F13900BEBC1D /* vendor.be8d92f369333790a796.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vendor.be8d92f369333790a796.js; sourceTree = "<group>"; };
 		ED3932C21E3114740064CD11 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		ED3932C31E3114740064CD11 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		ED3932C51E3114BA0064CD11 /* PastTestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastTestsViewController.h; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		D4A2F62D1A6C33F7001B8460 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EDE32B431D5CCABB00D7B4CF /* webui */,
+				ED2F5D591E38F13900BEBC1D /* webui */,
 				D4A2F62E1A6C33F7001B8460 /* fixtures */,
 				ED3AB32E1D2337920061F266 /* GeoIP.dat */,
 				ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */,
@@ -275,25 +275,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		ED2A59721E38A8CB00B171E8 /* fonts */ = {
+		ED2F5D591E38F13900BEBC1D /* webui */ = {
 			isa = PBXGroup;
 			children = (
-				ED2A59731E38A8CB00B171E8 /* charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff */,
-				ED2A59741E38A8CB00B171E8 /* charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff */,
-				ED2A59751E38A8CB00B171E8 /* charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff */,
-				ED2A59761E38A8CB00B171E8 /* charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff */,
-				ED2A59771E38A8CB00B171E8 /* fira-sans-bold.5310ca5fb41a915987df5663660da770.otf */,
-				ED2A59781E38A8CB00B171E8 /* fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf */,
-				ED2A59791E38A8CB00B171E8 /* fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf */,
-				ED2A597A1E38A8CB00B171E8 /* fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot */,
-				ED2A597B1E38A8CB00B171E8 /* fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 */,
-				ED2A597C1E38A8CB00B171E8 /* fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf */,
-				ED2A597D1E38A8CB00B171E8 /* fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff */,
-				ED2A597E1E38A8CB00B171E8 /* ooni-icons.7f721a571194837f629b6dd86a703ca5.eot */,
-				ED2A597F1E38A8CB00B171E8 /* source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff */,
-				ED2A59801E38A8CB00B171E8 /* source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff */,
+				ED2F5D5A1E38F13900BEBC1D /* app.87a6abc30fdbbf90416461dbe4159b4e.css */,
+				ED2F5D5B1E38F13900BEBC1D /* app.be8d92f369333790a796.js */,
+				ED2F5D5C1E38F13900BEBC1D /* favicon.ico */,
+				ED2F5D5D1E38F13900BEBC1D /* font-charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff */,
+				ED2F5D5E1E38F13900BEBC1D /* font-charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff */,
+				ED2F5D5F1E38F13900BEBC1D /* font-charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff */,
+				ED2F5D601E38F13900BEBC1D /* font-charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff */,
+				ED2F5D611E38F13900BEBC1D /* font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf */,
+				ED2F5D621E38F13900BEBC1D /* font-fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf */,
+				ED2F5D631E38F13900BEBC1D /* font-fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf */,
+				ED2F5D641E38F13900BEBC1D /* font-fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot */,
+				ED2F5D651E38F13900BEBC1D /* font-fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 */,
+				ED2F5D661E38F13900BEBC1D /* font-fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf */,
+				ED2F5D671E38F13900BEBC1D /* font-fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff */,
+				ED2F5D681E38F13900BEBC1D /* font-ooni-icons.7f721a571194837f629b6dd86a703ca5.eot */,
+				ED2F5D691E38F13900BEBC1D /* font-source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff */,
+				ED2F5D6A1E38F13900BEBC1D /* font-source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff */,
+				ED2F5D6B1E38F13900BEBC1D /* index.html */,
+				ED2F5D6C1E38F13900BEBC1D /* vendor.be8d92f369333790a796.js */,
 			);
-			path = fonts;
+			path = webui;
 			sourceTree = "<group>";
 		};
 		ED58E8C71D0C625300C74F10 /* Utility */ = {
@@ -328,19 +333,6 @@
 				ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */,
 			);
 			name = "Informed consent";
-			sourceTree = "<group>";
-		};
-		EDE32B431D5CCABB00D7B4CF /* webui */ = {
-			isa = PBXGroup;
-			children = (
-				ED2A59721E38A8CB00B171E8 /* fonts */,
-				1724A7181E37EABC004A1242 /* app.307ea7e0b371632a940e5fabe5d176ef.css */,
-				1724A7191E37EABC004A1242 /* app.ebe9a493ee8dd087876d.js */,
-				1724A71A1E37EABC004A1242 /* favicon.ico */,
-				1724A71C1E37EABC004A1242 /* index.html */,
-				1724A71D1E37EABC004A1242 /* vendor.ebe9a493ee8dd087876d.js */,
-			);
-			path = webui;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,34 +402,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED2A598E1E38A8CB00B171E8 /* source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff in Resources */,
+				ED2F5D791E38F13900BEBC1D /* font-fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf in Resources */,
+				ED2F5D6E1E38F13900BEBC1D /* app.be8d92f369333790a796.js in Resources */,
 				ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */,
-				ED2A59881E38A8CB00B171E8 /* fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot in Resources */,
+				ED2F5D6F1E38F13900BEBC1D /* favicon.ico in Resources */,
+				ED2F5D711E38F13900BEBC1D /* font-charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff in Resources */,
+				ED2F5D781E38F13900BEBC1D /* font-fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 in Resources */,
+				ED2F5D771E38F13900BEBC1D /* font-fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot in Resources */,
+				ED2F5D741E38F13900BEBC1D /* font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
-				ED2A59871E38A8CB00B171E8 /* fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf in Resources */,
-				1724A7201E37EABC004A1242 /* favicon.ico in Resources */,
-				ED2A59811E38A8CB00B171E8 /* charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff in Resources */,
-				1724A7231E37EABC004A1242 /* vendor.ebe9a493ee8dd087876d.js in Resources */,
-				ED2A598C1E38A8CB00B171E8 /* ooni-icons.7f721a571194837f629b6dd86a703ca5.eot in Resources */,
 				D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */,
-				ED2A598D1E38A8CB00B171E8 /* source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff in Resources */,
+				ED2F5D7A1E38F13900BEBC1D /* font-fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff in Resources */,
+				ED2F5D6D1E38F13900BEBC1D /* app.87a6abc30fdbbf90416461dbe4159b4e.css in Resources */,
+				ED2F5D7E1E38F13900BEBC1D /* index.html in Resources */,
 				ED5AFD661E2529400039ECCB /* global.txt in Resources */,
-				ED2A598A1E38A8CB00B171E8 /* fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf in Resources */,
-				1724A71E1E37EABC004A1242 /* app.307ea7e0b371632a940e5fabe5d176ef.css in Resources */,
-				ED2A59821E38A8CB00B171E8 /* charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff in Resources */,
-				1724A7221E37EABC004A1242 /* index.html in Resources */,
+				ED2F5D7D1E38F13900BEBC1D /* font-source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
-				ED2A59891E38A8CB00B171E8 /* fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 in Resources */,
 				EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */,
-				ED2A59851E38A8CB00B171E8 /* fira-sans-bold.5310ca5fb41a915987df5663660da770.otf in Resources */,
 				ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */,
-				ED2A59861E38A8CB00B171E8 /* fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf in Resources */,
-				ED2A59841E38A8CB00B171E8 /* charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */,
-				ED2A598B1E38A8CB00B171E8 /* fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff in Resources */,
+				ED2F5D7B1E38F13900BEBC1D /* font-ooni-icons.7f721a571194837f629b6dd86a703ca5.eot in Resources */,
+				ED2F5D761E38F13900BEBC1D /* font-fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
-				1724A71F1E37EABC004A1242 /* app.ebe9a493ee8dd087876d.js in Resources */,
-				ED2A59831E38A8CB00B171E8 /* charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff in Resources */,
+				ED2F5D751E38F13900BEBC1D /* font-fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
+				ED2F5D7C1E38F13900BEBC1D /* font-source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff in Resources */,
+				ED2F5D721E38F13900BEBC1D /* font-charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff in Resources */,
+				ED2F5D731E38F13900BEBC1D /* font-charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */,
+				ED2F5D701E38F13900BEBC1D /* font-charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff in Resources */,
+				ED2F5D7F1E38F13900BEBC1D /* vendor.be8d92f369333790a796.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -69,6 +69,7 @@
     if ([[segue identifier] isEqualToString:@"toResult"]){
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
         [vc setContent:nextTest];
+        [vc setLog_file:self.log_file];
         NSData *data = [nextTest dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         [vc setTestName:[json objectForKey:@"input"]];

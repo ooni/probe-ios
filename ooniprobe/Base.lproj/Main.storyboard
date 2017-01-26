@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="fira-sans-bold.5310ca5fb41a915987df5663660da770.otf">
+        <array key="font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf">
             <string>FiraSansOT-Bold</string>
         </array>
-        <array key="fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf">
+        <array key="font-fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf">
             <string>FiraSansOTMedium</string>
         </array>
     </customFonts>
@@ -235,24 +235,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycm-c3-ths" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="821" y="254"/>
-        </scene>
-        <!--Result View Controller-->
-        <scene sceneID="bJQ-FD-vuo">
-            <objects>
-                <viewController id="Vz7-Bz-dUa" customClass="ResultViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eS6-dn-sR6"/>
-                        <viewControllerLayoutGuide type="bottom" id="pj1-Ql-8sR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hn5-1Z-bmd">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9IU-79-CXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2372" y="1024"/>
         </scene>
         <!--Settings-->
         <scene sceneID="fBl-jm-kgo">
@@ -551,7 +533,7 @@
                     <connections>
                         <outlet property="revealButtonItem" destination="XaG-HV-X9a" id="KyQ-eO-fLG"/>
                         <segue destination="Y0O-uX-BoF" kind="show" identifier="toInputList" id="2iH-6U-EEK"/>
-                        <segue destination="Vz7-Bz-dUa" kind="show" identifier="toResult" id="9xy-X5-3LO"/>
+                        <segue destination="Ejh-iw-VCI" kind="show" identifier="toResult" id="xM5-AD-3dX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJG-WT-8mh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -611,7 +593,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="hAH-tl-kWf"/>
                     <connections>
-                        <segue destination="Vz7-Bz-dUa" kind="show" identifier="toResult" id="DPk-AR-Qwc"/>
+                        <segue destination="Ejh-iw-VCI" kind="show" identifier="toResult" id="5aZ-7B-4ri"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weK-2P-fMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -980,7 +962,7 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Run Tests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qDJ-Bu-vkH">
                                             <rect key="frame" x="15" y="0.0" width="290" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="40"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="39"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1002,7 +984,7 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Past Tests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U3b-h3-AuZ">
                                             <rect key="frame" x="15" y="0.0" width="290" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="40"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="39"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1024,7 +1006,7 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QMr-xX-vcw">
                                             <rect key="frame" x="15" y="0.0" width="290" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="40"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="39"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1046,7 +1028,7 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YW3-gC-SlX">
                                             <rect key="frame" x="15" y="0.0" width="290" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="40"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="39"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1340,7 +1322,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6c-Cs-dtA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717.5" y="251.40845070422534"/>
+            <point key="canvasLocation" x="1817" y="254"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="gT9-Lc-PoQ">
+            <objects>
+                <viewController id="Ejh-iw-VCI" customClass="ResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RJx-tw-NMH"/>
+                        <viewControllerLayoutGuide type="bottom" id="r0g-y2-Cm7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MLR-ul-JVL">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HbI-Pd-rFw">
+                        <barButtonItem key="rightBarButtonItem" title="View log" id="6KL-xp-Ndj">
+                            <connections>
+                                <segue destination="y0B-8t-tQC" kind="show" identifier="toLog" id="rJv-y6-cGQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyM-lt-AMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="1002"/>
+        </scene>
+        <!--Log View Controller-->
+        <scene sceneID="T96-l2-8DU">
+            <objects>
+                <viewController id="y0B-8t-tQC" customClass="LogViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xzv-n9-61R"/>
+                        <viewControllerLayoutGuide type="bottom" id="DUY-nY-MpY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DQ0-7e-5jM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4nG-bh-NXq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4nG-bh-NXq" firstAttribute="leading" secondItem="DQ0-7e-5jM" secondAttribute="leading" id="9cI-wo-iiZ"/>
+                            <constraint firstAttribute="trailing" secondItem="4nG-bh-NXq" secondAttribute="trailing" id="KPq-fV-3ET"/>
+                            <constraint firstItem="4nG-bh-NXq" firstAttribute="top" secondItem="Xzv-n9-61R" secondAttribute="bottom" id="ap6-pf-rdx"/>
+                            <constraint firstItem="4nG-bh-NXq" firstAttribute="bottom" secondItem="DUY-nY-MpY" secondAttribute="top" id="la5-l9-2xJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8YP-AU-NHs">
+                        <barButtonItem key="rightBarButtonItem" title="Copy to clipboard" id="yG8-dW-XF2">
+                            <connections>
+                                <action selector="copy_clipboard:" destination="y0B-8t-tQC" id="cVj-mR-rAj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logView" destination="4nG-bh-NXq" id="qt0-dx-JCD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tms-ci-MRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3384.375" y="1006.6901408450705"/>
         </scene>
     </scenes>
     <resources>
@@ -1350,6 +1401,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ULy-MW-EOd"/>
-        <segue reference="9xy-X5-3LO"/>
+        <segue reference="xM5-AD-3dX"/>
     </inferredMetricsTieBreakers>
 </document>

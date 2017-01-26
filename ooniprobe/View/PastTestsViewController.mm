@@ -130,22 +130,15 @@
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 2)
-        return UITableViewCellEditingStyleDelete;
-    return UITableViewCellEditingStyleNone;
+    return UITableViewCellEditingStyleDelete;
 }
 
 -(BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 2)
-        return YES;
-    return NO;
+    return YES;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 2)
-        return YES;
-    return NO;
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -181,12 +174,14 @@
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
         [vc setContent:[items objectAtIndex:0]];
         [vc setTestName:nextTest.name];
+        [vc setLog_file:nextTest.log_file];
         [TestStorage set_viewed:nextTest.test_id];
     }
     else if ([[segue identifier] isEqualToString:@"toInputList"]){
         ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
         [vc setItems:[self getItems:nextTest.json_file]];
         [vc setTestName:nextTest.name];
+        [vc setLog_file:nextTest.log_file];
         [TestStorage set_viewed:nextTest.test_id];
     }
 }

@@ -12,36 +12,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"copy_to_clipboard", nil);
+
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:self.test.json_file];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:self.log_file];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if([fileManager fileExistsAtPath:filePath]) {
         NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
-        NSMutableString *prettyJson = [[NSMutableString alloc] init];
-        NSArray *separateJson = [content componentsSeparatedByString:@"\n"];
-        for (NSString* json in separateJson)
-            if([json length] > 0)
-                [prettyJson appendFormat:@"%@\n", [self prettyJson:json]];
-        [self.logView setText:prettyJson];
+        [self.logView setText:content];
     }
 }
 
--(NSString*)prettyJson:(NSString*)jsonString{
-    NSError *error;
-    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-    if (jsonObject){
-        NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&error];
-        NSString *prettyPrintedJson = [[NSString alloc] initWithData:prettyJsonData encoding:NSUTF8StringEncoding];
-        return prettyPrintedJson;
-    }
-    return @"";
-}
-
--(IBAction)close:(id)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
+-(IBAction)copy_clipboard:(id)sender{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = self.logView.text;
+    [self.view makeToast:NSLocalizedString(@"copied_clipboard", nil)];
 }
 
 - (void)didReceiveMemoryWarning {

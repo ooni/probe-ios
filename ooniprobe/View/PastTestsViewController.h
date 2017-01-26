@@ -3,7 +3,6 @@
 // information on the copying conditions.
 
 #import <UIKit/UIKit.h>
-#import "LogViewController.h"
 #import "ResultViewController.h"
 #import "ResultSelectorViewController.h"
 #import "TestStorage.h"

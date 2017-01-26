@@ -13,7 +13,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(testName, nil);
+    self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"view_log", nil);
     [self loadScreen];
 }
 
@@ -21,7 +21,15 @@
     [super viewDidAppear:animated];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.title = NSLocalizedString(testName, nil);
+}
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.title = nil;
+}
 
 -(void) loadScreen{
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
@@ -67,5 +75,12 @@
 }
 
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //This screen is hidden for the moment
+    if ([[segue identifier] isEqualToString:@"toLog"]){
+        LogViewController *vc = (LogViewController * )segue.destinationViewController;
+        [vc setLog_file:self.log_file];
+    }
+}
 
 @end
