@@ -3,8 +3,6 @@
 // information on the copying conditions.
 
 #import "SettingsTableViewController.h"
-#define settings 4
-#define notification 1
 
 @interface SettingsTableViewController ()
 @property (readwrite) IBOutlet UIBarButtonItem* revealButtonItem;
@@ -43,49 +41,30 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)
-        return [settingsItems count];
-    else if (section == 1) return [otherItems count];
-    return 1;
+        return [notificationItems count];
+    else if (section == 1)
+        return [privacyItems count];
+    return [advancedItems count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
-        return NSLocalizedString(@"collector_settings", nil);
-    else if (section == 1)
         return NSLocalizedString(@"notifications", nil);
-    return NSLocalizedString(@"test_limits", nil);
+    else if (section == 1)
+        return NSLocalizedString(@"privacy", nil);
+    return NSLocalizedString(@"advanced_settings", nil);
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    if (indexPath.section == 0){
-        if (indexPath.row < settings){
-            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-            NSString *current = [settingsItems objectAtIndex:indexPath.row];
-            cell.textLabel.text = NSLocalizedString(current, nil);
-            cell.imageView.image = [UIImage imageNamed:current];
-            UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
-            [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
-            if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
-            else switchview.on = NO;
-            cell.accessoryView = switchview;
-        }
-        else {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
-            NSString *current = [settingsItems objectAtIndex:indexPath.row];
-            cell.textLabel.text = NSLocalizedString(current, nil);
-            cell.imageView.image = [UIImage imageNamed:current];
-            cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
-        }
-    }
-    else if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        NSString *current = [otherItems objectAtIndex:indexPath.row];
+        NSString *current = [notificationItems objectAtIndex:indexPath.row];
         cell.textLabel.text = NSLocalizedString(current, nil);
         cell.imageView.image = [UIImage imageNamed:current];
-        if (indexPath.row < notification){
+        if ([current isEqualToString:@"local_notifications"]){
             UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
             [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
             if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
@@ -100,13 +79,33 @@
             cell.accessoryView = textField;
         }
     }
-    else {
+    else if (indexPath.section == 1){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        NSNumber *time = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-        cell.textLabel.text = NSLocalizedString(@"max_runtime", nil);
-        cell.imageView.image = [UIImage imageNamed:@"max_runtime"];
-        UITextField *textField = [self createTextField:[NSString stringWithFormat:@"%@", time]];
-        cell.accessoryView = textField;
+        NSString *current = [privacyItems objectAtIndex:indexPath.row];
+        cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.imageView.image = [UIImage imageNamed:current];
+        UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
+        [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
+        else switchview.on = NO;
+        cell.accessoryView = switchview;
+    }
+    else {
+        NSString *current = [advancedItems objectAtIndex:indexPath.row];
+        if ([current isEqualToString:@"max_runtime"]){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+            cell.textLabel.text = NSLocalizedString(current, nil);
+            cell.imageView.image = [UIImage imageNamed:current];
+            NSNumber *time = [[NSUserDefaults standardUserDefaults] objectForKey:current];
+            UITextField *textField = [self createTextField:[NSString stringWithFormat:@"%@", time]];
+            cell.accessoryView = textField;
+        }
+        else if ([current isEqualToString:@"collector_address"]){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
+            cell.textLabel.text = NSLocalizedString(current, nil);
+            cell.imageView.image = [UIImage imageNamed:current];
+            cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
+        }
     }
     return cell;
 }
@@ -116,6 +115,7 @@
     textField.delegate = self;
     textField.backgroundColor = color_off_white;
     textField.font = [UIFont fontWithName:@"FiraSansOT-Bold" size:15.0f];
+    textField.textColor = color_off_black;
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.text = text;
@@ -137,9 +137,9 @@
     NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
     NSString *current;
     if (indexpath.section == 0)
-        current = [settingsItems objectAtIndex:indexpath.row];
-    else
-        current = [otherItems objectAtIndex:indexpath.row];
+        current = [notificationItems objectAtIndex:indexpath.row];
+    else if (indexpath.section == 1)
+        current = [privacyItems objectAtIndex:indexpath.row];
     if (mySwitch.on)
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
@@ -159,23 +159,26 @@
 }
 
 -(void)reloadSettings {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue])
-        settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results", @"collector_address"];
-    else
-        settingsItems = @[@"include_ip", @"include_asn", @"include_cc", @"upload_results"];
-    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue]){
+        privacyItems = @[@"upload_results", @"include_ip", @"include_asn", @"include_cc", @"send_crash"];
+        advancedItems = @[@"max_runtime", @"collector_address"];
+    }
+    else {
+        privacyItems = @[@"upload_results", @"send_crash"];
+        advancedItems = @[@"max_runtime"];
+    }
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"local_notifications"] boolValue])
-        otherItems = @[@"local_notifications", @"local_notifications_time"];
+        notificationItems = @[@"local_notifications", @"local_notifications_time"];
     else
-        otherItems = @[@"local_notifications"];
+        notificationItems = @[@"local_notifications"];
     [self.tableView reloadData];
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == [settingsItems count] -1){
-        NSString *current = [settingsItems objectAtIndex:indexPath.row];
+    if (indexPath.section == 0 && indexPath.row == [advancedItems count] -1){
+        NSString *current = [advancedItems objectAtIndex:indexPath.row];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(current, @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
         alert.tag = indexPath.row;
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -192,7 +195,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1 && value.text.length > 0) {
-        NSString *current = [settingsItems objectAtIndex:alertView.tag];
+        NSString *current = [advancedItems objectAtIndex:alertView.tag];
         [[NSUserDefaults standardUserDefaults] setObject:value.text forKey:current];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loadAvailableMeasurements" object:nil];

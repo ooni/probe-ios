@@ -25,11 +25,17 @@
     [self.titleLabel setText:NSLocalizedString(@"about_ooni", nil)];
     [self.learnMoreButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"learn_more", nil)] forState:UIControlStateNormal];
     [self.textLabel setText:[NSString stringWithFormat:@"%@\n%@",NSLocalizedString(@"about_text_1", nil),  NSLocalizedString(@"about_text_2", nil)]];
+    [self.ppButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"view_data_policy", nil)] forState:UIControlStateNormal];
+
 }
 
 -(IBAction)learn_more:(id)sender{
-    //or https://explorer.ooni.torproject.org/world/
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/"]];
+}
+
+
+-(IBAction)privacy_policy:(id)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/about/data-policy/"]];
 }
 
 - (void)didReceiveMemoryWarning {

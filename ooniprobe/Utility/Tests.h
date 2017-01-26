@@ -14,4 +14,6 @@
 + (id)currentTests;
 - (void) loadAvailableMeasurements;
 - (NetworkMeasurement*)getTestWithName:(NSString*)testName;
++ (int)checkAnomaly:(NSDictionary*)test_keys;
++ (NSArray*)getItems:(NSString*)json_file;
 @end

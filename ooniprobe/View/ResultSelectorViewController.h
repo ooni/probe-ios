@@ -5,6 +5,7 @@
 #import <UIKit/UIKit.h>
 #import "ResultViewController.h"
 #import "RunButton.h"
+#import "Tests.h"
 
 @interface ResultSelectorViewController : UITableViewController {
     NSString *nextTest;

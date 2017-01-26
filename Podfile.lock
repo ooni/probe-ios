@@ -1,31 +1,38 @@
 PODS:
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
   - measurement_kit (0.4.0-beta.1)
   - PBRevealViewController (1.1.3)
   - Toast (3.1.0)
   - UIBarButtonItem-Badge-Coding (0.0.1)
 
 DEPENDENCIES:
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `feature/ndt-stats`)
+  - Crashlytics
+  - Fabric
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `stable`)
   - PBRevealViewController
   - Toast
   - UIBarButtonItem-Badge-Coding
 
 EXTERNAL SOURCES:
   measurement_kit:
-    :branch: feature/ndt-stats
+    :branch: stable
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 CHECKOUT OPTIONS:
   measurement_kit:
-    :commit: dad1b3703ecd6cbc081b1eacccdb97966ec39eac
+    :commit: a73bf729d62fd5d3399f8db02c2adeab0afba977
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 SPEC CHECKSUMS:
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   measurement_kit: a75a6a1e91b4ca61f975470ee9dbd21d027daf9f
   PBRevealViewController: 22aa8fdcbe3eca1bdcfdd1613695b66ac37f6dc9
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UIBarButtonItem-Badge-Coding: 3f8e96f75f7d7c7516c1a1706b566892bf2db134
 
-PODFILE CHECKSUM: 5d59c18c2458e169ba7f9affadc56d2ff13c4fc6
+PODFILE CHECKSUM: a0be76e9e43fb286516697c235c88193f38a2832
 
 COCOAPODS: 1.1.1

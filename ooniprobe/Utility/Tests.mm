@@ -53,4 +53,42 @@
     return nil;
 }
 
++ (int)checkAnomaly:(NSDictionary*)test_keys{
+    /*null => anomal = 1,
+     false => anomaly = 0,
+     stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
+     
+     Return values:
+     0 == OK,
+     1 == orange,
+     2 == red
+     */
+    id element = [test_keys objectForKey:@"blocking"];
+    int anomaly = 0;
+    if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
+        anomaly = 1;
+    }
+    else if (([element isKindOfClass:[NSString class]])) {
+        anomaly = 2;
+    }
+    return anomaly;
+}
+
++ (NSArray*)getItems:(NSString*)json_file{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:json_file];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *content = @"";
+    if([fileManager fileExistsAtPath:filePath]) {
+        NSError *error;
+        content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+        //Cut out the last \n
+        if ([content length] > 0) {
+            content = [content substringToIndex:[content length]-1];
+        }
+    }
+    return [content componentsSeparatedByString:@"\n"];
+}
+
 @end

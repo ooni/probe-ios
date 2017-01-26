@@ -41,15 +41,33 @@
     NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     title.text = [NSString stringWithFormat:@"%@", [json objectForKey:@"input"]];
-    if ([[json objectForKey:@"test_keys"] objectForKey:@"blocking"] != [NSNull null]){
-        if (![[[json objectForKey:@"test_keys"] objectForKey:@"blocking"] boolValue])
-            title.textColor = color_off_black;
-        else title.textColor = color_bad_red;
-    }
-    else title.textColor = color_bad_red;
+    int color = [self checkAnomaly:[json objectForKey:@"test_keys"]];
+    if (color == 0) title.textColor = color_ok_green;
+    else if (color == 1) title.textColor = color_warning_orange;
+    else if (color == 2) title.textColor = color_bad_red;
     return cell;
 }
 
+-(int)checkAnomaly:(NSDictionary*)test_keys{
+    /*null => anomal = 1,
+    false => anomaly = 0,
+    stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
+     
+     Return values:
+     0 == OK,
+     1 == orange,
+     2 == red
+    */
+    id element = [test_keys objectForKey:@"blocking"];
+    int anomaly = 0;
+    if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
+         anomaly = 1;
+    }
+    else if (([element isKindOfClass:[NSString class]])) {
+        anomaly = 2;
+    }
+    return anomaly;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     nextTest = [items objectAtIndex:indexPath.row];

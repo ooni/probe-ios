@@ -100,6 +100,20 @@
     }
 }
 
++ (void)set_anomaly:(NSNumber*)test_id :(int)anomaly{
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
+    for (int i = 0; i < [cache count]; i++) {
+        NetworkMeasurement* test = [cache objectAtIndex:i];
+        if ([test.test_id isEqualToNumber:test_id]){
+            test.anomaly = anomaly;
+            [cache setObject:test atIndexedSubscript:i];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            return;
+        }
+    }
+}
+
 + (void)set_viewed:(NSNumber*)test_id {
     NSMutableArray *cache = [[self get_tests] mutableCopy];
     for (int i = 0; i < [cache count]; i++) {

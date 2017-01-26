@@ -27,6 +27,7 @@
 @property NSString *log_file;
 @property BOOL running;
 @property BOOL viewed;
+@property int anomaly;
 @property mk::Settings options;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 

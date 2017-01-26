@@ -86,19 +86,20 @@
     NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     [subtitle setText:[formatter stringFromDate:timestampDate]];
-    
-    NSArray *items = [self getItems:current.json_file];
-    if ([items count] > 1){
-        [image setImage:[UIImage imageNamed:current.name]];
-        title.textColor = color_off_black;
-    }
-    else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0){
-        [image setImage:[UIImage imageNamed:current.name]];
-        title.textColor = color_off_black;
+    NSArray *items = [Tests getItems:current.json_file];
+    if ([items count] > 1 || ([items count] == 1 && [[items objectAtIndex:0] length] > 0)){
+        if (current.anomaly == 0){
+            [image setImage:[UIImage imageNamed:current.name]];
+            title.textColor = color_ooni_blue;
+        }
+        else {
+            [image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_no", current.name]]];
+            title.textColor = color_bad_red;
+        }
     }
     else {
-        [image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_no", current.name]]];
-        title.textColor = color_bad_red;
+        [image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_warning", current.name]]];
+        title.textColor = color_warning_orange;
     }
     return cell;
 }
@@ -118,7 +119,7 @@
 
 -(void)goToTest:(NetworkMeasurement*)current{
     nextTest = current;
-    NSArray *items = [self getItems:nextTest.json_file];
+    NSArray *items = [Tests getItems:nextTest.json_file];
     if ([items count] > 1)
         [self performSegueWithIdentifier:@"toInputList" sender:self];
     else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0)
@@ -151,26 +152,9 @@
     }
 }
 
--(NSArray*)getItems:(NSString*)json_file{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:json_file];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *content = @"";
-    if([fileManager fileExistsAtPath:filePath]) {
-        NSError *error;
-        content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-        //Cut out the last \n
-        if ([content length] > 0) {
-            content = [content substringToIndex:[content length]-1];
-        }
-    }
-    return [content componentsSeparatedByString:@"\n"];
-}
-
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toResult"]){
-        NSArray *items = [self getItems:nextTest.json_file];
+        NSArray *items = [Tests getItems:nextTest.json_file];
         ResultViewController *vc = (ResultViewController * )segue.destinationViewController;
         [vc setContent:[items objectAtIndex:0]];
         [vc setTestName:nextTest.name];
@@ -179,7 +163,7 @@
     }
     else if ([[segue identifier] isEqualToString:@"toInputList"]){
         ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
-        [vc setItems:[self getItems:nextTest.json_file]];
+        [vc setItems:[Tests getItems:nextTest.json_file]];
         [vc setTestName:nextTest.name];
         [vc setLog_file:nextTest.log_file];
         [TestStorage set_viewed:nextTest.test_id];

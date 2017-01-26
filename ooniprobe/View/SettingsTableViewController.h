@@ -6,8 +6,9 @@
 #import "PBRevealViewController.h"
 
 @interface SettingsTableViewController : UITableViewController <UITextFieldDelegate> {
-    NSArray *settingsItems;
-    NSArray *otherItems;
+    NSArray *privacyItems;
+    NSArray *notificationItems;
+    NSArray *advancedItems;
     UITextField *value;
     UIDatePicker *datePicker;
     NSDateFormatter *dateFormatter;
