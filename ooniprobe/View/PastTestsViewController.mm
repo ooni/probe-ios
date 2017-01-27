@@ -31,8 +31,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.title = NSLocalizedString(@"past_tests", nil);
-    finishedTests = [[TestStorage get_tests_rev] mutableCopy];
-    [self.tableView reloadData];
+    [self reloadTable];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -41,6 +40,7 @@
 }
 
 -(void)reloadTable{
+    finishedTests = [[TestStorage get_tests_rev] mutableCopy];
     [self.tableView reloadData];
 }
 
@@ -129,8 +129,10 @@
 -(void)goToTest:(NetworkMeasurement*)current{
     nextTest = current;
     NSArray *items = [Tests getItems:nextTest.json_file];
-    if (!nextTest.viewed)
+    if (!nextTest.viewed){
         [TestStorage set_viewed:nextTest.test_id];
+        [self reloadTable];
+    }
     if ([items count] > 1)
         [self performSegueWithIdentifier:@"toInputList" sender:self];
     else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0)
@@ -159,7 +161,7 @@
         NetworkMeasurement *current = [finishedTests objectAtIndex:indexPath.row];
         [finishedTests removeObjectAtIndex:indexPath.row];
         [TestStorage remove_test:current.test_id];
-        [self.tableView reloadData];
+        [self reloadTable];
     }
 }
 

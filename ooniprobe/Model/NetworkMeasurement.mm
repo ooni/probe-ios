@@ -115,9 +115,9 @@ static std::string get_dns_server() {
 }
 
 -(void)updateProgress:(double)prog {
-    NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
     self.progress = prog;
 #ifdef DEBUG
+    NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
     NSLog(@"%@", os);
 #endif
     dispatch_async(dispatch_get_main_queue(), ^{
