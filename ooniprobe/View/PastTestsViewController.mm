@@ -21,6 +21,7 @@
     [self.revealButtonItem setAction: @selector(revealLeftView)];
     self.revealViewController.leftPresentViewHierarchically = YES;
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
+    [self.revealViewController setDelegate:self];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:FALSE] forKey:@"new_tests"];
@@ -46,6 +47,14 @@
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)revealControllerPanGestureShouldBegin:(PBRevealViewController *)revealController direction:(PBRevealControllerPanDirection)direction{
+    if (direction == PBRevealControllerPanDirectionRight)
+        return YES;
+    else if (revealController.isLeftViewOpen)
+        return YES;
+    return NO;
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -120,6 +129,8 @@
 -(void)goToTest:(NetworkMeasurement*)current{
     nextTest = current;
     NSArray *items = [Tests getItems:nextTest.json_file];
+    if (!nextTest.viewed)
+        [TestStorage set_viewed:nextTest.test_id];
     if ([items count] > 1)
         [self performSegueWithIdentifier:@"toInputList" sender:self];
     else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0)
@@ -159,14 +170,12 @@
         [vc setContent:[items objectAtIndex:0]];
         [vc setTestName:nextTest.name];
         [vc setLog_file:nextTest.log_file];
-        [TestStorage set_viewed:nextTest.test_id];
     }
     else if ([[segue identifier] isEqualToString:@"toInputList"]){
         ResultSelectorViewController *vc = (ResultSelectorViewController * )segue.destinationViewController;
         [vc setItems:[Tests getItems:nextTest.json_file]];
         [vc setTestName:nextTest.name];
         [vc setLog_file:nextTest.log_file];
-        [TestStorage set_viewed:nextTest.test_id];
     }
 }
 
