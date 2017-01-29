@@ -91,9 +91,24 @@
         NetworkMeasurement* test = [cache objectAtIndex:i];
         if ([test.test_id isEqualToNumber:test_id]){
             test.running = FALSE;
+            test.entry = TRUE;
             [cache setObject:test atIndexedSubscript:i];
             [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:TRUE] forKey:@"new_tests"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            return;
+        }
+    }
+}
+
++ (void)set_entry:(NSNumber*)test_id{
+    NSMutableArray *cache = [[self get_tests] mutableCopy];
+    for (int i = 0; i < [cache count]; i++) {
+        NetworkMeasurement* test = [cache objectAtIndex:i];
+        if ([test.test_id isEqualToNumber:test_id]){
+            test.entry = TRUE;
+            [cache setObject:test atIndexedSubscript:i];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             return;
         }

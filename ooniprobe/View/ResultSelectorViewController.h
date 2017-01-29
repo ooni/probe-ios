@@ -6,9 +6,11 @@
 #import "ResultViewController.h"
 #import "RunButton.h"
 #import "Tests.h"
+#import "TestResult.h"
 
 @interface ResultSelectorViewController : UITableViewController {
     NSString *nextTest;
+    NSMutableArray *testResults;
 }
 
 @property (nonatomic, strong) NSArray *items;

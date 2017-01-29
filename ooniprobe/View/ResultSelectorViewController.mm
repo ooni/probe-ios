@@ -14,6 +14,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(testName, nil);
+    testResults = [[NSMutableArray alloc] init];
+    for(int i=0;i<[items count];i++)
+    {
+        NSString *content = [items objectAtIndex:i];
+        TestResult *testResult = [TestResult new];
+        NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        testResult.input = [NSString stringWithFormat:@"%@", [json objectForKey:@"input"]];
+        int anomaly = [self checkAnomaly:[json objectForKey:@"test_keys"]];
+        testResult.anomaly = anomaly;
+        [testResults addObject:testResult];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,7 +40,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [items count];
+    return [testResults count];
 }
 
 
@@ -37,14 +49,11 @@
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     RunButton *viewButton = (RunButton*)[cell viewWithTag:2];
     [viewButton setTitle:NSLocalizedString(@"view", nil) forState:UIControlStateNormal];
-    NSString *content = [items objectAtIndex:indexPath.row];
-    NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    title.text = [NSString stringWithFormat:@"%@", [json objectForKey:@"input"]];
-    int color = [self checkAnomaly:[json objectForKey:@"test_keys"]];
-    if (color == 0) title.textColor = color_ok_green;
-    else if (color == 1) title.textColor = color_warning_orange;
-    else if (color == 2) title.textColor = color_bad_red;
+    TestResult *testResult = [testResults objectAtIndex:indexPath.row];
+    title.text = testResult.input;
+    if (testResult.anomaly == 0) title.textColor = color_ok_green;
+    else if (testResult.anomaly == 1) title.textColor = color_warning_orange;
+    else if (testResult.anomaly == 2) title.textColor = color_bad_red;
     return cell;
 }
 

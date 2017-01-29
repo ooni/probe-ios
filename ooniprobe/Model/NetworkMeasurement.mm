@@ -76,6 +76,7 @@ static std::string get_dns_server() {
     self.running = FALSE;
     self.viewed = FALSE;
     self.anomaly = 0;
+    self.entry = FALSE;
     return self;
 }
 
@@ -139,8 +140,23 @@ static std::string get_dns_server() {
     });
 }
 
+-(void)on_entry:(const char*)str{
+    if (!self.entry){
+        [TestStorage set_entry:self.test_id];
+        self.entry = TRUE;
+    }
+    NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
+    if (blocking > self.anomaly){
+        self.anomaly = blocking;
+        [TestStorage set_anomaly:self.test_id :blocking];
+    }
+}
+
 -(int)checkAnomaly:(NSDictionary*)test_keys{
-    /*null => anomal = 1,
+    /*
+     null => anomal = 1,
      false => anomaly = 0,
      stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
      
@@ -168,6 +184,7 @@ static std::string get_dns_server() {
     [coder encodeObject:[NSNumber numberWithBool:self.running] forKey:@"test_running"];
     [coder encodeObject:[NSNumber numberWithBool:self.viewed] forKey:@"test_viewed"];
     [coder encodeObject:[NSNumber numberWithInt:self.anomaly] forKey:@"anomaly"];
+    [coder encodeObject:[NSNumber numberWithInt:self.entry] forKey:@"entry"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
@@ -182,6 +199,7 @@ static std::string get_dns_server() {
     self.running = [[coder decodeObjectForKey:@"test_running"] boolValue];
     self.viewed = [[coder decodeObjectForKey:@"test_viewed"] boolValue];
     self.anomaly = [[coder decodeObjectForKey:@"anomaly"] intValue];
+    self.entry = [[coder decodeObjectForKey:@"entry"] boolValue];
     return self;
 }
 
@@ -283,13 +301,7 @@ static std::string get_dns_server() {
             #endif
         })
         .on_entry([self](std::string s) {
-            NSData *data = [[NSString stringWithUTF8String:s.c_str()] dataUsingEncoding:NSUTF8StringEncoding];
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
-            if (blocking > self.anomaly){
-                self.anomaly = blocking;
-                [TestStorage set_anomaly:self.test_id :blocking];
-            }
+            [self on_entry:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
@@ -403,13 +415,7 @@ static std::string get_dns_server() {
             #endif
         })
         .on_entry([self](std::string s) {
-            NSData *data = [[NSString stringWithUTF8String:s.c_str()] dataUsingEncoding:NSUTF8StringEncoding];
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
-            if (blocking > self.anomaly){
-                self.anomaly = blocking;
-                [TestStorage set_anomaly:self.test_id :blocking];
-            }
+            [self on_entry:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
@@ -458,6 +464,9 @@ static std::string get_dns_server() {
             #ifdef DEBUG
             NSLog(@"%s", s);
             #endif
+        })
+        .on_entry([self](std::string s) {
+            [self on_entry:s.c_str()];
         })
         .start([self]() {
             [self testEnded];

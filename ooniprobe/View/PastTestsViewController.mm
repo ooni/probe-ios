@@ -95,8 +95,8 @@
     NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     [subtitle setText:[formatter stringFromDate:timestampDate]];
-    NSArray *items = [Tests getItems:current.json_file];
-    if ([items count] > 1 || ([items count] == 1 && [[items objectAtIndex:0] length] > 0)){
+    //NSArray *items = [Tests getItems:current.json_file];
+    if (current.entry){
         if (current.anomaly == 0){
             [image setImage:[UIImage imageNamed:current.name]];
             title.textColor = color_ooni_blue;
