@@ -6,8 +6,9 @@
 #import <WebKit/WebKit.h>
 #import "ResultSelectorViewController.h"
 #import "LogViewController.h"
+#import "MBProgressHUD.h"
 
-@interface ResultViewController : UIViewController
+@interface ResultViewController : UIViewController <WKNavigationDelegate>
 
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) WKWebView *webView;

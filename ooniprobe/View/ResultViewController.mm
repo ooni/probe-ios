@@ -32,6 +32,7 @@
 }
 
 -(void) loadScreen{
+
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     WKUserContentController* userController = [[WKUserContentController alloc] init];
 
@@ -66,7 +67,10 @@
     }*/
     
     self.webView = [[WKWebView alloc] initWithFrame:frame configuration:configuration];
+    self.webView.navigationDelegate = self;
     [self.view addSubview:self.webView];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
     [self.webView loadHTMLString:htmlData baseURL: [NSURL fileURLWithPath:pathToHtml]];
 }
 
@@ -74,6 +78,13 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //This screen is hidden for the moment

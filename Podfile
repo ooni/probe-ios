@@ -8,4 +8,5 @@ target 'ooniprobe' do
     pod 'UIBarButtonItem-Badge-Coding'
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'MBProgressHUD'
 end
