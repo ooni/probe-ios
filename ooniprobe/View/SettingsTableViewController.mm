@@ -177,7 +177,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == [advancedItems count] -1){
+    if (indexPath.section == 2 && indexPath.row == [advancedItems count] -1){
         NSString *current = [advancedItems objectAtIndex:indexPath.row];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(current, @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
         alert.tag = indexPath.row;
