@@ -32,6 +32,7 @@
     [self.titleLabel setText:NSLocalizedString(@"potential_risks", nil)];
     [self.nextButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"i_understand_the_risks", nil)] forState:UIControlStateNormal];
     [self.textLabel setText:[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n%@",NSLocalizedString(@"laws_text_1", nil),  NSLocalizedString(@"laws_text_2", nil), NSLocalizedString(@"laws_text_3", nil), NSLocalizedString(@"laws_text_4", nil), NSLocalizedString(@"laws_text_5", nil), NSLocalizedString(@"laws_text_6", nil)]];
+    [self.moreButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"learn_more", nil)] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +46,9 @@
 
 -(void)previous{
     [self.navigationController popViewControllerAnimated:YES];
+}
+-(IBAction)learn_more:(id)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/about/risks/"]];
 }
 
 
