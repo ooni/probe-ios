@@ -3,7 +3,7 @@ PODS:
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
   - MBProgressHUD (1.0.0)
-  - measurement_kit (0.4.0-beta.1)
+  - measurement_kit (0.4.0-beta.3)
   - PBRevealViewController (1.1.3)
   - Toast (3.1.0)
   - UIBarButtonItem-Badge-Coding (0.0.1)
@@ -12,30 +12,30 @@ DEPENDENCIES:
   - Crashlytics
   - Fabric
   - MBProgressHUD
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `stable`)
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, tag `v0.4.0-beta.3`)
   - PBRevealViewController
   - Toast
   - UIBarButtonItem-Badge-Coding
 
 EXTERNAL SOURCES:
   measurement_kit:
-    :branch: stable
     :git: https://github.com/measurement-kit/measurement-kit.git
+    :tag: v0.4.0-beta.3
 
 CHECKOUT OPTIONS:
   measurement_kit:
-    :commit: a73bf729d62fd5d3399f8db02c2adeab0afba977
     :git: https://github.com/measurement-kit/measurement-kit.git
+    :tag: v0.4.0-beta.3
 
 SPEC CHECKSUMS:
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  measurement_kit: a75a6a1e91b4ca61f975470ee9dbd21d027daf9f
+  measurement_kit: 7067386d6e5fac0816b083ab19342109634c1079
   PBRevealViewController: 22aa8fdcbe3eca1bdcfdd1613695b66ac37f6dc9
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UIBarButtonItem-Badge-Coding: 3f8e96f75f7d7c7516c1a1706b566892bf2db134
 
-PODFILE CHECKSUM: e5f81ba141eaaec60f743956e49d17be25ba20eb
+PODFILE CHECKSUM: 1be74636e5f3aa3b5e82a57ed5079c9ee515674a
 
 COCOAPODS: 1.1.1
