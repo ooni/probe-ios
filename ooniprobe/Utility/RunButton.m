@@ -32,7 +32,7 @@
     self.layer.cornerRadius = 5;
     self.layer.masksToBounds = YES;
     [self setTitleColor:defaultTintColor forState:UIControlStateNormal];
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [self setTitleColor:color_off_white forState:UIControlStateHighlighted];
     UIImage *backGroundImage = [self createSolidColorImageWithColor:defaultTintColor
                                                                andSize:self.bounds.size];
     [self setBackgroundImage:backGroundImage forState:UIControlStateHighlighted];

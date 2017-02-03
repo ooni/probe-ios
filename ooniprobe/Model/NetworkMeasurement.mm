@@ -4,6 +4,7 @@
 
 #import "NetworkMeasurement.h"
 #import "TestStorage.h"
+#import "Tests.h"
 
 #include <measurement_kit/ooni.hpp>
 #include <measurement_kit/nettests.hpp>
@@ -20,7 +21,9 @@ static void setup_idempotent() {
         // Set the logger verbose and make sure it logs on the "logcat"
         mk::set_verbosity(MK_LOG_INFO);
         mk::on_log([](uint32_t, const char *s) {
+            #ifdef DEBUG
             NSLog(@"%s", s);
+            #endif
         });
         initialized = true;
     }
@@ -43,7 +46,9 @@ static std::string get_dns_server() {
                       sizeof (addr)) == nullptr) {
             continue;
         }
+        #ifdef DEBUG
         NSLog(@"found DNS resolver: %s", addr);
+        #endif
         dns_server = addr;
         break;
     }
@@ -68,11 +73,24 @@ static std::string get_dns_server() {
     collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
     max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     self.backgroundTask = UIBackgroundTaskInvalid;
+    self.running = FALSE;
+    self.viewed = FALSE;
+    self.anomaly = 0;
+    self.entry = FALSE;
     return self;
 }
 
 -(void) run {
     // Nothing to do here
+}
+
+- (void) run_test {
+    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
+    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
+    self.progress = 0;
+    self.running = TRUE;
+    [TestStorage add_test:self];
 }
 
 - (void)showNotification {
@@ -98,24 +116,64 @@ static std::string get_dns_server() {
 }
 
 -(void)updateProgress:(double)prog {
-    NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
     self.progress = prog;
+#ifdef DEBUG
+    NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
     NSLog(@"%@", os);
+#endif
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateProgress" object:nil];
     });
 }
 
 -(void)testEnded{
+#ifdef DEBUG
     NSLog(@"%@ testEnded", self.name);
-    self.completed = TRUE;
+#endif
+    self.running = FALSE;
     [TestStorage set_completed:self.test_id];
     [self showNotification];
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
     });
+}
+
+-(void)on_entry:(const char*)str{
+    if (!self.entry){
+        [TestStorage set_entry:self.test_id];
+        self.entry = TRUE;
+    }
+    NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
+    if (blocking > self.anomaly){
+        self.anomaly = blocking;
+        [TestStorage set_anomaly:self.test_id :blocking];
+    }
+}
+
+-(int)checkAnomaly:(NSDictionary*)test_keys{
+    /*
+     null => anomal = 1,
+     false => anomaly = 0,
+     stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
+     
+     Return values:
+     0 == OK,
+     1 == orange,
+     2 == red
+     */
+    id element = [test_keys objectForKey:@"blocking"];
+    int anomaly = 0;
+    if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
+        anomaly = 1;
+    }
+    else if (([element isKindOfClass:[NSString class]])) {
+        anomaly = 2;
+    }
+    return anomaly;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
@@ -123,7 +181,10 @@ static std::string get_dns_server() {
     [coder encodeObject:self.test_id forKey:@"Test_id"];
     [coder encodeObject:self.json_file forKey:@"Test_jsonfile"];
     [coder encodeObject:self.log_file forKey:@"Test_logfile"];
-    [coder encodeObject:[NSNumber numberWithBool:self.completed] forKey:@"test_completed"];
+    [coder encodeObject:[NSNumber numberWithBool:self.running] forKey:@"test_running"];
+    [coder encodeObject:[NSNumber numberWithBool:self.viewed] forKey:@"test_viewed"];
+    [coder encodeObject:[NSNumber numberWithInt:self.anomaly] forKey:@"anomaly"];
+    [coder encodeObject:[NSNumber numberWithInt:self.entry] forKey:@"entry"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
@@ -135,7 +196,10 @@ static std::string get_dns_server() {
     self.test_id = [coder decodeObjectForKey:@"Test_id"];
     self.json_file = [coder decodeObjectForKey:@"Test_jsonfile"];
     self.log_file = [coder decodeObjectForKey:@"Test_logfile"];
-    self.completed = [[coder decodeObjectForKey:@"test_completed"] boolValue];
+    self.running = [[coder decodeObjectForKey:@"test_running"] boolValue];
+    self.viewed = [[coder decodeObjectForKey:@"test_viewed"] boolValue];
+    self.anomaly = [[coder decodeObjectForKey:@"anomaly"] intValue];
+    self.entry = [[coder decodeObjectForKey:@"entry"] boolValue];
     return self;
 }
 
@@ -159,18 +223,14 @@ static std::string get_dns_server() {
 }
 
 - (void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    [TestStorage add_test:self];
+    [super run_test];
     setup_idempotent();
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
     mk::nettests::DnsInjectionTest()
-        .set_options("backend", "8.8.8.1:53")
+        .set_options("backend", [@"8.8.8.1:53" UTF8String])
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -178,6 +238,8 @@ static std::string get_dns_server() {
         .set_options("save_real_probe_cc", include_cc)
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
+        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
+        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
@@ -186,7 +248,9 @@ static std::string get_dns_server() {
             [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
+            #ifdef DEBUG
             NSLog(@"%s", s);
+            #endif
         })
         .start([self]() {
             [self testEnded];
@@ -212,16 +276,12 @@ static std::string get_dns_server() {
 }
 
 -(void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    [TestStorage add_test:self];
+    [super run_test];
     setup_idempotent();
     mk::nettests::HttpInvalidRequestLineTest()
         .set_options("backend", [HIRL_BACKEND UTF8String])
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -229,6 +289,8 @@ static std::string get_dns_server() {
         .set_options("save_real_probe_cc", include_cc)
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
+        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
+        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
@@ -236,7 +298,12 @@ static std::string get_dns_server() {
             [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
+            #ifdef DEBUG
             NSLog(@"%s", s);
+            #endif
+        })
+        .on_entry([self](std::string s) {
+            [self on_entry:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
@@ -263,18 +330,14 @@ static std::string get_dns_server() {
 }
 
 -(void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    [TestStorage add_test:self];
-    setup_idempotent();
+    [super run_test];
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
+    setup_idempotent();
     mk::nettests::TcpConnectTest()
         .set_options("port", 80)
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -282,6 +345,8 @@ static std::string get_dns_server() {
         .set_options("save_real_probe_cc", include_cc)
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
+        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
+        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
@@ -289,7 +354,9 @@ static std::string get_dns_server() {
             [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
+            #ifdef DEBUG
             NSLog(@"%s", s);
+            #endif
         })
         .start([self]() {
             [self testEnded];
@@ -315,15 +382,10 @@ static std::string get_dns_server() {
 }
 
 -(void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    [TestStorage add_test:self];
-    setup_idempotent();
+    [super run_test];
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
+    setup_idempotent();
     mk::nettests::WebConnectivityTest()
         .set_options("backend", [WC_BACKEND UTF8String])
         /*
@@ -332,6 +394,7 @@ static std::string get_dns_server() {
          * but, in practice, does it make sense to have two settings?
          */
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("nameserver", get_dns_server())
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
@@ -341,6 +404,8 @@ static std::string get_dns_server() {
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("max_runtime", [max_runtime doubleValue])
+        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
+        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
         .set_input_filepath([path UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
@@ -349,7 +414,12 @@ static std::string get_dns_server() {
             [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
+            #ifdef DEBUG
             NSLog(@"%s", s);
+            #endif
+        })
+        .on_entry([self](std::string s) {
+            [self on_entry:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
@@ -375,15 +445,11 @@ static std::string get_dns_server() {
 }
 
 -(void) run_test {
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
-    self.progress = 0;
-    self.completed = FALSE;
-    [TestStorage add_test:self];
+    [super run_test];
     mk::nettests::NdtTest()
         .set_options("test_suite", MK_NDT_DOWNLOAD | MK_NDT_UPLOAD)
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -391,6 +457,8 @@ static std::string get_dns_server() {
         .set_options("save_real_probe_cc", include_cc)
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
+        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
+        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
@@ -398,7 +466,12 @@ static std::string get_dns_server() {
             [self updateProgress:prog];
         })
         .on_log([self](uint32_t type, const char *s) {
+            #ifdef DEBUG
             NSLog(@"%s", s);
+            #endif
+        })
+        .on_entry([self](std::string s) {
+            [self on_entry:s.c_str()];
         })
         .start([self]() {
             [self testEnded];

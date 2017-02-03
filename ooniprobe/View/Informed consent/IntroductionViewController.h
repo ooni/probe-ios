@@ -3,10 +3,11 @@
 // information on the copying conditions.
 
 #import <UIKit/UIKit.h>
+#import "RoundedButton.h"
 
 @interface IntroductionViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UILabel *greetingsLabel;
-@property (nonatomic, strong) IBOutlet UITextView *textView;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet RoundedButton *nextButton;
 
 @end

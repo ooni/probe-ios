@@ -12,17 +12,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"risks", nil);
-    UIBarButtonItem *next = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"next", nil) style:UIBarButtonItemStylePlain target:self action:@selector(next)];
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:next, nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToastWrong" object:nil];
+    UISwipeGestureRecognizer *oneFingerSwipeLeft = [[UISwipeGestureRecognizer alloc]
+                                                    initWithTarget:self
+                                                    action:@selector(next)] ;
+    [oneFingerSwipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [[self view] addGestureRecognizer:oneFingerSwipeLeft];
     
-    NSString *pathToiOSCss = [[NSBundle mainBundle] pathForResource:@"setup-mobile" ofType:@"css"];
-    NSString *iOSCssData = [NSString stringWithContentsOfFile:pathToiOSCss encoding:NSUTF8StringEncoding error:NULL];
-    NSString *pathToHtml = [[NSBundle mainBundle] pathForResource:@"step2" ofType:@"html"];
-    NSString *htmlData = [NSString stringWithContentsOfFile:pathToHtml encoding:NSUTF8StringEncoding error:NULL];
-    NSString *html = [NSString stringWithFormat:@"<head><style>%@</style></head>%@", iOSCssData, htmlData];
-    [self.webView loadHTMLString:html baseURL:[[NSBundle mainBundle] bundleURL]];
+    UISwipeGestureRecognizer *oneFingerSwipeRight = [[UISwipeGestureRecognizer alloc]
+                                                     initWithTarget:self
+                                                     action:@selector(previous)] ;
+    [oneFingerSwipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [[self view] addGestureRecognizer:oneFingerSwipeRight];
+    
+
+    [self.titleLabel setText:NSLocalizedString(@"what_is_ooniprobe", nil)];
+    [self.nextButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"learn_more", nil)] forState:UIControlStateNormal];
+        
+    NSMutableAttributedString *muAtrStr = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"risks_text_1", nil) attributes:@{NSForegroundColorAttributeName : color_ooni_blue}];
+    NSAttributedString *atrStr2 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n%@", NSLocalizedString(@"risks_text_2", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
+    NSAttributedString *atrStr3 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n%@", NSLocalizedString(@"risks_text_3", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
+    NSAttributedString *atrStr4 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n%@", NSLocalizedString(@"risks_text_4", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
+    NSAttributedString *atrStr5 = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n%@", NSLocalizedString(@"risks_text_5", nil)] attributes:@{NSForegroundColorAttributeName : color_off_black}];
+
+    [muAtrStr appendAttributedString:atrStr2];
+    [muAtrStr appendAttributedString:atrStr3];
+    [muAtrStr appendAttributedString:atrStr4];
+    [muAtrStr appendAttributedString:atrStr5];
+
+    [self.textLabel setAttributedText:muAtrStr];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,17 +47,12 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)showToast{
-    CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
-    style.messageAlignment = NSTextAlignmentCenter;
-    style.messageColor = [UIColor colorWithRed:169.0/255.0 green:68.0/255.0 blue:66.0/255.0 alpha:1.0];
-    style.backgroundColor = [UIColor colorWithRed:242.0/255.0 green:222.0/255.0 blue:222.0/255.0 alpha:1.0];
-    [self.view makeToast:NSLocalizedString(@"wrong", nil) duration:3.0 position:CSToastPositionBottom style:style];
+-(IBAction)next{
+    [self performSegueWithIdentifier:@"toLaws" sender:self];
 }
 
-
--(void)next{
-    [self performSegueWithIdentifier:@"toQuiz" sender:self];
+-(void)previous{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

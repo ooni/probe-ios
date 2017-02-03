@@ -4,6 +4,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+Toast.h"
+#import "RoundedButton.h"
 
 @interface QuizViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *firstQuestion;
@@ -15,7 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property (nonatomic, strong) IBOutlet RoundedButton *nextButton;
 
 
 @end

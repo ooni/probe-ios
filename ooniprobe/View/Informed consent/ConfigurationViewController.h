@@ -4,14 +4,14 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+Toast.h"
+#import "RoundedButton.h"
 
 @interface ConfigurationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    NSArray *settingsTitles;
     NSArray *settingsItems;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property (nonatomic, strong) IBOutlet RoundedButton *nextButton;
 
 @end
