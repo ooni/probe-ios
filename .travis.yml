@@ -9,6 +9,6 @@ install:
     - pod repo update 2>&1 >/dev/null
     - pod install --verbose
     - sudo gem install xcpretty
-    - set -o pipefail && xcodebuild -workspace NetProbe.xcworkspace/
-        -scheme NetProbe CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+    - set -o pipefail && xcodebuild -workspace ooniprobe.xcworkspace/
+        -scheme ooniprobe CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
           | xcpretty
