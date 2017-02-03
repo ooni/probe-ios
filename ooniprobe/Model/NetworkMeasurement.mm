@@ -230,6 +230,7 @@ static std::string get_dns_server() {
     mk::nettests::DnsInjectionTest()
         .set_options("backend", [@"8.8.8.1:53" UTF8String])
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -280,6 +281,7 @@ static std::string get_dns_server() {
     mk::nettests::HttpInvalidRequestLineTest()
         .set_options("backend", [HIRL_BACKEND UTF8String])
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -335,6 +337,7 @@ static std::string get_dns_server() {
     mk::nettests::TcpConnectTest()
         .set_options("port", 80)
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -391,6 +394,7 @@ static std::string get_dns_server() {
          * but, in practice, does it make sense to have two settings?
          */
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("nameserver", get_dns_server())
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
@@ -445,6 +449,7 @@ static std::string get_dns_server() {
     mk::nettests::NdtTest()
         .set_options("test_suite", MK_NDT_DOWNLOAD | MK_NDT_UPLOAD)
         .set_options("dns/nameserver", get_dns_server())
+        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
