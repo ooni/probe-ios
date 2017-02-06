@@ -115,8 +115,9 @@ static std::string get_dns_server() {
     return fileName;
 }
 
--(void)updateProgress:(double)prog {
+-(void)updateProgress:(double)prog description:(NSString *)text {
     self.progress = prog;
+    self.progress_text = text;
 #ifdef DEBUG
     NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
     NSLog(@"%@", os);
@@ -245,7 +246,8 @@ static std::string get_dns_server() {
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
         .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
+            [self updateProgress:prog
+                     description:[NSString stringWithFormat:@"%s", s]];
         })
         .on_log([self](uint32_t type, const char *s) {
             #ifdef DEBUG
@@ -295,7 +297,8 @@ static std::string get_dns_server() {
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
         .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
+            [self updateProgress:prog
+                     description:[NSString stringWithFormat:@"%s", s]];
         })
         .on_log([self](uint32_t type, const char *s) {
             #ifdef DEBUG
@@ -351,7 +354,8 @@ static std::string get_dns_server() {
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
         .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
+            [self updateProgress:prog
+                     description:[NSString stringWithFormat:@"%s", s]];
         })
         .on_log([self](uint32_t type, const char *s) {
             #ifdef DEBUG
@@ -411,7 +415,8 @@ static std::string get_dns_server() {
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
         .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
+            [self updateProgress:prog
+                     description:[NSString stringWithFormat:@"%s", s]];
         })
         .on_log([self](uint32_t type, const char *s) {
             #ifdef DEBUG
@@ -463,7 +468,8 @@ static std::string get_dns_server() {
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
         .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
+            [self updateProgress:prog
+                     description:[NSString stringWithFormat:@"%s", s]];
         })
         .on_log([self](uint32_t type, const char *s) {
             #ifdef DEBUG

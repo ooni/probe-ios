@@ -100,14 +100,12 @@
     if (current.running){
         [bar setHidden:NO];
         [bar setProgress:current.progress animated:NO];
-        [subtitle setHidden:YES];
+        [subtitle setText:current.progress_text];
         [indicator setHidden:FALSE];
         [runTest setHidden:TRUE];
         [indicator startAnimating];
     }
     else {
-        [bar setHidden:YES];
-        [subtitle setHidden:NO];
         [indicator setHidden:TRUE];
         [runTest setHidden:FALSE];
         [indicator stopAnimating];
