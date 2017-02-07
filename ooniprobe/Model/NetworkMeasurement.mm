@@ -137,6 +137,8 @@ static std::string get_dns_server() {
     self.backgroundTask = UIBackgroundTaskInvalid;
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+        NSDictionary *noteInfo = [NSDictionary dictionaryWithObject:self.name forKey:@"test_name"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showToastFinished" object:nil userInfo:noteInfo];
     });
 }
 

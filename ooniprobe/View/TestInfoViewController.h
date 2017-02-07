@@ -5,6 +5,7 @@
 #import <UIKit/UIKit.h>
 #import "RoundedButton.h"
 #import "Tests.h"
+#import "UIView+Toast.h"
 
 @interface TestInfoViewController : UIViewController {
     Tests *currentTests;

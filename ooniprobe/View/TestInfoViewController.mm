@@ -15,9 +15,10 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(testName, nil);
     
-    [self.imageView setImage:[UIImage imageNamed:testName]];
+    [self.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_big", testName]]];
     [self.moreButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"learn_more", nil)] forState:UIControlStateNormal];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest) name:@"reloadTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast:) name:@"showToastFinished" object:nil];
     NSString *test_desc = [NSString stringWithFormat:@"%@_longdesc", testName];
     [self.textLabel setText:NSLocalizedString(test_desc, nil)];
 }
@@ -31,6 +32,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)showToast:(NSNotification *) notification{
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *test_name = [userInfo objectForKey:@"test_name"];
+    [self.view makeToast:[NSString stringWithFormat:NSLocalizedString(@"test_name_finished", nil), NSLocalizedString(test_name, nil)]];
 }
 
 -(void)reloadTest{
