@@ -13,22 +13,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = NSLocalizedString(testName, nil);
     self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"view_log", nil);
     [self loadScreen];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.title = NSLocalizedString(testName, nil);
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    self.title = nil;
 }
 
 -(void) loadScreen{
