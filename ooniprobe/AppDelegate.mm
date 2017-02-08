@@ -18,7 +18,8 @@
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self registerNotifications];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"])
+        [self registerNotifications];
     return YES;
 }
 
