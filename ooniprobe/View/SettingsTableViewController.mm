@@ -155,7 +155,6 @@
         }
         [self reloadSettings];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"loadAvailableMeasurements" object:nil];
 }
 
 -(void)reloadSettings {
@@ -198,7 +197,6 @@
         NSString *current = [advancedItems objectAtIndex:alertView.tag];
         [[NSUserDefaults standardUserDefaults] setObject:value.text forKey:current];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadAvailableMeasurements" object:nil];
         [self.tableView reloadData];
     }
 }

@@ -66,17 +66,11 @@ static std::string get_dns_server() {
     NSBundle *bundle = [NSBundle mainBundle];
     geoip_asn = [bundle pathForResource:@"GeoIPASNum" ofType:@"dat"];
     geoip_country = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
-    include_ip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_ip"] boolValue];
-    include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
-    include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
-    upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
-    collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
-    max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-    self.backgroundTask = UIBackgroundTaskInvalid;
     self.running = FALSE;
     self.viewed = FALSE;
     self.anomaly = 0;
     self.entry = FALSE;
+    self.backgroundTask = UIBackgroundTaskInvalid;
     return self;
 }
 
@@ -85,6 +79,12 @@ static std::string get_dns_server() {
 }
 
 - (void) run_test {
+    include_ip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_ip"] boolValue];
+    include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
+    include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
+    upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
+    collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
+    max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
