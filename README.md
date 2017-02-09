@@ -2,11 +2,9 @@
 
 This is the iOS version of [ooniprobe](https://ooni.torproject.org/).
 
-It is currently **not released** on the Apple Store, however if you would
-like to be a beta tester for our App, please send your iCloud account to
-contact@openobservatory.org and we will invite you to TestFlight.
+Download it on the [App Store](https://itunes.apple.com/US/app/id1199566366).
 
-If you are interested in building the app to try it for yourself, read on.
+If you are interested in building the app yourself, read on.
 
 To download and install the measurement-kit library we use [cocoapod](https://cocoapods.org).
 
