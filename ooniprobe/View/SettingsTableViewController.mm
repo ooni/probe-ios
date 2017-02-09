@@ -16,7 +16,6 @@
     [self.revealButtonItem setAction: @selector(revealLeftView)];
     self.revealViewController.leftPresentViewHierarchically = YES;
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
-
     self.title = NSLocalizedString(@"settings", nil);
     [self reloadSettings];
     datePicker = [[UIDatePicker alloc] init];
@@ -27,6 +26,15 @@
     [datePicker addTarget:self action:@selector(timeChanged:) forControlEvents:UIControlEventValueChanged];
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH:mm"];
+    keyboardToolbar = [[UIToolbar alloc] init];
+    [keyboardToolbar sizeToFit];
+    UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                      target:nil action:nil];
+    UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                      target:self.view action:@selector(endEditing:)];
+    keyboardToolbar.items = @[flexBarButton, doneBarButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,7 +128,12 @@
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.text = text;
     textField.keyboardType = UIKeyboardTypeNumberPad;
+    textField.inputAccessoryView = keyboardToolbar;
     return textField;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    return YES;
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
