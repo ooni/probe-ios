@@ -1,5 +1,3 @@
-# ooniprobe iOS
-
 ![ooniprobe iOS](assets/title.png)
 
 This is the iOS version of [ooniprobe](https://ooni.torproject.org/).
