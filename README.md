@@ -1,10 +1,12 @@
 # ooniprobe iOS
 
+![ooniprobe iOS](assets/title.png)
+
 This is the iOS version of [ooniprobe](https://ooni.torproject.org/).
 
 Download it on the [App Store](https://itunes.apple.com/us/app/id1199566366).
 
-[![](https://ooni.torproject.org/shortcodes/app-store-badge.svg)](https://itunes.apple.com/us/app/id1199566366)
+[![](assets/app-store-badge.png)](https://itunes.apple.com/us/app/id1199566366)
 
 If you are interested in building the app yourself, read on.
 
