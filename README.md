@@ -8,7 +8,7 @@ Download it on the [App Store](https://itunes.apple.com/us/app/id1199566366).
 
 If you are interested in building the app yourself, read on.
 
-To download and install the measurement-kit library we use [cocoapod](https://cocoapods.org).
+To download and install the measurement-kit library we use [CocoaPods](https://cocoapods.org).
 
 To install cocoapod use
 
