@@ -143,16 +143,18 @@ static std::string get_dns_server() {
 }
 
 -(void)on_entry:(const char*)str{
-    if (!self.entry){
-        [TestStorage set_entry:self.test_id];
-        self.entry = TRUE;
-    }
-    NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
-    if (blocking > self.anomaly){
-        self.anomaly = blocking;
-        [TestStorage set_anomaly:self.test_id :blocking];
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
     }
 }
 

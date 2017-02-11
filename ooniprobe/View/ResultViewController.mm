@@ -73,6 +73,31 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    //if it is the first call allow, else deny and open browser
+    NSURLRequest *request = navigationAction.request;
+    if (!openBrowser){
+        decisionHandler(WKNavigationActionPolicyAllow);
+        openBrowser = true;
+    }
+    else {
+        decisionHandler(WKNavigationActionPolicyCancel);
+        openURL = [request URL];
+        NSString *url = [[request URL] absoluteString];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"open_url_alert", @"") message:url delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
+        [alert show];
+
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [[UIApplication sharedApplication] openURL:openURL];
+    }
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //This screen is hidden for the moment
     if ([[segue identifier] isEqualToString:@"toLog"]){

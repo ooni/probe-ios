@@ -8,7 +8,10 @@
 #import "LogViewController.h"
 #import "MBProgressHUD.h"
 
-@interface ResultViewController : UIViewController <WKNavigationDelegate>
+@interface ResultViewController : UIViewController <WKNavigationDelegate, UIAlertViewDelegate> {
+    BOOL openBrowser;
+    NSURL *openURL;
+}
 
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) WKWebView *webView;

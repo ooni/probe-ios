@@ -1,4 +1,18 @@
-# ooniprobe-ios 1.1.1 [2017-02-09]
+# ooniprobe-ios 1.1.2 [2017-02-11]
+
+Bugfixes:
+
+* Fixed crash when string entry is null
+
+* Use domain name a.echo.th.ooni.io for HTTP Invalid Request Line test helper
+
+* Fix issue in loading external URLs (and prompt use for confirmation before doing so)
+
+measurement-kit version: 0.4.0-beta.4
+
+ooniprobe-wui version: 2.2.0-rc.0
+
+# ooniprobe-ios 1.1.1 [2017-02-09] [UNRELEASED]
 
 Bugfixes:
 
@@ -10,7 +24,7 @@ Bugfixes:
 
 * Adding toolbar with "Done" button in settings
 
-measurement-kit version: 0.4.0-beta.4
+measurement-kit version: 0.4.0-beta.3
 
 ooniprobe-wui version: 2.2.0-rc.0
 
