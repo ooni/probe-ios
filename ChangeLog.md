@@ -1,4 +1,14 @@
-# ooniprobe-ios 1.1.1 [2017-02-09]
+# ooniprobe-ios 1.1.2 [2017-02-11]
+
+Bugfixes:
+
+* Fixed crash when string entry is null
+
+measurement-kit version: 0.4.0-beta.4
+
+ooniprobe-wui version: 2.2.0-rc.0
+
+# ooniprobe-ios 1.1.1 [2017-02-09] [UNRELEASED]
 
 Bugfixes:
 
