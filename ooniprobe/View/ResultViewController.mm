@@ -73,6 +73,20 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    //if it is the first call allow, else deny and open browser
+    NSURLRequest *request = navigationAction.request;
+    if (!openBrowser){
+        decisionHandler(WKNavigationActionPolicyAllow);
+        openBrowser = true;
+    }
+    else {
+        decisionHandler(WKNavigationActionPolicyCancel);
+        [[UIApplication sharedApplication] openURL:[request URL]];
+    }
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //This screen is hidden for the moment
     if ([[segue identifier] isEqualToString:@"toLog"]){
