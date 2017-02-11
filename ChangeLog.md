@@ -24,7 +24,7 @@ Bugfixes:
 
 * Adding toolbar with "Done" button in settings
 
-measurement-kit version: 0.4.0-beta.4
+measurement-kit version: 0.4.0-beta.3
 
 ooniprobe-wui version: 2.2.0-rc.0
 
