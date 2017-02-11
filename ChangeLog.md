@@ -4,6 +4,10 @@ Bugfixes:
 
 * Fixed crash when string entry is null
 
+* Use domain name a.echo.th.ooni.io for HTTP Invalid Request Line test helper
+
+* Fix issue in loading external URLs (and prompt use for confirmation before doing so)
+
 measurement-kit version: 0.4.0-beta.4
 
 ooniprobe-wui version: 2.2.0-rc.0
