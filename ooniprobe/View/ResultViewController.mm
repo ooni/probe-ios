@@ -83,7 +83,18 @@
     }
     else {
         decisionHandler(WKNavigationActionPolicyCancel);
-        [[UIApplication sharedApplication] openURL:[request URL]];
+        openURL = [request URL];
+        NSString *url = [[request URL] absoluteString];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"open_url_alert", @"") message:url delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
+        [alert show];
+
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [[UIApplication sharedApplication] openURL:openURL];
     }
 }
 
