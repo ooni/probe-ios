@@ -12,7 +12,7 @@
 #import "UIButton+Badge.h"
 #import "Tests.h"
 
-@interface PastTestsViewController : UITableViewController <PBRevealViewControllerDelegate>{
+@interface PastTestsViewController : UITableViewController <PBRevealViewControllerDelegate, UIAlertViewDelegate>{
     NSMutableArray *finishedTests;
     NetworkMeasurement *nextTest;
 }

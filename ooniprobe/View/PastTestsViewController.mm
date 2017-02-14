@@ -22,7 +22,8 @@
     self.revealViewController.leftPresentViewHierarchically = YES;
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     [self.revealViewController setDelegate:self];
-    
+    self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"clear_all_tests", nil);
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:FALSE] forKey:@"new_tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -161,6 +162,20 @@
         NetworkMeasurement *current = [finishedTests objectAtIndex:indexPath.row];
         [finishedTests removeObjectAtIndex:indexPath.row];
         [TestStorage remove_test:current.test_id];
+        [self reloadTable];
+    }
+}
+
+
+- (IBAction)clearAllTests:(id)sender{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"clear_all_tests_alert", @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [TestStorage remove_all_tests];
         [self reloadTable];
     }
 }

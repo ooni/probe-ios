@@ -169,7 +169,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-//Not used for now
 + (void)remove_all_tests{
     [self checkTests];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
