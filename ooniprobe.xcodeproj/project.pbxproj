@@ -39,7 +39,7 @@
 		ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.mm */; };
 		ED25282E1CEA35640073A29B /* RunTestsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528291CEA35640073A29B /* RunTestsViewController.mm */; };
 		ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528301CEA35770073A29B /* NetworkMeasurement.mm */; };
-		ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.m */; };
+		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
 		ED3932C71E3114BA0064CD11 /* PastTestsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C61E3114BA0064CD11 /* PastTestsViewController.mm */; };
 		ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32E1D2337920061F266 /* GeoIP.dat */; };
 		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
@@ -107,7 +107,7 @@
 		ED25282F1CEA35770073A29B /* NetworkMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkMeasurement.h; path = Model/NetworkMeasurement.h; sourceTree = "<group>"; };
 		ED2528301CEA35770073A29B /* NetworkMeasurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkMeasurement.mm; path = Model/NetworkMeasurement.mm; sourceTree = "<group>"; };
 		ED3932C21E3114740064CD11 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		ED3932C31E3114740064CD11 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		ED3932C31E3114740064CD11 /* AboutViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutViewController.mm; sourceTree = "<group>"; };
 		ED3932C51E3114BA0064CD11 /* PastTestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastTestsViewController.h; sourceTree = "<group>"; };
 		ED3932C61E3114BA0064CD11 /* PastTestsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PastTestsViewController.mm; sourceTree = "<group>"; };
 		ED3AB32E1D2337920061F266 /* GeoIP.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIP.dat; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 				ED923AAD1E2FA9FE00407EB6 /* LeftMenuTableViewController.h */,
 				ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */,
 				ED3932C21E3114740064CD11 /* AboutViewController.h */,
-				ED3932C31E3114740064CD11 /* AboutViewController.m */,
+				ED3932C31E3114740064CD11 /* AboutViewController.mm */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,7 +523,7 @@
 				ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */,
 				EDCAB3A01E2BC6BD000878CA /* RoundedButton.m in Sources */,
 				ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */,
-				ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */,
+				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED25282E1CEA35640073A29B /* RunTestsViewController.mm in Sources */,
 				ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */,
 				EDCAB39D1E2BC699000878CA /* ButtonUtility.m in Sources */,

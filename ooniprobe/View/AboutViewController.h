@@ -11,5 +11,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *textLabel;
 @property (nonatomic, strong) IBOutlet RoundedButton *learnMoreButton;
 @property (nonatomic, strong) IBOutlet UIButton *ppButton;
+@property (nonatomic, strong) IBOutlet UILabel *versionLabel;
 
 @end
