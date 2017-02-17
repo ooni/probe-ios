@@ -9,4 +9,5 @@ target 'ooniprobe' do
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'MBProgressHUD'
+    pod 'DZNEmptyDataSet'
 end

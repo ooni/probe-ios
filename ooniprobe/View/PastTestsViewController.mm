@@ -19,6 +19,12 @@
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
     [self.revealButtonItem setAction: @selector(revealLeftView)];
+    
+    //Using component https://github.com/dzenbot/DZNEmptyDataSet
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.tableFooterView = [UIView new];
+
     self.revealViewController.leftPresentViewHierarchically = YES;
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     [self.revealViewController setDelegate:self];
@@ -56,6 +62,34 @@
     else if (revealController.isLeftViewOpen)
         return YES;
     return NO;
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"ooni_logo_bw"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = NSLocalizedString(@"past_tests_empty", nil);
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSansOT-Bold" size:18],
+                                 NSForegroundColorAttributeName: color_off_black};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSansOT-Bold" size:18],
+                                 NSForegroundColorAttributeName: color_ooni_blue};
+    
+    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"run_tests", nil) attributes:attributes];
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
+{
+    [self.revealViewController setMainViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RunTestsNav"] animated:YES];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView

@@ -22,7 +22,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xrg-Ho-3Kp">
             <objects>
-                <navigationController id="AYN-ls-CZF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RunTestsNav" id="AYN-ls-CZF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ScQ-7o-v6B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -127,7 +127,7 @@
         <!--Run Tests View Controller-->
         <scene sceneID="n9F-Ud-ZKt">
             <objects>
-                <tableViewController id="RZH-Z4-d2a" customClass="RunTestsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RunTests" id="RZH-Z4-d2a" customClass="RunTestsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="44p-sf-aNf">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

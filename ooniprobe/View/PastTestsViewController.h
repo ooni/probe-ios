@@ -11,8 +11,9 @@
 #import "PBRevealViewController.h"
 #import "UIButton+Badge.h"
 #import "Tests.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface PastTestsViewController : UITableViewController <PBRevealViewControllerDelegate, UIAlertViewDelegate>{
+@interface PastTestsViewController : UITableViewController <PBRevealViewControllerDelegate, UIAlertViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>{
     NSMutableArray *finishedTests;
     NetworkMeasurement *nextTest;
 }
