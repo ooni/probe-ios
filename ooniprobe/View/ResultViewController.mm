@@ -27,13 +27,12 @@
     content = [content stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
     content = [content stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
 
-    NSString* MeasurementJSON = [NSString stringWithFormat:@"\n var MeasurementJSON = {  \n"
+    NSString* MeasurementJSON = [NSString stringWithFormat:@"\n var userLocale = '%@'; \n var MeasurementJSON = {  \n"
                                  "get: function() {  \n"
                                  "return "
                                  "'%s';"
                                  "   } \n"
-                                 "};", [content UTF8String]]; // Cast to c type string
-
+                                 "};", [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode], [content UTF8String]]; // Cast to c type string
     WKUserScript* userScript = [[WKUserScript alloc]initWithSource:MeasurementJSON
                                                      injectionTime: WKUserScriptInjectionTimeAtDocumentStart
                                                   forMainFrameOnly:NO];
