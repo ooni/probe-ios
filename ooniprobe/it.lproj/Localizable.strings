@@ -1,0 +1,107 @@
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
+"app_name" = "ooniprobe";
+
+"run_tests" = "Esegui Test";
+"past_tests" = "Test Precedenti";
+"settings" = "Impostazioni";
+"about" = "Informazioni su OONI";
+
+"dns_injection" = "DNS Injection";
+"tcp_connect" = "TCP Connect";
+"http_invalid_request_line" = "HTTP Invalid Request Line";
+"http_header_field_manipulation" = "HTTP Header Field Manipulation";
+"web_connectivity" = "Web Connectivity";
+"ndt_test" = "NDT Speed Test";
+
+"web_connectivity_desc" = "Controlla se i siti web sono bloccati";
+"http_invalid_request_line_desc" = "Trova i \"middle box\"";
+"ndt_test_desc" = "Misura velocità e performance della rete";
+
+"http_invalid_request_line_longdesc" = "Questo test prova a rilevare la presenza di componenti della rete (\"middle box\") che potrebbero essere responsabili di censura e/o sorveglianza.";
+"web_connectivity_longdesc" = "Questo test verifica se l'accesso ai siti web è bloccato tramite manomissione DNS, blocchi su base TCP/IP, o da proxy HTTP trasparenti.\n\nOgni volta che esegui il test di Connettività web testi siti web diversi.";
+"ndt_test_longdesc" = "Questo test misura la velocità e le prestazioni della vostra rete.\n\nAttenzione: NDT è un test di prestazione eseguito su server di terze parti gestiti da Measurement Lab (M-Lab). Il test di M-Lab NDT richiede che venga raccolto e pubblicato il vostro indirizzo IP per finalità di ricerca.";
+
+"running_tests" = "Test in esecuzione";
+"finished_tests" = "Test conclusi";
+
+"settings" = "Impostazioni";
+"collector_address" = "Indirizzo Collettore";
+
+"cancel" = "Annulla";
+"ok" = "OK";
+"delete" = "Elimina";
+
+"test_result" = "Risultati del test";
+"change" = "Cambia";
+
+"welcome_ooniprobe" = "Benvenuto a ooniprobe!";
+"get_started" = "Pronti per iniziare?";
+
+"what_is_ooniprobe" = "Cos'è ooniprobe?";
+"learn_more" = "Piú informazioni";
+
+"risks_text_1" = "Ooniprobe è un software gratuito ed open source che permette di analizzare la presenza di censura internet sulla tua rete!";
+"risks_text_2" = "Nell'eseguire questa app, puoi controllare se e come i siti web sono bloccati, e se censura e/o sistemi di sorveglianza sono presenti nella tua rete.";
+"risks_text_3" = "Puoi utilizzare questa app anche per misurare la velocità e la performance della tua rete.";
+"risks_text_4" = "I dati raccolti attraverso questa app possono service come prova di eventi di censura internet.";
+"risks_text_5" = "ooniprobe è uno strumento investigativo e in quanto tale presenta alcuni rischi.";
+
+"potential_risks" = "Rischi potenziali";
+"laws_text_1" = "Chiunque stia monitorando il tuo traffico internet (ad es. fornitori del servizio Internet, governo, datore di lavoro) potrebbe rilevare che stai utilizzando ooniprobe (anche se OONI fa di tutto per nasconderlo).";
+"laws_text_2" = "Durante il test dei siti web per la censura, ti connetterai e scaricherai materiale da siti provocativi o poco raccomandabili (ad es. pornografia) che potrebbero essere illegali nel tuo paese.";
+"laws_text_3" = "Il test HTTP Invalid Request Line di OONI potrebbe essere visto dal tuo gestore internet come una forma di \"hacking\" e attivare il loro sospetto.";
+"laws_text_4" = "A meno che non vengano configurate diversamente, tutti i dati collezionati dai test verranno di default pubblicati da OONI e potrebbero includere delle informazioni personalmente identificative (anche se OONI prova a nasconderle)";
+"laws_text_5" = "Il solo uso di ooniprobe potrebbe essere visto come una forma di spionaggio, indipendentemente dalle leggi della tua nazione.";
+"laws_text_6" = "A nostra conoscenza, nessun utente di ooniprobe ha mai subito conseguenze legali dall'uso della nostra piattaforma. Tuttavia, molti paesi hanno una lunga storia di abusi contro gli attivisti dei diritti digitali, e ooniprobe potrebbe esporre i suoi utenti a severe pene civili, penali o extra-giudiziarie.";
+"laws_text_6" = "A nostra conoscenza, nessun utente di ooniprobe ha mai subito conseguenze legali dall'uso della nostra piattaforma. Tuttavia, molti paesi hanno una lunga storia di abusi contro gli attivisti dei diritti digitali, e ooniprobe potrebbe esporre i suoi utenti a severe pene civili, penali o extra-giudiziarie.";
+"i_understand_the_risks" = "Ho compreso i rischi.";
+
+"pop_quiz" = "Passaparola!";
+"question_1" = "Domanda 1: Chiunque stia monitorando il mio traffico internet (ad es. fornitori del servizio Internet, governo, datore di lavoro) potrebbe rilevare che sto utilizzando ooniprobe, anche se OONI prende delle precauzioni per nasconderlo";
+"question_2" = "Domanda 2: Le mie misurazioni, per impostazione di default, verranno pubblicate da OONI e potrebbero includere informazioni personalmente identificative.";
+"true" = "Vero";
+"false" = "Falso";
+"how_did_i_do" = "Com'è andata?";
+
+"wrong" = "Un altro po' di lettura è necessaria prima di poter proseguire.";
+"correct" = "Bel lavoro! Hai risposto correttamente ai quiz.";
+
+"set_up_sharing" = "Configura Condivisione";
+"include_ip" = "Includere il tuo IP?";
+"include_asn" = "Includere informazioni sulla tua rete?";
+"include_cc" = "Includere la tua nazione?";
+"upload_results" = "Condividere i risultati pubblicamente?";
+"settings_text" = "Tutte le misurazione sono, di default, inviate al registro delle misurazioni di OONI e sono automaticamente pubblicate su OONI Explorer e sull'interfaccia di misurazione di OONI.";
+"im_all_set" = "Tutto pronto!";
+"ooniprobe_configured" ="Hai configurato con successo ooniprobe. Siete pronti per cominciare!";
+
+"about_ooni" = "Informazioni su OONI";
+"about_text_1" = "L'Osservatorio Libero dell'Interferenza di Rete (Open Observatory of Network Interference, OONI) è un progetto di software libero del Progetto Tor che punta a incrementare la trasparenza della censura di Internet in tutto il mondo.";
+"about_text_2" ="Dal 2012, OONI ha collezionato milioni di misurazioni di rete in tutto il mondo, puntando i riflettori su numerosi casi di censura internet e manipolazione del traffico.";
+"learn_more" = "Piú informazioni";
+
+"run" = "Esegui";
+"view" = "Mostra";
+
+"no_result" = "Nessun risultato";
+"no_result_msg" = "Questo test non ha alcun risultato oppure è stato annullato";
+
+"local_notifications" = "Promemoria di esecuzione dei test";
+"local_notifications_time" = "Tempo";
+"local_notifications_text" = "È ora di eseguire test";
+
+"notifications" = "Notifiche";
+
+"max_runtime" = "Tempo massimo di esecuzione di Web Connectivity (secondi)";
+"advanced_settings" = "Impostazioni avanzate";
+"finished_running" = "%@ è concluso";
+"view_log" = "Vedi log";
+"copy_to_clipboard" = "Copia negli Appunti";
+"copied_clipboard" = "Copiato negli Appunti";
+"send_crash" = "Manda rapporto sui crash";
+"privacy" = "Privacy";
+"view_data_policy" = "Tappa qui per le nostre Politiche sui Dati";
+"test_name_finished" = "%@ è concluso, vai a Test Passati per vedere i risultati.";
+"open_url_alert" = "Vuoi aprire il seguente indirizzo internet?";
