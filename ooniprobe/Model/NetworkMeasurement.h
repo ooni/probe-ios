@@ -22,6 +22,7 @@
 
 @property NSNumber *test_id;
 @property float progress;
+@property NSString *progress_text;
 
 @property NSString *json_file;
 @property NSString *log_file;
