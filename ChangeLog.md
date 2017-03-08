@@ -1,3 +1,29 @@
+# ooniprobe-ios 1.1.3 [2017-03-08]
+
+Bugfixes:
+
+* Various GUI fixing
+
+* Expose app version number in app
+
+* Empty screen in "Past Tests" on init
+
+* Delete all tests button
+
+* Render failed "NDT Speed Test" 
+
+New languages:
+
+* IT
+
+* FR
+
+* ES
+
+measurement-kit version: 0.4.1
+
+ooniprobe-wui version: 2.2.0-rc.3
+
 # ooniprobe-ios 1.1.2 [2017-02-11]
 
 Bugfixes:
