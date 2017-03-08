@@ -2,6 +2,8 @@
 
 Bugfixes:
 
+* Added multilingual support and Spanish, French and Italian translations
+
 * Various GUI fixing
 
 * Expose app version number in app
@@ -11,14 +13,6 @@ Bugfixes:
 * Delete all tests button
 
 * Render failed "NDT Speed Test" 
-
-New languages:
-
-* IT
-
-* FR
-
-* ES
 
 measurement-kit version: 0.4.1
 
