@@ -567,7 +567,7 @@ measurement-kit: x.y.z</string>
                     </tableView>
                     <navigationItem key="navigationItem" id="94M-Mx-uxq">
                         <barButtonItem key="leftBarButtonItem" image="menu_white" id="XaG-HV-X9a"/>
-                        <barButtonItem key="rightBarButtonItem" title="Clear all" id="WVW-f9-Rj0">
+                        <barButtonItem key="rightBarButtonItem" image="trash" id="WVW-f9-Rj0">
                             <connections>
                                 <action selector="clearAllTests:" destination="299-J3-FTK" id="sQ4-hJ-oCa"/>
                             </connections>
@@ -1493,9 +1493,10 @@ measurement-kit: x.y.z</string>
         <image name="ooni_intro" width="370" height="214"/>
         <image name="ooni_logo" width="300" height="300"/>
         <image name="radio_button_off" width="32" height="32"/>
+        <image name="trash" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5aZ-7B-4ri"/>
         <segue reference="ULy-MW-EOd"/>
+        <segue reference="xM5-AD-3dX"/>
     </inferredMetricsTieBreakers>
 </document>

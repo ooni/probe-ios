@@ -28,7 +28,6 @@
     self.revealViewController.leftPresentViewHierarchically = YES;
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     [self.revealViewController setDelegate:self];
-    self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"clear_all_tests", nil);
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:FALSE] forKey:@"new_tests"];
