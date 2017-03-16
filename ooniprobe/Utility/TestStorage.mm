@@ -156,29 +156,11 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-//Not used for now
-+ (void)remove_running_tests{
-    NSMutableArray *cache = [[self get_tests] mutableCopy];
-    for (int i = 0; i < [cache count]; i++) {
-        NetworkMeasurement* test = [cache objectAtIndex:i];
-        if (test.running){
-            [cache removeObject:test];
-        }
-    }
-    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
 + (void)remove_all_tests{
-    [self checkTests];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
-        NSArray* test_array = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]];
-        for (NetworkMeasurement *test in test_array){
-            [self removeFile:test.json_file];
-            [self removeFile:test.log_file];
-        }
+    NSArray *to_remove = [self get_tests_rev];
+    for (NetworkMeasurement *test in to_remove){
+        [self remove_test:test.test_id];
     }
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"tests"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"new_tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
