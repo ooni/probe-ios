@@ -1,8 +1,10 @@
 # ooniprobe-ios 1.1.3 [2017-03-08]
 
-Bugfixes:
+New Languages:
 
 * Added multilingual support and Spanish, French and Italian translations
+
+Bugfixes:
 
 * Various GUI fixing
 
@@ -14,9 +16,9 @@ Bugfixes:
 
 * Render failed "NDT Speed Test" 
 
-measurement-kit version: 0.4.1
+measurement-kit version: 0.4.3
 
-ooniprobe-wui version: 2.2.0-rc.3
+ooniprobe-wui version: 2.2.0-rc.6
 
 # ooniprobe-ios 1.1.2 [2017-02-11]
 
