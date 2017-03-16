@@ -21,7 +21,7 @@
 
 "http_invalid_request_line_longdesc" = "Este test trata de detectar la presencia de componentes de red (\"middle box\") que podrían ser responsables de censura y/o vigilancia.";
 "web_connectivity_longdesc" = "Este test examina si el acceso a los sitios web está siendo bloqueado mediante alteración del DNS, bloqueo TCP/IP, o con proxy HTTP transparente.\n\nCada vez que ejecute 'Conectividad web' estará probando distintos sitios web.";
-"ndt_test_longdesc" = "Este test mide la velocidad y el rendimiento de su red.\n\nDescargo: NDT es un test de rendimiento de propósito-general efectuado contra servidores de terceros proporcionados por Measurement Lab (M-Lab). Los servicios NDT de M-Lab requieren la retención y desvelado de direcciones IP para propósitos de investigación.";
+"ndt_test_longdesc" = "Este test mide la velocidad y el rendimiento de su red.\n\nDescargo: Este es un test de rendimiento dispuesto por terceros radicado en servidores de terceros, y no podemos garantizar que su dirección IP no será recopilada, procesada, y publicada.";
 
 "running_tests" = "Tests en ejecución";
 "finished_tests" = "Tests finalizados";
@@ -42,25 +42,25 @@
 "what_is_ooniprobe" = "¿Qué es ooniprobe?";
 "learn_more" = "Conocer más";
 
-"risks_text_1" = "¡Ooniprobe es un software libre de código abierto que le permite examinar la censura de Internet presente en su red!";
+"risks_text_1" = "ooniprobe is free and open source software that enables you to examine internet censorship in your network!";
 "risks_text_2" = "Al ejecutar esta aplicación, puede examinar si los sitios web están siendo bloqueados y cómo, y si hay sistemas de censura y/o vigilancia presentes en su red.";
 "risks_text_3" = "También puede ejecutar esta aplicación para medir la velocidad y el rendimiento de su red.";
-"risks_text_4" = "Los datos que puede recopilar mediante esta aplicación pueden servir como evidencia de episodios de censura.";
-"risks_text_5" = "ooniprobe es un herramienta de investigación y puede exponerle a algunos riesgos.";
+"risks_text_4" = "Los datos que puede recopilar mediante esta aplicación pueden servir como evidencia de casos de censura.";
+"risks_text_5" = "Ya que ooniprobe es una herramienta de investigación, y como tal, puede comportar algunos riesgos.";
 
 "potential_risks" = "Riesgos potenciales";
 "laws_text_1" = "Cualquiera que monitorice su actividad en Internet (ej. ISP, gobierno, empleador) puede saber que está ejecutando ooniprobe (incluso aunque OONI trate de dificultárselo).";
 "laws_text_2" = "Al probar sitios web en busca de censura, conectará a, y descargará datos de sitios provocativos u objetables (ej. pornografía) que podrían ser ilegales en su país.";
-"laws_text_3" = "El test \"HTTP Invalid Request Line\" (línea de petición HTTP no válida) de OONI podría levantar las sospechas de su ISP, y podría ser visto como una forma de “hacking”.";
-"laws_text_4" = "A menos que ajuste su configuración de otro modo, por defecto todos los datos recopilados de sus tests serán publicados por OONI y podrían incluir alguna información susceptible de  identificarle personalmente (aunque OONI trata de evitar que esto suceda).";
+"laws_text_3" = "El test \'HTTP Invalid Request Line\' (línea de petición HTTP no válida) de OONI podría levantar las sospechas de su ISP y podría ser visto como una forma de “hacking”.";
+"laws_text_4" = "A menos que ajuste su configuración de otro modo, por defecto, todos los datos recopilados de sus tests serán publicados por OONI, y podrían incluir alguna información que le identifique personalmente (aunque OONI trata de evitar que esto suceda).";
 "laws_text_5" = "El mero uso de ooniprobe podría ser visto como una forma de espionaje, a pesar de las leyes de su país.";
 "laws_text_6" = "Hasta donde conocemos, ningún usuario de ooniprobe se ha enfrentado nunca a consecuencias por el uso de nuestra plataforma. Sin embargo, muchos países tienen un largo historial de fijar el objetivo y abusar de activistas en derechos digitales, lo que podría dejar a los usuarios de ooniprobe sujetos a graves penas civiles, criminales, o extrajudiciales.";
 "laws_text_6" = "Hasta donde conocemos, ningún usuario de ooniprobe se ha enfrentado nunca a consecuencias por el uso de nuestra plataforma. Sin embargo, muchos países tienen un largo historial de fijar el objetivo y abusar de activistas en derechos digitales, lo que podría dejar a los usuarios de ooniprobe sujetos a graves penas civiles, criminales, o extrajudiciales.";
 "i_understand_the_risks" = "Comprendo los riesgos.";
 
 "pop_quiz" = "¡Cuestionario sorpresa!";
-"question_1" = "Pregunta 1: Cualquiera que monitorice mi actividad en Internet (ej. ISP, gobierno, o empleador) podría ser capaz de ver que estoy ejecutando ooniprobe, incluso aunque OONI tome precauciones para dificultárselo.";
-"question_2" = "Pregunta 2: Por defecto mis mediciones se publican en OONI Explorer y podrían incluir información que me identifique personalmente.";
+"question_1" = "Pregunta 1: ¿Podría alguien que esté monitorizando mi actividad en Internet (ej. ISP, gobierno o empleador) ser capaz de ver que estoy ejecutando ooniprobe, incluso aunque OOni tome precauciones para dificultar esto?";
+"question_2" = "Pregunta 2: ¿Mis mediciones serán por defecto publicadas por OONI y podrían incluir información que con capacidad potencial de identificarme?";
 "true" = "Verdadero";
 "false" = "Falso";
 "how_did_i_do" = "¿Cómo lo hice?";
@@ -68,12 +68,12 @@
 "wrong" = "Se requiere un poco más de lectura para que continúe.";
 "correct" = "¡Buen trabajo! Ha contestado al cuestionario correctamente.";
 
-"set_up_sharing" = "Configurar compartición";
+"set_up_sharing" = "Setup Sharing";
 "include_ip" = "¿Incluir su IP?";
 "include_asn" = "¿Incluir su información de red?";
 "include_cc" = "¿Incluir el nombre de su país?";
 "upload_results" = "¿Compartir los resultados públicamente?";
-"settings_text" = "Por defecto todas las mediciones se envían al recopilador de mediciones de OONI y son publicadas de forma automatizada en OONI Explorer y en la interfaz de medición de OONI.";
+"settings_text" = "Por defecto todas las mediciones se envían al recopilador de mediciones de OONI y se publican de forma automatizada a través de OONI Explorer y la lista de mediciones de OONI.";
 "im_all_set" = "¡Estoy listo!";
 "ooniprobe_configured" ="Configuración de ooniprobe finalizada. ¡Tiene todo listo para comenzar!";
 
@@ -102,9 +102,9 @@
 "copied_clipboard" = "Se copió al portapapeles";
 "send_crash" = "Enviar informes de errores";
 "privacy" = "Privacidad";
-"view_data_policy" = "Pulse aquí para ver nuestra Política de Datos";
+"view_data_policy" = "Haga clic aquí para ver nuestra política de datos";
 "test_name_finished" = "%@ finalizó, vaya a 'Tests anteriores' para ver los resultados";
 "open_url_alert" = "¿Quiere abrir la siguiente URL?";
-"max_runtime_low" = "El tiempo de ejecución máximo que ha introducido es demasiado bajo, configurando como predeterminado.";
+"max_runtime_low" = "El tiempo de ejecución máximo que ha introducido es demasiado bajo, estableciéndolo al valor predeterminado.";
 "clear_all_tests_alert" = "¿Desea eliminar todos los resultados de los tests?";
 "past_tests_empty" = "Los resultados de los tests pasados aparecerán aquí una vez que los tests hayan terminado de ejecutarse";

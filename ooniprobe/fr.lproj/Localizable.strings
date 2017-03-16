@@ -4,16 +4,16 @@
 "app_name" = "ooniprobe";
 
 "run_tests" = "Effectuer des tests";
-"past_tests" = "Anciens tests";
+"past_tests" = "Tests passés";
 "settings" = "Paramètres";
 "about" = "À propos";
 
-"dns_injection" = "DNS Injection";
+"dns_injection" = "Injection DNS";
 "tcp_connect" = "TCP Connect";
-"http_invalid_request_line" = "HTTP Invalid Request Line";
-"http_header_field_manipulation" = "HTTP Header Field Manipulation";
-"web_connectivity" = "Web Connectivity";
-"ndt_test" = "NDT Speed Test";
+"http_invalid_request_line" = "HTTP Ligne de requête invalide";
+"http_header_field_manipulation" = "HTTP Manipulation du champ d'en-tête";
+"web_connectivity" = "Connectivité Web";
+"ndt_test" = "Test de vitesse TDR";
 
 "web_connectivity_desc" = "Vérifier si des sites Web sont bloqués";
 "http_invalid_request_line_desc" = "Trouver des dispositifs intermédiaires";
@@ -21,7 +21,7 @@
 
 "http_invalid_request_line_longdesc" = "Ce test tente de détecter la présence de composants réseau (dispositifs intermédiaires) qui pourraient être la source de censure ou de surveillance.";
 "web_connectivity_longdesc" = "Ce test examine si l'accès aux sites Web est bloqué par une manipulation DNS, un blocage TCP/IP ou par un mandataire HTTP transparent.\n\nChaque fois que vous effectuez le test Connectivité Web, vous tester des sites Web différents.";
-"ndt_test_longdesc" = "Ce test mesure la vitesse et les performances de votre réseau.\n\nAvis de non-responsabilité : le test de diagnostic réseau (TDR) est un test universel de performances effectué avec des serveurs tiers, fourni par le laboratoire de mesure « Measurement Lab » (M-Lab).\nLes services TDR de M-Lab exigent la conservation et la divulgation des adresses IP à des fins de recherche.";
+"ndt_test_longdesc" = "Ce test mesure la vitesse et les performances de votre réseau.\n\nAvis de non-responsabilité : ce test de performance, fourni par un tiers, est effectué avec des serveurs tiers et nous ne pouvons pas garantir que votre adresse IP ne sera pas recueillie, traitée et publiée";
 
 "running_tests" = "Test en cours";
 "finished_tests" = "Tests terminés";
@@ -46,20 +46,20 @@
 "risks_text_2" = "En faisant fonctionner cette appli, vous pouvez examiner si des sites Web sont bloqués et comment ils le sont, ainsi que la présence de systèmes de censure ou de surveillance sur votre réseau.";
 "risks_text_3" = "Vous pouvez aussi faire fonctionner cette appli pour mesurer la vitesse et les performances de votre réseau.";
 "risks_text_4" = "Les données que vous pouvez recueillir grâce à cette appli peuvent être utilisées comme preuve de cas de censure.";
-"risks_text_5" = "ooniprobe est un outil d'investigation et peut présenter certains risques.";
+"risks_text_5" = "ooniprobe est un outil d'investigation et peu comme tel poser certains risques.";
 
 "potential_risks" = "Risques potentiels";
 "laws_text_1" = "Quiconque surveille votre activité Internet (p. ex. FAI, gouvernement, employeur) peut savoir que vous utilisez ooniprobe (bien qu'OONI essaie d'entraver la détection).";
 "laws_text_2" = "En testant la censure des sites Web, vous vous connecterez et chargerez des données de sites provocateurs ou répréhensibles (p. ex. de la pornographie) qui pourraient être illégaux dans votre pays.";
-"laws_text_3" = "Le test HTTP Ligne de requête invalide de OONI pourrait éveiller les soupçons de votre FAI et pourrait être considéré comme une forme de piratage.";
-"laws_text_4" = "À moins de configurer vos paramètres autrement, toutes les données recueillies par vos tests seront par défaut publiées par OONI et pourraient inclure des informations nominatives (bien qu'OONI essaie d'empêcher que cela arrive).";
+"laws_text_3" = "Le test HTTP Ligne de requête invalide de OONI pourrait éveiller les soupçons de votre FAI et être considéré comme une forme de piratage.";
+"laws_text_4" = "À moins de configurer vos paramètres autrement, toutes les données recueillies par vos tests seront par défaut publiées par OONI et pourraient inclure des informations nominatives (bien qu'OONI essaie de l'éviter).";
 "laws_text_5" = "La simple utilisation d'ooniprobe pourrait être considérée comme une forme d'espionnage, quelles que soient les lois dans votre pays.";
 "laws_text_6" = "À notre connaissance, aucun utilisateur d'ooniprobe n'a dû faire face aux conséquences de l'utilisation de notre plateforme. Cependant, de nombreux pays présentent une longue histoire en matière de ciblage et de répression des défenseurs des droits numériques et des utilisateurs d'ooniprobe pourraient être passibles de sévères sanctions civiles, criminelles ou extrajudiciaires.";
 "laws_text_6" = "À notre connaissance, aucun utilisateur d'ooniprobe n'a dû faire face aux conséquences de l'utilisation de notre plateforme. Cependant, de nombreux pays présentent une longue histoire en matière de ciblage et de répression des défenseurs des droits numériques et des utilisateurs d'ooniprobe pourraient être passibles de sévères sanctions civiles, criminelles ou extrajudiciaires.";
 "i_understand_the_risks" = "Je comprends les risques.";
 
 "pop_quiz" = "Jeu-questionnaire !";
-"question_1" = "Question 1 : quiconque surveille mon activité Internet (p. ex. FAI, gouvernement, employeur) peut-il savoir que j'utilise ooniprobe, même si OONI prend des précautions pour entraver la détection ?";
+"question_1" = "Question 1 : quiconque surveille mon activité Internet (p. ex. FAI, gouvernement, employeur) peut-il savoir que j'utilise ooniprobe même si OONI prend des précautions pour entraver la détection ?";
 "question_2" = "Question 2 : mes mesures seront-elles par défaut publiées par OONI et pourraient-elles inclure des informations nominatives ?";
 "true" = "Vrai";
 "false" = "Faux";
@@ -68,7 +68,7 @@
 "wrong" = "Il vous faut lire davantage avant de pouvoir continuer.";
 "correct" = "Bon travail ! Vous avez bien répondu au jeu-questionnaire.";
 
-"set_up_sharing" = "Mettre en place le partage";
+"set_up_sharing" = "Paramétrage du partage";
 "include_ip" = "Inclure votre IP ?";
 "include_asn" = "Inclure vos informations réseau ?";
 "include_cc" = "Inclure le nom de votre pays ?";
@@ -103,8 +103,8 @@
 "send_crash" = "Envoyer les rapports de plantage";
 "privacy" = "Confidentialité";
 "view_data_policy" = "Cliquer ici pour visualiser notre politique en matière de données";
-"test_name_finished" = "%@ est terminé, aller aux tests antérieurs pour visualiser les résultats";
+"test_name_finished" = "%@ est terminé, aller aux « Tests passés » pour visualiser les résultats";
 "open_url_alert" = "Souhaitez-vous ouvrir l'URL suivante ?";
-"max_runtime_low" = "La durée d'exécution que vous avez spécifiée est trop courte; réglage par défaut activé";
-"clear_all_tests_alert" = "Voulez-vous supprimer tous les résultats de test?";
-"past_tests_empty" = "Les résultats des précédents tests apparaîtront une fois que les tests se seront exécutés ";
+"max_runtime_low" = "La durée maximale d'exécution que vous avez saisie est trop courte, application de la valeur par défaut.";
+"clear_all_tests_alert" = "Voulez-vous supprimer tous les résultats de test ?";
+"past_tests_empty" = "Les résultats des tests antérieurs apparaîtront ici une fois que les tests seront terminés";
