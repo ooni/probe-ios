@@ -1,5 +1,7 @@
 ![ooniprobe iOS](assets/title.png)
 
+[![Slack Channel](https://slack.openobservatory.org/badge.svg)](https://slack.openobservatory.org/)
+
 This is the iOS version of [ooniprobe](https://ooni.torproject.org/).
 
 Download it on the [App Store](https://itunes.apple.com/us/app/id1199566366).
