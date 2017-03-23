@@ -52,6 +52,52 @@ Similarly, you can use a specific tag, e.g.:
 Then type `pod install` and open `.xcworkspace` file (beware not to open the
 `.xcodeproj` file instead, because that alone won't compile).
 
+## Managing translations
+
+To manage translations ensure you have installed the [transifex command line
+tools](https://docs.transifex.com/client/installing-the-client).
+
+### Pushing source text
+
+To push the source of the translation run:
+
+```
+tx push -s
+```
+
+### Pulling translations
+
+To pull in translations run:
+
+```
+tx pull
+```
+
+or
+
+```
+tx pull -l [lang_code]
+```
+
+to pull only a specific language
+
+
+### Generating descriptions for market
+
+To generate translated descriptions for the markets run:
+
+```
+python scripts/gen-descriptions.py [lang_code]
+```
+
+Where `lang_code` is the language code for the description you want to
+generate.
+
+This will print to standard output the translated text that you can then copy
+and paste into the market descriptions.
+
+If a string is not translated it will print the source for the text.
+
 ## Contributing
 
 * Write some code
@@ -59,3 +105,4 @@ Then type `pod install` and open `.xcworkspace` file (beware not to open the
 * Open a pull request
 
 * Have fun!
+

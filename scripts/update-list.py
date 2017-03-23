@@ -5,7 +5,7 @@ import shutil
 import subprocess
 import tempfile
 
-TARGET_FILE = 'ooniprobe/Resources/fixtures/global.txt'
+TARGET_FILE = 'app/src/main/res/raw/global.txt'
 LATEST_VERSION_URL = 'https://github.com/OpenObservatory/ooni-resources/releases/download/latest/version'
 
 GLOBAL_LIST_URL = 'https://github.com/OpenObservatory/ooni-resources/releases/download/{}/citizenlab-test-lists.global.csv'
