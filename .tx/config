@@ -1,11 +1,11 @@
 [main]
 host = https://www.transifex.com
 
-#[ooniprobe.localizablestrings]
-#file_filter = ooniprobe/<lang>.lproj/Localizable.strings
-#source_file = ooniprobe/Base.lproj/Localizable.strings
-#source_lang = en
-#type = IOS
+[ooniprobe.localizablestrings]
+file_filter = ooniprobe/<lang>.lproj/Localizable.strings
+source_file = ooniprobe/Base.lproj/Localizable.strings
+source_lang = en
+type = STRINGS
 
 [ooniprobe.description]
 file_filter = description/<lang>.xlf
