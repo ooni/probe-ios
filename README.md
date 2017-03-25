@@ -1,4 +1,4 @@
-![ooniprobe iOS](assets/title.png)
+[![ooniprobe iOS](assets/title.png)](https://ooni.torproject.org/)
 
 [![Slack Channel](https://slack.openobservatory.org/badge.svg)](https://slack.openobservatory.org/)
 
