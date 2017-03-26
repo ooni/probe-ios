@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
 import xml.dom.minidom as md
@@ -12,19 +13,19 @@ full_description_tmpl = u"""
 {intro3}
 {intro4}
 
-<b>{evidence-title}</b>
+▶ {evidence-title}
 {evidence-description}
 
-<b>{systems-title}</b>
+▶ {systems-title}
 {systems-description}
 
-<b>{speed-title}</b>
+▶ {speed-title}
 {speed-description}
 
-<b>{opendata-title}</b>
+▶ {opendata-title}
 {opendata-description}
 
-<b>{freesoftware-title}</b>
+▶ {freesoftware-title}
 {freesoftware-description}
 
 
