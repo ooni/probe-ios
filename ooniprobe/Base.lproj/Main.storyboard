@@ -22,7 +22,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xrg-Ho-3Kp">
             <objects>
-                <navigationController id="AYN-ls-CZF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RunTestsNav" id="AYN-ls-CZF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ScQ-7o-v6B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -41,6 +41,7 @@
         <scene sceneID="nxy-ql-q8y">
             <objects>
                 <navigationController navigationBarHidden="YES" id="ttE-KP-jYH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lIJ-E6-e0s"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Bdi-hx-AcC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -127,7 +128,7 @@
         <!--Run Tests View Controller-->
         <scene sceneID="n9F-Ud-ZKt">
             <objects>
-                <tableViewController id="RZH-Z4-d2a" customClass="RunTestsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RunTests" id="RZH-Z4-d2a" customClass="RunTestsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="44p-sf-aNf">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -229,7 +230,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="revealButtonItem" destination="anJ-N5-jov" id="pPm-Am-PXt"/>
-                        <segue destination="ttE-KP-jYH" kind="show" identifier="showInformedConsent" id="gu1-Pu-vTs"/>
+                        <segue destination="ttE-KP-jYH" kind="presentation" identifier="showInformedConsent" id="gu1-Pu-vTs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycm-c3-ths" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,7 +364,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LQ-jL-4sC" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="209"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="275"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About OONI" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkq-dT-tuY">
                                                 <rect key="frame" x="16" y="0.0" width="288" height="70"/>
@@ -379,6 +380,17 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="PZv-Vg-fNj"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
+                                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUW-JG-UiH">
+                                                <rect key="frame" x="16" y="217" width="288" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="iaj-Yv-BPx"/>
+                                                </constraints>
+                                                <string key="text">ooniprobe: x.y.z
+measurement-kit: x.y.z</string>
                                                 <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
                                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -418,7 +430,6 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="dua-hA-onm" secondAttribute="bottom" id="1qa-K2-fwL"/>
                                             <constraint firstItem="Zkq-dT-tuY" firstAttribute="leading" secondItem="4LQ-jL-4sC" secondAttribute="leading" constant="16" id="20w-j0-lf9"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4OM-HC-eA4" secondAttribute="trailing" constant="118" id="2CQ-BP-TRi"/>
                                             <constraint firstItem="4OM-HC-eA4" firstAttribute="top" secondItem="ayW-lO-myY" secondAttribute="bottom" constant="16" id="3dQ-YK-rdT"/>
@@ -427,11 +438,15 @@
                                             <constraint firstItem="dua-hA-onm" firstAttribute="centerX" secondItem="4LQ-jL-4sC" secondAttribute="centerX" id="RDm-TW-PxN"/>
                                             <constraint firstItem="4OM-HC-eA4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="4LQ-jL-4sC" secondAttribute="leading" constant="117" id="WVA-il-Ezi"/>
                                             <constraint firstItem="ayW-lO-myY" firstAttribute="top" secondItem="Zkq-dT-tuY" secondAttribute="bottom" constant="8" id="Xj3-sR-tjN"/>
+                                            <constraint firstAttribute="trailing" secondItem="qUW-JG-UiH" secondAttribute="trailing" constant="16" id="cuo-z3-aZr"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="dua-hA-onm" secondAttribute="trailing" constant="98" id="fVV-TH-CaI"/>
                                             <constraint firstItem="dua-hA-onm" firstAttribute="top" secondItem="4OM-HC-eA4" secondAttribute="bottom" constant="8" id="kC5-ch-Fef"/>
+                                            <constraint firstAttribute="bottom" secondItem="qUW-JG-UiH" secondAttribute="bottom" constant="8" id="qvZ-hH-QK6"/>
                                             <constraint firstAttribute="trailing" secondItem="ayW-lO-myY" secondAttribute="trailing" constant="16" id="sIe-4K-wa5"/>
                                             <constraint firstAttribute="trailing" secondItem="Zkq-dT-tuY" secondAttribute="trailing" constant="16" id="slH-my-ZGa"/>
                                             <constraint firstItem="ayW-lO-myY" firstAttribute="leading" secondItem="4LQ-jL-4sC" secondAttribute="leading" constant="16" id="wEF-eW-OH4"/>
+                                            <constraint firstItem="qUW-JG-UiH" firstAttribute="leading" secondItem="4LQ-jL-4sC" secondAttribute="leading" constant="16" id="xSG-Lb-770"/>
+                                            <constraint firstItem="qUW-JG-UiH" firstAttribute="top" secondItem="dua-hA-onm" secondAttribute="bottom" constant="8" id="z1h-jK-chG"/>
                                             <constraint firstItem="dua-hA-onm" firstAttribute="leading" relation="lessThanOrEqual" secondItem="4LQ-jL-4sC" secondAttribute="leading" constant="97" id="zZm-pl-iPb"/>
                                         </constraints>
                                     </view>
@@ -463,6 +478,7 @@
                         <outlet property="revealButtonItem" destination="bwU-4D-cHu" id="dDh-Vo-LUN"/>
                         <outlet property="textLabel" destination="ayW-lO-myY" id="0nK-uc-u7u"/>
                         <outlet property="titleLabel" destination="Zkq-dT-tuY" id="iEM-hS-oCD"/>
+                        <outlet property="versionLabel" destination="qUW-JG-UiH" id="CIU-q0-7ET"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SO9-x9-K6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -552,6 +568,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="94M-Mx-uxq">
                         <barButtonItem key="leftBarButtonItem" image="menu_white" id="XaG-HV-X9a"/>
+                        <barButtonItem key="rightBarButtonItem" image="trash" id="WVW-f9-Rj0">
+                            <connections>
+                                <action selector="clearAllTests:" destination="299-J3-FTK" id="sQ4-hJ-oCa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="revealButtonItem" destination="XaG-HV-X9a" id="KyQ-eO-fLG"/>
@@ -670,7 +691,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBf-1M-gMq" customClass="RoundedButton">
-                                                <rect key="frame" x="90" y="111" width="140" height="55"/>
+                                                <rect key="frame" x="92.5" y="111" width="135" height="55"/>
                                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="epV-Qi-sGe"/>
@@ -745,7 +766,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mgm-Gr-XSb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <label key="tableHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e5q-0i-gQg">
+                                <label key="tableHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="e5q-0i-gQg">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="38"/>
@@ -757,7 +778,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78G-IL-tcb" customClass="RoundedButton">
-                                            <rect key="frame" x="86" y="16" width="148" height="55"/>
+                                            <rect key="frame" x="84.5" y="16" width="151" height="55"/>
                                             <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="55" id="zGT-Fa-Ho3"/>
@@ -878,7 +899,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pRY-ed-1aW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <label key="tableHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vX2-Z9-I62">
+                                <label key="tableHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="vX2-Z9-I62">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="38"/>
@@ -979,13 +1000,13 @@
         <scene sceneID="mFi-Va-xKB">
             <objects>
                 <tableViewController storyboardIdentifier="lateral_menu" id="sSR-4b-iaY" customClass="LeftMenuTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="8jl-QG-6eP">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="8jl-QG-6eP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="kIp-r9-wEL">
-                            <rect key="frame" x="0.0" y="302" width="320" height="110"/>
+                            <rect key="frame" x="0.0" y="262" width="320" height="110"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ooni_logo" translatesAutoresizingMaskIntoConstraints="NO" id="FB4-hO-TQd">
@@ -1004,16 +1025,16 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="run_tests" textLabel="qDJ-Bu-vkH" style="IBUITableViewCellStyleDefault" id="gHX-kX-KYj">
-                                <rect key="frame" x="0.0" y="22" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gHX-kX-KYj" id="4eO-MR-Mr7">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Run Tests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qDJ-Bu-vkH">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="70"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="39"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="30"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1026,16 +1047,16 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="past_tests" textLabel="U3b-h3-AuZ" style="IBUITableViewCellStyleDefault" id="tgk-qO-5SJ">
-                                <rect key="frame" x="0.0" y="92" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="82" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tgk-qO-5SJ" id="bSk-of-Y0Q">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Past Tests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U3b-h3-AuZ">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="70"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="39"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="30"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1048,16 +1069,16 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settings" textLabel="QMr-xX-vcw" style="IBUITableViewCellStyleDefault" id="4Zc-yk-zbe">
-                                <rect key="frame" x="0.0" y="162" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="142" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Zc-yk-zbe" id="Y7K-oR-3wn">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QMr-xX-vcw">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="70"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="39"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="30"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1070,16 +1091,16 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="about" textLabel="YW3-gC-SlX" style="IBUITableViewCellStyleDefault" id="oBz-D1-6nL">
-                                <rect key="frame" x="0.0" y="232" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="202" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oBz-D1-6nL" id="KkK-lP-S7P">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YW3-gC-SlX">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="70"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="39"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="30"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1473,9 +1494,10 @@
         <image name="ooni_intro" width="370" height="214"/>
         <image name="ooni_logo" width="300" height="300"/>
         <image name="radio_button_off" width="32" height="32"/>
+        <image name="trash" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5aZ-7B-4ri"/>
         <segue reference="ULy-MW-EOd"/>
+        <segue reference="xM5-AD-3dX"/>
     </inferredMetricsTieBreakers>
 </document>

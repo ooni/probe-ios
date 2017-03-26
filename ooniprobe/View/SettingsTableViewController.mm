@@ -105,7 +105,7 @@
             cell.textLabel.text = NSLocalizedString(current, nil);
             cell.imageView.image = [UIImage imageNamed:current];
             NSNumber *time = [[NSUserDefaults standardUserDefaults] objectForKey:current];
-            UITextField *textField = [self createTextField:[NSString stringWithFormat:@"%@", time]];
+            UITextField *textField = [self createTextField:[time stringValue]];
             cell.accessoryView = textField;
         }
         else if ([current isEqualToString:@"collector_address"]){
@@ -134,6 +134,20 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    UITableViewCell *cell = (UITableViewCell *)textField.superview;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    if (indexPath.section == 2 && indexPath.row == 0){
+        if ([textField.text integerValue] < 10){
+            NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+            f.numberStyle = NSNumberFormatterDecimalStyle;
+            [[NSUserDefaults standardUserDefaults] setObject:[f numberFromString:@"10"] forKey:@"max_runtime"];
+            [self.tableView reloadData];
+            [self.view makeToast:NSLocalizedString(@"max_runtime_low", nil)];
+        }
+    }
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

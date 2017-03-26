@@ -19,10 +19,16 @@
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
     [self.revealButtonItem setAction: @selector(revealLeftView)];
+    
+    //Using component https://github.com/dzenbot/DZNEmptyDataSet
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.tableFooterView = [UIView new];
+
     self.revealViewController.leftPresentViewHierarchically = YES;
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     [self.revealViewController setDelegate:self];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:FALSE] forKey:@"new_tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -55,6 +61,34 @@
     else if (revealController.isLeftViewOpen)
         return YES;
     return NO;
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"ooni_logo_bw"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = NSLocalizedString(@"past_tests_empty", nil);
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSansOT-Bold" size:18],
+                                 NSForegroundColorAttributeName: color_off_black};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSansOT-Bold" size:18],
+                                 NSForegroundColorAttributeName: color_ooni_blue};
+    
+    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"run_tests", nil) attributes:attributes];
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
+{
+    [self.revealViewController setMainViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RunTestsNav"] animated:YES];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -161,6 +195,20 @@
         NetworkMeasurement *current = [finishedTests objectAtIndex:indexPath.row];
         [finishedTests removeObjectAtIndex:indexPath.row];
         [TestStorage remove_test:current.test_id];
+        [self reloadTable];
+    }
+}
+
+
+- (IBAction)clearAllTests:(id)sender{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"clear_all_tests_alert", @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [TestStorage remove_all_tests];
         [self reloadTable];
     }
 }

@@ -30,8 +30,6 @@
 
 + (void)set_all_viewed;
 
-+ (void)remove_running_tests;
-
 + (BOOL)new_tests;
 
 + (void)remove_all_tests;
