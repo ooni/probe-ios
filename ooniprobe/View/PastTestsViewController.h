@@ -12,6 +12,7 @@
 #import "UIButton+Badge.h"
 #import "Tests.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import "AppDelegate.h"
 
 @interface PastTestsViewController : UITableViewController <PBRevealViewControllerDelegate, UIAlertViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>{
     NSMutableArray *finishedTests;

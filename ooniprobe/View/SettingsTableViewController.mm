@@ -13,8 +13,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
-    [self.revealButtonItem setAction: @selector(revealLeftView)];
-    self.revealViewController.leftPresentViewHierarchically = YES;
+    self.revealViewController.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if ([[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] isEqualToString:@"ar"]){
+        [self.revealViewController setRightViewRevealWidth:260.0f];
+        self.revealViewController.rightPresentViewHierarchically = YES;
+        [self.revealButtonItem setAction: @selector(revealRightView)];
+    }
+    else {
+        [self.revealButtonItem setAction: @selector(revealLeftView)];
+        self.revealViewController.leftPresentViewHierarchically = YES;
+    }
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     self.title = NSLocalizedString(@"settings", nil);
     [self reloadSettings];

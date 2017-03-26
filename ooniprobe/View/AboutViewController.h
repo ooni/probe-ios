@@ -5,6 +5,7 @@
 #import <UIKit/UIKit.h>
 #import "PBRevealViewController.h"
 #import "RoundedButton.h"
+#import "AppDelegate.h"
 
 @interface AboutViewController : UIViewController
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;

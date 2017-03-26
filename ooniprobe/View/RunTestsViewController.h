@@ -10,6 +10,7 @@
 #import "PBRevealViewController.h"
 #import "Tests.h"
 #import "UIBarButtonItem+Badge.h"
+#import "AppDelegate.h"
 
 @interface RunTestsViewController : UITableViewController {
     Tests *currentTests;
