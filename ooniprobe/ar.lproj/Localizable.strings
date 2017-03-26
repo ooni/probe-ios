@@ -1,0 +1,110 @@
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
+"app_name" = "أوني-بروب";
+
+"run_tests" = "إجراء الاختبارات";
+"past_tests" = "الاختبارات السابقة";
+"settings" = "الإعدادات";
+"about" = "من نحن";
+
+"dns_injection" = "إدراج نظام أسماء النطاقات ";
+"tcp_connect" = "ربط TCP ";
+"http_invalid_request_line" = "HTTP Invalid request line";
+"http_header_field_manipulation" = "HTTP Header field manipulation";
+"web_connectivity" = "الاتصال بشبكة الويب";
+"ndt_test" = "أداة تشخيص سرعة الشبكة";
+
+"web_connectivity_desc" = "اكتشف إن كان هناك مواقع محجوبة";
+"http_invalid_request_line_desc" = "اكتشف وجود نقاط تفتيش";
+"ndt_test_desc" = "فحص سرعة وجودة الشبكة";
+
+"http_invalid_request_line_longdesc" = "يعمل هذا الاختبار على كشف وجود مكونات (نقاط تفتيش) في الشبكة قد تستخدم في المراقبة أو الحجب.";
+"web_connectivity_longdesc" = "يعمل هذا الاختبار على كشف مقدار وجود حجب للمواقع عبر تقنيات مختلفة (DNS Tampering - TCP/IP Blocking - Transparent HTTP Proxy).\n\nفي كل مرة يتم إجراء الاختبار يتم تجربة حزمة مواقع مختلفة.";
+"ndt_test_longdesc" = "This test measures the speed and performance of your network.\n\nDisclaimer: This is a third-party performance test based on third-party servers, and we cannot guarantee that your IP address will not be collected, processed, and published.";
+
+"running_tests" = "الاختبارات الجارية";
+"finished_tests" = "الاختبارات المنجزة";
+
+"settings" = "الإعدادات";
+"collector_address" = "جامع العناوين";
+
+"cancel" = "إلغاء";
+"ok" = "أوافق";
+"delete" = "حذف";
+
+"test_result" = "نتائج الاختبار";
+"change" = "تغيير";
+
+"welcome_ooniprobe" = "أهلا في أوني-بروب";
+"get_started" = "ابدأ";
+
+"what_is_ooniprobe" = "ما هو أوني-بروب؟";
+"learn_more" = "اعرفوا المزيد";
+
+"risks_text_1" = "ooniprobe is free and open source software that enables you to examine internet censorship in your network!";
+"risks_text_2" = "يمكنك باستخدام هذا البرنامج الكشف عن وجود حجب للمواقع من عدمه وتقنية الحجب، وعن وجود أي أنظمة مراقبة على الشبكة.";
+"risks_text_3" = "كما يمكنك استخدام هذا التطبيق لفحص سرعة وجودة الشبكة.";
+"risks_text_4" = "البيانات التي يمكنكم جمعها باستخدام هذا التطبيق يمكن استخدامها كدليل عن حدوث الحجب.";
+"risks_text_5" = "لأن أوني-بروب أداة للتحقيق والتقصّي، قد يشكل ذلك بعض الخطورة.";
+
+"potential_risks" = "المخاطر المحتملة";
+"laws_text_1" = "أي شخص يقوم بمراقبة نشاطك على الانترنت (أمثلة: مقدمي خدمة الإنترنت – الحكومة – موظف عمومي) يستطيع أن يرى أنك تستخدم أوني-بروب (بالرغم من أوني-بروب يعمل جاهدا على جعل هذه المهمة صعبة)";
+"laws_text_2" = "عند إجراء اختبارات حجب الموقع، سوف تقوم بالاتصالات وتنزيل بيانات من مواقع قد تعتبر استفزازية أو غير مرحب بها (مثل مواقع إباحية) قد تعتبر غير قانونية في دولتك.";
+"laws_text_3" = "OONI’s HTTP invalid request line test might trigger the suspicion of your ISP and could be viewed as a form of “hacking”.";
+"laws_text_4" = "Unless you configure your settings otherwise, all data collected from your tests will by default be published by OONI and might include some personally- identifiable information (though OONI tries to prevent this from happening).";
+"laws_text_5" = "قد يعتبر مجرد استخدام أوني-بروب من أعمال الجاسوسية بغض النظر عن القوانين في دولتك.";
+"laws_text_6" = "حسب معلوماتنا، لم يتعرض أي مستخدم أوني-بروب ﻷي تبعات نتيجة استخدام منصتنا. وبالرغم من ذلك يوجد دول كثيرة ذات تاريخ طويل من الإساءة إلى واستهداف نشطاء التقنية والحريات الرقمية، مما قد يعرض مستخدمي أوني-بروب إلى عقوبات شديدة مدنية أو جنائية أو خارج إطار القانون.";
+"laws_text_6" = "حسب معلوماتنا، لم يتعرض أي مستخدم أوني-بروب ﻷي تبعات نتيجة استخدام منصتنا. وبالرغم من ذلك يوجد دول كثيرة ذات تاريخ طويل من الإساءة إلى واستهداف نشطاء التقنية والحريات الرقمية، مما قد يعرض مستخدمي أوني-بروب إلى عقوبات شديدة مدنية أو جنائية أو خارج إطار القانون.";
+"i_understand_the_risks" = "أفهم الخاطر.";
+
+"pop_quiz" = "اختبار سريع!";
+"question_1" = "Question 1: Might anyone monitoring my internet activity (e.g. ISP, government or employer) be able to see that I am running ooniprobe, even though OONI takes precautions to make this hard?";
+"question_2" = "Question 2: Will my measurements by default get published by OONI and might they include personally-identifiable information?";
+"true" = "صح";
+"false" = "خطأ";
+"how_did_i_do" = "كيف أبليت في الاختبار؟";
+
+"wrong" = "القليل من القراءة الإضافية مطلوبة لكي تستطيع المتابعة.";
+"correct" = "أحسنت! قمت بإجابة الاختبار على نحو صحيح.";
+
+"set_up_sharing" = "Setup Sharing";
+"include_ip" = "إدراج المعرف الرقمي الخاص بك؟";
+"include_asn" = "إدراج البيانات الخاصة بشبكتك؟";
+"include_cc" = "إدراج أسم دولتك؟";
+"upload_results" = "مشاركة النتائج علانية؟";
+"settings_text" = "All measurements are sent by default to OONI's measurement collector and automately published through the OONI explorer and OONI's list of measurements.";
+"im_all_set" = "أنا على أتم الاستعداد!";
+"ooniprobe_configured" ="لقد تم إعداد أوني-بروب بنجاح ويمكنك البدء.";
+
+"about_ooni" = "عن أوني";
+"about_text_1" = "أوني عبارة عن مشروع برنامج حر ومفتوح المصدر تابع لمشروع تور، يسعى إلى تعزيز الشفافية حول ممارسات الحجب حول العالم.";
+"about_text_2" ="منذ 2012، قام أوني بجمع ملايين الاختبارات حول العالم وتسليط الضوء على حالات الحجب والتلاعب في الشبكة.";
+"learn_more" = "اعرفوا المزيد";
+
+"run" = "ابدأ";
+"view" = "النتيجة";
+
+"no_result" = "لا يوجد نتائج";
+"no_result_msg" = "لا يوجد نتائج للاختبار أو تم إلغاءه";
+
+"local_notifications" = "ضبط تذكرة للاختبار";
+"local_notifications_time" = "الوقت";
+"local_notifications_text" = "وقت إجراء الاختبار";
+
+"notifications" = "تنبيهات";
+
+"max_runtime" = "الحد الأقصى للاتصال بالشبكة (ثواني)";
+"advanced_settings" = "إعدادات متقدمة";
+"finished_running" = "%@ انتهى";
+"view_log" = "مطالعة النتيجة";
+"copy_to_clipboard" = "نسخ إلى الذاكرة التخزين المؤقتة";
+"copied_clipboard" = "تم النسخ إلى الذاكرة التخزين المؤقتة";
+"send_crash" = "أرسل تقارير حول تعطل التطبيق";
+"privacy" = "الخصوصية";
+"view_data_policy" = "اضغطوا هنا لمراجعة سياسة البيانات الخاصة بنا";
+"test_name_finished" = "%@ انتهى، اذهب إلى النتائج السابقة لمطالعة النتائج";
+"open_url_alert" = "هل ترغب في فتح الرابط التالي؟";
+"max_runtime_low" = "الزمن الأقصى لعمل التطبيق الذي قمتم بإدخاله منخفض جدا، لذلك سنستخدم القيمة الافتراضية.";
+"clear_all_tests_alert" = "هل تريدون حذف جيع نتائج الاختبارات؟";
+"past_tests_empty" = "ستظهر نتائج الإختبارات السابقة هنا مباشرة بعد إنجازها.";
