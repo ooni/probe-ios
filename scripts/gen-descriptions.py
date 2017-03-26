@@ -3,8 +3,7 @@ import os
 import sys
 import xml.dom.minidom as md
 
-title_tmpl = u"{title}"
-short_description_tmpl = u"{shortdescription}"
+title_tmpl = u"{title-ios}"
 
 full_description_tmpl = u"""
 {intro}
@@ -86,9 +85,6 @@ def print_tmpls(lang_code='source'):
     title = title_tmpl.format(**ids)
     print_frmt("Title", title)
 
-    short_description = short_description_tmpl.format(**ids)
-    print_frmt("Short description", short_description)
-
     full_description = full_description_tmpl.format(**ids)
     print_frmt("Full description", full_description)
 
@@ -111,3 +107,4 @@ if __name__ == "__main__":
     if target == 'en':
         target = 'source'
     print_tmpls(target)
+
