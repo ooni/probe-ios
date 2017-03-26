@@ -105,7 +105,9 @@
             cell.textLabel.text = NSLocalizedString(current, nil);
             cell.imageView.image = [UIImage imageNamed:current];
             NSNumber *time = [[NSUserDefaults standardUserDefaults] objectForKey:current];
-            UITextField *textField = [self createTextField:[time stringValue]];
+            NSDecimalNumber *someNumber = [NSDecimalNumber decimalNumberWithString:[time stringValue]];
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            UITextField *textField = [self createTextField:[formatter stringFromNumber:someNumber]];
             cell.accessoryView = textField;
         }
         else if ([current isEqualToString:@"collector_address"]){
