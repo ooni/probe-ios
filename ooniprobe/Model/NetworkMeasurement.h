@@ -50,3 +50,7 @@
 
 @interface NdtTest : NetworkMeasurement
 @end
+
+@interface HttpHeaderFieldManipulation : NetworkMeasurement
+@end
+

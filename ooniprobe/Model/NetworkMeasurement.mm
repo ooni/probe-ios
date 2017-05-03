@@ -483,3 +483,59 @@ static std::string get_dns_server() {
 }
 
 @end
+
+
+@implementation HttpHeaderFieldManipulation : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    self.name = @"http_header_field_manipulation";
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    [super run_test];
+    setup_idempotent();
+    mk::nettests::HttpHeaderFieldManipulationTest()
+    .set_options("backend", [HHFM_BACKEND UTF8String])
+    .set_options("dns/nameserver", get_dns_server())
+    .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
+    .set_options("geoip_country_path", [geoip_country UTF8String])
+    .set_options("geoip_asn_path", [geoip_asn UTF8String])
+    .set_options("save_real_probe_ip", include_ip)
+    .set_options("save_real_probe_asn", include_asn)
+    .set_options("save_real_probe_cc", include_cc)
+    .set_options("no_collector", !upload_results)
+    .set_options("collector_base_url", [collector_address UTF8String])
+    .set_options("software_name", [@"ooniprobe-ios" UTF8String])
+    .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+    .set_output_filepath([[self getFileName:@"json"] UTF8String])
+    .set_error_filepath([[self getFileName:@"log"] UTF8String])
+    .set_verbosity(MK_LOG_INFO)
+    .on_progress([self](double prog, const char *s) {
+        [self updateProgress:prog];
+    })
+    .on_log([self](uint32_t type, const char *s) {
+#ifdef DEBUG
+        NSLog(@"%s", s);
+#endif
+    })
+    .on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    })
+    .start([self]() {
+        [self testEnded];
+    });
+}
+
+@end
+
+

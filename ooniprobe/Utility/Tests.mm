@@ -37,6 +37,9 @@
     HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
     [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
     
+    HttpHeaderFieldManipulation *http_header_field_manipulationMeasurement = [[HttpHeaderFieldManipulation alloc] init];
+    [self.availableNetworkMeasurements addObject:http_header_field_manipulationMeasurement];
+
     NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
     [self.availableNetworkMeasurements addObject:ndt_testMeasurement];
 }
