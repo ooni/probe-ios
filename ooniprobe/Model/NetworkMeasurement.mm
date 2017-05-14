@@ -148,8 +148,9 @@ static std::string get_dns_server() {
             [TestStorage set_entry:self.test_id];
             self.entry = TRUE;
         }
+        NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
         if (blocking > self.anomaly){
             self.anomaly = blocking;
@@ -157,6 +158,36 @@ static std::string get_dns_server() {
         }
     }
 }
+
+-(void)on_entry_hhfm:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
+        int blocking = 0;
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+            blocking = 1;
+        else {
+            NSDictionary *tampering = [[json objectForKey:@"test_keys"] objectForKey:@"tampering"];
+            if ([tampering objectForKey:@"header_field_name"] && [[tampering objectForKey:@"header_field_name"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"header_field_number"] && [[tampering objectForKey:@"header_field_number"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"header_field_value"] && [[tampering objectForKey:@"header_field_value"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"header_name_capitalization"] && [[tampering objectForKey:@"header_name_capitalization"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"request_line_capitalization"] && [[tampering objectForKey:@"request_line_capitalization"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"total"] && [[tampering objectForKey:@"total"] boolValue]) blocking = 2;
+        }
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
+    }
+}
+
 
 -(int)checkAnomaly:(NSDictionary*)test_keys{
     /*
@@ -529,7 +560,7 @@ static std::string get_dns_server() {
 #endif
     })
     .on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
+        [self on_entry_hhfm:s.c_str()];
     })
     .start([self]() {
         [self testEnded];
