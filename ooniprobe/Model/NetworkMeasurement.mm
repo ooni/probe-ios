@@ -142,7 +142,7 @@ static std::string get_dns_server() {
     });
 }
 
--(void)on_entry:(const char*)str{
+-(void)on_entry_wc:(const char*)str{
     if (str != nil) {
         if (!self.entry){
             [TestStorage set_entry:self.test_id];
@@ -152,6 +152,55 @@ static std::string get_dns_server() {
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
+    }
+}
+
+-(int)checkAnomaly:(NSDictionary*)test_keys{
+    /*
+     null => anomal = 1,
+     false => anomaly = 0,
+     stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
+     
+     Return values:
+     0 == OK,
+     1 == orange,
+     2 == red
+     */
+    id element = [test_keys objectForKey:@"blocking"];
+    int anomaly = 0;
+    if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
+        anomaly = 1;
+    }
+    else if (([element isKindOfClass:[NSString class]])) {
+        anomaly = 2;
+    }
+    return anomaly;
+}
+
+//TODO document this functions
+//TODO rewrite these functions to avoidin repeating so much code
+
+-(void)on_entry_hirl:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        int blocking = 0;
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
+            //this case shouldn't happen
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
+                blocking = 1;
+            else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
+                blocking = 2;
+        }
         if (blocking > self.anomaly){
             self.anomaly = blocking;
             [TestStorage set_anomaly:self.test_id :blocking];
@@ -188,27 +237,23 @@ static std::string get_dns_server() {
     }
 }
 
-
--(int)checkAnomaly:(NSDictionary*)test_keys{
-    /*
-     null => anomal = 1,
-     false => anomaly = 0,
-     stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
-     
-     Return values:
-     0 == OK,
-     1 == orange,
-     2 == red
-     */
-    id element = [test_keys objectForKey:@"blocking"];
-    int anomaly = 0;
-    if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
-        anomaly = 1;
+-(void)on_entry_ndt:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        int blocking = 0;
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+            blocking = 1;
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
     }
-    else if (([element isKindOfClass:[NSString class]])) {
-        anomaly = 2;
-    }
-    return anomaly;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
@@ -338,7 +383,7 @@ static std::string get_dns_server() {
             #endif
         })
         .on_entry([self](std::string s) {
-            [self on_entry:s.c_str()];
+            [self on_entry_hirl:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
@@ -454,7 +499,7 @@ static std::string get_dns_server() {
             #endif
         })
         .on_entry([self](std::string s) {
-            [self on_entry:s.c_str()];
+            [self on_entry_wc:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
@@ -506,7 +551,7 @@ static std::string get_dns_server() {
             #endif
         })
         .on_entry([self](std::string s) {
-            [self on_entry:s.c_str()];
+            [self on_entry_ndt:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
