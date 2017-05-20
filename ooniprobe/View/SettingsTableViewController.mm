@@ -13,8 +13,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
-    [self.revealButtonItem setAction: @selector(revealLeftView)];
-    self.revealViewController.leftPresentViewHierarchically = YES;
+    self.revealViewController.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if ([[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] isEqualToString:@"ar"]){
+        [self.revealViewController setRightViewRevealWidth:260.0f];
+        self.revealViewController.rightPresentViewHierarchically = YES;
+        [self.revealButtonItem setAction: @selector(revealRightView)];
+    }
+    else {
+        [self.revealButtonItem setAction: @selector(revealLeftView)];
+        self.revealViewController.leftPresentViewHierarchically = YES;
+    }
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     self.title = NSLocalizedString(@"settings", nil);
     [self reloadSettings];
@@ -105,7 +113,9 @@
             cell.textLabel.text = NSLocalizedString(current, nil);
             cell.imageView.image = [UIImage imageNamed:current];
             NSNumber *time = [[NSUserDefaults standardUserDefaults] objectForKey:current];
-            UITextField *textField = [self createTextField:[time stringValue]];
+            NSDecimalNumber *someNumber = [NSDecimalNumber decimalNumberWithString:[time stringValue]];
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            UITextField *textField = [self createTextField:[formatter stringFromNumber:someNumber]];
             cell.accessoryView = textField;
         }
         else if ([current isEqualToString:@"collector_address"]){

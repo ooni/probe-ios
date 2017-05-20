@@ -396,7 +396,7 @@ measurement-kit: x.y.z</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OM-HC-eA4" customClass="RoundedButton">
-                                                <rect key="frame" x="98" y="122" width="123" height="55"/>
+                                                <rect key="frame" x="97" y="122" width="125" height="55"/>
                                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="gOh-Jy-0Ee"/>
@@ -691,7 +691,7 @@ measurement-kit: x.y.z</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBf-1M-gMq" customClass="RoundedButton">
-                                                <rect key="frame" x="92.5" y="111" width="135" height="55"/>
+                                                <rect key="frame" x="90" y="111" width="140" height="55"/>
                                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="epV-Qi-sGe"/>
@@ -778,7 +778,7 @@ measurement-kit: x.y.z</string>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78G-IL-tcb" customClass="RoundedButton">
-                                            <rect key="frame" x="84.5" y="16" width="151" height="55"/>
+                                            <rect key="frame" x="86" y="16" width="148" height="55"/>
                                             <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="55" id="zGT-Fa-Ho3"/>
@@ -990,6 +990,7 @@ measurement-kit: x.y.z</string>
                     <connections>
                         <segue destination="AYN-ls-CZF" kind="custom" identifier="pb_main" customClass="PBRevealViewControllerSegueSetController" id="TKr-0u-V8U"/>
                         <segue destination="sSR-4b-iaY" kind="custom" identifier="pb_left" customClass="PBRevealViewControllerSegueSetController" id="d3a-zP-8bF"/>
+                        <segue destination="sSR-4b-iaY" kind="custom" identifier="pb_right" customClass="PBRevealViewControllerSegueSetController" id="Ygu-cU-09l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4y-GP-BS7" sceneMemberID="firstResponder"/>
@@ -1497,6 +1498,7 @@ measurement-kit: x.y.z</string>
         <image name="trash" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="d3a-zP-8bF"/>
         <segue reference="ULy-MW-EOd"/>
         <segue reference="xM5-AD-3dX"/>
     </inferredMetricsTieBreakers>

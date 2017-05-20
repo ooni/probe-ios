@@ -18,12 +18,18 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
-    [self.revealButtonItem setAction: @selector(revealLeftView)];
-    self.revealViewController.leftPresentViewHierarchically = YES;
-    //self.revealViewController.leftToggleAnimationDuration = 0.8;
-    self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
+    self.revealViewController.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if ([[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] isEqualToString:@"ar"]){
+        [self.revealViewController setRightViewRevealWidth:260.0f];
+        self.revealViewController.rightPresentViewHierarchically = YES;
+        [self.revealButtonItem setAction: @selector(revealRightView)];
+    }
+    else {
+        [self.revealButtonItem setAction: @selector(revealLeftView)];
+        self.revealViewController.leftPresentViewHierarchically = YES;
+    }
 
-    //[self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
@@ -49,7 +55,15 @@
     }
 }
 
--(void)reloadTable{
+- (BOOL)revealControllerPanGestureShouldBegin:(PBRevealViewController *)revealController direction:(PBRevealControllerPanDirection)direction
+    {
+        if (direction == PBRevealControllerPanDirectionRight && [[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] isEqualToString:@"ar"]) {
+            return NO;
+        }
+        return YES;
+    }
+    
+- (void)reloadTable{
     if ([TestStorage new_tests]){
         self.navigationItem.leftBarButtonItem.badgeValue = @" ";
         self.navigationItem.leftBarButtonItem.badgeBGColor = color_ok_green;

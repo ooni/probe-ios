@@ -5,8 +5,9 @@
 #import <UIKit/UIKit.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "PBRevealViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, CrashlyticsDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CrashlyticsDelegate,PBRevealViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

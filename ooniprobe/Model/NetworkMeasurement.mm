@@ -142,14 +142,15 @@ static std::string get_dns_server() {
     });
 }
 
--(void)on_entry:(const char*)str{
+-(void)on_entry_wc:(const char*)str{
     if (str != nil) {
         if (!self.entry){
             [TestStorage set_entry:self.test_id];
             self.entry = TRUE;
         }
+        NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
         if (blocking > self.anomaly){
             self.anomaly = blocking;
@@ -178,6 +179,81 @@ static std::string get_dns_server() {
         anomaly = 2;
     }
     return anomaly;
+}
+
+//TODO document this functions
+//TODO rewrite these functions to avoidin repeating so much code
+
+-(void)on_entry_hirl:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        int blocking = 0;
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
+            //this case shouldn't happen
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
+                blocking = 1;
+            else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
+                blocking = 2;
+        }
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
+    }
+}
+
+-(void)on_entry_hhfm:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
+        int blocking = 0;
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+            blocking = 1;
+        else {
+            NSDictionary *tampering = [[json objectForKey:@"test_keys"] objectForKey:@"tampering"];
+            if ([tampering objectForKey:@"header_field_name"] && [[tampering objectForKey:@"header_field_name"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"header_field_number"] && [[tampering objectForKey:@"header_field_number"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"header_field_value"] && [[tampering objectForKey:@"header_field_value"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"header_name_capitalization"] && [[tampering objectForKey:@"header_name_capitalization"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"request_line_capitalization"] && [[tampering objectForKey:@"request_line_capitalization"] boolValue]) blocking = 2;
+            else if ([tampering objectForKey:@"total"] && [[tampering objectForKey:@"total"] boolValue]) blocking = 2;
+        }
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
+    }
+}
+
+-(void)on_entry_ndt:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        int blocking = 0;
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+            blocking = 1;
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
+    }
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
@@ -307,7 +383,7 @@ static std::string get_dns_server() {
             #endif
         })
         .on_entry([self](std::string s) {
-            [self on_entry:s.c_str()];
+            [self on_entry_hirl:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
@@ -423,7 +499,7 @@ static std::string get_dns_server() {
             #endif
         })
         .on_entry([self](std::string s) {
-            [self on_entry:s.c_str()];
+            [self on_entry_wc:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
@@ -475,7 +551,7 @@ static std::string get_dns_server() {
             #endif
         })
         .on_entry([self](std::string s) {
-            [self on_entry:s.c_str()];
+            [self on_entry_ndt:s.c_str()];
         })
         .start([self]() {
             [self testEnded];
@@ -483,3 +559,59 @@ static std::string get_dns_server() {
 }
 
 @end
+
+
+@implementation HttpHeaderFieldManipulation : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    self.name = @"http_header_field_manipulation";
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    [super run_test];
+    setup_idempotent();
+    mk::nettests::HttpHeaderFieldManipulationTest()
+    .set_options("backend", [HHFM_BACKEND UTF8String])
+    .set_options("dns/nameserver", get_dns_server())
+    .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
+    .set_options("geoip_country_path", [geoip_country UTF8String])
+    .set_options("geoip_asn_path", [geoip_asn UTF8String])
+    .set_options("save_real_probe_ip", include_ip)
+    .set_options("save_real_probe_asn", include_asn)
+    .set_options("save_real_probe_cc", include_cc)
+    .set_options("no_collector", !upload_results)
+    .set_options("collector_base_url", [collector_address UTF8String])
+    .set_options("software_name", [@"ooniprobe-ios" UTF8String])
+    .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+    .set_output_filepath([[self getFileName:@"json"] UTF8String])
+    .set_error_filepath([[self getFileName:@"log"] UTF8String])
+    .set_verbosity(MK_LOG_INFO)
+    .on_progress([self](double prog, const char *s) {
+        [self updateProgress:prog];
+    })
+    .on_log([self](uint32_t type, const char *s) {
+#ifdef DEBUG
+        NSLog(@"%s", s);
+#endif
+    })
+    .on_entry([self](std::string s) {
+        [self on_entry_hhfm:s.c_str()];
+    })
+    .start([self]() {
+        [self testEnded];
+    });
+}
+
+@end
+
+
