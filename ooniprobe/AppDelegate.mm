@@ -55,6 +55,42 @@
     //TODO start your long running bg task here
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSLog(@"url recieved: %@", url);
+    NSLog(@"query string: %@", [url query]);
+    NSLog(@"host: %@", [url host]);
+    NSLog(@"url path: %@", [url path]);
+    NSDictionary *dict = [self parseQueryString:[url query]];
+    NSLog(@"query dict: %@", dict);
+    return YES;
+}
+
+/*
+ LOG:
+ 2017-05-21 14:45:35.847 ooniprobe[98673:10079755] url recieved: ooniprobe://test/one?token=123&domain=foo.com
+ 2017-05-21 14:45:35.848 ooniprobe[98673:10079755] query string: token=123&domain=foo.com
+ 2017-05-21 14:45:35.849 ooniprobe[98673:10079755] host: test
+ 2017-05-21 14:45:35.849 ooniprobe[98673:10079755] url path: /one
+ 2017-05-21 14:45:35.849 ooniprobe[98673:10079755] query dict: {
+ domain = "foo.com";
+ token = 123;
+ }
+*/
+
+- (NSDictionary *)parseQueryString:(NSString *)query {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    
+    for (NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [dict setObject:val forKey:key];
+    }
+    return dict;
+}
+
 - (void)crashlyticsDidDetectReportForLastExecution:(CLSReport *)report completionHandler:(void (^)(BOOL))completionHandler {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         completionHandler([[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue]);
