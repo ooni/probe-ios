@@ -58,24 +58,29 @@
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     NSLog(@"url recieved: %@", url);
     NSLog(@"query string: %@", [url query]);
-    NSLog(@"host: %@", [url host]);
-    NSLog(@"url path: %@", [url path]);
+    
+    NSLog(@"action: %@", [url host]);
+    NSLog(@"test to run: %@", [url path]);
+    
+    NSLog(@"dict: %@", [url query]);
+
     NSDictionary *dict = [self parseQueryString:[url query]];
     NSLog(@"query dict: %@", dict);
+    
+    for (NSString *key in [dict allKeys]){
+        NSString *current = [dict objectForKey:key];
+        NSError *error;
+        NSData *data = [current dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        if (error == nil)
+            NSLog(@"json dictionary for key %@ : %@", key, dictionary);
+        else
+            NSLog(@"json dictionary for key %@ : %@", key, current);
+    }
+
     return YES;
 }
 
-/*
- LOG:
- 2017-05-21 14:45:35.847 ooniprobe[98673:10079755] url recieved: ooniprobe://test/one?token=123&domain=foo.com
- 2017-05-21 14:45:35.848 ooniprobe[98673:10079755] query string: token=123&domain=foo.com
- 2017-05-21 14:45:35.849 ooniprobe[98673:10079755] host: test
- 2017-05-21 14:45:35.849 ooniprobe[98673:10079755] url path: /one
- 2017-05-21 14:45:35.849 ooniprobe[98673:10079755] query dict: {
- domain = "foo.com";
- token = 123;
- }
-*/
 
 - (NSDictionary *)parseQueryString:(NSString *)query {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
