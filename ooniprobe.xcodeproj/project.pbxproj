@@ -27,6 +27,7 @@
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* TestStorage.mm */; };
 		ED5AFD661E2529400039ECCB /* global.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED5AFD651E2529400039ECCB /* global.txt */; };
+		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
 		ED8816AE1D8C6A3400D5D725 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816AD1D8C6A3400D5D725 /* IntroductionViewController.m */; };
 		ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B31D8C6A4B00D5D725 /* RisksViewController.m */; };
 		ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B61D8C6A5600D5D725 /* QuizViewController.m */; };
@@ -102,6 +103,9 @@
 		ED58E8C81D0C627D00C74F10 /* TestStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestStorage.h; path = Utility/TestStorage.h; sourceTree = "<group>"; };
 		ED58E8C91D0C627D00C74F10 /* TestStorage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestStorage.mm; path = Utility/TestStorage.mm; sourceTree = "<group>"; };
 		ED5AFD651E2529400039ECCB /* global.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = global.txt; sourceTree = "<group>"; };
+		ED62AB9B1ED5B70500778249 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Utility/Reachability.h; sourceTree = "<group>"; };
+		ED62AB9C1ED5B70500778249 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Utility/Reachability.m; sourceTree = "<group>"; };
+		ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ooniprobe.entitlements; sourceTree = "<group>"; };
 		ED8569581EB146B500D435EB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 		D4A2F5DB1A6C3244001B8460 /* ooniprobe */ = {
 			isa = PBXGroup;
 			children = (
+				ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */,
 				ED58E8C71D0C625300C74F10 /* Utility */,
 				ED25281F1CEA353A0073A29B /* View */,
 				ED25280F1CEA34DA0073A29B /* Model */,
@@ -286,6 +291,8 @@
 				EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */,
 				EDC869C71E3178A800124C46 /* Tests.h */,
 				EDC869C81E3178A800124C46 /* Tests.mm */,
+				ED62AB9B1ED5B70500778249 /* Reachability.h */,
+				ED62AB9C1ED5B70500778249 /* Reachability.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -386,10 +393,13 @@
 				TargetAttributes = {
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = MADPSAYN6T;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = YUY24YXWK4;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -537,6 +547,7 @@
 				EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */,
 				ED8816AE1D8C6A3400D5D725 /* IntroductionViewController.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
+				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
 				ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */,
 				EDCAB3A31E2BDD22000878CA /* LawsViewController.m in Sources */,
 				ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */,
@@ -691,9 +702,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (584LT894QR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (584LT894QR)";
-				DEVELOPMENT_TEAM = MADPSAYN6T;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YUY24YXWK4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -708,10 +720,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "9c5b2b6c-065a-4427-96fc-1cba88a959e8";
-				PROVISIONING_PROFILE_SPECIFIER = "lorenzo ios development for ooniprobe";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -725,10 +737,11 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = MADPSAYN6T;
+				DEVELOPMENT_TEAM = YUY24YXWK4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -743,10 +756,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "6466561b-61cf-4936-acbb-ce19114baf31";
-				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
