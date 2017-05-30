@@ -43,6 +43,15 @@
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                       target:self.view action:@selector(endEditing:)];
     keyboardToolbar.items = @[flexBarButton, doneBarButton];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDot) name:@"reloadTable" object:nil];
+    [self reloadDot];
+}
+
+- (void)reloadDot{
+    if ([TestStorage new_tests]){
+        self.navigationItem.leftBarButtonItem.badgeValue = @" ";
+        self.navigationItem.leftBarButtonItem.badgeBGColor = color_ok_green;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
