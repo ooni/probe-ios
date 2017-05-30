@@ -3,6 +3,7 @@
 // information on the copying conditions.
 
 #import "AppDelegate.h"
+#import "Tests.h"
 
 @interface AppDelegate ()
 
@@ -56,28 +57,58 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    NSLog(@"url recieved: %@", url);
-    NSLog(@"query string: %@", [url query]);
+    //NSLog(@"url recieved: %@", url);
+    //NSLog(@"query string: %@", [url query]);
     
-    NSLog(@"action: %@", [url host]);
-    NSLog(@"test to run: %@", [url path]);
+    NSString *action = [url host];
+    //NSLog(@"action: %@", action);
     
-    NSLog(@"dict: %@", [url query]);
+    //what to do if test is already running?
+    if ([action isEqualToString:@"run_test"]){
+        NSString *test_to_run = [[url path] substringFromIndex:1];
+        //NSLog(@"test to run: %@", test_to_run);
+        if ([[Tests currentTests] getTestWithName:test_to_run]){
+            NSLog(@"test found");
+        }
+    }
+    
+    //NSLog(@"dict: %@", [url query]);
 
     NSDictionary *dict = [self parseQueryString:[url query]];
-    NSLog(@"query dict: %@", dict);
-    
+    //NSLog(@"query dict: %@", dict);
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     for (NSString *key in [dict allKeys]){
         NSString *current = [dict objectForKey:key];
         NSError *error;
         NSData *data = [current dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        if (error == nil)
-            NSLog(@"json dictionary for key %@ : %@", key, dictionary);
-        else
-            NSLog(@"json dictionary for key %@ : %@", key, current);
+        if (error == nil){
+            [parameters setObject:dictionary forKey:key];
+            //NSLog(@"json dictionary for key %@ : %@", key, dictionary);
+        }
+        else{
+            [parameters setObject:current forKey:key];
+            //NSLog(@"json object for key %@ : %@", key, current);
+            //NSLog(@"error: %@", error);
+        }
     }
 
+    NSLog(@"dict: %@", parameters);
+    NSDictionary *required_version_json = [parameters objectForKey:@"required_version_json"];
+    if (required_version_json != nil){
+        NSString *ios_version = [required_version_json objectForKey:@"ios"];
+        if (ios_version != nil){
+            if ([ios_version compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending) {
+                // actualVersion is lower than the requiredVersion
+                //show dialog
+                NSLog(@"NOT Supported");
+            }
+            else
+                NSLog(@"Supported");
+            
+        }
+    }
+    
     return YES;
 }
 
