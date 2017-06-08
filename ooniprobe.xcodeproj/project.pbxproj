@@ -40,6 +40,7 @@
 		EDCAB3A01E2BC6BD000878CA /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */; };
 		EDCAB3A31E2BDD22000878CA /* LawsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB3A21E2BDD22000878CA /* LawsViewController.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
+		EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD101BD1EE801F00044E390 /* NotificationService.mm */; };
 		EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDE344811D42151C00BAEB10 /* ResultViewController.mm */; };
 		EDE42E621EC76DB400FC4DAB /* 1.1.64fa2ffacfc153844c1d.js in Resources */ = {isa = PBXBuildFile; fileRef = EDE42E4E1EC76DB400FC4DAB /* 1.1.64fa2ffacfc153844c1d.js */; };
 		EDE42E631EC76DB400FC4DAB /* app.64fa2ffacfc153844c1d.js in Resources */ = {isa = PBXBuildFile; fileRef = EDE42E4F1EC76DB400FC4DAB /* app.64fa2ffacfc153844c1d.js */; };
@@ -133,6 +134,8 @@
 		EDCAB3A11E2BDD22000878CA /* LawsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LawsViewController.h; path = "Informed consent/LawsViewController.h"; sourceTree = "<group>"; };
 		EDCAB3A21E2BDD22000878CA /* LawsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LawsViewController.m; path = "Informed consent/LawsViewController.m"; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
+		EDD101BC1EE801F00044E390 /* NotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationService.h; path = Utility/NotificationService.h; sourceTree = "<group>"; };
+		EDD101BD1EE801F00044E390 /* NotificationService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NotificationService.mm; path = Utility/NotificationService.mm; sourceTree = "<group>"; };
 		EDE344801D42151C00BAEB10 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		EDE344811D42151C00BAEB10 /* ResultViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResultViewController.mm; sourceTree = "<group>"; };
 		EDE42E4E1EC76DB400FC4DAB /* 1.1.64fa2ffacfc153844c1d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = 1.1.64fa2ffacfc153844c1d.js; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				EDC869C81E3178A800124C46 /* Tests.mm */,
 				ED62AB9B1ED5B70500778249 /* Reachability.h */,
 				ED62AB9C1ED5B70500778249 /* Reachability.m */,
+				EDD101BC1EE801F00044E390 /* NotificationService.h */,
+				EDD101BD1EE801F00044E390 /* NotificationService.mm */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 			files = (
 				EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.mm in Sources */,
 				ED09A7011E3E3534003E1603 /* TestResult.m in Sources */,
+				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
 				ED25282C1CEA35640073A29B /* SettingsTableViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				EDC869C91E3178A800124C46 /* Tests.mm in Sources */,
@@ -702,6 +708,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (584LT894QR)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -737,6 +744,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

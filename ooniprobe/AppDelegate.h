@@ -6,7 +6,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "PBRevealViewController.h"
-#import "Reachability.h"
+#import "NotificationService.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CrashlyticsDelegate,PBRevealViewControllerDelegate>
 
