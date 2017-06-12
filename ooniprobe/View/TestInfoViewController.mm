@@ -66,7 +66,7 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/nettest/web-connectivity/"]];
     else if ([testName isEqualToString:@"http_invalid_request_line"])
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/nettest/http-invalid-request-line/"]];
-    else if ([testName isEqualToString:@"ndt_test"])
+    else if ([testName isEqualToString:@"ndt"])
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/nettest/ndt/"]];
 }
 

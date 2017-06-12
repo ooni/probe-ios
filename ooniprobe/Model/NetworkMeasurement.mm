@@ -512,7 +512,7 @@ static std::string get_dns_server() {
 
 -(id) init {
     self = [super init];
-    self.name = @"ndt_test";
+    self.name = @"ndt";
     return self;
 }
 
