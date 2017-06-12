@@ -84,7 +84,7 @@
     for (NSString *s in supported_tests) {
         supported_tests_list.push_back([s UTF8String]);
     }
-    
+
     mk::ooni::orchestrate::Client client;
     client.logger->set_verbosity(MK_LOG_DEBUG2);
     client.geoip_country_path = [geoip_country_path UTF8String];
@@ -97,19 +97,36 @@
     client.available_bandwidth = [available_bandwidth UTF8String];
     client.device_token = [device_token UTF8String];
     client.registry_url = mk::ooni::orchestrate::testing_registry_url();
-    std::promise<mk::Error> promise;
-    std::future<mk::Error> future = promise.get_future();
-    client.register_probe([client, &promise](mk::Error &&error) {
+    client.secrets_path = [[self make_path] UTF8String];
+    //std::promise<mk::Error> promise;
+    //std::future<mk::Error> future = promise.get_future();
+    client.register_probe([client](mk::Error &&error) {
         if (error) {
             //promise.set_value(error);
             return;
         }
-        client.update([&promise](mk::Error &&error) {
+        client.update([](mk::Error &&error) {
             //promise.set_value(error);
         });
     });
-    future.wait();
+    //future.wait();
+
+}
+
+-(NSString*)make_path{
+    return [NSString stringWithFormat:@"orchestrator_secrets_%@.json", [self randomStringWithLength:8]];
+}
+
+
+-(NSString *) randomStringWithLength: (int) len {
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
     
+    for (int i=0; i<len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
+    }
+    
+    return randomString;
 }
 
 @end
