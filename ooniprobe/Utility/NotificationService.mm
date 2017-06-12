@@ -80,6 +80,8 @@
     NSLog(@"supported_tests %@", supported_tests);
     NSLog(@"network_type %@", network_type);
     NSLog(@"language %@",language);
+
+    
     std::vector<std::string> supported_tests_list;
     for (NSString *s in supported_tests) {
         supported_tests_list.push_back([s UTF8String]);
@@ -121,12 +123,14 @@
     });
 }
 
--(NSString*)make_path{
-    return [NSString stringWithFormat:@"orchestrator_secrets_%@.json", [self randomStringWithLength:8]];
+-(NSString*)make_path {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@/%@", documentsDirectory, [self randomStringWithLength:8]];
+    return fileName;
 }
 
-
--(NSString *) randomStringWithLength: (int) len {
+-(NSString *)randomStringWithLength: (int) len {
     NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
     
