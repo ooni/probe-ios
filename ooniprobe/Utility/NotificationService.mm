@@ -86,7 +86,7 @@
     }
 
     mk::ooni::orchestrate::Client client;
-    client.logger->set_verbosity(MK_LOG_DEBUG2);
+    client.logger->set_verbosity(MK_LOG_DEBUG2); // FIXME not for production
     client.geoip_country_path = [geoip_country_path UTF8String];
     client.geoip_asn_path = [geoip_asn_path UTF8String];
     client.platform = [platform UTF8String];
@@ -94,23 +94,31 @@
     client.software_version = [software_version UTF8String];
     client.supported_tests = supported_tests_list;
     client.network_type = [network_type UTF8String];
-    client.available_bandwidth = [available_bandwidth UTF8String];
+
+    // FIXME: this string is `nil` hence the crash when calling UTF8String
+    //client.available_bandwidth = [available_bandwidth UTF8String];
     client.device_token = [device_token UTF8String];
     client.registry_url = mk::ooni::orchestrate::testing_registry_url();
     client.secrets_path = [[self make_path] UTF8String];
-    //std::promise<mk::Error> promise;
-    //std::future<mk::Error> future = promise.get_future();
+
+    // FIXME: MK should soon be able to deal with these values
+    client.probe_cc = "ZZ";
+    client.probe_asn = "AS0";
+
     client.register_probe([client](mk::Error &&error) {
         if (error) {
-            //promise.set_value(error);
+            client.logger->warn("Register terminated with error: %s",
+                                error.as_ooni_error().c_str());
             return;
         }
-        client.update([](mk::Error &&error) {
-            //promise.set_value(error);
+        client.update([logger = client.logger](mk::Error &&error) {
+            if (error) {
+                logger->warn("Update terminated with error: %s",
+                             error.as_ooni_error().c_str());
+                return;
+            }
         });
     });
-    //future.wait();
-
 }
 
 -(NSString*)make_path{
