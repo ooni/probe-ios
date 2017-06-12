@@ -3,7 +3,7 @@ target 'ooniprobe' do
     pod 'measurement_kit',
         :git => 'https://github.com/measurement-kit/measurement-kit.git',
 	#:tag => 'v0.6.6'
-	:tag => 'v0.7.0-alpha'
+	:tag => 'v0.7.0-alpha.1'
 	#:branch => 'stable'
     pod 'Toast'
     pod 'PBRevealViewController'

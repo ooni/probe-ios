@@ -3,6 +3,7 @@
 // information on the copying conditions.
 
 #import "AppDelegate.h"
+#import "NotificationService.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,7 @@
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[NotificationService sharedNotificationService] registerNotifications:@"TEST_TOKEN"];
 
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"])
         [self registerNotifications];
@@ -38,7 +40,7 @@
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"token: %@",token);
-    [NotificationService registerNotifications:token];
+    [[NotificationService sharedNotificationService] registerNotifications:token];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
