@@ -10,7 +10,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CrashlyticsDelegate,PBRevealViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 - (void)registerNotifications;
 
 @end

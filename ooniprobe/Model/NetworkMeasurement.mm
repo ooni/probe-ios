@@ -182,7 +182,7 @@ static std::string get_dns_server() {
 }
 
 //TODO document this functions
-//TODO rewrite these functions to avoidin repeating so much code
+//TODO rewrite these functions to avoiding repeating so much code
 
 -(void)on_entry_hirl:(const char*)str{
     if (str != nil) {

@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Reachability.h"
+#import "ReachabilityManager.h"
 #import "Tests.h"
 
 @interface NotificationService : NSObject
 + (id)sharedNotificationService;
-- (void)registerNotifications:(NSString *)current_token;
+- (void)registerNotifications;
 
 @property (strong, nonatomic) NSString *geoip_country_path;
 @property (strong, nonatomic) NSString *geoip_asn_path;

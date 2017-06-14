@@ -28,6 +28,7 @@
 		ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* TestStorage.mm */; };
 		ED5AFD661E2529400039ECCB /* global.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED5AFD651E2529400039ECCB /* global.txt */; };
 		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
+		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED8816AE1D8C6A3400D5D725 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816AD1D8C6A3400D5D725 /* IntroductionViewController.m */; };
 		ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B31D8C6A4B00D5D725 /* RisksViewController.m */; };
 		ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B61D8C6A5600D5D725 /* QuizViewController.m */; };
@@ -107,6 +108,8 @@
 		ED62AB9B1ED5B70500778249 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Utility/Reachability.h; sourceTree = "<group>"; };
 		ED62AB9C1ED5B70500778249 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Utility/Reachability.m; sourceTree = "<group>"; };
 		ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ooniprobe.entitlements; sourceTree = "<group>"; };
+		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReachabilityManager.h; path = Utility/ReachabilityManager.h; sourceTree = "<group>"; };
+		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ReachabilityManager.mm; path = Utility/ReachabilityManager.mm; sourceTree = "<group>"; };
 		ED8569581EB146B500D435EB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 				ED62AB9C1ED5B70500778249 /* Reachability.m */,
 				EDD101BC1EE801F00044E390 /* NotificationService.h */,
 				EDD101BD1EE801F00044E390 /* NotificationService.mm */,
+				ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */,
+				ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 				ED25282C1CEA35640073A29B /* SettingsTableViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				EDC869C91E3178A800124C46 /* Tests.mm in Sources */,
+				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED8816BA1D8C6A6100D5D725 /* ConfigurationViewController.m in Sources */,
 				EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */,

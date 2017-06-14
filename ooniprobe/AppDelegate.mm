@@ -19,7 +19,10 @@
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [[NotificationService sharedNotificationService] registerNotifications:@"TEST_TOKEN"];
+
+    [NotificationService sharedNotificationService];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"collector_address"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"])
         [self registerNotifications];
@@ -40,7 +43,8 @@
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"token: %@",token);
-    [[NotificationService sharedNotificationService] registerNotifications:token];
+    //[[NotificationService sharedNotificationService] setDevice_token:token];
+    //[[NotificationService sharedNotificationService] registerNotifications];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -52,7 +56,9 @@
         UIApplicationState state = [application applicationState];
         if (state == UIApplicationStateActive)
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
+            //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
+            //[alertView show];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",userInfo] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
             [alertView show];
         }
     }

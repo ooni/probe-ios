@@ -51,28 +51,16 @@
             [supported_tests_ar addObject:nm.name];
         }
         supported_tests = supported_tests_ar;
-        
-        Reachability *reachability = [Reachability reachabilityForInternetConnection];
-        [reachability startNotifier];
-        //TODO Detecting Network Changes with Reachability
-        //https://code.tutsplus.com/tutorials/ios-sdk-detecting-network-changes-with-reachability--mobile-18299
-        NetworkStatus status = [reachability currentReachabilityStatus];
-        
-        if (status == ReachableViaWiFi)
-            network_type = @"wifi";
-        else if (status == ReachableViaWWAN)
-            network_type = @"mobile";
-        else if(status == NotReachable)
-            network_type = @"no_internet";
-        
+        network_type = [[ReachabilityManager sharedManager] getStatus];
         language = [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode];
     }
     
     return self;
 }
 
-- (void)registerNotifications:(NSString *)current_token{
-    device_token = current_token;
+
+- (void)registerNotifications{
+    //device_token = current_token;
     NSLog(@"token %@",device_token);
     NSLog(@"platform %@", platform);
     NSLog(@"software_name %@", software_name);
@@ -81,7 +69,6 @@
     NSLog(@"network_type %@", network_type);
     NSLog(@"language %@",language);
 
-    
     std::vector<std::string> supported_tests_list;
     for (NSString *s in supported_tests) {
         supported_tests_list.push_back([s UTF8String]);
