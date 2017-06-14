@@ -68,6 +68,8 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/nettest/http-invalid-request-line/"]];
     else if ([testName isEqualToString:@"ndt"])
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/nettest/ndt/"]];
+    else if ([testName isEqualToString:@"http_header_field_manipulation"])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/nettest/http-header-field-manipulation/"]];
 }
 
 @end
