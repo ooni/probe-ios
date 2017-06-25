@@ -15,6 +15,7 @@
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
 		ED09A7011E3E3534003E1603 /* TestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A7001E3E3534003E1603 /* TestResult.m */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
+		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528231CEA35640073A29B /* LogViewController.mm */; };
 		ED25282C1CEA35640073A29B /* SettingsTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528251CEA35640073A29B /* SettingsTableViewController.mm */; };
 		ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.mm */; };
@@ -81,6 +82,8 @@
 		ED09A7001E3E3534003E1603 /* TestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResult.m; sourceTree = "<group>"; };
 		ED0D35BC1DD72824005C863F /* RunButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RunButton.h; path = Utility/RunButton.h; sourceTree = "<group>"; };
 		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RunButton.m; path = Utility/RunButton.m; sourceTree = "<group>"; };
+		ED1F33601EFD552F00B42FEC /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
+		ED1F33611EFD552F00B42FEC /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
 		ED2528221CEA35640073A29B /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		ED2528231CEA35640073A29B /* LogViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LogViewController.mm; sourceTree = "<group>"; };
 		ED2528241CEA35640073A29B /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */,
 				ED3932C21E3114740064CD11 /* AboutViewController.h */,
 				ED3932C31E3114740064CD11 /* AboutViewController.mm */,
+				ED1F33601EFD552F00B42FEC /* BrowserViewController.h */,
+				ED1F33611EFD552F00B42FEC /* BrowserViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -573,6 +578,7 @@
 				ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */,
 				ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm in Sources */,
 				ED3932C71E3114BA0064CD11 /* PastTestsViewController.mm in Sources */,
+				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,7 +739,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
+				PRODUCT_BUNDLE_IDENTIFIER = Ciao;
 				PRODUCT_NAME = ooniprobe;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -770,7 +776,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.NetProbe;
+				PRODUCT_BUNDLE_IDENTIFIER = Ciao;
 				PRODUCT_NAME = ooniprobe;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -1,10 +1,6 @@
-//
-//  NotificationService.m
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 07/06/17.
-//  Copyright © 2017 Simone Basso. All rights reserved.
-//
+// Part of MeasurementKit <https://measurement-kit.github.io/>.
+// MeasurementKit is free software. See AUTHORS and LICENSE for more
+// information on the copying conditions.
 
 #import "NotificationService.h"
 #include <measurement_kit/ooni.hpp>
@@ -42,7 +38,7 @@
         NSBundle *bundle = [NSBundle mainBundle];
         geoip_asn_path = [bundle pathForResource:@"GeoIPASNum" ofType:@"dat"];
         geoip_country_path = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
-        platform = @"iOS";
+        platform = @"ios";
         software_name = @"ooniprobe-ios";
         software_version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         NSMutableArray *supported_tests_ar = [[NSMutableArray alloc] init];
