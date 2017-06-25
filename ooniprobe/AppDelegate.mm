@@ -69,8 +69,8 @@
                 //self.link = [userInfo objectForKey:@"link"];
                 links = [[NSMutableArray alloc] init];
                 [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
-                if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_href"]){
-                    NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_href"];
+                if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
+                    NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
                     [links addObjectsFromArray:alt_href];
                 }
                 alertView.tag = 1;
@@ -84,8 +84,8 @@
             if ([type isEqualToString:@"open_href"]){
                 links = [[NSMutableArray alloc] init];
                 [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
-                if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_href"]){
-                    NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_href"];
+                if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
+                    NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
                     [links addObjectsFromArray:alt_href];
                 }
                 [self openBrowser];

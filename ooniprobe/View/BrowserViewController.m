@@ -55,10 +55,16 @@
 }
 
 - (void)webView:(UIWebView*)webView didFailLoadWithError:(NSError*)error {
+    NSLog(@"didFailLoadWithError %@", [error localizedDescription]);
+    //TODO read this https://stackoverflow.com/questions/19959307/the-joys-of-didfailloadwitherror-uiwebview
+    if (error.code == NSURLErrorCancelled) {
+        // ignore rapid repeated clicking (error code -999)
+        return;
+    }
     [self updateButtons];
     lastError = error;
     [self nextUrl:FALSE];
-    NSLog(@"didFailLoadWithError %@", [error localizedDescription]);
+
 }
 
 -(IBAction)previous:(id)sender{
@@ -98,15 +104,22 @@
 }
 
 -(void)nextUrl:(BOOL)cycle {
-    if (urlIndex+1 < [urlList count]){
+    NSLog(@"nextUrl %d %ld", urlIndex+1, [urlList count]);
+
+    if ((urlIndex+1) < [urlList count]){
         urlIndex++;
+        NSLog(@"first");
         [self loadPage];
     }
     else if (cycle) {
         urlIndex = 0;
+        NSLog(@"second");
+
         [self loadPage];
     }
     else {
+        NSLog(@"third");
+
         [self.webView loadHTMLString:[lastError localizedDescription] baseURL:nil];
     }
 }
