@@ -517,6 +517,11 @@ measurement-kit: x.y.z</string>
                                             <action selector="next:" destination="6k5-ig-0I8" id="p3V-r6-3mu"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="refresh" id="4ql-W5-zOD">
+                                        <connections>
+                                            <action selector="loadPage" destination="6k5-ig-0I8" id="qhY-uq-tRa"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="j1F-A0-bSA"/>
                                     <barButtonItem title="Open mirror" id="rCV-wA-bME">
                                         <connections>

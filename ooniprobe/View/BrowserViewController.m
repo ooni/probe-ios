@@ -24,7 +24,7 @@
     [self.openMirrorButton setTitle:NSLocalizedString(@"try_mirror", nil)];
 }
 
--(void)loadPage{
+-(IBAction)loadPage{
     NSString *url = [urlList objectAtIndex:urlIndex];
     self.title = NSLocalizedString(@"loading", nil);
     NSURL *websiteUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", url]];
@@ -56,15 +56,11 @@
 
 - (void)webView:(UIWebView*)webView didFailLoadWithError:(NSError*)error {
     NSLog(@"didFailLoadWithError %@", [error localizedDescription]);
-    //TODO read this https://stackoverflow.com/questions/19959307/the-joys-of-didfailloadwitherror-uiwebview
-    if (error.code == NSURLErrorCancelled) {
-        // ignore rapid repeated clicking (error code -999)
-        return;
+    if (error.code == NSURLErrorNetworkConnectionLost || error.code == NSURLErrorNotConnectedToInternet || error.code == NSURLErrorTimedOut || error.code == NSURLErrorBadServerResponse){
+        [self updateButtons];
+        lastError = error;
+        [self nextUrl:FALSE];
     }
-    [self updateButtons];
-    lastError = error;
-    [self nextUrl:FALSE];
-
 }
 
 -(IBAction)previous:(id)sender{
