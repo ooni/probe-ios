@@ -84,25 +84,57 @@
     //client.available_bandwidth = [available_bandwidth UTF8String];
     client.device_token = [device_token UTF8String];
     client.registry_url = mk::ooni::orchestrate::testing_registry_url();
-    client.secrets_path = [[self make_path] UTF8String];
+    std::string secrets_path = [[self make_path] UTF8String];
 
-    // FIXME: MK should soon be able to deal with these values
-    client.probe_cc = "ZZ";
-    client.probe_asn = "AS0";
+    // XXX: I think we don't need anymore `self.secrets_path`
 
-    client.register_probe([client](mk::Error &&error) {
+    client.find_location([client = std::move(client),
+                          secrets_path = std::move(secrets_path)]
+                         (mk::Error &&error, std::string probe_asn,
+                          std::string probe_cc) mutable {
         if (error) {
-            client.logger->warn("Register terminated with error: %s",
-                                error.as_ooni_error().c_str());
+            mk::warn("cannot find location");
             return;
         }
-        client.update([logger = client.logger](mk::Error &&error) {
+        client.probe_asn = probe_asn;
+        client.probe_cc = probe_cc;
+        mk::ooni::orchestrate::Auth auth;
+        // Assumption: if we can load the secrets path then we have
+        // already registered the probe, otherwise we need to register
+        // the probe and we don't need to call update afterwards.
+        if (auth.load(secrets_path) != mk::NoError()) {
+            client.register_probe(
+                  mk::ooni::orchestrate::Auth::make_password(),
+                    [client = std::move(client),
+                     secrets_path = std::move(secrets_path)]
+                      (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
+                if (error) {
+                    client.logger->warn("Register terminated with error: %s",
+                                        error.as_ooni_error().c_str());
+                    return;
+                }
+                if (auth.dump(secrets_path) != mk::NoError()) {
+                    client.logger->warn("Cannot write secrets_path: %s",
+                                        error.as_ooni_error().c_str());
+                    return;
+                }
+            });
+            return;
+        }
+        client.update(std::move(auth), [client = std::move(client),
+                                        secrets_path = std::move(secrets_path)]
+                    (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
             if (error) {
-                logger->warn("Update terminated with error: %s",
-                             error.as_ooni_error().c_str());
+                client.logger->warn("Update terminated with error: %s",
+                                    error.as_ooni_error().c_str());
                 return;
             }
-        });
+            if (auth.dump(secrets_path) != mk::NoError()) {
+                client.logger->warn("Cannot write secrets_path: %s",
+                                    error.as_ooni_error().c_str());
+                return;
+            }
+      });
     });
 }
 
