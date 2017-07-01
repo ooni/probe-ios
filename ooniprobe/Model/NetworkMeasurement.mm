@@ -223,17 +223,14 @@ static std::string get_dns_server() {
             blocking = 1;
         else {
             NSDictionary *tampering = [[json objectForKey:@"test_keys"] objectForKey:@"tampering"];
-            if ([tampering objectForKey:@"header_field_name"] && [tampering objectForKey:@"header_field_name"] != [NSNull null] && [[tampering objectForKey:@"header_field_name"] boolValue]) blocking = 2;
-            
-            else if ([tampering objectForKey:@"header_field_number"] && [tampering objectForKey:@"header_field_number"] != [NSNull null] && [[tampering objectForKey:@"header_field_number"] boolValue]) blocking = 2;
-            
-            else if ([tampering objectForKey:@"header_field_value"] && [tampering objectForKey:@"header_field_value"] != [NSNull null] && [[tampering objectForKey:@"header_field_value"] boolValue]) blocking = 2;
-            
-            else if ([tampering objectForKey:@"header_name_capitalization"] && [tampering objectForKey:@"header_name_capitalization"] != [NSNull null] && [[tampering objectForKey:@"header_name_capitalization"] boolValue]) blocking = 2;
-            
-            else if ([tampering objectForKey:@"request_line_capitalization"] && [tampering objectForKey:@"request_line_capitalization"] != [NSNull null] && [[tampering objectForKey:@"request_line_capitalization"] boolValue]) blocking = 2;
-            
-            else if ([tampering objectForKey:@"total"] && [tampering objectForKey:@"total"] != [NSNull null] && [[tampering objectForKey:@"total"] boolValue]) blocking = 2;
+            NSArray *keys = [[NSArray alloc]initWithObjects:@"header_field_name", @"header_field_number", @"header_field_value", @"header_name_capitalization", @"request_line_capitalization", @"total", nil];
+            for (NSString *key in keys) {
+                if ([tampering objectForKey:key] &&
+                    [tampering objectForKey:key] != [NSNull null] &&
+                    [[tampering objectForKey:key] boolValue]) {
+                    blocking = 2;
+                }
+            }
         }
         if (blocking > self.anomaly){
             self.anomaly = blocking;
