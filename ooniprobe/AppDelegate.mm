@@ -25,8 +25,13 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"collector_address"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"])
-        [self registerNotifications];
+    [[NotificationService sharedNotificationService] setDevice_token:@"TestNEW"];
+    [[NotificationService sharedNotificationService] registerNotifications];
+
+    //TODO check https://stackoverflow.com/questions/29456954/ios-8-remote-notifications-when-should-i-call-registerforremotenotifications
+    //if ([[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"])
+    [self registerNotifications];
+    
     return YES;
 }
 
