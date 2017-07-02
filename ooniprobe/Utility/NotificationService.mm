@@ -88,8 +88,7 @@
 
     // XXX: I think we don't need anymore `self.secrets_path`
 
-    client.find_location([client = std::move(client),
-                          secrets_path = std::move(secrets_path)]
+    client.find_location([client, secrets_path = std::move(secrets_path)]
                          (mk::Error &&error, std::string probe_asn,
                           std::string probe_cc) mutable {
         if (error) {
@@ -105,8 +104,7 @@
         if (auth.load(secrets_path) != mk::NoError()) {
             client.register_probe(
                   mk::ooni::orchestrate::Auth::make_password(),
-                    [client = std::move(client),
-                     secrets_path = std::move(secrets_path)]
+                    [client, secrets_path = std::move(secrets_path)]
                       (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
                 if (error) {
                     client.logger->warn("Register terminated with error: %s",
@@ -121,7 +119,7 @@
             });
             return;
         }
-        client.update(std::move(auth), [client = std::move(client),
+        client.update(std::move(auth), [client,
                                         secrets_path = std::move(secrets_path)]
                     (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
             if (error) {
