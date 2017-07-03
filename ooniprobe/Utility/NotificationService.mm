@@ -79,7 +79,8 @@
     client.software_version = [software_version UTF8String];
     client.supported_tests = supported_tests_list;
     client.network_type = [network_type UTF8String];
-
+    client.language = [language UTF8String];
+    
     // FIXME: this string is `nil` hence the crash when calling UTF8String
     //client.available_bandwidth = [available_bandwidth UTF8String];
     client.device_token = [device_token UTF8String];
