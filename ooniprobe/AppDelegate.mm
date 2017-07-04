@@ -22,13 +22,11 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     [NotificationService sharedNotificationService];
+    
+    //TODO REMOVE IN PRODUCTION
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"collector_address"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
-    //[[NotificationService sharedNotificationService] setDevice_token:@"TestNEW"];
-    //[[NotificationService sharedNotificationService] registerNotifications];
-    //TODO check https://stackoverflow.com/questions/29456954/ios-8-remote-notifications-when-should-i-call-registerforremotenotifications
-    //if ([[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"])
     [self registerNotifications];
     
     return YES;
@@ -47,9 +45,9 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"token: %@",token);
-    //[[NotificationService sharedNotificationService] setDevice_token:token];
-    //[[NotificationService sharedNotificationService] registerNotifications];
+    //NSLog(@"token: %@",token);
+    [[NotificationService sharedNotificationService] setDevice_token:token];
+    [[NotificationService sharedNotificationService] registerNotifications];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
