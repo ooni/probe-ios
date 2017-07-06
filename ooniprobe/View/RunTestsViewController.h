@@ -11,6 +11,7 @@
 #import "Tests.h"
 #import "UIBarButtonItem+Badge.h"
 #import "AppDelegate.h"
+#import "BrowserViewController.h"
 
 @interface RunTestsViewController : UITableViewController {
     Tests *currentTests;

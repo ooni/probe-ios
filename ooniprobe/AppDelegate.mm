@@ -29,6 +29,11 @@
 
     [self registerNotifications];
     
+    NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if(notification) {
+        [self handleNotification:notification :application];
+    }
+
     return YES;
 }
 
@@ -56,54 +61,59 @@
             if([[userInfo objectForKey:@"aps"] objectForKey:@"badge"])
                 [UIApplication sharedApplication].applicationIconBadgeNumber = [[[userInfo objectForKey:@"aps"] objectForKey: @"badge"] intValue];
         }
-        
-        NSString *type = [userInfo objectForKey:@"type"];
-        UIApplicationState state = [application applicationState];
-        if (state == UIApplicationStateActive)
-        {
-            //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
-            //[alertView show];
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",userInfo] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
-            [alertView show];
-            if ([type isEqualToString:@"open_href"]){
-                //COSA FARE QUANDO NON LINK? TOAST?
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
-                //self.link = [userInfo objectForKey:@"link"];
-                links = [[NSMutableArray alloc] init];
-                [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
-                if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
-                    NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
-                    [links addObjectsFromArray:alt_href];
-                }
-                alertView.tag = 1;
-                [alertView show];
-            }
+        [self handleNotification:userInfo :application];
+    }
+}
 
-        }
-        else {
-            // The application was just brought from the background to the foreground,
-            // so we consider the app as having been "opened by a push notification."
-            if ([type isEqualToString:@"open_href"]){
-                links = [[NSMutableArray alloc] init];
-                [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
-                if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
-                    NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
-                    [links addObjectsFromArray:alt_href];
-                }
-                [self openBrowser];
+-(void)handleNotification:(NSDictionary*)userInfo :(UIApplication *)application{
+    NSString *type = [userInfo objectForKey:@"type"];
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive)
+    {
+        //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
+        //[alertView show];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",userInfo] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
+        [alertView show];
+        if ([type isEqualToString:@"open_href"]){
+            //COSA FARE QUANDO NON LINK? TOAST?
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
+            //self.link = [userInfo objectForKey:@"link"];
+            links = [[NSMutableArray alloc] init];
+            [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
+            if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
+                NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
+                [links addObjectsFromArray:alt_href];
             }
+            alertView.tag = 1;
+            [alertView show];
+        }
+        
+    }
+    else {
+        // The application was just brought from the background to the foreground,
+        // so we consider the app as having been "opened by a push notification."
+        if ([type isEqualToString:@"open_href"]){
+            links = [[NSMutableArray alloc] init];
+            [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
+            if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
+                NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
+                [links addObjectsFromArray:alt_href];
+            }
+            [self openBrowser];
         }
     }
 }
 
 -(void)openBrowser{
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"browserNC"];
-    BrowserViewController *bvc = (BrowserViewController*)[nvc.viewControllers objectAtIndex:0];
-    //NSArray *links = @[@"lead_stages", @"sales", @"reports",
-    //NSArray *links = [NSArray arrayWithObjects:@"http://www.google.it", @"http://www.linux.org", nil];
-    [bvc setUrlList:links];
-    [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"browserNC"];
+        BrowserViewController *bvc = (BrowserViewController*)[nvc.viewControllers objectAtIndex:0];
+        //NSArray *links = @[@"lead_stages", @"sales", @"reports",
+        //NSArray *links = [NSArray arrayWithObjects:@"http://www.google.it", @"http://www.linux.org", nil];
+        [bvc setUrlList:links];
+        [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+    });
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
