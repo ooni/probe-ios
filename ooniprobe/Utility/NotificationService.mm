@@ -87,8 +87,6 @@
     client.registry_url = mk::ooni::orchestrate::testing_registry_url();
     std::string secrets_path = [[self make_path] UTF8String];
 
-    // XXX: I think we don't need anymore `self.secrets_path`
-
     client.find_location([client, secrets_path = std::move(secrets_path)]
                          (mk::Error &&error, std::string probe_asn,
                           std::string probe_cc) mutable {
@@ -140,19 +138,10 @@
 -(NSString*)make_path {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [NSString stringWithFormat:@"%@/%@", documentsDirectory, [self randomStringWithLength:8]];
+    NSString *fileName = [NSString stringWithFormat:@"%@/%@",
+                          documentsDirectory,
+                          @"orchestrator_secret.json"];
     return fileName;
-}
-
--(NSString *)randomStringWithLength: (int) len {
-    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
-    
-    for (int i=0; i<len; i++) {
-        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
-    }
-    
-    return randomString;
 }
 
 @end
