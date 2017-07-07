@@ -43,7 +43,6 @@
 
 - (void)reachabilityDidChange:(NSNotification *)notification {
     NSString *network_type = [self getStatus];
-    //TODO status changed, should I send an update every time?
     [[NotificationService sharedNotificationService] setNetwork_type:network_type];
     [[NotificationService sharedNotificationService] registerNotifications];
 }

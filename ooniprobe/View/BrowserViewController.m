@@ -100,22 +100,16 @@
 }
 
 -(void)nextUrl:(BOOL)cycle {
-    NSLog(@"nextUrl %d %ld", urlIndex+1, [urlList count]);
-
+    //NSLog(@"nextUrl %d %ld", urlIndex+1, (unsigned long)[urlList count]);
     if ((urlIndex+1) < [urlList count]){
         urlIndex++;
-        NSLog(@"first");
         [self loadPage];
     }
     else if (cycle) {
         urlIndex = 0;
-        NSLog(@"second");
-
         [self loadPage];
     }
     else {
-        NSLog(@"third");
-
         [self.webView loadHTMLString:[lastError localizedDescription] baseURL:nil];
     }
 }

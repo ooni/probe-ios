@@ -23,17 +23,16 @@
 
     [NotificationService sharedNotificationService];
     
-    //TODO REMOVE IN PRODUCTION
-    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"collector_address"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
     [self registerNotifications];
     
+    //TODO Probably don't need it anymore when implementing backgound notifications
+    //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo
+    //https://stackoverflow.com/questions/38969229/what-is-uiapplicationlaunchoptionsremotenotificationkey-used-for
     NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if(notification) {
         [self handleNotification:notification :application];
     }
-
+    
     return YES;
 }
 
@@ -70,12 +69,9 @@
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive)
     {
-        //UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
-        //[alertView show];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",userInfo] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
         [alertView show];
         if ([type isEqualToString:@"open_href"]){
-            //COSA FARE QUANDO NON LINK? TOAST?
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
             //self.link = [userInfo objectForKey:@"link"];
             links = [[NSMutableArray alloc] init];
@@ -87,7 +83,10 @@
             alertView.tag = 1;
             [alertView show];
         }
-        
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil];
+            [alertView show];
+        }
     }
     else {
         // The application was just brought from the background to the foreground,
@@ -109,8 +108,6 @@
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"browserNC"];
         BrowserViewController *bvc = (BrowserViewController*)[nvc.viewControllers objectAtIndex:0];
-        //NSArray *links = @[@"lead_stages", @"sales", @"reports",
-        //NSArray *links = [NSArray arrayWithObjects:@"http://www.google.it", @"http://www.linux.org", nil];
         [bvc setUrlList:links];
         [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
     });

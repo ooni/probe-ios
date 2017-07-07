@@ -34,16 +34,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
-    /*
-     //DEBUG CODE DELETE IN RELEASE
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"browserNC"];
-    BrowserViewController *bvc = (BrowserViewController*)[nvc.viewControllers objectAtIndex:0];
-    NSArray *links = [NSArray arrayWithObjects:@"http://example.com", @"http://ooni.torproject.org",  nil];
-    [bvc setUrlList:links];
-    [self presentViewController:nvc animated:YES completion:nil];
-     */
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
