@@ -24,17 +24,6 @@
     
     if(self)
     {
-        /*
-         "probe_cc": "IT",
-         "probe_asn": "AS0",
-         "platform": "android",
-         "software_name": "ooniprobe-android",
-         "software_version": "0.1.1",
-         "supported_tests": ["tcp_connect", "web_connectivity"],
-         "network_type": "wifi",
-         "available_bandwidth": "100",
-         "token": "TOKEN_ID"
-         */
         NSBundle *bundle = [NSBundle mainBundle];
         geoip_asn_path = [bundle pathForResource:@"GeoIPASNum" ofType:@"dat"];
         geoip_country_path = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
@@ -56,15 +45,7 @@
 
 
 - (void)registerNotifications{
-    //device_token = current_token;
-    NSLog(@"token %@",device_token);
-    NSLog(@"platform %@", platform);
-    NSLog(@"software_name %@", software_name);
-    NSLog(@"software_version %@", software_version);
-    NSLog(@"supported_tests %@", supported_tests);
-    NSLog(@"network_type %@", network_type);
-    NSLog(@"language %@",language);
-
+    
     std::vector<std::string> supported_tests_list;
     for (NSString *s in supported_tests) {
         supported_tests_list.push_back([s UTF8String]);
@@ -84,7 +65,8 @@
     // FIXME: this string is `nil` hence the crash when calling UTF8String
     //client.available_bandwidth = [available_bandwidth UTF8String];
     client.device_token = [device_token UTF8String];
-    client.registry_url = mk::ooni::orchestrate::testing_registry_url();
+    client.registry_url = [NOTIFICATION_SERVER UTF8String];
+    
     std::string secrets_path = [[self make_path] UTF8String];
 
     client.find_location([client, secrets_path = std::move(secrets_path)]
