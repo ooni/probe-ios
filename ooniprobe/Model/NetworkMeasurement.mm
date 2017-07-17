@@ -29,33 +29,6 @@ static void setup_idempotent() {
     }
 }
 
-static std::string get_dns_server() {
-    std::string dns_server = "8.8.4.4";
-    res_state res = nullptr;
-    res = (res_state) malloc(sizeof(struct __res_state));
-    if (res == nullptr) {
-        return dns_server;
-    }
-    if (res_ninit(res) != 0) {
-        free(res);
-        return dns_server;
-    }
-    for (int i = 0; i < res->nscount; ++i) {
-        char addr[INET_ADDRSTRLEN];
-        if (inet_ntop(AF_INET, &res->nsaddr_list[i].sin_addr, addr,
-                      sizeof (addr)) == nullptr) {
-            continue;
-        }
-        #ifdef DEBUG
-        NSLog(@"found DNS resolver: %s", addr);
-        #endif
-        dns_server = addr;
-        break;
-    }
-    free(res);
-    return dns_server;
-}
-
 @implementation NetworkMeasurement
 
 -(id) init {
@@ -310,9 +283,6 @@ static std::string get_dns_server() {
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
     mk::nettests::DnsInjectionTest()
-        .set_options("backend", [@"8.8.8.1:53" UTF8String])
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -361,9 +331,6 @@ static std::string get_dns_server() {
     [super run_test];
     setup_idempotent();
     mk::nettests::HttpInvalidRequestLineTest()
-        .set_options("backend", [HIRL_BACKEND UTF8String])
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -417,9 +384,6 @@ static std::string get_dns_server() {
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
     setup_idempotent();
     mk::nettests::TcpConnectTest()
-        .set_options("port", 80)
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -469,15 +433,6 @@ static std::string get_dns_server() {
     NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     setup_idempotent();
     mk::nettests::WebConnectivityTest()
-        .set_options("backend", [WC_BACKEND UTF8String])
-        /*
-         * XXX nameserver is the nameserver to be used by web connectivity to
-         * perform its DNS checks. In theory it may differ from dns/nameserver
-         * but, in practice, does it make sense to have two settings?
-         */
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
-        .set_options("nameserver", get_dns_server())
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -529,9 +484,6 @@ static std::string get_dns_server() {
 -(void) run_test {
     [super run_test];
     mk::nettests::NdtTest()
-        .set_options("test_suite", MK_NDT_DOWNLOAD | MK_NDT_UPLOAD)
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -583,9 +535,6 @@ static std::string get_dns_server() {
     [super run_test];
     setup_idempotent();
     mk::nettests::HttpHeaderFieldManipulationTest()
-    .set_options("backend", [HHFM_BACKEND UTF8String])
-    .set_options("dns/nameserver", get_dns_server())
-    .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
     .set_options("geoip_country_path", [geoip_country UTF8String])
     .set_options("geoip_asn_path", [geoip_asn UTF8String])
     .set_options("save_real_probe_ip", include_ip)
