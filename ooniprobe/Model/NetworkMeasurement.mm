@@ -566,3 +566,54 @@ static void setup_idempotent() {
 @end
 
 
+@implementation Dash : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.name = @"dash";
+    }
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    [super run_test];
+    setup_idempotent();
+    mk::nettests::DashTest()
+    .set_options("geoip_country_path", [geoip_country UTF8String])
+    .set_options("geoip_asn_path", [geoip_asn UTF8String])
+    .set_options("save_real_probe_ip", include_ip)
+    .set_options("save_real_probe_asn", include_asn)
+    .set_options("save_real_probe_cc", include_cc)
+    .set_options("no_collector", !upload_results)
+    .set_options("collector_base_url", [collector_address UTF8String])
+    .set_options("software_name", [@"ooniprobe-ios" UTF8String])
+    .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+    .set_output_filepath([[self getFileName:@"json"] UTF8String])
+    .set_error_filepath([[self getFileName:@"log"] UTF8String])
+    .set_verbosity(MK_LOG_INFO)
+    .on_progress([self](double prog, const char *s) {
+        [self updateProgress:prog];
+    })
+    .on_log([self](uint32_t type, const char *s) {
+#ifdef DEBUG
+        NSLog(@"%s", s);
+#endif
+    })
+    .on_entry([self](std::string s) {
+        /* TODO */
+    })
+    .start([self]() {
+        [self testEnded];
+    });
+}
+
+@end
