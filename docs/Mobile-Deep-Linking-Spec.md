@@ -47,7 +47,7 @@ ooni://nettest?param-name=param-value&param-name=param-value&...
 Where `param-name` can be any of the one in the following table:
 
 | Parameter name | Type  | Required | Description  | Example Value |
-|------------- --|-------|----------|--------------|---------------|
+|----------------|-------|----------|--------------|---------------|
 | `mv`           | STR   | YES      | Minimum Version of ooniprobe required to run this test | `1.1.5` |
 | `tn`           | STR   | YES      | Test Name of the test to run | `web_connectivity` |
 | `ta`           | JSON  | YES      | Test Arguments to pass to the test encoded as JSON | `{"urls": ["http://one.example.com","http://two.example.com"]}` |
