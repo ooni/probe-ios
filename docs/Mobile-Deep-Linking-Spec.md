@@ -62,4 +62,9 @@ for the test they are about to run.
 
 See the mockup below:
 
-![Android mockup](./static/RunTestsViewAndroid.png)
+![Android mockup run tests](./static/RunTestsViewAndroid.png)
+
+When the version of the software is too old to run a test a view like the
+following shall be displayed:
+
+![Android mockup too old](./static/RunTestsViewAndroidTooOld.png)
