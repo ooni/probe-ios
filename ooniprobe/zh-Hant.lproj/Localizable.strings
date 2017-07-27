@@ -14,16 +14,19 @@
 "http_header_field_manipulation" = "HTTP　表頭欄操控";
 "web_connectivity" = "萬維網連結度";
 "ndt" = "NDT速度測試";
+"dash" = "DASH 串流測試";
 
 "web_connectivity_desc" = "檢查網站是否被封鎖";
 "http_invalid_request_line_desc" = "找尋'中間盒'";
 "http_header_field_manipulation_desc" = "找尋'中間盒";
 "ndt_desc" = "測量網路速度和表現";
+"dash_desc" = "測量影片串流品質";
 
 "web_connectivity_longdesc" = "這個測試檢查網站的近用是否受到 DNS 竄改, TCP/IP 封鎖, 或是透明 HTTP 代理等方式而遭封鎖屏蔽。\n\nE每次執行萬維網連接度時，請試試不同的網站。";
 "http_invalid_request_line_longdesc" = "這個測試試著透過無效HTTP請求行到一個回聲服務，以偵察可能是執行審查或監控的系統 (俗稱的“中間盒”)。如果這類系統存在於你的網路里，這個無效HTTP請求行將會被攔截而觸動一個錯誤。";
 "http_header_field_manipulation_longdesc" = "這個測試試著傳送一個附不規則表頭的無效HTTP請求行到後端控制伺服器，以偵察可能是執行審查或監控的系統 (俗稱的“中間盒”)。如果這類系統存在於你的網路里，它們很可能正規化表頭或是增加額外的表頭。";
 "ndt_longdesc" = "這個測試會計算你的網路速度和表現。\n\n免責聲明：這是一個基於第三方伺服器的第三方的表現測試。我們無法保證你的IP 地址不會被收集、處理與公布。";
+"dash_longdesc" = "這個測試模擬從一個遠端伺服器在不同品質下播放一支簡單的影片。這個測試是設計用來取得你所在網路的影片串流表現基本狀況。\n\n免責聲明：　這是在第三方伺服器上由第三方進行的表現測試，而我們無法保證你的IP資訊不會被對方收集、處理和發佈。";
 
 "running_tests" = "執行測試";
 "finished_tests" = "完成的測試";
@@ -110,3 +113,6 @@
 "max_runtime_low" = "你輸入的最大執行時間太小了，改為預設";
 "clear_all_tests_alert" = "你要刪除所有測試的結果嗎？";
 "past_tests_empty" = "一旦測試完成執行，過去的測試結果將會立即出現在此";
+
+"try_mirror" = "試試鏡像站";
+"loading" = "載入中...";
