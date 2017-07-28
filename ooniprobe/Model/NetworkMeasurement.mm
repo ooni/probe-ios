@@ -609,7 +609,7 @@ static void setup_idempotent() {
 #endif
     })
     .on_entry([self](std::string s) {
-        /* TODO */
+        [self on_entry_ndt:s.c_str()];
     })
     .start([self]() {
         [self testEnded];
