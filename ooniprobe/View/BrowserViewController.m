@@ -55,7 +55,7 @@
 }
 
 - (void)webView:(UIWebView*)webView didFailLoadWithError:(NSError*)error {
-    NSLog(@"didFailLoadWithError %@", [error localizedDescription]);
+    //NSLog(@"didFailLoadWithError %@", [error localizedDescription]);
     if (error.code == NSURLErrorNetworkConnectionLost || error.code == NSURLErrorNotConnectedToInternet || error.code == NSURLErrorTimedOut || error.code == NSURLErrorBadServerResponse){
         [self updateButtons];
         lastError = error;
