@@ -154,9 +154,11 @@ static void setup_idempotent() {
     return anomaly;
 }
 
-//TODO document this functions
-//TODO rewrite these functions to avoiding repeating so much code
-
+/*
+ on_entry method for http invalid request line test
+ if the "tampering" key exists and is null then anomaly will be set to 1 (orange)
+ otherwise "tampering" object exists and is TRUE, then anomaly will be set to 2 (red)
+ */
 -(void)on_entry_hirl:(const char*)str{
     if (str != nil) {
         if (!self.entry){
@@ -181,6 +183,11 @@ static void setup_idempotent() {
     }
 }
 
+/*
+ on_entry method for http invalid request line test
+ if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+ otherwise the keys in the "tampering" object will be checked, if any of them is TRUE, then anomaly will be set to 2 (red)
+ */
 -(void)on_entry_hhfm:(const char*)str{
     if (str != nil) {
         if (!self.entry){
@@ -212,6 +219,10 @@ static void setup_idempotent() {
     }
 }
 
+/*
+ on_entry method for ndt and dash test
+ if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+ */
 -(void)on_entry_ndt:(const char*)str{
     if (str != nil) {
         if (!self.entry){
