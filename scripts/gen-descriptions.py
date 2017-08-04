@@ -4,6 +4,8 @@ import sys
 import xml.dom.minidom as md
 
 title_tmpl = u"{title-ios}"
+subtitle_tmpl = u"{subtitle-ios}"
+promotionaltext_tmpl = u"{promotionaltext-ios}"
 
 full_description_tmpl = u"""
 {intro}
@@ -84,6 +86,12 @@ def print_tmpls(lang_code='source'):
 
     title = title_tmpl.format(**ids)
     print_frmt("Title", title)
+
+    subtitle = subtitle_tmpl.format(**ids)
+    print_frmt("subitle", subtitle)
+
+    promotionaltext = promotionaltext_tmpl.format(**ids)
+    print_frmt("Promotional text", promotionaltext)
 
     full_description = full_description_tmpl.format(**ids)
     print_frmt("Full description", full_description)
