@@ -620,6 +620,9 @@ static void setup_idempotent() {
 #endif
     })
     .on_entry([self](std::string s) {
+        // Note: here we're reusing NDT function since the entry has
+        // basically the same characteristics, as far as deciding the
+        // color of the test line is concerned.
         [self on_entry_ndt:s.c_str()];
     })
     .start([self]() {
