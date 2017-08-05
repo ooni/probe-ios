@@ -3,6 +3,8 @@
 // information on the copying conditions.
 
 #import "AppDelegate.h"
+#import "NotificationService.h"
+#import "BrowserViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,16 +20,106 @@
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"])
-        [self registerNotifications];
+
+    [NotificationService sharedNotificationService];
+    
+    [self registerNotifications];
+    
+    //TODO Probably don't need it anymore when implementing backgound notifications
+    //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo
+    //https://stackoverflow.com/questions/38969229/what-is-uiapplicationlaunchoptionsremotenotificationkey-used-for
+    NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if(notification) {
+        [self handleNotification:notification :application];
+    }
+    
     return YES;
 }
 
 - (void)registerNotifications{
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
 }
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //NSLog(@"token: %@",token);
+    [[NotificationService sharedNotificationService] setDevice_token:token];
+    [[NotificationService sharedNotificationService] registerNotifications];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    if (userInfo) {
+        if ([userInfo objectForKey:@"aps"]){
+            if([[userInfo objectForKey:@"aps"] objectForKey:@"badge"])
+                [UIApplication sharedApplication].applicationIconBadgeNumber = [[[userInfo objectForKey:@"aps"] objectForKey: @"badge"] intValue];
+        }
+        [self handleNotification:userInfo :application];
+    }
+}
+
+-(void)handleNotification:(NSDictionary*)userInfo :(UIApplication *)application{
+    NSString *type = [userInfo objectForKey:@"type"];
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",userInfo] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
+        [alertView show];
+        if ([type isEqualToString:@"open_href"]){
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
+            //self.link = [userInfo objectForKey:@"link"];
+            links = [[NSMutableArray alloc] init];
+            [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
+            if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
+                NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
+                [links addObjectsFromArray:alt_href];
+            }
+            alertView.tag = 1;
+            [alertView show];
+        }
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil];
+            [alertView show];
+        }
+    }
+    else {
+        // The application was just brought from the background to the foreground,
+        // so we consider the app as having been "opened by a push notification."
+        if ([type isEqualToString:@"open_href"]){
+            links = [[NSMutableArray alloc] init];
+            [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
+            if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
+                NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
+                [links addObjectsFromArray:alt_href];
+            }
+            [self openBrowser];
+        }
+    }
+}
+
+-(void)openBrowser{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"browserNC"];
+        BrowserViewController *bvc = (BrowserViewController*)[nvc.viewControllers objectAtIndex:0];
+        [bvc setUrlList:links];
+        [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+    });
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1 && alertView.tag == 1){
+        [self openBrowser];
+    }
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

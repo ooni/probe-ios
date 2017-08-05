@@ -42,6 +42,9 @@
 
     NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
     [self.availableNetworkMeasurements addObject:ndt_testMeasurement];
+
+    Dash *dash = [[Dash alloc] init];
+    [self.availableNetworkMeasurements addObject:dash];
 }
 
 - (NetworkMeasurement*)getTestWithName:(NSString*)testName{
