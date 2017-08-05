@@ -52,7 +52,7 @@
     }
 
     mk::ooni::orchestrate::Client client;
-    client.logger->set_verbosity(MK_LOG_DEBUG2); // FIXME not for production
+    client.logger->set_verbosity(MK_LOG_INFO);
     client.geoip_country_path = [geoip_country_path UTF8String];
     client.geoip_asn_path = [geoip_asn_path UTF8String];
     client.platform = [platform UTF8String];
