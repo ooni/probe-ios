@@ -15,7 +15,7 @@ New features:
 
 * Added internal browser to open links from notifications
 
-measurement-kit version: 0.7.0
+measurement-kit version: 0.7.0-beta
 
 ooniprobe-wui version: 2.2.4-beta.1
 
