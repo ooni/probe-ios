@@ -54,3 +54,5 @@
 @interface HttpHeaderFieldManipulation : NetworkMeasurement
 @end
 
+@interface Dash : NetworkMeasurement
+@end

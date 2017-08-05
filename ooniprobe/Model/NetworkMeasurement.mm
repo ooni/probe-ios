@@ -29,33 +29,6 @@ static void setup_idempotent() {
     }
 }
 
-static std::string get_dns_server() {
-    std::string dns_server = "8.8.4.4";
-    res_state res = nullptr;
-    res = (res_state) malloc(sizeof(struct __res_state));
-    if (res == nullptr) {
-        return dns_server;
-    }
-    if (res_ninit(res) != 0) {
-        free(res);
-        return dns_server;
-    }
-    for (int i = 0; i < res->nscount; ++i) {
-        char addr[INET_ADDRSTRLEN];
-        if (inet_ntop(AF_INET, &res->nsaddr_list[i].sin_addr, addr,
-                      sizeof (addr)) == nullptr) {
-            continue;
-        }
-        #ifdef DEBUG
-        NSLog(@"found DNS resolver: %s", addr);
-        #endif
-        dns_server = addr;
-        break;
-    }
-    free(res);
-    return dns_server;
-}
-
 @implementation NetworkMeasurement
 
 -(id) init {
@@ -181,9 +154,11 @@ static std::string get_dns_server() {
     return anomaly;
 }
 
-//TODO document this functions
-//TODO rewrite these functions to avoidin repeating so much code
-
+/*
+ on_entry method for http invalid request line test
+ if the "tampering" key exists and is null then anomaly will be set to 1 (orange)
+ otherwise "tampering" object exists and is TRUE, then anomaly will be set to 2 (red)
+ */
 -(void)on_entry_hirl:(const char*)str{
     if (str != nil) {
         if (!self.entry){
@@ -208,6 +183,11 @@ static std::string get_dns_server() {
     }
 }
 
+/*
+ on_entry method for http invalid request line test
+ if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+ otherwise the keys in the "tampering" object will be checked, if any of them is TRUE, then anomaly will be set to 2 (red)
+ */
 -(void)on_entry_hhfm:(const char*)str{
     if (str != nil) {
         if (!self.entry){
@@ -223,12 +203,14 @@ static std::string get_dns_server() {
             blocking = 1;
         else {
             NSDictionary *tampering = [[json objectForKey:@"test_keys"] objectForKey:@"tampering"];
-            if ([tampering objectForKey:@"header_field_name"] && [[tampering objectForKey:@"header_field_name"] boolValue]) blocking = 2;
-            else if ([tampering objectForKey:@"header_field_number"] && [[tampering objectForKey:@"header_field_number"] boolValue]) blocking = 2;
-            else if ([tampering objectForKey:@"header_field_value"] && [[tampering objectForKey:@"header_field_value"] boolValue]) blocking = 2;
-            else if ([tampering objectForKey:@"header_name_capitalization"] && [[tampering objectForKey:@"header_name_capitalization"] boolValue]) blocking = 2;
-            else if ([tampering objectForKey:@"request_line_capitalization"] && [[tampering objectForKey:@"request_line_capitalization"] boolValue]) blocking = 2;
-            else if ([tampering objectForKey:@"total"] && [[tampering objectForKey:@"total"] boolValue]) blocking = 2;
+            NSArray *keys = [[NSArray alloc]initWithObjects:@"header_field_name", @"header_field_number", @"header_field_value", @"header_name_capitalization", @"request_line_capitalization", @"total", nil];
+            for (NSString *key in keys) {
+                if ([tampering objectForKey:key] &&
+                    [tampering objectForKey:key] != [NSNull null] &&
+                    [[tampering objectForKey:key] boolValue]) {
+                    blocking = 2;
+                }
+            }
         }
         if (blocking > self.anomaly){
             self.anomaly = blocking;
@@ -237,6 +219,10 @@ static std::string get_dns_server() {
     }
 }
 
+/*
+ on_entry method for ndt and dash test
+ if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+ */
 -(void)on_entry_ndt:(const char*)str{
     if (str != nil) {
         if (!self.entry){
@@ -308,9 +294,6 @@ static std::string get_dns_server() {
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
     mk::nettests::DnsInjectionTest()
-        .set_options("backend", [@"8.8.8.1:53" UTF8String])
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -359,9 +342,6 @@ static std::string get_dns_server() {
     [super run_test];
     setup_idempotent();
     mk::nettests::HttpInvalidRequestLineTest()
-        .set_options("backend", [HIRL_BACKEND UTF8String])
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -415,9 +395,6 @@ static std::string get_dns_server() {
     NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
     setup_idempotent();
     mk::nettests::TcpConnectTest()
-        .set_options("port", 80)
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -467,15 +444,6 @@ static std::string get_dns_server() {
     NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     setup_idempotent();
     mk::nettests::WebConnectivityTest()
-        .set_options("backend", [WC_BACKEND UTF8String])
-        /*
-         * XXX nameserver is the nameserver to be used by web connectivity to
-         * perform its DNS checks. In theory it may differ from dns/nameserver
-         * but, in practice, does it make sense to have two settings?
-         */
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
-        .set_options("nameserver", get_dns_server())
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -512,7 +480,7 @@ static std::string get_dns_server() {
 
 -(id) init {
     self = [super init];
-    self.name = @"ndt_test";
+    self.name = @"ndt";
     return self;
 }
 
@@ -527,9 +495,6 @@ static std::string get_dns_server() {
 -(void) run_test {
     [super run_test];
     mk::nettests::NdtTest()
-        .set_options("test_suite", MK_NDT_DOWNLOAD | MK_NDT_UPLOAD)
-        .set_options("dns/nameserver", get_dns_server())
-        .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
         .set_options("geoip_country_path", [geoip_country UTF8String])
         .set_options("geoip_asn_path", [geoip_asn UTF8String])
         .set_options("save_real_probe_ip", include_ip)
@@ -581,9 +546,6 @@ static std::string get_dns_server() {
     [super run_test];
     setup_idempotent();
     mk::nettests::HttpHeaderFieldManipulationTest()
-    .set_options("backend", [HHFM_BACKEND UTF8String])
-    .set_options("dns/nameserver", get_dns_server())
-    .set_options("dns/engine", "system") // This a fix for: https://github.com/measurement-kit/ooniprobe-ios/issues/61
     .set_options("geoip_country_path", [geoip_country UTF8String])
     .set_options("geoip_asn_path", [geoip_asn UTF8String])
     .set_options("save_real_probe_ip", include_ip)
@@ -615,3 +577,57 @@ static std::string get_dns_server() {
 @end
 
 
+@implementation Dash : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.name = @"dash";
+    }
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    [super run_test];
+    setup_idempotent();
+    mk::nettests::DashTest()
+    .set_options("geoip_country_path", [geoip_country UTF8String])
+    .set_options("geoip_asn_path", [geoip_asn UTF8String])
+    .set_options("save_real_probe_ip", include_ip)
+    .set_options("save_real_probe_asn", include_asn)
+    .set_options("save_real_probe_cc", include_cc)
+    .set_options("no_collector", !upload_results)
+    .set_options("collector_base_url", [collector_address UTF8String])
+    .set_options("software_name", [@"ooniprobe-ios" UTF8String])
+    .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+    .set_output_filepath([[self getFileName:@"json"] UTF8String])
+    .set_error_filepath([[self getFileName:@"log"] UTF8String])
+    .set_verbosity(MK_LOG_INFO)
+    .on_progress([self](double prog, const char *s) {
+        [self updateProgress:prog];
+    })
+    .on_log([self](uint32_t type, const char *s) {
+#ifdef DEBUG
+        NSLog(@"%s", s);
+#endif
+    })
+    .on_entry([self](std::string s) {
+        // Note: here we're reusing NDT function since the entry has
+        // basically the same characteristics, as far as deciding the
+        // color of the test line is concerned.
+        [self on_entry_ndt:s.c_str()];
+    })
+    .start([self]() {
+        [self testEnded];
+    });
+}
+
+@end

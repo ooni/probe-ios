@@ -3,6 +3,7 @@
 // information on the copying conditions.
 
 #import "LeftMenuTableViewController.h"
+#import "PastTestsViewController.h"
 
 @interface LeftMenuTableViewController ()
 @property (nonatomic, strong) NSArray *menuItems;
@@ -56,8 +57,11 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toRun_tests"] || [[segue identifier] isEqualToString:@"toSettings"] || [[segue identifier] isEqualToString:@"toAbout"])
-        [TestStorage set_all_viewed];
+    if ([[segue identifier] isEqualToString:@"toRun_tests"] || [[segue identifier] isEqualToString:@"toSettings"] || [[segue identifier] isEqualToString:@"toAbout"]){
+        UINavigationController *navController = (UINavigationController*)self.revealViewController.mainViewController;
+        if ([([navController viewControllers][0]) isKindOfClass:[PastTestsViewController class]])
+            [TestStorage set_all_viewed];
+    }
 }
 
 @end

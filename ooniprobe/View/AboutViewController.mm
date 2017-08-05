@@ -33,8 +33,17 @@
     [self.textLabel setText:[NSString stringWithFormat:@"%@\n%@",NSLocalizedString(@"about_text_1", nil),  NSLocalizedString(@"about_text_2", nil)]];
     [self.ppButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"view_data_policy", nil)] forState:UIControlStateNormal];
     [self.versionLabel setText:[NSString stringWithFormat:@"ooniprobe: %@\nmeasurement-kit: %s", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"], mk_version()]];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDot) name:@"reloadTable" object:nil];
+    [self reloadDot];
 }
+
+- (void)reloadDot{
+    if ([TestStorage new_tests]){
+        self.navigationItem.leftBarButtonItem.badgeValue = @" ";
+        self.navigationItem.leftBarButtonItem.badgeBGColor = color_ok_green;
+    }
+}
+
 
 -(IBAction)learn_more:(id)sender{
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/"]];

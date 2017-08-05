@@ -1,8 +1,29 @@
+
+# ooniprobe-ios 1.1.5 [2017-08-04]
+
+New Languages:
+
+* Added German, Japanese, Chinese (China and Taiwan) translations
+
+New features:
+
+* Bug fixing
+
+* Added dash test
+
+* Added support for push notifications
+
+* Added internal browser to open links from notifications
+
+measurement-kit version: 0.7.0-beta
+
+ooniprobe-wui version: 2.2.4-beta.1
+
 # ooniprobe-ios 1.1.4 [2017-05-15]
 
 New Languages:
 
-* Added multilingual support and Persian, Russian, Arabic and Greek translations
+* Added Persian, Russian, Arabic and Greek translations
 
 Bugfixes:
 

@@ -4,11 +4,6 @@
 
 #import "RunTestsViewController.h"
 
-/*Include header from test*/
-#include "measurement_kit/ooni.hpp"
-
-#include "measurement_kit/common.hpp"
-
 @interface RunTestsViewController ()
 @property (readwrite) IBOutlet UIBarButtonItem* revealButtonItem;
 @end

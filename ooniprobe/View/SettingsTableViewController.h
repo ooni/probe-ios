@@ -6,6 +6,8 @@
 #import "PBRevealViewController.h"
 #import "UIView+Toast.h"
 #import "AppDelegate.h"
+#import "TestStorage.h"
+#import "UIBarButtonItem+Badge.h"
 
 @interface SettingsTableViewController : UITableViewController <UITextFieldDelegate> {
     NSArray *privacyItems;

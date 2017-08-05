@@ -147,7 +147,7 @@
     NSMutableArray *cache = [[self get_tests] mutableCopy];
     for (int i = 0; i < [cache count]; i++) {
         NetworkMeasurement* test = [cache objectAtIndex:i];
-        if (!test.viewed){
+        if (!test.viewed && !test.running){
             test.viewed = TRUE;
             [cache setObject:test atIndexedSubscript:i];
         }
