@@ -45,6 +45,7 @@
 
 
 - (void)registerNotifications{
+    if (device_token == nil) return;
     
     std::vector<std::string> supported_tests_list;
     for (NSString *s in supported_tests) {

@@ -20,8 +20,6 @@
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
-    [NotificationService sharedNotificationService];
     
     [self registerNotifications];
     
