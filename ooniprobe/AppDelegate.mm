@@ -143,7 +143,7 @@
     if (buttonIndex == 1 && alertView.tag == 1){
         [self openBrowser];
     }
-    else if (buttonIndex == 1 && alertView.tag == 1){
+    else if (buttonIndex == 1 && alertView.tag == 2){
         //open ooniprobe on iTunes connect
         NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1245670385?mt=8";
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
