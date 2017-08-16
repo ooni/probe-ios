@@ -23,30 +23,6 @@
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
-    if ([@"1.1.3" compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending)
-        NSLog(@"1.1.3 older");
-    else
-        NSLog(@"1.1.3 newer");
-
-    if ([@"1.1.5" compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending)
-        NSLog(@"1.1.5 older");
-    else
-        NSLog(@"1.1.5 newer");
-
-    
-    if ([@"1.1.8" compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending)
-        NSLog(@"1.1.8 older");
-    else
-        NSLog(@"1.1.8 newer");
-
-    if ([@"1.8.0" compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending)
-        NSLog(@"1.8.0 older");
-    else
-        NSLog(@"1.8.0 newer");
-
-
-    [NotificationService sharedNotificationService];
     
     [self registerNotifications];
     
@@ -94,8 +70,6 @@
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive)
     {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notifications", nil) message:[NSString stringWithFormat:@"%@",userInfo] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
-        [alertView show];
         if ([type isEqualToString:@"open_href"]){
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
             //self.link = [userInfo objectForKey:@"link"];

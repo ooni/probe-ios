@@ -58,7 +58,6 @@
         network_type = @"mobile";
     else if(status == NotReachable)
         network_type = @"no_internet";
-    NSLog(@"network_type %@", network_type);
     return network_type;
 }
 
