@@ -6,6 +6,8 @@
 #import "Tests.h"
 #import "NotificationService.h"
 #import "BrowserViewController.h"
+#import "DictionaryUtility.h"
+#import "RunTestViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +23,28 @@
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+    if ([@"1.1.3" compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending)
+        NSLog(@"1.1.3 older");
+    else
+        NSLog(@"1.1.3 newer");
+
+    if ([@"1.1.5" compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending)
+        NSLog(@"1.1.5 older");
+    else
+        NSLog(@"1.1.5 newer");
+
+    
+    if ([@"1.1.8" compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending)
+        NSLog(@"1.1.8 older");
+    else
+        NSLog(@"1.1.8 newer");
+
+    if ([@"1.8.0" compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending)
+        NSLog(@"1.8.0 older");
+    else
+        NSLog(@"1.8.0 newer");
+
 
     [NotificationService sharedNotificationService];
     
@@ -119,8 +143,13 @@
     if (buttonIndex == 1 && alertView.tag == 1){
         [self openBrowser];
     }
+    else if (buttonIndex == 1 && alertView.tag == 1){
+        //open ooniprobe on iTunes connect
+        NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1245670385?mt=8";
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+    }
 }
-
+    
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -150,73 +179,44 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     //NSLog(@"url recieved: %@", url);
-    //NSLog(@"query string: %@", [url query]);
+    NSLog(@"query string: %@", [url query]);
     
-    NSString *action = [url host];
-    //NSLog(@"action: %@", action);
+    //creating parameters dict
+    NSDictionary *dict = [DictionaryUtility parseQueryString:[url query]];
+    NSDictionary *parameters = [DictionaryUtility getParametersFromDict:dict];
     
-    //what to do if test is already running?
-    if ([action isEqualToString:@"run_test"]){
-        NSString *test_to_run = [[url path] substringFromIndex:1];
-        //NSLog(@"test to run: %@", test_to_run);
-        if ([[Tests currentTests] getTestWithName:test_to_run]){
-            NSLog(@"test found");
+    NSString *minimum_version = [parameters objectForKey:@"mv"];
+    if (minimum_version != nil){
+        if ([minimum_version compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending) {
+            //actualVersion is lower than the requiredVersion
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ooniprobe_outdate", nil) message:NSLocalizedString(@"ooniprobe_outdate_msg", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@"OK", nil];
+            alertView.tag = 2;
+            [alertView show];
         }
-    }
-    
-    //NSLog(@"dict: %@", [url query]);
-
-    NSDictionary *dict = [self parseQueryString:[url query]];
-    //NSLog(@"query dict: %@", dict);
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    for (NSString *key in [dict allKeys]){
-        NSString *current = [dict objectForKey:key];
-        NSError *error;
-        NSData *data = [current dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        if (error == nil){
-            [parameters setObject:dictionary forKey:key];
-            //NSLog(@"json dictionary for key %@ : %@", key, dictionary);
-        }
-        else{
-            [parameters setObject:current forKey:key];
-            //NSLog(@"json object for key %@ : %@", key, current);
-            //NSLog(@"error: %@", error);
-        }
-    }
-
-    NSLog(@"dict: %@", parameters);
-    NSDictionary *required_version_json = [parameters objectForKey:@"required_version_json"];
-    if (required_version_json != nil){
-        NSString *ios_version = [required_version_json objectForKey:@"ios"];
-        if (ios_version != nil){
-            if ([ios_version compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending) {
-                // actualVersion is lower than the requiredVersion
-                //show dialog
-                NSLog(@"NOT Supported");
+        else {
+            NSString *action = [url host];
+            if ([action isEqualToString:@"nettest"]){
+                [self openURIschemeScreen:parameters];
             }
-            else
-                NSLog(@"Supported");
-            
         }
     }
-    
     return YES;
 }
 
-
-- (NSDictionary *)parseQueryString:(NSString *)query {
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    NSArray *pairs = [query componentsSeparatedByString:@"&"];
     
-    for (NSString *pair in pairs) {
-        NSArray *elements = [pair componentsSeparatedByString:@"="];
-        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        [dict setObject:val forKey:key];
-    }
-    return dict;
+-(void)openURIschemeScreen:(NSDictionary*)parameters{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"runtestNC"];
+        RunTestViewController *rvc = (RunTestViewController*)[nvc.viewControllers objectAtIndex:0];
+        if ([parameters objectForKey:@"tn"])
+            [rvc setTest_name:[parameters objectForKey:@"tn"]];
+        if ([parameters objectForKey:@"ta"])
+            [rvc setTest_arguments:[parameters objectForKey:@"ta"]];
+        if ([parameters objectForKey:@"td"])
+            [rvc setTest_decription:[parameters objectForKey:@"td"]];
+        [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+    });
 }
 
 - (void)crashlyticsDidDetectReportForLastExecution:(CLSReport *)report completionHandler:(void (^)(BOOL))completionHandler {

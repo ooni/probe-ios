@@ -64,6 +64,8 @@
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD101BD1EE801F00044E390 /* NotificationService.mm */; };
 		EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDE344811D42151C00BAEB10 /* ResultViewController.mm */; };
+		EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDFE07391F37526A00960AF2 /* RunTestViewController.mm */; };
+		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +169,10 @@
 		EDD101BD1EE801F00044E390 /* NotificationService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NotificationService.mm; path = Utility/NotificationService.mm; sourceTree = "<group>"; };
 		EDE344801D42151C00BAEB10 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		EDE344811D42151C00BAEB10 /* ResultViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResultViewController.mm; sourceTree = "<group>"; };
+		EDFE07381F37526A00960AF2 /* RunTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTestViewController.h; sourceTree = "<group>"; };
+		EDFE07391F37526A00960AF2 /* RunTestViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RunTestViewController.mm; sourceTree = "<group>"; };
+		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
+		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
 		FBB68CFBE135C2F6BDF61340 /* Pods-ooniprobe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,6 +291,8 @@
 				ED3932C31E3114740064CD11 /* AboutViewController.mm */,
 				ED1F33601EFD552F00B42FEC /* BrowserViewController.h */,
 				ED1F33611EFD552F00B42FEC /* BrowserViewController.m */,
+				EDFE07381F37526A00960AF2 /* RunTestViewController.h */,
+				EDFE07391F37526A00960AF2 /* RunTestViewController.mm */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,6 +343,8 @@
 				EDD101BD1EE801F00044E390 /* NotificationService.mm */,
 				ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */,
 				ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */,
+				EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */,
+				EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -497,13 +507,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ooniprobe-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		0DB68370272A8F1E523AA5E2 /* [CP] Copy Pods Resources */ = {
@@ -567,6 +580,7 @@
 				ED8816BA1D8C6A6100D5D725 /* ConfigurationViewController.m in Sources */,
 				EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */,
 				ED8816AE1D8C6A3400D5D725 /* IntroductionViewController.m in Sources */,
+				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
 				ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */,
@@ -582,6 +596,7 @@
 				ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */,
 				ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm in Sources */,
 				ED3932C71E3114BA0064CD11 /* PastTestsViewController.mm in Sources */,
+				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
