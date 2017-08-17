@@ -13,28 +13,26 @@
 @end
 
 @implementation RunTestViewController
-@synthesize test_name, test_arguments, test_decription;
+@synthesize testName, testArguments, testDecription;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (test_decription != nil)
-        [self.titleLabel setText:[NSString stringWithFormat:@"%@", test_decription]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest) name:@"reloadTable" object:nil];
+
+    currentTests = [Tests currentTests];
+    [self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
+
+    if (testDecription != nil)
+        [self.titleLabel setText:[NSString stringWithFormat:@"%@", testDecription]];
     else
         [self.titleLabel setText:NSLocalizedString(@"run_test_message", nil)];
 
     [self.test_detailsLabel setText:NSLocalizedString(@"test_details", nil)];
-    currentTest = [[Tests currentTests] getTestWithName:test_name];
-    if (currentTest){
-        [self.test_titleLabel setText:NSLocalizedString(currentTest.name, nil)];
-        [self.test_iconImage setImage:[UIImage imageNamed:currentTest.name]];
-    }
-    else {
-        
-    }
-        
-    urls = [test_arguments objectForKey:@"urls"];
-    if ([urls count] == 0)
-        [self.tableView setHidden:YES];
+    NetworkMeasurement *current = [currentTests getTestWithName:testName];
+    [self.test_titleLabel setText:NSLocalizedString(current.name, nil)];
+    [self.test_iconImage setImage:[UIImage imageNamed:current.name]];
+    
+    urls = [testArguments objectForKey:@"urls"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +42,20 @@
 
 -(IBAction)close:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)reloadTest{
+    NetworkMeasurement *current = [currentTests getTestWithName:testName];
+    if (current.running){
+        [self.indicator setHidden:FALSE];
+        [self.runButton setHidden:TRUE];
+        [self.indicator startAnimating];
+    }
+    else {
+        [self dismissViewControllerAnimated:nil completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+        }];
+    }
 }
 
 #pragma mark - Table view data source
@@ -58,6 +70,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    if ([urls count] == 0)
+        return nil;
     return NSLocalizedString(@"urls", nil);
 }
 
@@ -65,53 +79,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *current = [urls objectAtIndex:indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:@"include_cc"];
     cell.textLabel.text = current;
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(IBAction)run:(id)sender {
+    NetworkMeasurement *current = [currentTests getTestWithName:testName];
+    [current run];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

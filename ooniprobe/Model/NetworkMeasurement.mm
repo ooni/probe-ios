@@ -111,7 +111,7 @@ static void setup_idempotent() {
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
         NSDictionary *noteInfo = [NSDictionary dictionaryWithObject:self.name forKey:@"test_name"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"showToastFinished" object:nil userInfo:noteInfo];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showToastTestFinished" object:nil userInfo:noteInfo];
     });
 }
 

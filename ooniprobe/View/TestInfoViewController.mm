@@ -18,7 +18,7 @@
     [self.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_big", testName]]];
     [self.moreButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"learn_more", nil)] forState:UIControlStateNormal];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest) name:@"reloadTable" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast:) name:@"showToastFinished" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast:) name:@"showToastTestFinished" object:nil];
     NSString *test_desc = [NSString stringWithFormat:@"%@_longdesc", testName];
     [self.textLabel setText:NSLocalizedString(test_desc, nil)];
 }

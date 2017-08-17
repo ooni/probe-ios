@@ -1606,7 +1606,7 @@ measurement-kit: x.y.z</string>
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Bq-BB-3Ir">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Bq-BB-3Ir">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="433"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="ZTf-im-C7o">
@@ -1671,7 +1671,7 @@ measurement-kit: x.y.z</string>
                                                     <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="FiraSansOTMedium" family="Fira Sans OT" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1693,7 +1693,13 @@ measurement-kit: x.y.z</string>
                                 <state key="normal" title="Run">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="run:" destination="gIO-Qc-zcX" eventType="touchUpInside" id="58I-Ss-XaQ"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RbG-Fm-DSX">
+                                <rect key="frame" x="150" y="458" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1702,7 +1708,9 @@ measurement-kit: x.y.z</string>
                             <constraint firstAttribute="trailing" secondItem="7Bq-BB-3Ir" secondAttribute="trailing" id="KCe-jt-MPR"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="fX0-Sq-7Df" secondAttribute="trailing" constant="117" id="azl-8y-Eb1"/>
                             <constraint firstItem="fX0-Sq-7Df" firstAttribute="top" secondItem="7Bq-BB-3Ir" secondAttribute="bottom" constant="8" symbolic="YES" id="eZN-6Z-fFb"/>
+                            <constraint firstItem="RbG-Fm-DSX" firstAttribute="centerY" secondItem="fX0-Sq-7Df" secondAttribute="centerY" id="kP8-H2-9G6"/>
                             <constraint firstItem="7Bq-BB-3Ir" firstAttribute="top" secondItem="7l4-5V-t2d" secondAttribute="bottom" id="l2X-hU-GDH"/>
+                            <constraint firstItem="RbG-Fm-DSX" firstAttribute="centerX" secondItem="fX0-Sq-7Df" secondAttribute="centerX" id="ny6-cV-jvu"/>
                             <constraint firstItem="Z3q-Xe-LKi" firstAttribute="top" secondItem="fX0-Sq-7Df" secondAttribute="bottom" constant="8" id="wTv-p5-d3L"/>
                             <constraint firstItem="fX0-Sq-7Df" firstAttribute="centerX" secondItem="NPb-cx-a4N" secondAttribute="centerX" id="yZu-M9-JRd"/>
                         </constraints>
@@ -1716,6 +1724,8 @@ measurement-kit: x.y.z</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicator" destination="RbG-Fm-DSX" id="XHi-3D-ehm"/>
+                        <outlet property="runButton" destination="fX0-Sq-7Df" id="sYD-G5-FfM"/>
                         <outlet property="tableView" destination="7Bq-BB-3Ir" id="Mih-bs-IVD"/>
                         <outlet property="test_detailsLabel" destination="cUu-OR-4BW" id="ufg-cM-2oN"/>
                         <outlet property="test_iconImage" destination="zeb-ps-txY" id="dfr-Dh-EE7"/>

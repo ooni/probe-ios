@@ -28,7 +28,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reloadTable" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast) name:@"showToast" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToastConfiguration) name:@"showToastConfiguration" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast:) name:@"showToastTestFinished" object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -128,13 +129,19 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
--(void)showToast{
+-(void)showToastConfiguration{
     CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
     style.messageAlignment = NSTextAlignmentCenter;
     style.messageColor = color_off_white;
     style.backgroundColor = color_ok_green;
     style.titleFont = [UIFont fontWithName:@"FiraSansOT-Bold" size:15];
     [self.view makeToast:NSLocalizedString(@"ooniprobe_configured", nil) duration:3.0 position:CSToastPositionBottom style:style];
+}
+
+-(void)showToast:(NSNotification *) notification{
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *test_name = [userInfo objectForKey:@"test_name"];
+    [self.view makeToast:[NSString stringWithFormat:NSLocalizedString(@"test_name_finished", nil), NSLocalizedString(test_name, nil)]];
 }
 
 -(NSArray*)getItems:(NSString*)json_file{
