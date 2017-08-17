@@ -25,6 +25,10 @@
 
 @property NSString *json_file;
 @property NSString *log_file;
+
+//TODO restructure with an object when we will have multiple test list
+@property NSArray *inputs;
+
 @property BOOL running;
 @property BOOL viewed;
 @property BOOL entry;

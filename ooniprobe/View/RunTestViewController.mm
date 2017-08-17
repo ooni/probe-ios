@@ -33,6 +33,9 @@
     [self.test_iconImage setImage:[UIImage imageNamed:current.name]];
     
     urls = [testArguments objectForKey:@"urls"];
+    if ([urls count] > 0){
+        current.inputs = urls;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
