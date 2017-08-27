@@ -70,7 +70,7 @@
     }
     //case test was started and finishes !current.running && started
     else {
-        [self dismissViewControllerAnimated:nil completion:^{
+        [self dismissViewControllerAnimated:TRUE completion:^{
             [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
         }];
     }
