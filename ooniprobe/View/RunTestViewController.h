@@ -14,6 +14,7 @@
 @interface RunTestViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     Tests *currentTests;
     NSArray *urls;
+    BOOL started;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;

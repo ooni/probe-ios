@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest) name:@"reloadTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTestUI) name:@"reloadTable" object:nil];
 
     currentTests = [Tests currentTests];
     [self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
@@ -36,6 +36,7 @@
     if ([urls count] > 0){
         current.inputs = urls;
     }
+    [self reloadTestUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,13 +48,27 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)reloadTest{
+-(void)reloadTestUI{
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
-    if (current.running){
+    //basic case (not running e not started)
+    if (!current.running && !started){
+        [self.indicator setHidden:TRUE];
+        [self.runButton setHidden:FALSE];
+        [self.indicator stopAnimating];
+    }
+    //current test started
+    else if (current.running && started){
         [self.indicator setHidden:FALSE];
         [self.runButton setHidden:TRUE];
         [self.indicator startAnimating];
     }
+    //other test is running the UI waits
+    else if (current.running && !started){
+        [self.indicator setHidden:FALSE];
+        [self.runButton setHidden:TRUE];
+        [self.indicator startAnimating];
+    }
+    //case test was started and finishes !current.running && started
     else {
         [self dismissViewControllerAnimated:nil completion:^{
             [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
@@ -88,6 +103,7 @@
 }
 
 -(IBAction)run:(id)sender {
+    started = true;
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
     [current run];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
