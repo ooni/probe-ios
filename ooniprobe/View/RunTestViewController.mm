@@ -30,7 +30,7 @@
     [self.test_detailsLabel setText:NSLocalizedString(@"test_details", nil)];
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
     [self.test_titleLabel setText:NSLocalizedString(current.name, nil)];
-    [self.test_iconImage setImage:[UIImage imageNamed:current.name]];
+    [self.test_iconImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_big", current.name]]];
     
     urls = [testArguments objectForKey:@"urls"];
     if ([urls count] > 0){
