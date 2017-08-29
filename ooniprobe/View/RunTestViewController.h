@@ -15,6 +15,7 @@
     Tests *currentTests;
     NSArray *urls;
     BOOL started;
+    BOOL showIcon;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;

@@ -32,10 +32,21 @@
     [self.test_titleLabel setText:NSLocalizedString(current.name, nil)];
     [self.test_iconImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_big", current.name]]];
     
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
     urls = [testArguments objectForKey:@"urls"];
     if ([urls count] > 0){
+        showIcon = TRUE;
         current.inputs = urls;
     }
+    else if ([current.name isEqualToString:@"web_connectivity"]){
+        urls = [NSArray arrayWithObject:NSLocalizedString(@"random_sampling_urls", nil)];
+    }
+    else {
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    }
+    
     [self reloadTestUI];
 }
 
@@ -97,7 +108,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *current = [urls objectAtIndex:indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@"include_cc"];
+    if (showIcon) cell.imageView.image = [UIImage imageNamed:@"include_cc"];
     cell.textLabel.text = current;
     return cell;
 }
