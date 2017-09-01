@@ -14,7 +14,7 @@
 @interface RunTestViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     Tests *currentTests;
     NSArray *urls;
-    BOOL started;
+    NSArray *rows;
     BOOL showIcon;
 }
 

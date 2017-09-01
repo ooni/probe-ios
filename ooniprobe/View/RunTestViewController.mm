@@ -38,10 +38,10 @@
     urls = [testArguments objectForKey:@"urls"];
     if ([urls count] > 0){
         showIcon = TRUE;
-        current.inputs = urls;
+        rows = urls;
     }
     else if ([current.name isEqualToString:@"web_connectivity"]){
-        urls = [NSArray arrayWithObject:NSLocalizedString(@"random_sampling_urls", nil)];
+        rows = [NSArray arrayWithObject:NSLocalizedString(@"random_sampling_urls", nil)];
     }
     else {
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -62,28 +62,16 @@
 -(void)reloadTestUI{
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
     //basic case (not running e not started)
-    if (!current.running && !started){
+    if (!current.running){
         [self.indicator setHidden:TRUE];
         [self.runButton setHidden:FALSE];
         [self.indicator stopAnimating];
     }
-    //current test started
-    else if (current.running && started){
-        [self.indicator setHidden:FALSE];
-        [self.runButton setHidden:TRUE];
-        [self.indicator startAnimating];
-    }
-    //other test is running the UI waits
-    else if (current.running && !started){
-        [self.indicator setHidden:FALSE];
-        [self.runButton setHidden:TRUE];
-        [self.indicator startAnimating];
-    }
-    //case test was started and finishes !current.running && started
+    //current test is running
     else {
-        [self dismissViewControllerAnimated:TRUE completion:^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-        }];
+        [self.indicator setHidden:FALSE];
+        [self.runButton setHidden:TRUE];
+        [self.indicator startAnimating];
     }
 }
 
@@ -94,12 +82,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [urls count];
+    return [rows count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if ([urls count] == 0)
+    if ([rows count] == 0)
         return nil;
     return NSLocalizedString(@"urls", nil);
 }
@@ -107,17 +95,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    NSString *current = [urls objectAtIndex:indexPath.row];
+    NSString *current = [rows objectAtIndex:indexPath.row];
     if (showIcon) cell.imageView.image = [UIImage imageNamed:@"include_cc"];
     cell.textLabel.text = current;
     return cell;
 }
 
 -(IBAction)run:(id)sender {
-    started = true;
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
+    if ([urls count] > 0){
+        current.inputs = urls;
+    }
     [current run];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+    [self dismissViewControllerAnimated:TRUE completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
+    }];
 }
 
 @end
