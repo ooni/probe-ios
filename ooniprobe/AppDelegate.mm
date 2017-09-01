@@ -189,8 +189,7 @@
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"runtestNC"];
         RunTestViewController *rvc = (RunTestViewController*)[nvc.viewControllers objectAtIndex:0];
-        if ([parameters objectForKey:@"tn"])
-            [rvc setTestName:[parameters objectForKey:@"tn"]];
+        [rvc setTestName:[parameters objectForKey:@"tn"]];
         if ([parameters objectForKey:@"ta"])
             [rvc setTestArguments:[parameters objectForKey:@"ta"]];
         if ([parameters objectForKey:@"td"])

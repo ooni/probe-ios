@@ -57,6 +57,7 @@
 
 -(IBAction)runTest:(id)sender{
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
+    current.inputs = nil;
     [current run];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
 }
