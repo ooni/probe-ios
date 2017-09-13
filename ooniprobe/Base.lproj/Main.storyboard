@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1606,9 +1605,9 @@ measurement-kit: x.y.z</string>
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="7Bq-BB-3Ir">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="7Bq-BB-3Ir">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="433"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="ZTf-im-C7o">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1625,13 +1624,13 @@ measurement-kit: x.y.z</string>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Web Connectivity" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lef-ei-vIl">
                                             <rect key="frame" x="15" y="95" width="234" height="46"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
-                                            <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cUu-OR-4BW">
                                             <rect key="frame" x="15" y="62" width="288" height="24"/>
-                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
-                                            <color key="textColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="18"/>
+                                            <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-ps-txY">
@@ -1641,6 +1640,10 @@ measurement-kit: x.y.z</string>
                                                 <constraint firstAttribute="height" constant="46" id="wU7-ft-Wmb"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="756-rW-4M0">
+                                            <rect key="frame" x="0.0" y="160" width="320" height="1"/>
+                                            <color key="backgroundColor" red="0.88235294117647056" green="0.88235294117647056" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -1649,14 +1652,18 @@ measurement-kit: x.y.z</string>
                                         <constraint firstItem="zAN-yb-ZYy" firstAttribute="leading" secondItem="ZTf-im-C7o" secondAttribute="leading" constant="15" id="6aG-u3-ew1"/>
                                         <constraint firstItem="zeb-ps-txY" firstAttribute="bottom" secondItem="Lef-ei-vIl" secondAttribute="bottom" id="LPM-At-xu9"/>
                                         <constraint firstAttribute="bottom" secondItem="Lef-ei-vIl" secondAttribute="bottom" constant="20" id="OVH-QR-IUI"/>
+                                        <constraint firstAttribute="trailing" secondItem="756-rW-4M0" secondAttribute="trailing" id="PQN-nF-z3I"/>
                                         <constraint firstItem="cUu-OR-4BW" firstAttribute="leading" secondItem="ZTf-im-C7o" secondAttribute="leading" constant="15" id="Q2A-bT-0rT"/>
+                                        <constraint firstAttribute="bottom" secondItem="756-rW-4M0" secondAttribute="bottom" id="TWF-ul-akP"/>
                                         <constraint firstItem="zeb-ps-txY" firstAttribute="leading" secondItem="Lef-ei-vIl" secondAttribute="trailing" constant="8" id="TnK-8r-T6g"/>
+                                        <constraint firstItem="756-rW-4M0" firstAttribute="top" secondItem="Lef-ei-vIl" secondAttribute="bottom" constant="19" id="Tpf-aY-sFt"/>
                                         <constraint firstItem="Lef-ei-vIl" firstAttribute="leading" secondItem="ZTf-im-C7o" secondAttribute="leading" constant="15" id="W61-c0-FC5"/>
                                         <constraint firstAttribute="trailing" secondItem="zeb-ps-txY" secondAttribute="trailing" constant="17" id="cBd-Qn-Klw"/>
                                         <constraint firstAttribute="trailing" secondItem="cUu-OR-4BW" secondAttribute="trailing" constant="17" id="eFv-T1-QC8"/>
                                         <constraint firstItem="Lef-ei-vIl" firstAttribute="top" secondItem="cUu-OR-4BW" secondAttribute="bottom" constant="9.5" id="fI4-EO-rkO"/>
                                         <constraint firstItem="zAN-yb-ZYy" firstAttribute="top" secondItem="ZTf-im-C7o" secondAttribute="top" constant="8" id="g9t-lJ-Djg"/>
                                         <constraint firstItem="zeb-ps-txY" firstAttribute="top" secondItem="cUu-OR-4BW" secondAttribute="bottom" constant="9" id="s8t-Su-eHK"/>
+                                        <constraint firstItem="756-rW-4M0" firstAttribute="leading" secondItem="ZTf-im-C7o" secondAttribute="leading" id="uPh-U7-uaG"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -1664,11 +1671,11 @@ measurement-kit: x.y.z</string>
                                         <rect key="frame" x="0.0" y="216.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jXc-DX-TmE" id="xeg-i4-6CN">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rH4-ou-g48">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="FiraSansOTMedium" family="Fira Sans OT" pointSize="15"/>
                                                     <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1735,7 +1742,7 @@ measurement-kit: x.y.z</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htD-eJ-PiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="3136"/>
+            <point key="canvasLocation" x="-13.125" y="3135.211267605634"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qyh-eW-yFv">
@@ -1765,6 +1772,6 @@ measurement-kit: x.y.z</string>
     <inferredMetricsTieBreakers>
         <segue reference="d3a-zP-8bF"/>
         <segue reference="ULy-MW-EOd"/>
-        <segue reference="5aZ-7B-4ri"/>
+        <segue reference="xM5-AD-3dX"/>
     </inferredMetricsTieBreakers>
 </document>

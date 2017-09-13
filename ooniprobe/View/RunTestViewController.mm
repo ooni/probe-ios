@@ -92,6 +92,12 @@
     return NSLocalizedString(@"urls", nil);
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.backgroundView.backgroundColor = [UIColor clearColor];
+    header.textLabel.font = [UIFont fontWithName:@"FiraSansOT-Bold" size:18];
+    [header.textLabel setTextColor:color_off_black];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
