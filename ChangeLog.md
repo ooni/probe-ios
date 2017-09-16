@@ -2,6 +2,14 @@
 
 * Drop support for iOS < 9
 
+# ooniprobe-ios 1.1.6 [2017-08-17]
+
+* Fixed crash on network changes when user denied push notification
+
+measurement-kit version: 0.7.0
+
+ooniprobe-wui version: 2.2.4-beta.1
+
 # ooniprobe-ios 1.1.5 [2017-08-07]
 
 New Languages:
