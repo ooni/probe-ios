@@ -1,3 +1,7 @@
+# ooniprobe-ios next [xxxx-xx-xx]
+
+* Drop support for iOS < 9
+
 # ooniprobe-ios 1.1.5 [2017-08-07]
 
 New Languages:
