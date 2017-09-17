@@ -6,7 +6,7 @@
 
 * Fixed crash on network changes when user denied push notification
 
-measurement-kit version: 0.7.0
+measurement-kit version: 0.7.2
 
 ooniprobe-wui version: 2.2.4-beta.1
 
