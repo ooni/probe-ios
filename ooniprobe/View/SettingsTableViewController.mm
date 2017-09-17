@@ -3,6 +3,7 @@
 // information on the copying conditions.
 
 #import "SettingsTableViewController.h"
+#define alert_tag_collector_address 1
 
 @interface SettingsTableViewController ()
 @property (readwrite) IBOutlet UIBarButtonItem* revealButtonItem;
@@ -231,7 +232,7 @@
     if (indexPath.section == 2 && indexPath.row == [advancedItems count] -1){
         NSString *current = [advancedItems objectAtIndex:indexPath.row];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(current, @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), NSLocalizedString(@"set_default", nil), nil];
-        alert.tag = 1;
+        alert.tag = alert_tag_collector_address;
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         value = [alert textFieldAtIndex:0];
         value.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"collector_address"];
@@ -245,7 +246,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (alertView.tag == 1){
+    if (alertView.tag == alert_tag_collector_address){
         //collector address
         if (buttonIndex == 1 && value.text.length > 0) {
             [[NSUserDefaults standardUserDefaults] setObject:value.text forKey:@"collector_address"];

@@ -9,6 +9,9 @@
 #import "DictionaryUtility.h"
 #import "RunTestViewController.h"
 
+#define alert_tag_notification 1
+#define alert_tag_open_itunes 2
+
 @interface AppDelegate ()
 
 @end
@@ -34,10 +37,6 @@
         [self handleNotification:notification :application];
     }
     
-    return YES;
-}
-
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity  restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler{
     return YES;
 }
 
@@ -83,7 +82,7 @@
                 NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
                 [links addObjectsFromArray:alt_href];
             }
-            alertView.tag = 1;
+            alertView.tag = alert_tag_notification;
             [alertView show];
         }
         else {
@@ -118,10 +117,10 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1 && alertView.tag == 1){
+    if (buttonIndex == 1 && alertView.tag == alert_tag_notification){
         [self openBrowser];
     }
-    else if (buttonIndex == 1 && alertView.tag == 2){
+    else if (buttonIndex == 1 && alertView.tag == alert_tag_open_itunes){
         //open ooniprobe on iTunes connect
         NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1245670385?mt=8";
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
@@ -156,23 +155,45 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    //NSLog(@"url recieved: %@", url);
-    //NSLog(@"query string: %@", [url query]);
-    
-    //creating parameters dict
+    [self handleUrlScheme:url];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity  restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler{
+    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        [self handleUrlScheme:userActivity.webpageURL];
+    }
+    return YES;
+}
+
+-(void)handleUrlScheme:(NSURL*)url{
     NSDictionary *dict = [DictionaryUtility parseQueryString:[url query]];
     NSDictionary *parameters = [DictionaryUtility getParametersFromDict:dict];
-    
+    /*
+     //Logging
+    NSLog(@"url recieved: %@", url);
+    NSLog(@"query string: %@", [url query]);
+    NSLog(@"host: %@", [url host]);
+    NSLog(@"url path: %@", [url path]);
+    NSLog(@"dict: %@", dict);
+    NSLog(@"parameters: %@", parameters);
+     */
+    //creating parameters dict
+
     NSString *minimum_version = [parameters objectForKey:@"mv"];
     if (minimum_version != nil){
         if ([minimum_version compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending) {
             //actualVersion is lower than the requiredVersion
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ooniprobe_outdate", nil) message:NSLocalizedString(@"ooniprobe_outdate_msg", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
-            alertView.tag = 2;
+            alertView.tag = alert_tag_open_itunes;
             [alertView show];
         }
         else {
-            NSString *action = [url host];
+            NSString *action;
+            if ([[url host] isEqualToString:@"run.ooni.io"])
+                action = [[url path] substringFromIndex:1];
+            else
+                action = [url host];
             if ([action isEqualToString:@"nettest"]){
                 //For now checking only test name
                 if ([parameters objectForKey:@"tn"] && [[Tests currentTests] getTestWithName:[parameters objectForKey:@"tn"]])
@@ -184,10 +205,8 @@
             }
         }
     }
-    return YES;
 }
 
-    
 -(void)openURIschemeScreen:(NSDictionary*)parameters{
     dispatch_async(dispatch_get_main_queue(), ^{
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
