@@ -81,6 +81,7 @@
     return [rows count];
 }
 
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if ([rows count] == 0)
@@ -88,11 +89,21 @@
     return NSLocalizedString(@"urls", nil);
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if ([rows count] == 0)
+        return 0;
+    return 40;
+
+}
+
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.backgroundView.backgroundColor = [UIColor clearColor];
     header.textLabel.font = [UIFont fontWithName:@"FiraSansOT-Bold" size:18];
     [header.textLabel setTextColor:color_off_black];
+    header.textLabel.text = NSLocalizedString(@"urls", nil);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
