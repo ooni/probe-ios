@@ -33,13 +33,12 @@
         NSData *data = [current dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         if (error == nil){
+            //set a dictionary subparameter
             [parameters setObject:dictionary forKey:key];
-            //NSLog(@"json dictionary for key %@ : %@", key, dictionary);
         }
         else{
+            //set a string subparameter
             [parameters setObject:current forKey:key];
-            //NSLog(@"json object for key %@ : %@", key, current);
-            //NSLog(@"error: %@", error);
         }
     }
     return parameters;

@@ -154,11 +154,13 @@
     //TODO start your long running bg task here
 }
 
+//Handles ooni:// links
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     [self handleUrlScheme:url];
     return YES;
 }
 
+//Handles http(s) links
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity  restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler{
     if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
         [self handleUrlScheme:userActivity.webpageURL];

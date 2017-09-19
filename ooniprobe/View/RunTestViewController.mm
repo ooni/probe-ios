@@ -9,7 +9,7 @@
 @end
 
 @implementation RunTestViewController
-@synthesize testName, testArguments, testDecription;
+@synthesize testName, testArguments, testDescription;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -18,8 +18,8 @@
     currentTests = [Tests currentTests];
     [self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
 
-    if (testDecription != nil)
-        [self.titleLabel setText:[NSString stringWithFormat:@"%@", testDecription]];
+    if (testDescription != nil)
+        [self.titleLabel setText:[NSString stringWithFormat:@"%@", testDescription]];
     else
         [self.titleLabel setText:NSLocalizedString(@"run_test_message", nil)];
 

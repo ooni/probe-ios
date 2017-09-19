@@ -24,6 +24,6 @@
 
 @property (nonatomic, retain) NSString *testName;
 @property (nonatomic, retain) NSDictionary *testArguments;
-@property (nonatomic, retain) NSString *testDecription;
+@property (nonatomic, retain) NSString *testDescription;
 
 @end
