@@ -218,7 +218,7 @@
         if ([parameters objectForKey:@"ta"])
             [rvc setTestArguments:[parameters objectForKey:@"ta"]];
         if ([parameters objectForKey:@"td"])
-            [rvc setTestDecription:[parameters objectForKey:@"td"]];
+            [rvc setTestDescription:[parameters objectForKey:@"td"]];
         [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
     });
 }
