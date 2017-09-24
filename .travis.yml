@@ -3,8 +3,7 @@ osx_image: xcode8
 install:
     - brew update
     - brew upgrade gpg
-    # XXX add the long keyid here
-    - gpg2 --recv-keys 7733D95B
+    - gpg --recv-keys 738877AA6C829F26A431C5F480B691277733D95B
     - sudo gem install cocoapods
     - pod repo update 2>&1 >/dev/null
     - pod install --verbose
