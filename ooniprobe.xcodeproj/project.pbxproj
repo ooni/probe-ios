@@ -28,6 +28,7 @@
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* TestStorage.mm */; };
 		ED5AFD661E2529400039ECCB /* global.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED5AFD651E2529400039ECCB /* global.txt */; };
+		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */; };
 		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED7F9FF51F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js in Resources */ = {isa = PBXBuildFile; fileRef = ED7F9FE11F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js */; };
@@ -113,6 +114,8 @@
 		ED58E8C81D0C627D00C74F10 /* TestStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestStorage.h; path = Utility/TestStorage.h; sourceTree = "<group>"; };
 		ED58E8C91D0C627D00C74F10 /* TestStorage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestStorage.mm; path = Utility/TestStorage.mm; sourceTree = "<group>"; };
 		ED5AFD651E2529400039ECCB /* global.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = global.txt; sourceTree = "<group>"; };
+		ED5F8A281F77C4AA0093C8F5 /* VersionUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VersionUtility.h; path = Utility/VersionUtility.h; sourceTree = "<group>"; };
+		ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = VersionUtility.mm; path = Utility/VersionUtility.mm; sourceTree = "<group>"; };
 		ED62AB9B1ED5B70500778249 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Utility/Reachability.h; sourceTree = "<group>"; };
 		ED62AB9C1ED5B70500778249 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Utility/Reachability.m; sourceTree = "<group>"; };
 		ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ooniprobe.entitlements; sourceTree = "<group>"; };
@@ -318,6 +321,8 @@
 				ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */,
 				EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */,
 				EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */,
+				ED5F8A281F77C4AA0093C8F5 /* VersionUtility.h */,
+				ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -583,6 +588,7 @@
 				ED8816BA1D8C6A6100D5D725 /* ConfigurationViewController.m in Sources */,
 				EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */,
 				ED8816AE1D8C6A3400D5D725 /* IntroductionViewController.m in Sources */,
+				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */,
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,

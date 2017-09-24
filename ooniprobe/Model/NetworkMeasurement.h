@@ -16,6 +16,7 @@
     bool upload_results;
     NSString *collector_address;
     NSNumber *max_runtime;
+    NSString *software_version;
 }
 
 @property NSString *name;

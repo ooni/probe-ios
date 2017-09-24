@@ -1,4 +1,4 @@
-# ooniprobe-ios 1.2.1 [2017-09-xx]
+# ooniprobe-ios 1.2.1 [2017-09-25]
 
 New features:
 
@@ -8,7 +8,7 @@ New features:
 
 * Drop support for iOS < 9
 
-measurement-kit version: 0.7.2
+measurement-kit version: 0.7.3
 
 ooniprobe-wui version: 2.2.4
 
