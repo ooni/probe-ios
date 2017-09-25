@@ -2,8 +2,8 @@ language: objective-c
 osx_image: xcode8
 install:
     - brew update
-    - brew install gpg2
-    - gpg2 --recv-keys 7733D95B
+    - brew upgrade gpg
+    - gpg --keyserver hkp://ipv4.pool.sks-keyservers.net:80 --recv-keys 738877AA6C829F26A431C5F480B691277733D95B
     - sudo gem install cocoapods
     - pod repo update 2>&1 >/dev/null
     - pod install --verbose

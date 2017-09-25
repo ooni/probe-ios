@@ -16,6 +16,7 @@
     bool upload_results;
     NSString *collector_address;
     NSNumber *max_runtime;
+    NSString *software_version;
 }
 
 @property NSString *name;
@@ -25,6 +26,10 @@
 
 @property NSString *json_file;
 @property NSString *log_file;
+
+//TODO restructure with an object when we will have multiple test list
+@property NSArray *inputs;
+
 @property BOOL running;
 @property BOOL viewed;
 @property BOOL entry;

@@ -5,6 +5,7 @@
 #import "NetworkMeasurement.h"
 #import "TestStorage.h"
 #import "Tests.h"
+#import "VersionUtility.h"
 
 #include <measurement_kit/ooni.hpp>
 #include <measurement_kit/nettests.hpp>
@@ -58,6 +59,7 @@ static void setup_idempotent() {
     upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
     collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
     max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
+    software_version = [VersionUtility get_software_version];
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
@@ -111,7 +113,7 @@ static void setup_idempotent() {
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
         NSDictionary *noteInfo = [NSDictionary dictionaryWithObject:self.name forKey:@"test_name"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"showToastFinished" object:nil userInfo:noteInfo];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showToastTestFinished" object:nil userInfo:noteInfo];
     });
 }
 
@@ -302,7 +304,7 @@ static void setup_idempotent() {
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+        .set_options("software_version", [software_version UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
@@ -350,7 +352,7 @@ static void setup_idempotent() {
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+        .set_options("software_version", [software_version UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
@@ -403,7 +405,7 @@ static void setup_idempotent() {
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+        .set_options("software_version", [software_version UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_verbosity(MK_LOG_INFO)
@@ -443,35 +445,42 @@ static void setup_idempotent() {
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     setup_idempotent();
-    mk::nettests::WebConnectivityTest()
-        .set_options("geoip_country_path", [geoip_country UTF8String])
-        .set_options("geoip_asn_path", [geoip_asn UTF8String])
-        .set_options("save_real_probe_ip", include_ip)
-        .set_options("save_real_probe_asn", include_asn)
-        .set_options("save_real_probe_cc", include_cc)
-        .set_options("no_collector", !upload_results)
-        .set_options("collector_base_url", [collector_address UTF8String])
-        .set_options("max_runtime", [max_runtime doubleValue])
-        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
-        .set_input_filepath([path UTF8String])
-        .set_error_filepath([[self getFileName:@"log"] UTF8String])
-        .set_output_filepath([[self getFileName:@"json"] UTF8String])
-        .set_verbosity(MK_LOG_INFO)
-        .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
-        })
-        .on_log([self](uint32_t type, const char *s) {
-            #ifdef DEBUG
-            NSLog(@"%s", s);
-            #endif
-        })
-        .on_entry([self](std::string s) {
-            [self on_entry_wc:s.c_str()];
-        })
-        .start([self]() {
-            [self testEnded];
-        });
+    mk::nettests::WebConnectivityTest test;
+    test.set_options("geoip_country_path", [geoip_country UTF8String]);
+    test.set_options("geoip_asn_path", [geoip_asn UTF8String]);
+    test.set_options("save_real_probe_ip", include_ip);
+    test.set_options("save_real_probe_asn", include_asn);
+    test.set_options("save_real_probe_cc", include_cc);
+    test.set_options("no_collector", !upload_results);
+    test.set_options("collector_base_url", [collector_address UTF8String]);
+    test.set_options("max_runtime", [max_runtime doubleValue]);
+    test.set_options("software_name", [@"ooniprobe-ios" UTF8String]);
+    test.set_options("software_version", [software_version UTF8String]);
+    if ([self.inputs count] > 0) {
+        for (NSString* input in self.inputs) {
+            test.add_input([input UTF8String]);
+        }
+    }
+    else {
+        test.set_input_filepath([path UTF8String]);
+    }
+    test.set_error_filepath([[self getFileName:@"log"] UTF8String]);
+    test.set_output_filepath([[self getFileName:@"json"] UTF8String]);
+    test.set_verbosity(MK_LOG_INFO);
+    test.on_progress([self](double prog, const char *s) {
+        [self updateProgress:prog];
+    });
+    test.on_log([self](uint32_t type, const char *s) {
+        #ifdef DEBUG
+        NSLog(@"%s", s);
+        #endif
+    });
+    test.on_entry([self](std::string s) {
+        [self on_entry_wc:s.c_str()];
+    });
+    test.start([self]() {
+        [self testEnded];
+    });
 }
 
 @end
@@ -503,7 +512,7 @@ static void setup_idempotent() {
         .set_options("no_collector", !upload_results)
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-        .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+        .set_options("software_version", [software_version UTF8String])
         .set_verbosity(MK_LOG_INFO)
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
@@ -554,7 +563,7 @@ static void setup_idempotent() {
     .set_options("no_collector", !upload_results)
     .set_options("collector_base_url", [collector_address UTF8String])
     .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-    .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+    .set_options("software_version", [software_version UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
     .set_error_filepath([[self getFileName:@"log"] UTF8String])
     .set_verbosity(MK_LOG_INFO)
@@ -607,7 +616,7 @@ static void setup_idempotent() {
     .set_options("no_collector", !upload_results)
     .set_options("collector_base_url", [collector_address UTF8String])
     .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-    .set_options("software_version", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String])
+    .set_options("software_version", [software_version UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
     .set_error_filepath([[self getFileName:@"log"] UTF8String])
     .set_verbosity(MK_LOG_INFO)

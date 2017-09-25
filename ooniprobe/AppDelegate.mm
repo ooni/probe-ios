@@ -3,8 +3,14 @@
 // information on the copying conditions.
 
 #import "AppDelegate.h"
+#import "Tests.h"
 #import "NotificationService.h"
 #import "BrowserViewController.h"
+#import "DictionaryUtility.h"
+#import "RunTestViewController.h"
+
+#define alert_tag_notification 1
+#define alert_tag_open_itunes 2
 
 @interface AppDelegate ()
 
@@ -76,7 +82,7 @@
                 NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
                 [links addObjectsFromArray:alt_href];
             }
-            alertView.tag = 1;
+            alertView.tag = alert_tag_notification;
             [alertView show];
         }
         else {
@@ -111,11 +117,16 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1 && alertView.tag == 1){
+    if (buttonIndex == 1 && alertView.tag == alert_tag_notification){
         [self openBrowser];
     }
+    else if (buttonIndex == 1 && alertView.tag == alert_tag_open_itunes){
+        //open ooniprobe on iTunes connect
+        NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1245670385?mt=8";
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+    }
 }
-
+    
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -141,6 +152,75 @@
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     //TODO start your long running bg task here
+}
+
+//Handles ooni:// links
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    [self handleUrlScheme:url];
+    return YES;
+}
+
+//Handles http(s) links
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity  restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler{
+    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        [self handleUrlScheme:userActivity.webpageURL];
+    }
+    return YES;
+}
+
+-(void)handleUrlScheme:(NSURL*)url{
+    NSDictionary *dict = [DictionaryUtility parseQueryString:[url query]];
+    NSDictionary *parameters = [DictionaryUtility getParametersFromDict:dict];
+    /*
+     //Logging
+    NSLog(@"url recieved: %@", url);
+    NSLog(@"query string: %@", [url query]);
+    NSLog(@"host: %@", [url host]);
+    NSLog(@"url path: %@", [url path]);
+    NSLog(@"dict: %@", dict);
+    NSLog(@"parameters: %@", parameters);
+     */
+    //creating parameters dict
+
+    NSString *minimum_version = [parameters objectForKey:@"mv"];
+    if (minimum_version != nil){
+        if ([minimum_version compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending) {
+            //actualVersion is lower than the requiredVersion
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ooniprobe_outdate", nil) message:NSLocalizedString(@"ooniprobe_outdate_msg", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
+            alertView.tag = alert_tag_open_itunes;
+            [alertView show];
+        }
+        else {
+            NSString *action;
+            if ([[url host] isEqualToString:@"run.ooni.io"])
+                action = [[url path] substringFromIndex:1];
+            else
+                action = [url host];
+            if ([action isEqualToString:@"nettest"]){
+                //For now checking only test name
+                if ([parameters objectForKey:@"tn"] && [[Tests currentTests] getTestWithName:[parameters objectForKey:@"tn"]])
+                    [self openURIschemeScreen:parameters];
+                else {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"invalid_parameter", nil) message:[NSString stringWithFormat:@"%@ : %@", NSLocalizedString(@"test_name", nil), [parameters objectForKey:@"tn"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:nil];
+                    [alertView show];
+                }
+            }
+        }
+    }
+}
+
+-(void)openURIschemeScreen:(NSDictionary*)parameters{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"runtestNC"];
+        RunTestViewController *rvc = (RunTestViewController*)[nvc.viewControllers objectAtIndex:0];
+        [rvc setTestName:[parameters objectForKey:@"tn"]];
+        if ([parameters objectForKey:@"ta"])
+            [rvc setTestArguments:[parameters objectForKey:@"ta"]];
+        if ([parameters objectForKey:@"td"])
+            [rvc setTestDescription:[parameters objectForKey:@"td"]];
+        [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+    });
 }
 
 - (void)crashlyticsDidDetectReportForLastExecution:(CLSReport *)report completionHandler:(void (^)(BOOL))completionHandler {

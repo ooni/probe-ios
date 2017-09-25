@@ -88,7 +88,7 @@
     [self dismissViewControllerAnimated:YES completion:^{
         AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [delegate registerNotifications];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"showToast" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showToastConfiguration" object:nil];
     }];
 }
 

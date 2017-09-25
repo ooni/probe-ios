@@ -1,8 +1,28 @@
+# ooniprobe-ios 1.2.1 [2017-09-25]
+
+New features:
+
+* Added support for running tests with custom URI scheme
+
+* Added possibility to open links from run.ooni.io
+
+* Drop support for iOS < 9
+
+measurement-kit version: 0.7.3
+
+ooniprobe-wui version: 2.2.4
+
+# ooniprobe-ios 1.2.0 [version yanked]
+
+measurement-kit version: 0.7.2
+
+ooniprobe-wui version: 2.2.4-beta.1
+
 # ooniprobe-ios 1.1.6 [2017-08-17]
 
 * Fixed crash on network changes when user denied push notification
 
-measurement-kit version: 0.7.0
+measurement-kit version: 0.7.1
 
 ooniprobe-wui version: 2.2.4-beta.1
 

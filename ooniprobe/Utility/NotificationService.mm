@@ -4,6 +4,7 @@
 
 #import "NotificationService.h"
 #include <measurement_kit/ooni.hpp>
+#import "VersionUtility.h"
 
 @implementation NotificationService
 @synthesize geoip_asn_path, geoip_country_path, platform, software_name, software_version, supported_tests, network_type, available_bandwidth, device_token, language;
@@ -29,7 +30,7 @@
         geoip_country_path = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
         platform = @"ios";
         software_name = @"ooniprobe-ios";
-        software_version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        software_version = [VersionUtility get_software_version];
         NSMutableArray *supported_tests_ar = [[NSMutableArray alloc] init];
         Tests *currentTests = [Tests currentTests];
         for (NetworkMeasurement *nm in currentTests.availableNetworkMeasurements){
