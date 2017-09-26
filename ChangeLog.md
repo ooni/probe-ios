@@ -1,4 +1,4 @@
-# ooniprobe-ios 1.2.1 [2017-09-25]
+# ooniprobe-ios 1.2.1 [2017-09-26]
 
 New features:
 
