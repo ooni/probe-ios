@@ -8,11 +8,17 @@ New features:
 
 * Drop support for iOS < 9
 
-measurement-kit version: 0.7.3
+measurement-kit version: 0.7.4
 
 ooniprobe-wui version: 2.2.4
 
-# ooniprobe-ios 1.2.0 [version yanked]
+# ooniprobe-ios 1.2.0-rc.2 [version yanked]
+
+measurement-kit version: 0.7.4
+
+ooniprobe-wui version: 2.2.4
+
+# ooniprobe-ios 1.2.0-rc.1 [version yanked]
 
 measurement-kit version: 0.7.2
 
