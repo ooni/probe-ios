@@ -12,7 +12,7 @@ measurement-kit version: 0.7.4
 
 ooniprobe-wui version: 2.2.4
 
-# ooniprobe-ios 1.2.0-rc.2 [version yanked]
+# ooniprobe-ios 1.2.0-rc.2 & 1.2.0-rc.3 [version yanked]
 
 measurement-kit version: 0.7.4
 
