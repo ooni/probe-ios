@@ -3,7 +3,7 @@ import os
 import sys
 import xml.dom.minidom as md
 
-title_tmpl = u"{title-ios}"
+title_tmpl = u"{title-android}"
 subtitle_tmpl = u"{subtitle-ios}"
 promotionaltext_tmpl = u"{promotionaltext-ios}"
 

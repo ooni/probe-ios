@@ -1,7 +1,3 @@
-// Part of MeasurementKit <https://measurement-kit.github.io/>.
-// MeasurementKit is free software. See AUTHORS and LICENSE for more
-// information on the copying conditions.
-
 #import "NotificationService.h"
 #include <measurement_kit/ooni.hpp>
 #import "VersionUtility.h"
