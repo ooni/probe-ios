@@ -121,7 +121,7 @@
     }
     else if (buttonIndex == 1 && alertView.tag == alert_tag_open_itunes){
         //open ooniprobe on iTunes connect
-        NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1245670385?mt=8";
+        NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1199566366?mt=8";
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
     }
 }
