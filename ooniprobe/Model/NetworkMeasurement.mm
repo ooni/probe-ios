@@ -71,12 +71,14 @@ static void setup_idempotent() {
 }
 
 - (void)showNotification {
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate date];
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"finished_running", nil), NSLocalizedString(self.name, nil)];
-    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
-    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate date];
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"finished_running", nil), NSLocalizedString(self.name, nil)];
+        [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
+        [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    });
 }
 
 -(NSString*) getDate {

@@ -57,8 +57,11 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     if (userInfo) {
         if ([userInfo objectForKey:@"aps"]){
-            if([[userInfo objectForKey:@"aps"] objectForKey:@"badge"])
-                [UIApplication sharedApplication].applicationIconBadgeNumber = [[[userInfo objectForKey:@"aps"] objectForKey: @"badge"] intValue];
+            if([[userInfo objectForKey:@"aps"] objectForKey:@"badge"]){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIApplication sharedApplication].applicationIconBadgeNumber = [[[userInfo objectForKey:@"aps"] objectForKey: @"badge"] intValue];
+                });
+            }
         }
         [self handleNotification:userInfo :application];
     }
@@ -139,7 +142,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    });
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
