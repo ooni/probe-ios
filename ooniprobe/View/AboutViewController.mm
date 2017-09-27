@@ -1,9 +1,6 @@
-// Part of MeasurementKit <https://measurement-kit.github.io/>.
-// MeasurementKit is free software. See AUTHORS and LICENSE for more
-// information on the copying conditions.
-
 #import "AboutViewController.h"
 #import <measurement_kit/common.hpp>
+#import "VersionUtility.h"
 
 @interface AboutViewController ()
 @property (readwrite) IBOutlet UIBarButtonItem* revealButtonItem;
@@ -32,7 +29,7 @@
     [self.learnMoreButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"learn_more", nil)] forState:UIControlStateNormal];
     [self.textLabel setText:[NSString stringWithFormat:@"%@\n%@",NSLocalizedString(@"about_text_1", nil),  NSLocalizedString(@"about_text_2", nil)]];
     [self.ppButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"view_data_policy", nil)] forState:UIControlStateNormal];
-    [self.versionLabel setText:[NSString stringWithFormat:@"ooniprobe: %@\nmeasurement-kit: %s", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"], mk_version()]];
+    [self.versionLabel setText:[NSString stringWithFormat:@"ooniprobe: %@\nmeasurement-kit: %s", [VersionUtility get_software_version], mk_version()]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDot) name:@"reloadTable" object:nil];
     [self reloadDot];
 }

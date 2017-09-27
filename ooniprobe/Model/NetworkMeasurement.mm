@@ -1,7 +1,3 @@
-// Part of MeasurementKit <https://measurement-kit.github.io/>.
-// MeasurementKit is free software. See AUTHORS and LICENSE for more
-// information on the copying conditions.
-
 #import "NetworkMeasurement.h"
 #import "TestStorage.h"
 #import "Tests.h"
@@ -16,11 +12,17 @@
 #include <resolv.h>
 #include <dns.h>
 
+#define VERBOSITY MK_LOG_INFO
+#define ANOMALY_GREEN 0
+#define ANOMALY_ORANGE 1
+#define ANOMALY_RED 2
+
+
 static void setup_idempotent() {
     static bool initialized = false;
     if (!initialized) {
         // Set the logger verbose and make sure it logs on the "logcat"
-        mk::set_verbosity(MK_LOG_INFO);
+        mk::set_verbosity(VERBOSITY);
         mk::on_log([](uint32_t, const char *s) {
             #ifdef DEBUG
             NSLog(@"%s", s);
@@ -42,7 +44,7 @@ static void setup_idempotent() {
     geoip_country = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
     self.running = FALSE;
     self.viewed = FALSE;
-    self.anomaly = 0;
+    self.anomaly = ANOMALY_GREEN;
     self.entry = FALSE;
     self.backgroundTask = UIBackgroundTaskInvalid;
     return self;
@@ -69,12 +71,14 @@ static void setup_idempotent() {
 }
 
 - (void)showNotification {
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate date];
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"finished_running", nil), NSLocalizedString(self.name, nil)];
-    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
-    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate date];
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"finished_running", nil), NSLocalizedString(self.name, nil)];
+        [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
+        [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    });
 }
 
 -(NSString*) getDate {
@@ -146,12 +150,12 @@ static void setup_idempotent() {
      2 == red
      */
     id element = [test_keys objectForKey:@"blocking"];
-    int anomaly = 0;
+    int anomaly = ANOMALY_GREEN;
     if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
-        anomaly = 1;
+        anomaly = ANOMALY_ORANGE;
     }
     else if (([element isKindOfClass:[NSString class]])) {
-        anomaly = 2;
+        anomaly = ANOMALY_RED;
     }
     return anomaly;
 }
@@ -170,13 +174,13 @@ static void setup_idempotent() {
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = 0;
+        int blocking = ANOMALY_GREEN;
         if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
             //this case shouldn't happen
             if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
-                blocking = 1;
+                blocking = ANOMALY_ORANGE;
             else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
-                blocking = 2;
+                blocking = ANOMALY_RED;
         }
         if (blocking > self.anomaly){
             self.anomaly = blocking;
@@ -200,9 +204,9 @@ static void setup_idempotent() {
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         
-        int blocking = 0;
+        int blocking = ANOMALY_GREEN;
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
-            blocking = 1;
+            blocking = ANOMALY_ORANGE;
         else {
             NSDictionary *tampering = [[json objectForKey:@"test_keys"] objectForKey:@"tampering"];
             NSArray *keys = [[NSArray alloc]initWithObjects:@"header_field_name", @"header_field_number", @"header_field_value", @"header_name_capitalization", @"request_line_capitalization", @"total", nil];
@@ -210,7 +214,7 @@ static void setup_idempotent() {
                 if ([tampering objectForKey:key] &&
                     [tampering objectForKey:key] != [NSNull null] &&
                     [[tampering objectForKey:key] boolValue]) {
-                    blocking = 2;
+                    blocking = ANOMALY_RED;
                 }
             }
         }
@@ -234,9 +238,9 @@ static void setup_idempotent() {
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = 0;
+        int blocking = ANOMALY_GREEN;
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
-            blocking = 1;
+            blocking = ANOMALY_ORANGE;
         if (blocking > self.anomaly){
             self.anomaly = blocking;
             [TestStorage set_anomaly:self.test_id :blocking];
@@ -308,7 +312,7 @@ static void setup_idempotent() {
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
-        .set_verbosity(MK_LOG_INFO)
+        .set_verbosity(VERBOSITY)
         .on_progress([self](double prog, const char *s) {
             [self updateProgress:prog];
         })
@@ -355,7 +359,7 @@ static void setup_idempotent() {
         .set_options("software_version", [software_version UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
-        .set_verbosity(MK_LOG_INFO)
+        .set_verbosity(VERBOSITY)
         .on_progress([self](double prog, const char *s) {
             [self updateProgress:prog];
         })
@@ -408,7 +412,7 @@ static void setup_idempotent() {
         .set_options("software_version", [software_version UTF8String])
         .set_input_filepath([path UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
-        .set_verbosity(MK_LOG_INFO)
+        .set_verbosity(VERBOSITY)
         .on_progress([self](double prog, const char *s) {
             [self updateProgress:prog];
         })
@@ -453,7 +457,6 @@ static void setup_idempotent() {
     test.set_options("save_real_probe_cc", include_cc);
     test.set_options("no_collector", !upload_results);
     test.set_options("collector_base_url", [collector_address UTF8String]);
-    test.set_options("max_runtime", [max_runtime doubleValue]);
     test.set_options("software_name", [@"ooniprobe-ios" UTF8String]);
     test.set_options("software_version", [software_version UTF8String]);
     if ([self.inputs count] > 0) {
@@ -462,11 +465,14 @@ static void setup_idempotent() {
         }
     }
     else {
+        //For now I consider when there are inputs = ran from URI scheme, when don't ran normal test
+        //TODO This class has to be improved, waiting for test list managment functions
+        test.set_options("max_runtime", [max_runtime doubleValue]);
         test.set_input_filepath([path UTF8String]);
     }
     test.set_error_filepath([[self getFileName:@"log"] UTF8String]);
     test.set_output_filepath([[self getFileName:@"json"] UTF8String]);
-    test.set_verbosity(MK_LOG_INFO);
+    test.set_verbosity(VERBOSITY);
     test.on_progress([self](double prog, const char *s) {
         [self updateProgress:prog];
     });
@@ -513,7 +519,7 @@ static void setup_idempotent() {
         .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("software_name", [@"ooniprobe-ios" UTF8String])
         .set_options("software_version", [software_version UTF8String])
-        .set_verbosity(MK_LOG_INFO)
+        .set_verbosity(VERBOSITY)
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
         .set_error_filepath([[self getFileName:@"log"] UTF8String])
         .on_progress([self](double prog, const char *s) {
@@ -566,7 +572,7 @@ static void setup_idempotent() {
     .set_options("software_version", [software_version UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
     .set_error_filepath([[self getFileName:@"log"] UTF8String])
-    .set_verbosity(MK_LOG_INFO)
+    .set_verbosity(VERBOSITY)
     .on_progress([self](double prog, const char *s) {
         [self updateProgress:prog];
     })
@@ -619,7 +625,7 @@ static void setup_idempotent() {
     .set_options("software_version", [software_version UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
     .set_error_filepath([[self getFileName:@"log"] UTF8String])
-    .set_verbosity(MK_LOG_INFO)
+    .set_verbosity(VERBOSITY)
     .on_progress([self](double prog, const char *s) {
         [self updateProgress:prog];
     })
