@@ -1,4 +1,4 @@
-# ooniprobe-ios 1.2.1 [2017-09-26]
+# ooniprobe-ios 1.2.2 [2017-09-27]
 
 New features:
 
@@ -12,7 +12,15 @@ measurement-kit version: 0.7.4
 
 ooniprobe-wui version: 2.2.4
 
-# ooniprobe-ios 1.2.0-rc.2 & 1.2.0-rc.3 [version yanked]
+# ooniprobe-ios 1.2.2-rc.1
+
+* Fixed max_runtime being used when running from URI scheme
+
+measurement-kit version: 0.7.4
+
+ooniprobe-wui version: 2.2.4
+
+# ooniprobe-ios 1.2.0-rc.2 & 1.2.0-rc.3 & 1.2.1 [version yanked]
 
 measurement-kit version: 0.7.4
 
