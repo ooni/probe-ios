@@ -5,8 +5,8 @@
 #import "DictionaryUtility.h"
 #import "RunTestViewController.h"
 
-#define alert_tag_notification 1
-#define alert_tag_open_itunes 2
+#define ALERT_TAG_NOTIFICATION 1
+#define ALERT_TAG_OPEN_ITUNES 2
 
 @interface AppDelegate ()
 
@@ -81,7 +81,7 @@
                 NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
                 [links addObjectsFromArray:alt_href];
             }
-            alertView.tag = alert_tag_notification;
+            alertView.tag = ALERT_TAG_NOTIFICATION;
             [alertView show];
         }
         else {
@@ -116,10 +116,10 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1 && alertView.tag == alert_tag_notification){
+    if (buttonIndex == 1 && alertView.tag == ALERT_TAG_NOTIFICATION){
         [self openBrowser];
     }
-    else if (buttonIndex == 1 && alertView.tag == alert_tag_open_itunes){
+    else if (buttonIndex == 1 && alertView.tag == ALERT_TAG_OPEN_ITUNES){
         //open ooniprobe on iTunes connect
         NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1199566366?mt=8";
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
@@ -188,7 +188,7 @@
         if ([minimum_version compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending) {
             //actualVersion is lower than the requiredVersion
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ooniprobe_outdate", nil) message:NSLocalizedString(@"ooniprobe_outdate_msg", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
-            alertView.tag = alert_tag_open_itunes;
+            alertView.tag = ALERT_TAG_OPEN_ITUNES;
             [alertView show];
         }
         else {
