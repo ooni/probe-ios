@@ -220,7 +220,12 @@
             [rvc setTestArguments:[parameters objectForKey:@"ta"]];
         if ([parameters objectForKey:@"td"])
             [rvc setTestDescription:[parameters objectForKey:@"td"]];
-        [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+        if (self.window.rootViewController.view.window != nil)
+            [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+        else {
+            //view is not in the window hierarchy
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTest" object:nil userInfo:parameters];
+        }
     });
 }
 

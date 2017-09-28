@@ -10,15 +10,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTestUI) name:@"reloadTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
+    [self configureView];
+}
 
+-(void)configureView{
     currentTests = [Tests currentTests];
     [self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
-
+    
     if (testDescription != nil)
         [self.titleLabel setText:[NSString stringWithFormat:@"%@", testDescription]];
     else
         [self.titleLabel setText:NSLocalizedString(@"run_test_message", nil)];
-
+    
     [self.test_detailsLabel setText:NSLocalizedString(@"test_details", nil)];
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
     [self.test_titleLabel setText:NSLocalizedString(current.name, nil)];
@@ -26,7 +30,8 @@
     
     self.tableView.estimatedRowHeight = 44.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-
+    
+    rows = [[NSArray alloc] init];
     urls = [testArguments objectForKey:@"urls"];
     if ([urls count] > 0){
         showIcon = TRUE;
@@ -38,7 +43,9 @@
     else {
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     }
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
     [self reloadTestUI];
 }
 
@@ -65,6 +72,14 @@
         [self.runButton setHidden:TRUE];
         [self.indicator startAnimating];
     }
+}
+
+-(void)reloadTest:(NSNotification *)notification{
+    NSDictionary *parameters = notification.userInfo;
+    testName = [parameters objectForKey:@"tn"];
+    testArguments = [parameters objectForKey:@"ta"];
+    testDescription = [parameters objectForKey:@"td"];
+    [self configureView];
 }
 
 #pragma mark - Table view data source
