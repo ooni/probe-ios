@@ -4,7 +4,7 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.13)
   - MBProgressHUD (1.0.0)
-  - measurement_kit (0.7.4)
+  - measurement_kit (0.7.5)
   - PBRevealViewController (1.2.4):
     - PBRevealViewController/ObjC (= 1.2.4)
   - PBRevealViewController/ObjC (1.2.4)
@@ -16,31 +16,31 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Fabric
   - MBProgressHUD
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, tag `v0.7.4`)
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `fix/ios_armv7s`)
   - PBRevealViewController
   - Toast
   - UIBarButtonItem-Badge-Coding
 
 EXTERNAL SOURCES:
   measurement_kit:
+    :branch: fix/ios_armv7s
     :git: https://github.com/measurement-kit/measurement-kit.git
-    :tag: v0.7.4
 
 CHECKOUT OPTIONS:
   measurement_kit:
+    :commit: 9c2289d566dc5390e421d9056da34284a49e6317
     :git: https://github.com/measurement-kit/measurement-kit.git
-    :tag: v0.7.4
 
 SPEC CHECKSUMS:
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  measurement_kit: df0d619e195cbe2768aa8cc126621866e8712608
+  measurement_kit: 3facf24e8690a375e55079fbcb0110152729d8b4
   PBRevealViewController: adb457283df2fd22962f114024fd1446f0e20e77
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UIBarButtonItem-Badge-Coding: 3f8e96f75f7d7c7516c1a1706b566892bf2db134
 
-PODFILE CHECKSUM: 6a60c359a804fd5ce1465cac39105d1eceb928d4
+PODFILE CHECKSUM: d13176d6039eaf7f774720b3ffb0606bb870ea7b
 
 COCOAPODS: 1.4.0.beta.1
