@@ -17,7 +17,7 @@
 -(void)configureView{
     currentTests = [Tests currentTests];
     [self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
-    
+
     if (testDescription != nil)
         [self.titleLabel setText:[NSString stringWithFormat:@"%@", testDescription]];
     else
