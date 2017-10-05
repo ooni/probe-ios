@@ -10,7 +10,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTestUI) name:@"reloadTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
+    [self configureView];
+}
 
+-(void)configureView{
     currentTests = [Tests currentTests];
     [self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
 
@@ -26,7 +30,9 @@
     
     self.tableView.estimatedRowHeight = 44.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-
+    
+    //reset the arrays: we may be called more than once for the same screen
+    rows = [[NSArray alloc] init];
     urls = [testArguments objectForKey:@"urls"];
     if ([urls count] > 0){
         showIcon = TRUE;
@@ -39,6 +45,10 @@
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     }
     
+    //reloading the view with new parameters.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
     [self reloadTestUI];
 }
 
@@ -65,6 +75,14 @@
         [self.runButton setHidden:TRUE];
         [self.indicator startAnimating];
     }
+}
+
+-(void)reloadTest:(NSNotification *)notification{
+    NSDictionary *parameters = notification.userInfo;
+    testName = [parameters objectForKey:@"tn"];
+    testArguments = [parameters objectForKey:@"ta"];
+    testDescription = [parameters objectForKey:@"td"];
+    [self configureView];
 }
 
 #pragma mark - Table view data source

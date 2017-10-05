@@ -220,7 +220,13 @@
             [rvc setTestArguments:[parameters objectForKey:@"ta"]];
         if ([parameters objectForKey:@"td"])
             [rvc setTestDescription:[parameters objectForKey:@"td"]];
-        [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+        if (self.window.rootViewController.view.window != nil)
+            //only main view controller is visible
+            [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+        else {
+            //main view controller is not in the window hierarchy, so overlay window was presented already, reloading parameters
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTest" object:nil userInfo:parameters];
+        }
     });
 }
 
