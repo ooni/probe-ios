@@ -22,7 +22,7 @@
         [self.titleLabel setText:[NSString stringWithFormat:@"%@", testDescription]];
     else
         [self.titleLabel setText:NSLocalizedString(@"run_test_message", nil)];
-    
+
     [self.test_detailsLabel setText:NSLocalizedString(@"test_details", nil)];
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
     [self.test_titleLabel setText:NSLocalizedString(current.name, nil)];
@@ -31,7 +31,7 @@
     self.tableView.estimatedRowHeight = 44.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    //reset the arrays
+    //reset the arrays: we may be called more than once for the same screen
     rows = [[NSArray alloc] init];
     urls = [testArguments objectForKey:@"urls"];
     if ([urls count] > 0){
