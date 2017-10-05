@@ -1,6 +1,6 @@
 # ooniprobe-ios 1.2.3-alpha.2
 
-* Should fix the crash on start
+* Should fix the crash on start on 32 bit devices
 
 measurement-kit version: 0.7.6
 
