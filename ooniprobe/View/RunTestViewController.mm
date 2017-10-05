@@ -31,6 +31,7 @@
     self.tableView.estimatedRowHeight = 44.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    //reset the arrays
     rows = [[NSArray alloc] init];
     urls = [testArguments objectForKey:@"urls"];
     if ([urls count] > 0){
