@@ -43,6 +43,8 @@
     else {
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     }
+    
+    //reloading the view with new parameters.
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
