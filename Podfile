@@ -10,4 +10,5 @@ target 'ooniprobe' do
     pod 'Crashlytics'
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
+    pod 'NTYCSVTable'
 end
