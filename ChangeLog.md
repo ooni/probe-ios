@@ -1,3 +1,21 @@
+# ooniprobe-ios 1.2.3 [2017-10-07]
+
+* Fix the crash on start on 32 bit devices
+
+* Run test screen reloaded when clicking on a second link without dismissing it
+
+measurement-kit version: 0.7.6
+
+ooniprobe-wui version: 2.2.4
+
+# ooniprobe-ios 1.2.3-alpha.2
+
+* Should fix the crash on start on 32 bit devices
+
+measurement-kit version: 0.7.6
+
+ooniprobe-wui version: 2.2.4
+
 # ooniprobe-ios 1.2.2 [2017-09-27]
 
 New features:
