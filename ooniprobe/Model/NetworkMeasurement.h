@@ -2,6 +2,7 @@
 #import <UIKit/UIKit.h>
 
 #import <measurement_kit/common.hpp>
+#import "TestLists.h"
 
 @interface NetworkMeasurement : NSObject {
     NSString *geoip_asn;
@@ -30,6 +31,8 @@
 @property BOOL viewed;
 @property BOOL entry;
 @property int anomaly;
+@property BOOL uri_scheme;
+
 @property mk::Settings options;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 

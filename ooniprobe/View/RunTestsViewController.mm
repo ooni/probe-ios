@@ -8,6 +8,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
     [self.revealButtonItem setTarget: self.revealViewController];
     self.revealViewController.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if ([[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] isEqualToString:@"ar"]){
@@ -72,8 +73,9 @@
     CGPoint currentTouchPosition = [[[event allTouches] anyObject] locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
     NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
-    //TODO set test list
-    current.inputs = nil;
+    //TODO change this code when refactor NetworkMeasurement class
+    [current setUri_scheme:NO];
+    current.inputs = [TestLists getUrls];
     [current run];
     [self.tableView reloadData];
 }

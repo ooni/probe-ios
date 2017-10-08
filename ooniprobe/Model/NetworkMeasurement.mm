@@ -67,6 +67,7 @@ static void setup_idempotent() {
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.running = TRUE;
+    uri_scheme = FALSE;
     [TestStorage add_test:self];
 }
 
@@ -447,7 +448,6 @@ static void setup_idempotent() {
 -(void) run_test {
     [super run_test];
     NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     setup_idempotent();
     mk::nettests::WebConnectivityTest test;
     test.set_options("geoip_country_path", [geoip_country UTF8String]);
@@ -459,16 +459,15 @@ static void setup_idempotent() {
     test.set_options("collector_base_url", [collector_address UTF8String]);
     test.set_options("software_name", [@"ooniprobe-ios" UTF8String]);
     test.set_options("software_version", [software_version UTF8String]);
+    //For now I consider the bool uri_scheme to distinguish the two cases
+    //TODO This class has to be improved, waiting for test list managment functions
+    if (!uri_scheme){
+        test.set_options("max_runtime", [max_runtime doubleValue]);
+    }
     if ([self.inputs count] > 0) {
         for (NSString* input in self.inputs) {
             test.add_input([input UTF8String]);
         }
-    }
-    else {
-        //For now I consider when there are inputs = ran from URI scheme, when don't ran normal test
-        //TODO This class has to be improved, waiting for test list managment functions
-        test.set_options("max_runtime", [max_runtime doubleValue]);
-        test.set_input_filepath([path UTF8String]);
     }
     test.set_error_filepath([[self getFileName:@"log"] UTF8String]);
     test.set_output_filepath([[self getFileName:@"json"] UTF8String]);

@@ -53,7 +53,9 @@
 
 -(IBAction)runTest:(id)sender{
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
-    current.inputs = nil;
+    //TODO change this code when refactor NetworkMeasurement class
+    [current setUri_scheme:NO];
+    current.inputs = [TestLists getUrls];
     [current run];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
 }
