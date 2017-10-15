@@ -41,7 +41,7 @@
     NSString *network_type = [self getStatus];
     if (![network_type isEqualToString:@"no_internet"]){
         [[NotificationService sharedNotificationService] setNetwork_type:network_type];
-        [[NotificationService sharedNotificationService] registerNotifications];
+        [[NotificationService sharedNotificationService] registerProbe];
     }
 }
 

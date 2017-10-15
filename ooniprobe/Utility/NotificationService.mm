@@ -18,7 +18,6 @@
 -(id)init
 {
     self = [super init];
-    
     if(self)
     {
         NSBundle *bundle = [NSBundle mainBundle];
@@ -32,6 +31,7 @@
         for (NetworkMeasurement *nm in currentTests.availableNetworkMeasurements){
             [supported_tests_ar addObject:nm.name];
         }
+        device_token = @"";
         supported_tests = supported_tests_ar;
         network_type = [[ReachabilityManager sharedManager] getStatus];
         language = [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode];
@@ -41,9 +41,7 @@
 }
 
 
-- (void)registerNotifications{
-    if (device_token == nil) return;
-    
+- (void)registerProbe{
     std::vector<std::string> supported_tests_list;
     for (NSString *s in supported_tests) {
         supported_tests_list.push_back([s UTF8String]);
@@ -59,11 +57,12 @@
     client.supported_tests = supported_tests_list;
     client.network_type = [network_type UTF8String];
     client.language = [language UTF8String];
-    
-    // FIXME: this string is `nil` hence the crash when calling UTF8String
-    //client.available_bandwidth = [available_bandwidth UTF8String];
-    client.device_token = [device_token UTF8String];
     client.registry_url = [NOTIFICATION_SERVER UTF8String];
+
+    if (device_token == nil)
+        device_token = @"";
+    client.device_token = [device_token UTF8String];
+
     
     std::string secrets_path = [[self make_path] UTF8String];
 

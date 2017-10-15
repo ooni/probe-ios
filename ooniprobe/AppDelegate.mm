@@ -27,6 +27,9 @@
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    
+    //TODO register as a probe if I have never done it. This is needed to register the probe even if push notifications are turned off.
+    
     [self registerNotifications];
     
     //TODO Probably don't need it anymore when implementing backgound notifications
@@ -53,9 +56,8 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //NSLog(@"token: %@",token);
     [[NotificationService sharedNotificationService] setDevice_token:token];
-    [[NotificationService sharedNotificationService] registerNotifications];
+    [[NotificationService sharedNotificationService] registerProbe];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
