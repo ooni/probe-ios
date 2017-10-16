@@ -25,7 +25,7 @@
     [Fabric with:@[[Crashlytics class]]];
     #endif
 
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    application.statusBarStyle = UIStatusBarStyleLightContent;
     
     [self registerNotifications];
     
