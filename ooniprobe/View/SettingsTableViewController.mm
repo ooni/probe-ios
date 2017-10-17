@@ -226,6 +226,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 2 && indexPath.row == [advancedItems count] -1){
+        //NOT REMOVED, settings will be removed soon
         NSString *current = [advancedItems objectAtIndex:indexPath.row];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(current, @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), NSLocalizedString(@"set_default", nil), nil];
         alert.tag = alert_tag_collector_address;

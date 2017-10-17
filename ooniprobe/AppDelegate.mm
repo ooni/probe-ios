@@ -4,9 +4,7 @@
 #import "BrowserViewController.h"
 #import "DictionaryUtility.h"
 #import "RunTestViewController.h"
-
-#define ALERT_TAG_NOTIFICATION 1
-#define ALERT_TAG_OPEN_ITUNES 2
+#import "MessageUtility.h"
 
 @interface AppDelegate ()
 
@@ -77,20 +75,22 @@
     if (state == UIApplicationStateActive)
     {
         if ([type isEqualToString:@"open_href"]){
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
-            //self.link = [userInfo objectForKey:@"link"];
+            UIAlertAction* okButton = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"ok", nil)
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+                                           [self openBrowser];
+                                       }];
             links = [[NSMutableArray alloc] init];
             [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
             if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
                 NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
                 [links addObjectsFromArray:alt_href];
             }
-            alertView.tag = ALERT_TAG_NOTIFICATION;
-            [alertView show];
+            [MessageUtility alertWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] okButton:okButton inView:self.window.rootViewController];
         }
         else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil];
-            [alertView show];
+            [MessageUtility alertWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] inView:self.window.rootViewController];
         }
     }
     else {
@@ -116,18 +116,6 @@
         [bvc setUrlList:links];
         [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
     });
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1 && alertView.tag == ALERT_TAG_NOTIFICATION){
-        [self openBrowser];
-    }
-    else if (buttonIndex == 1 && alertView.tag == ALERT_TAG_OPEN_ITUNES){
-        //open ooniprobe on iTunes connect
-        NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1199566366?mt=8";
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
-    }
 }
     
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -191,9 +179,14 @@
     if (minimum_version != nil){
         if ([minimum_version compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending) {
             //actualVersion is lower than the requiredVersion
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ooniprobe_outdate", nil) message:NSLocalizedString(@"ooniprobe_outdate_msg", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
-            alertView.tag = ALERT_TAG_OPEN_ITUNES;
-            [alertView show];
+            UIAlertAction* okButton = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"ok", nil)
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+                                           NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1199566366?mt=8";
+                                           [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+                                       }];
+            [MessageUtility alertWithTitle:NSLocalizedString(@"ooniprobe_outdate", nil) message:NSLocalizedString(@"ooniprobe_outdate_msg", nil) okButton:okButton inView:self.window.rootViewController];
         }
         else {
             NSString *action;
@@ -206,8 +199,7 @@
                 if ([parameters objectForKey:@"tn"] && [[Tests currentTests] getTestWithName:[parameters objectForKey:@"tn"]])
                     [self openURIschemeScreen:parameters];
                 else {
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"invalid_parameter", nil) message:[NSString stringWithFormat:@"%@ : %@", NSLocalizedString(@"test_name", nil), [parameters objectForKey:@"tn"]] delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:nil];
-                    [alertView show];
+                    [MessageUtility alertWithTitle:NSLocalizedString(@"invalid_parameter", nil) message:[NSString stringWithFormat:@"%@ : %@", NSLocalizedString(@"test_name", nil), [parameters objectForKey:@"tn"]] inView:self.window.rootViewController];
                 }
             }
         }

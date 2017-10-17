@@ -9,8 +9,9 @@
 #import "Tests.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "AppDelegate.h"
+#import "MessageUtility.h"
 
-@interface PastTestsViewController : UITableViewController <PBRevealViewControllerDelegate, UIAlertViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>{
+@interface PastTestsViewController : UITableViewController <PBRevealViewControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>{
     NSMutableArray *finishedTests;
     NetworkMeasurement *nextTest;
 }

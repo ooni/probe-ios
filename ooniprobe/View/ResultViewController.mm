@@ -80,16 +80,19 @@
         decisionHandler(WKNavigationActionPolicyCancel);
         openURL = [request URL];
         NSString *url = [[request URL] absoluteString];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"open_url_alert", @"") message:url delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
-        [alert show];
-
+        UIAlertAction* okButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"ok", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [[UIApplication sharedApplication] openURL:openURL];
+                                   }];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"open_url_alert", nil) message:url okButton:okButton inView:self];
     }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        [[UIApplication sharedApplication] openURL:openURL];
     }
 }
 
