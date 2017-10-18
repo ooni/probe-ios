@@ -59,7 +59,6 @@ static void setup_idempotent() {
     include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
     include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
     upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
-    collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
     max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     software_version = [VersionUtility get_software_version];
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
@@ -306,7 +305,6 @@ static void setup_idempotent() {
         .set_options("save_real_probe_asn", include_asn)
         .set_options("save_real_probe_cc", include_cc)
         .set_options("no_collector", !upload_results)
-        .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("software_name", [@"ooniprobe-ios" UTF8String])
         .set_options("software_version", [software_version UTF8String])
         .set_input_filepath([path UTF8String])
@@ -354,7 +352,6 @@ static void setup_idempotent() {
         .set_options("save_real_probe_asn", include_asn)
         .set_options("save_real_probe_cc", include_cc)
         .set_options("no_collector", !upload_results)
-        .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("software_name", [@"ooniprobe-ios" UTF8String])
         .set_options("software_version", [software_version UTF8String])
         .set_output_filepath([[self getFileName:@"json"] UTF8String])
@@ -407,7 +404,6 @@ static void setup_idempotent() {
         .set_options("save_real_probe_asn", include_asn)
         .set_options("save_real_probe_cc", include_cc)
         .set_options("no_collector", !upload_results)
-        .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("software_name", [@"ooniprobe-ios" UTF8String])
         .set_options("software_version", [software_version UTF8String])
         .set_input_filepath([path UTF8String])
@@ -456,7 +452,6 @@ static void setup_idempotent() {
     test.set_options("save_real_probe_asn", include_asn);
     test.set_options("save_real_probe_cc", include_cc);
     test.set_options("no_collector", !upload_results);
-    test.set_options("collector_base_url", [collector_address UTF8String]);
     test.set_options("software_name", [@"ooniprobe-ios" UTF8String]);
     test.set_options("software_version", [software_version UTF8String]);
     if ([self.inputs count] > 0) {
@@ -516,7 +511,6 @@ static void setup_idempotent() {
         .set_options("save_real_probe_asn", include_asn)
         .set_options("save_real_probe_cc", include_cc)
         .set_options("no_collector", !upload_results)
-        .set_options("collector_base_url", [collector_address UTF8String])
         .set_options("software_name", [@"ooniprobe-ios" UTF8String])
         .set_options("software_version", [software_version UTF8String])
         .set_verbosity(VERBOSITY)
@@ -567,7 +561,6 @@ static void setup_idempotent() {
     .set_options("save_real_probe_asn", include_asn)
     .set_options("save_real_probe_cc", include_cc)
     .set_options("no_collector", !upload_results)
-    .set_options("collector_base_url", [collector_address UTF8String])
     .set_options("software_name", [@"ooniprobe-ios" UTF8String])
     .set_options("software_version", [software_version UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
@@ -620,7 +613,6 @@ static void setup_idempotent() {
     .set_options("save_real_probe_asn", include_asn)
     .set_options("save_real_probe_cc", include_cc)
     .set_options("no_collector", !upload_results)
-    .set_options("collector_base_url", [collector_address UTF8String])
     .set_options("software_name", [@"ooniprobe-ios" UTF8String])
     .set_options("software_version", [software_version UTF8String])
     .set_output_filepath([[self getFileName:@"json"] UTF8String])
