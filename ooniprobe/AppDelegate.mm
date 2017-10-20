@@ -23,6 +23,7 @@
     #ifdef RELEASE
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
+    [[NotificationService sharedNotificationService] registerProbe];
     #endif
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -57,7 +58,7 @@
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     [[NotificationService sharedNotificationService] setDevice_token:token];
-    [[NotificationService sharedNotificationService] registerProbe];
+    [[NotificationService sharedNotificationService] updateProbe];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
