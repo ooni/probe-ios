@@ -86,7 +86,10 @@
                                    handler:^(UIAlertAction * action) {
                                        [[UIApplication sharedApplication] openURL:openURL];
                                    }];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"open_url_alert", nil) message:url okButton:okButton inView:self];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"open_url_alert", nil)
+                               message:url
+                              okButton:okButton
+                                inView:self];
     }
 }
 

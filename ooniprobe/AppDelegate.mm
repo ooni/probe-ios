@@ -87,10 +87,15 @@
                 NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
                 [links addObjectsFromArray:alt_href];
             }
-            [MessageUtility alertWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] okButton:okButton inView:self.window.rootViewController];
+            [MessageUtility alertWithTitle:nil
+                                   message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]]
+                                  okButton:okButton
+                                    inView:self.window.rootViewController];
         }
         else {
-            [MessageUtility alertWithTitle:nil message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]] inView:self.window.rootViewController];
+            [MessageUtility alertWithTitle:nil
+                                   message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]]
+                                    inView:self.window.rootViewController];
         }
     }
     else {
@@ -186,7 +191,10 @@
                                            NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1199566366?mt=8";
                                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
                                        }];
-            [MessageUtility alertWithTitle:NSLocalizedString(@"ooniprobe_outdate", nil) message:NSLocalizedString(@"ooniprobe_outdate_msg", nil) okButton:okButton inView:self.window.rootViewController];
+            [MessageUtility alertWithTitle:NSLocalizedString(@"ooniprobe_outdate", nil)
+                                   message:NSLocalizedString(@"ooniprobe_outdate_msg", nil)
+                                  okButton:okButton
+                                    inView:self.window.rootViewController];
         }
         else {
             NSString *action;
@@ -199,7 +207,9 @@
                 if ([parameters objectForKey:@"tn"] && [[Tests currentTests] getTestWithName:[parameters objectForKey:@"tn"]])
                     [self openURIschemeScreen:parameters];
                 else {
-                    [MessageUtility alertWithTitle:NSLocalizedString(@"invalid_parameter", nil) message:[NSString stringWithFormat:@"%@ : %@", NSLocalizedString(@"test_name", nil), [parameters objectForKey:@"tn"]] inView:self.window.rootViewController];
+                    [MessageUtility alertWithTitle:NSLocalizedString(@"invalid_parameter", nil)
+                                           message:[NSString stringWithFormat:@"%@ : %@", NSLocalizedString(@"test_name", nil), [parameters objectForKey:@"tn"]]
+                                            inView:self.window.rootViewController];
                 }
             }
         }

@@ -180,7 +180,9 @@
     else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0)
         [self performSegueWithIdentifier:@"toResult" sender:self];
     else {
-        [MessageUtility alertWithTitle:NSLocalizedString(@"no_result", nil) message:NSLocalizedString(@"no_result_msg", nil) inView:self];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"no_result", nil)
+                               message:NSLocalizedString(@"no_result_msg", nil)
+                                inView:self];
     }
 }
 
@@ -215,7 +217,10 @@
                                    [TestStorage remove_all_tests];
                                    [self reloadTable];
                                }];
-    [MessageUtility alertWithTitle:NSLocalizedString(@"clear_all_tests_alert", nil) message:nil okButton:okButton inView:self];
+    [MessageUtility alertWithTitle:NSLocalizedString(@"clear_all_tests_alert", nil)
+                           message:nil
+                          okButton:okButton
+                            inView:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
