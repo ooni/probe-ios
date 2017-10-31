@@ -67,7 +67,7 @@ static void setup_idempotent() {
     self.progress = 0;
     self.running = TRUE;
     [TestStorage add_test:self];
-    //Configurint common test parameters
+    //Configuring common test parameters
     test.set_options("geoip_country_path", [geoip_country UTF8String]);
     test.set_options("geoip_asn_path", [geoip_asn UTF8String]);
     test.set_options("save_real_probe_ip", include_ip);
