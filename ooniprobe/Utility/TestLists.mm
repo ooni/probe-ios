@@ -5,13 +5,13 @@
 @implementation TestLists
 
 + (NSArray*)getUrls{
-    NSMutableArray *urls;
+    NSMutableArray *urls = [[NSMutableArray alloc] init];
     NSArray *global_urls = [self getUrlsForCountry:@"global"];
     [urls addObjectsFromArray:global_urls];
     NSArray *local_urls = [self getUrlsForCountry:@"ru"];
     if (local_urls != nil)
         [urls addObjectsFromArray:local_urls];
-    NSLog(@"url %@", urls);
+    //NSLog(@"url %@", urls);
     return urls;
 }
 

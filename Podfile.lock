@@ -1,14 +1,14 @@
 PODS:
-  - Crashlytics (3.9.0):
-    - Fabric (~> 1.7.0)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
   - DZNEmptyDataSet (1.8.1)
-  - Fabric (1.7.0)
+  - Fabric (1.7.2)
   - MBProgressHUD (1.0.0)
-  - measurement_kit (0.7.6)
+  - measurement_kit (0.7.11)
   - NTYCSVTable (0.3.1)
-  - PBRevealViewController (1.2.7):
-    - PBRevealViewController/ObjC (= 1.2.7)
-  - PBRevealViewController/ObjC (1.2.7)
+  - PBRevealViewController (1.2.8):
+    - PBRevealViewController/ObjC (= 1.2.8)
+  - PBRevealViewController/ObjC (1.2.8)
   - Toast (3.1.0)
   - UIBarButtonItem-Badge-Coding (0.0.1)
 
@@ -17,7 +17,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Fabric
   - MBProgressHUD
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, tag `v0.7.6`)
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, tag `v0.7.11`)
   - NTYCSVTable
   - PBRevealViewController
   - Toast
@@ -26,28 +26,24 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   measurement_kit:
     :git: https://github.com/measurement-kit/measurement-kit.git
-    :tag: v0.7.6
+    :tag: v0.7.11
 
 CHECKOUT OPTIONS:
   measurement_kit:
     :git: https://github.com/measurement-kit/measurement-kit.git
-    :tag: v0.7.6
+    :tag: v0.7.11
 
 SPEC CHECKSUMS:
-  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Fabric: e6be012366472553807dada21243c5ab8d904151
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  measurement_kit: 83ce74a8d6c2ce35a22778a16875f142dfdcec02
-<<<<<<< HEAD
+  measurement_kit: f0418f484c00fcbb4860ee3420031c1e607ebee0
   NTYCSVTable: bad087d30f329f587c4557baa234719ac36c8448
-  PBRevealViewController: 5d1d8e3ef8ccf713051db1aba0d0d765c781d675
-=======
-  PBRevealViewController: 3190feb1459915c1846f93663594ef6d8913387f
->>>>>>> master
+  PBRevealViewController: b1471380464f30b63d73e9b04e9abf9cb7b67093
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UIBarButtonItem-Badge-Coding: 3f8e96f75f7d7c7516c1a1706b566892bf2db134
 
-PODFILE CHECKSUM: 5646f0ffc1c3486fa5b96ca47493115e20d30514
+PODFILE CHECKSUM: 3c32ee57b2515fbaf4e7c230a7aae3c0a500564a
 
 COCOAPODS: 1.4.0.beta.1

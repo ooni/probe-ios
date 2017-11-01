@@ -51,7 +51,7 @@
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.running = TRUE;
-    uri_scheme = FALSE;
+    self.uri_scheme = FALSE;
     [TestStorage add_test:self];
     //Configuring common test parameters
     test.set_options("geoip_country_path", [geoip_country UTF8String]);
@@ -231,11 +231,10 @@
 }
 
 -(void) run_test {
-    NSBundle *bundle = [NSBundle mainBundle];
     mk::nettests::WebConnectivityTest test;
-    //For now I consider the bool uri_scheme to distinguish the two cases
-    //TODO This class has to be improved, waiting for test list managment functions
-    if (!uri_scheme){
+    [super init_common:test];
+    //The bool uri_scheme to set the max_runtime, off when is true
+    if (!self.uri_scheme){
         test.set_options("max_runtime", [max_runtime doubleValue]);
     }
     if ([self.inputs count] > 0) {
