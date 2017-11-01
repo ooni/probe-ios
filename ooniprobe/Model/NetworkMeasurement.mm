@@ -39,7 +39,7 @@
     // Nothing to do here
 }
 
-- (void) run_test:(mk::nettests::BaseTest&) test{
+- (void) init_common:(mk::nettests::BaseTest&) test{
     include_ip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_ip"] boolValue];
     include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
     include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
@@ -173,7 +173,7 @@
 
 -(void) run_test {
     mk::nettests::HttpInvalidRequestLineTest test;
-    [super run_test:test];
+    [super init_common:test];
     test.on_entry([self](std::string s) {
             [self on_entry:s.c_str()];
     });
@@ -233,7 +233,7 @@
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     mk::nettests::WebConnectivityTest test;
-    [super run_test:test];
+    [super init_common:test];
     if ([self.inputs count] > 0) {
         for (NSString* input in self.inputs) {
             test.add_input([input UTF8String]);
@@ -311,9 +311,8 @@
 }
 
 -(void) run_test {
-    //[super run_test];
     mk::nettests::NdtTest test;
-    [super run_test:test];
+    [super init_common:test];
     test.on_entry([self](std::string s) {
         [self on_entry:s.c_str()];
     });
@@ -366,7 +365,7 @@
 
 -(void) run_test {
     mk::nettests::HttpHeaderFieldManipulationTest test;
-    [super run_test:test];
+    [super init_common:test];
     test.on_entry([self](std::string s) {
         [self on_entry:s.c_str()];
     });
@@ -434,7 +433,7 @@
 
 -(void) run_test {
     mk::nettests::DashTest test;
-    [super run_test:test];
+    [super init_common:test];
     test.on_entry([self](std::string s) {
         [self on_entry:s.c_str()];
     });
