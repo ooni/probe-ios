@@ -11,7 +11,6 @@
     bool include_asn;
     bool include_cc;
     bool upload_results;
-    NSString *collector_address;
     NSNumber *max_runtime;
     NSString *software_version;
 }

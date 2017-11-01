@@ -3,8 +3,9 @@
 #import "ResultSelectorViewController.h"
 #import "LogViewController.h"
 #import "MBProgressHUD.h"
+#import "MessageUtility.h"
 
-@interface ResultViewController : UIViewController <WKNavigationDelegate, UIAlertViewDelegate> {
+@interface ResultViewController : UIViewController <WKNavigationDelegate> {
     BOOL openBrowser;
     NSURL *openURL;
 }

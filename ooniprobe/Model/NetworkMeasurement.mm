@@ -17,21 +17,6 @@
 #define ANOMALY_ORANGE 1
 #define ANOMALY_RED 2
 
-
-static void setup_idempotent() {
-    static bool initialized = false;
-    if (!initialized) {
-        // Set the logger verbose and make sure it logs on the "logcat"
-        mk::set_verbosity(VERBOSITY);
-        mk::on_log([](uint32_t, const char *s) {
-            #ifdef DEBUG
-            NSLog(@"%s", s);
-            #endif
-        });
-        initialized = true;
-    }
-}
-
 @implementation NetworkMeasurement
 
 -(id) init {
@@ -54,12 +39,11 @@ static void setup_idempotent() {
     // Nothing to do here
 }
 
-- (void) run_test {
+- (void) init_common:(mk::nettests::BaseTest&) test{
     include_ip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_ip"] boolValue];
     include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
     include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
     upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
-    collector_address = [[NSUserDefaults standardUserDefaults] stringForKey:@"collector_address"];
     max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     software_version = [VersionUtility get_software_version];
     self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
@@ -69,6 +53,26 @@ static void setup_idempotent() {
     self.running = TRUE;
     uri_scheme = FALSE;
     [TestStorage add_test:self];
+    //Configuring common test parameters
+    test.set_options("geoip_country_path", [geoip_country UTF8String]);
+    test.set_options("geoip_asn_path", [geoip_asn UTF8String]);
+    test.set_options("save_real_probe_ip", include_ip);
+    test.set_options("save_real_probe_asn", include_asn);
+    test.set_options("save_real_probe_cc", include_cc);
+    test.set_options("no_collector", !upload_results);
+    test.set_options("software_name", [@"ooniprobe-ios" UTF8String]);
+    test.set_options("software_version", [software_version UTF8String]);
+    test.set_error_filepath([[self getFileName:@"log"] UTF8String]);
+    test.set_output_filepath([[self getFileName:@"json"] UTF8String]);
+    test.set_verbosity(VERBOSITY);
+    test.on_log([self](uint32_t type, const char *s) {
+#ifdef DEBUG
+        NSLog(@"%s", s);
+#endif
+    });
+    test.on_progress([self](double prog, const char *s) {
+        [self updateProgress:prog];
+    });
 }
 
 - (void)showNotification {
@@ -122,7 +126,132 @@ static void setup_idempotent() {
     });
 }
 
--(void)on_entry_wc:(const char*)str{
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.name forKey:@"Test_name"];
+    [coder encodeObject:self.test_id forKey:@"Test_id"];
+    [coder encodeObject:self.json_file forKey:@"Test_jsonfile"];
+    [coder encodeObject:self.log_file forKey:@"Test_logfile"];
+    [coder encodeObject:[NSNumber numberWithBool:self.running] forKey:@"test_running"];
+    [coder encodeObject:[NSNumber numberWithBool:self.viewed] forKey:@"test_viewed"];
+    [coder encodeObject:[NSNumber numberWithInt:self.anomaly] forKey:@"anomaly"];
+    [coder encodeObject:[NSNumber numberWithInt:self.entry] forKey:@"entry"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    self.name = [coder decodeObjectForKey:@"Test_name"];
+    self.test_id = [coder decodeObjectForKey:@"Test_id"];
+    self.json_file = [coder decodeObjectForKey:@"Test_jsonfile"];
+    self.log_file = [coder decodeObjectForKey:@"Test_logfile"];
+    self.running = [[coder decodeObjectForKey:@"test_running"] boolValue];
+    self.viewed = [[coder decodeObjectForKey:@"test_viewed"] boolValue];
+    self.anomaly = [[coder decodeObjectForKey:@"anomaly"] intValue];
+    self.entry = [[coder decodeObjectForKey:@"entry"] boolValue];
+    return self;
+}
+
+@end
+
+@implementation HTTPInvalidRequestLine : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    self.name = @"http_invalid_request_line";
+    return self;
+}
+
+-(void)run {
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    mk::nettests::HttpInvalidRequestLineTest test;
+    [super init_common:test];
+    test.on_entry([self](std::string s) {
+            [self on_entry:s.c_str()];
+    });
+    test.start([self]() {
+            [self testEnded];
+    });
+}
+
+/*
+ on_entry method for http invalid request line test
+ if the "tampering" key exists and is null then anomaly will be set to 1 (orange)
+ otherwise "tampering" object exists and is TRUE, then anomaly will be set to 2 (red)
+ */
+-(void)on_entry:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        int blocking = ANOMALY_GREEN;
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
+            //this case shouldn't happen
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
+                blocking = ANOMALY_ORANGE;
+            else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
+                blocking = ANOMALY_RED;
+        }
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
+    }
+}
+
+@end
+
+@implementation WebConnectivity : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    self.name = @"web_connectivity";
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    NSBundle *bundle = [NSBundle mainBundle];
+    mk::nettests::WebConnectivityTest test;
+    //For now I consider the bool uri_scheme to distinguish the two cases
+    //TODO This class has to be improved, waiting for test list managment functions
+    if (!uri_scheme){
+        test.set_options("max_runtime", [max_runtime doubleValue]);
+    }
+    if ([self.inputs count] > 0) {
+        for (NSString* input in self.inputs) {
+            test.add_input([input UTF8String]);
+        }
+    }
+    test.on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    });
+    test.start([self]() {
+        [self testEnded];
+    });
+}
+
+-(void)on_entry:(const char*)str{
     if (str != nil) {
         if (!self.entry){
             [TestStorage set_entry:self.test_id];
@@ -161,12 +290,40 @@ static void setup_idempotent() {
     return anomaly;
 }
 
+@end
+
+@implementation NdtTest : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    self.name = @"ndt";
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    mk::nettests::NdtTest test;
+    [super init_common:test];
+    test.on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    });
+    test.start([self]() {
+        [self testEnded];
+    });
+}
+
 /*
- on_entry method for http invalid request line test
- if the "tampering" key exists and is null then anomaly will be set to 1 (orange)
- otherwise "tampering" object exists and is TRUE, then anomaly will be set to 2 (red)
+ on_entry method for ndt test
+ if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
  */
--(void)on_entry_hirl:(const char*)str{
+-(void)on_entry:(const char*)str{
     if (str != nil) {
         if (!self.entry){
             [TestStorage set_entry:self.test_id];
@@ -176,13 +333,8 @@ static void setup_idempotent() {
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = ANOMALY_GREEN;
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
-            //this case shouldn't happen
-            if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
-                blocking = ANOMALY_ORANGE;
-            else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
-                blocking = ANOMALY_RED;
-        }
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+            blocking = ANOMALY_ORANGE;
         if (blocking > self.anomaly){
             self.anomaly = blocking;
             [TestStorage set_anomaly:self.test_id :blocking];
@@ -190,12 +342,42 @@ static void setup_idempotent() {
     }
 }
 
+@end
+
+
+@implementation HttpHeaderFieldManipulation : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    self.name = @"http_header_field_manipulation";
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    mk::nettests::HttpHeaderFieldManipulationTest test;
+    [super init_common:test];
+    test.on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    });
+    test.start([self]() {
+        [self testEnded];
+    });
+}
+
 /*
- on_entry method for http invalid request line test
+ on_entry method for HttpHeaderFieldManipulation test
  if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
  otherwise the keys in the "tampering" object will be checked, if any of them is TRUE, then anomaly will be set to 2 (red)
  */
--(void)on_entry_hhfm:(const char*)str{
+-(void)on_entry:(const char*)str{
     if (str != nil) {
         if (!self.entry){
             [TestStorage set_entry:self.test_id];
@@ -226,368 +408,6 @@ static void setup_idempotent() {
     }
 }
 
-/*
- on_entry method for ndt and dash test
- if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
- */
--(void)on_entry_ndt:(const char*)str{
-    if (str != nil) {
-        if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = ANOMALY_GREEN;
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
-            blocking = ANOMALY_ORANGE;
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
-    }
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.name forKey:@"Test_name"];
-    [coder encodeObject:self.test_id forKey:@"Test_id"];
-    [coder encodeObject:self.json_file forKey:@"Test_jsonfile"];
-    [coder encodeObject:self.log_file forKey:@"Test_logfile"];
-    [coder encodeObject:[NSNumber numberWithBool:self.running] forKey:@"test_running"];
-    [coder encodeObject:[NSNumber numberWithBool:self.viewed] forKey:@"test_viewed"];
-    [coder encodeObject:[NSNumber numberWithInt:self.anomaly] forKey:@"anomaly"];
-    [coder encodeObject:[NSNumber numberWithInt:self.entry] forKey:@"entry"];
-}
-
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    self.name = [coder decodeObjectForKey:@"Test_name"];
-    self.test_id = [coder decodeObjectForKey:@"Test_id"];
-    self.json_file = [coder decodeObjectForKey:@"Test_jsonfile"];
-    self.log_file = [coder decodeObjectForKey:@"Test_logfile"];
-    self.running = [[coder decodeObjectForKey:@"test_running"] boolValue];
-    self.viewed = [[coder decodeObjectForKey:@"test_viewed"] boolValue];
-    self.anomaly = [[coder decodeObjectForKey:@"anomaly"] intValue];
-    self.entry = [[coder decodeObjectForKey:@"entry"] boolValue];
-    return self;
-}
-
-@end
-
-// NOT USED
-@implementation DNSInjection : NetworkMeasurement
-
--(id) init {
-    self = [super init];
-    self.name = @"dns_injection";
-    return self;
-}
-
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
-    [self run_test];
-}
-
-- (void) run_test {
-    [super run_test];
-    setup_idempotent();
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
-    mk::nettests::DnsInjectionTest()
-        .set_options("geoip_country_path", [geoip_country UTF8String])
-        .set_options("geoip_asn_path", [geoip_asn UTF8String])
-        .set_options("save_real_probe_ip", include_ip)
-        .set_options("save_real_probe_asn", include_asn)
-        .set_options("save_real_probe_cc", include_cc)
-        .set_options("no_collector", !upload_results)
-        .set_options("collector_base_url", [collector_address UTF8String])
-        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-        .set_options("software_version", [software_version UTF8String])
-        .set_input_filepath([path UTF8String])
-        .set_output_filepath([[self getFileName:@"json"] UTF8String])
-        .set_error_filepath([[self getFileName:@"log"] UTF8String])
-        .set_verbosity(VERBOSITY)
-        .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
-        })
-        .on_log([self](uint32_t type, const char *s) {
-            #ifdef DEBUG
-            NSLog(@"%s", s);
-            #endif
-        })
-        .start([self]() {
-            [self testEnded];
-        });
-}
-
-@end
-
-@implementation HTTPInvalidRequestLine : NetworkMeasurement
-
--(id) init {
-    self = [super init];
-    self.name = @"http_invalid_request_line";
-    return self;
-}
-
--(void)run {
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
-    [self run_test];
-}
-
--(void) run_test {
-    [super run_test];
-    setup_idempotent();
-    mk::nettests::HttpInvalidRequestLineTest()
-        .set_options("geoip_country_path", [geoip_country UTF8String])
-        .set_options("geoip_asn_path", [geoip_asn UTF8String])
-        .set_options("save_real_probe_ip", include_ip)
-        .set_options("save_real_probe_asn", include_asn)
-        .set_options("save_real_probe_cc", include_cc)
-        .set_options("no_collector", !upload_results)
-        .set_options("collector_base_url", [collector_address UTF8String])
-        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-        .set_options("software_version", [software_version UTF8String])
-        .set_output_filepath([[self getFileName:@"json"] UTF8String])
-        .set_error_filepath([[self getFileName:@"log"] UTF8String])
-        .set_verbosity(VERBOSITY)
-        .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
-        })
-        .on_log([self](uint32_t type, const char *s) {
-            #ifdef DEBUG
-            NSLog(@"%s", s);
-            #endif
-        })
-        .on_entry([self](std::string s) {
-            [self on_entry_hirl:s.c_str()];
-        })
-        .start([self]() {
-            [self testEnded];
-        });
-}
-
-@end
-
-// NOT USED
-@implementation TCPConnect : NetworkMeasurement
-
--(id) init {
-    self = [super init];
-    self.name = @"tcp_connect";
-    return self;
-}
-
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
-    [self run_test];
-}
-
--(void) run_test {
-    [super run_test];
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"hosts" ofType:@"txt"];
-    setup_idempotent();
-    mk::nettests::TcpConnectTest()
-        .set_options("geoip_country_path", [geoip_country UTF8String])
-        .set_options("geoip_asn_path", [geoip_asn UTF8String])
-        .set_options("save_real_probe_ip", include_ip)
-        .set_options("save_real_probe_asn", include_asn)
-        .set_options("save_real_probe_cc", include_cc)
-        .set_options("no_collector", !upload_results)
-        .set_options("collector_base_url", [collector_address UTF8String])
-        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-        .set_options("software_version", [software_version UTF8String])
-        .set_input_filepath([path UTF8String])
-        .set_output_filepath([[self getFileName:@"json"] UTF8String])
-        .set_verbosity(VERBOSITY)
-        .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
-        })
-        .on_log([self](uint32_t type, const char *s) {
-            #ifdef DEBUG
-            NSLog(@"%s", s);
-            #endif
-        })
-        .start([self]() {
-            [self testEnded];
-        });
-}
-
-@end
-
-@implementation WebConnectivity : NetworkMeasurement
-
--(id) init {
-    self = [super init];
-    self.name = @"web_connectivity";
-    return self;
-}
-
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
-    [self run_test];
-}
-
--(void) run_test {
-    [super run_test];
-    NSBundle *bundle = [NSBundle mainBundle];
-    setup_idempotent();
-    mk::nettests::WebConnectivityTest test;
-    test.set_options("geoip_country_path", [geoip_country UTF8String]);
-    test.set_options("geoip_asn_path", [geoip_asn UTF8String]);
-    test.set_options("save_real_probe_ip", include_ip);
-    test.set_options("save_real_probe_asn", include_asn);
-    test.set_options("save_real_probe_cc", include_cc);
-    test.set_options("no_collector", !upload_results);
-    test.set_options("collector_base_url", [collector_address UTF8String]);
-    test.set_options("software_name", [@"ooniprobe-ios" UTF8String]);
-    test.set_options("software_version", [software_version UTF8String]);
-    //For now I consider the bool uri_scheme to distinguish the two cases
-    //TODO This class has to be improved, waiting for test list managment functions
-    if (!uri_scheme){
-        test.set_options("max_runtime", [max_runtime doubleValue]);
-    }
-    if ([self.inputs count] > 0) {
-        for (NSString* input in self.inputs) {
-            test.add_input([input UTF8String]);
-        }
-    }
-    test.set_error_filepath([[self getFileName:@"log"] UTF8String]);
-    test.set_output_filepath([[self getFileName:@"json"] UTF8String]);
-    test.set_verbosity(VERBOSITY);
-    test.on_progress([self](double prog, const char *s) {
-        [self updateProgress:prog];
-    });
-    test.on_log([self](uint32_t type, const char *s) {
-        #ifdef DEBUG
-        NSLog(@"%s", s);
-        #endif
-    });
-    test.on_entry([self](std::string s) {
-        [self on_entry_wc:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
-}
-
-@end
-
-@implementation NdtTest : NetworkMeasurement
-
--(id) init {
-    self = [super init];
-    self.name = @"ndt";
-    return self;
-}
-
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
-    [self run_test];
-}
-
--(void) run_test {
-    [super run_test];
-    mk::nettests::NdtTest()
-        .set_options("geoip_country_path", [geoip_country UTF8String])
-        .set_options("geoip_asn_path", [geoip_asn UTF8String])
-        .set_options("save_real_probe_ip", include_ip)
-        .set_options("save_real_probe_asn", include_asn)
-        .set_options("save_real_probe_cc", include_cc)
-        .set_options("no_collector", !upload_results)
-        .set_options("collector_base_url", [collector_address UTF8String])
-        .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-        .set_options("software_version", [software_version UTF8String])
-        .set_verbosity(VERBOSITY)
-        .set_output_filepath([[self getFileName:@"json"] UTF8String])
-        .set_error_filepath([[self getFileName:@"log"] UTF8String])
-        .on_progress([self](double prog, const char *s) {
-            [self updateProgress:prog];
-        })
-        .on_log([self](uint32_t type, const char *s) {
-            #ifdef DEBUG
-            NSLog(@"%s", s);
-            #endif
-        })
-        .on_entry([self](std::string s) {
-            [self on_entry_ndt:s.c_str()];
-        })
-        .start([self]() {
-            [self testEnded];
-        });
-}
-
-@end
-
-
-@implementation HttpHeaderFieldManipulation : NetworkMeasurement
-
--(id) init {
-    self = [super init];
-    self.name = @"http_header_field_manipulation";
-    return self;
-}
-
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
-    [self run_test];
-}
-
--(void) run_test {
-    [super run_test];
-    setup_idempotent();
-    mk::nettests::HttpHeaderFieldManipulationTest()
-    .set_options("geoip_country_path", [geoip_country UTF8String])
-    .set_options("geoip_asn_path", [geoip_asn UTF8String])
-    .set_options("save_real_probe_ip", include_ip)
-    .set_options("save_real_probe_asn", include_asn)
-    .set_options("save_real_probe_cc", include_cc)
-    .set_options("no_collector", !upload_results)
-    .set_options("collector_base_url", [collector_address UTF8String])
-    .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-    .set_options("software_version", [software_version UTF8String])
-    .set_output_filepath([[self getFileName:@"json"] UTF8String])
-    .set_error_filepath([[self getFileName:@"log"] UTF8String])
-    .set_verbosity(VERBOSITY)
-    .on_progress([self](double prog, const char *s) {
-        [self updateProgress:prog];
-    })
-    .on_log([self](uint32_t type, const char *s) {
-#ifdef DEBUG
-        NSLog(@"%s", s);
-#endif
-    })
-    .on_entry([self](std::string s) {
-        [self on_entry_hhfm:s.c_str()];
-    })
-    .start([self]() {
-        [self testEnded];
-    });
-}
-
 @end
 
 
@@ -610,38 +430,39 @@ static void setup_idempotent() {
 }
 
 -(void) run_test {
-    [super run_test];
-    setup_idempotent();
-    mk::nettests::DashTest()
-    .set_options("geoip_country_path", [geoip_country UTF8String])
-    .set_options("geoip_asn_path", [geoip_asn UTF8String])
-    .set_options("save_real_probe_ip", include_ip)
-    .set_options("save_real_probe_asn", include_asn)
-    .set_options("save_real_probe_cc", include_cc)
-    .set_options("no_collector", !upload_results)
-    .set_options("collector_base_url", [collector_address UTF8String])
-    .set_options("software_name", [@"ooniprobe-ios" UTF8String])
-    .set_options("software_version", [software_version UTF8String])
-    .set_output_filepath([[self getFileName:@"json"] UTF8String])
-    .set_error_filepath([[self getFileName:@"log"] UTF8String])
-    .set_verbosity(VERBOSITY)
-    .on_progress([self](double prog, const char *s) {
-        [self updateProgress:prog];
-    })
-    .on_log([self](uint32_t type, const char *s) {
-#ifdef DEBUG
-        NSLog(@"%s", s);
-#endif
-    })
-    .on_entry([self](std::string s) {
-        // Note: here we're reusing NDT function since the entry has
-        // basically the same characteristics, as far as deciding the
-        // color of the test line is concerned.
-        [self on_entry_ndt:s.c_str()];
-    })
-    .start([self]() {
+    mk::nettests::DashTest test;
+    [super init_common:test];
+    test.on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    });
+    test.start([self]() {
         [self testEnded];
     });
+}
+
+/*
+ Note: here we're reusing NDT function since the entry has
+ basically the same characteristics, as far as deciding the
+ color of the test line is concerned.
+ if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+ */
+-(void)on_entry:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        int blocking = ANOMALY_GREEN;
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+            blocking = ANOMALY_ORANGE;
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
+    }
 }
 
 @end

@@ -110,6 +110,7 @@
 		ED3932C71E3114BA0064CD11 /* PastTestsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C61E3114BA0064CD11 /* PastTestsViewController.mm */; };
 		ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32E1D2337920061F266 /* GeoIP.dat */; };
 		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
+		ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.mm */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* TestStorage.mm */; };
 		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */; };
@@ -280,6 +281,8 @@
 		ED459A2A1E5E0EC000EAE084 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED459A2B1E5E124100EAE084 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED4761761F2A850B0008ED87 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED49509B1F951F1D00344E42 /* MessageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageUtility.h; path = Utility/MessageUtility.h; sourceTree = "<group>"; };
+		ED49509C1F951F1D00344E42 /* MessageUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MessageUtility.mm; path = Utility/MessageUtility.mm; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED58E8C81D0C627D00C74F10 /* TestStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestStorage.h; path = Utility/TestStorage.h; sourceTree = "<group>"; };
 		ED58E8C91D0C627D00C74F10 /* TestStorage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestStorage.mm; path = Utility/TestStorage.mm; sourceTree = "<group>"; };
@@ -563,6 +566,8 @@
 		ED58E8C71D0C625300C74F10 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ED49509B1F951F1D00344E42 /* MessageUtility.h */,
+				ED49509C1F951F1D00344E42 /* MessageUtility.mm */,
 				ED58E8C81D0C627D00C74F10 /* TestStorage.h */,
 				ED58E8C91D0C627D00C74F10 /* TestStorage.mm */,
 				ED0D35BC1DD72824005C863F /* RunButton.h */,
@@ -937,6 +942,7 @@
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				ED21E0581F898DDE008DFD0D /* TestLists.mm in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
+				ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
 				ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */,
 				EDCAB3A31E2BDD22000878CA /* LawsViewController.m in Sources */,

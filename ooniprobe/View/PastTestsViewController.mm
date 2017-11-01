@@ -180,8 +180,9 @@
     else if ([items count] == 1 && [[items objectAtIndex:0] length] > 0)
         [self performSegueWithIdentifier:@"toResult" sender:self];
     else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"no_result", nil) message:NSLocalizedString(@"no_result_msg", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"ok", @"") otherButtonTitles:nil];
-        [alert show];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"no_result", nil)
+                               message:NSLocalizedString(@"no_result_msg", nil)
+                                inView:self];
     }
 }
 
@@ -209,16 +210,17 @@
 
 
 - (IBAction)clearAllTests:(id)sender{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"clear_all_tests_alert", @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
-    [alert show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        [TestStorage remove_all_tests];
-        [self reloadTable];
-    }
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"ok", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   [TestStorage remove_all_tests];
+                                   [self reloadTable];
+                               }];
+    [MessageUtility alertWithTitle:NSLocalizedString(@"clear_all_tests_alert", nil)
+                           message:nil
+                          okButton:okButton
+                            inView:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

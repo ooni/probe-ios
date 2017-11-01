@@ -1,5 +1,4 @@
 #import "SettingsTableViewController.h"
-#define alert_tag_collector_address 1
 
 @interface SettingsTableViewController ()
 @property (readwrite) IBOutlet UIBarButtonItem* revealButtonItem;
@@ -130,12 +129,6 @@
             UITextField *textField = [self createTextField:[formatter stringFromNumber:someNumber]];
             cell.accessoryView = textField;
         }
-        else if ([current isEqualToString:@"collector_address"]){
-            cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
-            cell.textLabel.text = NSLocalizedString(current, nil);
-            cell.imageView.image = [UIImage imageNamed:current];
-            cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
-        }
     }
     return cell;
 }
@@ -209,7 +202,7 @@
 -(void)reloadSettings {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue]){
         privacyItems = @[@"upload_results", @"include_ip", @"include_asn", @"include_cc", @"send_crash"];
-        advancedItems = @[@"max_runtime", @"collector_address"];
+        advancedItems = @[@"max_runtime"];
     }
     else {
         privacyItems = @[@"upload_results", @"send_crash"];
@@ -225,36 +218,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 2 && indexPath.row == [advancedItems count] -1){
-        NSString *current = [advancedItems objectAtIndex:indexPath.row];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(current, @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"ok", nil), NSLocalizedString(@"set_default", nil), nil];
-        alert.tag = alert_tag_collector_address;
-        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-        value = [alert textFieldAtIndex:0];
-        value.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"collector_address"];
-        value.autocorrectionType = UITextAutocorrectionTypeNo;
-        [value setKeyboardType:UIKeyboardTypeURL];
-        [alert show];
-    }
     [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.tag == alert_tag_collector_address){
-        //collector address
-        if (buttonIndex == 1 && value.text.length > 0) {
-            [[NSUserDefaults standardUserDefaults] setObject:value.text forKey:@"collector_address"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            [self.tableView reloadData];
-        }
-        else if (buttonIndex == 2){
-            [[NSUserDefaults standardUserDefaults] setObject:COLLECTOR_ADDRESS forKey:@"collector_address"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            [self.tableView reloadData];
-        }
-    }
 }
 
 - (void)showNotification:(NSDate*)fireDate
