@@ -17,21 +17,6 @@
 #define ANOMALY_ORANGE 1
 #define ANOMALY_RED 2
 
-
-static void setup_idempotent() {
-    static bool initialized = false;
-    if (!initialized) {
-        // Set the logger verbose and make sure it logs on the "logcat"
-        mk::set_verbosity(VERBOSITY);
-        mk::on_log([](uint32_t, const char *s) {
-            #ifdef DEBUG
-            NSLog(@"%s", s);
-            #endif
-        });
-        initialized = true;
-    }
-}
-
 @implementation NetworkMeasurement
 
 -(id) init {
@@ -189,8 +174,6 @@ static void setup_idempotent() {
 -(void) run_test {
     mk::nettests::HttpInvalidRequestLineTest test;
     [super run_test:test];
-    //This is something I don't understand, we already use test to set verbosity and we have a common on_log function, should it be removed?
-    setup_idempotent();
     test.on_entry([self](std::string s) {
             [self on_entry:s.c_str()];
     });
@@ -249,7 +232,6 @@ static void setup_idempotent() {
 -(void) run_test {
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
-    setup_idempotent();
     mk::nettests::WebConnectivityTest test;
     [super run_test:test];
     if ([self.inputs count] > 0) {
@@ -383,8 +365,6 @@ static void setup_idempotent() {
 }
 
 -(void) run_test {
-    //[super run_test];
-    setup_idempotent();
     mk::nettests::HttpHeaderFieldManipulationTest test;
     [super run_test:test];
     test.on_entry([self](std::string s) {
@@ -453,7 +433,6 @@ static void setup_idempotent() {
 }
 
 -(void) run_test {
-    setup_idempotent();
     mk::nettests::DashTest test;
     [super run_test:test];
     test.on_entry([self](std::string s) {
