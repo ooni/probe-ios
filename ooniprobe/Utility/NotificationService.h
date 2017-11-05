@@ -4,7 +4,9 @@
 
 @interface NotificationService : NSObject
 + (id)sharedNotificationService;
-- (void)registerNotifications;
+- (void)registerProbe;
+- (void)updateProbe;
+
 
 @property (strong, nonatomic) NSString *geoip_country_path;
 @property (strong, nonatomic) NSString *geoip_asn_path;
