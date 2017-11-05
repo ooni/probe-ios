@@ -145,6 +145,8 @@
         device_token = @"";
     client.device_token = [device_token UTF8String];
     
+    //Can I directly call auth.load here without calling client.find_location?
+    //I guess these functions can be refactored in one, but I need inputs
     std::string secrets_path = [[self make_path] UTF8String];
     client.find_location([client, secrets_path = std::move(secrets_path)]
                          (mk::Error &&error, std::string probe_asn,
