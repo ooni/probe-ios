@@ -18,7 +18,6 @@
 -(id)init
 {
     self = [super init];
-    
     if(self)
     {
         NSBundle *bundle = [NSBundle mainBundle];
@@ -36,7 +35,6 @@
         network_type = [[ReachabilityManager sharedManager] getStatus];
         language = [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode];
     }
-    
     return self;
 }
 
@@ -86,13 +84,13 @@
                     [client, secrets_path = std::move(secrets_path)]
                       (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
                 if (error) {
-                    client.logger->warn("Register terminated with error: %s",
-                                        error.as_ooni_error().c_str());
+                    //client.logger->warn("Register terminated with error: %s",
+                    //                    error.as_ooni_error().c_str());
                     return;
                 }
                 if (auth.dump(secrets_path) != mk::NoError()) {
-                    client.logger->warn("Cannot write secrets_path: %s",
-                                        error.as_ooni_error().c_str());
+                    //client.logger->warn("Cannot write secrets_path: %s",
+                    //                    error.as_ooni_error().c_str());
                     return;
                 }
             });
@@ -102,13 +100,13 @@
                                         secrets_path = std::move(secrets_path)]
                     (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
             if (error) {
-                client.logger->warn("Update terminated with error: %s",
-                                    error.as_ooni_error().c_str());
+                //client.logger->warn("Update terminated with error: %s",
+                //                    error.as_ooni_error().c_str());
                 return;
             }
             if (auth.dump(secrets_path) != mk::NoError()) {
-                client.logger->warn("Cannot write secrets_path: %s",
-                                    error.as_ooni_error().c_str());
+                //client.logger->warn("Cannot write secrets_path: %s",
+                //                    error.as_ooni_error().c_str());
                 return;
             }
       });
