@@ -4,7 +4,7 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.7.2)
   - MBProgressHUD (1.0.0)
-  - measurement_kit (0.7.11)
+  - measurement_kit (0.9.0-dev)
   - NTYCSVTable (0.3.1)
   - PBRevealViewController (1.2.8):
     - PBRevealViewController/ObjC (= 1.2.8)
@@ -17,7 +17,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Fabric
   - MBProgressHUD
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, tag `v0.7.11`)
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `feature/free_find_location_function`)
   - NTYCSVTable
   - PBRevealViewController
   - Toast
@@ -25,25 +25,25 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   measurement_kit:
+    :branch: feature/free_find_location_function
     :git: https://github.com/measurement-kit/measurement-kit.git
-    :tag: v0.7.11
 
 CHECKOUT OPTIONS:
   measurement_kit:
+    :commit: 0203eda02b6675d9196b85b9428dadeb2edeb47f
     :git: https://github.com/measurement-kit/measurement-kit.git
-    :tag: v0.7.11
 
 SPEC CHECKSUMS:
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  measurement_kit: f0418f484c00fcbb4860ee3420031c1e607ebee0
+  measurement_kit: b4fb112f0d6e37ffac630db4aa8d61cfa85f1663
   NTYCSVTable: bad087d30f329f587c4557baa234719ac36c8448
   PBRevealViewController: b1471380464f30b63d73e9b04e9abf9cb7b67093
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UIBarButtonItem-Badge-Coding: 3f8e96f75f7d7c7516c1a1706b566892bf2db134
 
-PODFILE CHECKSUM: 3c32ee57b2515fbaf4e7c230a7aae3c0a500564a
+PODFILE CHECKSUM: 29ac8739a7fabfee4cfe45c2e1f4e7cc6b1cd384
 
 COCOAPODS: 1.4.0.beta.1

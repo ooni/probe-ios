@@ -54,14 +54,14 @@
     self.uri_scheme = FALSE;
     [TestStorage add_test:self];
     //Configuring common test parameters
-    test.set_options("geoip_country_path", [geoip_country UTF8String]);
-    test.set_options("geoip_asn_path", [geoip_asn UTF8String]);
-    test.set_options("save_real_probe_ip", include_ip);
-    test.set_options("save_real_probe_asn", include_asn);
-    test.set_options("save_real_probe_cc", include_cc);
-    test.set_options("no_collector", !upload_results);
-    test.set_options("software_name", [@"ooniprobe-ios" UTF8String]);
-    test.set_options("software_version", [software_version UTF8String]);
+    test.set_option("geoip_country_path", [geoip_country UTF8String]);
+    test.set_option("geoip_asn_path", [geoip_asn UTF8String]);
+    test.set_option("save_real_probe_ip", include_ip);
+    test.set_option("save_real_probe_asn", include_asn);
+    test.set_option("save_real_probe_cc", include_cc);
+    test.set_option("no_collector", !upload_results);
+    test.set_option("software_name", [@"ooniprobe-ios" UTF8String]);
+    test.set_option("software_version", [software_version UTF8String]);
     test.set_error_filepath([[self getFileName:@"log"] UTF8String]);
     test.set_output_filepath([[self getFileName:@"json"] UTF8String]);
     test.set_verbosity(VERBOSITY);
@@ -235,7 +235,7 @@
     [super init_common:test];
     //The bool uri_scheme to set the max_runtime, off when is true
     if (!self.uri_scheme){
-        test.set_options("max_runtime", [max_runtime doubleValue]);
+        test.set_option("max_runtime", [max_runtime doubleValue]);
     }
     if ([self.inputs count] > 0) {
         for (NSString* input in self.inputs) {

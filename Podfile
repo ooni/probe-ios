@@ -2,7 +2,8 @@ platform :ios, '9.0'
 target 'ooniprobe' do
     pod 'measurement_kit',
         :git => 'https://github.com/measurement-kit/measurement-kit.git',
-	:tag => 'v0.7.11'
+	#:tag => 'v0.7.11'
+	:branch => 'feature/free_find_location_function'
     pod 'Toast'
     pod 'PBRevealViewController'
     pod 'UIBarButtonItem-Badge-Coding'
