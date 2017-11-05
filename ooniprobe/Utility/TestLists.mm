@@ -29,7 +29,7 @@
     NSMutableArray *urls = [[NSMutableArray alloc] init];
     NSArray *global_urls = [self getUrlsForCountry:@"global"];
     [urls addObjectsFromArray:global_urls];
-    NSArray *local_urls = [self getUrlsForCountry:self.probe_cc];
+    NSArray *local_urls = [self getUrlsForCountry:[self.probe_cc lowercaseString]];
     if (local_urls != nil)
         [urls addObjectsFromArray:local_urls];
     //NSLog(@"url %@", urls);
