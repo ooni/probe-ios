@@ -20,7 +20,6 @@
         [self.revealButtonItem setAction: @selector(revealLeftView)];
         self.revealViewController.leftPresentViewHierarchically = YES;
     }
-
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"updateProgress" object:nil];
@@ -74,7 +73,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
     NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
     [current setUri_scheme:NO];
-    current.inputs = [TestLists getUrls];
+    current.inputs = [[TestLists sharedTestLists] getUrls];
     [current run];
     [self.tableView reloadData];
 }

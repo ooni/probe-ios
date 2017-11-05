@@ -2,6 +2,10 @@
 
 @interface TestLists : NSObject
 
-+ (NSArray*)getUrls;
+@property (strong, nonatomic) NSString *probe_cc;
+@property (strong, nonatomic) NSString *probe_asn;
 
++ (id)sharedTestLists;
+- (NSArray*)getUrls;
+- (void)getCC;
 @end

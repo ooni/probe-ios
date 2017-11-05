@@ -55,7 +55,7 @@
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
     //TODO change this code when refactor NetworkMeasurement class
     [current setUri_scheme:NO];
-    current.inputs = [TestLists getUrls];
+    current.inputs = [[TestLists sharedTestLists] getUrls];
     [current run];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
 }
