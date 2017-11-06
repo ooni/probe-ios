@@ -17,7 +17,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Fabric
   - MBProgressHUD
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `feature/free_find_location_function`)
+  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, branch `master`)
   - NTYCSVTable
   - PBRevealViewController
   - Toast
@@ -25,12 +25,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   measurement_kit:
-    :branch: feature/free_find_location_function
+    :branch: master
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 CHECKOUT OPTIONS:
   measurement_kit:
-    :commit: 0203eda02b6675d9196b85b9428dadeb2edeb47f
+    :commit: 8722a2f92e507e7881306a9641da5489ed578383
     :git: https://github.com/measurement-kit/measurement-kit.git
 
 SPEC CHECKSUMS:
@@ -44,6 +44,6 @@ SPEC CHECKSUMS:
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
   UIBarButtonItem-Badge-Coding: 3f8e96f75f7d7c7516c1a1706b566892bf2db134
 
-PODFILE CHECKSUM: 29ac8739a7fabfee4cfe45c2e1f4e7cc6b1cd384
+PODFILE CHECKSUM: 9c55ca2238830dc5232df83e6cdc7399a50a56d4
 
 COCOAPODS: 1.4.0.beta.1

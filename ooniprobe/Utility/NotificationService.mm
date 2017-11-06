@@ -65,7 +65,7 @@
     
     std::string secrets_path = [[self make_path] UTF8String];
 
-    client.find_location([client, secrets_path = std::move(secrets_path)]
+    client.find_location([self, client, secrets_path = std::move(secrets_path)]
                          (mk::Error &&error, std::string probe_asn,
                           std::string probe_cc) mutable {
         if (error) {
@@ -74,6 +74,8 @@
         }
         client.probe_asn = probe_asn;
         client.probe_cc = probe_cc;
+        [self setCC:[NSString stringWithFormat:@"%s", probe_cc.c_str()]];
+        [self setASN:[NSString stringWithFormat:@"%s", probe_asn.c_str()]];
         mk::ooni::orchestrate::Auth auth;
         // Assumption: if we can load the secrets path then we have
         // already registered the probe, otherwise we need to register
@@ -84,13 +86,13 @@
                     [client, secrets_path = std::move(secrets_path)]
                       (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
                 if (error) {
-                    //client.logger->warn("Register terminated with error: %s",
-                    //                    error.as_ooni_error().c_str());
+                    client.logger->warn("Register terminated with error: %s",
+                                        error.what());
                     return;
                 }
                 if (auth.dump(secrets_path) != mk::NoError()) {
-                    //client.logger->warn("Cannot write secrets_path: %s",
-                    //                    error.as_ooni_error().c_str());
+                    client.logger->warn("Cannot write secrets_path: %s",
+                                        error.what());
                     return;
                 }
             });
@@ -100,13 +102,13 @@
                                         secrets_path = std::move(secrets_path)]
                     (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
             if (error) {
-                //client.logger->warn("Update terminated with error: %s",
-                //                    error.as_ooni_error().c_str());
+                client.logger->warn("Update terminated with error: %s",
+                                    error.what());
                 return;
             }
             if (auth.dump(secrets_path) != mk::NoError()) {
-                //client.logger->warn("Cannot write secrets_path: %s",
-                //                    error.as_ooni_error().c_str());
+                client.logger->warn("Cannot write secrets_path: %s",
+                                    error.what());
                 return;
             }
       });
@@ -122,4 +124,11 @@
     return fileName;
 }
 
+-(void)setCC:(NSString*)cc{
+    [[TestLists sharedTestLists] setCC:cc];
+}
+
+-(void)setASN:(NSString*)asn{
+    [[TestLists sharedTestLists] setASN:asn];
+}
 @end
