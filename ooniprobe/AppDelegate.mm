@@ -23,13 +23,11 @@
     #ifdef RELEASE
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
-    [[NotificationService sharedNotificationService] registerProbe];
+    //TODO does it makes sense to register/update probe every time the user opens the app?
+    [[NotificationService sharedNotificationService] updateProbe];
     #endif
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    
-    //TODO register as a probe if I have never done it. This is needed to register the probe even if push notifications are turned off.
     
     [self registerNotifications];
     
@@ -57,6 +55,7 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //TODO save the token in memory and don't update it if not changed.
     [[NotificationService sharedNotificationService] setDevice_token:token];
     [[NotificationService sharedNotificationService] updateProbe];
 }

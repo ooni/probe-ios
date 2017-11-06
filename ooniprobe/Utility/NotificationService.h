@@ -4,7 +4,6 @@
 
 @interface NotificationService : NSObject
 + (id)sharedNotificationService;
-- (void)registerProbe;
 - (void)updateProbe;
 
 
