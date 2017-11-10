@@ -87,12 +87,12 @@
                       (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
                 if (error) {
                     client.logger->warn("Register terminated with error: %s",
-                                        error.as_ooni_error().c_str());
+                                        error.what());
                     return;
                 }
                 if (auth.dump(secrets_path) != mk::NoError()) {
                     client.logger->warn("Cannot write secrets_path: %s",
-                                        error.as_ooni_error().c_str());
+                                        error.what());
                     return;
                 }
             });
@@ -103,12 +103,12 @@
                     (mk::Error &&error, mk::ooni::orchestrate::Auth &&auth) {
             if (error) {
                 client.logger->warn("Update terminated with error: %s",
-                                    error.as_ooni_error().c_str());
+                                    error.what());
                 return;
             }
             if (auth.dump(secrets_path) != mk::NoError()) {
                 client.logger->warn("Cannot write secrets_path: %s",
-                                    error.as_ooni_error().c_str());
+                                    error.what());
                 return;
             }
       });
