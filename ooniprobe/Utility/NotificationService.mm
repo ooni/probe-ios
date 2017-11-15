@@ -125,7 +125,7 @@
 }
 
 -(void)setCC:(NSString*)cc{
-    [[TestLists sharedTestLists] setCC:cc];
+    [[TestLists sharedTestLists] setProbe_cc:cc];
 }
 
 -(void)setASN:(NSString*)asn{
