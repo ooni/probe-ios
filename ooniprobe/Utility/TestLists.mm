@@ -52,25 +52,18 @@
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *geoip_asn_path = [bundle pathForResource:@"GeoIPASNum" ofType:@"dat"];
     NSString *geoip_country_path = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
-    mk::ooni::orchestrate::Client client;
-    client.logger = mk::Logger::global();
-    client.geoip_asn_path = [geoip_asn_path UTF8String];
-    client.geoip_country_path = [geoip_country_path UTF8String];
-    client.settings = {};
-    client.find_location([client, self]
-                         (mk::Error &&error, std::string probe_asn,
-                          std::string probe_cc) mutable {
-                             if (error) {
-                                 mk::warn("cannot find location");
-                                 return;
-                             }
-                             self.probe_cc = [NSString stringWithFormat:@"%s", probe_cc.c_str()];
-                             self.probe_asn = [NSString stringWithFormat:@"%s", probe_asn.c_str()];
-                             client.probe_asn = probe_asn;
-                             client.probe_cc = probe_cc;
-                             client.logger->warn("probe_asn: %s", client.probe_asn.c_str());
-                             client.logger->warn("probe_cc: %s", client.probe_cc.c_str());
-                     });
+    mk::ooni::find_location([geoip_country_path UTF8String], [geoip_asn_path UTF8String],{}, mk::Logger::global(), [self]
+                            (mk::Error &&error, std::string probe_asn,
+                             std::string probe_cc) mutable {
+                                if (error) {
+                                    mk::warn("cannot find location");
+                                    return;
+                                }
+                                self.probe_cc = [NSString stringWithFormat:@"%s", probe_cc.c_str()];
+                                self.probe_asn = [NSString stringWithFormat:@"%s", probe_asn.c_str()];
+                                mk::warn("probe_asn: %s", probe_asn.c_str());
+                                mk::warn("probe_cc: %s", probe_cc.c_str());
+                            });
 }
 
 @end
