@@ -7,5 +7,5 @@
 
 + (id)sharedTestLists;
 - (NSArray*)getUrls;
-- (void)getCC;
+- (void)updateCC;
 @end

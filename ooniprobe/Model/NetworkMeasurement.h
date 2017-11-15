@@ -30,7 +30,7 @@
 @property BOOL viewed;
 @property BOOL entry;
 @property int anomaly;
-@property BOOL uri_scheme;
+@property BOOL max_runtime;
 
 @property mk::Settings options;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;

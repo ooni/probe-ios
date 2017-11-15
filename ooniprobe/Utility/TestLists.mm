@@ -20,7 +20,7 @@
     self = [super init];
     if(self)
     {
-        [self getCC];
+        [self updateCC];
     }
     return self;
 }
@@ -46,7 +46,7 @@
     return nil;
 }
 
-- (void)getCC {
+- (void)updateCC {
     //TODO refactor all mk helper functions into a class
     //This will be done with the next release as this class is going to be deleted
     NSBundle *bundle = [NSBundle mainBundle];

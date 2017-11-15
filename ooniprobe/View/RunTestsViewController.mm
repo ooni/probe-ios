@@ -72,7 +72,7 @@
     CGPoint currentTouchPosition = [[[event allTouches] anyObject] locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
     NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
-    [current setUri_scheme:NO];
+    [current setMax_runtime:YES];
     current.inputs = [[TestLists sharedTestLists] getUrls];
     [current run];
     [self.tableView reloadData];

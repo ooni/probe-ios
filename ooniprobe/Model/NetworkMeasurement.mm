@@ -51,7 +51,7 @@
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.running = TRUE;
-    self.uri_scheme = FALSE;
+    self.max_runtime = TRUE;
     [TestStorage add_test:self];
     //Configuring common test parameters
     test.set_option("geoip_country_path", [geoip_country UTF8String]);
@@ -234,7 +234,7 @@
     mk::nettests::WebConnectivityTest test;
     [super init_common:test];
     //The bool uri_scheme to set the max_runtime, off when is true
-    if (!self.uri_scheme){
+    if (self.max_runtime){
         test.set_option("max_runtime", [max_runtime doubleValue]);
     }
     if ([self.inputs count] > 0) {
