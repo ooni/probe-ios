@@ -5,8 +5,7 @@
 
 @implementation TestLists
 
-+ (id)sharedTestLists
-{
++ (id)sharedTestLists {
     static TestLists *sharedTestLists = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -15,17 +14,18 @@
     return sharedTestLists;
 }
 
--(id)init
-{
+-(id)init {
     self = [super init];
     if(self)
     {
+        self.probe_cc = @"";
+        self.probe_asn = @"";
         [self updateCC];
     }
     return self;
 }
 
-- (NSArray*)getUrls{
+- (NSArray*)getUrls {
     NSMutableArray *urls = [[NSMutableArray alloc] init];
     NSArray *global_urls = [self getUrlsForCountry:@"global"];
     [urls addObjectsFromArray:global_urls];
@@ -38,7 +38,8 @@
 
 - (NSArray*)getUrlsForCountry:(NSString*)country_code {
     if ([[NSBundle mainBundle] pathForResource:country_code ofType:@"csv"] != nil){
-        NSURL *csvURL = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", [[NSBundle mainBundle] pathForResource:country_code ofType:@"csv"]]];
+        NSURL *csvURL = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@",
+                     [[NSBundle mainBundle] pathForResource:country_code ofType:@"csv"]]];
         NTYCSVTable *table = [[NTYCSVTable alloc] initWithContentsOfURL:csvURL];
         NSArray *url = table.columns[@"url"];
         return url;
@@ -52,7 +53,10 @@
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *geoip_asn_path = [bundle pathForResource:@"GeoIPASNum" ofType:@"dat"];
     NSString *geoip_country_path = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
-    mk::ooni::find_location([geoip_country_path UTF8String], [geoip_asn_path UTF8String],{}, mk::Logger::global(), [self]
+    mk::ooni::find_location([geoip_country_path UTF8String],
+                            [geoip_asn_path UTF8String],{},
+                            mk::Logger::global(),
+                            [self]
                             (mk::Error &&error, std::string probe_asn,
                              std::string probe_cc) mutable {
                                 if (error) {

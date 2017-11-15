@@ -233,7 +233,6 @@
 -(void) run_test {
     mk::nettests::WebConnectivityTest test;
     [super init_common:test];
-    //The bool uri_scheme to set the max_runtime, off when is true
     if (self.max_runtime){
         test.set_option("max_runtime", [max_runtime doubleValue]);
     }
