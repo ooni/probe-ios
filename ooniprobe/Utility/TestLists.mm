@@ -20,7 +20,7 @@
     {
         self.probe_cc = @"";
         self.probe_asn = @"";
-        [self updateCC];
+        [self updateCC_async];
     }
     return self;
 }
@@ -46,7 +46,7 @@
     return nil;
 }
 
-- (void)updateCC {
+- (void)updateCC_async {
     //TODO refactor all mk helper functions into a class
     //This will be done with the next release as this class is going to be deleted
     NSBundle *bundle = [NSBundle mainBundle];
