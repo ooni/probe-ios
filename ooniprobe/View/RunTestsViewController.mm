@@ -8,6 +8,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
     [self.revealButtonItem setTarget: self.revealViewController];
     self.revealViewController.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if ([[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] isEqualToString:@"ar"]){
@@ -19,7 +20,6 @@
         [self.revealButtonItem setAction: @selector(revealLeftView)];
         self.revealViewController.leftPresentViewHierarchically = YES;
     }
-
     self.revealViewController.toggleAnimationType = PBRevealToggleAnimationTypeSpring;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"updateProgress" object:nil];
@@ -72,8 +72,8 @@
     CGPoint currentTouchPosition = [[[event allTouches] anyObject] locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
     NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
-    //TODO set test list
-    current.inputs = nil;
+    [current setMax_runtime:YES];
+    current.inputs = [[TestLists sharedTestLists] getUrls];
     [current run];
     [self.tableView reloadData];
 }

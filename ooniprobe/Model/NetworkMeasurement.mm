@@ -51,16 +51,17 @@
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.running = TRUE;
+    self.max_runtime = TRUE;
     [TestStorage add_test:self];
     //Configuring common test parameters
-    test.set_options("geoip_country_path", [geoip_country UTF8String]);
-    test.set_options("geoip_asn_path", [geoip_asn UTF8String]);
-    test.set_options("save_real_probe_ip", include_ip);
-    test.set_options("save_real_probe_asn", include_asn);
-    test.set_options("save_real_probe_cc", include_cc);
-    test.set_options("no_collector", !upload_results);
-    test.set_options("software_name", [@"ooniprobe-ios" UTF8String]);
-    test.set_options("software_version", [software_version UTF8String]);
+    test.set_option("geoip_country_path", [geoip_country UTF8String]);
+    test.set_option("geoip_asn_path", [geoip_asn UTF8String]);
+    test.set_option("save_real_probe_ip", include_ip);
+    test.set_option("save_real_probe_asn", include_asn);
+    test.set_option("save_real_probe_cc", include_cc);
+    test.set_option("no_collector", !upload_results);
+    test.set_option("software_name", [@"ooniprobe-ios" UTF8String]);
+    test.set_option("software_version", [software_version UTF8String]);
     test.set_error_filepath([[self getFileName:@"log"] UTF8String]);
     test.set_output_filepath([[self getFileName:@"json"] UTF8String]);
     test.set_verbosity(VERBOSITY);
@@ -230,20 +231,15 @@
 }
 
 -(void) run_test {
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"global" ofType:@"txt"];
     mk::nettests::WebConnectivityTest test;
     [super init_common:test];
+    if (self.max_runtime){
+        test.set_option("max_runtime", [max_runtime doubleValue]);
+    }
     if ([self.inputs count] > 0) {
         for (NSString* input in self.inputs) {
             test.add_input([input UTF8String]);
         }
-    }
-    else {
-        //For now I consider when there are inputs = ran from URI scheme, when don't ran normal test
-        //TODO This class has to be improved, waiting for test list managment functions
-        test.set_options("max_runtime", [max_runtime doubleValue]);
-        test.set_input_filepath([path UTF8String]);
     }
     test.on_entry([self](std::string s) {
         [self on_entry:s.c_str()];

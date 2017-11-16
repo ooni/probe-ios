@@ -18,7 +18,6 @@
 -(id)init
 {
     self = [super init];
-    
     if(self)
     {
         NSBundle *bundle = [NSBundle mainBundle];
@@ -36,7 +35,6 @@
         network_type = [[ReachabilityManager sharedManager] getStatus];
         language = [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode];
     }
-    
     return self;
 }
 
@@ -67,15 +65,17 @@
     
     std::string secrets_path = [[self make_path] UTF8String];
 
-    client.find_location([client, secrets_path = std::move(secrets_path)]
+    client.find_location([self, client, secrets_path = std::move(secrets_path)]
                          (mk::Error &&error, std::string probe_asn,
                           std::string probe_cc) mutable {
         if (error) {
-            mk::warn("cannot find location");
+            mk::warn("cannot find location: %s", error.what());
             return;
         }
         client.probe_asn = probe_asn;
         client.probe_cc = probe_cc;
+        [self setCC:[NSString stringWithFormat:@"%s", probe_cc.c_str()]];
+        [self setASN:[NSString stringWithFormat:@"%s", probe_asn.c_str()]];
         mk::ooni::orchestrate::Auth auth;
         // Assumption: if we can load the secrets path then we have
         // already registered the probe, otherwise we need to register
@@ -124,4 +124,11 @@
     return fileName;
 }
 
+-(void)setCC:(NSString*)cc{
+    [[TestLists sharedTestLists] setProbe_cc:cc];
+}
+
+-(void)setASN:(NSString*)asn{
+    [[TestLists sharedTestLists] setProbe_asn:asn];
+}
 @end

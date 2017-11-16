@@ -133,6 +133,7 @@
     if ([urls count] > 0){
         current.inputs = urls;
     }
+    [current setMax_runtime:NO];
     [current run];
     [self dismissViewControllerAnimated:TRUE completion:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
