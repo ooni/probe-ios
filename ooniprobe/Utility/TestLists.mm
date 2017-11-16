@@ -59,13 +59,13 @@
                             (mk::Error &&error, std::string probe_asn,
                              std::string probe_cc) mutable {
                                 if (error) {
-                                    mk::warn("cannot find location");
+                                    mk::warn("cannot find location: %s", error.what());
                                     return;
                                 }
                                 self.probe_cc = [NSString stringWithFormat:@"%s", probe_cc.c_str()];
                                 self.probe_asn = [NSString stringWithFormat:@"%s", probe_asn.c_str()];
-                                mk::warn("probe_asn: %s", probe_asn.c_str());
-                                mk::warn("probe_cc: %s", probe_cc.c_str());
+                                mk::info("probe_asn: %s", probe_asn.c_str());
+                                mk::info("probe_cc: %s", probe_cc.c_str());
                             });
 }
 

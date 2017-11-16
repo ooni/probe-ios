@@ -69,7 +69,7 @@
                          (mk::Error &&error, std::string probe_asn,
                           std::string probe_cc) mutable {
         if (error) {
-            mk::warn("cannot find location");
+            mk::warn("cannot find location: %s", error.what());
             return;
         }
         client.probe_asn = probe_asn;
