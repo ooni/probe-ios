@@ -129,6 +129,6 @@
 }
 
 -(void)setASN:(NSString*)asn{
-    [[TestLists sharedTestLists] setASN:asn];
+    [[TestLists sharedTestLists] setProbe_asn:asn];
 }
 @end
