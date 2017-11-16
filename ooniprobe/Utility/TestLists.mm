@@ -32,7 +32,6 @@
     NSArray *local_urls = [self getUrlsForCountry:[self.probe_cc lowercaseString]];
     if (local_urls != nil)
         [urls addObjectsFromArray:local_urls];
-    //NSLog(@"url %@", urls);
     return urls;
 }
 
