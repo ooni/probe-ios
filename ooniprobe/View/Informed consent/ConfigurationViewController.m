@@ -68,7 +68,7 @@
 }
 
 -(IBAction)setSwitch:(UISwitch *)mySwitch{
-    UITableViewCell *cell = (UITableViewCell *)mySwitch.superview.superview;
+    UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
     NSString *current = [settingsItems objectAtIndex:indexpath.row];
     if (mySwitch.on)
