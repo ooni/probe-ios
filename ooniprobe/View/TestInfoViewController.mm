@@ -54,7 +54,7 @@
 -(IBAction)runTest:(id)sender{
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
     //TODO change this code when refactor NetworkMeasurement class
-    [current setMax_runtime:YES];
+    [current setMax_runtime_enabled:YES];
     current.inputs = [[TestLists sharedTestLists] getUrls];
     [current run];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];

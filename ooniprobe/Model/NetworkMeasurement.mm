@@ -51,7 +51,7 @@
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.running = TRUE;
-    self.max_runtime = TRUE;
+    self.max_runtime_enabled = TRUE;
     [TestStorage add_test:self];
     //Configuring common test parameters
     test.set_option("geoip_country_path", [geoip_country UTF8String]);
@@ -233,7 +233,7 @@
 -(void) run_test {
     mk::nettests::WebConnectivityTest test;
     [super init_common:test];
-    if (self.max_runtime){
+    if (self.max_runtime_enabled){
         test.set_option("max_runtime", [max_runtime doubleValue]);
     }
     if ([self.inputs count] > 0) {
@@ -461,6 +461,224 @@
             [TestStorage set_anomaly:self.test_id :blocking];
         }
     }
+}
+
+@end
+
+@implementation Whatsapp : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.name = @"whatsapp";
+    }
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    mk::nettests::WhatsappTest test;
+    [super init_common:test];
+    test.on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    });
+    test.start([self]() {
+        [self testEnded];
+    });
+}
+
+/*
+ whatsapp: red if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server" are "blocked"
+ docs: https://github.com/TheTorProject/ooni-spec/blob/master/test-specs/ts-018-whatsapp.md#semantics
+ */
+
+-(void)on_entry:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        int blocking = ANOMALY_GREEN;
+        
+        //whatsapp_endpoints_status and whatsapp_web_status and registration_server_status must be both false if null (set test anomaly), if at least one is true (set test blocked)
+        NSArray *keys = [[NSArray alloc] initWithObjects:@"whatsapp_endpoints_status", @"whatsapp_web_status", @"registration_server_status", nil];
+        for (NSString *key in keys) {
+            if ([json objectForKey:key]){
+                if ([json objectForKey:key] == [NSNull null]) {
+                    if (blocking < ANOMALY_ORANGE)
+                        blocking = ANOMALY_ORANGE;
+                }
+                else if ([[json objectForKey:key] isEqualToString:@"blocked"]) {
+                    blocking = ANOMALY_RED;
+                }
+            }
+        }
+        
+        //TODO don't know if needed, maybe remove
+        //whatsapp_web_failure must be null, if != null (set test blocked)
+        if ([json objectForKey:@"whatsapp_web_failure"] != [NSNull null])
+            blocking = ANOMALY_RED;
+        
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
+    }
+}
+@end
+
+@implementation Telegram : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.name = @"telegram";
+    }
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    mk::nettests::TelegramTest test;
+    [super init_common:test];
+    test.on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    });
+    test.start([self]() {
+        [self testEnded];
+    });
+}
+/*
+ for telegram: red if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if ""telegram_web_status" is "blocked"
+ the "*_failure" keys for telegram and whatsapp might indicate a test failure / anomaly
+ docs: https://github.com/TheTorProject/ooni-spec/blob/master/test-specs/ts-020-telegram.md#semantics
+ */
+-(void)on_entry:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        int blocking = ANOMALY_GREEN;
+        
+        //telegram_http_blocking and telegram_tcp_blocking must be both false if null (set test anomaly), if at least one is true (set test blocked)
+        //telegram_web_status must be "ok", if null anomaly, if "blocked" (set test blocked)
+        //telegram_web_failure must be null, if != null (set test blocked)
+        NSArray *keys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];
+        for (NSString *key in keys) {
+            if ([json objectForKey:key]){
+                if ([json objectForKey:key] == [NSNull null]) {
+                    if (blocking < ANOMALY_ORANGE)
+                        blocking = ANOMALY_ORANGE;
+                }
+                else if ([[json objectForKey:key] boolValue]) {
+                    blocking = ANOMALY_RED;
+                }
+            }
+        }
+        //TODO don't know if needed, maybe remove
+        if ([json objectForKey:@"telegram_web_status"]{
+            if ([json objectForKey:@"telegram_web_status"] == [NSNull null]) {
+                if (blocking < ANOMALY_ORANGE)
+                    blocking = ANOMALY_ORANGE;
+            }
+            else if ([[json objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
+                blocking = ANOMALY_RED;
+            }
+        }
+        //TODO don't know if needed, maybe remove
+        //telegram_web_failure must be null, if != null (set test blocked) OR anomaly?
+        if ([json objectForKey:@"telegram_web_failure"] != [NSNull null])
+            blocking = ANOMALY_RED;
+
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
+    }
+}
+
+@end
+
+@implementation FacebookMessenger : NetworkMeasurement
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.name = @"facebook_messenger";
+    }
+    return self;
+}
+
+-(void)run{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self run_test];
+}
+
+-(void) run_test {
+    mk::nettests::FacebookMessengerTest test;
+    [super init_common:test];
+    test.on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    });
+    test.start([self]() {
+        [self testEnded];
+    });
+}
+
+/*
+ FB: red blocking if either "facebook_tcp_blocking" or "facebook_dns_blocking" is true
+ docs: https://github.com/TheTorProject/ooni-spec/blob/master/test-specs/ts-019-facebook-messenger.md#semantics
+ */
+-(void)on_entry:(const char*)str{
+    if (str != nil) {
+        if (!self.entry){
+            [TestStorage set_entry:self.test_id];
+            self.entry = TRUE;
+        }
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        int blocking = ANOMALY_GREEN;
+        NSArray *keys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
+        for (NSString *key in keys) {
+            if ([json objectForKey:key]){
+                if ([json objectForKey:key] == [NSNull null]) {
+                    if (blocking < ANOMALY_ORANGE)
+                        blocking = ANOMALY_ORANGE;
+                }
+                else if ([[json objectForKey:key] boolValue]) {
+                    blocking = ANOMALY_RED;
+                }
+            }
+        }
+        if (blocking > self.anomaly){
+            self.anomaly = blocking;
+            [TestStorage set_anomaly:self.test_id :blocking];
+        }
 }
 
 @end
