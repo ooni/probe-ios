@@ -326,6 +326,8 @@
 		ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurationViewController.m; path = "Informed consent/ConfigurationViewController.m"; sourceTree = "<group>"; };
 		ED923AAD1E2FA9FE00407EB6 /* LeftMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuTableViewController.h; sourceTree = "<group>"; };
 		ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LeftMenuTableViewController.mm; sourceTree = "<group>"; };
+		ED9421321FD175D50014CE95 /* UIColor+TFT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+TFT.h"; sourceTree = "<group>"; };
+		ED9421331FD175D50014CE95 /* UIColor+TFT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TFT.m"; sourceTree = "<group>"; };
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 		ED58E8C71D0C625300C74F10 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ED9421311FD175D50014CE95 /* TFTColor */,
 				ED49509B1F951F1D00344E42 /* MessageUtility.h */,
 				ED49509C1F951F1D00344E42 /* MessageUtility.mm */,
 				ED58E8C81D0C627D00C74F10 /* TestStorage.h */,
@@ -636,6 +639,16 @@
 				ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */,
 			);
 			name = "Informed consent";
+			sourceTree = "<group>";
+		};
+		ED9421311FD175D50014CE95 /* TFTColor */ = {
+			isa = PBXGroup;
+			children = (
+				ED9421321FD175D50014CE95 /* UIColor+TFT.h */,
+				ED9421331FD175D50014CE95 /* UIColor+TFT.m */,
+			);
+			name = TFTColor;
+			path = Utility/TFTColor;
 			sourceTree = "<group>";
 		};
 		F4F15431D4412F561191270F /* Frameworks */ = {
