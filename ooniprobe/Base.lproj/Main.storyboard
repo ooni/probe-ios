@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Medium.otf">
+            <string>Roboto-Medium</string>
+        </array>
         <array key="font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf">
             <string>FiraSansOT-Bold</string>
         </array>
@@ -48,9 +51,6 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="XIr-Ue-RDu" kind="relationship" relationship="rootViewController" id="ehG-Jw-fpD"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxn-Qs-7GP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,7 +59,7 @@
         <!--Introduction View Controller-->
         <scene sceneID="U3D-eG-lXE">
             <objects>
-                <viewController id="XIr-Ue-RDu" customClass="IntroductionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding_1" id="XIr-Ue-RDu" customClass="IntroductionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J2K-Bq-7pz"/>
                         <viewControllerLayoutGuide type="bottom" id="R1b-WO-oiA"/>
@@ -229,7 +229,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="revealButtonItem" destination="anJ-N5-jov" id="pPm-Am-PXt"/>
-                        <segue destination="ttE-KP-jYH" kind="presentation" identifier="showInformedConsent" id="gu1-Pu-vTs"/>
+                        <segue destination="ttE-KP-jYH" kind="presentation" identifier="showInformedConsent_" id="gu1-Pu-vTs"/>
+                        <segue destination="6RT-7q-2kM" kind="presentation" identifier="showInformedConsent" id="pgG-oo-F0f"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycm-c3-ths" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -761,7 +762,7 @@ measurement-kit: x.y.z</string>
         <!--Risks View Controller-->
         <scene sceneID="Y7k-aZ-6HN">
             <objects>
-                <viewController id="RY0-Lm-GHx" customClass="RisksViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding_2" id="RY0-Lm-GHx" customClass="RisksViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mvh-IM-wQ7"/>
                         <viewControllerLayoutGuide type="bottom" id="2tc-FZ-O10"/>
@@ -858,7 +859,7 @@ measurement-kit: x.y.z</string>
         <!--Quiz View Controller-->
         <scene sceneID="beD-DY-B8t">
             <objects>
-                <viewController id="nXy-t0-qh9" customClass="QuizViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding_4" id="nXy-t0-qh9" customClass="QuizViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LFa-Sz-O2M"/>
                         <viewControllerLayoutGuide type="bottom" id="e9z-SL-Cao"/>
@@ -991,7 +992,7 @@ measurement-kit: x.y.z</string>
         <!--Configuration View Controller-->
         <scene sceneID="Nhh-Mj-7F0">
             <objects>
-                <viewController id="fFI-Fd-Uh1" customClass="ConfigurationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding_5" id="fFI-Fd-Uh1" customClass="ConfigurationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CEd-DB-o47"/>
                         <viewControllerLayoutGuide type="bottom" id="myF-Vw-67T"/>
@@ -1249,7 +1250,7 @@ measurement-kit: x.y.z</string>
         <!--Laws View Controller-->
         <scene sceneID="5Sh-TI-tgE">
             <objects>
-                <viewController id="hVk-1D-3yA" customClass="LawsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding_3" id="hVk-1D-3yA" customClass="LawsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ytc-NC-a8L"/>
                         <viewControllerLayoutGuide type="bottom" id="eRw-tB-sdX"/>
@@ -1760,6 +1761,52 @@ measurement-kit: x.y.z</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7G-Tu-hJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-994" y="3135"/>
+        </scene>
+        <!--Swipe View Controller-->
+        <scene sceneID="OUG-FW-FaE">
+            <objects>
+                <viewController id="6RT-7q-2kM" customClass="ICSwipeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u7j-iD-8EU"/>
+                        <viewControllerLayoutGuide type="bottom" id="6pQ-z6-IyN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oex-se-gxp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKJ-WT-Lev">
+                                <rect key="frame" x="84" y="538" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="xoA-MP-A7O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                <state key="normal" title="Chiudi">
+                                    <color key="titleColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnDismiss:" destination="6RT-7q-2kM" eventType="touchUpInside" id="Xgs-C1-hdI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="cKJ-WT-Lev" firstAttribute="centerX" secondItem="oex-se-gxp" secondAttribute="centerX" constant="-1" id="LUG-FB-bVY"/>
+                            <constraint firstAttribute="bottom" secondItem="cKJ-WT-Lev" secondAttribute="bottom" id="SxG-1O-TTl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gRc-4W-dpR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HX8-QV-UoC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="238" y="-1913"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="HoT-ZG-CcC">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qRk-bD-LIl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4u-DZ-jBk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1041" y="-1913"/>
         </scene>
     </scenes>
     <resources>

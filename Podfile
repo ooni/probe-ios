@@ -11,5 +11,4 @@ target 'ooniprobe' do
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
     pod 'NTYCSVTable'
-    pod 'Onboard'
 end

@@ -15,6 +15,7 @@
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
 		ED09A7011E3E3534003E1603 /* TestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A7001E3E3534003E1603 /* TestResult.m */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
+		ED134D721FD5680B0052C7D3 /* ICSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED134D711FD5680B0052C7D3 /* ICSwipeViewController.m */; };
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED21E0581F898DDE008DFD0D /* TestLists.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED21E0571F898DDE008DFD0D /* TestLists.mm */; };
 		ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0751F8990E3008DFD0D /* global.csv */; };
@@ -169,6 +170,8 @@
 		ED09A7001E3E3534003E1603 /* TestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResult.m; sourceTree = "<group>"; };
 		ED0D35BC1DD72824005C863F /* RunButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RunButton.h; path = Utility/RunButton.h; sourceTree = "<group>"; };
 		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RunButton.m; path = Utility/RunButton.m; sourceTree = "<group>"; };
+		ED134D701FD5680B0052C7D3 /* ICSwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ICSwipeViewController.h; path = "Informed consent/ICSwipeViewController.h"; sourceTree = "<group>"; };
+		ED134D711FD5680B0052C7D3 /* ICSwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ICSwipeViewController.m; path = "Informed consent/ICSwipeViewController.m"; sourceTree = "<group>"; };
 		ED1F33601EFD552F00B42FEC /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
 		ED1F33611EFD552F00B42FEC /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
 		ED21E0561F898DDE008DFD0D /* TestLists.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestLists.h; path = Utility/TestLists.h; sourceTree = "<group>"; };
@@ -627,6 +630,8 @@
 		ED8816AB1D8C6A0700D5D725 /* Informed consent */ = {
 			isa = PBXGroup;
 			children = (
+				ED134D701FD5680B0052C7D3 /* ICSwipeViewController.h */,
+				ED134D711FD5680B0052C7D3 /* ICSwipeViewController.m */,
 				ED8816AC1D8C6A3400D5D725 /* IntroductionViewController.h */,
 				ED8816AD1D8C6A3400D5D725 /* IntroductionViewController.m */,
 				ED8816B21D8C6A4B00D5D725 /* RisksViewController.h */,
@@ -972,6 +977,7 @@
 				ED3932C71E3114BA0064CD11 /* PastTestsViewController.mm in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
+				ED134D721FD5680B0052C7D3 /* ICSwipeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
