@@ -334,6 +334,12 @@
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Light.otf"; sourceTree = "<group>"; };
+		EDBCB0891FD5B06C00FA4838 /* FiraSans-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-LightItalic.otf"; sourceTree = "<group>"; };
+		EDBCB08A1FD5B06C00FA4838 /* FiraSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Regular.otf"; sourceTree = "<group>"; };
+		EDBCB08B1FD5B06C00FA4838 /* FiraSans-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Italic.otf"; sourceTree = "<group>"; };
+		EDBCB08C1FD5B06C00FA4838 /* FiraSans-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.otf"; sourceTree = "<group>"; };
+		EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectorViewController.h; sourceTree = "<group>"; };
 		EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResultSelectorViewController.mm; sourceTree = "<group>"; };
 		EDC869C71E3178A800124C46 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tests.h; path = Utility/Tests.h; sourceTree = "<group>"; };
@@ -419,6 +425,7 @@
 		D4A2F62D1A6C33F7001B8460 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDBCB0871FD5B06C00FA4838 /* fonts */,
 				ED21E0591F8990E3008DFD0D /* test-lists */,
 				ED7F9FE01F700BEE0053FA50 /* webui */,
 				D4A2F62E1A6C33F7001B8460 /* fixtures */,
@@ -654,6 +661,19 @@
 			);
 			name = TFTColor;
 			path = Utility/TFTColor;
+			sourceTree = "<group>";
+		};
+		EDBCB0871FD5B06C00FA4838 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */,
+				EDBCB0891FD5B06C00FA4838 /* FiraSans-LightItalic.otf */,
+				EDBCB08A1FD5B06C00FA4838 /* FiraSans-Regular.otf */,
+				EDBCB08B1FD5B06C00FA4838 /* FiraSans-Italic.otf */,
+				EDBCB08C1FD5B06C00FA4838 /* FiraSans-SemiBold.otf */,
+				EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		F4F15431D4412F561191270F /* Frameworks */ = {
