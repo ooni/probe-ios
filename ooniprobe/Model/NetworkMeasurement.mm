@@ -523,12 +523,6 @@
                 }
             }
         }
-        
-        //TODO don't know if needed, maybe remove
-        //whatsapp_web_failure must be null, if != null (set test blocked)
-        if ([json objectForKey:@"whatsapp_web_failure"] != [NSNull null])
-            blocking = ANOMALY_RED;
-        
         if (blocking > self.anomaly){
             self.anomaly = blocking;
             [TestStorage set_anomaly:self.test_id :blocking];
@@ -596,7 +590,6 @@
                 }
             }
         }
-        //TODO don't know if needed, maybe remove
         if ([json objectForKey:@"telegram_web_status"]{
             if ([json objectForKey:@"telegram_web_status"] == [NSNull null]) {
                 if (blocking < ANOMALY_ORANGE)
@@ -606,10 +599,6 @@
                 blocking = ANOMALY_RED;
             }
         }
-        //TODO don't know if needed, maybe remove
-        //telegram_web_failure must be null, if != null (set test blocked) OR anomaly?
-        if ([json objectForKey:@"telegram_web_failure"] != [NSNull null])
-            blocking = ANOMALY_RED;
 
         if (blocking > self.anomaly){
             self.anomaly = blocking;
