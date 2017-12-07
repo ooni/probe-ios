@@ -16,7 +16,7 @@
 
 - (UIViewController *)first {
     if (!_first) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
         _first = [sb instantiateViewControllerWithIdentifier:@"Onboarding_1"];
     }
     return _first;
@@ -24,50 +24,40 @@
 
 - (UIViewController *)second {
     if (!_second) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
         _second = [sb instantiateViewControllerWithIdentifier:@"Onboarding_2"];
     }
     return _second;
 }
 - (UIViewController *)third {
     if (!_third) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
         _third = [sb instantiateViewControllerWithIdentifier:@"Onboarding_3"];
     }
     return _third;
 }
 - (UIViewController *)fourth {
     if (!_fourth) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
         _fourth = [sb instantiateViewControllerWithIdentifier:@"Onboarding_4"];
     }
     return _fourth;
 }
-- (UIViewController *)fifth {
-    if (!_fifth) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _fifth = [sb instantiateViewControllerWithIdentifier:@"Onboarding_5"];
-    }
-    return _fifth;
-}
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.dataSource = self;
-    
+    question_number = 1;
     self.PageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.PageViewController.dataSource = self;
-    viewControllers = [[NSArray alloc] initWithObjects:self.first, self.second, self.third, self.fourth, self.fifth, nil];
+    viewControllers = [[NSArray alloc] initWithObjects:self.first, self.second, self.third, self.fourth, nil];
 
     [self.PageViewController setViewControllers:@[self.first]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
                   completion:nil];
-
-    // Change the size of page view controller
-    self.PageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+    
+    self.PageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self addChildViewController:self.PageViewController];
     [self.view addSubview:self.PageViewController.view];
     [self.PageViewController didMoveToParentViewController:self];
@@ -82,25 +72,26 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    
+    //Went back
     NSUInteger index = [viewControllers indexOfObject:viewController];
-    
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
-    
     index--;
     return [self viewControllerAtIndex:index];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
+    //Went forward
     NSUInteger index = [viewControllers indexOfObject:viewController];
 
     if (index == NSNotFound) {
         return nil;
     }
-    
+    if (index == 2 && question_number < 3){
+        //return nil;
+    }
     index++;
     if (index == [viewControllers count]) {
         return nil;
@@ -121,13 +112,14 @@
 #pragma mark - No of Pages Methods
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
-    return 5;
+    return [viewControllers count];
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
     return 0;
 }
+
 
 @end
 /*

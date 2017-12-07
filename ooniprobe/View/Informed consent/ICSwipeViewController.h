@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ICSwipeViewController : UIViewController <UIPageViewControllerDataSource> {
+@interface ICSwipeViewController : UIViewController <UIPageViewControllerDataSource, UIGestureRecognizerDelegate> {
     NSArray *viewControllers;
+    int question_number;
 }
 
 
@@ -19,7 +20,6 @@
 @property (nonatomic, retain) UIViewController *second;
 @property (nonatomic, retain) UIViewController *third;
 @property (nonatomic, retain) UIViewController *fourth;
-@property (nonatomic, retain) UIViewController *fifth;
 
 
 @end
