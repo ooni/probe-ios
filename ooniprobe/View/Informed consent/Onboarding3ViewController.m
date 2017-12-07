@@ -40,8 +40,12 @@
 
 -(IBAction)answerTrue{
     LOTAnimationView *animation = [LOTAnimationView animationNamed:@"checkMark"];
-    //animation.contentMode = UIViewContentModeScaleAspectFill;
+    //animation.contentMode = UIViewContentModeScaleAspectFit;
     [quizView addSubview:animation];
+    //[animation setBackgroundColor:[UIColor greenColor]];
+    NSString *color = [color_teal4 substringFromIndex:1];
+
+    [animation setBackgroundColor:[UIColor colorWithRGBHexString:color alpha:1.0f]];
     [animation playWithCompletion:^(BOOL animationFinished) {
         // Do Something
     }];

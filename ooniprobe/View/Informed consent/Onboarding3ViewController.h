@@ -2,6 +2,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <PopupKit/PopupView.h>
 #import <Lottie/Lottie.h>
+#import "UIColor+TFT.h"
 
 @interface Onboarding3ViewController : UIViewController {
     UIView *quizView;
