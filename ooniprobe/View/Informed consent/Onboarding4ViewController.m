@@ -1,18 +1,10 @@
-//
-//  Oboarding4ViewController.m
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 06/12/17.
-//  Copyright © 2017 Simone Basso. All rights reserved.
-//
+#import "Onboarding4ViewController.h"
 
-#import "Oboarding4ViewController.h"
-
-@interface Oboarding4ViewController ()
+@interface Onboarding4ViewController ()
 
 @end
 
-@implementation Oboarding4ViewController
+@implementation Onboarding4ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -73,9 +65,9 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:^{
-        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [delegate registerNotifications];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"showToastConfiguration" object:nil];
+        //AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        //[delegate registerNotifications];
+        //[[NSNotificationCenter defaultCenter] postNotificationName:@"showToastConfiguration" object:nil];
     }];
 }
 

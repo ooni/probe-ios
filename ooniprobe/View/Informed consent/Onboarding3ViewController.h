@@ -1,16 +1,9 @@
-//
-//  Oboarding3ViewController.h
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 06/12/17.
-//  Copyright © 2017 Simone Basso. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <PopupKit/PopupView.h>
+#import "QuizViewController.h"
 
-@interface Oboarding3ViewController : UIViewController {
+@interface Onboarding3ViewController : UIViewController {
     UIView *quizView;
 }
 

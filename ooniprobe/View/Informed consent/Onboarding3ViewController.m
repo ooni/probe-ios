@@ -1,18 +1,10 @@
-//
-//  Oboarding3ViewController.m
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 06/12/17.
-//  Copyright © 2017 Simone Basso. All rights reserved.
-//
+#import "Onboarding3ViewController.h"
 
-#import "Oboarding3ViewController.h"
-
-@interface Oboarding3ViewController ()
+@interface Onboarding3ViewController ()
 
 @end
 
-@implementation Oboarding3ViewController
+@implementation Onboarding3ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,12 +30,10 @@
 -(IBAction)showQuiz:(id)sender{
     UIViewController *aViewController = [[UIViewController alloc] initWithNibName:@"Quiz" bundle:nil];
     quizView = aViewController.view;
+    UIButton *trueButton = (UIButton*)[quizView viewWithTag:1];
+    [trueButton addTarget:self action:@selector(answerTrue) forControlEvents:UIControlEventTouchUpInside];
+    //[trueButton setTitle:[ruoli objectAtIndex:ruoloDaEstrarre] forState:UIControlStateNormal];
     /*
-    UIButton *ruoloButton = (UIButton*)[popupView viewWithTag:1];
-    [ruoloButton addTarget:self action:@selector(scegliRuolo) forControlEvents:UIControlEventTouchUpInside];
-    NSArray *ruoli = [[NSArray alloc] initWithObjects:@"Ruolo qualunque", @"Portiere", @"Difensore", @"Centrocampista", @"Attaccante", nil];
-    [ruoloButton setTitle:[ruoli objectAtIndex:ruoloDaEstrarre] forState:UIControlStateNormal];
-    
     UIButton *resetButton = (UIButton*)[popupView viewWithTag:2];
     [resetButton addTarget:self action:@selector(resetEstratti) forControlEvents:UIControlEventTouchUpInside];
     UIButton *estraiButton = (UIButton*)[popupView viewWithTag:3];
@@ -56,6 +46,10 @@
     PopupView* popup = [PopupView popupViewWithContentView:quizView];
     //[popup setDidFinishDismissingCompletion:^{}];
     [popup show];
+}
+
+-(IBAction)answerTrue{
+    NSLog(@"AAAA");
 }
 
 @end

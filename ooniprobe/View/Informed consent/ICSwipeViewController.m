@@ -1,11 +1,3 @@
-//
-//  ICSwipeViewController.m
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 04/12/17.
-//  Copyright © 2017 Simone Basso. All rights reserved.
-//
-
 #import "ICSwipeViewController.h"
 
 @interface ICSwipeViewController ()

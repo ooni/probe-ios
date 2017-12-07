@@ -1,18 +1,10 @@
-//
-//  Oboarding2ViewController.m
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 06/12/17.
-//  Copyright © 2017 Simone Basso. All rights reserved.
-//
+#import "Onboarding2ViewController.h"
 
-#import "Oboarding2ViewController.h"
-
-@interface Oboarding2ViewController ()
+@interface Onboarding2ViewController ()
 
 @end
 
-@implementation Oboarding2ViewController
+@implementation Onboarding2ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
