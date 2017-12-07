@@ -151,6 +151,8 @@
 		EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08C1FD5B06C00FA4838 /* FiraSans-SemiBold.otf */; };
 		EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */; };
 		EDC2C9E61FD98CE000FF01D3 /* Quiz.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9E51FD98CE000FF01D3 /* Quiz.xib */; };
+		EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */; };
+		EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */; };
 		EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.mm */; };
 		EDC869C91E3178A800124C46 /* Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDC869C81E3178A800124C46 /* Tests.mm */; };
 		EDCAB39D1E2BC699000878CA /* ButtonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB39C1E2BC699000878CA /* ButtonUtility.m */; };
@@ -349,6 +351,8 @@
 		EDC2C9DC1FD8003400FF01D3 /* Onboarding4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Onboarding4ViewController.h; path = "Informed consent/Onboarding4ViewController.h"; sourceTree = "<group>"; };
 		EDC2C9DD1FD8003400FF01D3 /* Onboarding4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Onboarding4ViewController.m; path = "Informed consent/Onboarding4ViewController.m"; sourceTree = "<group>"; };
 		EDC2C9E51FD98CE000FF01D3 /* Quiz.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Quiz.xib; path = Storyboards/Quiz.xib; sourceTree = "<group>"; };
+		EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = crossMark.json; sourceTree = "<group>"; };
+		EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = checkMark.json; sourceTree = "<group>"; };
 		EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectorViewController.h; sourceTree = "<group>"; };
 		EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResultSelectorViewController.mm; sourceTree = "<group>"; };
 		EDC869C71E3178A800124C46 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tests.h; path = Utility/Tests.h; sourceTree = "<group>"; };
@@ -433,6 +437,7 @@
 		D4A2F62D1A6C33F7001B8460 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDC2C9EA1FD9939A00FF01D3 /* anim */,
 				EDBCB0871FD5B06C00FA4838 /* fonts */,
 				ED21E0591F8990E3008DFD0D /* test-lists */,
 				ED7F9FE01F700BEE0053FA50 /* webui */,
@@ -691,6 +696,15 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		EDC2C9EA1FD9939A00FF01D3 /* anim */ = {
+			isa = PBXGroup;
+			children = (
+				EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */,
+				EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */,
+			);
+			path = anim;
+			sourceTree = "<group>";
+		};
 		F4F15431D4412F561191270F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -799,6 +813,7 @@
 				EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */,
 				EDC2C9E21FD8061400FF01D3 /* FiraSans-Italic.otf in Resources */,
 				EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */,
+				EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */,
 				EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */,
 				ED21E0D21F899117008DFD0D /* ua.csv in Resources */,
 				ED21E0C51F899117008DFD0D /* sa.csv in Resources */,
@@ -888,6 +903,7 @@
 				ED21E0C91F899117008DFD0D /* ss.csv in Resources */,
 				ED21E0AF1F899117008DFD0D /* kz.csv in Resources */,
 				ED21E0E71F899131008DFD0D /* ca.csv in Resources */,
+				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
 				ED21E0DA1F899131008DFD0D /* 00-LEGEND-category_codes.csv in Resources */,
 				ED21E0EE1F899131008DFD0D /* dz.csv in Resources */,
 				ED21E0F51F899131008DFD0D /* gm.csv in Resources */,

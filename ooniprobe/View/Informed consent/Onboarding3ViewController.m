@@ -32,24 +32,19 @@
     quizView = aViewController.view;
     UIButton *trueButton = (UIButton*)[quizView viewWithTag:1];
     [trueButton addTarget:self action:@selector(answerTrue) forControlEvents:UIControlEventTouchUpInside];
-    //[trueButton setTitle:[ruoli objectAtIndex:ruoloDaEstrarre] forState:UIControlStateNormal];
-    /*
-    UIButton *resetButton = (UIButton*)[popupView viewWithTag:2];
-    [resetButton addTarget:self action:@selector(resetEstratti) forControlEvents:UIControlEventTouchUpInside];
-    UIButton *estraiButton = (UIButton*)[popupView viewWithTag:3];
-    [estraiButton addTarget:self action:@selector(estrai) forControlEvents:UIControlEventTouchUpInside];
-    
-    UILabel *estrattiLabel = (UILabel*)[popupView viewWithTag:4];
-    NSArray * estratti = [CacheManager get_estratti_for_lega:idLegaCorrente];
-    [estrattiLabel setText:[NSString stringWithFormat:@"Estratti (%d)", [estratti count]]];
-     */
+    //[trueButton setTitle:@"" forState:UIControlStateNormal];
     PopupView* popup = [PopupView popupViewWithContentView:quizView];
     //[popup setDidFinishDismissingCompletion:^{}];
     [popup show];
 }
 
 -(IBAction)answerTrue{
-    NSLog(@"AAAA");
+    LOTAnimationView *animation = [LOTAnimationView animationNamed:@"checkMark"];
+    //animation.contentMode = UIViewContentModeScaleAspectFill;
+    [quizView addSubview:animation];
+    [animation playWithCompletion:^(BOOL animationFinished) {
+        // Do Something
+    }];
 }
 
 @end
