@@ -116,6 +116,7 @@
 		ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* TestStorage.mm */; };
 		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */; };
 		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
+		ED682BA21FDAA37D00368E16 /* WrongAnswer.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED682BA11FDAA1BF00368E16 /* WrongAnswer.xib */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED7F9FF51F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js in Resources */ = {isa = PBXBuildFile; fileRef = ED7F9FE11F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js */; };
 		ED7F9FF61F700BEE0053FA50 /* app.395fa3b184891829715b.js in Resources */ = {isa = PBXBuildFile; fileRef = ED7F9FE21F700BEE0053FA50 /* app.395fa3b184891829715b.js */; };
@@ -304,6 +305,7 @@
 		ED62AB9B1ED5B70500778249 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Utility/Reachability.h; sourceTree = "<group>"; };
 		ED62AB9C1ED5B70500778249 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Utility/Reachability.m; sourceTree = "<group>"; };
 		ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ooniprobe.entitlements; sourceTree = "<group>"; };
+		ED682BA11FDAA1BF00368E16 /* WrongAnswer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WrongAnswer.xib; path = Storyboards/WrongAnswer.xib; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReachabilityManager.h; path = Utility/ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ReachabilityManager.mm; path = Utility/ReachabilityManager.mm; sourceTree = "<group>"; };
 		ED7F9FE11F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = 1.1.395fa3b184891829715b.js; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 			children = (
 				EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */,
 				EDC2C9E51FD98CE000FF01D3 /* Quiz.xib */,
+				ED682BA11FDAA1BF00368E16 /* WrongAnswer.xib */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -929,6 +932,7 @@
 				ED21E0CB1F899117008DFD0D /* td.csv in Resources */,
 				ED21E0BB1F899117008DFD0D /* ni.csv in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
+				ED682BA21FDAA37D00368E16 /* WrongAnswer.xib in Resources */,
 				ED21E0B11F899117008DFD0D /* ls.csv in Resources */,
 				ED21E0E81F899131008DFD0D /* ch.csv in Resources */,
 			);

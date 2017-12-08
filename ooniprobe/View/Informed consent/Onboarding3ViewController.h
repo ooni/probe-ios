@@ -6,6 +6,7 @@
 
 @interface Onboarding3ViewController : UIViewController {
     UIView *quizView;
+    UIView *wrongAnswerView;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
