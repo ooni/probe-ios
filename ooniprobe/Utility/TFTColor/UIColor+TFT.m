@@ -18,34 +18,28 @@ NSString *const HEX_CHAR_SET = @"abcdefABCDEF1234567890";
     
     NSMutableString *mutableHexString = [hexString mutableCopy];
     if ([hexString hasPrefix:@"#"]) {
-        
         [mutableHexString deleteCharactersInRange:NSMakeRange(0, 1)];
     }
     else if ([hexString hasPrefix:@"0x"] ||
                [hexString hasPrefix:@"0X"]) {
-        
         [mutableHexString deleteCharactersInRange:NSMakeRange(0, 2)];
     }
     
     //Check for Special Characters. Truncate the string from first special character.
     NSCharacterSet *characterSet = [[NSCharacterSet characterSetWithCharactersInString:HEX_CHAR_SET] invertedSet];
-    NSUInteger firstInvalidChar = [hexString rangeOfCharacterFromSet:characterSet].location;
+    NSUInteger firstInvalidChar = [mutableHexString rangeOfCharacterFromSet:characterSet].location;
     if (firstInvalidChar != NSNotFound) {
-        
         [mutableHexString deleteCharactersInRange:NSMakeRange(firstInvalidChar, mutableHexString.length - firstInvalidChar)];
     }
     
     //Repeat each hex digit if length is half
     if (mutableHexString.length == expectedLength/2) {
-        
         for (int i = 0; i < expectedLength/2; ++i) {
-            
             [mutableHexString insertString:[mutableHexString  substringWithRange:NSMakeRange(i*2, 1)] atIndex:i*2];
         }
     }
     //Append zeros if the length is less than the expected length
     else if (mutableHexString.length < expectedLength) {
-        
         while (mutableHexString.length != expectedLength) {
             [mutableHexString insertString:@"0" atIndex:0];
         }
