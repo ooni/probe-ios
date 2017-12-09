@@ -52,8 +52,8 @@
     [attr_str appendAttributedString:default_settings_4];
 
     [self.textLabel setAttributedText:attr_str];
-    [self.backButton setTitle:NSLocalizedString(@"change", nil) forState:UIControlStateNormal];
-    [self.nextButton setTitle:NSLocalizedString(@"lets_go", nil) forState:UIControlStateNormal];
+    [self.backButton setTitle:[NSLocalizedString(@"change", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.nextButton setTitle:[NSLocalizedString(@"lets_go", nil) uppercaseString] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

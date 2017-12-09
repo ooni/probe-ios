@@ -40,6 +40,8 @@
 {
     [super viewDidLoad];
     question_number = 1;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nextPage) name:@"nextPage" object:nil];
+
     self.PageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.PageViewController.dataSource = self;
     viewControllers = [[NSArray alloc] initWithObjects:self.first, self.second, self.third, self.fourth, nil];
@@ -55,6 +57,11 @@
     [self.PageViewController didMoveToParentViewController:self];
 }
 
+- (void)nextPage{
+    index = 3;
+    [self.PageViewController setViewControllers:@[self.fourth] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -65,7 +72,8 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
     //Went back
-    NSUInteger index = [viewControllers indexOfObject:viewController];
+    index = [viewControllers indexOfObject:viewController];
+
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
@@ -76,13 +84,13 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
     //Went forward
-    NSUInteger index = [viewControllers indexOfObject:viewController];
+    index = [viewControllers indexOfObject:viewController];
 
     if (index == NSNotFound) {
         return nil;
     }
-    if (index == 2 && question_number < 3){
-        //return nil;
+    if (index == 2 && _third.question_number < 3){
+        return nil;
     }
     index++;
     if (index == [viewControllers count]) {
@@ -107,84 +115,8 @@
     return [viewControllers count];
 }
 
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
-{
-    return 0;
-}
-
-
-@end
-/*
-#pragma mark - Page View Datasource Methods
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
-{
-    NSUInteger index = ((GuidaAppChildViewController*) viewController).pageIndex;
-    
-    if ((index == 0) || (index == NSNotFound))
-    {
-        return nil;
-    }
-    
-    index--;
-    return [self viewControllerAtIndex:index];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
-{
-    NSUInteger index = ((GuidaAppChildViewController*) viewController).pageIndex;
-    
-    if (index == NSNotFound)
-    {
-        return nil;
-    }
-    
-    index++;
-    if (index == [self.arrPageImages count])
-    {
-        return nil;
-    }
-    return [self viewControllerAtIndex:index];
-}
-
-#pragma mark - Other Methods
-- (GuidaAppChildViewController *)viewControllerAtIndex:(NSUInteger)index
-{
-    if (([self.arrPageImages count] == 0) || (index >= [self.arrPageImages count])) {
-        return nil;
-    }
-    // Create a new view controller and pass suitable data.
-    GuidaAppChildViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
-    pageContentViewController.imgFile = self.arrPageImages[index];
-    //pageContentViewController.txtTitle = self.arrPageTitles[index];
-    pageContentViewController.pageIndex = index;
-    
-    return pageContentViewController;
-}
-
-#pragma mark - No of Pages Methods
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
-{
-    return [self.arrPageImages count];
-}
-
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
-{
-    return 0;
-}
-
-- (IBAction)btnDismiss:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-- (IBAction)btnStartAgain:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    GuidaAppChildViewController *startingViewController = [self viewControllerAtIndex:0];
-    NSArray *viewControllers = @[startingViewController];
-    [self.PageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:NO completion:nil];
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    return index;
 }
 
 @end
- */

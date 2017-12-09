@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *textLabel;
 @property (strong, nonatomic) IBOutlet UIButton *nextButton;
+@property (nonatomic, assign) NSInteger question_number;
 
 @end

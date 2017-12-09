@@ -10,6 +10,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="FiraSans-Light.otf">
+            <string>FiraSans-Light</string>
+        </array>
+        <array key="FiraSans-SemiBold.otf">
+            <string>FiraSans-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Onboarding3ViewController">
             <connections>
@@ -30,35 +38,82 @@
                     <subviews>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT7-AL-fWT">
                             <rect key="frame" x="0.0" y="200" width="171.5" height="50"/>
-                            <color key="backgroundColor" red="0.75294117647058822" green="0.019607843137254902" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.019607843140000001" green="0.79607843140000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="yfB-P9-3Ja"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="18"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Button">
+                            <state key="normal" title="TRUE">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOz-qN-1ph">
                             <rect key="frame" x="172" y="200" width="171.5" height="50"/>
-                            <color key="backgroundColor" red="0.019607843140000001" green="0.79607843140000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.75294117650000003" green="0.019607843140000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="yzt-ue-RhW"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="18"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Button">
+                            <state key="normal" title="FALSE">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop Quiz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rY-X5-pZ3">
+                            <rect key="frame" x="8" y="8" width="327" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="QVI-0t-ijU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="24"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylx-Xf-TP1">
+                            <rect key="frame" x="8" y="59" width="327" height="133"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="133" id="clz-hm-uTS"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment>
+                                    <string key="content">Question 1/2
+
+Anyone monitoring your internet activity may be able to see that you are running OONI Probe.</string>
+                                    <attributes>
+                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="17" name="FiraSans-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPe-g9-q7q">
+                            <rect key="frame" x="0.0" y="50" width="343" height="1"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="SS3-dZ-6Hs"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="wOz-qN-1ph" firstAttribute="leading" secondItem="cT7-AL-fWT" secondAttribute="trailing" id="47A-Ka-oyq"/>
                         <constraint firstAttribute="width" secondItem="PqW-EO-CTw" secondAttribute="height" multiplier="343:250" id="AYJ-IF-gxP"/>
+                        <constraint firstAttribute="trailing" secondItem="RPe-g9-q7q" secondAttribute="trailing" id="H1x-Mw-Wjx"/>
+                        <constraint firstItem="6rY-X5-pZ3" firstAttribute="leading" secondItem="PqW-EO-CTw" secondAttribute="leading" constant="8" id="KMB-kh-LwK"/>
                         <constraint firstAttribute="bottom" secondItem="wOz-qN-1ph" secondAttribute="bottom" id="Q50-eK-c7F"/>
                         <constraint firstAttribute="trailing" secondItem="wOz-qN-1ph" secondAttribute="trailing" id="QAj-Yt-kFo"/>
+                        <constraint firstItem="cT7-AL-fWT" firstAttribute="top" secondItem="Ylx-Xf-TP1" secondAttribute="bottom" constant="8" id="SyR-a4-RRW"/>
+                        <constraint firstItem="Ylx-Xf-TP1" firstAttribute="top" secondItem="RPe-g9-q7q" secondAttribute="bottom" constant="8" id="czI-LC-Qlb"/>
+                        <constraint firstItem="RPe-g9-q7q" firstAttribute="top" secondItem="6rY-X5-pZ3" secondAttribute="bottom" constant="8" id="eb7-6I-Hmp"/>
+                        <constraint firstItem="Ylx-Xf-TP1" firstAttribute="leading" secondItem="PqW-EO-CTw" secondAttribute="leading" constant="8" id="eyf-TK-9jv"/>
+                        <constraint firstItem="6rY-X5-pZ3" firstAttribute="top" secondItem="PqW-EO-CTw" secondAttribute="top" constant="8" id="fef-nG-zts"/>
                         <constraint firstAttribute="bottom" secondItem="cT7-AL-fWT" secondAttribute="bottom" id="hYz-o8-GGO"/>
+                        <constraint firstAttribute="trailing" secondItem="6rY-X5-pZ3" secondAttribute="trailing" constant="8" id="mCU-B7-ZiM"/>
+                        <constraint firstAttribute="trailing" secondItem="Ylx-Xf-TP1" secondAttribute="trailing" constant="8" id="txD-DA-2d5"/>
                         <constraint firstItem="cT7-AL-fWT" firstAttribute="leading" secondItem="PqW-EO-CTw" secondAttribute="leading" id="xup-xq-jwn"/>
+                        <constraint firstItem="RPe-g9-q7q" firstAttribute="leading" secondItem="PqW-EO-CTw" secondAttribute="leading" id="y3c-cC-4Lr"/>
                         <constraint firstItem="wOz-qN-1ph" firstAttribute="width" secondItem="cT7-AL-fWT" secondAttribute="width" id="yyC-PN-fzd"/>
                     </constraints>
                 </view>
