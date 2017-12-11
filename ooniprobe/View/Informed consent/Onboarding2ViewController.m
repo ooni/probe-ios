@@ -11,7 +11,7 @@
     [self.titleLabel setText:NSLocalizedString(@"what_is_ooniprobe", nil)];
     /*
      Constraint for iPhoneSE
-     https://stackoverflow.com/questions/43521024/how-to-set-constraints-for-iphone-5s-or-iphone-se-only-using-storyboard-in-autol
+     https://stackoverflow.com/questions/43521024/
      */
     NSMutableAttributedString *what_is_ooniprobe_1 = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"what_is_ooniprobe_1", nil)];
     [what_is_ooniprobe_1 addAttribute:NSFontAttributeName
