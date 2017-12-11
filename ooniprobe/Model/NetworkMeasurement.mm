@@ -590,7 +590,7 @@
                 }
             }
         }
-        if ([json objectForKey:@"telegram_web_status"]{
+        if ([json objectForKey:@"telegram_web_status"]){
             if ([json objectForKey:@"telegram_web_status"] == [NSNull null]) {
                 if (blocking < ANOMALY_ORANGE)
                     blocking = ANOMALY_ORANGE;
