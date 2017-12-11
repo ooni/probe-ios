@@ -668,6 +668,7 @@
             self.anomaly = blocking;
             [TestStorage set_anomaly:self.test_id :blocking];
         }
+    }
 }
 
 @end
