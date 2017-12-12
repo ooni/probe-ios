@@ -102,6 +102,8 @@
 		ED21E0FF1F899131008DFD0D /* kh.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0801F8990E3008DFD0D /* kh.csv */; };
 		ED21E1001F899131008DFD0D /* kr.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0811F8990E3008DFD0D /* kr.csv */; };
 		ED21E1011F899131008DFD0D /* kw.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0821F8990E3008DFD0D /* kw.csv */; };
+		ED229AEA1FDFDFE300398AB0 /* PopQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED229AE91FDFDFE300398AB0 /* PopQuizViewController.m */; };
+		ED229AED1FDFDFF100398AB0 /* WrongAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED229AEC1FDFDFF100398AB0 /* WrongAnswerViewController.m */; };
 		ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528231CEA35640073A29B /* LogViewController.mm */; };
 		ED25282C1CEA35640073A29B /* SettingsTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528251CEA35640073A29B /* SettingsTableViewController.mm */; };
 		ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.mm */; };
@@ -116,7 +118,6 @@
 		ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* TestStorage.mm */; };
 		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */; };
 		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
-		ED682BA21FDAA37D00368E16 /* WrongAnswer.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED682BA11FDAA1BF00368E16 /* WrongAnswer.xib */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED7F9FF51F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js in Resources */ = {isa = PBXBuildFile; fileRef = ED7F9FE11F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js */; };
 		ED7F9FF61F700BEE0053FA50 /* app.395fa3b184891829715b.js in Resources */ = {isa = PBXBuildFile; fileRef = ED7F9FE21F700BEE0053FA50 /* app.395fa3b184891829715b.js */; };
@@ -151,7 +152,6 @@
 		EDC2C9E21FD8061400FF01D3 /* FiraSans-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08B1FD5B06C00FA4838 /* FiraSans-Italic.otf */; };
 		EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08C1FD5B06C00FA4838 /* FiraSans-SemiBold.otf */; };
 		EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */; };
-		EDC2C9E61FD98CE000FF01D3 /* Quiz.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9E51FD98CE000FF01D3 /* Quiz.xib */; };
 		EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */; };
 		EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */; };
 		EDC2C9F31FD9A23900FF01D3 /* UIColor+TFT.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9421331FD175D50014CE95 /* UIColor+TFT.m */; };
@@ -271,6 +271,10 @@
 		ED21E0AB1F8990E3008DFD0D /* ye.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ye.csv; sourceTree = "<group>"; };
 		ED21E0AC1F8990E3008DFD0D /* zm.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = zm.csv; sourceTree = "<group>"; };
 		ED21E0AD1F8990E3008DFD0D /* zw.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = zw.csv; sourceTree = "<group>"; };
+		ED229AE81FDFDFE300398AB0 /* PopQuizViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PopQuizViewController.h; path = "Informed consent/PopQuizViewController.h"; sourceTree = "<group>"; };
+		ED229AE91FDFDFE300398AB0 /* PopQuizViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PopQuizViewController.m; path = "Informed consent/PopQuizViewController.m"; sourceTree = "<group>"; };
+		ED229AEB1FDFDFF000398AB0 /* WrongAnswerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WrongAnswerViewController.h; path = "Informed consent/WrongAnswerViewController.h"; sourceTree = "<group>"; };
+		ED229AEC1FDFDFF100398AB0 /* WrongAnswerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WrongAnswerViewController.m; path = "Informed consent/WrongAnswerViewController.m"; sourceTree = "<group>"; };
 		ED2528221CEA35640073A29B /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		ED2528231CEA35640073A29B /* LogViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LogViewController.mm; sourceTree = "<group>"; };
 		ED2528241CEA35640073A29B /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -305,7 +309,6 @@
 		ED62AB9B1ED5B70500778249 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Utility/Reachability.h; sourceTree = "<group>"; };
 		ED62AB9C1ED5B70500778249 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Utility/Reachability.m; sourceTree = "<group>"; };
 		ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ooniprobe.entitlements; sourceTree = "<group>"; };
-		ED682BA11FDAA1BF00368E16 /* WrongAnswer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WrongAnswer.xib; path = Storyboards/WrongAnswer.xib; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReachabilityManager.h; path = Utility/ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ReachabilityManager.mm; path = Utility/ReachabilityManager.mm; sourceTree = "<group>"; };
 		ED7F9FE11F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = 1.1.395fa3b184891829715b.js; sourceTree = "<group>"; };
@@ -353,7 +356,6 @@
 		EDC2C9DA1FD8002800FF01D3 /* Onboarding3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Onboarding3ViewController.m; path = "Informed consent/Onboarding3ViewController.m"; sourceTree = "<group>"; };
 		EDC2C9DC1FD8003400FF01D3 /* Onboarding4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Onboarding4ViewController.h; path = "Informed consent/Onboarding4ViewController.h"; sourceTree = "<group>"; };
 		EDC2C9DD1FD8003400FF01D3 /* Onboarding4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Onboarding4ViewController.m; path = "Informed consent/Onboarding4ViewController.m"; sourceTree = "<group>"; };
-		EDC2C9E51FD98CE000FF01D3 /* Quiz.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Quiz.xib; path = Storyboards/Quiz.xib; sourceTree = "<group>"; };
 		EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = crossMark.json; sourceTree = "<group>"; };
 		EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = checkMark.json; sourceTree = "<group>"; };
 		EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectorViewController.h; sourceTree = "<group>"; };
@@ -663,6 +665,10 @@
 				EDC2C9DA1FD8002800FF01D3 /* Onboarding3ViewController.m */,
 				EDC2C9DC1FD8003400FF01D3 /* Onboarding4ViewController.h */,
 				EDC2C9DD1FD8003400FF01D3 /* Onboarding4ViewController.m */,
+				ED229AE81FDFDFE300398AB0 /* PopQuizViewController.h */,
+				ED229AE91FDFDFE300398AB0 /* PopQuizViewController.m */,
+				ED229AEB1FDFDFF000398AB0 /* WrongAnswerViewController.h */,
+				ED229AEC1FDFDFF100398AB0 /* WrongAnswerViewController.m */,
 			);
 			name = "Informed consent";
 			sourceTree = "<group>";
@@ -694,8 +700,6 @@
 			isa = PBXGroup;
 			children = (
 				EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */,
-				EDC2C9E51FD98CE000FF01D3 /* Quiz.xib */,
-				ED682BA11FDAA1BF00368E16 /* WrongAnswer.xib */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -920,7 +924,6 @@
 				ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */,
 				ED21E0D61F899117008DFD0D /* vn.csv in Resources */,
 				ED21E1011F899131008DFD0D /* kw.csv in Resources */,
-				EDC2C9E61FD98CE000FF01D3 /* Quiz.xib in Resources */,
 				ED7F9FF51F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js in Resources */,
 				ED21E0B21F899117008DFD0D /* ly.csv in Resources */,
 				ED21E0C11F899117008DFD0D /* pl.csv in Resources */,
@@ -932,7 +935,6 @@
 				ED21E0CB1F899117008DFD0D /* td.csv in Resources */,
 				ED21E0BB1F899117008DFD0D /* ni.csv in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
-				ED682BA21FDAA37D00368E16 /* WrongAnswer.xib in Resources */,
 				ED21E0B11F899117008DFD0D /* ls.csv in Resources */,
 				ED21E0E81F899131008DFD0D /* ch.csv in Resources */,
 			);
@@ -1034,6 +1036,7 @@
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED25282E1CEA35640073A29B /* RunTestsViewController.mm in Sources */,
 				ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */,
+				ED229AEA1FDFDFE300398AB0 /* PopQuizViewController.m in Sources */,
 				EDCAB39D1E2BC699000878CA /* ButtonUtility.m in Sources */,
 				ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */,
 				ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm in Sources */,
@@ -1042,6 +1045,7 @@
 				EDC2C9DE1FD8003400FF01D3 /* Onboarding4ViewController.m in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 				ED134D721FD5680B0052C7D3 /* ICSwipeViewController.m in Sources */,
+				ED229AED1FDFDFF100398AB0 /* WrongAnswerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

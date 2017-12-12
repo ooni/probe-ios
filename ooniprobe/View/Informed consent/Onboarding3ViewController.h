@@ -1,10 +1,8 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import <PopupKit/PopupView.h>
-#import <Lottie/Lottie.h>
-#import "UIColor+TFT.h"
+#import "PopQuizViewController.h"
 
-@interface Onboarding3ViewController : UIViewController {
+@interface Onboarding3ViewController : UIViewController <PopQuizViewControllerDelegate> {
     UIView *quizView;
     UIView *wrongAnswerView;
 }
@@ -15,5 +13,7 @@
 @property (nonatomic, assign) NSInteger question_number;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+
+-(void)setQuestion_number:(NSInteger)qn;
 
 @end

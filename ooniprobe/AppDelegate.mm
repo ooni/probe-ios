@@ -25,7 +25,8 @@
 
     application.statusBarStyle = UIStatusBarStyleLightContent;
     
-    [self registerNotifications];
+    //TODO removed notification popup on start. TO decide where to put it
+    //[self registerNotifications];
     
     //TODO Probably don't need it anymore when implementing backgound notifications
     //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo

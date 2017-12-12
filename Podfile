@@ -12,5 +12,4 @@ target 'ooniprobe' do
     pod 'DZNEmptyDataSet'
     pod 'NTYCSVTable'
     pod 'lottie-ios'
-    pod 'PopupKit'
 end
