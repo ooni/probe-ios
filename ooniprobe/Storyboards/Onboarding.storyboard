@@ -363,7 +363,7 @@ We will not include:
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcy-Bn-GOt">
                                 <rect key="frame" x="37" y="485" width="246" height="63"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFH-cD-JKJ">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFH-cD-JKJ">
                                         <rect key="frame" x="0.0" y="0.0" width="123" height="63"/>
                                         <color key="backgroundColor" red="0.015686274509803921" green="0.38039215686274508" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -374,6 +374,9 @@ We will not include:
                                         <state key="normal" title="CHANGE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="configure:" destination="7O5-JB-Uds" eventType="touchUpInside" id="pxQ-5N-lb2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuM-AH-T0b">
                                         <rect key="frame" x="123" y="0.0" width="123" height="63"/>
@@ -386,6 +389,9 @@ We will not include:
                                         <state key="normal" title="LET'S GO">
                                             <color key="titleColor" red="0.015686274510000001" green="0.3803921569" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="configure:" destination="7O5-JB-Uds" eventType="touchUpInside" id="4FT-2G-vMd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

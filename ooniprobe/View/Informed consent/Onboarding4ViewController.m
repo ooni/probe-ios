@@ -73,6 +73,10 @@
 }
 
 -(IBAction)configure:(id)sender{
+    UIButton *buttonPressed = (UIButton*)sender;
+    if (buttonPressed.tag == 1){
+        //open setting screen
+    }
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:^{
