@@ -8,11 +8,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //Constraint for iPhoneSE
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        // iPhone 5
+        if(result.height == 568)
+        {
+            self.topConstraint.constant = 8.0f;
+        }
+    }
+    
     [self.titleLabel setText:NSLocalizedString(@"what_is_ooniprobe", nil)];
-    /*
-     Constraint for iPhoneSE
-     https://stackoverflow.com/questions/43521024/
-     */
+    
     NSMutableAttributedString *what_is_ooniprobe_1 = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"what_is_ooniprobe_1", nil)];
     [what_is_ooniprobe_1 addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]

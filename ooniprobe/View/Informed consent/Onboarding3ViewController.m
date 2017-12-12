@@ -9,6 +9,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        // iPhone 5
+        if(result.height == 568)
+        {
+            self.topConstraint.constant = 8.0f;
+            self.bottomConstraint.constant = 0.0f;
+        }
+    }
     self.nextButton.layer.cornerRadius = 30;
     self.nextButton.layer.masksToBounds = true;
     question_number = 1;
