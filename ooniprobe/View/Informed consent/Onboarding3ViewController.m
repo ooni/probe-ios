@@ -9,10 +9,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //Constraint for iPhoneSE
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         CGSize result = [[UIScreen mainScreen] bounds].size;
-        // iPhone 5
         if(result.height == 568)
         {
             self.topConstraint.constant = 8.0f;

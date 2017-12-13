@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -32,11 +32,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Nwh-KC-X97"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ssa-4q-Vnl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bmk-W3-UcB">
-                                <rect key="frame" x="31" y="65" width="258" height="40"/>
+                                <rect key="frame" x="78" y="65" width="258" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3vf-vF-Bvz"/>
                                     <constraint firstAttribute="width" constant="258" id="xF8-06-LcY"/>
@@ -46,14 +46,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ooniprobe_logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Zu-y9-YPs">
-                                <rect key="frame" x="31" y="107" width="258" height="44"/>
+                                <rect key="frame" x="78" y="107" width="258" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="258" id="9kV-na-bu1"/>
                                     <constraint firstAttribute="height" constant="44" id="dF9-nY-ZCu"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="octopus" translatesAutoresizingMaskIntoConstraints="NO" id="oqq-zO-Z4c">
-                                <rect key="frame" x="62" y="229" width="196" height="250"/>
+                                <rect key="frame" x="62" y="277" width="290" height="370"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="290" id="6Dn-CZ-SbQ">
                                         <variation key="heightClass=regular-widthClass=regular" constant="450"/>
@@ -99,17 +99,17 @@
                         <viewControllerLayoutGuide type="bottom" id="BVF-vN-9qu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gM5-Q3-Fo5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is OONI Probe?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E83-HA-9VG">
-                                <rect key="frame" x="16" y="219" width="288" height="79.5"/>
+                                <rect key="frame" x="20" y="219" width="374" height="39.666666666666686"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-gy-NKd">
-                                <rect key="frame" x="16" y="306" width="288" height="192"/>
+                                <rect key="frame" x="20" y="266.33333333333331" width="374" height="192"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192" id="pfL-Xw-Ocs"/>
                                 </constraints>
@@ -136,7 +136,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ooniprobe_shark" translatesAutoresizingMaskIntoConstraints="NO" id="wjo-4r-PfJ">
-                                <rect key="frame" x="54" y="83" width="212" height="128"/>
+                                <rect key="frame" x="101" y="83" width="212" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wjo-4r-PfJ" secondAttribute="height" multiplier="53:32" id="Iia-0V-0jN"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180.33000000000001" id="lZa-7h-kUq"/>
@@ -177,7 +177,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <viewControllerLayoutGuide type="bottom" id="5sZ-EO-vBx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R4c-d2-hqf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="Nja-Ia-ZkO"/>
@@ -205,17 +205,17 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <viewControllerLayoutGuide type="bottom" id="gEM-O8-Zw1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MM1-JM-jnN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Things to know" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-dw-gFn">
-                                <rect key="frame" x="16" y="219" width="288" height="40"/>
+                                <rect key="frame" x="20" y="219" width="374" height="39.666666666666686"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-qb-Qml">
-                                <rect key="frame" x="16" y="267" width="288" height="247"/>
+                                <rect key="frame" x="20" y="266.66666666666663" width="374" height="246.99999999999989"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="247" id="p6H-zv-Cty"/>
                                 </constraints>
@@ -231,7 +231,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="s0Z-yY-pz9">
-                                <rect key="frame" x="89.5" y="83" width="141" height="106"/>
+                                <rect key="frame" x="136.66666666666669" y="83" width="141.00000000000006" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="s0Z-yY-pz9" secondAttribute="height" multiplier="85:64" id="OGv-st-vSJ"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180" id="hSa-2t-mJg"/>
@@ -239,7 +239,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-lT-nrn">
-                                <rect key="frame" x="37" y="485" width="246" height="63"/>
+                                <rect key="frame" x="84" y="653" width="246" height="63"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="246" id="dA4-tK-4Le"/>
@@ -291,17 +291,17 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <viewControllerLayoutGuide type="bottom" id="d3K-eH-7xm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DEh-Zm-8aG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Settings" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ldx-vN-fF3">
-                                <rect key="frame" x="16" y="219" width="288" height="40"/>
+                                <rect key="frame" x="20" y="219" width="374" height="39.666666666666686"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hx8-bq-2PZ">
-                                <rect key="frame" x="16" y="268" width="288" height="261"/>
+                                <rect key="frame" x="20" y="267.66666666666663" width="374" height="260.99999999999989"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="261" id="eE7-Jq-CIl"/>
                                 </constraints>
@@ -353,7 +353,7 @@ We will not include:
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-ON-TYp">
-                                <rect key="frame" x="89.5" y="83" width="141" height="106"/>
+                                <rect key="frame" x="136.66666666666669" y="83" width="141.00000000000006" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="Tdj-o3-sxm"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180" id="v4g-R0-Dom"/>
@@ -361,7 +361,7 @@ We will not include:
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcy-Bn-GOt">
-                                <rect key="frame" x="37" y="485" width="246" height="63"/>
+                                <rect key="frame" x="84" y="653" width="246" height="63"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFH-cD-JKJ">
                                         <rect key="frame" x="0.0" y="0.0" width="123" height="63"/>
@@ -443,21 +443,21 @@ We will not include:
             <objects>
                 <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overFullScreen" id="0cG-MI-3I3" customClass="PopQuizViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jsz-rJ-fN2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeL-Zk-0Bw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.80000000000000004" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rz2-Nu-fG9">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </button>
                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qf9-Dm-QoQ">
-                                        <rect key="frame" x="16" y="159.5" width="288" height="250"/>
+                                        <rect key="frame" x="16" y="243.66666666666669" width="382" height="250.00000000000006"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09P-qe-CG5">
-                                                <rect key="frame" x="0.0" y="200" width="144" height="50"/>
+                                                <rect key="frame" x="0.0" y="200.00000000000003" width="191" height="50"/>
                                                 <color key="backgroundColor" red="0.019607843140000001" green="0.79607843140000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="o7a-y6-QvK"/>
@@ -469,7 +469,7 @@ We will not include:
                                                 </state>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBN-An-L4V">
-                                                <rect key="frame" x="144" y="200" width="144" height="50"/>
+                                                <rect key="frame" x="191" y="200.00000000000003" width="191" height="50"/>
                                                 <color key="backgroundColor" red="0.75294117650000003" green="0.019607843140000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="sBQ-nE-vpZ"/>
@@ -481,7 +481,7 @@ We will not include:
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop Quiz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auc-9a-NRa">
-                                                <rect key="frame" x="8" y="8" width="272" height="34"/>
+                                                <rect key="frame" x="8" y="8" width="366" height="34.000000000000028"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="Hfv-Z9-ikH"/>
                                                 </constraints>
@@ -490,7 +490,7 @@ We will not include:
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ni7-7t-wvE">
-                                                <rect key="frame" x="8" y="59" width="272" height="133"/>
+                                                <rect key="frame" x="8" y="59.000000000000028" width="366" height="133"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="133" id="UEa-mu-FDI"/>
                                                 </constraints>
@@ -509,7 +509,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-lP-a7Q">
-                                                <rect key="frame" x="0.0" y="50" width="288" height="1"/>
+                                                <rect key="frame" x="0.0" y="50.000000000000028" width="382" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="wDP-VJ-gAb"/>
@@ -582,21 +582,21 @@ Anyone monitoring your internet activity may be able to see that you are running
             <objects>
                 <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overFullScreen" id="TOs-4W-Ime" customClass="WrongAnswerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="liY-on-n4h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2Z-Z8-wK0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3D-U2-fQE">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </button>
                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49O-4W-cjc">
-                                        <rect key="frame" x="16" y="159" width="288" height="250"/>
+                                        <rect key="frame" x="16" y="243" width="382" height="250"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m98-P6-qTI">
-                                                <rect key="frame" x="0.0" y="200" width="144" height="50"/>
+                                                <rect key="frame" x="0.0" y="200" width="191" height="50"/>
                                                 <color key="backgroundColor" red="0.21176470589999999" green="0.25098039220000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="lpC-cF-tKa"/>
@@ -608,7 +608,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                                 </state>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0N-wd-hM7">
-                                                <rect key="frame" x="144" y="200" width="144" height="50"/>
+                                                <rect key="frame" x="191" y="200" width="191" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="1oD-of-NWg"/>
@@ -620,7 +620,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actually" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hev-od-s3p">
-                                                <rect key="frame" x="8" y="8" width="272" height="34"/>
+                                                <rect key="frame" x="8" y="8" width="366" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="1ho-eU-9t3"/>
                                                 </constraints>
@@ -629,7 +629,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esj-y5-c1t">
-                                                <rect key="frame" x="8" y="59" width="272" height="133"/>
+                                                <rect key="frame" x="8" y="59" width="366" height="133"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="133" id="bli-L4-W50"/>
                                                 </constraints>
@@ -639,7 +639,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rT-gh-OfO">
-                                                <rect key="frame" x="0.0" y="50" width="288" height="1"/>
+                                                <rect key="frame" x="0.0" y="50" width="382" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="vPY-1b-Yax"/>
