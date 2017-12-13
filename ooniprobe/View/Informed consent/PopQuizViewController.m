@@ -40,7 +40,11 @@
         question_text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"question_1", nil)];
     else if (question_number == 2)
         question_text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"question_2", nil)];
-
+    else {
+        //should not happen
+        assert(false);
+    }
+        
     [question_text addAttribute:NSFontAttributeName
                           value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                           range:NSMakeRange(0, question_text.length)];
