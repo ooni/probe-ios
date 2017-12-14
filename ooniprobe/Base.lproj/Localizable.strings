@@ -15,12 +15,18 @@
 "web_connectivity" = "Web Connectivity";
 "ndt" = "NDT Speed Test";
 "dash" = "DASH Streaming Test";
+"telegram" = "Telegram";
+"whatsapp" = "WhatsApp";
+"facebook_messenger" = "Facebook Messenger";
 
 "web_connectivity_desc" = "Check if websites are blocked";
 "http_invalid_request_line_desc" = "Find 'middle boxes'";
 "http_header_field_manipulation_desc" = "Find 'middle boxes'";
 "ndt_desc" = "Measure network speed and performance";
 "dash_desc" = "Measures video streaming quality";
+"whatsapp_desc" = "Check if WhatsApp is blocked";
+"facebook_messenger_desc" = "Check if Facebook Messenger is blocked";
+"telegram_desc" = "Check if Telegram is blocked";
 
 "web_connectivity_longdesc" = "This test examines whether access to websites is blocked through DNS tampering, TCP/IP blocking, or by a transparent HTTP proxy.\n\nEvery time you run Web Connectivity you test different websites.";
 "http_invalid_request_line_longdesc" = "This test tries to detect systems (“middle boxes”) that could be responsible for censorship or surveillance by sending an invalid HTTP request line to an echo service. If such systems are in your network, the invalid HTTP request line will be intercepted and may trigger an error.";
