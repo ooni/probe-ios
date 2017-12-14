@@ -6,7 +6,6 @@
 
 @interface ICSwipeViewController : UIViewController <UIPageViewControllerDataSource, UIGestureRecognizerDelegate> {
     NSArray *viewControllers;
-    int question_number;
     NSUInteger index;
 }
 

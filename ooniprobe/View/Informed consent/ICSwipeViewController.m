@@ -39,7 +39,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    question_number = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nextPage) name:@"nextPage" object:nil];
 
     self.PageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
