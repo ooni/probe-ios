@@ -15,6 +15,7 @@
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
 		ED09A7011E3E3534003E1603 /* TestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A7001E3E3534003E1603 /* TestResult.m */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
+		ED134D721FD5680B0052C7D3 /* ICSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED134D711FD5680B0052C7D3 /* ICSwipeViewController.m */; };
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED21E0581F898DDE008DFD0D /* TestLists.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED21E0571F898DDE008DFD0D /* TestLists.mm */; };
 		ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0751F8990E3008DFD0D /* global.csv */; };
@@ -101,6 +102,8 @@
 		ED21E0FF1F899131008DFD0D /* kh.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0801F8990E3008DFD0D /* kh.csv */; };
 		ED21E1001F899131008DFD0D /* kr.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0811F8990E3008DFD0D /* kr.csv */; };
 		ED21E1011F899131008DFD0D /* kw.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0821F8990E3008DFD0D /* kw.csv */; };
+		ED229AEA1FDFDFE300398AB0 /* PopQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED229AE91FDFDFE300398AB0 /* PopQuizViewController.m */; };
+		ED229AED1FDFDFF100398AB0 /* WrongAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED229AEC1FDFDFF100398AB0 /* WrongAnswerViewController.m */; };
 		ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528231CEA35640073A29B /* LogViewController.mm */; };
 		ED25282C1CEA35640073A29B /* SettingsTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528251CEA35640073A29B /* SettingsTableViewController.mm */; };
 		ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.mm */; };
@@ -136,17 +139,26 @@
 		ED7FA0061F700BEE0053FA50 /* font-source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff in Resources */ = {isa = PBXBuildFile; fileRef = ED7F9FF21F700BEE0053FA50 /* font-source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff */; };
 		ED7FA0071F700BEE0053FA50 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = ED7F9FF31F700BEE0053FA50 /* index.html */; };
 		ED7FA0081F700BEE0053FA50 /* vendor.395fa3b184891829715b.js in Resources */ = {isa = PBXBuildFile; fileRef = ED7F9FF41F700BEE0053FA50 /* vendor.395fa3b184891829715b.js */; };
-		ED8816AE1D8C6A3400D5D725 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816AD1D8C6A3400D5D725 /* IntroductionViewController.m */; };
-		ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B31D8C6A4B00D5D725 /* RisksViewController.m */; };
-		ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B61D8C6A5600D5D725 /* QuizViewController.m */; };
-		ED8816BA1D8C6A6100D5D725 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */; };
 		ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */; };
 		EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA193D81C9AE36F00A49EAA /* Main.storyboard */; };
+		EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */; };
+		EDC2C9D11FD7FBBE00FF01D3 /* Onboarding1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C9D01FD7FBBE00FF01D3 /* Onboarding1ViewController.m */; };
+		EDC2C9D71FD8001300FF01D3 /* Onboarding2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C9D61FD8001300FF01D3 /* Onboarding2ViewController.m */; };
+		EDC2C9DB1FD8002800FF01D3 /* Onboarding3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C9DA1FD8002800FF01D3 /* Onboarding3ViewController.m */; };
+		EDC2C9DE1FD8003400FF01D3 /* Onboarding4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C9DD1FD8003400FF01D3 /* Onboarding4ViewController.m */; };
+		EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */; };
+		EDC2C9E01FD8061400FF01D3 /* FiraSans-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB0891FD5B06C00FA4838 /* FiraSans-LightItalic.otf */; };
+		EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08A1FD5B06C00FA4838 /* FiraSans-Regular.otf */; };
+		EDC2C9E21FD8061400FF01D3 /* FiraSans-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08B1FD5B06C00FA4838 /* FiraSans-Italic.otf */; };
+		EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08C1FD5B06C00FA4838 /* FiraSans-SemiBold.otf */; };
+		EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */; };
+		EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */; };
+		EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */; };
+		EDC2C9F31FD9A23900FF01D3 /* UIColor+TFT.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9421331FD175D50014CE95 /* UIColor+TFT.m */; };
 		EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.mm */; };
 		EDC869C91E3178A800124C46 /* Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDC869C81E3178A800124C46 /* Tests.mm */; };
 		EDCAB39D1E2BC699000878CA /* ButtonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB39C1E2BC699000878CA /* ButtonUtility.m */; };
 		EDCAB3A01E2BC6BD000878CA /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */; };
-		EDCAB3A31E2BDD22000878CA /* LawsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAB3A21E2BDD22000878CA /* LawsViewController.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD101BD1EE801F00044E390 /* NotificationService.mm */; };
 		EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDE344811D42151C00BAEB10 /* ResultViewController.mm */; };
@@ -169,6 +181,8 @@
 		ED09A7001E3E3534003E1603 /* TestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResult.m; sourceTree = "<group>"; };
 		ED0D35BC1DD72824005C863F /* RunButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RunButton.h; path = Utility/RunButton.h; sourceTree = "<group>"; };
 		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RunButton.m; path = Utility/RunButton.m; sourceTree = "<group>"; };
+		ED134D701FD5680B0052C7D3 /* ICSwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ICSwipeViewController.h; path = "Informed consent/ICSwipeViewController.h"; sourceTree = "<group>"; };
+		ED134D711FD5680B0052C7D3 /* ICSwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ICSwipeViewController.m; path = "Informed consent/ICSwipeViewController.m"; sourceTree = "<group>"; };
 		ED1F33601EFD552F00B42FEC /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
 		ED1F33611EFD552F00B42FEC /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
 		ED21E0561F898DDE008DFD0D /* TestLists.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestLists.h; path = Utility/TestLists.h; sourceTree = "<group>"; };
@@ -257,6 +271,10 @@
 		ED21E0AB1F8990E3008DFD0D /* ye.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ye.csv; sourceTree = "<group>"; };
 		ED21E0AC1F8990E3008DFD0D /* zm.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = zm.csv; sourceTree = "<group>"; };
 		ED21E0AD1F8990E3008DFD0D /* zw.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = zw.csv; sourceTree = "<group>"; };
+		ED229AE81FDFDFE300398AB0 /* PopQuizViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PopQuizViewController.h; path = "Informed consent/PopQuizViewController.h"; sourceTree = "<group>"; };
+		ED229AE91FDFDFE300398AB0 /* PopQuizViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PopQuizViewController.m; path = "Informed consent/PopQuizViewController.m"; sourceTree = "<group>"; };
+		ED229AEB1FDFDFF000398AB0 /* WrongAnswerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WrongAnswerViewController.h; path = "Informed consent/WrongAnswerViewController.h"; sourceTree = "<group>"; };
+		ED229AEC1FDFDFF100398AB0 /* WrongAnswerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WrongAnswerViewController.m; path = "Informed consent/WrongAnswerViewController.m"; sourceTree = "<group>"; };
 		ED2528221CEA35640073A29B /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		ED2528231CEA35640073A29B /* LogViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LogViewController.mm; sourceTree = "<group>"; };
 		ED2528241CEA35640073A29B /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -316,19 +334,30 @@
 		ED8569581EB146B500D435EB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ED8816AC1D8C6A3400D5D725 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroductionViewController.h; path = "Informed consent/IntroductionViewController.h"; sourceTree = "<group>"; };
-		ED8816AD1D8C6A3400D5D725 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroductionViewController.m; path = "Informed consent/IntroductionViewController.m"; sourceTree = "<group>"; };
-		ED8816B21D8C6A4B00D5D725 /* RisksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RisksViewController.h; path = "Informed consent/RisksViewController.h"; sourceTree = "<group>"; };
-		ED8816B31D8C6A4B00D5D725 /* RisksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RisksViewController.m; path = "Informed consent/RisksViewController.m"; sourceTree = "<group>"; };
-		ED8816B51D8C6A5600D5D725 /* QuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizViewController.h; path = "Informed consent/QuizViewController.h"; sourceTree = "<group>"; };
-		ED8816B61D8C6A5600D5D725 /* QuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizViewController.m; path = "Informed consent/QuizViewController.m"; sourceTree = "<group>"; };
-		ED8816B81D8C6A6100D5D725 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurationViewController.h; path = "Informed consent/ConfigurationViewController.h"; sourceTree = "<group>"; };
-		ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurationViewController.m; path = "Informed consent/ConfigurationViewController.m"; sourceTree = "<group>"; };
 		ED923AAD1E2FA9FE00407EB6 /* LeftMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuTableViewController.h; sourceTree = "<group>"; };
 		ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LeftMenuTableViewController.mm; sourceTree = "<group>"; };
+		ED9421321FD175D50014CE95 /* UIColor+TFT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+TFT.h"; sourceTree = "<group>"; };
+		ED9421331FD175D50014CE95 /* UIColor+TFT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TFT.m"; sourceTree = "<group>"; };
 		EDA193D91C9AE36F00A49EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Light.otf"; sourceTree = "<group>"; };
+		EDBCB0891FD5B06C00FA4838 /* FiraSans-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-LightItalic.otf"; sourceTree = "<group>"; };
+		EDBCB08A1FD5B06C00FA4838 /* FiraSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Regular.otf"; sourceTree = "<group>"; };
+		EDBCB08B1FD5B06C00FA4838 /* FiraSans-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Italic.otf"; sourceTree = "<group>"; };
+		EDBCB08C1FD5B06C00FA4838 /* FiraSans-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBold.otf"; sourceTree = "<group>"; };
+		EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Onboarding.storyboard; path = Storyboards/Onboarding.storyboard; sourceTree = "<group>"; };
+		EDC2C9CF1FD7FBBE00FF01D3 /* Onboarding1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Onboarding1ViewController.h; path = "Informed consent/Onboarding1ViewController.h"; sourceTree = "<group>"; };
+		EDC2C9D01FD7FBBE00FF01D3 /* Onboarding1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Onboarding1ViewController.m; path = "Informed consent/Onboarding1ViewController.m"; sourceTree = "<group>"; };
+		EDC2C9D51FD8001300FF01D3 /* Onboarding2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Onboarding2ViewController.h; path = "Informed consent/Onboarding2ViewController.h"; sourceTree = "<group>"; };
+		EDC2C9D61FD8001300FF01D3 /* Onboarding2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Onboarding2ViewController.m; path = "Informed consent/Onboarding2ViewController.m"; sourceTree = "<group>"; };
+		EDC2C9D91FD8002800FF01D3 /* Onboarding3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Onboarding3ViewController.h; path = "Informed consent/Onboarding3ViewController.h"; sourceTree = "<group>"; };
+		EDC2C9DA1FD8002800FF01D3 /* Onboarding3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Onboarding3ViewController.m; path = "Informed consent/Onboarding3ViewController.m"; sourceTree = "<group>"; };
+		EDC2C9DC1FD8003400FF01D3 /* Onboarding4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Onboarding4ViewController.h; path = "Informed consent/Onboarding4ViewController.h"; sourceTree = "<group>"; };
+		EDC2C9DD1FD8003400FF01D3 /* Onboarding4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Onboarding4ViewController.m; path = "Informed consent/Onboarding4ViewController.m"; sourceTree = "<group>"; };
+		EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = crossMark.json; sourceTree = "<group>"; };
+		EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = checkMark.json; sourceTree = "<group>"; };
 		EDC73E5B1D9B266E00245184 /* ResultSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectorViewController.h; sourceTree = "<group>"; };
 		EDC73E5C1D9B266E00245184 /* ResultSelectorViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResultSelectorViewController.mm; sourceTree = "<group>"; };
 		EDC869C71E3178A800124C46 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tests.h; path = Utility/Tests.h; sourceTree = "<group>"; };
@@ -337,8 +366,6 @@
 		EDCAB39C1E2BC699000878CA /* ButtonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonUtility.m; path = Utility/ButtonUtility.m; sourceTree = "<group>"; };
 		EDCAB39E1E2BC6BD000878CA /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundedButton.h; path = Utility/RoundedButton.h; sourceTree = "<group>"; };
 		EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoundedButton.m; path = Utility/RoundedButton.m; sourceTree = "<group>"; };
-		EDCAB3A11E2BDD22000878CA /* LawsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LawsViewController.h; path = "Informed consent/LawsViewController.h"; sourceTree = "<group>"; };
-		EDCAB3A21E2BDD22000878CA /* LawsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LawsViewController.m; path = "Informed consent/LawsViewController.m"; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDD101BC1EE801F00044E390 /* NotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationService.h; path = Utility/NotificationService.h; sourceTree = "<group>"; };
 		EDD101BD1EE801F00044E390 /* NotificationService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NotificationService.mm; path = Utility/NotificationService.mm; sourceTree = "<group>"; };
@@ -384,6 +411,7 @@
 		D4A2F5DB1A6C3244001B8460 /* ooniprobe */ = {
 			isa = PBXGroup;
 			children = (
+				EDBCB08E1FD5BD7E00FA4838 /* Storyboards */,
 				ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */,
 				ED58E8C71D0C625300C74F10 /* Utility */,
 				ED25281F1CEA353A0073A29B /* View */,
@@ -414,6 +442,8 @@
 		D4A2F62D1A6C33F7001B8460 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDC2C9EA1FD9939A00FF01D3 /* anim */,
+				EDBCB0871FD5B06C00FA4838 /* fonts */,
 				ED21E0591F8990E3008DFD0D /* test-lists */,
 				ED7F9FE01F700BEE0053FA50 /* webui */,
 				D4A2F62E1A6C33F7001B8460 /* fixtures */,
@@ -566,6 +596,7 @@
 		ED58E8C71D0C625300C74F10 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ED9421311FD175D50014CE95 /* TFTColor */,
 				ED49509B1F951F1D00344E42 /* MessageUtility.h */,
 				ED49509C1F951F1D00344E42 /* MessageUtility.mm */,
 				ED58E8C81D0C627D00C74F10 /* TestStorage.h */,
@@ -624,18 +655,62 @@
 		ED8816AB1D8C6A0700D5D725 /* Informed consent */ = {
 			isa = PBXGroup;
 			children = (
-				ED8816AC1D8C6A3400D5D725 /* IntroductionViewController.h */,
-				ED8816AD1D8C6A3400D5D725 /* IntroductionViewController.m */,
-				ED8816B21D8C6A4B00D5D725 /* RisksViewController.h */,
-				ED8816B31D8C6A4B00D5D725 /* RisksViewController.m */,
-				EDCAB3A11E2BDD22000878CA /* LawsViewController.h */,
-				EDCAB3A21E2BDD22000878CA /* LawsViewController.m */,
-				ED8816B51D8C6A5600D5D725 /* QuizViewController.h */,
-				ED8816B61D8C6A5600D5D725 /* QuizViewController.m */,
-				ED8816B81D8C6A6100D5D725 /* ConfigurationViewController.h */,
-				ED8816B91D8C6A6100D5D725 /* ConfigurationViewController.m */,
+				ED134D701FD5680B0052C7D3 /* ICSwipeViewController.h */,
+				ED134D711FD5680B0052C7D3 /* ICSwipeViewController.m */,
+				EDC2C9CF1FD7FBBE00FF01D3 /* Onboarding1ViewController.h */,
+				EDC2C9D01FD7FBBE00FF01D3 /* Onboarding1ViewController.m */,
+				EDC2C9D51FD8001300FF01D3 /* Onboarding2ViewController.h */,
+				EDC2C9D61FD8001300FF01D3 /* Onboarding2ViewController.m */,
+				EDC2C9D91FD8002800FF01D3 /* Onboarding3ViewController.h */,
+				EDC2C9DA1FD8002800FF01D3 /* Onboarding3ViewController.m */,
+				EDC2C9DC1FD8003400FF01D3 /* Onboarding4ViewController.h */,
+				EDC2C9DD1FD8003400FF01D3 /* Onboarding4ViewController.m */,
+				ED229AE81FDFDFE300398AB0 /* PopQuizViewController.h */,
+				ED229AE91FDFDFE300398AB0 /* PopQuizViewController.m */,
+				ED229AEB1FDFDFF000398AB0 /* WrongAnswerViewController.h */,
+				ED229AEC1FDFDFF100398AB0 /* WrongAnswerViewController.m */,
 			);
 			name = "Informed consent";
+			sourceTree = "<group>";
+		};
+		ED9421311FD175D50014CE95 /* TFTColor */ = {
+			isa = PBXGroup;
+			children = (
+				ED9421321FD175D50014CE95 /* UIColor+TFT.h */,
+				ED9421331FD175D50014CE95 /* UIColor+TFT.m */,
+			);
+			name = TFTColor;
+			path = Utility/TFTColor;
+			sourceTree = "<group>";
+		};
+		EDBCB0871FD5B06C00FA4838 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */,
+				EDBCB0891FD5B06C00FA4838 /* FiraSans-LightItalic.otf */,
+				EDBCB08A1FD5B06C00FA4838 /* FiraSans-Regular.otf */,
+				EDBCB08B1FD5B06C00FA4838 /* FiraSans-Italic.otf */,
+				EDBCB08C1FD5B06C00FA4838 /* FiraSans-SemiBold.otf */,
+				EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		EDBCB08E1FD5BD7E00FA4838 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		EDC2C9EA1FD9939A00FF01D3 /* anim */ = {
+			isa = PBXGroup;
+			children = (
+				EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */,
+				EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */,
+			);
+			path = anim;
 			sourceTree = "<group>";
 		};
 		F4F15431D4412F561191270F /* Frameworks */ = {
@@ -741,6 +816,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */,
+				EDC2C9E01FD8061400FF01D3 /* FiraSans-LightItalic.otf in Resources */,
+				EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */,
+				EDC2C9E21FD8061400FF01D3 /* FiraSans-Italic.otf in Resources */,
+				EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */,
+				EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */,
+				EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */,
 				ED21E0D21F899117008DFD0D /* ua.csv in Resources */,
 				ED21E0C51F899117008DFD0D /* sa.csv in Resources */,
 				ED21E0C31F899117008DFD0D /* qa.csv in Resources */,
@@ -752,6 +834,7 @@
 				ED21E0EB1F899131008DFD0D /* cn.csv in Resources */,
 				ED21E0C61F899117008DFD0D /* sd.csv in Resources */,
 				ED7FA0081F700BEE0053FA50 /* vendor.395fa3b184891829715b.js in Resources */,
+				EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */,
 				ED21E0D01F899117008DFD0D /* tr.csv in Resources */,
 				ED21E0F41F899131008DFD0D /* gh.csv in Resources */,
 				ED21E0D41F899117008DFD0D /* uz.csv in Resources */,
@@ -828,6 +911,7 @@
 				ED21E0C91F899117008DFD0D /* ss.csv in Resources */,
 				ED21E0AF1F899117008DFD0D /* kz.csv in Resources */,
 				ED21E0E71F899131008DFD0D /* ca.csv in Resources */,
+				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
 				ED21E0DA1F899131008DFD0D /* 00-LEGEND-category_codes.csv in Resources */,
 				ED21E0EE1F899131008DFD0D /* dz.csv in Resources */,
 				ED21E0F51F899131008DFD0D /* gm.csv in Resources */,
@@ -934,10 +1018,9 @@
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				EDC869C91E3178A800124C46 /* Tests.mm in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
+				EDC2C9F31FD9A23900FF01D3 /* UIColor+TFT.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
-				ED8816BA1D8C6A6100D5D725 /* ConfigurationViewController.m in Sources */,
 				EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */,
-				ED8816AE1D8C6A3400D5D725 /* IntroductionViewController.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */,
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				ED21E0581F898DDE008DFD0D /* TestLists.mm in Sources */,
@@ -945,20 +1028,24 @@
 				ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
 				ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */,
-				EDCAB3A31E2BDD22000878CA /* LawsViewController.m in Sources */,
-				ED8816B71D8C6A5600D5D725 /* QuizViewController.m in Sources */,
-				ED8816B41D8C6A4B00D5D725 /* RisksViewController.m in Sources */,
+				EDC2C9D71FD8001300FF01D3 /* Onboarding2ViewController.m in Sources */,
+				EDC2C9DB1FD8002800FF01D3 /* Onboarding3ViewController.m in Sources */,
 				EDCAB3A01E2BC6BD000878CA /* RoundedButton.m in Sources */,
+				EDC2C9D11FD7FBBE00FF01D3 /* Onboarding1ViewController.m in Sources */,
 				ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED25282E1CEA35640073A29B /* RunTestsViewController.mm in Sources */,
 				ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */,
+				ED229AEA1FDFDFE300398AB0 /* PopQuizViewController.m in Sources */,
 				EDCAB39D1E2BC699000878CA /* ButtonUtility.m in Sources */,
 				ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */,
 				ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm in Sources */,
 				ED3932C71E3114BA0064CD11 /* PastTestsViewController.mm in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
+				EDC2C9DE1FD8003400FF01D3 /* Onboarding4ViewController.m in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
+				ED134D721FD5680B0052C7D3 /* ICSwipeViewController.m in Sources */,
+				ED229AED1FDFDFF100398AB0 /* WrongAnswerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
