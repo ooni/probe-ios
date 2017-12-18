@@ -19,6 +19,7 @@
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED21E0581F898DDE008DFD0D /* TestLists.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED21E0571F898DDE008DFD0D /* TestLists.mm */; };
 		ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0751F8990E3008DFD0D /* global.csv */; };
+<<<<<<< HEAD
 		ED21E0AF1F899117008DFD0D /* kz.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0831F8990E3008DFD0D /* kz.csv */; };
 		ED21E0B01F899117008DFD0D /* lb.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0841F8990E3008DFD0D /* lb.csv */; };
 		ED21E0B11F899117008DFD0D /* ls.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0851F8990E3008DFD0D /* ls.csv */; };
@@ -104,6 +105,8 @@
 		ED21E1011F899131008DFD0D /* kw.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0821F8990E3008DFD0D /* kw.csv */; };
 		ED229AEA1FDFDFE300398AB0 /* PopQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED229AE91FDFDFE300398AB0 /* PopQuizViewController.m */; };
 		ED229AED1FDFDFF100398AB0 /* WrongAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED229AEC1FDFDFF100398AB0 /* WrongAnswerViewController.m */; };
+=======
+>>>>>>> master
 		ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528231CEA35640073A29B /* LogViewController.mm */; };
 		ED25282C1CEA35640073A29B /* SettingsTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528251CEA35640073A29B /* SettingsTableViewController.mm */; };
 		ED25282D1CEA35640073A29B /* TestInfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2528271CEA35640073A29B /* TestInfoViewController.mm */; };
@@ -187,34 +190,8 @@
 		ED1F33611EFD552F00B42FEC /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
 		ED21E0561F898DDE008DFD0D /* TestLists.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestLists.h; path = Utility/TestLists.h; sourceTree = "<group>"; };
 		ED21E0571F898DDE008DFD0D /* TestLists.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TestLists.mm; path = Utility/TestLists.mm; sourceTree = "<group>"; };
-		ED21E05A1F8990E3008DFD0D /* 00-LEGEND-category_codes.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "00-LEGEND-category_codes.csv"; sourceTree = "<group>"; };
-		ED21E05B1F8990E3008DFD0D /* 00-LEGEND-country_codes.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "00-LEGEND-country_codes.csv"; sourceTree = "<group>"; };
-		ED21E05C1F8990E3008DFD0D /* 00-LEGEND-new_category_codes.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "00-LEGEND-new_category_codes.csv"; sourceTree = "<group>"; };
-		ED21E05D1F8990E3008DFD0D /* ae.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ae.csv; sourceTree = "<group>"; };
-		ED21E05E1F8990E3008DFD0D /* am.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = am.csv; sourceTree = "<group>"; };
-		ED21E05F1F8990E3008DFD0D /* ar.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ar.csv; sourceTree = "<group>"; };
-		ED21E0601F8990E3008DFD0D /* at.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = at.csv; sourceTree = "<group>"; };
-		ED21E0611F8990E3008DFD0D /* az.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = az.csv; sourceTree = "<group>"; };
-		ED21E0621F8990E3008DFD0D /* bd.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = bd.csv; sourceTree = "<group>"; };
-		ED21E0631F8990E3008DFD0D /* bh.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = bh.csv; sourceTree = "<group>"; };
-		ED21E0641F8990E3008DFD0D /* bi.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = bi.csv; sourceTree = "<group>"; };
-		ED21E0651F8990E3008DFD0D /* br.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = br.csv; sourceTree = "<group>"; };
-		ED21E0661F8990E3008DFD0D /* by.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = by.csv; sourceTree = "<group>"; };
-		ED21E0671F8990E3008DFD0D /* ca.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ca.csv; sourceTree = "<group>"; };
-		ED21E0681F8990E3008DFD0D /* ch.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ch.csv; sourceTree = "<group>"; };
-		ED21E0691F8990E3008DFD0D /* cis.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = cis.csv; sourceTree = "<group>"; };
-		ED21E06A1F8990E3008DFD0D /* cl.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = cl.csv; sourceTree = "<group>"; };
-		ED21E06B1F8990E3008DFD0D /* cn.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = cn.csv; sourceTree = "<group>"; };
-		ED21E06C1F8990E3008DFD0D /* co.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = co.csv; sourceTree = "<group>"; };
-		ED21E06D1F8990E3008DFD0D /* cu.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = cu.csv; sourceTree = "<group>"; };
-		ED21E06E1F8990E3008DFD0D /* dz.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = dz.csv; sourceTree = "<group>"; };
-		ED21E06F1F8990E3008DFD0D /* eg.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = eg.csv; sourceTree = "<group>"; };
-		ED21E0701F8990E3008DFD0D /* et.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = et.csv; sourceTree = "<group>"; };
-		ED21E0711F8990E3008DFD0D /* fr.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = fr.csv; sourceTree = "<group>"; };
-		ED21E0721F8990E3008DFD0D /* ga.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ga.csv; sourceTree = "<group>"; };
-		ED21E0731F8990E3008DFD0D /* ge.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ge.csv; sourceTree = "<group>"; };
-		ED21E0741F8990E3008DFD0D /* gh.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = gh.csv; sourceTree = "<group>"; };
 		ED21E0751F8990E3008DFD0D /* global.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = global.csv; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		ED21E0761F8990E3008DFD0D /* gm.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = gm.csv; sourceTree = "<group>"; };
 		ED21E0771F8990E3008DFD0D /* gt.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = gt.csv; sourceTree = "<group>"; };
 		ED21E0781F8990E3008DFD0D /* gy.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = gy.csv; sourceTree = "<group>"; };
@@ -275,6 +252,8 @@
 		ED229AE91FDFDFE300398AB0 /* PopQuizViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PopQuizViewController.m; path = "Informed consent/PopQuizViewController.m"; sourceTree = "<group>"; };
 		ED229AEB1FDFDFF000398AB0 /* WrongAnswerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WrongAnswerViewController.h; path = "Informed consent/WrongAnswerViewController.h"; sourceTree = "<group>"; };
 		ED229AEC1FDFDFF100398AB0 /* WrongAnswerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WrongAnswerViewController.m; path = "Informed consent/WrongAnswerViewController.m"; sourceTree = "<group>"; };
+=======
+>>>>>>> master
 		ED2528221CEA35640073A29B /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		ED2528231CEA35640073A29B /* LogViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LogViewController.mm; sourceTree = "<group>"; };
 		ED2528241CEA35640073A29B /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -464,90 +443,7 @@
 		ED21E0591F8990E3008DFD0D /* test-lists */ = {
 			isa = PBXGroup;
 			children = (
-				ED21E05A1F8990E3008DFD0D /* 00-LEGEND-category_codes.csv */,
-				ED21E05B1F8990E3008DFD0D /* 00-LEGEND-country_codes.csv */,
-				ED21E05C1F8990E3008DFD0D /* 00-LEGEND-new_category_codes.csv */,
-				ED21E05D1F8990E3008DFD0D /* ae.csv */,
-				ED21E05E1F8990E3008DFD0D /* am.csv */,
-				ED21E05F1F8990E3008DFD0D /* ar.csv */,
-				ED21E0601F8990E3008DFD0D /* at.csv */,
-				ED21E0611F8990E3008DFD0D /* az.csv */,
-				ED21E0621F8990E3008DFD0D /* bd.csv */,
-				ED21E0631F8990E3008DFD0D /* bh.csv */,
-				ED21E0641F8990E3008DFD0D /* bi.csv */,
-				ED21E0651F8990E3008DFD0D /* br.csv */,
-				ED21E0661F8990E3008DFD0D /* by.csv */,
-				ED21E0671F8990E3008DFD0D /* ca.csv */,
-				ED21E0681F8990E3008DFD0D /* ch.csv */,
-				ED21E0691F8990E3008DFD0D /* cis.csv */,
-				ED21E06A1F8990E3008DFD0D /* cl.csv */,
-				ED21E06B1F8990E3008DFD0D /* cn.csv */,
-				ED21E06C1F8990E3008DFD0D /* co.csv */,
-				ED21E06D1F8990E3008DFD0D /* cu.csv */,
-				ED21E06E1F8990E3008DFD0D /* dz.csv */,
-				ED21E06F1F8990E3008DFD0D /* eg.csv */,
-				ED21E0701F8990E3008DFD0D /* et.csv */,
-				ED21E0711F8990E3008DFD0D /* fr.csv */,
-				ED21E0721F8990E3008DFD0D /* ga.csv */,
-				ED21E0731F8990E3008DFD0D /* ge.csv */,
-				ED21E0741F8990E3008DFD0D /* gh.csv */,
 				ED21E0751F8990E3008DFD0D /* global.csv */,
-				ED21E0761F8990E3008DFD0D /* gm.csv */,
-				ED21E0771F8990E3008DFD0D /* gt.csv */,
-				ED21E0781F8990E3008DFD0D /* gy.csv */,
-				ED21E0791F8990E3008DFD0D /* id.csv */,
-				ED21E07A1F8990E3008DFD0D /* in.csv */,
-				ED21E07B1F8990E3008DFD0D /* iq.csv */,
-				ED21E07C1F8990E3008DFD0D /* ir.csv */,
-				ED21E07D1F8990E3008DFD0D /* jo.csv */,
-				ED21E07E1F8990E3008DFD0D /* ke.csv */,
-				ED21E07F1F8990E3008DFD0D /* kg.csv */,
-				ED21E0801F8990E3008DFD0D /* kh.csv */,
-				ED21E0811F8990E3008DFD0D /* kr.csv */,
-				ED21E0821F8990E3008DFD0D /* kw.csv */,
-				ED21E0831F8990E3008DFD0D /* kz.csv */,
-				ED21E0841F8990E3008DFD0D /* lb.csv */,
-				ED21E0851F8990E3008DFD0D /* ls.csv */,
-				ED21E0861F8990E3008DFD0D /* ly.csv */,
-				ED21E0871F8990E3008DFD0D /* ma.csv */,
-				ED21E0881F8990E3008DFD0D /* md.csv */,
-				ED21E0891F8990E3008DFD0D /* mm.csv */,
-				ED21E08A1F8990E3008DFD0D /* mr.csv */,
-				ED21E08B1F8990E3008DFD0D /* mx.csv */,
-				ED21E08C1F8990E3008DFD0D /* my.csv */,
-				ED21E08D1F8990E3008DFD0D /* nf.csv */,
-				ED21E08E1F8990E3008DFD0D /* ng.csv */,
-				ED21E08F1F8990E3008DFD0D /* ni.csv */,
-				ED21E0901F8990E3008DFD0D /* np.csv */,
-				ED21E0911F8990E3008DFD0D /* om.csv */,
-				ED21E0921F8990E3008DFD0D /* pe.csv */,
-				ED21E0931F8990E3008DFD0D /* ph.csv */,
-				ED21E0941F8990E3008DFD0D /* pk.csv */,
-				ED21E0951F8990E3008DFD0D /* pl.csv */,
-				ED21E0961F8990E3008DFD0D /* ps.csv */,
-				ED21E0971F8990E3008DFD0D /* qa.csv */,
-				ED21E0981F8990E3008DFD0D /* ru.csv */,
-				ED21E0991F8990E3008DFD0D /* sa.csv */,
-				ED21E09A1F8990E3008DFD0D /* sd.csv */,
-				ED21E09B1F8990E3008DFD0D /* sg.csv */,
-				ED21E09C1F8990E3008DFD0D /* so.csv */,
-				ED21E09D1F8990E3008DFD0D /* ss.csv */,
-				ED21E09E1F8990E3008DFD0D /* sy.csv */,
-				ED21E09F1F8990E3008DFD0D /* td.csv */,
-				ED21E0A01F8990E3008DFD0D /* th.csv */,
-				ED21E0A11F8990E3008DFD0D /* tj.csv */,
-				ED21E0A21F8990E3008DFD0D /* tm.csv */,
-				ED21E0A31F8990E3008DFD0D /* tn.csv */,
-				ED21E0A41F8990E3008DFD0D /* tr.csv */,
-				ED21E0A51F8990E3008DFD0D /* tz.csv */,
-				ED21E0A61F8990E3008DFD0D /* ua.csv */,
-				ED21E0A71F8990E3008DFD0D /* ug.csv */,
-				ED21E0A81F8990E3008DFD0D /* uz.csv */,
-				ED21E0A91F8990E3008DFD0D /* ve.csv */,
-				ED21E0AA1F8990E3008DFD0D /* vn.csv */,
-				ED21E0AB1F8990E3008DFD0D /* ye.csv */,
-				ED21E0AC1F8990E3008DFD0D /* zm.csv */,
-				ED21E0AD1F8990E3008DFD0D /* zw.csv */,
 			);
 			path = "test-lists";
 			sourceTree = "<group>";
@@ -816,6 +712,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */,
 				EDC2C9E01FD8061400FF01D3 /* FiraSans-LightItalic.otf in Resources */,
 				EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */,
@@ -828,86 +725,41 @@
 				ED21E0C31F899117008DFD0D /* qa.csv in Resources */,
 				ED21E1001F899131008DFD0D /* kr.csv in Resources */,
 				ED21E0F81F899131008DFD0D /* id.csv in Resources */,
+=======
+>>>>>>> master
 				ED7F9FFB1F700BEE0053FA50 /* font-charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff in Resources */,
-				ED21E0FF1F899131008DFD0D /* kh.csv in Resources */,
 				ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */,
-				ED21E0EB1F899131008DFD0D /* cn.csv in Resources */,
-				ED21E0C61F899117008DFD0D /* sd.csv in Resources */,
 				ED7FA0081F700BEE0053FA50 /* vendor.395fa3b184891829715b.js in Resources */,
+<<<<<<< HEAD
 				EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */,
 				ED21E0D01F899117008DFD0D /* tr.csv in Resources */,
 				ED21E0F41F899131008DFD0D /* gh.csv in Resources */,
 				ED21E0D41F899117008DFD0D /* uz.csv in Resources */,
+=======
+>>>>>>> master
 				ED7FA0051F700BEE0053FA50 /* font-source-code-pro-bold.b78a2d32658068a52eab4b7f8f7d366e.woff in Resources */,
 				ED7F9FF91F700BEE0053FA50 /* font-charter-bold-italic.e5c78e2789ec748d8c7f5adccad90e0b.woff in Resources */,
 				ED7F9FF81F700BEE0053FA50 /* favicon.ico in Resources */,
-				ED21E0BF1F899117008DFD0D /* ph.csv in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
-				ED21E0FB1F899131008DFD0D /* ir.csv in Resources */,
-				ED21E0F71F899131008DFD0D /* gy.csv in Resources */,
 				ED7F9FF61F700BEE0053FA50 /* app.395fa3b184891829715b.js in Resources */,
-				ED21E0F61F899131008DFD0D /* gt.csv in Resources */,
-				ED21E0FA1F899131008DFD0D /* iq.csv in Resources */,
-				ED21E0BD1F899117008DFD0D /* om.csv in Resources */,
-				ED21E0CA1F899117008DFD0D /* sy.csv in Resources */,
 				ED7F9FFA1F700BEE0053FA50 /* font-charter-bold.78342dfad83c591ee5e926f2ffbd0671.woff in Resources */,
 				ED7F9FFD1F700BEE0053FA50 /* font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf in Resources */,
-				ED21E0B51F899117008DFD0D /* mm.csv in Resources */,
-				ED21E0E61F899131008DFD0D /* by.csv in Resources */,
-				ED21E0B71F899117008DFD0D /* mx.csv in Resources */,
-				ED21E0C01F899117008DFD0D /* pk.csv in Resources */,
-				ED21E0FC1F899131008DFD0D /* jo.csv in Resources */,
-				ED21E0B01F899117008DFD0D /* lb.csv in Resources */,
-				ED21E0B81F899117008DFD0D /* my.csv in Resources */,
-				ED21E0E51F899131008DFD0D /* br.csv in Resources */,
-				ED21E0C81F899117008DFD0D /* so.csv in Resources */,
-				ED21E0EF1F899131008DFD0D /* eg.csv in Resources */,
-				ED21E0D91F899117008DFD0D /* zw.csv in Resources */,
 				D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */,
-				ED21E0C41F899117008DFD0D /* ru.csv in Resources */,
-				ED21E0E31F899131008DFD0D /* bh.csv in Resources */,
 				ED7FA0021F700BEE0053FA50 /* font-fontawesome-webfont.b06871f281fee6b241d60582ae9369b9.ttf in Resources */,
-				ED21E0E91F899131008DFD0D /* cis.csv in Resources */,
-				ED21E0F91F899131008DFD0D /* in.csv in Resources */,
 				ED7F9FF71F700BEE0053FA50 /* app.f87085e0300a65abd2a744844ae786cb.css in Resources */,
-				ED21E0CC1F899117008DFD0D /* th.csv in Resources */,
-				ED21E0BA1F899117008DFD0D /* ng.csv in Resources */,
-				ED21E0E41F899131008DFD0D /* bi.csv in Resources */,
-				ED21E0CF1F899117008DFD0D /* tn.csv in Resources */,
-				ED21E0EC1F899131008DFD0D /* co.csv in Resources */,
-				ED21E0DE1F899131008DFD0D /* am.csv in Resources */,
-				ED21E0C21F899117008DFD0D /* ps.csv in Resources */,
-				ED21E0B31F899117008DFD0D /* ma.csv in Resources */,
-				ED21E0F31F899131008DFD0D /* ge.csv in Resources */,
-				ED21E0EA1F899131008DFD0D /* cl.csv in Resources */,
-				ED21E0F01F899131008DFD0D /* et.csv in Resources */,
 				ED7F9FFC1F700BEE0053FA50 /* font-charter-regular.0c4500a9d203a33bd879a9a0bee1190d.woff in Resources */,
-				ED21E0D81F899117008DFD0D /* zm.csv in Resources */,
 				ED7F9FFF1F700BEE0053FA50 /* font-fira-sans-semi-bold.3de79d2eb33e18bba8f5f5834a3d9d05.otf in Resources */,
-				ED21E0B91F899117008DFD0D /* nf.csv in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
 				EDA193DA1C9AE36F00A49EAA /* Main.storyboard in Resources */,
 				ED7FA0011F700BEE0053FA50 /* font-fontawesome-webfont.af7ae505a9eed503f8b8e6982036873e.woff2 in Resources */,
-				ED21E0D71F899117008DFD0D /* ye.csv in Resources */,
-				ED21E0B41F899117008DFD0D /* md.csv in Resources */,
 				ED7F9FFE1F700BEE0053FA50 /* font-fira-sans-light.7dd0ad25580893d980bbf0475f88aead.otf in Resources */,
-				ED21E0BC1F899117008DFD0D /* np.csv in Resources */,
-				ED21E0DD1F899131008DFD0D /* ae.csv in Resources */,
-				ED21E0DC1F899131008DFD0D /* 00-LEGEND-new_category_codes.csv in Resources */,
-				ED21E0D31F899117008DFD0D /* ug.csv in Resources */,
-				ED21E0E01F899131008DFD0D /* at.csv in Resources */,
 				ED7FA0031F700BEE0053FA50 /* font-fontawesome-webfont.fee66e712a8a08eef5805a46892932ad.woff in Resources */,
-				ED21E0ED1F899131008DFD0D /* cu.csv in Resources */,
-				ED21E0BE1F899117008DFD0D /* pe.csv in Resources */,
-				ED21E0B61F899117008DFD0D /* mr.csv in Resources */,
-				ED21E0CE1F899117008DFD0D /* tm.csv in Resources */,
 				ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */,
-				ED21E0D11F899117008DFD0D /* tz.csv in Resources */,
-				ED21E0C71F899117008DFD0D /* sg.csv in Resources */,
 				ED7FA0071F700BEE0053FA50 /* index.html in Resources */,
 				ED7FA0041F700BEE0053FA50 /* font-ooni-icons.7f721a571194837f629b6dd86a703ca5.eot in Resources */,
 				ED7FA0061F700BEE0053FA50 /* font-source-code-pro-regular.7e5b1b977ba8a582d81367d2940e8150.woff in Resources */,
 				ED7FA0001F700BEE0053FA50 /* font-fontawesome-webfont.674f50d287a8c48dc19ba404d20fe713.eot in Resources */,
+<<<<<<< HEAD
 				ED21E0C91F899117008DFD0D /* ss.csv in Resources */,
 				ED21E0AF1F899117008DFD0D /* kz.csv in Resources */,
 				ED21E0E71F899131008DFD0D /* ca.csv in Resources */,
@@ -918,25 +770,12 @@
 				ED21E0E21F899131008DFD0D /* bd.csv in Resources */,
 				ED21E0CD1F899117008DFD0D /* tj.csv in Resources */,
 				ED21E0DF1F899131008DFD0D /* ar.csv in Resources */,
+=======
+>>>>>>> master
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
-				ED21E0FE1F899131008DFD0D /* kg.csv in Resources */,
-				ED21E0DB1F899131008DFD0D /* 00-LEGEND-country_codes.csv in Resources */,
 				ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */,
-				ED21E0D61F899117008DFD0D /* vn.csv in Resources */,
-				ED21E1011F899131008DFD0D /* kw.csv in Resources */,
 				ED7F9FF51F700BEE0053FA50 /* 1.1.395fa3b184891829715b.js in Resources */,
-				ED21E0B21F899117008DFD0D /* ly.csv in Resources */,
-				ED21E0C11F899117008DFD0D /* pl.csv in Resources */,
-				ED21E0F11F899131008DFD0D /* fr.csv in Resources */,
-				ED21E0D51F899117008DFD0D /* ve.csv in Resources */,
-				ED21E0FD1F899131008DFD0D /* ke.csv in Resources */,
-				ED21E0F21F899131008DFD0D /* ga.csv in Resources */,
-				ED21E0E11F899131008DFD0D /* az.csv in Resources */,
-				ED21E0CB1F899117008DFD0D /* td.csv in Resources */,
-				ED21E0BB1F899117008DFD0D /* ni.csv in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
-				ED21E0B11F899117008DFD0D /* ls.csv in Resources */,
-				ED21E0E81F899131008DFD0D /* ch.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
