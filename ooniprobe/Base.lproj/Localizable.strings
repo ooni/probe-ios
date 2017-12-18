@@ -47,18 +47,27 @@
 "web_connectivity" = "Web Connectivity";
 "ndt" = "NDT Speed Test";
 "dash" = "DASH Streaming Test";
+"whatsapp" = "WhatsApp";
+"telegram" = "Telegram";
+"facebook_messenger" = "Facebook Messenger";
 
 "web_connectivity_desc" = "Check if websites are blocked";
 "http_invalid_request_line_desc" = "Find 'middle boxes'";
 "http_header_field_manipulation_desc" = "Find 'middle boxes'";
 "ndt_desc" = "Measure network speed and performance";
 "dash_desc" = "Measures video streaming quality";
+"whatsapp_desc" = "Check if WhatsApp is blocked";
+"telegram_desc" = "Check if Telegram is blocked";
+"facebook_messenger_desc" = "Check if Facebook Messenger is blocked";
 
 "web_connectivity_longdesc" = "This test examines whether access to websites is blocked through DNS tampering, TCP/IP blocking, or by a transparent HTTP proxy.\n\nEvery time you run Web Connectivity you test different websites.";
 "http_invalid_request_line_longdesc" = "This test tries to detect systems (“middle boxes”) that could be responsible for censorship or surveillance by sending an invalid HTTP request line to an echo service. If such systems are in your network, the invalid HTTP request line will be intercepted and may trigger an error.";
 "http_header_field_manipulation_longdesc" = "This test tries to detect the presence of systems (“middle boxes”) that could be responsible for censorship or surveillance by sending HTTP requests with non-canonical headers to a backend control server. If such systems are in your network, they will likely normalize the headers or add extra headers.";
 "ndt_longdesc" = "This test measures the speed and performance of your network.\n\nDisclaimer: This is a third-party performance test based on third-party servers, and we cannot guarantee that your IP address will not be collected, processed, and published.";
 "dash_longdesc" = "This test emulates a very simple video player streaming at variable quality from a remote server. The test is designed to obtain a baseline performance of your network for performing video streaming.\n\n Disclaimer: This is a third-party performance test based on third-party servers, and we cannot guarantee that your IP address will not be collected, processed, and published.";
+"whatsapp_longdesc" = "This test is designed to examine the reachability of both WhatsApp's app and the WhatsApp web version within a tested network.";
+"telegram_longdesc" = "This test is designed to examine the reachability of Telegram's app and web version within a tested network.";
+"facebook_messenger_longdesc" = "This test is designed to examine the reachability of Facebook Messenger within a tested network.";
 
 "running_tests" = "Running tests";
 "finished_tests" = "Finished tests";

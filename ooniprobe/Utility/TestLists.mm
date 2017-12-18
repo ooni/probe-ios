@@ -20,7 +20,6 @@
     {
         self.probe_cc = @"";
         self.probe_asn = @"";
-        [self updateCC_async];
     }
     return self;
 }
@@ -29,12 +28,10 @@
     NSMutableArray *urls = [[NSMutableArray alloc] init];
     NSArray *global_urls = [self getUrlsForCountry:@"global"];
     [urls addObjectsFromArray:global_urls];
-    NSArray *local_urls = [self getUrlsForCountry:[self.probe_cc lowercaseString]];
-    if (local_urls != nil)
-        [urls addObjectsFromArray:local_urls];
     return urls;
 }
 
+//DEPRECATED
 - (NSArray*)getUrlsForCountry:(NSString*)country_code {
     if ([[NSBundle mainBundle] pathForResource:country_code ofType:@"csv"] != nil){
         NSURL *csvURL = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@",
@@ -46,6 +43,7 @@
     return nil;
 }
 
+//DEPRECATED
 - (void)updateCC_async {
     //TODO refactor all mk helper functions into a class
     //This will be done with the next release as this class is going to be deleted

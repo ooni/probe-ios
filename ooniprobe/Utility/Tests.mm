@@ -41,6 +41,16 @@
 
     Dash *dash = [[Dash alloc] init];
     [self.availableNetworkMeasurements addObject:dash];
+    
+    Whatsapp *whatsapp = [[Whatsapp alloc] init];
+    [self.availableNetworkMeasurements addObject:whatsapp];
+    
+    Telegram *telegram = [[Telegram alloc] init];
+    [self.availableNetworkMeasurements addObject:telegram];
+    
+    FacebookMessenger *facebook_messenger = [[FacebookMessenger alloc] init];
+    [self.availableNetworkMeasurements addObject:facebook_messenger];
+
 }
 
 - (NetworkMeasurement*)getTestWithName:(NSString*)testName{
