@@ -12,7 +12,6 @@
     [super viewDidLoad];
     [self.revealButtonItem setTarget: self.revealViewController];
     self.revealViewController.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
     if ([[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] isEqualToString:@"ar"]){
         [self.revealViewController setRightViewRevealWidth:260.0f];
         self.revealViewController.rightPresentViewHierarchically = YES;

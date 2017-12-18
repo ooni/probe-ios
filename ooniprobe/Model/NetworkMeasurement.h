@@ -30,7 +30,7 @@
 @property BOOL viewed;
 @property BOOL entry;
 @property int anomaly;
-@property BOOL max_runtime;
+@property BOOL max_runtime_enabled;
 
 @property mk::Settings options;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
@@ -58,4 +58,13 @@
 @end
 
 @interface Dash : NetworkMeasurement
+@end
+
+@interface Whatsapp : NetworkMeasurement
+@end
+
+@interface Telegram : NetworkMeasurement
+@end
+
+@interface FacebookMessenger : NetworkMeasurement
 @end
