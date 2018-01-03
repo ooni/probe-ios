@@ -79,8 +79,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:^{
-        //AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        //[delegate registerNotifications];
+        //[NotificationService registerUserNotification];
         //[[NSNotificationCenter defaultCenter] postNotificationName:@"showToastConfiguration" object:nil];
     }];
 }

@@ -5,6 +5,7 @@
 #import "DictionaryUtility.h"
 #import "RunTestViewController.h"
 #import "MessageUtility.h"
+#import "TestStorage.h"
 
 @interface AppDelegate ()
 
@@ -26,8 +27,8 @@
     application.statusBarStyle = UIStatusBarStyleLightContent;
     
     //TODO removed notification popup on start. TO decide where to put it
-    //[self registerNotifications];
-    
+    //[NotificationService registerUserNotification];
+
     //TODO Probably don't need it anymore when implementing backgound notifications
     //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo
     //https://stackoverflow.com/questions/38969229/what-is-uiapplicationlaunchoptionsremotenotificationkey-used-for
@@ -36,25 +37,35 @@
         [self handleNotification:notification :application];
     }
     
+    //If old test are detected, tell the user we are deleting them, no cancel button for now
+    //TODO waiting for https://github.com/TheTorProject/ooniprobe-ios/issues/161
+    /*if ([TestStorage get_old_tests]){
+        UIAlertAction* okButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"ok", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       //[TestStorage remove_all_tests];
+                                       NSArray *finishedTests = [[TestStorage get_tests_rev] mutableCopy];
+                                       for (NetworkMeasurement *current in finishedTests)
+                                           NSLog(@"%@", current.json_file);
+                                   }];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"old_test_detected", nil)
+                               message:nil
+                              okButton:okButton
+                                inView:self.window.rootViewController];
+
+    }
+    */
+    
     return YES;
 }
-
-- (void)registerNotifications{
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
-        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
-    }
-}
-
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     //NSLog(@"token: %@",token);
     [[NotificationService sharedNotificationService] setDevice_token:token];
-    [[NotificationService sharedNotificationService] registerNotifications];
+    [[NotificationService sharedNotificationService] updateClient];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {

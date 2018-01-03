@@ -1,7 +1,9 @@
-#import "NetworkMeasurement.h"
-#import "TestStorage.h"
+#import "MKNetworkTest.h"
+
+//#import "TestStorage.h"
 #import "Tests.h"
 #import "VersionUtility.h"
+#import "TestUtility.h"
 
 #include <measurement_kit/ooni.hpp>
 #include <measurement_kit/nettests.hpp>
@@ -12,47 +14,48 @@
 #include <resolv.h>
 #include <dns.h>
 
-#define VERBOSITY MK_LOG_INFO
+#define VERBOSITY MK_LOG_WARNING
 #define ANOMALY_GREEN 0
 #define ANOMALY_ORANGE 1
 #define ANOMALY_RED 2
 
-@implementation NetworkMeasurement
+
+@implementation MKNetworkTest
 
 -(id) init {
     self = [super init];
     if (!self) {
         return nil;
     }
-    NSBundle *bundle = [NSBundle mainBundle];
-    geoip_asn = [bundle pathForResource:@"GeoIPASNum" ofType:@"dat"];
-    geoip_country = [bundle pathForResource:@"GeoIP" ofType:@"dat"];
-    self.running = FALSE;
-    self.viewed = FALSE;
-    self.anomaly = ANOMALY_GREEN;
-    self.entry = FALSE;
+    self.measurement = [[Measurement alloc] init];
     self.backgroundTask = UIBackgroundTaskInvalid;
     return self;
 }
 
--(void) run {
-    // Nothing to do here
+-(void)run {
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    //TODO save/update measurement object
+    [self.measurement setStartTime:[NSDate date]];
 }
 
 - (void) init_common:(mk::nettests::BaseTest&) test{
-    include_ip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_ip"] boolValue];
-    include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
-    include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
-    upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
-    max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-    software_version = [VersionUtility get_software_version];
-    self.test_id = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-    self.json_file = [NSString stringWithFormat:@"test-%@.json", self.test_id];
-    self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
+    BOOL include_ip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_ip"] boolValue];
+    BOOL include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
+    BOOL include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
+    BOOL upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
+    NSString *software_version = [VersionUtility get_software_version];
+    NSString *geoip_asn = [[NSBundle mainBundle] pathForResource:@"GeoIPASNum" ofType:@"dat"];
+    NSString *geoip_country = [[NSBundle mainBundle] pathForResource:@"GeoIP" ofType:@"dat"];
     self.progress = 0;
-    self.running = TRUE;
     self.max_runtime_enabled = TRUE;
-    [TestStorage add_test:self];
+
+    self.measurement.reportFile = [NSString stringWithFormat:@"test-%ld.json", self.measurement.uniqueId];
+    self.measurement.logFile = [NSString stringWithFormat:@"test-%ld.log", self.measurement.uniqueId];
+    [self.measurement save];
+    
     //Configuring common test parameters
     test.set_option("geoip_country_path", [geoip_country UTF8String]);
     test.set_option("geoip_asn_path", [geoip_asn UTF8String]);
@@ -62,8 +65,8 @@
     test.set_option("no_collector", !upload_results);
     test.set_option("software_name", [@"ooniprobe-ios" UTF8String]);
     test.set_option("software_version", [software_version UTF8String]);
-    test.set_error_filepath([[self getFileName:@"log"] UTF8String]);
-    test.set_output_filepath([[self getFileName:@"json"] UTF8String]);
+    test.set_error_filepath([[TestUtility getFileName:self.measurement.uniqueId ext:@"log"] UTF8String]);
+    test.set_output_filepath([[TestUtility getFileName:self.measurement.uniqueId ext:@"json"] UTF8String]);
     test.set_verbosity(VERBOSITY);
     test.on_log([self](uint32_t type, const char *s) {
 #ifdef DEBUG
@@ -73,30 +76,6 @@
     test.on_progress([self](double prog, const char *s) {
         [self updateProgress:prog];
     });
-}
-
-- (void)showNotification {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [NSDate date];
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"finished_running", nil), NSLocalizedString(self.name, nil)];
-        [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
-        [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
-    });
-}
-
--(NSString*) getDate {
-    NSDateFormatter *dateformatter=[[NSDateFormatter alloc]init];
-    [dateformatter setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
-    return [dateformatter stringFromDate:[NSDate date]];
-}
-
--(NSString*) getFileName:(NSString*)ext {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [NSString stringWithFormat:@"%@/test-%@.%@", documentsDirectory, self.test_id, ext];
-    return fileName;
 }
 
 -(void)updateProgress:(double)prog {
@@ -110,15 +89,40 @@
     });
 }
 
+-(void)on_entry:(NSDictionary*)json{
+    //NSLog(@"on_entry %@", json);
+    if ([json safeObjectForKey:@"probe_asn"])
+        [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
+    if ([json safeObjectForKey:@"probe_cc"])
+        [self.measurement setCountry:[json objectForKey:@"probe_cc"]];
+    if ([json safeObjectForKey:@"probe_ip"])
+        [self.measurement setIp:[json objectForKey:@"probe_ip"]];
+    
+    [self.measurement setState:@"done"];
+
+    /*
+     TODO set
+     dataUsage, state, failure, reportId, measurementId, resultId
+     networkName
+     */
+}
+
+//TODO onTestEnded delegate callback
 -(void)testEnded{
 #ifdef DEBUG
     NSLog(@"%@ testEnded", self.name);
 #endif
-    self.running = FALSE;
-    [TestStorage set_completed:self.test_id];
-    [self showNotification];
+    //self.running = FALSE;
+    //[TestStorage set_completed:self.measurement.uniqueId];
+    [TestUtility showNotification:self.name];
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
+    
+    [self.measurement setEndTime:[NSDate date]];
+    
+    //TODO
+    [self.delegate test_ended];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
         NSDictionary *noteInfo = [NSDictionary dictionaryWithObject:self.name forKey:@"test_name"];
@@ -126,49 +130,20 @@
     });
 }
 
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.name forKey:@"Test_name"];
-    [coder encodeObject:self.test_id forKey:@"Test_id"];
-    [coder encodeObject:self.json_file forKey:@"Test_jsonfile"];
-    [coder encodeObject:self.log_file forKey:@"Test_logfile"];
-    [coder encodeObject:[NSNumber numberWithBool:self.running] forKey:@"test_running"];
-    [coder encodeObject:[NSNumber numberWithBool:self.viewed] forKey:@"test_viewed"];
-    [coder encodeObject:[NSNumber numberWithInt:self.anomaly] forKey:@"anomaly"];
-    [coder encodeObject:[NSNumber numberWithInt:self.entry] forKey:@"entry"];
-}
-
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    self.name = [coder decodeObjectForKey:@"Test_name"];
-    self.test_id = [coder decodeObjectForKey:@"Test_id"];
-    self.json_file = [coder decodeObjectForKey:@"Test_jsonfile"];
-    self.log_file = [coder decodeObjectForKey:@"Test_logfile"];
-    self.running = [[coder decodeObjectForKey:@"test_running"] boolValue];
-    self.viewed = [[coder decodeObjectForKey:@"test_viewed"] boolValue];
-    self.anomaly = [[coder decodeObjectForKey:@"anomaly"] intValue];
-    self.entry = [[coder decodeObjectForKey:@"entry"] boolValue];
-    return self;
-}
-
 @end
 
-@implementation HTTPInvalidRequestLine2 : NetworkMeasurement
+@implementation HTTPInvalidRequestLine : MKNetworkTest
 
 -(id) init {
     self = [super init];
-    self.name = @"http_invalid_request_line";
+    if (self) {
+        self.name = @"http_invalid_request_line";
+    }
     return self;
 }
 
 -(void)run {
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
+    [super run];
     [self run_test];
 }
 
@@ -176,10 +151,10 @@
     mk::nettests::HttpInvalidRequestLineTest test;
     [super init_common:test];
     test.on_entry([self](std::string s) {
-            [self on_entry:s.c_str()];
+        [self on_entry:s.c_str()];
     });
     test.start([self]() {
-            [self testEnded];
+        [self testEnded];
     });
 }
 
@@ -190,13 +165,10 @@
  */
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        [super on_entry:json];
         int blocking = ANOMALY_GREEN;
         if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
             //this case shouldn't happen
@@ -205,32 +177,33 @@
             else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
                 blocking = ANOMALY_RED;
         }
-        if (blocking > self.anomaly){
+        /*if (blocking > self.anomaly){
             self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+            [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+        }*/
     }
 }
 
 @end
 
-@implementation WebConnectivity2 : NetworkMeasurement
+@implementation WebConnectivity : MKNetworkTest
 
 -(id) init {
     self = [super init];
-    self.name = @"web_connectivity";
+    if (self) {
+        self.name = @"web_connectivity";
+    }
     return self;
 }
 
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
+-(void)run {
+    [super run];
     [self run_test];
 }
 
+
 -(void) run_test {
+    NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     mk::nettests::WebConnectivityTest test;
     [super init_common:test];
     if (self.max_runtime_enabled){
@@ -244,6 +217,9 @@
     test.on_entry([self](std::string s) {
         [self on_entry:s.c_str()];
     });
+    test.on_begin([self]() {
+        //TODO Create measurement object and set input
+    });
     test.start([self]() {
         [self testEnded];
     });
@@ -251,60 +227,44 @@
 
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }
+        /*
+         salva measurement, rialloca measurement.
+         sempre creare un measurement on_start e set input
+         `on_entry(datum)` you will:
+         - If it's the first entry, `UPDATE` it with the content of `datum`
+         - If it's not the first entry, `INSERT` a new row with the content of `datum`
+         */
+        //TODO Create/Update measurement object
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
-    }
-}
+        [super on_entry:json];
 
--(int)checkAnomaly:(NSDictionary*)test_keys{
-    /*
-     null => anomal = 1,
-     false => anomaly = 0,
-     stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
-     
-     Return values:
-     0 == OK,
-     1 == orange,
-     2 == red
-     */
-    id element = [test_keys objectForKey:@"blocking"];
-    int anomaly = ANOMALY_GREEN;
-    if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
-        anomaly = ANOMALY_ORANGE;
+        int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
+        /*if (blocking > self.anomaly){
+         self.anomaly = blocking;
+         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+         }*/
     }
-    else if (([element isKindOfClass:[NSString class]])) {
-        anomaly = ANOMALY_RED;
-    }
-    return anomaly;
 }
 
 @end
 
-@implementation NdtTest2 : NetworkMeasurement
+@implementation NdtTest : MKNetworkTest
 
 -(id) init {
     self = [super init];
-    self.name = @"ndt";
+    if (self) {
+        self.name = @"ndt";
+    }
     return self;
 }
 
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
+-(void)run {
+    [super run];
     [self run_test];
 }
+
 
 -(void) run_test {
     mk::nettests::NdtTest test;
@@ -323,39 +283,36 @@
  */
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        [super on_entry:json];
+
         int blocking = ANOMALY_GREEN;
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
             blocking = ANOMALY_ORANGE;
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        /*if (blocking > self.anomaly){
+         self.anomaly = blocking;
+         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+         }*/
     }
 }
 
 @end
 
 
-@implementation HttpHeaderFieldManipulation2 : NetworkMeasurement
+@implementation HttpHeaderFieldManipulation : MKNetworkTest
 
 -(id) init {
     self = [super init];
-    self.name = @"http_header_field_manipulation";
+    if (self) {
+        self.name = @"http_header_field_manipulation";
+    }
     return self;
 }
 
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
+-(void)run {
+    [super run];
     [self run_test];
 }
 
@@ -377,14 +334,11 @@
  */
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        
+        [super on_entry:json];
+
         int blocking = ANOMALY_GREEN;
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
             blocking = ANOMALY_ORANGE;
@@ -399,17 +353,17 @@
                 }
             }
         }
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        /*if (blocking > self.anomaly){
+         self.anomaly = blocking;
+         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+         }*/
     }
 }
 
 @end
 
 
-@implementation Dash2 : NetworkMeasurement
+@implementation Dash : MKNetworkTest
 
 -(id) init {
     self = [super init];
@@ -419,13 +373,11 @@
     return self;
 }
 
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
+-(void)run {
+    [super run];
     [self run_test];
 }
+
 
 -(void) run_test {
     mk::nettests::DashTest test;
@@ -446,26 +398,24 @@
  */
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        [super on_entry:json];
+
         int blocking = ANOMALY_GREEN;
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
             blocking = ANOMALY_ORANGE;
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        /*if (blocking > self.anomaly){
+         self.anomaly = blocking;
+         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+         }*/
     }
 }
 
 @end
 
-@implementation Whatsapp2 : NetworkMeasurement
+@implementation Whatsapp : MKNetworkTest
 
 -(id) init {
     self = [super init];
@@ -475,11 +425,8 @@
     return self;
 }
 
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
+-(void)run {
+    [super run];
     [self run_test];
 }
 
@@ -501,13 +448,11 @@
 
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        [super on_entry:json];
+
         int blocking = ANOMALY_GREEN;
         
         //whatsapp_endpoints_status and whatsapp_web_status and registration_server_status must be both false if null (set test anomaly), if at least one is true (set test blocked)
@@ -523,15 +468,15 @@
                 }
             }
         }
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        /*if (blocking > self.anomaly){
+         self.anomaly = blocking;
+         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+         }*/
     }
 }
 @end
 
-@implementation Telegram2 : NetworkMeasurement
+@implementation Telegram : MKNetworkTest
 
 -(id) init {
     self = [super init];
@@ -541,13 +486,11 @@
     return self;
 }
 
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
+-(void)run {
+    [super run];
     [self run_test];
 }
+
 
 -(void) run_test {
     mk::nettests::TelegramTest test;
@@ -566,13 +509,11 @@
  */
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        [super on_entry:json];
+
         int blocking = ANOMALY_GREEN;
         
         //telegram_http_blocking and telegram_tcp_blocking must be both false if null (set test anomaly), if at least one is true (set test blocked)
@@ -599,17 +540,16 @@
                 blocking = ANOMALY_RED;
             }
         }
-
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        /*if (blocking > self.anomaly){
+         self.anomaly = blocking;
+         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+         }*/
     }
 }
 
 @end
 
-@implementation FacebookMessenger2 : NetworkMeasurement
+@implementation FacebookMessenger : MKNetworkTest
 
 -(id) init {
     self = [super init];
@@ -619,13 +559,11 @@
     return self;
 }
 
--(void)run{
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
+-(void)run {
+    [super run];
     [self run_test];
 }
+
 
 -(void) run_test {
     mk::nettests::FacebookMessengerTest test;
@@ -643,14 +581,13 @@
  docs: https://github.com/TheTorProject/ooni-spec/blob/master/test-specs/ts-019-facebook-messenger.md#semantics
  */
 -(void)on_entry:(const char*)str{
+    //another thread
     if (str != nil) {
-        if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        [super on_entry:json];
+
         int blocking = ANOMALY_GREEN;
         NSArray *keys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
         for (NSString *key in keys) {
@@ -664,11 +601,12 @@
                 }
             }
         }
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        /*if (blocking > self.anomaly){
+         self.anomaly = blocking;
+         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+         }*/
     }
 }
 
 @end
+

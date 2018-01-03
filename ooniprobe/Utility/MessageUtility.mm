@@ -1,12 +1,15 @@
 #import "MessageUtility.h"
 #import "MBProgressHUD.h"
 #import "UIView+Toast.h"
+#import "NotificationService.h"
 
 @implementation MessageUtility
 
 + (void)showToast:(NSString*)msg inView:(UIView*)view
 {
-    [view makeToast:NSLocalizedString(msg, nil)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view makeToast:NSLocalizedString(msg, nil)];
+    });
 }
 
 + (void)alertWithTitle:(NSString *)title message:(NSString *)msg inView:(UIViewController *)view
@@ -20,7 +23,9 @@
                                style:UIAlertActionStyleDefault
                                handler:nil];
     [alert addAction:okButton];
-    [view presentViewController:alert animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view presentViewController:alert animated:YES completion:nil];
+    });
 }
 
 + (void)alertWithTitle:(NSString *)title message:(NSString *)msg okButton:(UIAlertAction*)okButton inView:(UIViewController *)view
@@ -35,7 +40,33 @@
                                    handler:nil];
     [alert addAction:cancelButton];
     [alert addAction:okButton];
-    [view presentViewController:alert animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view presentViewController:alert animated:YES completion:nil];
+    });
+}
+
+//TODO set strings
++ (void)notificationAlertinView:(UIViewController *)view
+{
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:NSLocalizedString(@"receive_ooni_news", nil)
+                                 message:NSLocalizedString(@"receive_ooni_news", nil)
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"ok", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   [NotificationService registerUserNotification];
+                               }];
+    UIAlertAction* cancelButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"cancel", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+    [alert addAction:cancelButton];
+    [alert addAction:okButton];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view presentViewController:alert animated:YES completion:nil];
+    });
 }
 
 @end

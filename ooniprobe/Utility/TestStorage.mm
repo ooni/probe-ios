@@ -2,6 +2,14 @@
 
 @implementation TestStorage
 
++ (BOOL)get_old_tests{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
+        return YES;
+    }
+    return NO;
+}
+
+
 + (NSArray*)get_tests{
     [self checkTests];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){

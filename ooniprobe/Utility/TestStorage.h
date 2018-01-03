@@ -4,6 +4,8 @@
 
 @interface TestStorage : NSObject
 
++ (BOOL)get_old_tests;
+
 + (NSArray*)get_tests;
 
 + (NSArray*)get_tests_rev;

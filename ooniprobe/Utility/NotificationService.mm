@@ -39,7 +39,7 @@
 }
 
 
-- (void)registerNotifications{
+- (void)updateClient{
     if (device_token == nil) return;
     
     std::vector<std::string> supported_tests_list;
@@ -131,4 +131,14 @@
 -(void)setASN:(NSString*)asn{
     [[TestLists sharedTestLists] setProbe_asn:asn];
 }
+
++ (void)registerUserNotification{
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+}
+
 @end

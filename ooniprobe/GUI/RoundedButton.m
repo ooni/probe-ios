@@ -22,9 +22,6 @@
 
 - (void)commonInit
 {
-    //UIColor *defaultTintColor = color_ooni_blue;
-    //self.layer.borderWidth = 1;
-    //self.layer.borderColor = defaultTintColor.CGColor;
     self.layer.cornerRadius = 5;
     self.layer.masksToBounds = YES;
 }

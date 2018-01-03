@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mPv-Lc-eHV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,7 +61,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version 0.1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SC-VG-VFl">
-                                            <rect key="frame" x="40" y="32" width="204" height="16"/>
+                                            <rect key="frame" x="48" y="30" width="188" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="imZ-59-9UV"/>
                                             </constraints>
@@ -70,18 +70,18 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <progressView opaque="NO" tag="6" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Da-Lb-eei">
-                                            <rect key="frame" x="40" y="39" width="204" height="2"/>
+                                            <rect key="frame" x="48" y="42" width="188" height="2"/>
                                             <color key="progressTintColor" red="0.30980392159999998" green="0.81960784310000001" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </progressView>
                                         <activityIndicatorView hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="isC-WH-iDo">
-                                            <rect key="frame" x="272" y="19" width="20" height="20"/>
+                                            <rect key="frame" x="264" y="22" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="S9x-3I-HQH"/>
                                                 <constraint firstAttribute="height" constant="20" id="lsq-Jp-Kb1"/>
                                             </constraints>
                                         </activityIndicatorView>
                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lS-nU-Jxg" customClass="RunButton">
-                                            <rect key="frame" x="252" y="17" width="60" height="24"/>
+                                            <rect key="frame" x="244" y="20" width="60" height="24"/>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="2op-GB-M8r"/>
@@ -100,14 +100,14 @@
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jbA-66-E4R">
-                                            <rect key="frame" x="8" y="17" width="24" height="24"/>
+                                            <rect key="frame" x="16" y="20" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="24" id="Fmi-xK-TkP"/>
                                                 <constraint firstAttribute="height" constant="24" id="zrB-jT-5E2"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Web Connectivity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-zK-60C">
-                                            <rect key="frame" x="40" y="8" width="204" height="18"/>
+                                            <rect key="frame" x="48" y="11" width="188" height="13"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
                                             <color key="textColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -199,7 +199,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r9o-lt-aY8">
-                                            <rect key="frame" x="16" y="0.0" width="289" height="59.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="288" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
                                             <color key="textColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -218,7 +218,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y97-cR-iIY">
-                                            <rect key="frame" x="20" y="8" width="204" height="44"/>
+                                            <rect key="frame" x="20" y="8" width="196" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Jcs-py-uC6"/>
                                             </constraints>
@@ -227,7 +227,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3aR-da-w3A">
-                                            <rect key="frame" x="232" y="14" width="80" height="30"/>
+                                            <rect key="frame" x="224" y="17" width="80" height="30"/>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="7mz-fd-HNA"/>
@@ -526,7 +526,7 @@ measurement-kit: x.y.z</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version 0.1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKZ-5R-npa">
-                                            <rect key="frame" x="40" y="32" width="204" height="16"/>
+                                            <rect key="frame" x="48" y="30" width="188" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="Ljx-6P-e6H"/>
                                             </constraints>
@@ -535,7 +535,7 @@ measurement-kit: x.y.z</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygS-a6-iu6" customClass="RunButton">
-                                            <rect key="frame" x="252" y="17" width="60" height="24"/>
+                                            <rect key="frame" x="244" y="20" width="60" height="24"/>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="Fdj-Oa-iha"/>
@@ -554,14 +554,14 @@ measurement-kit: x.y.z</string>
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kr5-aR-bZe">
-                                            <rect key="frame" x="8" y="17" width="24" height="24"/>
+                                            <rect key="frame" x="16" y="20" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="Hl1-x0-Y2q"/>
                                                 <constraint firstAttribute="width" constant="24" id="pbm-xg-0MS"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Web Connectivity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0y-pk-niY">
-                                            <rect key="frame" x="40" y="8" width="204" height="18"/>
+                                            <rect key="frame" x="48" y="11" width="188" height="13"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
                                             <color key="textColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -625,14 +625,14 @@ measurement-kit: x.y.z</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh3-zx-upN">
-                                            <rect key="frame" x="8" y="8" width="236" height="27"/>
+                                            <rect key="frame" x="16" y="11" width="220" height="22"/>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
                                             <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ok-hs-VST" customClass="RunButton">
-                                            <rect key="frame" x="252" y="10" width="60" height="24"/>
+                                            <rect key="frame" x="244" y="10.5" width="60" height="24"/>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="TJg-pv-SlJ"/>
@@ -707,7 +707,7 @@ measurement-kit: x.y.z</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ooni_logo" translatesAutoresizingMaskIntoConstraints="NO" id="FB4-hO-TQd">
-                                    <rect key="frame" x="0.0" y="5" width="100" height="100"/>
+                                    <rect key="frame" x="8" y="5" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="QOH-nO-QT0"/>
                                     </constraints>
@@ -729,7 +729,7 @@ measurement-kit: x.y.z</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Run Tests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qDJ-Bu-vkH">
-                                            <rect key="frame" x="16" y="0.0" width="289" height="60"/>
+                                            <rect key="frame" x="16" y="0.0" width="288" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="30"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -751,7 +751,7 @@ measurement-kit: x.y.z</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Past Tests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U3b-h3-AuZ">
-                                            <rect key="frame" x="16" y="0.0" width="289" height="60"/>
+                                            <rect key="frame" x="16" y="0.0" width="288" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="30"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -773,7 +773,7 @@ measurement-kit: x.y.z</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QMr-xX-vcw">
-                                            <rect key="frame" x="16" y="0.0" width="289" height="60"/>
+                                            <rect key="frame" x="16" y="0.0" width="288" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="30"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -795,7 +795,7 @@ measurement-kit: x.y.z</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YW3-gC-SlX">
-                                            <rect key="frame" x="16" y="0.0" width="289" height="60"/>
+                                            <rect key="frame" x="16" y="0.0" width="288" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="30"/>
                                             <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -1242,6 +1242,6 @@ measurement-kit: x.y.z</string>
     <inferredMetricsTieBreakers>
         <segue reference="xM5-AD-3dX"/>
         <segue reference="d3a-zP-8bF"/>
-        <segue reference="ULy-MW-EOd"/>
+        <segue reference="TKr-0u-V8U"/>
     </inferredMetricsTieBreakers>
 </document>

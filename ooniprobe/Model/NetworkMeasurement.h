@@ -39,32 +39,32 @@
 @end
 
 
-@interface HTTPInvalidRequestLine : NetworkMeasurement
+@interface HTTPInvalidRequestLine2 : NetworkMeasurement
 @end
 
-@interface DNSInjection : NetworkMeasurement
+@interface DNSInjection2 : NetworkMeasurement
 @end
 
-@interface TCPConnect : NetworkMeasurement
+@interface TCPConnect2 : NetworkMeasurement
 @end
 
-@interface WebConnectivity : NetworkMeasurement
+@interface WebConnectivity2 : NetworkMeasurement
 @end
 
-@interface NdtTest : NetworkMeasurement
+@interface NdtTest2 : NetworkMeasurement
 @end
 
-@interface HttpHeaderFieldManipulation : NetworkMeasurement
+@interface HttpHeaderFieldManipulation2 : NetworkMeasurement
 @end
 
-@interface Dash : NetworkMeasurement
+@interface Dash2 : NetworkMeasurement
 @end
 
-@interface Whatsapp : NetworkMeasurement
+@interface Whatsapp2 : NetworkMeasurement
 @end
 
-@interface Telegram : NetworkMeasurement
+@interface Telegram2 : NetworkMeasurement
 @end
 
-@interface FacebookMessenger : NetworkMeasurement
+@interface FacebookMessenger2 : NetworkMeasurement
 @end

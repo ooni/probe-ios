@@ -27,6 +27,7 @@
 - (void) loadAvailableMeasurements {
     [self.availableNetworkMeasurements removeAllObjects];
     
+    /*
     WebConnectivity *web_connectivityMeasurement = [[WebConnectivity alloc] init];
     [self.availableNetworkMeasurements addObject:web_connectivityMeasurement];
     
@@ -50,7 +51,7 @@
     
     FacebookMessenger *facebook_messenger = [[FacebookMessenger alloc] init];
     [self.availableNetworkMeasurements addObject:facebook_messenger];
-
+*/
 }
 
 - (NetworkMeasurement*)getTestWithName:(NSString*)testName{
