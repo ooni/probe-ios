@@ -43,7 +43,7 @@
 -(id) init {
     self = [super init];
     if (self) {
-        [self.result setName:@"IMNetworkTest"];
+        //[self setName:@"IMNetworkTest"];
 
         Whatsapp *whatsapp = [[Whatsapp alloc] init];
         [whatsapp setDelegate:self];
@@ -56,8 +56,8 @@
         FacebookMessenger *facebook_messenger = [[FacebookMessenger alloc] init];
         [facebook_messenger setDelegate:self];
         [self.mk_network_tests addObject:facebook_messenger];
-        [self.result setName:@"IMNetworkTest"];
-
+        
+        [self.result setName:@"instant_messaging"];
         [self.result save];
     }
     return self;
@@ -78,7 +78,7 @@
         //[web_connectivityMeasurement setMax_runtime_enabled:YES];
         //web_connectivityMeasurement.inputs = [[TestLists sharedTestLists] getUrls];
         [self.mk_network_tests addObject:web_connectivityMeasurement];
-        [self.result setName:@"WCNetworkTest"];
+        [self.result setName:@"web_censorship"];
     }
     return self;
 }
@@ -99,7 +99,7 @@
         
         HttpHeaderFieldManipulation *http_header_field_manipulationMeasurement = [[HttpHeaderFieldManipulation alloc] init];
         [self.mk_network_tests addObject:http_header_field_manipulationMeasurement];
-        [self.result setName:@"MBNetworkTest"];
+        [self.result setName:@"middle_boxes"];
     }
     return self;
 }
@@ -120,7 +120,7 @@
         
         Dash *dash = [[Dash alloc] init];
         [self.mk_network_tests addObject:dash];
-        [self.result setName:@"WPNetworkTest"];
+        [self.result setName:@"web_performance"];
     }
     return self;
 }

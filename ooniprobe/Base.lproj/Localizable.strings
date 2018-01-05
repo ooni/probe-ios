@@ -34,10 +34,32 @@
 "change" = "Change";
 "lets_go" = "Let\'s go";
 
+/* Dashboard */
+"web_censorship" = "Web Censorship";
+"instant_messaging" = "IM blocking";
+"middle_boxes" = "Middle Boxes";
+"web_performance" = "Web Performance";
+
+"web_censorship_desc" = "Checking for blocking of websites";
+"instant_messaging_desc" = "Checking for blocking of instant messaging apps.";
+"middle_boxes_desc" = "Middle Boxes DESC";
+"web_performance_desc" = "Web Performance DESC";
+
+"web_censorship_longdesc" = "This test examines whether access to websites is blocked through DNS tampering, TCP/IP blocking, or by a transparent HTTP proxy.\nEvery time you run Web Connectivity you test different websites.";
+"instant_messaging_longdesc" = "This test examines whether access to instant messengers are blocked. It includes tests for Facebook Messenger, Telegram and WhatsApp.";
+"middle_boxes_longdesc" = "This test tries to detect the presence of middle boxes that could be responsible for censorship or surveillance by sending HTTP requests with non-canonical headers to a backend control server.";
+"web_performance_longdesc" = "This test measures the speed and performance of your network. \n\nDisclaimer:\nThis is a 3rd party performance test based on 3rd party servers, and we cannot guarantee that your IP address will not be collected.";
+
+/* Settings*/
+"settings" = "Settings";
+"notifications" = "Notifications";
+"sharing" = "Sharing";
+"orchestration" = "Orchestration";
+"advanced" = "Advanced";
+
 /* Others */
 "run_tests" = "Run Tests";
 "past_tests" = "Past Tests";
-"settings" = "Settings";
 "about" = "About";
 
 "dns_injection" = "DNS Injection";
