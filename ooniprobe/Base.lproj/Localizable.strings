@@ -50,12 +50,60 @@
 "middle_boxes_longdesc" = "This test tries to detect the presence of middle boxes that could be responsible for censorship or surveillance by sending HTTP requests with non-canonical headers to a backend control server.";
 "web_performance_longdesc" = "This test measures the speed and performance of your network. \n\nDisclaimer:\nThis is a 3rd party performance test based on 3rd party servers, and we cannot guarantee that your IP address will not be collected.";
 
+/* Tabs */
+"dashboard" = "Dashboard";
+"test_results" = "Test Results";
+"feed" = "Feed";
+
 /* Settings*/
 "settings" = "Settings";
 "notifications" = "Notifications";
 "sharing" = "Sharing";
-"orchestration" = "Orchestration";
+"automated_testing" = "Automated testing";
 "advanced" = "Advanced";
+
+//NOTE these have changed in english
+"include_ip" = "Include IP";
+"include_asn" = "Share Network Info";
+"upload_results" = "Publish Results";
+"include_gps" = "Include approximate geo-location";
+
+"website_categories" = "Website categories";
+"include_cc" = "Include country code";
+"send_crash" = "Send crash reports";
+
+/* Categories */
+"ALDR" = "Alcohol & Drugs";
+"REL" = "Religion";
+"PORN" = "Pornography";
+"PROV" = "Provocative Attire";
+"POLR" = "Political Criticism";
+"HUMR" = "Human Rights Issues";
+"ENV" = "Environment";
+"MILX" = "Terrorism and Militants";
+"HATE" = "Hate Speech";
+"NEWS" = "News Media";
+"XED" = "Sex Education";
+"PUBH" = "Public Health";
+"GMB" = "Gambling";
+"ANON" = "Anonymization and circumvention tools";
+"DATE" = "Online Dating";
+"GRP" = "Social Networking";
+"LGBT" = "LGBT";
+"FILE" = "File-sharing";
+"HACK" = "Hacking Tools";
+"COMT" = "Communication Tools";
+"MMED" = "Media sharing";
+"HOST" = "Hosting and Blogging Platforms";
+"SRCH" = "Search Engines";
+"GAME" = "Gaming";
+"CULTR" = "Culture";
+"ECON" = "Economics";
+"GOVT" = "Government";
+"COMM" = "E-commerce";
+"CTRL" = "Control content";
+"IGO" = "Intergovernmental Organizations";
+"MISC" = "Miscelaneous content";
 
 /* Others */
 "run_tests" = "Run Tests";
@@ -105,10 +153,12 @@
 "change" = "Change";
 
 "set_up_sharing" = "Setup Sharing";
+/*
 "include_ip" = "Include your IP?";
 "include_asn" = "Include your network info?";
 "include_cc" = "Include your country name?";
 "upload_results" = "Share results publicly?";
+ */
 "settings_text" = "All measurements are sent by default to OONI's measurement collector and automately published through the OONI explorer and OONI's list of measurements.";
 "im_all_set" = "I'm all set!";
 "ooniprobe_configured" ="Successfully configured ooniprobe. You are all set to go!";
@@ -127,8 +177,6 @@
 "local_notifications" = "Run test reminder";
 "local_notifications_time" = "Time";
 "local_notifications_text" = "Time to run tests";
-
-"notifications" = "Notifications";
 
 "max_runtime" = "Web Connectivity max runtime (seconds)";
 "advanced_settings" = "Advanced settings";

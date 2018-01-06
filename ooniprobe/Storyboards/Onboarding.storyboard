@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -103,13 +103,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is OONI Probe?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E83-HA-9VG">
-                                <rect key="frame" x="20" y="219" width="374" height="39.666666666666686"/>
+                                <rect key="frame" x="20" y="219" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-gy-NKd">
-                                <rect key="frame" x="20" y="266.33333333333331" width="374" height="192"/>
+                                <rect key="frame" x="20" y="267.66666666666669" width="374" height="192"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192" id="pfL-Xw-Ocs"/>
                                 </constraints>
@@ -209,13 +209,13 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Things to know" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-dw-gFn">
-                                <rect key="frame" x="20" y="219" width="374" height="39.666666666666686"/>
+                                <rect key="frame" x="20" y="219" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-qb-Qml">
-                                <rect key="frame" x="20" y="266.66666666666663" width="374" height="246.99999999999989"/>
+                                <rect key="frame" x="20" y="268" width="374" height="247"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="247" id="p6H-zv-Cty"/>
                                 </constraints>
@@ -231,7 +231,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="s0Z-yY-pz9">
-                                <rect key="frame" x="136.66666666666669" y="83" width="141.00000000000006" height="106"/>
+                                <rect key="frame" x="136.66666666666666" y="83" width="140.99999999999997" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="s0Z-yY-pz9" secondAttribute="height" multiplier="85:64" id="OGv-st-vSJ"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180" id="hSa-2t-mJg"/>
@@ -295,13 +295,13 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Settings" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ldx-vN-fF3">
-                                <rect key="frame" x="20" y="219" width="374" height="39.666666666666686"/>
+                                <rect key="frame" x="20" y="219" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hx8-bq-2PZ">
-                                <rect key="frame" x="20" y="267.66666666666663" width="374" height="260.99999999999989"/>
+                                <rect key="frame" x="20" y="269" width="374" height="261"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="261" id="eE7-Jq-CIl"/>
                                 </constraints>
@@ -353,7 +353,7 @@ We will not include:
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-ON-TYp">
-                                <rect key="frame" x="136.66666666666669" y="83" width="141.00000000000006" height="106"/>
+                                <rect key="frame" x="136.66666666666666" y="83" width="140.99999999999997" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="Tdj-o3-sxm"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180" id="v4g-R0-Dom"/>
@@ -425,13 +425,14 @@ We will not include:
                     </view>
                     <navigationItem key="navigationItem" id="dls-6Z-lfV"/>
                     <connections>
-                        <outlet property="backButton" destination="BFH-cD-JKJ" id="G8l-GI-crB"/>
                         <outlet property="bottomConstraint" destination="pAG-hc-vsW" id="Zbj-tS-loH"/>
                         <outlet property="buttonView" destination="dcy-Bn-GOt" id="wHA-a7-aru"/>
-                        <outlet property="nextButton" destination="cuM-AH-T0b" id="hAu-mH-Zu2"/>
+                        <outlet property="changeButton" destination="BFH-cD-JKJ" id="0Zi-c7-fjN"/>
+                        <outlet property="goButton" destination="cuM-AH-T0b" id="UIK-Qc-OoU"/>
                         <outlet property="textLabel" destination="hx8-bq-2PZ" id="VPr-oC-708"/>
                         <outlet property="titleLabel" destination="ldx-vN-fF3" id="eWj-pS-Yu4"/>
                         <outlet property="topConstraint" destination="Unp-wq-hP2" id="AAg-ob-IXO"/>
+                        <outlet property="view" destination="DEh-Zm-8aG" id="3mS-5v-6KL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="job-ql-sgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -454,7 +455,7 @@ We will not include:
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </button>
                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qf9-Dm-QoQ">
-                                        <rect key="frame" x="16" y="243.66666666666669" width="382" height="250.00000000000006"/>
+                                        <rect key="frame" x="16" y="243.66666666666663" width="382" height="250"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09P-qe-CG5">
                                                 <rect key="frame" x="0.0" y="200.00000000000003" width="191" height="50"/>
@@ -481,7 +482,7 @@ We will not include:
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop Quiz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auc-9a-NRa">
-                                                <rect key="frame" x="8" y="8" width="366" height="34.000000000000028"/>
+                                                <rect key="frame" x="8" y="8" width="366" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="Hfv-Z9-ikH"/>
                                                 </constraints>

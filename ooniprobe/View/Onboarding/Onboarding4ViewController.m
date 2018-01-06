@@ -62,8 +62,8 @@
     [attr_str appendAttributedString:default_settings_4];
 
     [self.textLabel setAttributedText:attr_str];
-    [self.backButton setTitle:[NSLocalizedString(@"change", nil) uppercaseString] forState:UIControlStateNormal];
-    [self.nextButton setTitle:[NSLocalizedString(@"lets_go", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.changeButton setTitle:[NSLocalizedString(@"change", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.goButton setTitle:[NSLocalizedString(@"lets_go", nil) uppercaseString] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,14 +73,12 @@
 
 -(IBAction)configure:(id)sender{
     UIButton *buttonPressed = (UIButton*)sender;
-    if (buttonPressed.tag == 1){
-        //open setting screen
-    }
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:^{
-        //[NotificationService registerUserNotification];
-        //[[NSNotificationCenter defaultCenter] postNotificationName:@"showToastConfiguration" object:nil];
+        if (buttonPressed == _changeButton){
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"openSettings" object:nil];
+        }
     }];
 }
 

@@ -1,19 +1,10 @@
-//
-//  SettingsCategoriesViewController.m
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 05/01/18.
-//  Copyright © 2018 Simone Basso. All rights reserved.
-//
+#import "SettingsCategoriesTableViewController.h"
 
-#import "SettingsCategoriesViewController.h"
-#import "SettingsUtility.h"
-
-@interface SettingsCategoriesViewController ()
+@interface SettingsCategoriesTableViewController ()
 
 @end
 
-@implementation SettingsCategoriesViewController
+@implementation SettingsCategoriesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,14 +43,14 @@
     return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toSettings"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
+        NSString *current = [categories objectAtIndex:indexPath.row];
+        [vc setCategory:current];
+    }
 }
-*/
+
 
 @end

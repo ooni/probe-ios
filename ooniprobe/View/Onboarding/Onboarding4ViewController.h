@@ -7,8 +7,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *textLabel;
 
 @property (strong, nonatomic) IBOutlet UIView *buttonView;
-@property (strong, nonatomic) IBOutlet UIButton *backButton;
-@property (strong, nonatomic) IBOutlet UIButton *nextButton;
+@property (strong, nonatomic) IBOutlet UIButton *changeButton;
+@property (strong, nonatomic) IBOutlet UIButton *goButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
