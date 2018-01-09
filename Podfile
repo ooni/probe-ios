@@ -12,4 +12,6 @@ target 'ooniprobe' do
     pod 'DZNEmptyDataSet'
     pod 'NTYCSVTable'
     pod 'lottie-ios'
+#    pod 'Contentful'
+#    use_frameworks!
 end

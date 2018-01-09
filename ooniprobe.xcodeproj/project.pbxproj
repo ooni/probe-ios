@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D79CCF1E902BDF8278DEFB2 /* libPods-ooniprobe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F90A00BDE468B5E569850D3 /* libPods-ooniprobe.a */; };
+		C8F0F5BCD132FD1482C9804A /* libPods-ooniprobe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
@@ -95,13 +95,15 @@
 		EDDB0B761FFF6C8B00EFD9C8 /* Onboarding4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding4ViewController.m */; };
 		EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */; };
 		EDDB0B781FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B711FFF6C8B00EFD9C8 /* Onboarding2ViewController.m */; };
+		EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */; };
+		EDDB0B7E2004911300EFD9C8 /* WebsiteCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */; };
 		EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDE344811D42151C00BAEB10 /* ResultViewController.mm */; };
 		EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDFE07391F37526A00960AF2 /* RunTestViewController.mm */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F90A00BDE468B5E569850D3 /* libPods-ooniprobe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ooniprobe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ooniprobe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D39522921C8CE117986F7 /* Pods-ooniprobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A2F5D91A6C3244001B8460 /* ooniprobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ooniprobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -251,6 +253,10 @@
 		EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopQuizViewController.m; sourceTree = "<group>"; };
 		EDDB0B701FFF6C8B00EFD9C8 /* Onboarding1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Onboarding1ViewController.h; sourceTree = "<group>"; };
 		EDDB0B711FFF6C8B00EFD9C8 /* Onboarding2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onboarding2ViewController.m; sourceTree = "<group>"; };
+		EDDB0B792000F10E00EFD9C8 /* AutomaticTestsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AutomaticTestsTableViewController.h; path = Settings/AutomaticTestsTableViewController.h; sourceTree = "<group>"; };
+		EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AutomaticTestsTableViewController.m; path = Settings/AutomaticTestsTableViewController.m; sourceTree = "<group>"; };
+		EDDB0B7C2004911300EFD9C8 /* WebsiteCategoryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebsiteCategoryTableViewController.h; path = Settings/WebsiteCategoryTableViewController.h; sourceTree = "<group>"; };
+		EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WebsiteCategoryTableViewController.m; path = Settings/WebsiteCategoryTableViewController.m; sourceTree = "<group>"; };
 		EDE344801D42151C00BAEB10 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		EDE344811D42151C00BAEB10 /* ResultViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResultViewController.mm; sourceTree = "<group>"; };
 		EDFE07381F37526A00960AF2 /* RunTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTestViewController.h; sourceTree = "<group>"; };
@@ -266,7 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */,
-				5D79CCF1E902BDF8278DEFB2 /* libPods-ooniprobe.a in Frameworks */,
+				C8F0F5BCD132FD1482C9804A /* libPods-ooniprobe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +564,10 @@
 				EDDB0B5A1FFF330700EFD9C8 /* SettingsTableViewController.mm */,
 				EDDB0B601FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.h */,
 				EDDB0B611FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m */,
+				EDDB0B7C2004911300EFD9C8 /* WebsiteCategoryTableViewController.h */,
+				EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */,
+				EDDB0B792000F10E00EFD9C8 /* AutomaticTestsTableViewController.h */,
+				EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -587,7 +597,7 @@
 			isa = PBXGroup;
 			children = (
 				ED3582311FE948580078CCEE /* libsqlite3.tbd */,
-				4F90A00BDE468B5E569850D3 /* libPods-ooniprobe.a */,
+				01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -786,9 +796,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Contentful/Contentful.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/Interstellar/Interstellar.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/NTYCSVTable/NTYCSVTable.framework",
+				"${BUILT_PRODUCTS_DIR}/PBRevealViewController/PBRevealViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
+				"${BUILT_PRODUCTS_DIR}/UIBarButtonItem-Badge-Coding/UIBarButtonItem_Badge_Coding.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Contentful.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Interstellar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NTYCSVTable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PBRevealViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIBarButtonItem_Badge_Coding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -819,12 +848,14 @@
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				EDE344821D42151C00BAEB10 /* ResultViewController.mm in Sources */,
 				EDDB0B721FFF6C8B00EFD9C8 /* ICSwipeViewController.m in Sources */,
+				EDDB0B7E2004911300EFD9C8 /* WebsiteCategoryTableViewController.m in Sources */,
 				ED6AC44B1FF8F97F003EA230 /* NSDictionary+Safety.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */,
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				ED3261BC1FEA7A6700EAC375 /* NetworkTest.mm in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				ED21E0581F898DDE008DFD0D /* TestLists.mm in Sources */,
+				EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */,

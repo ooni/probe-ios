@@ -20,7 +20,7 @@
 -(void)run;
 @end
 
-@interface WPNetworkTest : NetworkTest
+@interface SPNetworkTest : NetworkTest
 -(void)run;
 @end
 

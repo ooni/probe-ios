@@ -9,7 +9,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //TODO maybe move function to get all test object into an helper
-    items = @[@"web_censorship", @"instant_messaging", @"middle_boxes", @"web_performance"];
+    items = @[@"website", @"instant_messaging", @"middle_boxes", @"performance"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,14 +49,14 @@
     if ([test_name isEqualToString:@"instant_messaging"]){
         [[[IMNetworkTest alloc] init] run];
     }
-    else if ([test_name isEqualToString:@"web_censorship"]){
+    else if ([test_name isEqualToString:@"website"]){
         [[[WCNetworkTest alloc] init] run];
     }
     else if ([test_name isEqualToString:@"middle_boxes"]){
         [[[MBNetworkTest alloc] init] run];
     }
-    else if ([test_name isEqualToString:@"web_performance"]){
-        [[[WPNetworkTest alloc] init] run];
+    else if ([test_name isEqualToString:@"performance"]){
+        [[[SPNetworkTest alloc] init] run];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -8,6 +8,15 @@
 
 + (NSArray*)getSettingsForTest:(NSString*)testName;
 
++ (NSDictionary*)getTests;
++ (NSArray*)getTestTypes;
+
++ (NSArray*)getAutomaticTestsEnabled;
++ (NSArray*)addRemoveAutomaticTest:(NSString*)test_name;
+
 + (NSArray*)getSitesCategories;
+
++ (NSArray*)getSitesCategoriesEnabled;
++ (void)addRemoveSitesCategory:(NSString*)category_name;
 
 @end

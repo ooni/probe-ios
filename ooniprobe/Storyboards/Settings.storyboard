@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="FiraSans-Regular.otf">
+            <string>FiraSans-Regular</string>
+        </array>
         <array key="font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf">
             <string>FiraSansOT-Bold</string>
         </array>
@@ -188,13 +191,14 @@
                     <navigationItem key="navigationItem" id="2v0-so-a7v"/>
                     <connections>
                         <segue destination="FSd-Zs-3Da" kind="show" identifier="website_categories" id="RGp-0d-dQf"/>
+                        <segue destination="9vw-NZ-b2F" kind="show" identifier="enabled_tests" id="XVG-wH-Bbk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-AJ-MWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1714" y="1711"/>
         </scene>
-        <!--Settings-->
+        <!--Categories-->
         <scene sceneID="2I1-Fn-YZV">
             <objects>
                 <tableViewController storyboardIdentifier="site_categories" id="FSd-Zs-3Da" customClass="WebsiteCategoriesTableViewController" sceneMemberID="viewController">
@@ -203,14 +207,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="EkJ-S0-vFk" style="IBUITableViewCellStyleDefault" id="8nf-ki-60h">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="EkJ-S0-vFk" detailTextLabel="ajM-48-gNK" style="IBUITableViewCellStyleValue1" id="8nf-ki-60h">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8nf-ki-60h" id="KtJ-WY-NN1">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EkJ-S0-vFk">
+                                            <rect key="frame" x="16" y="20" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ajM-48-gNK">
+                                            <rect key="frame" x="300" y="22" width="40" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                            <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="uOE-Fq-4O8" kind="show" identifier="toCategorySettings" id="Oxu-Ny-wvD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FSd-Zs-3Da" id="kxT-HI-rmk"/>
+                            <outlet property="delegate" destination="FSd-Zs-3Da" id="6ie-wq-VnL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Categories" id="Ymv-rA-e0O"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dFu-uW-ipx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2106" y="2481"/>
+        </scene>
+        <!--AutomaticTests-->
+        <scene sceneID="lQm-yW-VCA">
+            <objects>
+                <tableViewController storyboardIdentifier="automatic_tests" id="9vw-NZ-b2F" userLabel="AutomaticTests" customClass="AutomaticTestsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="rxS-UP-7C4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="RIJ-QZ-DGh" style="IBUITableViewCellStyleDefault" id="pJV-e4-tOK">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJV-e4-tOK" id="DUN-pV-xaD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EkJ-S0-vFk">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RIJ-QZ-DGh">
                                             <rect key="frame" x="16" y="0.0" width="343" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
@@ -224,15 +278,55 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="FSd-Zs-3Da" id="kxT-HI-rmk"/>
-                            <outlet property="delegate" destination="FSd-Zs-3Da" id="6ie-wq-VnL"/>
+                            <outlet property="dataSource" destination="9vw-NZ-b2F" id="Dg4-C4-eDe"/>
+                            <outlet property="delegate" destination="9vw-NZ-b2F" id="BZH-HK-nAb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="Ymv-rA-e0O"/>
+                    <navigationItem key="navigationItem" title="AutomaticTests" id="XvQ-QR-AgR"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dFu-uW-ipx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EHK-QH-cd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="2481"/>
+            <point key="canvasLocation" x="1129" y="2481"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="hV1-35-qKN">
+            <objects>
+                <tableViewController storyboardIdentifier="site_category" id="uOE-Fq-4O8" customClass="WebsiteCategoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="2RC-ZO-AON">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="HJK-El-s4f" style="IBUITableViewCellStyleDefault" id="Xfm-5R-ZMT">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xfm-5R-ZMT" id="c4s-aH-Zbd">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HJK-El-s4f">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
+                                            <color key="textColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uOE-Fq-4O8" id="kcf-8M-N8d"/>
+                            <outlet property="delegate" destination="uOE-Fq-4O8" id="D7D-5a-bVB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Categories" id="rMB-gv-2nP"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CB2-VH-udi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3153" y="2490"/>
         </scene>
     </scenes>
 </document>

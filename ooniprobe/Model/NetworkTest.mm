@@ -78,7 +78,7 @@
         //[web_connectivityMeasurement setMax_runtime_enabled:YES];
         //web_connectivityMeasurement.inputs = [[TestLists sharedTestLists] getUrls];
         [self.mk_network_tests addObject:web_connectivityMeasurement];
-        [self.result setName:@"web_censorship"];
+        [self.result setName:@"website"];
     }
     return self;
 }
@@ -110,7 +110,7 @@
 
 @end
 
-@implementation WPNetworkTest : NetworkTest
+@implementation SPNetworkTest : NetworkTest
 
 -(id) init {
     self = [super init];
@@ -120,7 +120,7 @@
         
         Dash *dash = [[Dash alloc] init];
         [self.mk_network_tests addObject:dash];
-        [self.result setName:@"web_performance"];
+        [self.result setName:@"performance"];
     }
     return self;
 }

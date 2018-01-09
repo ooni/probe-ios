@@ -146,6 +146,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
+    //TODO hide rows smooth XD
     [self reloadSettings];
 }
 

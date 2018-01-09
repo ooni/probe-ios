@@ -35,20 +35,24 @@
 "lets_go" = "Let\'s go";
 
 /* Dashboard */
-"web_censorship" = "Web Censorship";
-"instant_messaging" = "IM blocking";
+"website" = "Website";
+"instant_messaging" = "Instant Messaging";
 "middle_boxes" = "Middle Boxes";
-"web_performance" = "Web Performance";
+"performance" = "Performance";
 
-"web_censorship_desc" = "Checking for blocking of websites";
+"website_desc" = "Checking for blocking of websites";
 "instant_messaging_desc" = "Checking for blocking of instant messaging apps.";
 "middle_boxes_desc" = "Middle Boxes DESC";
-"web_performance_desc" = "Web Performance DESC";
+"performance_desc" = "Web Performance DESC";
 
-"web_censorship_longdesc" = "This test examines whether access to websites is blocked through DNS tampering, TCP/IP blocking, or by a transparent HTTP proxy.\nEvery time you run Web Connectivity you test different websites.";
+"website_longdesc" = "This test examines whether access to websites is blocked through DNS tampering, TCP/IP blocking, or by a transparent HTTP proxy.\nEvery time you run Web Connectivity you test different websites.";
 "instant_messaging_longdesc" = "This test examines whether access to instant messengers are blocked. It includes tests for Facebook Messenger, Telegram and WhatsApp.";
 "middle_boxes_longdesc" = "This test tries to detect the presence of middle boxes that could be responsible for censorship or surveillance by sending HTTP requests with non-canonical headers to a backend control server.";
-"web_performance_longdesc" = "This test measures the speed and performance of your network. \n\nDisclaimer:\nThis is a 3rd party performance test based on 3rd party servers, and we cannot guarantee that your IP address will not be collected.";
+"performance_longdesc" = "This test measures the speed and performance of your network. \n\nDisclaimer:\nThis is a 3rd party performance test based on 3rd party servers, and we cannot guarantee that your IP address will not be collected.";
+
+"enabled" = "Enabled";
+"disabled" = "Disabled";
+
 
 /* Tabs */
 "dashboard" = "Dashboard";
@@ -62,6 +66,13 @@
 "automated_testing" = "Automated testing";
 "advanced" = "Advanced";
 
+"enabled" = "Enabled";
+"enabled_tests" = "Enabled tests";
+"monthly_mobile_allowance" = "Monthly mobile allowance";
+"monthly_wifi_allowance" = "Monthly WiFi allowance";
+
+"automatic_tests" = "Automatic tests";
+
 //NOTE these have changed in english
 "include_ip" = "Include IP";
 "include_asn" = "Share Network Info";
@@ -69,8 +80,11 @@
 "include_gps" = "Include approximate geo-location";
 
 "website_categories" = "Website categories";
-"include_cc" = "Include country code";
+
 "send_crash" = "Send crash reports";
+"debug_logs" = "Debug Logs";
+"use_domain_fronting" = "Always use domain fronting";
+"include_cc" = "Include country code";
 
 /* Categories */
 "ALDR" = "Alcohol & Drugs";
@@ -110,8 +124,6 @@
 "past_tests" = "Past Tests";
 "about" = "About";
 
-"dns_injection" = "DNS Injection";
-"tcp_connect" = "TCP Connect";
 "http_invalid_request_line" = "HTTP Invalid request line";
 "http_header_field_manipulation" = "HTTP Header field manipulation";
 "web_connectivity" = "Web Connectivity";
