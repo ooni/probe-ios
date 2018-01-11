@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>local_notifications</key>
-	<false/>
 	<key>include_ip</key>
 	<false/>
 	<key>include_asn</key>
@@ -12,8 +10,6 @@
 	<true/>
 	<key>upload_results</key>
 	<true/>
-	<key>local_notifications_time</key>
-	<date>2017-01-01T17:00:00Z</date>
 	<key>automatic_tests</key>
 	<array>
 		<string>web_connectivity</string>
@@ -25,7 +21,7 @@
 		<string>telegram</string>
 		<string>facebook_messenger</string>
 	</array>
-	<key>sites_categories</key>
+	<key>website_categories</key>
 	<array>
 		<string>ALDR</string>
 		<string>REL</string>
@@ -62,6 +58,50 @@
 	<key>max_runtime</key>
 	<integer>90</integer>
 	<key>send_crash</key>
+	<true/>
+	<key>notifications_enabled</key>
+	<false/>
+	<key>notifications_completion</key>
+	<true/>
+	<key>notifications_news</key>
+	<false/>
+	<key>automated_testing_enabled</key>
+	<false/>
+	<key>monthly_mobile_allowance</key>
+	<integer>100</integer>
+	<key>monthly_wifi_allowance</key>
+	<integer>0</integer>
+	<key>include_gps</key>
+	<false/>
+	<key>debug_logs</key>
+	<false/>
+	<key>use_domain_fronting</key>
+	<false/>
+	<key>test_whatsapp</key>
+	<true/>
+	<key>test_whatsapp_extensive</key>
+	<false/>
+	<key>test_telegram</key>
+	<true/>
+	<key>test_facebook</key>
+	<true/>
+	<key>custom_url</key>
+	<integer>100</integer>
+	<key>run_ndt</key>
+	<true/>
+	<key>ndt_server</key>
+	<string>auto</string>
+	<key>ndt_server_port</key>
+	<real>3001</real>
+	<key>run_dash</key>
+	<true/>
+	<key>dash_server</key>
+	<string>auto</string>
+	<key>dash_server_port</key>
+	<integer>80</integer>
+	<key>run_http_invalid_request_line</key>
+	<true/>
+	<key>run_http_header_field_manipulation</key>
 	<true/>
 </dict>
 </plist>

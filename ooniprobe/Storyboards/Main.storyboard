@@ -55,6 +55,9 @@
                                             <rect key="frame" x="210" y="37" width="94" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Configure"/>
+                                            <connections>
+                                                <segue destination="yMA-vE-fiW" kind="show" identifier="toTestSettings" id="yaa-0s-SbM"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -71,6 +74,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcU-8V-FpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="637.5" y="266.19718309859155"/>
+        </scene>
+        <!--settings-->
+        <scene sceneID="ipR-az-yvP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="settings" id="yMA-vE-fiW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VK5-mA-pad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1320" y="266"/>
         </scene>
         <!--settings_nav-->
         <scene sceneID="E8F-GY-eJR">

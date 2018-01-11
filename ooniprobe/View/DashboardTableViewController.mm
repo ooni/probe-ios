@@ -61,4 +61,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toTestSettings"]){
+        UITableViewCell* cell = (UITableViewCell*)[[sender superview] superview];
+        NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
+        SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
+        NSString *test_name = [items objectAtIndex:indexPath.row];
+        [vc setTest_name:test_name];
+    }
+}
+
+
 @end

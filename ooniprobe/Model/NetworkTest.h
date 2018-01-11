@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "Result.h"
 #import "MKNetworkTest.h"
+#import "SettingsUtility.h"
 
 @interface NetworkTest : NSObject <MKNetworkTestDelegate>
 @property Result *result;

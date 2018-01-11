@@ -4,14 +4,20 @@
 @end
 
 @implementation SettingsTableViewController
-@synthesize category;
+@synthesize category, test_name;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(category, nil);
-    
+    if (category != nil)
+        self.title = NSLocalizedString(category, nil);
+    else if (test_name != nil)
+        self.title = NSLocalizedString(test_name, nil);
+
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
+    //UIBarButtonItem *autoBarButton = [[UIBarButtonItem alloc]
+    //                                  initWithTitle:@"AUTO" style:UIBarButtonItemStyleDone target:self.view action:@selector(endEditing:)];
+
     UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                       target:nil action:nil];
@@ -29,7 +35,10 @@
 }
 
 -(void)reloadSettings {
-    items = [SettingsUtility getSettingsForCategory:category];
+    if (category != nil)
+        items = [SettingsUtility getSettingsForCategory:category];
+    else if (test_name != nil)
+        items = [SettingsUtility getSettingsForTest:test_name];
     [self.tableView reloadData];
 }
 
@@ -82,20 +91,33 @@
         cell.imageView.image = [UIImage imageNamed:current];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"textfield"]){
+    else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = NSLocalizedString(current, nil);
         cell.imageView.image = [UIImage imageNamed:current];
-        NSNumber *time = [[NSUserDefaults standardUserDefaults] objectForKey:current];
-        NSDecimalNumber *someNumber = [NSDecimalNumber decimalNumberWithString:[time stringValue]];
+        NSNumber *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
+        NSDecimalNumber *someNumber = [NSDecimalNumber decimalNumberWithString:[value stringValue]];
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        UITextField *textField = [self createTextField:[formatter stringFromNumber:someNumber]];
+        UITextField *textField = [self createTextField:@"int" :[formatter stringFromNumber:someNumber]];
+        cell.accessoryView = textField;
+    }
+    else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"string"]){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.imageView.image = [UIImage imageNamed:current];
+        NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
+        UITextField *textField = [self createTextField:@"string" :value];
         cell.accessoryView = textField;
     }
     return cell;
 }
 
-- (UITextField*)createTextField:(NSString*)text{
+//TODO
+- (UITextField*)createAlertField:(NSString*)type :(NSString*)text{
+    return nil;
+}
+
+- (UITextField*)createTextField:(NSString*)type :(NSString*)text{
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
     textField.delegate = self;
     textField.backgroundColor = color_off_white;
@@ -104,7 +126,10 @@
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.text = text;
-    textField.keyboardType = UIKeyboardTypeNumberPad;
+    if ([type isEqualToString:@"int"])
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+    else
+        textField.keyboardType = UIKeyboardTypeDefault;
     textField.inputAccessoryView = keyboardToolbar;
     return textField;
 }
@@ -140,6 +165,13 @@
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
     NSString *current = [items objectAtIndex:indexpath.row];
+    /* Commented for now, simulator doesn't have notifications
+     if (([current isEqualToString:@"notifications_enabled"] ||[current isEqualToString:@"automated_testing_enabled"]) && ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications]){
+        //or if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)])
+        //https://stackoverflow.com/questions/1535403/determine-on-iphone-if-user-has-enabled-push-notifications
+        [MessageUtility notificationAlertinView:self.view];
+        return;
+    }*/
     if (mySwitch.on)
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
@@ -156,6 +188,17 @@
     NSString *current = [items objectAtIndex:indexPath.row];
     if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"segue"]){
         [self performSegueWithIdentifier:current sender:self];
+    }
+    if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"string"]){
+        NSString *current = [items objectAtIndex:indexPath.row];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(current, @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"AUTO", nil), NSLocalizedString(@"ok", nil), nil];
+        alert.tag = indexPath.row;
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        value = [alert textFieldAtIndex:0];
+        value.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
+        value.autocorrectionType = UITextAutocorrectionTypeNo;
+        [value setKeyboardType:UIKeyboardTypeDefault];
+        [alert show];
     }
     [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

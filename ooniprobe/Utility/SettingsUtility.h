@@ -6,8 +6,6 @@
 + (NSArray*)getSettingsForCategory:(NSString*)catName;
 + (NSString*)getTypeForSetting:(NSString*)setting;
 
-+ (NSArray*)getSettingsForTest:(NSString*)testName;
-
 + (NSDictionary*)getTests;
 + (NSArray*)getTestTypes;
 
@@ -19,4 +17,7 @@
 + (NSArray*)getSitesCategoriesEnabled;
 + (void)addRemoveSitesCategory:(NSString*)category_name;
 
++ (NSArray*)getSettingsForTest:(NSString*)test_name;
+
++ (BOOL)getSettingWithName:(NSString*)setting_name;
 @end

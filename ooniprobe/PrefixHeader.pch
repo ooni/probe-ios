@@ -7,6 +7,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "NSDictionary+Safety.h"
+#import "UIColor+TFT.h"
 
 #ifdef DEV
 #define NOTIFICATION_SERVER @"https://registry.proteus.test.ooni.io"

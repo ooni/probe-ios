@@ -49,14 +49,16 @@
 + (void)notificationAlertinView:(UIViewController *)view
 {
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:NSLocalizedString(@"receive_ooni_news", nil)
-                                 message:NSLocalizedString(@"receive_ooni_news", nil)
+                                 alertControllerWithTitle:NSLocalizedString(@"alert", nil)
+                                 message:NSLocalizedString(@"enable_notification_first_time", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"ok", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
                                    [NotificationService registerUserNotification];
+                                   //TODO callback and enable the key the user was trying to enable.
+                                   //TODECIDE when popup randomly what to enable
                                }];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"cancel", nil)

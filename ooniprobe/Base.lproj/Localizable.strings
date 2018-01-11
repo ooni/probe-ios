@@ -62,29 +62,45 @@
 /* Settings*/
 "settings" = "Settings";
 "notifications" = "Notifications";
-"sharing" = "Sharing";
 "automated_testing" = "Automated testing";
+"sharing" = "Sharing";
 "advanced" = "Advanced";
 
-"enabled" = "Enabled";
+"notifications_enabled" = "Enabled";
+"notifications_completion" = "Notify on test completion";
+"notifications_news" = "Notify on news";
+
+"automated_testing_enabled" = "Enabled";
 "enabled_tests" = "Enabled tests";
+"website_categories" = "Categories to test";
 "monthly_mobile_allowance" = "Monthly mobile allowance";
 "monthly_wifi_allowance" = "Monthly WiFi allowance";
 
-"automatic_tests" = "Automatic tests";
-
-//NOTE these have changed in english
+"upload_results" = "Publish results";
 "include_ip" = "Include IP";
 "include_asn" = "Share Network Info";
 "upload_results" = "Publish Results";
 "include_gps" = "Include approximate geo-location";
 
-"website_categories" = "Website categories";
-
 "send_crash" = "Send crash reports";
 "debug_logs" = "Debug Logs";
 "use_domain_fronting" = "Always use domain fronting";
 "include_cc" = "Include country code";
+
+"max_runtime" = "Duration of the test";
+"custom_url" = "Custom URL to test";
+"test_whatsapp" = "Test Whatsapp";
+"test_whatsapp_extensive" = "Extensive WhatsApp test";
+"test_telegram" = "Test Telegram";
+"test_facebook" = "Test Facebook";
+"run_http_invalid_request_line" = "Run HTTP Invalid Request Line";
+"run_http_header_field_manipulation" = "Run HTTP Header Field Manipulation";
+"run_ndt" = "Run NDT";
+"ndt_server" = "NDT Server";
+"ndt_server_port" = "NDT Server Port";
+"run_dash" = "Run DASH";
+"dash_server" = "DASH Server";
+"dash_server_port" = "DASH Server Port";
 
 /* Categories */
 "ALDR" = "Alcohol & Drugs";
@@ -190,7 +206,7 @@
 "local_notifications_time" = "Time";
 "local_notifications_text" = "Time to run tests";
 
-"max_runtime" = "Web Connectivity max runtime (seconds)";
+//"max_runtime" = "Web Connectivity max runtime (seconds)";
 "advanced_settings" = "Advanced settings";
 "finished_running" = "%@ finished running";
 "view_log" = "View log";

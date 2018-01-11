@@ -3,7 +3,7 @@ target 'ooniprobe' do
     pod 'measurement_kit',
         :git => 'https://github.com/measurement-kit/measurement-kit.git',
 	:tag => 'v0.8.1'
-    pod 'Toast'
+    pod 'Toast', '~> 4.0.0'
     pod 'PBRevealViewController'
     pod 'UIBarButtonItem-Badge-Coding'
     pod 'Fabric'
