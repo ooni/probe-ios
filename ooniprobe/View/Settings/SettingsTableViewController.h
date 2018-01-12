@@ -6,7 +6,6 @@
 @interface SettingsTableViewController : UITableViewController <UITextFieldDelegate, UIAlertViewDelegate> {
     NSArray *items;
     UIToolbar *keyboardToolbar;
-    UITextField *value;
 
 }
 

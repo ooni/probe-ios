@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"automatic_tests", nil);
+    self.title = NSLocalizedString(@"enabled_tests", nil);
     tests = [SettingsUtility getTests];
     test_types = [SettingsUtility getTestTypes];
     automatic_tests = [SettingsUtility getAutomaticTestsEnabled];
@@ -28,11 +28,31 @@
 }
 
 #pragma mark - Table view data source
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+
+
+  - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *test_type = [test_types objectAtIndex:section];
     return NSLocalizedString(test_type, nil);
 }
+/*
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *lbl = [[UILabel alloc] init];
+    NSString *test_type = [test_types objectAtIndex:section];
+    //lbl.textAlignment = UITextAlignmentCenter;
+    lbl.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    lbl.font = [UIFont fontWithName:@"FiraSans-Regular" size:17];
+    lbl.text = NSLocalizedString(test_type, nil);
+    return lbl;
+}
+*/
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [header.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:16]];
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [test_types count];

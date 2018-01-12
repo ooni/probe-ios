@@ -15,16 +15,16 @@
 
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
-    //UIBarButtonItem *autoBarButton = [[UIBarButtonItem alloc]
-    //                                  initWithTitle:@"AUTO" style:UIBarButtonItemStyleDone target:self.view action:@selector(endEditing:)];
-
+    UIBarButtonItem *autoBarButton = [[UIBarButtonItem alloc]
+                                      initWithTitle:@"AUTO" style:UIBarButtonItemStyleDone target:self.view action:@selector(endEditing:)];
     UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                       target:nil action:nil];
     UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                       target:self.view action:@selector(endEditing:)];
-    keyboardToolbar.items = @[flexBarButton, doneBarButton];
+    //TODO insert auto only for ndt_server and dash_server
+    keyboardToolbar.items = @[autoBarButton, flexBarButton, doneBarButton];
 
     
     [self reloadSettings];
@@ -188,17 +188,6 @@
     NSString *current = [items objectAtIndex:indexPath.row];
     if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"segue"]){
         [self performSegueWithIdentifier:current sender:self];
-    }
-    if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"string"]){
-        NSString *current = [items objectAtIndex:indexPath.row];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(current, @"") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"") otherButtonTitles:NSLocalizedString(@"AUTO", nil), NSLocalizedString(@"ok", nil), nil];
-        alert.tag = indexPath.row;
-        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-        value = [alert textFieldAtIndex:0];
-        value.text = [[NSUserDefaults standardUserDefaults] objectForKey:current];
-        value.autocorrectionType = UITextAutocorrectionTypeNo;
-        [value setKeyboardType:UIKeyboardTypeDefault];
-        [alert show];
     }
     [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
