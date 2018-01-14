@@ -15,18 +15,14 @@
 
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
-    UIBarButtonItem *autoBarButton = [[UIBarButtonItem alloc]
-                                      initWithTitle:@"AUTO" style:UIBarButtonItemStyleDone target:self.view action:@selector(endEditing:)];
     UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                       target:nil action:nil];
     UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                       target:self.view action:@selector(endEditing:)];
-    //TODO insert auto only for ndt_server and dash_server
-    keyboardToolbar.items = @[autoBarButton, flexBarButton, doneBarButton];
+    keyboardToolbar.items = @[flexBarButton, doneBarButton];
 
-    
     [self reloadSettings];
 }
 
@@ -138,10 +134,12 @@
     return YES;
 }
 
+//TODO review these two
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     UITableViewCell *cell = (UITableViewCell *)textField.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    if (indexPath.section == 2 && indexPath.row == 0){
+    NSString *current = [items objectAtIndex:indexPath.row];
+    if ([current isEqualToString:@"max_runtime"]){
         if ([textField.text integerValue] < 10){
             NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
             f.numberStyle = NSNumberFormatterDecimalStyle;
@@ -154,18 +152,25 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    UITableViewCell *cell = (UITableViewCell *)textField.superview;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSString *current = [items objectAtIndex:indexPath.row];
     NSString * str = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-    f.numberStyle = NSNumberFormatterDecimalStyle;
-    [[NSUserDefaults standardUserDefaults] setObject:[f numberFromString:str] forKey:@"max_runtime"];
+    if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"]){
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        f.numberStyle = NSNumberFormatterDecimalStyle;
+        [[NSUserDefaults standardUserDefaults] setObject:[f numberFromString:str] forKey:current];
+    }
+    else
+        [[NSUserDefaults standardUserDefaults] setObject:str forKey:current];
     return YES;
 }
 
 -(IBAction)setSwitch:(UISwitch *)mySwitch{
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
-    NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
-    NSString *current = [items objectAtIndex:indexpath.row];
-    /* Commented for now, simulator doesn't have notifications
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSString *current = [items objectAtIndex:indexPath.row];
+    /* TODO Commented for now, simulator doesn't have notifications
      if (([current isEqualToString:@"notifications_enabled"] ||[current isEqualToString:@"automated_testing_enabled"]) && ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications]){
         //or if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)])
         //https://stackoverflow.com/questions/1535403/determine-on-iphone-if-user-has-enabled-push-notifications

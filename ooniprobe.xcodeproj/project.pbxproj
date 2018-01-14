@@ -14,6 +14,7 @@
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
 		ED09A7011E3E3534003E1603 /* TestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A7001E3E3534003E1603 /* TestResult.m */; };
+		ED0A61FE200B075000235E70 /* CustomURLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A61FD200B075000235E70 /* CustomURLTableViewController.m */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED21E0581F898DDE008DFD0D /* TestLists.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED21E0571F898DDE008DFD0D /* TestLists.mm */; };
@@ -115,6 +116,8 @@
 		D4A2F62F1A6C33F7001B8460 /* hosts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hosts.txt; sourceTree = "<group>"; };
 		ED09A6FF1E3E3534003E1603 /* TestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResult.h; sourceTree = "<group>"; };
 		ED09A7001E3E3534003E1603 /* TestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResult.m; sourceTree = "<group>"; };
+		ED0A61FC200B075000235E70 /* CustomURLTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomURLTableViewController.h; path = Settings/CustomURLTableViewController.h; sourceTree = "<group>"; };
+		ED0A61FD200B075000235E70 /* CustomURLTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CustomURLTableViewController.m; path = Settings/CustomURLTableViewController.m; sourceTree = "<group>"; };
 		ED0D35BC1DD72824005C863F /* RunButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunButton.h; sourceTree = "<group>"; };
 		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunButton.m; sourceTree = "<group>"; };
 		ED1F33601EFD552F00B42FEC /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
@@ -568,6 +571,8 @@
 				EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */,
 				EDDB0B792000F10E00EFD9C8 /* AutomaticTestsTableViewController.h */,
 				EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */,
+				ED0A61FC200B075000235E70 /* CustomURLTableViewController.h */,
+				ED0A61FD200B075000235E70 /* CustomURLTableViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -841,6 +846,7 @@
 				ED70D5061FE8022300759463 /* Result.mm in Sources */,
 				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
+				ED0A61FE200B075000235E70 /* CustomURLTableViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.mm in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
 				EDC2C9F31FD9A23900FF01D3 /* UIColor+TFT.m in Sources */,
