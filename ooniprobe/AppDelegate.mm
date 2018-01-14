@@ -127,7 +127,7 @@
 
 -(void)openBrowser{
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
         UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"browserNC"];
         BrowserViewController *bvc = (BrowserViewController*)[nvc.viewControllers objectAtIndex:0];
         [bvc setUrlList:links];
@@ -230,7 +230,7 @@
 
 -(void)openURIschemeScreen:(NSDictionary*)parameters{
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
         UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"runtestNC"];
         RunTestViewController *rvc = (RunTestViewController*)[nvc.viewControllers objectAtIndex:0];
         [rvc setTestName:[parameters objectForKey:@"tn"]];

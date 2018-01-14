@@ -15,6 +15,7 @@
 		D4A2F63E1A6C33F7001B8460 /* hosts.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F62F1A6C33F7001B8460 /* hosts.txt */; };
 		ED09A7011E3E3534003E1603 /* TestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED09A7001E3E3534003E1603 /* TestResult.m */; };
 		ED0A61FE200B075000235E70 /* CustomURLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A61FD200B075000235E70 /* CustomURLTableViewController.m */; };
+		ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0A6200200B52C000235E70 /* OONIRun.storyboard */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED21E0581F898DDE008DFD0D /* TestLists.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED21E0571F898DDE008DFD0D /* TestLists.mm */; };
@@ -118,6 +119,7 @@
 		ED09A7001E3E3534003E1603 /* TestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResult.m; sourceTree = "<group>"; };
 		ED0A61FC200B075000235E70 /* CustomURLTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomURLTableViewController.h; path = Settings/CustomURLTableViewController.h; sourceTree = "<group>"; };
 		ED0A61FD200B075000235E70 /* CustomURLTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CustomURLTableViewController.m; path = Settings/CustomURLTableViewController.m; sourceTree = "<group>"; };
+		ED0A6200200B52C000235E70 /* OONIRun.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = OONIRun.storyboard; path = Storyboards/OONIRun.storyboard; sourceTree = "<group>"; };
 		ED0D35BC1DD72824005C863F /* RunButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunButton.h; sourceTree = "<group>"; };
 		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunButton.m; sourceTree = "<group>"; };
 		ED1F33601EFD552F00B42FEC /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
@@ -354,6 +356,17 @@
 			path = fixtures;
 			sourceTree = "<group>";
 		};
+		ED0A61FF200B52A300235E70 /* OONIRun */ = {
+			isa = PBXGroup;
+			children = (
+				ED1F33601EFD552F00B42FEC /* BrowserViewController.h */,
+				ED1F33611EFD552F00B42FEC /* BrowserViewController.m */,
+				EDFE07381F37526A00960AF2 /* RunTestViewController.h */,
+				EDFE07391F37526A00960AF2 /* RunTestViewController.mm */,
+			);
+			path = OONIRun;
+			sourceTree = "<group>";
+		};
 		ED21E0591F8990E3008DFD0D /* test-lists */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +393,7 @@
 		ED25281F1CEA353A0073A29B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED0A61FF200B52A300235E70 /* OONIRun */,
 				EDDB0B5E1FFF3A5A00EFD9C8 /* TabsViewController.h */,
 				EDDB0B5D1FFF3A5A00EFD9C8 /* TabsViewController.m */,
 				EDDB0B561FFF32B900EFD9C8 /* Settings */,
@@ -399,10 +413,6 @@
 				ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */,
 				ED3932C21E3114740064CD11 /* AboutViewController.h */,
 				ED3932C31E3114740064CD11 /* AboutViewController.mm */,
-				ED1F33601EFD552F00B42FEC /* BrowserViewController.h */,
-				ED1F33611EFD552F00B42FEC /* BrowserViewController.m */,
-				EDFE07381F37526A00960AF2 /* RunTestViewController.h */,
-				EDFE07391F37526A00960AF2 /* RunTestViewController.mm */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -532,6 +542,7 @@
 				EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */,
 				ED58CF761FEBB79A00E3C415 /* Old.storyboard */,
 				EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */,
+				ED0A6200200B52C000235E70 /* OONIRun.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -713,6 +724,7 @@
 				ED7F9FFB1F700BEE0053FA50 /* font-charter-italic.a043b97f0bac1546f96bc31abd6956bb.woff in Resources */,
 				ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */,
 				ED7FA0081F700BEE0053FA50 /* vendor.395fa3b184891829715b.js in Resources */,
+				ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */,
 				EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */,
 				EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */,
 				ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */,
