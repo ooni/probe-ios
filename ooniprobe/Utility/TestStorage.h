@@ -2,6 +2,8 @@
 #import "NetworkMeasurement.h"
 #import "Tests.h"
 
+//deprecated
+
 @interface TestStorage : NSObject
 
 + (BOOL)get_old_tests;

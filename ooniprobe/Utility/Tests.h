@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "NetworkMeasurement.h"
+//deprecated
 
 @interface Tests : NSObject
 @property (strong, nonatomic) NSMutableArray *availableNetworkMeasurements;

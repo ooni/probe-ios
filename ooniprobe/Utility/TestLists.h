@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+//deprecated
 
 @interface TestLists : NSObject
 

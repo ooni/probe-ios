@@ -3,5 +3,5 @@
 @interface DictionaryUtility : NSObject
 
 + (NSDictionary *)parseQueryString:(NSString *)query;
-+ (NSDictionary*)getParametersFromDict:(NSDictionary*)dict;
++ (NSDictionary *)getParametersFromDict:(NSDictionary*)dict;
 @end
