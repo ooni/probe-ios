@@ -70,7 +70,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="9cV-jL-NiY"/>
                     <navigationItem key="navigationItem" title="Dashboard" id="rI8-TT-F8l">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="rDV-5B-JEG">
+                        <barButtonItem key="rightBarButtonItem" image="settings_icon" id="rDV-5B-JEG">
                             <connections>
                                 <segue destination="mdj-nf-tvW" kind="presentation" id="bjV-cE-1hN"/>
                             </connections>
@@ -274,4 +274,7 @@
             <point key="canvasLocation" x="-270" y="2064"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings_icon" width="23" height="23"/>
+    </resources>
 </document>

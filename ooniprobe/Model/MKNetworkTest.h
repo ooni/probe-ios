@@ -2,7 +2,7 @@
 #import <UIKit/UIKit.h>
 
 #import <measurement_kit/common.hpp>
-//#import "TestLists.h"
+#import "SettingsUtility.h"
 #import "Measurement.h"
 
 @protocol MKNetworkTestDelegate <NSObject>
@@ -19,27 +19,21 @@
 @property NSArray *inputs;
 @property BOOL max_runtime_enabled;
 @property id<MKNetworkTestDelegate> delegate;
+@property NSInteger resultId;
 
 -(void) run;
-@end
-
-
-@interface HTTPInvalidRequestLine : MKNetworkTest
-@end
-
-@interface DNSInjection : MKNetworkTest
-@end
-
-@interface TCPConnect : MKNetworkTest
 @end
 
 @interface WebConnectivity : MKNetworkTest
 @end
 
-@interface NdtTest : MKNetworkTest
+@interface HTTPInvalidRequestLine : MKNetworkTest
 @end
 
 @interface HttpHeaderFieldManipulation : MKNetworkTest
+@end
+
+@interface NdtTest : MKNetworkTest
 @end
 
 @interface Dash : MKNetworkTest

@@ -74,7 +74,7 @@
     if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"bool"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = NSLocalizedString(current, nil);
-        cell.imageView.image = [UIImage imageNamed:current];
+        //cell.imageView.image = [UIImage imageNamed:current];
         UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
         [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
@@ -84,13 +84,13 @@
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"segue"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = NSLocalizedString(current, nil);
-        cell.imageView.image = [UIImage imageNamed:current];
+        //cell.imageView.image = [UIImage imageNamed:current];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = NSLocalizedString(current, nil);
-        cell.imageView.image = [UIImage imageNamed:current];
+        //cell.imageView.image = [UIImage imageNamed:current];
         NSNumber *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         NSDecimalNumber *someNumber = [NSDecimalNumber decimalNumberWithString:[value stringValue]];
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -100,7 +100,7 @@
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"string"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = NSLocalizedString(current, nil);
-        cell.imageView.image = [UIImage imageNamed:current];
+        //cell.imageView.image = [UIImage imageNamed:current];
         NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         UITextField *textField = [self createTextField:@"string" :value];
         cell.accessoryView = textField;

@@ -8,7 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"website_categories", nil);
+    self.title = NSLocalizedString(@"categories", nil);
 }
 
 - (void)didReceiveMemoryWarning {

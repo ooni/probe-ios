@@ -27,31 +27,30 @@
 - (void) loadAvailableMeasurements {
     [self.availableNetworkMeasurements removeAllObjects];
     
-    /*
-    WebConnectivity *web_connectivityMeasurement = [[WebConnectivity alloc] init];
+    WebConnectivity2 *web_connectivityMeasurement = [[WebConnectivity2 alloc] init];
     [self.availableNetworkMeasurements addObject:web_connectivityMeasurement];
     
-    HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
+    HTTPInvalidRequestLine2 *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine2 alloc] init];
     [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
     
-    HttpHeaderFieldManipulation *http_header_field_manipulationMeasurement = [[HttpHeaderFieldManipulation alloc] init];
+    HttpHeaderFieldManipulation2 *http_header_field_manipulationMeasurement = [[HttpHeaderFieldManipulation2 alloc] init];
     [self.availableNetworkMeasurements addObject:http_header_field_manipulationMeasurement];
 
-    NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
+    NdtTest2 *ndt_testMeasurement = [[NdtTest2 alloc] init];
     [self.availableNetworkMeasurements addObject:ndt_testMeasurement];
 
-    Dash *dash = [[Dash alloc] init];
+    Dash2 *dash = [[Dash2 alloc] init];
     [self.availableNetworkMeasurements addObject:dash];
     
-    Whatsapp *whatsapp = [[Whatsapp alloc] init];
+    Whatsapp2 *whatsapp = [[Whatsapp2 alloc] init];
     [self.availableNetworkMeasurements addObject:whatsapp];
     
-    Telegram *telegram = [[Telegram alloc] init];
+    Telegram2 *telegram = [[Telegram2 alloc] init];
     [self.availableNetworkMeasurements addObject:telegram];
     
-    FacebookMessenger *facebook_messenger = [[FacebookMessenger alloc] init];
+    FacebookMessenger2 *facebook_messenger = [[FacebookMessenger2 alloc] init];
     [self.availableNetworkMeasurements addObject:facebook_messenger];
-*/
+
 }
 
 - (NetworkMeasurement*)getTestWithName:(NSString*)testName{

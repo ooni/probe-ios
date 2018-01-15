@@ -19,7 +19,7 @@
     NSLog(@"endTime %@", self.endTime);
     NSLog(@"dataUsage %ld", self.dataUsage);
     NSLog(@"ip %@", self.ip);
-    NSLog(@"asn %ld", self.asn);
+    NSLog(@"asn %@", self.asn);
     NSLog(@"country %@", self.country);
     NSLog(@"networkName %@", self.networkName);
     NSLog(@"state %@", self.state);
@@ -27,7 +27,6 @@
     NSLog(@"reportFile %@", self.reportFile);
     NSLog(@"reportId %@", self.reportId);
     NSLog(@"input %@", self.input);
-    NSLog(@"measurementId %@", self.measurementId);
     NSLog(@"resultId %ld", self.resultId);
 }
 

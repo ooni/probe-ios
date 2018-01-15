@@ -21,7 +21,8 @@
 @property (strong, nonatomic) NSString *reportFile;
 @property (strong, nonatomic) NSString *reportId;
 @property (strong, nonatomic) NSString *input;
-@property (strong, nonatomic) NSString *measurementId;
+
+//@property (strong, nonatomic) NSString *measurementId;
 @property (nonatomic, assign) NSInteger resultId;
 
 //mancano entry e anomaly. anomaly è gestita da failure

@@ -28,6 +28,7 @@
         return nil;
     }
     self.measurement = [[Measurement alloc] init];
+    self.measurement.resultId = self.resultId;
     self.backgroundTask = UIBackgroundTaskInvalid;
     return self;
 }
@@ -42,10 +43,10 @@
 }
 
 - (void) init_common:(mk::nettests::BaseTest&) test{
-    BOOL include_ip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_ip"] boolValue];
-    BOOL include_asn = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_asn"] boolValue];
-    BOOL include_cc = [[[NSUserDefaults standardUserDefaults] objectForKey:@"include_cc"] boolValue];
-    BOOL upload_results = [[[NSUserDefaults standardUserDefaults] objectForKey:@"upload_results"] boolValue];
+    BOOL include_ip = [SettingsUtility getSettingWithName:@"include_ip"];
+    BOOL include_asn = [SettingsUtility getSettingWithName:@"include_asn"];
+    BOOL include_cc = [SettingsUtility getSettingWithName:@"include_cc"];
+    BOOL upload_results = [SettingsUtility getSettingWithName:@"upload_results"];
     NSString *software_version = [VersionUtility get_software_version];
     NSString *geoip_asn = [[NSBundle mainBundle] pathForResource:@"GeoIPASNum" ofType:@"dat"];
     NSString *geoip_country = [[NSBundle mainBundle] pathForResource:@"GeoIP" ofType:@"dat"];
@@ -132,6 +133,70 @@
 
 @end
 
+@implementation WebConnectivity : MKNetworkTest
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.name = @"web_connectivity";
+    }
+    return self;
+}
+
+-(void)run {
+    [super run];
+    [self run_test];
+}
+
+
+-(void) run_test {
+    NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
+    mk::nettests::WebConnectivityTest test;
+    [super init_common:test];
+    if (self.max_runtime_enabled){
+        test.set_option("max_runtime", [max_runtime doubleValue]);
+    }
+    if ([self.inputs count] > 0) {
+        for (NSString* input in self.inputs) {
+            test.add_input([input UTF8String]);
+        }
+    }
+    test.on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    });
+    test.on_begin([self]() {
+        //TODO Create measurement object and set input
+    });
+    test.start([self]() {
+        [self testEnded];
+    });
+}
+
+-(void)on_entry:(const char*)str{
+    if (str != nil) {
+        /*
+         salva measurement, rialloca measurement.
+         sempre creare un measurement on_start e set input
+         `on_entry(datum)` you will:
+         - If it's the first entry, `UPDATE` it with the content of `datum`
+         - If it's not the first entry, `INSERT` a new row with the content of `datum`
+         */
+        //TODO Create/Update measurement object
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        [super on_entry:json];
+        
+        int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
+        /*if (blocking > self.anomaly){
+         self.anomaly = blocking;
+         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+         }*/
+    }
+}
+
+@end
+
 @implementation HTTPInvalidRequestLine : MKNetworkTest
 
 -(id) init {
@@ -186,121 +251,6 @@
 
 @end
 
-@implementation WebConnectivity : MKNetworkTest
-
--(id) init {
-    self = [super init];
-    if (self) {
-        self.name = @"web_connectivity";
-    }
-    return self;
-}
-
--(void)run {
-    [super run];
-    [self run_test];
-}
-
-
--(void) run_test {
-    NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-    mk::nettests::WebConnectivityTest test;
-    [super init_common:test];
-    if (self.max_runtime_enabled){
-        test.set_option("max_runtime", [max_runtime doubleValue]);
-    }
-    if ([self.inputs count] > 0) {
-        for (NSString* input in self.inputs) {
-            test.add_input([input UTF8String]);
-        }
-    }
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.on_begin([self]() {
-        //TODO Create measurement object and set input
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
-}
-
--(void)on_entry:(const char*)str{
-    if (str != nil) {
-        /*
-         salva measurement, rialloca measurement.
-         sempre creare un measurement on_start e set input
-         `on_entry(datum)` you will:
-         - If it's the first entry, `UPDATE` it with the content of `datum`
-         - If it's not the first entry, `INSERT` a new row with the content of `datum`
-         */
-        //TODO Create/Update measurement object
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        [super on_entry:json];
-
-        int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
-        /*if (blocking > self.anomaly){
-         self.anomaly = blocking;
-         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
-         }*/
-    }
-}
-
-@end
-
-@implementation NdtTest : MKNetworkTest
-
--(id) init {
-    self = [super init];
-    if (self) {
-        self.name = @"ndt";
-    }
-    return self;
-}
-
--(void)run {
-    [super run];
-    [self run_test];
-}
-
-
--(void) run_test {
-    mk::nettests::NdtTest test;
-    [super init_common:test];
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
-}
-
-/*
- on_entry method for ndt test
- if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
- */
--(void)on_entry:(const char*)str{
-    if (str != nil) {
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        [super on_entry:json];
-
-        int blocking = ANOMALY_GREEN;
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
-            blocking = ANOMALY_ORANGE;
-        /*if (blocking > self.anomaly){
-         self.anomaly = blocking;
-         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
-         }*/
-    }
-}
-
-@end
-
-
 @implementation HttpHeaderFieldManipulation : MKNetworkTest
 
 -(id) init {
@@ -338,7 +288,7 @@
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         [super on_entry:json];
-
+        
         int blocking = ANOMALY_GREEN;
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
             blocking = ANOMALY_ORANGE;
@@ -362,6 +312,56 @@
 
 @end
 
+@implementation NdtTest : MKNetworkTest
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.name = @"ndt";
+    }
+    return self;
+}
+
+-(void)run {
+    [super run];
+    [self run_test];
+}
+
+
+-(void) run_test {
+    mk::nettests::NdtTest test;
+    [super init_common:test];
+    //when setting server check first ndt_server_auto
+    test.on_entry([self](std::string s) {
+        [self on_entry:s.c_str()];
+    });
+    test.start([self]() {
+        [self testEnded];
+    });
+}
+
+/*
+ on_entry method for ndt test
+ if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+ */
+-(void)on_entry:(const char*)str{
+    if (str != nil) {
+        NSError *error;
+        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        [super on_entry:json];
+
+        int blocking = ANOMALY_GREEN;
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+            blocking = ANOMALY_ORANGE;
+        /*if (blocking > self.anomaly){
+         self.anomaly = blocking;
+         [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
+         }*/
+    }
+}
+
+@end
 
 @implementation Dash : MKNetworkTest
 
@@ -381,6 +381,7 @@
 
 -(void) run_test {
     mk::nettests::DashTest test;
+    //when setting server check first ndt_server_auto
     [super init_common:test];
     test.on_entry([self](std::string s) {
         [self on_entry:s.c_str()];

@@ -48,21 +48,22 @@
         if ([SettingsUtility getSettingWithName:@"test_whatsapp"]){
             Whatsapp *whatsapp = [[Whatsapp alloc] init];
             [whatsapp setDelegate:self];
+            [whatsapp setResultId:self.result.uniqueId];
             [self.mk_network_tests addObject:whatsapp];
         }
         if ([SettingsUtility getSettingWithName:@"test_telegram"]){
             Telegram *telegram = [[Telegram alloc] init];
             [telegram setDelegate:self];
+            [telegram setResultId:self.result.uniqueId];
             [self.mk_network_tests addObject:telegram];
         }
         if ([SettingsUtility getSettingWithName:@"test_facebook"]){
             FacebookMessenger *facebook_messenger = [[FacebookMessenger alloc] init];
             [facebook_messenger setDelegate:self];
+            [facebook_messenger setResultId:self.result.uniqueId];
             [self.mk_network_tests addObject:facebook_messenger];
         }
         //TODO what to do if no tests are enabled
-        
-        
         [self.result setName:@"instant_messaging"];
         [self.result save];
     }
@@ -83,6 +84,7 @@
         WebConnectivity *web_connectivityMeasurement = [[WebConnectivity alloc] init];
         //[web_connectivityMeasurement setMax_runtime_enabled:YES];
         //web_connectivityMeasurement.inputs = [[TestLists sharedTestLists] getUrls];
+        [web_connectivityMeasurement setResultId:self.result.uniqueId];
         [self.mk_network_tests addObject:web_connectivityMeasurement];
         [self.result setName:@"website"];
     }
@@ -102,10 +104,12 @@
     if (self) {
         if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"]){
             HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
+            [http_invalid_request_lineMeasurement setResultId:self.result.uniqueId];
             [self.mk_network_tests addObject:http_invalid_request_lineMeasurement];
         }
         if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"]){
             HttpHeaderFieldManipulation *http_header_field_manipulationMeasurement = [[HttpHeaderFieldManipulation alloc] init];
+            [http_header_field_manipulationMeasurement setResultId:self.result.uniqueId];
             [self.mk_network_tests addObject:http_header_field_manipulationMeasurement];
         }
         [self.result setName:@"middle_boxes"];
@@ -126,10 +130,12 @@
     if (self) {
         if ([SettingsUtility getSettingWithName:@"run_ndt"]){
             NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
+            [ndt_testMeasurement setResultId:self.result.uniqueId];
             [self.mk_network_tests addObject:ndt_testMeasurement];
         }
         if ([SettingsUtility getSettingWithName:@"run_dash"]){
             Dash *dash = [[Dash alloc] init];
+            [dash setResultId:self.result.uniqueId];
             [self.mk_network_tests addObject:dash];
         }
         [self.result setName:@"performance"];
