@@ -10,6 +10,7 @@
     [super viewDidLoad];
     //TODO maybe move function to get all test object into an helper
     items = @[@"website", @"instant_messaging", @"middle_boxes", @"performance"];
+    self.title = NSLocalizedString(@"dashboard", nil);
 }
 
 - (void)didReceiveMemoryWarning {

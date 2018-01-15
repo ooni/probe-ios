@@ -9,6 +9,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"categories", nil);
+    self.navigationController.navigationBar.topItem.title = @"";
 }
 
 - (void)didReceiveMemoryWarning {

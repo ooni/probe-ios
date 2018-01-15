@@ -12,6 +12,7 @@
         self.title = NSLocalizedString(category, nil);
     else if (test_name != nil)
         self.title = NSLocalizedString(test_name, nil);
+    self.navigationController.navigationBar.topItem.title = @"";
 
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];

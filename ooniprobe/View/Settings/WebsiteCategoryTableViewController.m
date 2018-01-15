@@ -11,6 +11,7 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(category, nil);
     categories_enabled = [SettingsUtility getSitesCategoriesEnabled];
+    self.navigationController.navigationBar.topItem.title = @"";
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,6 +9,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"custom_url", nil);
+    self.navigationController.navigationBar.topItem.title = @"";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"run", nil) style:UIBarButtonItemStylePlain target:self action:@selector(close:)];
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
