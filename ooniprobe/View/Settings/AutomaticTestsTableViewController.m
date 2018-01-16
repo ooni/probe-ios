@@ -70,7 +70,10 @@
     NSString *test_type = [test_types objectAtIndex:indexPath.section];
     NSString *current = [[tests objectForKey:test_type] objectAtIndex:indexPath.row];
     cell.textLabel.text = NSLocalizedString(current, nil);
-    cell.imageView.image = [UIImage imageNamed:current];
+    if ([test_type isEqualToString:@"instant_messaging"])
+        cell.imageView.image = [UIImage imageNamed:current];
+    else
+        cell.imageView.image = [UIImage imageNamed:test_type];
     UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
     [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
     if ([automatic_tests containsObject:current]) switchview.on = YES;
