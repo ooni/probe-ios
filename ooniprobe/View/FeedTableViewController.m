@@ -1,4 +1,5 @@
 #import "FeedTableViewController.h"
+#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 @interface FeedTableViewController ()
 
@@ -9,6 +10,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"feed", nil);
+    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
+    configuration.rateLimiting = YES;
+
+    CDAClient *client = [[CDAClient alloc] initWithSpaceKey:@"brg7eld9zwg1"
+        accessToken:@"d2372f3d4caa2a58ec165bcf8e0c8fec1ae2aa49ab54e8fb14ae910ed8be90c5"
+                         configuration:configuration];
+
+    [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
+        NSLog(@"space %@", space);
+    }
+                          failure:^(CDAResponse *response, NSError *error) {
+                              NSLog(@"%@", error);
+                          }];
+
+    
+    [client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+        NSArray *entries = array.items;
+        NSLog(@"%@", entries);
+    } failure:^(CDAResponse *response, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
