@@ -71,7 +71,7 @@
 - (IBAction)runTests:(id)sender event:(id)event {
     CGPoint currentTouchPosition = [[[event allTouches] anyObject] locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
-    NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
+    NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:[self getIdxForTest:indexPath]];
     [current setMax_runtime_enabled:YES];
     current.inputs = [[TestLists sharedTestLists] getUrls];
     [current run];
@@ -80,17 +80,35 @@
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 4;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [currentTests.availableNetworkMeasurements count];
+    if (section == 0)
+        return 1;
+    else if (section == 1)
+        return 3;
+    return 2;
+    //return [currentTests.availableNetworkMeasurements count];
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return CGFLOAT_MIN;
+    if (section == 0)
+        return NSLocalizedString(@"website", nil);
+    else if (section == 1)
+        return NSLocalizedString(@"instant_messaging", nil);
+    else if (section == 2)
+        return NSLocalizedString(@"performance", nil);
+    return NSLocalizedString(@"middle_boxes", nil);
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.textLabel.font = [UIFont fontWithName:@"FiraSansOT-Bold" size:15];
+    header.textLabel.textColor = color_off_black;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,7 +116,7 @@
     UITableViewCell *cell;
     NetworkMeasurement *current;
     cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_test" forIndexPath:indexPath];
-    current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
+    current = [currentTests.availableNetworkMeasurements objectAtIndex:[self getIdxForTest:indexPath]];
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UILabel *subtitle = (UILabel*)[cell viewWithTag:2];
     UIImageView *image = (UIImageView*)[cell viewWithTag:3];
@@ -130,6 +148,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(NSInteger)getIdxForTest:(NSIndexPath*)indexPath{
+    if (indexPath.section == 0){
+        return 0;
+    }
+    else if (indexPath.section == 1){
+        if (indexPath.row == 0)
+            return 1;
+        else if (indexPath.row == 1)
+            return 2;
+        else
+            return 3;
+    }
+    else if (indexPath.section == 2){
+        if (indexPath.row == 0)
+            return 4;
+        else
+            return 5;
+    }
+    else if (indexPath.section == 3){
+        if (indexPath.row == 0)
+            return 6;
+        else
+            return 7;
+    }
+    return -1;
 }
 
 -(void)showToastConfiguration{
@@ -168,7 +213,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     if ([[segue identifier] isEqualToString:@"toInfo"]){
         TestInfoViewController *vc = (TestInfoViewController * )segue.destinationViewController;
-        NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:indexPath.row];
+        NetworkMeasurement *current = [currentTests.availableNetworkMeasurements objectAtIndex:[self getIdxForTest:indexPath]];
         [vc setTestName:current.name];
     }
 }

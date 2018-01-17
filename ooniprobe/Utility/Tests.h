@@ -3,6 +3,8 @@
 
 @interface Tests : NSObject
 @property (strong, nonatomic) NSMutableArray *availableNetworkMeasurements;
+@property (strong, nonatomic) NSMutableDictionary *availableNetworkMeasurementsDic;
+
 + (id)currentTests;
 - (void)loadAvailableMeasurements;
 - (NetworkMeasurement*)getTestWithName:(NSString*)testName;
