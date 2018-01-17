@@ -23,6 +23,10 @@
     self.tabBarController.navigationItem.title = NSLocalizedString(@"dashboard", nil);
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return tableView.frame.size.width / 5 * 3;
+}
+
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
