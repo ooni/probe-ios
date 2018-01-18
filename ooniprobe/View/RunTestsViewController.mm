@@ -90,18 +90,27 @@
     else if (section == 1)
         return 3;
     return 2;
-    //return [currentTests.availableNetworkMeasurements count];
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40.0f;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
-        return NSLocalizedString(@"website", nil);
+        return NSLocalizedString(@"websites", nil);
     else if (section == 1)
         return NSLocalizedString(@"instant_messaging", nil);
     else if (section == 2)
-        return NSLocalizedString(@"performance", nil);
-    return NSLocalizedString(@"middle_boxes", nil);
+        return NSLocalizedString(@"middle_boxes", nil);
+    return NSLocalizedString(@"performance", nil);
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
