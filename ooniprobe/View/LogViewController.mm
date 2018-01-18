@@ -26,9 +26,4 @@
     [self.view makeToast:NSLocalizedString(@"copied_clipboard", nil)];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end

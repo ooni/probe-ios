@@ -24,11 +24,6 @@
     [self reloadQuestion];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)reloadQuestion{
     NSMutableAttributedString *question_intro = [[NSMutableAttributedString alloc]
                                                  initWithString:[NSString stringWithFormat:@"%@ %ld/2\n\n", NSLocalizedString(@"question", nil), question_number]];

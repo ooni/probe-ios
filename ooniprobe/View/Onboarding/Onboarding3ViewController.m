@@ -33,11 +33,6 @@
     [self.nextButton setTitle:[NSLocalizedString(@"i_understand", nil) uppercaseString] forState:UIControlStateNormal];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)setQuestion_number:(NSInteger)qn;
 {
     question_number = qn;

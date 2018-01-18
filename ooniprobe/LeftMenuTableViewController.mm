@@ -12,11 +12,6 @@
     _menuItems = @[@"run_tests", @"past_tests", @"settings", @"about"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.tableView reloadData];

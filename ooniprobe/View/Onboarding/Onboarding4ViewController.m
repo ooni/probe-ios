@@ -66,11 +66,6 @@
     [self.goButton setTitle:[NSLocalizedString(@"lets_go", nil) uppercaseString] forState:UIControlStateNormal];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(IBAction)configure:(id)sender{
     UIButton *buttonPressed = (UIButton*)sender;
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];

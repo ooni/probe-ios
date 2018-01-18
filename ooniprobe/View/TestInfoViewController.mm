@@ -25,11 +25,6 @@
     [self reloadTest];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)showToast:(NSNotification *) notification{
     NSDictionary *userInfo = notification.userInfo;
     NSString *test_name = [userInfo objectForKey:@"test_name"];

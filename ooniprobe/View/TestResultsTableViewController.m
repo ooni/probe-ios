@@ -11,11 +11,6 @@
     self.title = NSLocalizedString(@"test_results", nil);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.tabBarController.navigationItem.title = NSLocalizedString(@"test_results", nil);

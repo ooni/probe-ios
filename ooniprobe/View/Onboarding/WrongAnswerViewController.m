@@ -20,11 +20,6 @@
     self.cointainerWindow.layer.masksToBounds = true;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)nextAndDismissPopupWrongAnswer{
     [self dismissViewControllerAnimated:YES completion:^{
         [_delegate nextQuestion];
