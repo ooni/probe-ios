@@ -44,6 +44,17 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *current = [categories objectAtIndex:indexPath.row];
+    if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"about_ooni"]){
+        [self performSegueWithIdentifier:current sender:self];
+    }
+    else
+        [self performSegueWithIdentifier:@"toSettings" sender:self];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toSettings"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
