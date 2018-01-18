@@ -22,7 +22,7 @@
 
 - (void)commonInit
 {
-    self.layer.cornerRadius = 5;
+    self.layer.cornerRadius = 20;
     self.layer.masksToBounds = YES;
 }
 

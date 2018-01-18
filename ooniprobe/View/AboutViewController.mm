@@ -12,7 +12,6 @@
     self.title = NSLocalizedString(@"about_ooni", nil);
     self.navigationController.navigationBar.topItem.title = @"";
     
-    [self.titleLabel setText:NSLocalizedString(@"about_ooni", nil)];
     [self.learnMoreButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"learn_more", nil)] forState:UIControlStateNormal];
     [self.textLabel setText:[NSString stringWithFormat:@"%@\n%@",NSLocalizedString(@"about_text_1", nil),  NSLocalizedString(@"about_text_2", nil)]];
     [self.ppButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"view_data_policy", nil)] forState:UIControlStateNormal];

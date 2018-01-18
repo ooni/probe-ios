@@ -42,7 +42,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *current = [categories objectAtIndex:indexPath.row];
-    if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"about_ooni"]){
+    if ([current isEqualToString:@"about_ooni"]){
         [self performSegueWithIdentifier:current sender:self];
     }
     else

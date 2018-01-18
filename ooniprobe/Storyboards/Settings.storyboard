@@ -13,8 +13,8 @@
         <array key="FiraSans-Regular.otf">
             <string>FiraSans-Regular</string>
         </array>
-        <array key="font-fira-sans-bold.5310ca5fb41a915987df5663660da770.otf">
-            <string>FiraSansOT-Bold</string>
+        <array key="FiraSans-SemiBold.otf">
+            <string>FiraSans-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -341,44 +341,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-C4-Iuo" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="440"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About OONI" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxR-iF-PBV">
-                                                <rect key="frame" x="16" y="0.0" width="343" height="70"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="yXW-mc-Hjv"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="38"/>
-                                                <color key="textColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fJM-Cs-r96">
-                                                <rect key="frame" x="16" y="78" width="343" height="28"/>
+                                                <rect key="frame" x="50" y="178" width="275" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="qyg-8n-nC5"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
-                                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVb-RD-nib">
-                                                <rect key="frame" x="16" y="217" width="343" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="pf7-eC-NfI"/>
-                                                </constraints>
-                                                <string key="text">ooniprobe: x.y.z
-measurement-kit: x.y.z</string>
-                                                <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="15"/>
-                                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
+                                                <color key="textColor" red="0.12549019607843137" green="0.14509803921568626" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iza-Qi-7Xv" customClass="RoundedButton">
-                                                <rect key="frame" x="117" y="122" width="140" height="55"/>
+                                                <rect key="frame" x="117" y="222" width="140" height="40"/>
                                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="l72-l7-50n"/>
+                                                    <constraint firstAttribute="height" constant="40" id="l72-l7-50n"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="24"/>
+                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="21"/>
                                                 <state key="normal" title="Learn more">
                                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -387,12 +367,12 @@ measurement-kit: x.y.z</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzK-wQ-7AH">
-                                                <rect key="frame" x="97" y="185" width="180" height="24"/>
+                                                <rect key="frame" x="97" y="270" width="180" height="24"/>
                                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="ciY-40-h6C"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="FiraSansOT-Bold" family="Fira Sans OT" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="14"/>
                                                 <state key="normal" title="Learn more">
                                                     <color key="titleColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -404,27 +384,56 @@ measurement-kit: x.y.z</string>
                                                     <action selector="privacy_policy:" destination="CKq-8U-kQl" eventType="touchUpInside" id="8RZ-ax-CHp"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8W-mA-yKw">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ooni_logo" translatesAutoresizingMaskIntoConstraints="NO" id="glb-X4-13h">
+                                                        <rect key="frame" x="96" y="35" width="183" height="51"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="51" id="qaX-Z6-fmJ"/>
+                                                            <constraint firstAttribute="width" constant="183" id="ykn-Fk-NpM"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVb-RD-nib">
+                                                        <rect key="frame" x="16" y="94" width="343" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="pf7-eC-NfI"/>
+                                                        </constraints>
+                                                        <string key="text">ooniprobe: x.y.z
+measurement-kit: x.y.z</string>
+                                                        <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="KVb-RD-nib" firstAttribute="leading" secondItem="Q8W-mA-yKw" secondAttribute="leading" constant="16" id="8F1-fi-hLX"/>
+                                                    <constraint firstItem="KVb-RD-nib" firstAttribute="top" secondItem="glb-X4-13h" secondAttribute="bottom" constant="8" id="O3s-pP-gZ3"/>
+                                                    <constraint firstItem="glb-X4-13h" firstAttribute="centerX" secondItem="KVb-RD-nib" secondAttribute="centerX" id="OwW-vN-yx6"/>
+                                                    <constraint firstAttribute="height" constant="170" id="WLH-w0-GGY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KVb-RD-nib" secondAttribute="trailing" constant="16" id="XwN-uq-yzh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="KVb-RD-nib" secondAttribute="bottom" constant="26" id="eGx-D4-df2"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="fJM-Cs-r96" firstAttribute="top" secondItem="ZxR-iF-PBV" secondAttribute="bottom" constant="8" id="3iM-Wb-8Cu"/>
                                             <constraint firstItem="Iza-Qi-7Xv" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="117" id="4Kw-WJ-ueF"/>
-                                            <constraint firstItem="fJM-Cs-r96" firstAttribute="leading" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="16" id="4pO-eI-vIW"/>
+                                            <constraint firstItem="fJM-Cs-r96" firstAttribute="leading" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="50" id="4pO-eI-vIW"/>
+                                            <constraint firstItem="Q8W-mA-yKw" firstAttribute="top" secondItem="xfk-C4-Iuo" secondAttribute="top" id="9GF-vS-tVt"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Iza-Qi-7Xv" secondAttribute="trailing" constant="118" id="BKM-HA-LTa"/>
                                             <constraint firstItem="WzK-wQ-7AH" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="97" id="ChV-Ux-Z7H"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="WzK-wQ-7AH" secondAttribute="trailing" constant="98" id="Hx0-LT-Dgb"/>
                                             <constraint firstItem="WzK-wQ-7AH" firstAttribute="top" secondItem="Iza-Qi-7Xv" secondAttribute="bottom" constant="8" id="IDe-bD-00F"/>
-                                            <constraint firstAttribute="bottom" secondItem="KVb-RD-nib" secondAttribute="bottom" constant="8" id="R5x-PH-L6n"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZxR-iF-PBV" secondAttribute="trailing" constant="16" id="U4b-Pr-Z9i"/>
-                                            <constraint firstItem="KVb-RD-nib" firstAttribute="leading" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="16" id="ZGa-V9-01Z"/>
+                                            <constraint firstAttribute="height" constant="440" id="JCQ-Ek-QGv"/>
                                             <constraint firstItem="WzK-wQ-7AH" firstAttribute="centerX" secondItem="xfk-C4-Iuo" secondAttribute="centerX" id="cK1-d5-2wT"/>
-                                            <constraint firstItem="KVb-RD-nib" firstAttribute="top" secondItem="WzK-wQ-7AH" secondAttribute="bottom" constant="8" id="hDe-W1-rjo"/>
+                                            <constraint firstAttribute="trailing" secondItem="Q8W-mA-yKw" secondAttribute="trailing" id="ey1-0N-aGU"/>
                                             <constraint firstItem="Iza-Qi-7Xv" firstAttribute="centerX" secondItem="xfk-C4-Iuo" secondAttribute="centerX" id="hse-8P-b3M"/>
-                                            <constraint firstAttribute="trailing" secondItem="KVb-RD-nib" secondAttribute="trailing" constant="16" id="lJW-aS-ud9"/>
+                                            <constraint firstItem="fJM-Cs-r96" firstAttribute="top" secondItem="Q8W-mA-yKw" secondAttribute="bottom" constant="8" id="nMe-ey-ynD"/>
                                             <constraint firstItem="Iza-Qi-7Xv" firstAttribute="top" secondItem="fJM-Cs-r96" secondAttribute="bottom" constant="16" id="rRF-yN-n8L"/>
-                                            <constraint firstItem="ZxR-iF-PBV" firstAttribute="top" secondItem="xfk-C4-Iuo" secondAttribute="top" id="wwX-kv-htJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="fJM-Cs-r96" secondAttribute="trailing" constant="16" id="xgC-ff-xah"/>
-                                            <constraint firstItem="ZxR-iF-PBV" firstAttribute="leading" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="16" id="zPm-1Y-Yv4"/>
+                                            <constraint firstItem="Q8W-mA-yKw" firstAttribute="leading" secondItem="xfk-C4-Iuo" secondAttribute="leading" id="rSo-EV-bLo"/>
+                                            <constraint firstAttribute="trailing" secondItem="fJM-Cs-r96" secondAttribute="trailing" constant="50" id="xgC-ff-xah"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -433,7 +442,7 @@ measurement-kit: x.y.z</string>
                                     <constraint firstAttribute="trailing" secondItem="xfk-C4-Iuo" secondAttribute="trailing" id="2Kd-OF-Z7Y"/>
                                     <constraint firstItem="xfk-C4-Iuo" firstAttribute="centerX" secondItem="3N7-0b-kY4" secondAttribute="centerX" id="9Fe-x9-m9l"/>
                                     <constraint firstItem="xfk-C4-Iuo" firstAttribute="top" secondItem="3N7-0b-kY4" secondAttribute="top" id="DEH-lP-vER"/>
-                                    <constraint firstAttribute="bottom" secondItem="xfk-C4-Iuo" secondAttribute="bottom" id="dFn-5q-4Ac"/>
+                                    <constraint firstAttribute="bottom" secondItem="xfk-C4-Iuo" secondAttribute="bottom" constant="163" id="dFn-5q-4Ac"/>
                                     <constraint firstItem="xfk-C4-Iuo" firstAttribute="leading" secondItem="3N7-0b-kY4" secondAttribute="leading" id="jHd-Aw-Z9a"/>
                                 </constraints>
                             </scrollView>
@@ -452,13 +461,15 @@ measurement-kit: x.y.z</string>
                         <outlet property="learnMoreButton" destination="Iza-Qi-7Xv" id="Gn9-qp-Uxr"/>
                         <outlet property="ppButton" destination="WzK-wQ-7AH" id="HQu-mg-lgq"/>
                         <outlet property="textLabel" destination="fJM-Cs-r96" id="tct-BG-m51"/>
-                        <outlet property="titleLabel" destination="ZxR-iF-PBV" id="efL-LW-JIE"/>
                         <outlet property="versionLabel" destination="KVb-RD-nib" id="vN2-IU-fg2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hW-Ar-6ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="994"/>
+            <point key="canvasLocation" x="1712.8" y="993.55322338830592"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ooni_logo" width="184" height="52"/>
+    </resources>
 </document>
