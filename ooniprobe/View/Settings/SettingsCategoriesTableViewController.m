@@ -40,6 +40,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *current = [categories objectAtIndex:indexPath.row];
     cell.textLabel.text = NSLocalizedString(current, nil);
+    cell.imageView.image = [UIImage imageNamed:current];
     return cell;
 }
 

@@ -3,7 +3,7 @@
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
-    return @[@"notifications", @"automated_testing", @"sharing", @"advanced"];
+    return @[@"notifications", @"automated_testing", @"sharing", @"advanced", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)catName{
@@ -41,11 +41,11 @@
 }
 
 + (NSDictionary*)getTests{
-    return @{@"website": @[@"web_connectivity"], @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"], @"middle_boxes": @[@"http_invalid_request_line", @"http_header_field_manipulation"], @"performance": @[@"ndt", @"dash"]};
+    return @{@"websites": @[@"web_connectivity"], @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"], @"middle_boxes": @[@"http_invalid_request_line", @"http_header_field_manipulation"], @"performance": @[@"ndt", @"dash"]};
 }
 
 + (NSArray*)getTestTypes{
-    return @[@"website", @"instant_messaging", @"middle_boxes", @"performance"];
+    return @[@"websites", @"instant_messaging", @"middle_boxes", @"performance"];
 }
 
 

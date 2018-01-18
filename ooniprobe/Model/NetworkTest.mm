@@ -86,7 +86,7 @@
         //web_connectivityMeasurement.inputs = [[TestLists sharedTestLists] getUrls];
         [web_connectivityMeasurement setResultId:self.result.uniqueId];
         [self.mk_network_tests addObject:web_connectivityMeasurement];
-        [self.result setName:@"website"];
+        [self.result setName:@"websites"];
     }
     return self;
 }

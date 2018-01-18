@@ -3,7 +3,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import "TestLists.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, CrashlyticsDelegate,PBRevealViewControllerDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CrashlyticsDelegate> {
     NSMutableArray *links;
 }
 

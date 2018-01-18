@@ -9,7 +9,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //TODO maybe move function to get all test object into an helper
-    items = @[@"website", @"instant_messaging", @"middle_boxes", @"performance"];
+    items = @[@"websites", @"instant_messaging", @"middle_boxes", @"performance"];
     self.title = NSLocalizedString(@"dashboard", nil);
 }
 
@@ -54,7 +54,7 @@
     if ([test_name isEqualToString:@"instant_messaging"]){
         [[[IMNetworkTest alloc] init] run];
     }
-    else if ([test_name isEqualToString:@"website"]){
+    else if ([test_name isEqualToString:@"websites"]){
         [[[WCNetworkTest alloc] init] run];
     }
     else if ([test_name isEqualToString:@"middle_boxes"]){
