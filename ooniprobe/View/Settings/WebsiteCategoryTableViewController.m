@@ -38,7 +38,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = NSLocalizedString(category, nil);
-    cell.imageView.image = [UIImage imageNamed:category];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", category]];
     UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
     [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
     if ([categories_enabled containsObject:category]) switchview.on = YES;

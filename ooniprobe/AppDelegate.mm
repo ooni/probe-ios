@@ -253,41 +253,4 @@
         completionHandler([[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue]);
     }];
 }
-
-#pragma mark - PBRevealViewController Delegate
-    
-- (BOOL)revealControllerPanGestureShouldBegin:(PBRevealViewController *)revealController direction:(PBRevealControllerPanDirection)direction
-    {
-        if ([[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode] isEqualToString:@"ar"]){
-            if (direction == PBRevealControllerPanDirectionLeft){
-                if ([revealController isRightViewOpen])
-                    return NO;
-                else
-                    return YES;
-            }
-            else {
-                if ([revealController isRightViewOpen])
-                    return YES;
-                else
-                    return NO;
-            }
-        }
-        if (direction == PBRevealControllerPanDirectionLeft) {
-            if (direction == PBRevealControllerPanDirectionLeft){
-                if ([revealController isLeftViewOpen])
-                    return YES;
-                else
-                    return NO;
-            }
-            else {
-                if ([revealController isLeftViewOpen])
-                    return NO;
-                else
-                    return YES;
-            }
-
-        }
-        return YES;
-    }
-    
 @end

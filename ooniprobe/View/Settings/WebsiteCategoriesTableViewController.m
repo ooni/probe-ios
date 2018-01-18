@@ -42,7 +42,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *current = [categories objectAtIndex:indexPath.row];
     cell.textLabel.text = NSLocalizedString(current, nil);
-    cell.imageView.image = [UIImage imageNamed:current];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current]];
     if ([categories_enabled containsObject:current]) cell.detailTextLabel.text = NSLocalizedString(@"enabled", nil);
     else cell.detailTextLabel.text = NSLocalizedString(@"disabled", nil);
     return cell;
