@@ -43,8 +43,6 @@
 }
 
 -(IBAction)setSwitch:(UISwitch *)mySwitch{
-    UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
-    NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
     [SettingsUtility addRemoveSitesCategory:category];
 }
 
