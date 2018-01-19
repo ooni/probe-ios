@@ -1,5 +1,4 @@
 #import "FeedTableViewController.h"
-#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 @interface FeedTableViewController ()
 
@@ -10,32 +9,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"feed", nil);
-    CDAClient *client = [[CDAClient alloc] initWithSpaceKey:@"brg7eld9zwg1"
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"brg7eld9zwg1"
         accessToken:@"d2372f3d4caa2a58ec165bcf8e0c8fec1ae2aa49ab54e8fb14ae910ed8be90c5"];
-    [client fetchEntriesMatching:@{ @"content_type": @"cat" }
-                         success:^(CDAResponse *response, CDAArray *entries) {
-                             NSLog(@"%@", [[entries.items firstObject] fields]);
-                         }
-                         failure:^(CDAResponse *response, NSError *error) {
-                             NSLog(@"%@", error);
-                         }];
-    /*
-    [client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+    
+    [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         NSArray *entries = array.items;
-        NSLog(@"%@", entries);
+        NSLog(@"%@", entries[0]);
     } failure:^(CDAResponse *response, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
-
-    [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
+/*
+    [self.client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
         NSLog(@"space %@", space);
     }
                           failure:^(CDAResponse *response, NSError *error) {
                               NSLog(@"%@", error);
                           }];
-*/
-    
+ */
 }
 
 -(void)viewWillAppear:(BOOL)animated{
