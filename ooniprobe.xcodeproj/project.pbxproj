@@ -44,6 +44,7 @@
 		ED70D5031FE8021400759463 /* Measurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5021FE8021400759463 /* Measurement.mm */; };
 		ED70D5061FE8022300759463 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5051FE8022300759463 /* Result.mm */; };
 		ED70D5091FE82A9900759463 /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5081FE82A9900759463 /* MKNetworkTest.mm */; };
+		ED75A3972011AC2F009792C6 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75A3962011AC2F009792C6 /* Article.m */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED923AAE1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm */; };
 		EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */; };
@@ -158,6 +159,8 @@
 		ED70D5051FE8022300759463 /* Result.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Result.mm; path = Model/Result.mm; sourceTree = "<group>"; };
 		ED70D5071FE82A9900759463 /* MKNetworkTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKNetworkTest.h; path = Model/MKNetworkTest.h; sourceTree = "<group>"; };
 		ED70D5081FE82A9900759463 /* MKNetworkTest.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MKNetworkTest.mm; path = Model/MKNetworkTest.mm; sourceTree = "<group>"; };
+		ED75A3952011AC2F009792C6 /* Article.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Article.h; path = Model/Article.h; sourceTree = "<group>"; };
+		ED75A3962011AC2F009792C6 /* Article.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Article.m; path = Model/Article.m; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
 		ED8569581EB146B500D435EB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				ED3261BB1FEA7A6700EAC375 /* NetworkTest.mm */,
 				ED70D5071FE82A9900759463 /* MKNetworkTest.h */,
 				ED70D5081FE82A9900759463 /* MKNetworkTest.mm */,
+				ED75A3952011AC2F009792C6 /* Article.h */,
+				ED75A3962011AC2F009792C6 /* Article.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -354,9 +359,9 @@
 		ED25281F1CEA353A0073A29B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ED0A61FF200B52A300235E70 /* OONIRun */,
 				EDDB0B5E1FFF3A5A00EFD9C8 /* TabsViewController.h */,
 				EDDB0B5D1FFF3A5A00EFD9C8 /* TabsViewController.m */,
+				ED0A61FF200B52A300235E70 /* OONIRun */,
 				EDDB0B561FFF32B900EFD9C8 /* Settings */,
 				ED58CF7B1FEBBA3D00E3C415 /* Tabs */,
 				EDDB0B631FFF6C8B00EFD9C8 /* Onboarding */,
@@ -800,6 +805,7 @@
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
 				ED2528311CEA35770073A29B /* NetworkMeasurement.mm in Sources */,
+				ED75A3972011AC2F009792C6 /* Article.m in Sources */,
 				ED923AAF1E2FA9FE00407EB6 /* LeftMenuTableViewController.mm in Sources */,
 				ED3932C71E3114BA0064CD11 /* PastTestsViewController.mm in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
