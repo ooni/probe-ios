@@ -1,7 +1,7 @@
 #import "TestStorage.h"
 
 @implementation TestStorage
-
+/* EVERYTHING DEPRECATED
 + (BOOL)get_old_tests{
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
         return YES;
@@ -160,6 +160,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+
 + (void)remove_all_tests{
     NSArray *to_remove = [self get_tests_rev];
     for (NetworkMeasurement *test in to_remove){
@@ -168,7 +169,7 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"new_tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
+*/
 + (void)removeFile:(NSString*)fileName {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];

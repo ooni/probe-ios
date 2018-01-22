@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import "ReachabilityManager.h"
-#import "Tests.h"
 
 @interface NotificationService : NSObject
 + (id)sharedNotificationService;

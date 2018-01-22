@@ -1,7 +1,4 @@
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
-#import "TestStorage.h"
-#import "UIBarButtonItem+Badge.h"
 
 @interface AboutViewController : UIViewController
 @property (nonatomic, strong) IBOutlet UILabel *textLabel;

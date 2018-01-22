@@ -11,9 +11,10 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTestUI) name:@"reloadTable" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
-    [self configureView];
+    //[self configureView];
 }
 
+/* EVERYTHING DEPRECATED
 -(void)configureView{
     currentTests = [Tests currentTests];
     [self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
@@ -134,5 +135,6 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
     }];
 }
+ */
 
 @end

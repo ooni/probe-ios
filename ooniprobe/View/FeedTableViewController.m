@@ -11,27 +11,32 @@
     self.title = NSLocalizedString(@"feed", nil);
     self.client = [[CDAClient alloc] initWithSpaceKey:@"brg7eld9zwg1"
         accessToken:@"d2372f3d4caa2a58ec165bcf8e0c8fec1ae2aa49ab54e8fb14ae910ed8be90c5"];
-    [self.client registerClass:[Article class] forContentTypeWithIdentifier:@"6yvmL10FkAIkOaqgiuI4Oy"];
+    //[self.client registerClass:[Article class] forContentTypeWithIdentifier:@"6yvmL10FkAIkOaqgiuI4Oy"];
+    Class articleClass = NSClassFromString(@"Article");
+    if (articleClass) {
+        [self.client registerClass:articleClass forContentTypeWithIdentifier:@"Link"];
+    }
 
     [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         NSArray *entries = array.items;
-        for (Article *c in entries){
-            //NSLog(@"%@", c.title);
-        }
         //NSLog(@"%@", entries[0]);
+
+        for (Article *c in entries){
+            NSLog(@"%@", [c getTitle]);
+        }
         //NSLog(@"%@", entries[1]);
     } failure:^(CDAResponse *response, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
-
+/*
     [self.client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
         NSLog(@"space %@", space);
     }
                           failure:^(CDAResponse *response, NSError *error) {
                               NSLog(@"%@", error);
                           }];
- 
+ */
 }
 
 -(void)viewWillAppear:(BOOL)animated{

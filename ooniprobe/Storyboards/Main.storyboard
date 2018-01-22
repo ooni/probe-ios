@@ -144,53 +144,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-6C-NZt">
-                                <rect key="frame" x="0.0" y="141" width="414" height="233"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 926" translatesAutoresizingMaskIntoConstraints="NO" id="fnh-W9-gQv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-6C-NZt">
+                                <rect key="frame" x="20" y="137.66666666666666" width="374" height="270.33333333333337"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Running Tests:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujL-eR-yvm">
-                                <rect key="frame" x="20" y="28" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running Tests:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujL-eR-yvm">
+                                <rect key="frame" x="20" y="78" width="374" height="19.666666666666671"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Websites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHM-pS-oxG">
+                                <rect key="frame" x="20" y="97.666666666666671" width="374" height="32.000000000000014"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="8pX-MB-859"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated Time Remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6u-M1-RsK">
+                                <rect key="frame" x="20" y="469" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="vwo-8o-T3A"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Websites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHM-pS-oxG">
-                                <rect key="frame" x="20" y="70" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute 13 seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6n-n1-GOS">
+                                <rect key="frame" x="20" y="490" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="HfL-R7-pJt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" tag="6" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xcv-iy-zO9">
-                                <rect key="frame" x="113" y="408" width="188" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="progressTintColor" red="0.30980392159999998" green="0.81960784310000001" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="running Whatsapp..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-4o-FNz">
+                                <rect key="frame" x="20" y="575" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="2Aj-6p-2dG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" tag="6" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Xcv-iy-zO9">
+                                <rect key="frame" x="62" y="444" width="290" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DPL-8E-j6a"/>
+                                </constraints>
+                                <color key="progressTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estimated Time Remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6u-M1-RsK">
-                                <rect key="frame" x="9" y="427" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6n-n1-GOS">
-                                <rect key="frame" x="7" y="491" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="running Whatsapp..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-4o-FNz">
-                                <rect key="frame" x="20" y="585" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iDt-w7-KI4" firstAttribute="top" secondItem="fnh-W9-gQv" secondAttribute="bottom" id="0ey-G1-wyQ"/>
+                            <constraint firstItem="vNz-6C-NZt" firstAttribute="top" secondItem="WHM-pS-oxG" secondAttribute="bottom" constant="8" id="2wO-73-tha"/>
+                            <constraint firstItem="Xcv-iy-zO9" firstAttribute="top" secondItem="vNz-6C-NZt" secondAttribute="bottom" constant="36" id="3Ej-VO-uZD"/>
+                            <constraint firstItem="ujL-eR-yvm" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="5Ie-r5-sSb"/>
+                            <constraint firstItem="WHM-pS-oxG" firstAttribute="top" secondItem="ujL-eR-yvm" secondAttribute="bottom" id="5S5-HV-RcB"/>
+                            <constraint firstAttribute="bottom" secondItem="Z6n-n1-GOS" secondAttribute="bottom" constant="212" id="8O0-s8-Yvd"/>
+                            <constraint firstItem="Z6n-n1-GOS" firstAttribute="leading" secondItem="RdD-4o-FNz" secondAttribute="leading" id="8Tm-sy-O1g"/>
+                            <constraint firstItem="vNz-6C-NZt" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="AMC-ez-V4h"/>
+                            <constraint firstItem="Xcv-iy-zO9" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" constant="42" id="DUQ-km-XFr"/>
+                            <constraint firstItem="i6u-M1-RsK" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="Dca-9g-hqz"/>
+                            <constraint firstItem="Z6n-n1-GOS" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="EJg-Ma-PkR"/>
+                            <constraint firstItem="fnh-W9-gQv" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leading" id="Jqh-Zd-1Y4"/>
+                            <constraint firstItem="i6u-M1-RsK" firstAttribute="top" secondItem="Xcv-iy-zO9" secondAttribute="bottom" constant="-5" id="LmS-mS-OZJ"/>
+                            <constraint firstItem="i6u-M1-RsK" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="NHH-ru-4Fp"/>
+                            <constraint firstItem="WHM-pS-oxG" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="P0r-XM-4VB"/>
+                            <constraint firstItem="ujL-eR-yvm" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="QDv-kz-8ok"/>
+                            <constraint firstItem="WHM-pS-oxG" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="Voz-6L-yzH"/>
+                            <constraint firstItem="RdD-4o-FNz" firstAttribute="top" secondItem="Z6n-n1-GOS" secondAttribute="bottom" constant="51" id="Ykb-0f-8Bf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xcv-iy-zO9" secondAttribute="trailing" constant="42" id="bYL-ZC-Lwu"/>
+                            <constraint firstItem="vNz-6C-NZt" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="cX6-TI-I1E"/>
+                            <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="jWR-19-gZI"/>
+                            <constraint firstItem="fnh-W9-gQv" firstAttribute="top" secondItem="WHK-n4-vcV" secondAttribute="top" id="kFy-oR-abh"/>
+                            <constraint firstItem="vNz-6C-NZt" firstAttribute="centerX" secondItem="fnh-W9-gQv" secondAttribute="centerX" id="nIR-iw-87J"/>
+                            <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="RdD-4o-FNz" secondAttribute="trailing" id="oXZ-td-EGv"/>
+                            <constraint firstItem="Z6n-n1-GOS" firstAttribute="top" secondItem="Xcv-iy-zO9" secondAttribute="bottom" constant="16" id="u1z-aa-XoP"/>
+                            <constraint firstItem="ujL-eR-yvm" firstAttribute="top" secondItem="tHi-Ui-7Hp" secondAttribute="bottom" constant="58" id="wEj-f3-WcR"/>
+                            <constraint firstAttribute="trailing" secondItem="fnh-W9-gQv" secondAttribute="trailing" id="ypD-tJ-6tO"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6B-l9-PO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -384,6 +424,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Group 926" width="360" height="640"/>
         <image name="card" width="329" height="204"/>
         <image name="settings_icon" width="23" height="23"/>
         <image name="tab_dashboard" width="26" height="21"/>

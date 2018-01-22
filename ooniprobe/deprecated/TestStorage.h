@@ -1,11 +1,12 @@
 #import <Foundation/Foundation.h>
-#import "NetworkMeasurement.h"
-#import "Tests.h"
+//#import "NetworkMeasurement.h"
+//#import "Tests.h"
 
 //deprecated
 
 @interface TestStorage : NSObject
 
+/*
 + (BOOL)get_old_tests;
 
 + (NSArray*)get_tests;
@@ -31,7 +32,7 @@
 + (void)set_all_viewed;
 
 + (BOOL)new_tests;
-
+*/
 + (void)remove_all_tests;
 
 @end

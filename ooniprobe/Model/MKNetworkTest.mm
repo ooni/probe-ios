@@ -1,7 +1,5 @@
 #import "MKNetworkTest.h"
 
-//#import "TestStorage.h"
-#import "Tests.h"
 #import "VersionUtility.h"
 #import "TestUtility.h"
 
@@ -187,12 +185,33 @@
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         [super on_entry:json];
         
-        int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
+        int blocking = [self checkAnomaly:[json objectForKey:@"test_keys"]];
         /*if (blocking > self.anomaly){
          self.anomaly = blocking;
          [TestStorage set_anomaly:self.measurement.uniqueId :blocking];
          }*/
     }
+}
+
+- (int)checkAnomaly:(NSDictionary*)test_keys{
+    /*null => anomal = 1,
+     false => anomaly = 0,
+     stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
+     
+     Return values:
+     0 == OK,
+     1 == orange,
+     2 == red
+     */
+    id element = [test_keys objectForKey:@"blocking"];
+    int anomaly = 0;
+    if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
+        anomaly = 1;
+    }
+    else if (([element isKindOfClass:[NSString class]])) {
+        anomaly = 2;
+    }
+    return anomaly;
 }
 
 @end

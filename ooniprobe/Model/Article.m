@@ -2,4 +2,7 @@
 
 @implementation Article
 
+-(NSString *)getTitle {
+    return self.fields[@"title"];
+}
 @end

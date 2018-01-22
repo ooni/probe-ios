@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import "Tests.h"
 #import "NotificationService.h"
 #import "BrowserViewController.h"
 #import "DictionaryUtility.h"
@@ -216,13 +215,14 @@
                 action = [url host];
             if ([action isEqualToString:@"nettest"]){
                 //For now checking only test name
-                if ([parameters objectForKey:@"tn"] && [[Tests currentTests] getTestWithName:[parameters objectForKey:@"tn"]])
+                //TODO
+                /*if ([parameters objectForKey:@"tn"] && [[Tests currentTests] getTestWithName:[parameters objectForKey:@"tn"]])
                     [self openURIschemeScreen:parameters];
                 else {
                     [MessageUtility alertWithTitle:NSLocalizedString(@"invalid_parameter", nil)
                                            message:[NSString stringWithFormat:@"%@ : %@", NSLocalizedString(@"test_name", nil), [parameters objectForKey:@"tn"]]
                                             inView:self.window.rootViewController];
-                }
+                }*/
             }
         }
     }

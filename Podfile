@@ -4,13 +4,10 @@ target 'ooniprobe' do
         :git => 'https://github.com/measurement-kit/measurement-kit.git',
 	:tag => 'v0.8.1'
     pod 'Toast', '~> 4.0.0'
-    pod 'PBRevealViewController'
-    pod 'UIBarButtonItem-Badge-Coding'
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
-    pod 'NTYCSVTable'
     pod 'lottie-ios'
     pod 'ContentfulDeliveryAPI'
 end
