@@ -14,12 +14,21 @@
     //[self.client registerClass:[Article class] forContentTypeWithIdentifier:@"6yvmL10FkAIkOaqgiuI4Oy"];
     Class articleClass = NSClassFromString(@"Article");
     if (articleClass) {
-        [self.client registerClass:articleClass forContentTypeWithIdentifier:@"Link"];
+        [self.client registerClass:articleClass forContentTypeWithIdentifier:@"blogPost"];
     }
+    
+     [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+         NSLog(@"Assets: %d", space.assets.count);
+         NSLog(@"Entries: %d", space.entries.count);
+     } failure:^(CDAResponse *response, NSError *error) {
+         NSLog(@"Error: %@", error);
+     }];
 
+    
     [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         NSArray *entries = array.items;
         //NSLog(@"%@", entries[0]);
+        NSLog(@"Entries: %d", [entries count]);
 
         for (Article *c in entries){
             NSLog(@"%@", [c getTitle]);
@@ -28,7 +37,6 @@
     } failure:^(CDAResponse *response, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-    
 /*
     [self.client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
         NSLog(@"space %@", space);
@@ -37,6 +45,16 @@
                               NSLog(@"%@", error);
                           }];
  */
+    /*
+    [self.client performSynchronizationWithSuccess:^{
+        NSLog(@"Synchronization finished.");
+    } failure:^(CDAResponse *response, NSError *error) {
+        // Replace this implementation with code to handle the error appropriately.
+        NSLog(@"Error while loading content: %@, %@", error, [error userInfo]);
+        abort();
+    }];
+     */
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
