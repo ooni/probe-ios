@@ -4,14 +4,14 @@
 @end
 
 @implementation SettingsTableViewController
-@synthesize category, test_name;
+@synthesize category, testName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (category != nil)
         self.title = NSLocalizedString(category, nil);
-    else if (test_name != nil)
-        self.title = NSLocalizedString(test_name, nil);
+    else if (testName != nil)
+        self.title = NSLocalizedString(testName, nil);
     self.navigationController.navigationBar.topItem.title = @"";
 
     keyboardToolbar = [[UIToolbar alloc] init];
@@ -34,8 +34,8 @@
 -(void)reloadSettings {
     if (category != nil)
         items = [SettingsUtility getSettingsForCategory:category];
-    else if (test_name != nil)
-        items = [SettingsUtility getSettingsForTest:test_name];
+    else if (testName != nil)
+        items = [SettingsUtility getSettingsForTest:testName];
     [self.tableView reloadData];
 }
 

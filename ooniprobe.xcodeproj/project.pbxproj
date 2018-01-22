@@ -16,6 +16,8 @@
 		ED0A61FE200B075000235E70 /* CustomURLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A61FD200B075000235E70 /* CustomURLTableViewController.m */; };
 		ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0A6200200B52C000235E70 /* OONIRun.storyboard */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
+		ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC7FE20158D630041089A /* ConfigureButton.m */; };
+		ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.mm */; };
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED21E0581F898DDE008DFD0D /* TestLists.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED21E0571F898DDE008DFD0D /* TestLists.mm */; };
 		ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0751F8990E3008DFD0D /* global.csv */; };
@@ -101,6 +103,10 @@
 		ED0A6200200B52C000235E70 /* OONIRun.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = OONIRun.storyboard; path = Storyboards/OONIRun.storyboard; sourceTree = "<group>"; };
 		ED0D35BC1DD72824005C863F /* RunButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunButton.h; sourceTree = "<group>"; };
 		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunButton.m; sourceTree = "<group>"; };
+		ED1CC7FD20158D630041089A /* ConfigureButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigureButton.h; sourceTree = "<group>"; };
+		ED1CC7FE20158D630041089A /* ConfigureButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigureButton.m; sourceTree = "<group>"; };
+		ED1CC80020159D970041089A /* TestRunningViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestRunningViewController.h; sourceTree = "<group>"; };
+		ED1CC80120159D970041089A /* TestRunningViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestRunningViewController.mm; sourceTree = "<group>"; };
 		ED1F33601EFD552F00B42FEC /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
 		ED1F33611EFD552F00B42FEC /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
 		ED21E0561F898DDE008DFD0D /* TestLists.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestLists.h; path = Utility/TestLists.h; sourceTree = "<group>"; };
@@ -361,6 +367,8 @@
 			children = (
 				EDDB0B5E1FFF3A5A00EFD9C8 /* TabsViewController.h */,
 				EDDB0B5D1FFF3A5A00EFD9C8 /* TabsViewController.m */,
+				ED1CC80020159D970041089A /* TestRunningViewController.h */,
+				ED1CC80120159D970041089A /* TestRunningViewController.mm */,
 				ED0A61FF200B52A300235E70 /* OONIRun */,
 				EDDB0B561FFF32B900EFD9C8 /* Settings */,
 				ED58CF7B1FEBBA3D00E3C415 /* Tabs */,
@@ -438,6 +446,8 @@
 				ED0D35BD1DD72824005C863F /* RunButton.m */,
 				EDCAB39E1E2BC6BD000878CA /* RoundedButton.h */,
 				EDCAB39F1E2BC6BD000878CA /* RoundedButton.m */,
+				ED1CC7FD20158D630041089A /* ConfigureButton.h */,
+				ED1CC7FE20158D630041089A /* ConfigureButton.m */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -762,6 +772,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC73E5D1D9B266E00245184 /* ResultSelectorViewController.mm in Sources */,
+				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
 				ED09A7011E3E3534003E1603 /* TestResult.m in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.m in Sources */,
@@ -797,6 +808,7 @@
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding4ViewController.m in Sources */,
 				EDCAB3A01E2BC6BD000878CA /* RoundedButton.m in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
+				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED25282B1CEA35640073A29B /* LogViewController.mm in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED25282E1CEA35640073A29B /* RunTestsViewController.mm in Sources */,

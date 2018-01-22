@@ -1,6 +1,6 @@
-#import "RunButton.h"
+#import "ConfigureButton.h"
 
-@implementation RunButton
+@implementation ConfigureButton
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -22,20 +22,16 @@
 
 - (void)commonInit
 {
-    self.layer.cornerRadius = 10;
-    self.layer.masksToBounds = YES;
-/*
     UIColor *defaultTintColor = color_ooni_blue;
     self.layer.borderWidth = 1;
     self.layer.borderColor = defaultTintColor.CGColor;
-    self.layer.cornerRadius = 5;
+    self.layer.cornerRadius = 15;
     self.layer.masksToBounds = YES;
     [self setTitleColor:defaultTintColor forState:UIControlStateNormal];
     [self setTitleColor:color_off_white forState:UIControlStateHighlighted];
     UIImage *backGroundImage = [self createSolidColorImageWithColor:defaultTintColor
-                                                               andSize:self.bounds.size];
+                                                            andSize:self.bounds.size];
     [self setBackgroundImage:backGroundImage forState:UIControlStateHighlighted];
- */
 }
 
 - (UIImage*)createSolidColorImageWithColor:(UIColor*)color andSize:(CGSize)size

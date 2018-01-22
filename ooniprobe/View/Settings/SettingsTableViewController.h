@@ -10,6 +10,6 @@
 }
 
 @property (nonatomic, strong) NSString *category;
-@property (nonatomic, strong) NSString *test_name;
+@property (nonatomic, strong) NSString *testName;
 
 @end

@@ -35,39 +35,60 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    NSString *test_name = [items objectAtIndex:indexPath.row];
-    UILabel *title = (UILabel*)[cell viewWithTag:1];
-    UILabel *subtitle = (UILabel*)[cell viewWithTag:2];
-    [title setText:NSLocalizedString(test_name, nil)];
-    NSString *test_desc = [NSString stringWithFormat:@"%@_desc", test_name];
-    [subtitle setText:NSLocalizedString(test_desc, nil)];
+    NSString *testName = [items objectAtIndex:indexPath.row];
+    
+    UIView *backgroundView = (UIView*)[cell viewWithTag:1];
+    UILabel *titleLabel = (UILabel*)[cell viewWithTag:2];
+    UILabel *descLabel = (UILabel*)[cell viewWithTag:3];
+    UILabel *estimateTime = (UILabel*)[cell viewWithTag:4];
+    RunButton *runButton = (RunButton*)[cell viewWithTag:5];
+    ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
+    UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
+
+    //[self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
+    [runButton setTitle:NSLocalizedString(@"run", nil) forState:UIControlStateNormal];
+    [configureButton setTitle:NSLocalizedString(@"configure", nil) forState:UIControlStateNormal];
+
+    [titleLabel setText:NSLocalizedString(testName, nil)];
+    NSString *test_desc = [NSString stringWithFormat:@"%@_desc", testName];
+    [descLabel setText:NSLocalizedString(test_desc, nil)];
+    //TODO
+    [estimateTime setText:@"2min"];
+    [testLogo setImage:[UIImage imageNamed:testName]];
+    
+    if ([testName isEqualToString:@"websites"]){
+        [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_pink7 alpha:1.0f]];
+    }
+    else if ([testName isEqualToString:@"performance"]){
+        [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_cyan7 alpha:1.0f]];
+    }
+    else if ([testName isEqualToString:@"middle_boxes"]){
+        [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow7 alpha:1.0f]];
+    }
+    else if ([testName isEqualToString:@"instant_messaging"]){
+        [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_teal7 alpha:1.0f]];
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *test_name = [items objectAtIndex:indexPath.row];
-    if ([test_name isEqualToString:@"instant_messaging"]){
-        [[[IMNetworkTest alloc] init] run];
-    }
-    else if ([test_name isEqualToString:@"websites"]){
-        [[[WCNetworkTest alloc] init] run];
-    }
-    else if ([test_name isEqualToString:@"middle_boxes"]){
-        [[[MBNetworkTest alloc] init] run];
-    }
-    else if ([test_name isEqualToString:@"performance"]){
-        [[[SPNetworkTest alloc] init] run];
-    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestSettings"]){
-        UITableViewCell* cell = (UITableViewCell*)[[sender superview] superview];
+        UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
         SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
-        NSString *test_name = [items objectAtIndex:indexPath.row];
-        [vc setTest_name:test_name];
+        NSString *testName = [items objectAtIndex:indexPath.row];
+        [vc setTestName:testName];
+    }
+    else if ([[segue identifier] isEqualToString:@"toTestRun"]){
+        UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
+        NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
+        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
+        NSString *testName = [items objectAtIndex:indexPath.row];
+        [vc setTestName:testName];
     }
 }
 
