@@ -39,8 +39,7 @@
     cell.textLabel.text = NSLocalizedString(current, nil);
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current]];
-    //TODO
-    //cell.detailTextLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    cell.detailTextLabel.textColor = [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
     if ([categories_enabled containsObject:current]) cell.detailTextLabel.text = NSLocalizedString(@"enabled", nil);
     else cell.detailTextLabel.text = NSLocalizedString(@"disabled", nil);
     return cell;

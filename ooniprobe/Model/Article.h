@@ -10,5 +10,4 @@
 @property (strong, nonatomic) NSString *publicationDate;
 @property (strong, nonatomic) NSString *content;
 
-- (NSString *)getTitle;
 @end

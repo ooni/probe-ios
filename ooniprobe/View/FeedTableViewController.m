@@ -27,13 +27,17 @@
 */
     
     [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-        NSArray *entries = array.items;
+        entries = array.items;
         //NSLog(@"%@", entries[0]);
-        NSLog(@"Entries: %d", [entries count]);
-
+        //NSLog(@"Entries: %d", [entries count]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+/*
         for (Article *c in entries){
             NSLog(@"%@", [c getTitle]);
         }
+ */
         //NSLog(@"%@", entries[1]);
     } failure:^(CDAResponse *response, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -78,8 +82,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     Article *c = [entries objectAtIndex:indexPath.row];
     cell.textLabel.text = c.title;
+    //TODO format date, add all authors
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", [c.authors objectAtIndex:0], c.publicationDate];
-    //cell.imageView.image =
+    //TODO CoreDataExample of contentful project
+    if ([c.images count] > 0){
+        CDAAsset *image = [c.images objectAtIndex:0];
+        if ([image isImage]){
+            cell.imageView.offlineCaching_cda = YES;
+            cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+            [cell.imageView cda_setImageWithAsset:image placeholderImage:nil];
+        }
+    }
     NSLog(@"%@", c.images);
     return cell;
 }
