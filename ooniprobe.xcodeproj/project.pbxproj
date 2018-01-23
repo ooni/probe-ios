@@ -74,7 +74,7 @@
 /* Begin PBXFileReference section */
 		4F90A00BDE468B5E569850D3 /* libPods-ooniprobe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ooniprobe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D39522921C8CE117986F7 /* Pods-ooniprobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.debug.xcconfig"; sourceTree = "<group>"; };
-		D4A2F5D91A6C3244001B8460 /* OONI Probe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OONI Probe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A2F5D91A6C3244001B8460 /* ooniprobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ooniprobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2F5DE1A6C3244001B8460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4A2F5E01A6C3244001B8460 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		D4A2F5DA1A6C3244001B8460 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4A2F5D91A6C3244001B8460 /* OONI Probe.app */,
+				D4A2F5D91A6C3244001B8460 /* ooniprobe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -427,7 +427,7 @@
 			);
 			name = ooniprobe;
 			productName = NetProbe;
-			productReference = D4A2F5D91A6C3244001B8460 /* OONI Probe.app */;
+			productReference = D4A2F5D91A6C3244001B8460 /* ooniprobe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -804,7 +804,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
-				PRODUCT_NAME = "OONI Probe";
+				PRODUCT_NAME = ooniprobe;
 				PROVISIONING_PROFILE = "de5a74e0-ac7a-48a3-b51c-fa0b65ad0759";
 				PROVISIONING_PROFILE_SPECIFIER = "lorenzo ios development for ooniprobe";
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -846,7 +846,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
-				PRODUCT_NAME = "OONI Probe";
+				PRODUCT_NAME = ooniprobe;
 				PROVISIONING_PROFILE = "6466561b-61cf-4936-acbb-ce19114baf31";
 				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
 				STRIP_INSTALLED_PRODUCT = NO;
