@@ -5,6 +5,7 @@
 @end
 
 @implementation FeedTableViewController
+@synthesize entries;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -16,14 +17,14 @@
     if (articleClass) {
         [self.client registerClass:articleClass forContentTypeWithIdentifier:@"blogPost"];
     }
-    
+    /*
      [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
          NSLog(@"Assets: %d", space.assets.count);
          NSLog(@"Entries: %d", space.entries.count);
      } failure:^(CDAResponse *response, NSError *error) {
          NSLog(@"Error: %@", error);
      }];
-
+*/
     
     [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         NSArray *entries = array.items;
@@ -69,13 +70,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [entries count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"Cell %ld", indexPath.row];
+    Article *c = [entries objectAtIndex:indexPath.row];
+    cell.textLabel.text = c.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", [c.authors objectAtIndex:0], c.publicationDate];
+    //cell.imageView.image =
+    NSLog(@"%@", c.images);
     return cell;
 }
 

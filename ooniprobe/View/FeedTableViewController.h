@@ -5,4 +5,6 @@
 @interface FeedTableViewController : UITableViewController
 
 @property (nonatomic, strong)  CDAClient *client;
+@property (nonatomic, strong)  NSArray *entries;
+
 @end
