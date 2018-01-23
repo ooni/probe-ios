@@ -8,6 +8,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+
     //Constraint for iPhoneSE
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
@@ -21,6 +23,7 @@
     self.buttonView.layer.cornerRadius = 30;
     self.buttonView.layer.masksToBounds = true;
 
+    [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.titleLabel setText:NSLocalizedString(@"default_settings", nil)];
     
     NSMutableAttributedString *we_will_collect = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"we_will_collect", nil)];
@@ -62,8 +65,17 @@
     [attr_str appendAttributedString:default_settings_4];
 
     [self.textLabel setAttributedText:attr_str];
+    [self.textLabel setTextColor:[UIColor whiteColor]];
+
     [self.changeButton setTitle:[NSLocalizedString(@"change", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.changeButton setTitleColor:[UIColor whiteColor]
+                          forState:UIControlStateNormal];
+    [self.changeButton setBackgroundColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]];
+
     [self.goButton setTitle:[NSLocalizedString(@"lets_go", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.goButton setTitleColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]
+                          forState:UIControlStateNormal];
+    [self.goButton setBackgroundColor:[UIColor whiteColor]];
 }
 
 -(IBAction)configure:(id)sender{

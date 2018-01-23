@@ -111,7 +111,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.backgroundView.backgroundColor = [UIColor clearColor];
-    header.textLabel.font = [UIFont fontWithName:@"FiraSansOT-Bold" size:18];
+    header.textLabel.font = [UIFont fontWithName:@"FiraSans-Regular" size:18];
     [header.textLabel setTextColor:color_off_black];
     header.textLabel.text = NSLocalizedString(@"urls", nil);
 }

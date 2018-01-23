@@ -8,6 +8,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+
     //Constraint for iPhoneSE
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
@@ -18,6 +20,7 @@
         }
     }
     
+    [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.titleLabel setText:NSLocalizedString(@"what_is_ooniprobe", nil)];
     
     NSMutableAttributedString *what_is_ooniprobe_1 = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"what_is_ooniprobe_1", nil)];
@@ -34,6 +37,7 @@
     [attr_str appendAttributedString:what_is_ooniprobe_1];
     [attr_str appendAttributedString:what_is_ooniprobe_2];
     [self.textLabel setAttributedText:attr_str];
+    [self.textLabel setTextColor:[UIColor whiteColor]];
 }
 
 @end

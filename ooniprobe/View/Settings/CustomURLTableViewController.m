@@ -41,6 +41,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = NSLocalizedString(@"url", nil);
+    cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     UITextField *textField = [self createTextField];
     cell.accessoryView = textField;
     return cell;
@@ -49,9 +50,9 @@
 - (UITextField*)createTextField{
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 180, 30)];
     textField.delegate = self;
-    textField.backgroundColor = color_off_white;
-    textField.font = [UIFont fontWithName:@"FiraSansOT-Bold" size:15.0f];
-    textField.textColor = color_off_black;
+    textField.backgroundColor = [UIColor whiteColor];
+    textField.font = [UIFont fontWithName:@"FiraSans-Regular" size:15.0f];
+    textField.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.keyboardType = UIKeyboardTypeURL;

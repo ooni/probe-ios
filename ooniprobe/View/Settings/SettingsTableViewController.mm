@@ -64,7 +64,7 @@
 /*-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    header.textLabel.font = [UIFont fontWithName:@"FiraSansOT-Bold" size:15];
+    header.textLabel.font = [UIFont fontWithName:@"FiraSans-Regular" size:15];
     header.textLabel.textColor = color_off_black;
 }
 */
@@ -75,6 +75,7 @@
     if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"bool"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         //cell.imageView.image = [UIImage imageNamed:current];
         UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
         [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
@@ -85,12 +86,14 @@
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"segue"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         //cell.imageView.image = [UIImage imageNamed:current];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         //cell.imageView.image = [UIImage imageNamed:current];
         NSNumber *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         NSDecimalNumber *someNumber = [NSDecimalNumber decimalNumberWithString:[value stringValue]];
@@ -101,6 +104,7 @@
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"string"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         //cell.imageView.image = [UIImage imageNamed:current];
         NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         UITextField *textField = [self createTextField:@"string" :value];
@@ -117,9 +121,9 @@
 - (UITextField*)createTextField:(NSString*)type :(NSString*)text{
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
     textField.delegate = self;
-    textField.backgroundColor = color_off_white;
-    textField.font = [UIFont fontWithName:@"FiraSansOT-Bold" size:15.0f];
-    textField.textColor = color_off_black;
+    textField.backgroundColor = [UIColor whiteColor];
+    textField.font = [UIFont fontWithName:@"FiraSans-Regular" size:15.0f];
+    textField.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.text = text;

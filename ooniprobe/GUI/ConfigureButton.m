@@ -22,13 +22,13 @@
 
 - (void)commonInit
 {
-    UIColor *defaultTintColor = color_ooni_blue;
+    UIColor *defaultTintColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
     self.layer.borderWidth = 1;
     self.layer.borderColor = defaultTintColor.CGColor;
     self.layer.cornerRadius = 15;
     self.layer.masksToBounds = YES;
     [self setTitleColor:defaultTintColor forState:UIControlStateNormal];
-    [self setTitleColor:color_off_white forState:UIControlStateHighlighted];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     UIImage *backGroundImage = [self createSolidColorImageWithColor:defaultTintColor
                                                             andSize:self.bounds.size];
     [self setBackgroundImage:backGroundImage forState:UIControlStateHighlighted];

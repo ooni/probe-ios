@@ -45,8 +45,9 @@
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    //TODO
     [header.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [header.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:16]];
+    [header.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
 }
 
 
@@ -65,6 +66,7 @@
     NSString *test_type = [test_types objectAtIndex:indexPath.section];
     NSString *current = [[tests objectForKey:test_type] objectAtIndex:indexPath.row];
     cell.textLabel.text = NSLocalizedString(current, nil);
+    cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     if ([test_type isEqualToString:@"instant_messaging"])
         cell.imageView.image = [UIImage imageNamed:current];
     else

@@ -83,7 +83,7 @@
 
 + (NSArray*)getSettingsForTest:(NSString*)test_name {
     //TODO redo all with nsmutablearray for semplicity
-    if ([test_name isEqualToString:@"website"]) {
+    if ([test_name isEqualToString:@"websites"]) {
         return @[@"website_categories", @"max_runtime", @"custom_url"];
     }
     else if ([test_name isEqualToString:@"instant_messaging"]) {

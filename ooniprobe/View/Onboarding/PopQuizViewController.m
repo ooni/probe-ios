@@ -15,12 +15,24 @@
     [self.falseButton addTarget:self action:@selector(answer:) forControlEvents:UIControlEventTouchUpInside];
     [self.falseButton setTitle:[NSLocalizedString(@"_false", nil) uppercaseString] forState:UIControlStateNormal];
     
+    [self.trueButton setTitleColor:[UIColor whiteColor]
+                            forState:UIControlStateNormal];
+    [self.trueButton setBackgroundColor:[UIColor colorWithRGBHexString:color_teal5 alpha:1.0f]];
+    [self.falseButton setTitleColor:[UIColor whiteColor]
+                        forState:UIControlStateNormal];
+    [self.falseButton setBackgroundColor:[UIColor colorWithRGBHexString:color_red6 alpha:1.0f]];
+
     [self.closeView addTarget:self action:@selector(dismissPopup) forControlEvents:UIControlEventTouchUpInside];
     
     self.cointainerWindow.layer.cornerRadius = 12;
     self.cointainerWindow.layer.masksToBounds = true;
+    [self.cointainerWindow setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+    [self.cointainerWindow setBackgroundColor:[UIColor colorWithRed:5.0/255.0 green:136.0/255.0 blue:203.0/255.0 alpha:1.0]];
     
     [self.titleLabel setText:NSLocalizedString(@"pop_quiz", nil)];
+    [self.titleLabel setTextColor:[UIColor whiteColor]];
+    [self.textLabel setTextColor:[UIColor whiteColor]];
+
     [self reloadQuestion];
 }
 

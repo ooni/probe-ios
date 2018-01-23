@@ -39,6 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_base alpha:1.0f]];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nextPage) name:@"nextPage" object:nil];
 
     self.PageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
