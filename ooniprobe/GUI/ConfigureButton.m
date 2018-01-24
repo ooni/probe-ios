@@ -22,12 +22,12 @@
 
 - (void)commonInit
 {
-    UIColor *defaultTintColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
+    UIColor *defaultTintColor = [UIColor whiteColor];
     self.layer.borderWidth = 1;
-    self.layer.borderColor = defaultTintColor.CGColor;
+    self.layer.borderColor = [UIColor whiteColor].CGColor;
     self.layer.cornerRadius = 15;
     self.layer.masksToBounds = YES;
-    [self setTitleColor:defaultTintColor forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     UIImage *backGroundImage = [self createSolidColorImageWithColor:defaultTintColor
                                                             andSize:self.bounds.size];

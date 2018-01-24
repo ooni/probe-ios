@@ -8,8 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //TODO maybe move function to get all test object into an helper
-    items = @[@"websites", @"instant_messaging", @"middle_boxes", @"performance"];
+    items = [SettingsUtility getTestTypes];
     self.title = NSLocalizedString(@"dashboard", nil);
 }
 
@@ -44,8 +43,6 @@
     RunButton *runButton = (RunButton*)[cell viewWithTag:5];
     ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
-
-    //[self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
     [runButton setTitle:NSLocalizedString(@"run", nil) forState:UIControlStateNormal];
     [configureButton setTitle:NSLocalizedString(@"configure", nil) forState:UIControlStateNormal];
 
@@ -54,7 +51,7 @@
     [descLabel setText:NSLocalizedString(test_desc, nil)];
     //TODO
     [estimateTime setText:@"2min"];
-    [testLogo setImage:[UIImage imageNamed:testName]];
+    [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_big", testName]]];
     
     if ([testName isEqualToString:@"websites"]){
         [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_pink7 alpha:1.0f]];

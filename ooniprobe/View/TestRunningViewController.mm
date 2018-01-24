@@ -37,20 +37,15 @@
     [self.runningTestsLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"running_tests", nil)]];
     [self.testNameLabel setText:NSLocalizedString(self.testName, nil)];
     [self.etaLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"estimated_time_remaining", nil)]];
-    
+    [self.currentTestLabel setText:@""];
+
     //TODO
     [self.timeLabel setText:[NSString stringWithFormat:@"0 seconds"]];
-    [self.currentTestLabel setText:@""];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
 
     //NOT USED
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testEnded) name:@"testEnded" object:nil];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)updateProgress:(NSNotification *)notification{
