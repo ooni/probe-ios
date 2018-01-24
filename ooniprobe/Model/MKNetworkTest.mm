@@ -72,6 +72,10 @@
         NSLog(@"%s", s);
 #endif
     });
+    test.on_begin([self]() {
+        //TODO Create measurement object and set input
+        [self updateProgress:0];
+    });
     test.on_progress([self](double prog, const char *s) {
         [self updateProgress:prog];
     });
@@ -84,7 +88,11 @@
     NSLog(@"%@", os);
 #endif
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateProgress" object:nil];
+        NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
+        [noteInfo setObject:[NSNumber numberWithInt:self.idx] forKey:@"index"];
+        [noteInfo setObject:[NSNumber numberWithDouble:prog] forKey:@"prog"];
+        [noteInfo setObject:self.name forKey:@"name"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateProgress" object:nil userInfo:noteInfo];
     });
 }
 
@@ -106,27 +114,30 @@
      */
 }
 
-//TODO onTestEnded delegate callback
--(void)testEnded{
+-(void)testEnded:(MKNetworkTest*)test{
 #ifdef DEBUG
     NSLog(@"%@ testEnded", self.name);
 #endif
     //self.running = FALSE;
     //[TestStorage set_completed:self.measurement.uniqueId];
-    [TestUtility showNotification:self.name];
+    //[TestUtility showNotification:self.name];
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
-    
     [self.measurement setEndTime:[NSDate date]];
     
     //TODO
-    [self.delegate test_ended];
+    [self.delegate testEnded:self];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
-        NSDictionary *noteInfo = [NSDictionary dictionaryWithObject:self.name forKey:@"test_name"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"showToastTestFinished" object:nil userInfo:noteInfo];
+        //TODO
+        //NSDictionary *noteInfo = [NSDictionary dictionaryWithObject:self.name forKey:@"test_name"];
+        //[[NSNotificationCenter defaultCenter] postNotificationName:@"showToastTestFinished" object:nil userInfo:noteInfo];
     });
+}
+
+//TODO onTestEnded delegate callback
+-(void)testEnded{
+    [self testEnded:self];
 }
 
 @end
@@ -161,9 +172,6 @@
     }
     test.on_entry([self](std::string s) {
         [self on_entry:s.c_str()];
-    });
-    test.on_begin([self]() {
-        //TODO Create measurement object and set input
     });
     test.start([self]() {
         [self testEnded];
@@ -216,7 +224,7 @@
 
 @end
 
-@implementation HTTPInvalidRequestLine : MKNetworkTest
+@implementation HttpInvalidRequestLine : MKNetworkTest
 
 -(id) init {
     self = [super init];

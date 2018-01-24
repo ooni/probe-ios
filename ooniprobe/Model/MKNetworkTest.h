@@ -5,16 +5,20 @@
 #import "SettingsUtility.h"
 #import "Measurement.h"
 
+@class MKNetworkTest;
+
 @protocol MKNetworkTestDelegate <NSObject>
--(void)test_ended;
+-(void)testEnded:(MKNetworkTest*)test;
 @end
 
 @interface MKNetworkTest : NSObject
+
 @property mk::Settings options;
 
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property NSString *name;
 @property float progress;
+@property int idx;
 @property Measurement *measurement;
 @property NSArray *inputs;
 @property BOOL max_runtime_enabled;
@@ -27,7 +31,7 @@
 @interface WebConnectivity : MKNetworkTest
 @end
 
-@interface HTTPInvalidRequestLine : MKNetworkTest
+@interface HttpInvalidRequestLine : MKNetworkTest
 @end
 
 @interface HttpHeaderFieldManipulation : MKNetworkTest

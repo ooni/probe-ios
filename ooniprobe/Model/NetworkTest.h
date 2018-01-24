@@ -5,8 +5,9 @@
 
 @interface NetworkTest : NSObject <MKNetworkTestDelegate>
 @property Result *result;
-@property NSMutableArray *mk_network_tests;
--(void)test_ended;
+@property NSMutableArray *mkNetworkTests;
+-(void)testEnded:(MKNetworkTest*)test;
+-(void)run;
 @end
 
 @interface IMNetworkTest : NetworkTest
