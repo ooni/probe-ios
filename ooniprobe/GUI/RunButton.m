@@ -24,6 +24,7 @@
 {
     self.layer.cornerRadius = 10;
     self.layer.masksToBounds = YES;
+    [self setTitle:NSLocalizedString(@"run", nil) forState:UIControlStateNormal];
 /*
     UIColor *defaultTintColor = color_ooni_blue;
     self.layer.borderWidth = 1;

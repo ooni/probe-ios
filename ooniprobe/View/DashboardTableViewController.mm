@@ -43,8 +43,6 @@
     RunButton *runButton = (RunButton*)[cell viewWithTag:5];
     ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
-    [runButton setTitle:NSLocalizedString(@"run", nil) forState:UIControlStateNormal];
-    [configureButton setTitle:NSLocalizedString(@"configure", nil) forState:UIControlStateNormal];
 
     [titleLabel setText:NSLocalizedString(testName, nil)];
     NSString *test_desc = [NSString stringWithFormat:@"%@_desc", testName];
@@ -65,6 +63,9 @@
     else if ([testName isEqualToString:@"instant_messaging"]){
         [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_teal7 alpha:1.0f]];
     }
+    backgroundView.layer.cornerRadius = 15;
+    backgroundView.layer.masksToBounds = YES;
+
     return cell;
 }
 
@@ -87,6 +88,12 @@
         NSString *testName = [items objectAtIndex:indexPath.row];
         [vc setTestName:testName];
     }
+    else if ([[segue identifier] isEqualToString:@"toTestOverview"]){
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
+        NSString *testName = [items objectAtIndex:indexPath.row];
+        [vc setTestName:testName];
+    }    
 }
 
 

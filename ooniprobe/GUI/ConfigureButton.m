@@ -32,6 +32,7 @@
     UIImage *backGroundImage = [self createSolidColorImageWithColor:defaultTintColor
                                                             andSize:self.bounds.size];
     [self setBackgroundImage:backGroundImage forState:UIControlStateHighlighted];
+    [self setTitle:NSLocalizedString(@"configure", nil) forState:UIControlStateNormal];
 }
 
 - (UIImage*)createSolidColorImageWithColor:(UIColor*)color andSize:(CGSize)size
