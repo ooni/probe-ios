@@ -126,6 +126,12 @@
     });
 }
 
+-(void)updateAnomaly:(int)blocking{
+    if (blocking > self.anomaly){
+        self.anomaly = blocking;
+        [TestStorage set_anomaly:self.test_id :blocking];
+    }
+}
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.name forKey:@"Test_name"];
@@ -198,6 +204,14 @@
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = ANOMALY_GREEN;
+        if (error != nil) {
+#ifdef DEBUG
+            NSLog(@"Error parsing JSON: %@", error);
+#endif
+            blocking = ANOMALY_ORANGE;
+            [self updateAnomaly:blocking];
+            return;
+        }
         if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
             //this case shouldn't happen
             if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
@@ -205,10 +219,7 @@
             else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
                 blocking = ANOMALY_RED;
         }
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        [self updateAnomaly:blocking];
     }
 }
 
@@ -258,11 +269,17 @@
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
+        int blocking;
+        if (error != nil) {
+#ifdef DEBUG
+            NSLog(@"Error parsing JSON: %@", error);
+#endif
+            blocking = ANOMALY_ORANGE;
+            [self updateAnomaly:blocking];
+            return;
         }
+        blocking = [Tests checkAnomaly:[json objectForKey:@"test_keys"]];
+        [self updateAnomaly:blocking];
     }
 }
 
@@ -331,12 +348,17 @@
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = ANOMALY_GREEN;
+        if (error != nil) {
+#ifdef DEBUG
+            NSLog(@"Error parsing JSON: %@", error);
+#endif
+            blocking = ANOMALY_ORANGE;
+            [self updateAnomaly:blocking];
+            return;
+        }
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
             blocking = ANOMALY_ORANGE;
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        [self updateAnomaly:blocking];
     }
 }
 
@@ -384,8 +406,15 @@
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        
         int blocking = ANOMALY_GREEN;
+        if (error != nil) {
+#ifdef DEBUG
+            NSLog(@"Error parsing JSON: %@", error);
+#endif
+            blocking = ANOMALY_ORANGE;
+            [self updateAnomaly:blocking];
+            return;
+        }
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
             blocking = ANOMALY_ORANGE;
         else {
@@ -399,10 +428,7 @@
                 }
             }
         }
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        [self updateAnomaly:blocking];
     }
 }
 
@@ -454,12 +480,17 @@
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = ANOMALY_GREEN;
+        if (error != nil) {
+#ifdef DEBUG
+            NSLog(@"Error parsing JSON: %@", error);
+#endif
+            blocking = ANOMALY_ORANGE;
+            [self updateAnomaly:blocking];
+            return;
+        }
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
             blocking = ANOMALY_ORANGE;
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        [self updateAnomaly:blocking];
     }
 }
 
@@ -509,24 +540,28 @@
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = ANOMALY_GREEN;
-        
+        if (error != nil) {
+#ifdef DEBUG
+            NSLog(@"Error parsing JSON: %@", error);
+#endif
+            blocking = ANOMALY_ORANGE;
+            [self updateAnomaly:blocking];
+            return;
+        }
         //whatsapp_endpoints_status and whatsapp_web_status and registration_server_status must be both false if null (set test anomaly), if at least one is true (set test blocked)
         NSArray *keys = [[NSArray alloc] initWithObjects:@"whatsapp_endpoints_status", @"whatsapp_web_status", @"registration_server_status", nil];
         for (NSString *key in keys) {
-            if ([json objectForKey:key]){
-                if ([json objectForKey:key] == [NSNull null]) {
+            if ([[json objectForKey:@"test_keys"] objectForKey:key]){
+                if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
                     if (blocking < ANOMALY_ORANGE)
                         blocking = ANOMALY_ORANGE;
                 }
-                else if ([[json objectForKey:key] isEqualToString:@"blocked"]) {
+                else if ([[[json objectForKey:@"test_keys"] objectForKey:key] isEqualToString:@"blocked"]) {
                     blocking = ANOMALY_RED;
                 }
             }
         }
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        [self updateAnomaly:blocking];
     }
 }
 @end
@@ -574,36 +609,39 @@
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = ANOMALY_GREEN;
-        
+        if (error != nil) {
+#ifdef DEBUG
+            NSLog(@"Error parsing JSON: %@", error);
+#endif
+            blocking = ANOMALY_ORANGE;
+            [self updateAnomaly:blocking];
+            return;
+        }
         //telegram_http_blocking and telegram_tcp_blocking must be both false if null (set test anomaly), if at least one is true (set test blocked)
         //telegram_web_status must be "ok", if null anomaly, if "blocked" (set test blocked)
         //telegram_web_failure must be null, if != null (set test blocked)
         NSArray *keys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];
         for (NSString *key in keys) {
-            if ([json objectForKey:key]){
-                if ([json objectForKey:key] == [NSNull null]) {
+            if ([[json objectForKey:@"test_keys"] objectForKey:key]){
+                if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
                     if (blocking < ANOMALY_ORANGE)
                         blocking = ANOMALY_ORANGE;
                 }
-                else if ([[json objectForKey:key] boolValue]) {
+                else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
                     blocking = ANOMALY_RED;
                 }
             }
         }
-        if ([json objectForKey:@"telegram_web_status"]){
-            if ([json objectForKey:@"telegram_web_status"] == [NSNull null]) {
+        if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"]){
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] == [NSNull null]) {
                 if (blocking < ANOMALY_ORANGE)
                     blocking = ANOMALY_ORANGE;
             }
-            else if ([[json objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
+            else if ([[[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
                 blocking = ANOMALY_RED;
             }
         }
-
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        [self updateAnomaly:blocking];
     }
 }
 
@@ -652,22 +690,27 @@
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = ANOMALY_GREEN;
+        if (error != nil) {
+#ifdef DEBUG
+            NSLog(@"Error parsing JSON: %@", error);
+#endif
+            blocking = ANOMALY_ORANGE;
+            [self updateAnomaly:blocking];
+            return;
+        }
         NSArray *keys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
         for (NSString *key in keys) {
-            if ([json objectForKey:key]){
-                if ([json objectForKey:key] == [NSNull null]) {
+            if ([[json objectForKey:@"test_keys"] objectForKey:key]){
+                if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
                     if (blocking < ANOMALY_ORANGE)
                         blocking = ANOMALY_ORANGE;
                 }
-                else if ([[json objectForKey:key] boolValue]) {
+                else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
                     blocking = ANOMALY_RED;
                 }
             }
         }
-        if (blocking > self.anomaly){
-            self.anomaly = blocking;
-            [TestStorage set_anomaly:self.test_id :blocking];
-        }
+        [self updateAnomaly:blocking];
     }
 }
 

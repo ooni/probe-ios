@@ -30,27 +30,26 @@
     WebConnectivity *web_connectivityMeasurement = [[WebConnectivity alloc] init];
     [self.availableNetworkMeasurements addObject:web_connectivityMeasurement];
     
-    HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
-    [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
-    
-    HttpHeaderFieldManipulation *http_header_field_manipulationMeasurement = [[HttpHeaderFieldManipulation alloc] init];
-    [self.availableNetworkMeasurements addObject:http_header_field_manipulationMeasurement];
-
-    NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
-    [self.availableNetworkMeasurements addObject:ndt_testMeasurement];
-
-    Dash *dash = [[Dash alloc] init];
-    [self.availableNetworkMeasurements addObject:dash];
-    
-    Whatsapp *whatsapp = [[Whatsapp alloc] init];
-    [self.availableNetworkMeasurements addObject:whatsapp];
+    FacebookMessenger *facebook_messenger = [[FacebookMessenger alloc] init];
+    [self.availableNetworkMeasurements addObject:facebook_messenger];
     
     Telegram *telegram = [[Telegram alloc] init];
     [self.availableNetworkMeasurements addObject:telegram];
     
-    FacebookMessenger *facebook_messenger = [[FacebookMessenger alloc] init];
-    [self.availableNetworkMeasurements addObject:facebook_messenger];
+    Whatsapp *whatsapp = [[Whatsapp alloc] init];
+    [self.availableNetworkMeasurements addObject:whatsapp];
 
+    HttpHeaderFieldManipulation *http_header_field_manipulationMeasurement = [[HttpHeaderFieldManipulation alloc] init];
+    [self.availableNetworkMeasurements addObject:http_header_field_manipulationMeasurement];
+
+    HTTPInvalidRequestLine *http_invalid_request_lineMeasurement = [[HTTPInvalidRequestLine alloc] init];
+    [self.availableNetworkMeasurements addObject:http_invalid_request_lineMeasurement];
+
+    Dash *dash = [[Dash alloc] init];
+    [self.availableNetworkMeasurements addObject:dash];
+
+    NdtTest *ndt_testMeasurement = [[NdtTest alloc] init];
+    [self.availableNetworkMeasurements addObject:ndt_testMeasurement];
 }
 
 - (NetworkMeasurement*)getTestWithName:(NSString*)testName{
