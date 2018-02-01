@@ -43,24 +43,26 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nextPage) name:@"nextPage" object:nil];
 
-    self.PageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
-    self.PageViewController.dataSource = self;
+    //self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"pageViewController"];
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+
+    self.pageViewController.dataSource = self;
     viewControllers = [[NSArray alloc] initWithObjects:self.first, self.second, self.third, self.fourth, nil];
 
-    [self.PageViewController setViewControllers:@[self.first]
+    [self.pageViewController setViewControllers:@[self.first]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
                   completion:nil];
     
-    self.PageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [self addChildViewController:self.PageViewController];
-    [self.view addSubview:self.PageViewController.view];
-    [self.PageViewController didMoveToParentViewController:self];
+    self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    [self.pageViewController didMoveToParentViewController:self];
 }
 
 - (void)nextPage{
     index = 3;
-    [self.PageViewController setViewControllers:@[self.fourth] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+    [self.pageViewController setViewControllers:@[self.fourth] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,7 +10,7 @@
 }
 
 
-@property (nonatomic,strong) UIPageViewController *PageViewController;
+@property (nonatomic,strong) UIPageViewController *pageViewController;
 
 @property (nonatomic, retain) Onboarding1ViewController *first;
 @property (nonatomic, retain) Onboarding2ViewController *second;
