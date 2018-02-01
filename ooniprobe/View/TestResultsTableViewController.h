@@ -2,4 +2,6 @@
 
 @interface TestResultsTableViewController : UITableViewController
 
+@property (nonatomic, strong) IBOutlet UIView *headerView;
+
 @end

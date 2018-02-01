@@ -20,7 +20,10 @@
 @property (strong, nonatomic) NSString *logFile;
 @property (strong, nonatomic) NSString *reportFile;
 @property (strong, nonatomic) NSString *reportId;
+
 @property (strong, nonatomic) NSString *input;
+@property (strong, nonatomic) NSString *category;
+//performance need upload and download
 
 @property (nonatomic, assign) NSInteger resultId;
 
