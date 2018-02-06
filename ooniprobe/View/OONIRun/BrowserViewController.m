@@ -28,12 +28,6 @@
     [super viewDidAppear:animated];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self updateButtons];
     NSString *url = [urlList objectAtIndex:urlIndex];

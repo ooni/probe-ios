@@ -17,6 +17,11 @@ PODS:
   - ContentfulDeliveryAPI (2.0.4):
     - AFNetworking (~> 3.1.0)
     - ISO8601 (~> 0.6.0)
+  - ContentfulPersistenceObjC (1.0.0):
+    - ContentfulDeliveryAPI (~> 2.0.1)
+    - ContentfulPersistenceObjC/CoreData (= 1.0.0)
+  - ContentfulPersistenceObjC/CoreData (1.0.0):
+    - ContentfulDeliveryAPI (~> 2.0.1)
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
   - DZNEmptyDataSet (1.8.1)
@@ -29,6 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - ContentfulDeliveryAPI
+  - ContentfulPersistenceObjC
   - Crashlytics
   - DZNEmptyDataSet
   - Fabric
@@ -50,6 +56,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   ContentfulDeliveryAPI: 383d65d526de00a0eb725da82b4a5eb1b5bd6e6a
+  ContentfulPersistenceObjC: 72e1d6f79e19ce142bd726ea42950b58f9ae39eb
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
@@ -59,6 +66,6 @@ SPEC CHECKSUMS:
   measurement_kit: 6ba384d6352526c3711979ff3db66af794ef8b35
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: 801a829ade15c5472683774513d0692265e414e6
+PODFILE CHECKSUM: c00b0713d724bec27c564e6708ec721c55268229
 
 COCOAPODS: 1.3.1

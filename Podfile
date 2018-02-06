@@ -10,4 +10,5 @@ target 'ooniprobe' do
     pod 'DZNEmptyDataSet'
     pod 'lottie-ios'
     pod 'ContentfulDeliveryAPI'
+    pod 'ContentfulPersistenceObjC'
 end

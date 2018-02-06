@@ -27,10 +27,6 @@
     [self reloadSettings];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 -(void)reloadSettings {
     if (category != nil)
         items = [SettingsUtility getSettingsForCategory:category];

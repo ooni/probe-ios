@@ -21,6 +21,7 @@
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0751F8990E3008DFD0D /* global.csv */; };
 		ED3261BC1FEA7A6700EAC375 /* NetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3261BB1FEA7A6700EAC375 /* NetworkTest.mm */; };
+		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
 		ED3582371FE9489B0078CCEE /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = ED3582341FE9489A0078CCEE /* db.sql */; };
 		ED3582381FE9489B0078CCEE /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3582361FE9489A0078CCEE /* DBManager.m */; };
@@ -41,6 +42,9 @@
 		ED70D5091FE82A9900759463 /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5081FE82A9900759463 /* MKNetworkTest.mm */; };
 		ED75A3972011AC2F009792C6 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75A3962011AC2F009792C6 /* Article.m */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
+		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
+		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
+		EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */; };
 		EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */; };
 		EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */; };
 		EDC2C9E01FD8061400FF01D3 /* FiraSans-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB0891FD5B06C00FA4838 /* FiraSans-LightItalic.otf */; };
@@ -101,6 +105,8 @@
 		ED3261BA1FEA7A6700EAC375 /* NetworkTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkTest.h; path = Model/NetworkTest.h; sourceTree = "<group>"; };
 		ED3261BB1FEA7A6700EAC375 /* NetworkTest.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkTest.mm; path = Model/NetworkTest.mm; sourceTree = "<group>"; };
 		ED34107F1FE951480028B37B /* test.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.sql; sourceTree = "<group>"; };
+		ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
+		ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewController.m; sourceTree = "<group>"; };
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		ED3582341FE9489A0078CCEE /* db.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sql; sourceTree = "<group>"; };
 		ED3582351FE9489A0078CCEE /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -151,6 +157,12 @@
 		ED9421331FD175D50014CE95 /* UIColor+TFT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TFT.m"; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EDB6F9B72023526300BDCB0B /* HeaderSwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderSwipeViewController.h; sourceTree = "<group>"; };
+		EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderSwipeViewController.m; sourceTree = "<group>"; };
+		EDB6F9BA202352D000BDCB0B /* Header1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header1ViewController.h; sourceTree = "<group>"; };
+		EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Header1ViewController.m; sourceTree = "<group>"; };
+		EDB6F9BD202352DC00BDCB0B /* Header2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header2ViewController.h; sourceTree = "<group>"; };
+		EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Header2ViewController.m; sourceTree = "<group>"; };
 		EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Light.otf"; sourceTree = "<group>"; };
 		EDBCB0891FD5B06C00FA4838 /* FiraSans-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-LightItalic.otf"; sourceTree = "<group>"; };
 		EDBCB08A1FD5B06C00FA4838 /* FiraSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Regular.otf"; sourceTree = "<group>"; };
@@ -349,6 +361,7 @@
 		ED25281F1CEA353A0073A29B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EDB6F9B62023524500BDCB0B /* TestOverview */,
 				ED0D8D6D201866D8003DDF23 /* RunTest */,
 				EDDB0B5E1FFF3A5A00EFD9C8 /* TabsViewController.h */,
 				EDDB0B5D1FFF3A5A00EFD9C8 /* TabsViewController.m */,
@@ -426,6 +439,21 @@
 			);
 			name = TFTColor;
 			path = Utility/TFTColor;
+			sourceTree = "<group>";
+		};
+		EDB6F9B62023524500BDCB0B /* TestOverview */ = {
+			isa = PBXGroup;
+			children = (
+				ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */,
+				ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */,
+				EDB6F9B72023526300BDCB0B /* HeaderSwipeViewController.h */,
+				EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */,
+				EDB6F9BA202352D000BDCB0B /* Header1ViewController.h */,
+				EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */,
+				EDB6F9BD202352DC00BDCB0B /* Header2ViewController.h */,
+				EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */,
+			);
+			path = TestOverview;
 			sourceTree = "<group>";
 		};
 		EDBCB0871FD5B06C00FA4838 /* fonts */ = {
@@ -726,6 +754,8 @@
 				ED0D8D7020186742003DDF23 /* TestOverviewViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				ED70D5091FE82A9900759463 /* MKNetworkTest.mm in Sources */,
+				EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */,
+				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				ED70D5061FE8022300759463 /* Result.mm in Sources */,
 				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
@@ -742,6 +772,7 @@
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				ED3261BC1FEA7A6700EAC375 /* NetworkTest.mm in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
+				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
 				EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
@@ -750,6 +781,7 @@
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
 				ED70D5031FE8021400759463 /* Measurement.mm in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding4ViewController.m in Sources */,
+				ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,

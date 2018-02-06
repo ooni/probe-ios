@@ -38,19 +38,7 @@
     [self.lastRunLabel setText:@"2 days ago"];
     
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
-    defaultColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
-    if ([testName isEqualToString:@"websites"]){
-        defaultColor = [UIColor colorWithRGBHexString:color_pink7 alpha:1.0f];
-    }
-    else if ([testName isEqualToString:@"performance"]){
-        defaultColor = [UIColor colorWithRGBHexString:color_cyan7 alpha:1.0f];
-    }
-    else if ([testName isEqualToString:@"middle_boxes"]){
-        defaultColor = [UIColor colorWithRGBHexString:color_yellow7 alpha:1.0f];
-    }
-    else if ([testName isEqualToString:@"instant_messaging"]){
-        defaultColor = [UIColor colorWithRGBHexString:color_teal7 alpha:1.0f];
-    }
+    defaultColor = [SettingsUtility getColorForTest:testName];
     [self.backgroundView setBackgroundColor:defaultColor];
 }
 

@@ -15,7 +15,8 @@
 //states IRC are: running, done, uploaded
 @property (strong, nonatomic) NSString *state;
 
-@property (strong, nonatomic) NSString *failure;
+@property (nonatomic, assign) NSInteger blocking;
+//@property (strong, nonatomic) NSString *failure;
 
 @property (strong, nonatomic) NSString *logFile;
 @property (strong, nonatomic) NSString *reportFile;
@@ -23,7 +24,7 @@
 
 @property (strong, nonatomic) NSString *input;
 @property (strong, nonatomic) NSString *category;
-//performance need upload and download
+//TODO performance need upload and download
 
 @property (nonatomic, assign) NSInteger resultId;
 

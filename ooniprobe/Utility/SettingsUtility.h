@@ -3,21 +3,24 @@
 @interface SettingsUtility : NSObject
 
 + (NSArray*)getSettingsCategories;
-+ (NSArray*)getSettingsForCategory:(NSString*)catName;
++ (NSArray*)getSettingsForCategory:(NSString*)categoryName;
 + (NSString*)getTypeForSetting:(NSString*)setting;
 
 + (NSDictionary*)getTests;
 + (NSArray*)getTestTypes;
 
 + (NSArray*)getAutomaticTestsEnabled;
-+ (NSArray*)addRemoveAutomaticTest:(NSString*)test_name;
++ (NSArray*)addRemoveAutomaticTest:(NSString*)testName;
 
 + (NSArray*)getSitesCategories;
 
 + (NSArray*)getSitesCategoriesEnabled;
-+ (void)addRemoveSitesCategory:(NSString*)category_name;
++ (void)addRemoveSitesCategory:(NSString*)categoryName;
 
-+ (NSArray*)getSettingsForTest:(NSString*)test_name;
++ (NSArray*)getSettingsForTest:(NSString*)testName;
 
-+ (BOOL)getSettingWithName:(NSString*)setting_name;
++ (BOOL)getSettingWithName:(NSString*)settingName;
+
++ (UIColor*)getColorForTest:(NSString*)testName;
+
 @end

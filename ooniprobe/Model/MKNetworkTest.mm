@@ -114,11 +114,11 @@
      */
 }
 
--(void)updateAnomaly:(int)blocking{
-    /*if (blocking > self.anomaly){
-        self.anomaly = blocking;
-        [TestStorage set_anomaly:self.test_id :blocking];
-    }*/
+-(void)updateBlocking:(int)blocking{
+    if (blocking > self.measurement.blocking){
+        self.measurement.blocking = blocking;
+        //TODO save update db
+    }
 }
 
 -(void)testEnded:(MKNetworkTest*)test{
@@ -205,15 +205,15 @@
             NSLog(@"Error parsing JSON: %@", error);
 #endif
             blocking = ANOMALY_ORANGE;
-            [self updateAnomaly:blocking];
+            [self updateBlocking:blocking];
             return;
         }
-        blocking = [self checkAnomaly:[json objectForKey:@"test_keys"]];
-        [self updateAnomaly:blocking];
+        blocking = [self checkBlocking:[json objectForKey:@"test_keys"]];
+        [self updateBlocking:blocking];
     }
 }
 
-- (int)checkAnomaly:(NSDictionary*)test_keys{
+- (int)checkBlocking:(NSDictionary*)test_keys{
     /*null => anomal = 1,
      false => anomaly = 0,
      stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
@@ -224,14 +224,14 @@
      2 == red
      */
     id element = [test_keys objectForKey:@"blocking"];
-    int anomaly = 0;
+    int blocking = 0;
     if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
-        anomaly = 1;
+        blocking = 1;
     }
     else if (([element isKindOfClass:[NSString class]])) {
-        anomaly = 2;
+        blocking = 2;
     }
-    return anomaly;
+    return blocking;
 }
 
 @end
@@ -279,7 +279,7 @@
             NSLog(@"Error parsing JSON: %@", error);
 #endif
             blocking = ANOMALY_ORANGE;
-            [self updateAnomaly:blocking];
+            [self updateBlocking:blocking];
             return;
         }
         if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
@@ -289,7 +289,7 @@
             else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
                 blocking = ANOMALY_RED;
         }
-        [self updateAnomaly:blocking];
+        [self updateBlocking:blocking];
     }
 }
 
@@ -339,7 +339,7 @@
             NSLog(@"Error parsing JSON: %@", error);
 #endif
             blocking = ANOMALY_ORANGE;
-            [self updateAnomaly:blocking];
+            [self updateBlocking:blocking];
             return;
         }
 
@@ -356,7 +356,7 @@
                 }
             }
         }
-        [self updateAnomaly:blocking];
+        [self updateBlocking:blocking];
     }
 }
 
@@ -407,12 +407,12 @@
             NSLog(@"Error parsing JSON: %@", error);
 #endif
             blocking = ANOMALY_ORANGE;
-            [self updateAnomaly:blocking];
+            [self updateBlocking:blocking];
             return;
         }
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
             blocking = ANOMALY_ORANGE;
-        [self updateAnomaly:blocking];
+        [self updateBlocking:blocking];
     }
 }
 
@@ -465,12 +465,12 @@
             NSLog(@"Error parsing JSON: %@", error);
 #endif
             blocking = ANOMALY_ORANGE;
-            [self updateAnomaly:blocking];
+            [self updateBlocking:blocking];
             return;
         }
         if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
             blocking = ANOMALY_ORANGE;
-        [self updateAnomaly:blocking];
+        [self updateBlocking:blocking];
     }
 }
 
@@ -509,10 +509,6 @@
 
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        /*if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }*/
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -522,7 +518,7 @@
             NSLog(@"Error parsing JSON: %@", error);
 #endif
             blocking = ANOMALY_ORANGE;
-            [self updateAnomaly:blocking];
+            [self updateBlocking:blocking];
             return;
         }
         //whatsapp_endpoints_status and whatsapp_web_status and registration_server_status must be both false if null (set test anomaly), if at least one is true (set test blocked)
@@ -538,7 +534,7 @@
                 }
             }
         }
-        [self updateAnomaly:blocking];
+        [self updateBlocking:blocking];
     }
 }
 
@@ -577,10 +573,6 @@
  */
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        /*if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }*/
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -590,7 +582,7 @@
             NSLog(@"Error parsing JSON: %@", error);
 #endif
             blocking = ANOMALY_ORANGE;
-            [self updateAnomaly:blocking];
+            [self updateBlocking:blocking];
             return;
         }
         //telegram_http_blocking and telegram_tcp_blocking must be both false if null (set test anomaly), if at least one is true (set test blocked)
@@ -617,7 +609,7 @@
                 blocking = ANOMALY_RED;
             }
         }
-        [self updateAnomaly:blocking];
+        [self updateBlocking:blocking];
     }
 }
 
@@ -657,10 +649,6 @@
  */
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        /*if (!self.entry){
-            [TestStorage set_entry:self.test_id];
-            self.entry = TRUE;
-        }*/
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -670,7 +658,7 @@
             NSLog(@"Error parsing JSON: %@", error);
 #endif
             blocking = ANOMALY_ORANGE;
-            [self updateAnomaly:blocking];
+            [self updateBlocking:blocking];
             return;
         }
         NSArray *keys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
@@ -685,7 +673,7 @@
                 }
             }
         }
-        [self updateAnomaly:blocking];
+        [self updateBlocking:blocking];
     }
 }
 

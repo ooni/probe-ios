@@ -9,6 +9,22 @@
 
 //The json of the result is a summary that contains just a few kbs vs MBs of the report file
 @property (strong, nonatomic) NSString *json;
+/*
+ WebCensorship Json
+ number of sites + blocked?
+ 
+ Performance Json
+ video streaming quality
+ upload
+ download
+ ping
+ 
+ IM Json
+ -
+ 
+ MiddleBox Json
+ 
+ */
 @property (nonatomic, assign) BOOL done;
 
 -(id)init;

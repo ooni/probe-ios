@@ -6,23 +6,23 @@
     return @[@"notifications", @"automated_testing", @"sharing", @"advanced", @"about_ooni"];
 }
 
-+ (NSArray*)getSettingsForCategory:(NSString*)catName{
-    if ([catName isEqualToString:@"notifications"]) {
++ (NSArray*)getSettingsForCategory:(NSString*)categoryName{
+    if ([categoryName isEqualToString:@"notifications"]) {
         if ([self getSettingWithName:@"notifications_enabled"])
             return @[@"notifications_enabled", @"notifications_completion", @"notifications_news"];
         else
             return @[@"notifications_enabled"];
     }
-    else if ([catName isEqualToString:@"automated_testing"]) {
+    else if ([categoryName isEqualToString:@"automated_testing"]) {
         if ([self getSettingWithName:@"automated_testing_enabled"])
             return @[@"automated_testing_enabled", @"enabled_tests", @"website_categories", @"monthly_mobile_allowance", @"monthly_wifi_allowance"];
         else
             return @[@"automated_testing_enabled"];
     }
-    else if ([catName isEqualToString:@"sharing"]) {
+    else if ([categoryName isEqualToString:@"sharing"]) {
         return @[@"upload_results", @"include_ip", @"include_asn", @"include_gps"];
     }
-    else if ([catName isEqualToString:@"advanced"]) {
+    else if ([categoryName isEqualToString:@"advanced"]) {
         return @[@"send_crash", @"debug_logs", @"use_domain_fronting", @"include_cc"];
     }
     else
@@ -53,15 +53,15 @@
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"automatic_tests"];
 }
 
-+ (NSArray*)addRemoveAutomaticTest:(NSString*)test_name{
-    NSMutableArray *automatic_tests = [[self getAutomaticTestsEnabled] mutableCopy];
-    if ([automatic_tests containsObject:test_name])
-        [automatic_tests removeObject:test_name];
++ (NSArray*)addRemoveAutomaticTest:(NSString*)testName{
+    NSMutableArray *automaticTests = [[self getAutomaticTestsEnabled] mutableCopy];
+    if ([automaticTests containsObject:testName])
+        [automaticTests removeObject:testName];
     else
-        [automatic_tests addObject:test_name];
-    [[NSUserDefaults standardUserDefaults] setObject:automatic_tests forKey:@"automatic_tests"];
+        [automaticTests addObject:testName];
+    [[NSUserDefaults standardUserDefaults] setObject:automaticTests forKey:@"automatic_tests"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    return automatic_tests;
+    return automaticTests;
 }
 
 + (NSArray*)getSitesCategories{
@@ -71,31 +71,31 @@
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"sites_categories"];
 }
 
-+ (void)addRemoveSitesCategory:(NSString*)category_name {
++ (void)addRemoveSitesCategory:(NSString*)categoryName {
     NSMutableArray *sites_categories = [[self getSitesCategories] mutableCopy];
-    if ([sites_categories containsObject:category_name])
-        [sites_categories removeObject:category_name];
+    if ([sites_categories containsObject:categoryName])
+        [sites_categories removeObject:categoryName];
     else
-        [sites_categories addObject:category_name];
+        [sites_categories addObject:categoryName];
     [[NSUserDefaults standardUserDefaults] setObject:sites_categories forKey:@"sites_categories"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (NSArray*)getSettingsForTest:(NSString*)test_name {
++ (NSArray*)getSettingsForTest:(NSString*)testName {
     //TODO redo all with nsmutablearray for semplicity
-    if ([test_name isEqualToString:@"websites"]) {
+    if ([testName isEqualToString:@"websites"]) {
         return @[@"website_categories", @"max_runtime", @"custom_url"];
     }
-    else if ([test_name isEqualToString:@"instant_messaging"]) {
+    else if ([testName isEqualToString:@"instant_messaging"]) {
         if ([self getSettingWithName:@"test_whatsapp"])
             return @[@"test_whatsapp", @"test_whatsapp_extensive", @"test_telegram", @"test_facebook"];
         else
             return @[@"test_whatsapp", @"test_telegram", @"test_facebook"];
     }
-    else if ([test_name isEqualToString:@"middle_boxes"]) {
+    else if ([testName isEqualToString:@"middle_boxes"]) {
         return @[@"run_http_invalid_request_line", @"run_http_header_field_manipulation"];
     }
-    else if ([test_name isEqualToString:@"performance"]) {
+    else if ([testName isEqualToString:@"performance"]) {
         NSMutableArray *settings = [[NSMutableArray alloc] init];
         [settings addObject:@"run_ndt"];
         if ([self getSettingWithName:@"run_ndt"]){
@@ -131,7 +131,24 @@
         return nil;
 }
 
-+ (BOOL)getSettingWithName:(NSString*)setting_name{
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:setting_name] boolValue];
++ (BOOL)getSettingWithName:(NSString*)settingName{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:settingName] boolValue];
 }
+
++ (UIColor*)getColorForTest:(NSString*)testName{
+    if ([testName isEqualToString:@"websites"]){
+        return [UIColor colorWithRGBHexString:color_pink7 alpha:1.0f];
+    }
+    else if ([testName isEqualToString:@"performance"]){
+        return [UIColor colorWithRGBHexString:color_cyan7 alpha:1.0f];
+    }
+    else if ([testName isEqualToString:@"middle_boxes"]){
+        return [UIColor colorWithRGBHexString:color_yellow7 alpha:1.0f];
+    }
+    else if ([testName isEqualToString:@"instant_messaging"]){
+        return [UIColor colorWithRGBHexString:color_teal7 alpha:1.0f];
+    }
+    return [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
+}
+
 @end
