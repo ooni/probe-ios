@@ -8,6 +8,8 @@
 @synthesize entries;
 
 - (void)viewDidLoad {
+    //https://www.contentful.com/blog/2014/05/09/ios-content-synchronization/
+    
     [super viewDidLoad];
     self.title = NSLocalizedString(@"feed", nil);
     self.client = [[CDAClient alloc] initWithSpaceKey:@"brg7eld9zwg1"
@@ -17,6 +19,15 @@
     if (articleClass) {
         [self.client registerClass:articleClass forContentTypeWithIdentifier:@"blogPost"];
     }
+    
+    CDASyncedSpace* space = [CDASyncedSpace readFromFile:@"/some/path"
+                                                  client:self.client];
+    [space performSynchronizationWithSuccess:^{
+        // Handle success...
+    } failure:^(CDAResponse *response, NSError *error) {
+        // Handle errors...
+    }];
+    
     /*
      [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
          NSLog(@"Assets: %d", space.assets.count);
