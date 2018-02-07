@@ -11,4 +11,6 @@ target 'ooniprobe' do
     pod 'lottie-ios'
     pod 'ContentfulDeliveryAPI'
     pod 'ContentfulPersistenceObjC'
+    pod 'OLCOrm'
+    pod 'SharkORM'
 end

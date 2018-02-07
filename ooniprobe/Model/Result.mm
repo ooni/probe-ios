@@ -7,13 +7,13 @@
     if (!self) {
         return nil;
     }
-    self.uniqueId = [[NSDate date] timeIntervalSince1970];
+    self.Id = [[NSDate date] timeIntervalSince1970];
     self.done = false;
     return self;
 }
 
 -(void)save{
-    NSLog(@"uniqueId %ld", self.uniqueId);
+    NSLog(@"Id %ld", self.Id);
     NSLog(@"name %@", self.name);
     NSLog(@"startTime %@", self.startTime);
     NSLog(@"endTime %@", self.endTime);
