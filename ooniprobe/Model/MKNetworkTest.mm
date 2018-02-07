@@ -27,6 +27,7 @@
     }
     self.measurement = [[Measurement alloc] init];
     self.measurement.resultId = self.resultId;
+    self.measurement.name = self.name;
     self.backgroundTask = UIBackgroundTaskInvalid;
     return self;
 }
@@ -51,8 +52,8 @@
     self.progress = 0;
     self.max_runtime_enabled = TRUE;
 
-    self.measurement.reportFile = [NSString stringWithFormat:@"test-%ld.json", self.measurement.uniqueId];
-    self.measurement.logFile = [NSString stringWithFormat:@"test-%ld.log", self.measurement.uniqueId];
+    self.measurement.reportFile = [NSString stringWithFormat:@"test-%ld.json", self.measurement.Id];
+    self.measurement.logFile = [NSString stringWithFormat:@"test-%ld.log", self.measurement.Id];
     [self.measurement save];
     
     //Configuring common test parameters
@@ -64,9 +65,10 @@
     test.set_option("no_collector", !upload_results);
     test.set_option("software_name", [@"ooniprobe-ios" UTF8String]);
     test.set_option("software_version", [software_version UTF8String]);
-    test.set_error_filepath([[TestUtility getFileName:self.measurement.uniqueId ext:@"log"] UTF8String]);
-    test.set_output_filepath([[TestUtility getFileName:self.measurement.uniqueId ext:@"json"] UTF8String]);
+    test.set_error_filepath([[TestUtility getFileName:self.measurement.Id ext:@"log"] UTF8String]);
+    test.set_output_filepath([[TestUtility getFileName:self.measurement.Id ext:@"json"] UTF8String]);
     test.set_verbosity(VERBOSITY);
+    //TODO set measurement asn, ip, country, networkName
     test.on_log([self](uint32_t type, const char *s) {
 #ifdef DEBUG
         NSLog(@"%s", s);
@@ -79,6 +81,7 @@
     test.on_progress([self](double prog, const char *s) {
         [self updateProgress:prog];
     });
+    //TODO at the end set measurement reportId and resave
 }
 
 -(void)updateProgress:(double)prog {
@@ -106,7 +109,6 @@
         [self.measurement setIp:[json objectForKey:@"probe_ip"]];
     
     [self.measurement setState:@"done"];
-
     /*
      TODO set
      dataUsage, state, failure, reportId, measurementId, resultId
@@ -214,10 +216,9 @@
 }
 
 - (int)checkBlocking:(NSDictionary*)test_keys{
-    /*null => anomal = 1,
-     false => anomaly = 0,
-     stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
-     
+    /*null => blocking = 1,
+     false => blocking = 0,
+     string (dns, tcp-ip, http-failure, http-diff) => blocking = 2
      Return values:
      0 == OK,
      1 == orange,

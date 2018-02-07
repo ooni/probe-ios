@@ -13,11 +13,14 @@
 }
 
 -(void)save{
+    NSLog(@"---- START LOGGING RESULT OBJECT----");
     NSLog(@"Id %ld", self.Id);
     NSLog(@"name %@", self.name);
     NSLog(@"startTime %@", self.startTime);
     NSLog(@"endTime %@", self.endTime);
-    NSLog(@"json %@", self.json);
+    NSLog(@"summary %@", self.summary);
+    NSLog(@"---- END LOGGING RESULT OBJECT----");
+
 }
 
 @end

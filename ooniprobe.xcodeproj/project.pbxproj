@@ -23,7 +23,6 @@
 		ED3261BC1FEA7A6700EAC375 /* NetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3261BB1FEA7A6700EAC375 /* NetworkTest.mm */; };
 		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
-		ED3582371FE9489B0078CCEE /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = ED3582341FE9489A0078CCEE /* db.sql */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
 		ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32E1D2337920061F266 /* GeoIP.dat */; };
 		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
@@ -103,11 +102,9 @@
 		ED21E0751F8990E3008DFD0D /* global.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = global.csv; sourceTree = "<group>"; };
 		ED3261BA1FEA7A6700EAC375 /* NetworkTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkTest.h; path = Model/NetworkTest.h; sourceTree = "<group>"; };
 		ED3261BB1FEA7A6700EAC375 /* NetworkTest.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkTest.mm; path = Model/NetworkTest.mm; sourceTree = "<group>"; };
-		ED34107F1FE951480028B37B /* test.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.sql; sourceTree = "<group>"; };
 		ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
 		ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewController.m; sourceTree = "<group>"; };
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		ED3582341FE9489A0078CCEE /* db.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sql; sourceTree = "<group>"; };
 		ED3932C21E3114740064CD11 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		ED3932C31E3114740064CD11 /* AboutViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutViewController.mm; sourceTree = "<group>"; };
 		ED3A2C761E87E87900419270 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -373,8 +370,6 @@
 		ED3582331FE9489A0078CCEE /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				ED3582341FE9489A0078CCEE /* db.sql */,
-				ED34107F1FE951480028B37B /* test.sql */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -642,7 +637,6 @@
 				EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */,
 				EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */,
 				ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */,
-				ED3582371FE9489B0078CCEE /* db.sql in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
 				ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */,
