@@ -1,4 +1,6 @@
 platform :ios, '9.0'
+# ignore all warnings from all pods
+inhibit_all_warnings!
 target 'ooniprobe' do
     pod 'measurement_kit',
         :git => 'https://github.com/measurement-kit/measurement-kit.git',
