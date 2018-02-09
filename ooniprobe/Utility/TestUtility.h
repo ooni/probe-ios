@@ -5,5 +5,5 @@
 //deprecated half
 
 + (void)showNotification:(NSString*)name;
-+(NSString*) getFileName:(NSInteger)uniqueId ext:(NSString*)ext;
++ (NSString*) getFileName:(NSNumber*)uniqueId ext:(NSString*)ext;
 @end

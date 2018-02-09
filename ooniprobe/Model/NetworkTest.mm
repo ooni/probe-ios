@@ -7,8 +7,9 @@
     if (!self) {
         return nil;
     }
-    self.result = [[Result alloc] init];
-    [self.result setStartTime:[NSDate date]];
+    self.result = [Result new];
+    //[self.result setStartTime:[NSDate date]];
+    //[self.result setDone:NO];
     self.mkNetworkTests = [[NSMutableArray alloc] init];
     return self;
 }
@@ -28,9 +29,6 @@
 
 -(void)testEnded:(MKNetworkTest*)test{
     NSLog(@"CALLBACK test_ended %@", test.name);
-    //TODO cosa mi serve? test name o object.
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"testEnded" object:nil];
-
     //TODO build json somehow
     [self.result setSummary:@""];
     [self.mkNetworkTests removeObject:test];
@@ -39,7 +37,7 @@
         NSLog(@"ALL test_ended");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
         [self.result setEndTime:[NSDate date]];
-        //self.done = true;
+        [self.result setDone:YES];
     }
     [self.result save];
 }

@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
-#import "Measurement.h"
 
-@interface Result : NSObject
+@interface Result : SRKObject
 
-@property NSInteger Id;
+//@property NSInteger Id;
 @property NSString *name;
 @property NSDate *startTime;
 @property NSDate *endTime;
@@ -31,7 +30,6 @@
  */
 @property BOOL done;
 
--(id)init;
 -(void)save;
 -(SRKResultSet*)measurements;
 @end

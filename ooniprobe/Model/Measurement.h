@@ -2,7 +2,7 @@
 #import <SharkORM/SharkORM.h>
 #import "Result.h"
 
-@interface Measurement : NSObject
+@interface Measurement : SRKObject
 
 // The possible states of a measurements are:
 // * active, while the measurement is in progress
@@ -17,7 +17,7 @@ typedef enum
     measurementProcessed
 } MeasurementStatus;
 
-@property NSInteger Id;
+//@property NSInteger Id;
 @property NSString *name;
 @property NSDate *startTime;
 @property NSDate *endTime;
@@ -33,14 +33,13 @@ typedef enum
 
 @property Result *result;
 
-//@property NSString *reportId;
+@property NSString *reportId;
 
 @property NSString *input;
 @property NSString *category;
 
-@property NSInteger resultId;
+//@property NSInteger resultId;
 
--(id)init;
 -(void)save;
 
 @end

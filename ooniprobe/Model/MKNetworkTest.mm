@@ -40,8 +40,9 @@
 }
 
 - (void)createMeasurementObject{
-    self.measurement = [[Measurement alloc] init];
+    self.measurement = [Measurement new];
     [self.measurement setResult:self.result];
+    [self.measurement setState:measurementActive];
     self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
@@ -287,6 +288,7 @@
     self.backgroundTask = UIBackgroundTaskInvalid;
     [self.measurement setEndTime:[NSDate date]];
     [self.measurement setState:measurementDone];
+    [self updateProgress:0];
     [self.delegate testEnded:self];
 }
 
