@@ -19,8 +19,9 @@
     NSLog(@"startTime %@", self.startTime);
     NSLog(@"endTime %@", self.endTime);
     NSLog(@"summary %@", self.summary);
+    NSLog(@"dataUsageDown %ld", self.dataUsageDown);
+    NSLog(@"dataUsageUp %ld", self.dataUsageUp);
     NSLog(@"---- END LOGGING RESULT OBJECT----");
-
 }
 
 @end

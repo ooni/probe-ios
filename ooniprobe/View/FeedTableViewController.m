@@ -28,6 +28,20 @@
         // Handle errors...
     }];
     
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+        
+        //[space writeToFile:self.temporaryFileURL.path];
+        
+        //space = [CDASyncedSpace readFromFile:self.temporaryFileURL.path client:self.client];
+        
+        [space performSynchronizationWithSuccess:^{
+            // Success block for subsequent sync.
+        } failure:^(CDAResponse *response, NSError *error) {
+            // Handle error.
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        // Handle error.
+    }];
     /*
      [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
          NSLog(@"Assets: %d", space.assets.count);

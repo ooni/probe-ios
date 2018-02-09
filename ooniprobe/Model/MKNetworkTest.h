@@ -4,6 +4,7 @@
 #import <measurement_kit/common.hpp>
 #import "SettingsUtility.h"
 #import "Measurement.h"
+#import "Result.h"
 
 @class MKNetworkTest;
 
@@ -19,11 +20,12 @@
 @property NSString *name;
 @property float progress;
 @property int idx;
+@property Result *result;
 @property Measurement *measurement;
 @property NSArray *inputs;
 @property BOOL max_runtime_enabled;
 @property id<MKNetworkTestDelegate> delegate;
-@property NSInteger resultId;
+@property int entryIdx;
 
 -(void) run;
 @end

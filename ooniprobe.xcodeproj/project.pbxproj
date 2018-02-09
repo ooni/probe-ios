@@ -40,6 +40,7 @@
 		ED70D5091FE82A9900759463 /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5081FE82A9900759463 /* MKNetworkTest.mm */; };
 		ED75A3972011AC2F009792C6 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75A3962011AC2F009792C6 /* Article.m */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
+		EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
 		EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */; };
@@ -52,7 +53,6 @@
 		EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */; };
 		EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */; };
 		EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */; };
-		EDC2C9F31FD9A23900FF01D3 /* UIColor+TFT.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9421331FD175D50014CE95 /* UIColor+TFT.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD101BD1EE801F00044E390 /* NotificationService.mm */; };
 		EDDB0B4D1FFD31B600EFD9C8 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B4C1FFD31B600EFD9C8 /* FeedTableViewController.m */; };
@@ -147,10 +147,10 @@
 		ED8569581EB146B500D435EB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ED9421321FD175D50014CE95 /* UIColor+TFT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+TFT.h"; sourceTree = "<group>"; };
-		ED9421331FD175D50014CE95 /* UIColor+TFT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TFT.m"; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hexadecimal.h"; sourceTree = "<group>"; };
+		EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hexadecimal.m"; sourceTree = "<group>"; };
 		EDB6F9B72023526300BDCB0B /* HeaderSwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderSwipeViewController.h; sourceTree = "<group>"; };
 		EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderSwipeViewController.m; sourceTree = "<group>"; };
 		EDB6F9BA202352D000BDCB0B /* Header1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header1ViewController.h; sourceTree = "<group>"; };
@@ -393,7 +393,6 @@
 				ED1CC8032015C0CB0041089A /* deprecated */,
 				ED0A6202200B533800235E70 /* Notifications */,
 				ED70D5001FE7F65700759463 /* GUI */,
-				ED9421311FD175D50014CE95 /* TFTColor */,
 				ED49509B1F951F1D00344E42 /* MessageUtility.h */,
 				ED49509C1F951F1D00344E42 /* MessageUtility.mm */,
 				ED6AC4491FF8F97F003EA230 /* NSDictionary+Safety.h */,
@@ -417,18 +416,10 @@
 				ED0D35BD1DD72824005C863F /* RunButton.m */,
 				ED1CC7FD20158D630041089A /* ConfigureButton.h */,
 				ED1CC7FE20158D630041089A /* ConfigureButton.m */,
+				EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */,
+				EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */,
 			);
 			path = GUI;
-			sourceTree = "<group>";
-		};
-		ED9421311FD175D50014CE95 /* TFTColor */ = {
-			isa = PBXGroup;
-			children = (
-				ED9421321FD175D50014CE95 /* UIColor+TFT.h */,
-				ED9421331FD175D50014CE95 /* UIColor+TFT.m */,
-			);
-			name = TFTColor;
-			path = Utility/TFTColor;
 			sourceTree = "<group>";
 		};
 		EDB6F9B62023524500BDCB0B /* TestOverview */ = {
@@ -744,6 +735,7 @@
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				ED70D5091FE82A9900759463 /* MKNetworkTest.mm in Sources */,
 				EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */,
+				EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				ED70D5061FE8022300759463 /* Result.mm in Sources */,
 				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */,
@@ -751,7 +743,6 @@
 				ED0A61FE200B075000235E70 /* CustomURLTableViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.mm in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
-				EDC2C9F31FD9A23900FF01D3 /* UIColor+TFT.m in Sources */,
 				EDDB0B4D1FFD31B600EFD9C8 /* FeedTableViewController.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				EDDB0B721FFF6C8B00EFD9C8 /* ICSwipeViewController.m in Sources */,
@@ -953,8 +944,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "de5a74e0-ac7a-48a3-b51c-fa0b65ad0759";
-				PROVISIONING_PROFILE_SPECIFIER = "lorenzo ios development for ooniprobe";
+				PROVISIONING_PROFILE = "6154daac-50fe-40d2-a6f1-8824d8dccc1c";
+				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

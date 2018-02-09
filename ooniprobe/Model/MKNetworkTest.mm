@@ -2,6 +2,7 @@
 
 #import "VersionUtility.h"
 #import "TestUtility.h"
+#import "ReachabilityManager.h"
 
 #include <measurement_kit/ooni.hpp>
 #include <measurement_kit/nettests.hpp>
@@ -25,10 +26,7 @@
     if (!self) {
         return nil;
     }
-    self.measurement = [[Measurement alloc] init];
-    self.measurement.resultId = self.resultId;
-    self.measurement.name = self.name;
-    self.backgroundTask = UIBackgroundTaskInvalid;
+    [self createMeasurementObject];
     return self;
 }
 
@@ -41,6 +39,12 @@
     [self.measurement setStartTime:[NSDate date]];
 }
 
+- (void)createMeasurementObject{
+    self.measurement = [[Measurement alloc] init];
+    self.measurement.resultId = self.result.Id;
+    self.backgroundTask = UIBackgroundTaskInvalid;
+}
+
 - (void) init_common:(mk::nettests::BaseTest&) test{
     BOOL include_ip = [SettingsUtility getSettingWithName:@"include_ip"];
     BOOL include_asn = [SettingsUtility getSettingWithName:@"include_asn"];
@@ -51,9 +55,7 @@
     NSString *geoip_country = [[NSBundle mainBundle] pathForResource:@"GeoIP" ofType:@"dat"];
     self.progress = 0;
     self.max_runtime_enabled = TRUE;
-
-    self.measurement.reportFile = [NSString stringWithFormat:@"test-%ld.json", self.measurement.Id];
-    self.measurement.logFile = [NSString stringWithFormat:@"test-%ld.log", self.measurement.Id];
+    [self.measurement setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
     [self.measurement save];
     
     //Configuring common test parameters
@@ -68,19 +70,34 @@
     test.set_error_filepath([[TestUtility getFileName:self.measurement.Id ext:@"log"] UTF8String]);
     test.set_output_filepath([[TestUtility getFileName:self.measurement.Id ext:@"json"] UTF8String]);
     test.set_verbosity(VERBOSITY);
-    //TODO set measurement asn, ip, country, networkName
+    test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
     test.on_log([self](uint32_t type, const char *s) {
 #ifdef DEBUG
         NSLog(@"%s", s);
 #endif
     });
     test.on_begin([self]() {
-        //TODO Create measurement object and set input
         [self updateProgress:0];
     });
     test.on_progress([self](double prog, const char *s) {
         [self updateProgress:prog];
     });
+    test.on_entry([self](std::string s) {
+        NSLog(@"on_entry");
+        [self on_entry:s.c_str()];
+    });
+    test.on_overall_data_usage([self](mk::DataUsage d) {
+        //NSNumber* down = [NSNumber numberWithUnsignedLongLong:d.down];
+        //NSNumber* up = [NSNumber numberWithUnsignedLongLong:d.up];
+        [self.result setDataUsageDown:d.down];
+        [self.result setDataUsageUp:d.up];
+        NSLog(@"dataUsageDown %qu", d.down);
+        NSLog(@"dataUsageUp %qu", d.up);
+    });
+    test.start([self]() {
+        [self testEnded:self];
+    });
+    
     //TODO at the end set measurement reportId and resave
 }
 
@@ -99,108 +116,11 @@
     });
 }
 
--(void)on_entry:(NSDictionary*)json{
-    //NSLog(@"on_entry %@", json);
-    if ([json safeObjectForKey:@"probe_asn"])
-        [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
-    if ([json safeObjectForKey:@"probe_cc"])
-        [self.measurement setCountry:[json objectForKey:@"probe_cc"]];
-    if ([json safeObjectForKey:@"probe_ip"])
-        [self.measurement setIp:[json objectForKey:@"probe_ip"]];
-    
-    [self.measurement setState:@"done"];
-    /*
-     TODO set
-     dataUsage, state, failure, reportId, measurementId, resultId
-     networkName
-     */
-}
-
--(void)updateBlocking:(int)blocking{
-    if (blocking > self.measurement.blocking){
-        self.measurement.blocking = blocking;
-        //TODO save update db
-    }
-}
-
--(void)testEnded:(MKNetworkTest*)test{
-#ifdef DEBUG
-    NSLog(@"%@ testEnded", self.name);
-#endif
-    //self.running = FALSE;
-    //[TestStorage set_completed:self.measurement.uniqueId];
-    //[TestUtility showNotification:self.name];
-    [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-    self.backgroundTask = UIBackgroundTaskInvalid;
-    [self.measurement setEndTime:[NSDate date]];
-    
-    //TODO
-    [self.delegate testEnded:self];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        //TODO
-        //NSDictionary *noteInfo = [NSDictionary dictionaryWithObject:self.name forKey:@"test_name"];
-        //[[NSNotificationCenter defaultCenter] postNotificationName:@"showToastTestFinished" object:nil userInfo:noteInfo];
-    });
-}
-
-//TODO onTestEnded delegate callback
--(void)testEnded{
-    [self testEnded:self];
-}
-
-@end
-
-@implementation WebConnectivity : MKNetworkTest
-
--(id) init {
-    self = [super init];
-    if (self) {
-        self.name = @"web_connectivity";
-    }
-    return self;
-}
-
--(void)run {
-    [super run];
-    [self run_test];
-}
-
-
--(void) run_test {
-    NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-    mk::nettests::WebConnectivityTest test;
-    [super init_common:test];
-    if (self.max_runtime_enabled){
-        test.set_option("max_runtime", [max_runtime doubleValue]);
-    }
-    if ([self.inputs count] > 0) {
-        for (NSString* input in self.inputs) {
-            test.add_input([input UTF8String]);
-        }
-    }
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
-}
-
 -(void)on_entry:(const char*)str{
     if (str != nil) {
-        /*
-         salva measurement, rialloca measurement.
-         sempre creare un measurement on_start e set input
-         `on_entry(datum)` you will:
-         - If it's the first entry, `UPDATE` it with the content of `datum`
-         - If it's not the first entry, `INSERT` a new row with the content of `datum`
-         */
-        //TODO Create/Update measurement object
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        [super on_entry:json];
         int blocking = ANOMALY_GREEN;
         if (error != nil) {
 #ifdef DEBUG
@@ -210,19 +130,134 @@
             [self updateBlocking:blocking];
             return;
         }
-        blocking = [self checkBlocking:[json objectForKey:@"test_keys"]];
+        if ([json safeObjectForKey:@"probe_asn"])
+            [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
+        if ([json safeObjectForKey:@"probe_cc"])
+            [self.measurement setCountry:[json objectForKey:@"probe_cc"]];
+        if ([json safeObjectForKey:@"probe_ip"])
+            [self.measurement setIp:[json objectForKey:@"probe_ip"]];
+        if ([json safeObjectForKey:@"report_id"])
+            [self.measurement setReportId:[json objectForKey:@"report_id"]];
+        if ([self.name isEqualToString:@"web_connectivity"]){
+            blocking = [self checkBlocking:[json objectForKey:@"test_keys"]];
+        }
+        else if ([self.name isEqualToString:@"http_invalid_request_line"]){
+            /*
+             on_entry method for http invalid request line test
+             if the "tampering" key exists and is null then anomaly will be set to 1 (orange)
+             otherwise "tampering" object exists and is TRUE, then anomaly will be set to 2 (red)
+             */
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
+                //this case shouldn't happen
+                if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
+                    blocking = ANOMALY_ORANGE;
+                else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
+                    blocking = ANOMALY_RED;
+            }
+        }
+        else if ([self.name isEqualToString:@"http_header_field_manipulation"]){
+            /*
+             on_entry method for HttpHeaderFieldManipulation test
+             if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+             otherwise the keys in the "tampering" object will be checked, if any of them is TRUE, then anomaly will be set to 2 (red)
+             */
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+                blocking = ANOMALY_ORANGE;
+            else {
+                NSDictionary *tampering = [[json objectForKey:@"test_keys"] objectForKey:@"tampering"];
+                NSArray *keys = [[NSArray alloc]initWithObjects:@"header_field_name", @"header_field_number", @"header_field_value", @"header_name_capitalization", @"request_line_capitalization", @"total", nil];
+                for (NSString *key in keys) {
+                    if ([tampering objectForKey:key] &&
+                        [tampering objectForKey:key] != [NSNull null] &&
+                        [[tampering objectForKey:key] boolValue]) {
+                        blocking = ANOMALY_RED;
+                    }
+                }
+            }
+        }
+        else if ([self.name isEqualToString:@"ndt"] || [self.name isEqualToString:@"dash"]){
+            /*
+             on_entry method for ndt and dash test
+             if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+             */
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+                blocking = ANOMALY_ORANGE;
+        }
+        else if ([self.name isEqualToString:@"whatsapp"]){
+            // whatsapp: red if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server" are "blocked"
+            NSArray *keys = [[NSArray alloc] initWithObjects:@"whatsapp_endpoints_status", @"whatsapp_web_status", @"registration_server_status", nil];
+            for (NSString *key in keys) {
+                if ([[json objectForKey:@"test_keys"] objectForKey:key]){
+                    if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
+                        if (blocking < ANOMALY_ORANGE)
+                            blocking = ANOMALY_ORANGE;
+                    }
+                    else if ([[[json objectForKey:@"test_keys"] objectForKey:key] isEqualToString:@"blocked"]) {
+                        blocking = ANOMALY_RED;
+                    }
+                }
+            }
+        }
+        else if ([self.name isEqualToString:@"telegram"]){
+            /*
+             for telegram: red if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if ""telegram_web_status" is "blocked"
+             the "*_failure" keys for telegram and whatsapp might indicate a test failure / anomaly
+             */
+            NSArray *keys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];
+            for (NSString *key in keys) {
+                if ([[json objectForKey:@"test_keys"] objectForKey:key]){
+                    if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
+                        if (blocking < ANOMALY_ORANGE)
+                            blocking = ANOMALY_ORANGE;
+                    }
+                    else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
+                        blocking = ANOMALY_RED;
+                    }
+                }
+            }
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"]){
+                if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] == [NSNull null]) {
+                    if (blocking < ANOMALY_ORANGE)
+                        blocking = ANOMALY_ORANGE;
+                }
+                else if ([[[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
+                    blocking = ANOMALY_RED;
+                }
+            }
+        }
+        else if ([self.name isEqualToString:@"facebook_messenger"]){
+            // FB: red blocking if either "facebook_tcp_blocking" or "facebook_dns_blocking" is true
+            NSArray *keys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
+            for (NSString *key in keys) {
+                if ([[json objectForKey:@"test_keys"] objectForKey:key]){
+                    if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
+                        if (blocking < ANOMALY_ORANGE)
+                            blocking = ANOMALY_ORANGE;
+                    }
+                    else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
+                        blocking = ANOMALY_RED;
+                    }
+                }
+            }
+        }
         [self updateBlocking:blocking];
+        [self.measurement save];
+        //create new measurement entry if web_connectivity test
+        if ([self.name isEqualToString:@"web_connectivity"]){
+            self.entryIdx++;
+            if (self.entryIdx < [self.inputs count]){
+                [self createMeasurementObject];
+                self.measurement.input = [self.inputs objectAtIndex:self.entryIdx];
+            }
+        }
     }
 }
 
 - (int)checkBlocking:(NSDictionary*)test_keys{
-    /*null => blocking = 1,
-     false => blocking = 0,
-     string (dns, tcp-ip, http-failure, http-diff) => blocking = 2
-     Return values:
-     0 == OK,
-     1 == orange,
-     2 == red
+    /*
+     null => anomaly, (orange
+     false => not blocked, (green)
+     string (dns, tcp-ip, http-failure, http-diff) => blocked (red)
      */
     id element = [test_keys objectForKey:@"blocking"];
     int blocking = 0;
@@ -235,6 +270,59 @@
     return blocking;
 }
 
+
+-(void)updateBlocking:(int)blocking{
+    if (blocking > self.measurement.blocking){
+        self.measurement.blocking = blocking;
+        //TODO save update db
+    }
+}
+
+-(void)testEnded:(MKNetworkTest*)test{
+#ifdef DEBUG
+    NSLog(@"%@ testEnded", self.name);
+#endif
+    [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+    self.backgroundTask = UIBackgroundTaskInvalid;
+    [self.measurement setEndTime:[NSDate date]];
+    [self.measurement setState:measurementDone];
+    [self.delegate testEnded:self];
+}
+
+@end
+
+@implementation WebConnectivity : MKNetworkTest
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.name = @"web_connectivity";
+        self.measurement.name = self.name;
+    }
+    return self;
+}
+
+-(void)run {
+    [super run];
+    [self run_test];
+}
+
+-(void) run_test {
+    NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
+    mk::nettests::WebConnectivityTest test;
+    self.entryIdx = 0;
+    self.measurement.input = [self.inputs objectAtIndex:self.entryIdx];
+    if (self.max_runtime_enabled){
+        test.set_option("max_runtime", [max_runtime doubleValue]);
+    }
+    if ([self.inputs count] > 0) {
+        for (NSString* input in self.inputs) {
+            test.add_input([input UTF8String]);
+        }
+    }
+    [super init_common:test];
+}
+
 @end
 
 @implementation HttpInvalidRequestLine : MKNetworkTest
@@ -243,6 +331,7 @@
     self = [super init];
     if (self) {
         self.name = @"http_invalid_request_line";
+        self.measurement.name = self.name;
     }
     return self;
 }
@@ -255,43 +344,6 @@
 -(void) run_test {
     mk::nettests::HttpInvalidRequestLineTest test;
     [super init_common:test];
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
-}
-
-/*
- on_entry method for http invalid request line test
- if the "tampering" key exists and is null then anomaly will be set to 1 (orange)
- otherwise "tampering" object exists and is TRUE, then anomaly will be set to 2 (red)
- */
--(void)on_entry:(const char*)str{
-    if (str != nil) {
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        [super on_entry:json];
-        int blocking = ANOMALY_GREEN;
-        if (error != nil) {
-#ifdef DEBUG
-            NSLog(@"Error parsing JSON: %@", error);
-#endif
-            blocking = ANOMALY_ORANGE;
-            [self updateBlocking:blocking];
-            return;
-        }
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
-            //this case shouldn't happen
-            if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
-                blocking = ANOMALY_ORANGE;
-            else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
-                blocking = ANOMALY_RED;
-        }
-        [self updateBlocking:blocking];
-    }
 }
 
 @end
@@ -302,6 +354,7 @@
     self = [super init];
     if (self) {
         self.name = @"http_header_field_manipulation";
+        self.measurement.name = self.name;
     }
     return self;
 }
@@ -314,51 +367,6 @@
 -(void) run_test {
     mk::nettests::HttpHeaderFieldManipulationTest test;
     [super init_common:test];
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
-}
-
-/*
- on_entry method for HttpHeaderFieldManipulation test
- if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
- otherwise the keys in the "tampering" object will be checked, if any of them is TRUE, then anomaly will be set to 2 (red)
- */
--(void)on_entry:(const char*)str{
-    if (str != nil) {
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        [super on_entry:json];
-        
-        int blocking = ANOMALY_GREEN;
-        if (error != nil) {
-#ifdef DEBUG
-            NSLog(@"Error parsing JSON: %@", error);
-#endif
-            blocking = ANOMALY_ORANGE;
-            [self updateBlocking:blocking];
-            return;
-        }
-
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
-            blocking = ANOMALY_ORANGE;
-        else {
-            NSDictionary *tampering = [[json objectForKey:@"test_keys"] objectForKey:@"tampering"];
-            NSArray *keys = [[NSArray alloc]initWithObjects:@"header_field_name", @"header_field_number", @"header_field_value", @"header_name_capitalization", @"request_line_capitalization", @"total", nil];
-            for (NSString *key in keys) {
-                if ([tampering objectForKey:key] &&
-                    [tampering objectForKey:key] != [NSNull null] &&
-                    [[tampering objectForKey:key] boolValue]) {
-                    blocking = ANOMALY_RED;
-                }
-            }
-        }
-        [self updateBlocking:blocking];
-    }
 }
 
 @end
@@ -369,6 +377,7 @@
     self = [super init];
     if (self) {
         self.name = @"ndt";
+        self.measurement.name = self.name;
     }
     return self;
 }
@@ -383,38 +392,6 @@
     mk::nettests::NdtTest test;
     [super init_common:test];
     //when setting server check first ndt_server_auto
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
-}
-
-/*
- on_entry method for ndt test
- if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
- */
--(void)on_entry:(const char*)str{
-    if (str != nil) {
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        [super on_entry:json];
-
-        int blocking = ANOMALY_GREEN;
-        if (error != nil) {
-#ifdef DEBUG
-            NSLog(@"Error parsing JSON: %@", error);
-#endif
-            blocking = ANOMALY_ORANGE;
-            [self updateBlocking:blocking];
-            return;
-        }
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
-            blocking = ANOMALY_ORANGE;
-        [self updateBlocking:blocking];
-    }
 }
 
 @end
@@ -425,6 +402,7 @@
     self = [super init];
     if (self) {
         self.name = @"dash";
+        self.measurement.name = self.name;
     }
     return self;
 }
@@ -439,40 +417,6 @@
     mk::nettests::DashTest test;
     //when setting server check first ndt_server_auto
     [super init_common:test];
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
-}
-
-/*
- Note: here we're reusing NDT function since the entry has
- basically the same characteristics, as far as deciding the
- color of the test line is concerned.
- if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
- */
--(void)on_entry:(const char*)str{
-    if (str != nil) {
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        [super on_entry:json];
-
-        int blocking = ANOMALY_GREEN;
-        if (error != nil) {
-#ifdef DEBUG
-            NSLog(@"Error parsing JSON: %@", error);
-#endif
-            blocking = ANOMALY_ORANGE;
-            [self updateBlocking:blocking];
-            return;
-        }
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
-            blocking = ANOMALY_ORANGE;
-        [self updateBlocking:blocking];
-    }
 }
 
 @end
@@ -483,6 +427,7 @@
     self = [super init];
     if (self) {
         self.name = @"whatsapp";
+        self.measurement.name = self.name;
     }
     return self;
 }
@@ -495,48 +440,6 @@
 -(void) run_test {
     mk::nettests::WhatsappTest test;
     [super init_common:test];
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
-}
-
-/*
- whatsapp: red if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server" are "blocked"
- docs: https://github.com/TheTorProject/ooni-spec/blob/master/test-specs/ts-018-whatsapp.md#semantics
- */
-
--(void)on_entry:(const char*)str{
-    if (str != nil) {
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = ANOMALY_GREEN;
-        if (error != nil) {
-#ifdef DEBUG
-            NSLog(@"Error parsing JSON: %@", error);
-#endif
-            blocking = ANOMALY_ORANGE;
-            [self updateBlocking:blocking];
-            return;
-        }
-        //whatsapp_endpoints_status and whatsapp_web_status and registration_server_status must be both false if null (set test anomaly), if at least one is true (set test blocked)
-        NSArray *keys = [[NSArray alloc] initWithObjects:@"whatsapp_endpoints_status", @"whatsapp_web_status", @"registration_server_status", nil];
-        for (NSString *key in keys) {
-            if ([[json objectForKey:@"test_keys"] objectForKey:key]){
-                if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
-                    if (blocking < ANOMALY_ORANGE)
-                        blocking = ANOMALY_ORANGE;
-                }
-                else if ([[[json objectForKey:@"test_keys"] objectForKey:key] isEqualToString:@"blocked"]) {
-                    blocking = ANOMALY_RED;
-                }
-            }
-        }
-        [self updateBlocking:blocking];
-    }
 }
 
 @end
@@ -547,6 +450,7 @@
     self = [super init];
     if (self) {
         self.name = @"telegram";
+        self.measurement.name = self.name;
     }
     return self;
 }
@@ -560,60 +464,7 @@
 -(void) run_test {
     mk::nettests::TelegramTest test;
     [super init_common:test];
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
 }
-/*
- for telegram: red if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if ""telegram_web_status" is "blocked"
- the "*_failure" keys for telegram and whatsapp might indicate a test failure / anomaly
- docs: https://github.com/TheTorProject/ooni-spec/blob/master/test-specs/ts-020-telegram.md#semantics
- */
--(void)on_entry:(const char*)str{
-    if (str != nil) {
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = ANOMALY_GREEN;
-        if (error != nil) {
-#ifdef DEBUG
-            NSLog(@"Error parsing JSON: %@", error);
-#endif
-            blocking = ANOMALY_ORANGE;
-            [self updateBlocking:blocking];
-            return;
-        }
-        //telegram_http_blocking and telegram_tcp_blocking must be both false if null (set test anomaly), if at least one is true (set test blocked)
-        //telegram_web_status must be "ok", if null anomaly, if "blocked" (set test blocked)
-        //telegram_web_failure must be null, if != null (set test blocked)
-        NSArray *keys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];
-        for (NSString *key in keys) {
-            if ([[json objectForKey:@"test_keys"] objectForKey:key]){
-                if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
-                    if (blocking < ANOMALY_ORANGE)
-                        blocking = ANOMALY_ORANGE;
-                }
-                else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
-                    blocking = ANOMALY_RED;
-                }
-            }
-        }
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"]){
-            if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] == [NSNull null]) {
-                if (blocking < ANOMALY_ORANGE)
-                    blocking = ANOMALY_ORANGE;
-            }
-            else if ([[[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
-                blocking = ANOMALY_RED;
-            }
-        }
-        [self updateBlocking:blocking];
-    }
-}
-
 
 @end
 
@@ -623,6 +474,7 @@
     self = [super init];
     if (self) {
         self.name = @"facebook_messenger";
+        self.measurement.name = self.name;
     }
     return self;
 }
@@ -632,52 +484,9 @@
     [self run_test];
 }
 
-
 -(void) run_test {
     mk::nettests::FacebookMessengerTest test;
     [super init_common:test];
-    test.on_entry([self](std::string s) {
-        [self on_entry:s.c_str()];
-    });
-    test.start([self]() {
-        [self testEnded];
-    });
 }
-
-/*
- FB: red blocking if either "facebook_tcp_blocking" or "facebook_dns_blocking" is true
- docs: https://github.com/TheTorProject/ooni-spec/blob/master/test-specs/ts-019-facebook-messenger.md#semantics
- */
--(void)on_entry:(const char*)str{
-    if (str != nil) {
-        NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = ANOMALY_GREEN;
-        if (error != nil) {
-#ifdef DEBUG
-            NSLog(@"Error parsing JSON: %@", error);
-#endif
-            blocking = ANOMALY_ORANGE;
-            [self updateBlocking:blocking];
-            return;
-        }
-        NSArray *keys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
-        for (NSString *key in keys) {
-            if ([[json objectForKey:@"test_keys"] objectForKey:key]){
-                if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
-                    if (blocking < ANOMALY_ORANGE)
-                        blocking = ANOMALY_ORANGE;
-                }
-                else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
-                    blocking = ANOMALY_RED;
-                }
-            }
-        }
-        [self updateBlocking:blocking];
-    }
-}
-
 
 @end
-

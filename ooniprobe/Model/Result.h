@@ -6,6 +6,8 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSDate *startTime;
 @property (strong, nonatomic) NSDate *endTime;
+@property (nonatomic, assign) NSInteger dataUsageDown;
+@property (nonatomic, assign) NSInteger dataUsageUp;
 
 //The json of the result is a summary that contains just a few kbs vs MBs of the report file
 @property (strong, nonatomic) NSString *summary;

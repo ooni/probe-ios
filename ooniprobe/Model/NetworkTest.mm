@@ -20,6 +20,12 @@
     }
 }
 
+-(void)initCommon:(MKNetworkTest*)test{
+    [test setDelegate:self];
+    [test setResult:self.result];
+    [self.mkNetworkTests addObject:test];
+}
+
 -(void)testEnded:(MKNetworkTest*)test{
     NSLog(@"CALLBACK test_ended %@", test.name);
     //TODO cosa mi serve? test name o object.
@@ -48,30 +54,23 @@
     self = [super init];
     if (self) {
         //[self setName:@"IMNetworkTest"];
-
+        [self.result setName:@"instant_messaging"];
         if ([SettingsUtility getSettingWithName:@"test_whatsapp"]){
             Whatsapp *whatsapp = [[Whatsapp alloc] init];
-            [whatsapp setDelegate:self];
-            [whatsapp setResultId:self.result.Id];
             [whatsapp setIdx:0];
-            [self.mkNetworkTests addObject:whatsapp];
+            [self initCommon:whatsapp];
         }
         if ([SettingsUtility getSettingWithName:@"test_telegram"]){
             Telegram *telegram = [[Telegram alloc] init];
-            [telegram setDelegate:self];
-            [telegram setResultId:self.result.Id];
             [telegram setIdx:1];
-            [self.mkNetworkTests addObject:telegram];
+            [self initCommon:telegram];
         }
         if ([SettingsUtility getSettingWithName:@"test_facebook"]){
             FacebookMessenger *facebookMessenger = [[FacebookMessenger alloc] init];
-            [facebookMessenger setDelegate:self];
-            [facebookMessenger setResultId:self.result.Id];
             [facebookMessenger setIdx:2];
-            [self.mkNetworkTests addObject:facebookMessenger];
+            [self initCommon:facebookMessenger];
         }
         //TODO what to do if no tests are enabled
-        [self.result setName:@"instant_messaging"];
         [self.result save];
     }
     return self;
@@ -88,14 +87,13 @@
 -(id) init {
     self = [super init];
     if (self) {
-        WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
-        [webConnectivity setDelegate:self];
-        //[web_connectivityMeasurement setMax_runtime_enabled:YES];
-        //web_connectivityMeasurement.inputs = [[TestLists sharedTestLists] getUrls];
-        [webConnectivity setResultId:self.result.Id];
-        [self.mkNetworkTests addObject:webConnectivity];
-        [webConnectivity setIdx:0];
         [self.result setName:@"websites"];
+        WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
+        NSMutableArray *urls = [[NSMutableArray alloc] initWithObjects:@"http://www.google.it", @"http://www.wikipedia.org", @"http://www.reddit.com", nil];
+        webConnectivity.inputs = urls;
+        [webConnectivity setMax_runtime_enabled:YES];
+        [webConnectivity setIdx:0];
+        [self initCommon:webConnectivity];
     }
     return self;
 }
@@ -111,21 +109,17 @@
 -(id) init {
     self = [super init];
     if (self) {
+        [self.result setName:@"middle_boxes"];
         if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"]){
             HttpInvalidRequestLine *httpInvalidRequestLine = [[HttpInvalidRequestLine alloc] init];
-            [httpInvalidRequestLine setDelegate:self];
-            [httpInvalidRequestLine setResultId:self.result.Id];
             [httpInvalidRequestLine setIdx:0];
-            [self.mkNetworkTests addObject:httpInvalidRequestLine];
+            [self initCommon:httpInvalidRequestLine];
         }
-        if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"]){
+        else if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"]){
             HttpHeaderFieldManipulation *httpHeaderFieldManipulation = [[HttpHeaderFieldManipulation alloc] init];
-            [httpHeaderFieldManipulation setDelegate:self];
-            [httpHeaderFieldManipulation setResultId:self.result.Id];
             [httpHeaderFieldManipulation setIdx:1];
-            [self.mkNetworkTests addObject:httpHeaderFieldManipulation];
+            [self initCommon:httpHeaderFieldManipulation];
         }
-        [self.result setName:@"middle_boxes"];
     }
     return self;
 }
@@ -141,21 +135,17 @@
 -(id) init {
     self = [super init];
     if (self) {
+        [self.result setName:@"performance"];
         if ([SettingsUtility getSettingWithName:@"run_ndt"]){
             NdtTest *ndtTest = [[NdtTest alloc] init];
-            [ndtTest setDelegate:self];
-            [ndtTest setResultId:self.result.Id];
             [ndtTest setIdx:0];
-            [self.mkNetworkTests addObject:ndtTest];
+            [self initCommon:ndtTest];
         }
-        if ([SettingsUtility getSettingWithName:@"run_dash"]){
+        else if ([SettingsUtility getSettingWithName:@"run_dash"]){
             Dash *dash = [[Dash alloc] init];
-            [dash setDelegate:self];
-            [dash setResultId:self.result.Id];
             [dash setIdx:1];
-            [self.mkNetworkTests addObject:dash];
+            [self initCommon:dash];
         }
-        [self.result setName:@"performance"];
     }
     return self;
 }
