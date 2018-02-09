@@ -1,16 +1,17 @@
 #import <Foundation/Foundation.h>
+#import <SharkORM/SharkORM.h>
 
 @interface Result : NSObject
 
-@property (nonatomic, assign) NSInteger Id;
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSDate *startTime;
-@property (strong, nonatomic) NSDate *endTime;
-@property (nonatomic, assign) NSInteger dataUsageDown;
-@property (nonatomic, assign) NSInteger dataUsageUp;
+@property NSInteger Id;
+@property NSString *name;
+@property NSDate *startTime;
+@property NSDate *endTime;
+@property NSInteger dataUsageDown;
+@property NSInteger dataUsageUp;
 
 //The json of the result is a summary that contains just a few kbs vs MBs of the report file
-@property (strong, nonatomic) NSString *summary;
+@property NSString *summary;
 /*
  WebCensorship Json
  number of sites + blocked?
@@ -27,7 +28,7 @@
  MiddleBox Json
  
  */
-@property (nonatomic, assign) BOOL done;
+@property BOOL done;
 
 -(id)init;
 -(void)save;

@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <SharkORM/SharkORM.h>
 
 @interface Measurement : NSObject
 
@@ -15,26 +16,26 @@ typedef enum
     measurementProcessed
 } MeasurementStatus;
 
-@property (nonatomic, assign) NSInteger Id;
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSDate *startTime;
-@property (strong, nonatomic) NSDate *endTime;
-@property (strong, nonatomic) NSString *ip;
-@property (strong, nonatomic) NSString *asn;
-@property (strong, nonatomic) NSString *country;
-@property (strong, nonatomic) NSString *networkName;
-@property (strong, nonatomic) NSString *networkType;
+@property NSInteger Id;
+@property NSString *name;
+@property NSDate *startTime;
+@property NSDate *endTime;
+@property NSString *ip;
+@property NSString *asn;
+@property NSString *country;
+@property NSString *networkName;
+@property NSString *networkType;
 
-@property (nonatomic, assign) MeasurementStatus state;
+@property MeasurementStatus state;
 
-@property (nonatomic, assign) NSInteger blocking;
+@property NSInteger blocking;
 
-@property (strong, nonatomic) NSString *reportId;
+@property NSString *reportId;
 
-@property (strong, nonatomic) NSString *input;
-@property (strong, nonatomic) NSString *category;
+@property NSString *input;
+@property NSString *category;
 
-@property (nonatomic, assign) NSInteger resultId;
+@property NSInteger resultId;
 
 -(id)init;
 -(void)save;

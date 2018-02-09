@@ -1,6 +1,7 @@
 #import "Result.h"
 
 @implementation Result
+@dynamic name;
 
 -(id) init {
     self = [super init];
