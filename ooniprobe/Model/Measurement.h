@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
+#import "Result.h"
 
 @interface Measurement : NSObject
 
@@ -30,7 +31,9 @@ typedef enum
 
 @property NSInteger blocking;
 
-@property NSString *reportId;
+@property Result *result;
+
+//@property NSString *reportId;
 
 @property NSString *input;
 @property NSString *category;

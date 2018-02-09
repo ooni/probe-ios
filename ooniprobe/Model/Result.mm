@@ -13,6 +13,10 @@
     return self;
 }
 
+- (SRKResultSet*)measurements {
+    return [[[Measurements query] whereWithFormat:@"result = %@", self] fetch];
+}
+
 -(void)save{
     NSLog(@"---- START LOGGING RESULT OBJECT----");
     NSLog(@"Id %ld", self.Id);

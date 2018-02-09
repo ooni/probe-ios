@@ -41,7 +41,7 @@
 
 - (void)createMeasurementObject{
     self.measurement = [[Measurement alloc] init];
-    self.measurement.resultId = self.result.Id;
+    [self.measurement setResult:self.result];
     self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
@@ -89,6 +89,7 @@
     test.on_overall_data_usage([self](mk::DataUsage d) {
         //NSNumber* down = [NSNumber numberWithUnsignedLongLong:d.down];
         //NSNumber* up = [NSNumber numberWithUnsignedLongLong:d.up];
+        //TODO not set but ADD
         [self.result setDataUsageDown:d.down];
         [self.result setDataUsageUp:d.up];
         NSLog(@"dataUsageDown %qu", d.down);

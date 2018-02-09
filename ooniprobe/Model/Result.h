@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
+#import "Measurement.h"
 
 @interface Result : NSObject
 
@@ -32,5 +33,5 @@
 
 -(id)init;
 -(void)save;
-
+-(SRKResultSet*)measurements;
 @end
