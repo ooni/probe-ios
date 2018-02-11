@@ -73,9 +73,7 @@
     test.set_verbosity(VERBOSITY);
     test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
     test.on_log([self](uint32_t type, const char *s) {
-#ifdef DEBUG
         NSLog(@"%s", s);
-#endif
     });
     test.on_begin([self]() {
         [self updateProgress:0];
@@ -105,10 +103,8 @@
 
 -(void)updateProgress:(double)prog {
     self.progress = prog;
-#ifdef DEBUG
     NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
     NSLog(@"%@", os);
-#endif
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
         [noteInfo setObject:[NSNumber numberWithInt:self.idx] forKey:@"index"];
@@ -125,9 +121,7 @@
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = ANOMALY_GREEN;
         if (error != nil) {
-#ifdef DEBUG
             NSLog(@"Error parsing JSON: %@", error);
-#endif
             blocking = ANOMALY_ORANGE;
             [self updateBlocking:blocking];
             return;
@@ -281,9 +275,7 @@
 }
 
 -(void)testEnded:(MKNetworkTest*)test{
-#ifdef DEBUG
     NSLog(@"%@ testEnded", self.name);
-#endif
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     [self.measurement setEndTime:[NSDate date]];
