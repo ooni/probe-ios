@@ -8,14 +8,11 @@
         return nil;
     }
     self.result = [Result new];
-    //[self.result setStartTime:[NSDate date]];
-    //[self.result setDone:NO];
     self.mkNetworkTests = [[NSMutableArray alloc] init];
     return self;
 }
 
 -(void)run {
-    //Is it order guaranteed?
     for (MKNetworkTest *current in self.mkNetworkTests){
         [current run];
     }
@@ -32,6 +29,7 @@
     //TODO build json somehow
     [self.result setSummary:@""];
     [self.mkNetworkTests removeObject:test];
+    
     //if last test
     if ([self.mkNetworkTests count] == 0){
         NSLog(@"ALL test_ended");
@@ -42,7 +40,6 @@
     [self.result save];
 }
 
-//TODO delegate on_test_ended for every test
 @end
 
 @implementation IMNetworkTest : NetworkTest
@@ -51,7 +48,6 @@
 -(id) init {
     self = [super init];
     if (self) {
-        //[self setName:@"IMNetworkTest"];
         [self.result setName:@"instant_messaging"];
         if ([SettingsUtility getSettingWithName:@"test_whatsapp"]){
             Whatsapp *whatsapp = [[Whatsapp alloc] init];

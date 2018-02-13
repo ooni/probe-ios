@@ -2,17 +2,6 @@
 
 @implementation Measurement
 @dynamic name, startTime, endTime, ip, asn, country, networkName, networkType, state, blocking, input, category, result;
-/*
--(id) init {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    self.Id = [[NSDate date] timeIntervalSince1970];
-    self.state = measurementActive;
-    return self;
-}
-*/
 
 //UNUSED
 -(NSString*)getReportFile{

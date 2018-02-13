@@ -56,7 +56,7 @@
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD101BD1EE801F00044E390 /* NotificationService.mm */; };
 		EDDB0B4D1FFD31B600EFD9C8 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B4C1FFD31B600EFD9C8 /* FeedTableViewController.m */; };
-		EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.m */; };
+		EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.mm */; };
 		EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */; };
 		EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.m */; };
 		EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B581FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m */; };
@@ -172,7 +172,7 @@
 		EDDB0B4B1FFD31B600EFD9C8 /* FeedTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
 		EDDB0B4C1FFD31B600EFD9C8 /* FeedTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		EDDB0B4E1FFD320000EFD9C8 /* TestResultsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestResultsTableViewController.h; sourceTree = "<group>"; };
-		EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestResultsTableViewController.m; sourceTree = "<group>"; };
+		EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestResultsTableViewController.mm; sourceTree = "<group>"; };
 		EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
 		EDDB0B531FFF2C5300EFD9C8 /* SettingsUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsUtility.h; path = Utility/SettingsUtility.h; sourceTree = "<group>"; };
 		EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SettingsUtility.m; path = Utility/SettingsUtility.m; sourceTree = "<group>"; };
@@ -369,7 +369,7 @@
 				ED58CF781FEBB9A900E3C415 /* DashboardTableViewController.h */,
 				ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.mm */,
 				EDDB0B4E1FFD320000EFD9C8 /* TestResultsTableViewController.h */,
-				EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.m */,
+				EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.mm */,
 				EDDB0B4B1FFD31B600EFD9C8 /* FeedTableViewController.h */,
 				EDDB0B4C1FFD31B600EFD9C8 /* FeedTableViewController.m */,
 			);
@@ -738,7 +738,7 @@
 				EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				ED70D5061FE8022300759463 /* Result.mm in Sources */,
-				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */,
+				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.mm in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
 				ED0A61FE200B075000235E70 /* CustomURLTableViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.mm in Sources */,

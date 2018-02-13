@@ -4,26 +4,24 @@
 @implementation Result
 @dynamic name, startTime, endTime, summary, dataUsageUp, dataUsageDown, done;
 
-/*
--(id) init {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    self.Id = [[NSDate date] timeIntervalSince1970];
-    self.done = false;
-    return self;
-}
- */
-
-
 + (NSDictionary *)defaultValuesForEntity {
-    return @{@"startTime": [NSDate date], @"done" : [NSNumber numberWithBool:FALSE]};
+    return @{@"startTime": [NSDate date], @"done" : [NSNumber numberWithBool:FALSE], @"dataUsageDown" : [NSNumber numberWithInt:0], @"dataUsageUp" : [NSNumber numberWithInt:0]};
 }
 
 - (SRKResultSet*)measurements {
     return [[[Measurement query] whereWithFormat:@"result = %@", self] fetch];
 }
+
+//Shark supports indexing by overriding the indexDefinitionForEntity method and returning an SRKIndexDefinition object which describes all of the indexes that need to be maintained on the object.
+
+/*
++ (SRKIndexDefinition *)indexDefinitionForEntity {
+    SRKIndexDefinition* idx = [SRKIndexDefinition new];
+    [idx addIndexForProperty:@"name" propertyOrder:SRKIndexSortOrderAscending];
+    [idx addIndexForProperty:@"age" propertyOrder:SRKIndexSortOrderAscending];
+    return idx;
+}
+*/
 
 -(void)save{
     [self commit];
