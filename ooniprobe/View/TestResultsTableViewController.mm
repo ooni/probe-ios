@@ -12,6 +12,10 @@
     self.title = NSLocalizedString(@"test_results", nil);
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.tableFooterView = [UIView new];
+
     results = [[Result query] fetch];
   /*
     SRKResultSet* results = [[[[[Person query]
@@ -30,6 +34,21 @@
 }
 
 #pragma mark - Table view data source
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"ooni_empty_state"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = NSLocalizedString(@"past_tests_empty", nil);
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
+                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray alpha:1.0f]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
