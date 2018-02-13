@@ -165,3 +165,9 @@
 #define color_white @"#ffffff"
 
 #endif /* PrefixHeader_pch */
+
+//Removes logging on production see: https://stackoverflow.com/questions/2025471/do-i-need-to-disable-nslog-before-release-application
+#ifndef DEBUG
+    #define NSLog(...);
+#endif
+

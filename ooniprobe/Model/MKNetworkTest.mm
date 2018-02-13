@@ -35,13 +35,15 @@
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
-    //TODO save/update measurement object
     [self.measurement setStartTime:[NSDate date]];
+    //TODO update db
 }
 
 - (void)createMeasurementObject{
-    self.measurement = [[Measurement alloc] init];
-    self.measurement.resultId = self.result.Id;
+    self.measurement = [Measurement new];
+    [self.measurement setResult:self.result];
+    [self.measurement setState:measurementActive];
+    //TODO update db ?
     self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
@@ -72,9 +74,7 @@
     test.set_verbosity(VERBOSITY);
     test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
     test.on_log([self](uint32_t type, const char *s) {
-#ifdef DEBUG
         NSLog(@"%s", s);
-#endif
     });
     test.on_begin([self]() {
         [self updateProgress:0];
@@ -83,30 +83,25 @@
         [self updateProgress:prog];
     });
     test.on_entry([self](std::string s) {
-        NSLog(@"on_entry");
         [self on_entry:s.c_str()];
     });
     test.on_overall_data_usage([self](mk::DataUsage d) {
         //NSNumber* down = [NSNumber numberWithUnsignedLongLong:d.down];
         //NSNumber* up = [NSNumber numberWithUnsignedLongLong:d.up];
-        [self.result setDataUsageDown:d.down];
-        [self.result setDataUsageUp:d.up];
-        NSLog(@"dataUsageDown %qu", d.down);
-        NSLog(@"dataUsageUp %qu", d.up);
+        [self.result setDataUsageDown:self.result.dataUsageDown+d.down];
+        [self.result setDataUsageUp:self.result.dataUsageUp+d.up];
+        //NSLog(@"dataUsageDown %qu", d.down);
+        //NSLog(@"dataUsageUp %qu", d.up);
     });
     test.start([self]() {
         [self testEnded:self];
     });
-    
-    //TODO at the end set measurement reportId and resave
 }
 
 -(void)updateProgress:(double)prog {
     self.progress = prog;
-#ifdef DEBUG
     NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
     NSLog(@"%@", os);
-#endif
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
         [noteInfo setObject:[NSNumber numberWithInt:self.idx] forKey:@"index"];
@@ -123,9 +118,7 @@
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         int blocking = ANOMALY_GREEN;
         if (error != nil) {
-#ifdef DEBUG
             NSLog(@"Error parsing JSON: %@", error);
-#endif
             blocking = ANOMALY_ORANGE;
             [self updateBlocking:blocking];
             return;
@@ -273,19 +266,19 @@
 
 -(void)updateBlocking:(int)blocking{
     if (blocking > self.measurement.blocking){
-        self.measurement.blocking = blocking;
-        //TODO save update db
+        //TODO update db
+        [self.measurement setBlocking:blocking];
     }
 }
 
 -(void)testEnded:(MKNetworkTest*)test{
-#ifdef DEBUG
     NSLog(@"%@ testEnded", self.name);
-#endif
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     [self.measurement setEndTime:[NSDate date]];
     [self.measurement setState:measurementDone];
+    [self updateProgress:100];
+    //TODO update db
     [self.delegate testEnded:self];
 }
 
@@ -298,6 +291,7 @@
     if (self) {
         self.name = @"web_connectivity";
         self.measurement.name = self.name;
+        //TODO update db o trova un modo per farlo nella superclass
     }
     return self;
 }

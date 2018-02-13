@@ -5,12 +5,23 @@
 @end
 
 @implementation TestResultsTableViewController
+@synthesize results;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"test_results", nil);
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    results = [[Result query] fetch];
+  /*
+    SRKResultSet* results = [[[[[Person query]
+                                where:@"age = 35"]
+                               limit:99]
+                              orderBy:@"name"]
+                             fetch];
+   [[[Person query] where:@"department.name = 'Test Department'"] fetch]
+*/
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -25,13 +36,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 30;
+    return [results count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Result *current = [results objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text  = @"Test";
+    cell.textLabel.text  = current.name;
     return cell;
 }
 

@@ -1,30 +1,25 @@
 #import "Measurement.h"
 
 @implementation Measurement
-
--(id) init {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    self.Id = [[NSDate date] timeIntervalSince1970];
-    self.state = measurementActive;
-    return self;
-}
+@dynamic name, startTime, endTime, ip, asn, country, networkName, networkType, state, blocking, input, category, result;
 
 //UNUSED
 -(NSString*)getReportFile{
-    return [NSString stringWithFormat:@"test-%ld.json", self.Id];
+    return [NSString stringWithFormat:@"test-%@.json", self.Id];
 }
 
 //UNUSED
 -(NSString*)getLogFile{
-    return [NSString stringWithFormat:@"test-%ld.log", self.Id];
+    return [NSString stringWithFormat:@"test-%@.log", self.Id];
 }
 
 -(void)save{
+    [self commit];
     NSLog(@"---- START LOGGING MEASUREMENT OBJECT----");
-    NSLog(@"Id %ld", self.Id);
+    NSLog(@"%@", self);
+    NSLog(@"logFile %@", [self getLogFile]);
+    NSLog(@"reportFile %@", [self getReportFile]);
+    /*
     NSLog(@"name %@", self.name);
     NSLog(@"startTime %@", self.startTime);
     NSLog(@"endTime %@", self.endTime);
@@ -37,10 +32,11 @@
     NSLog(@"blocking %ld", self.blocking);
     NSLog(@"logFile %@", [self getLogFile]);
     NSLog(@"reportFile %@", [self getReportFile]);
-    NSLog(@"reportId %@", self.reportId);
+    //NSLog(@"reportId %@", self.reportId);
     NSLog(@"input %@", self.input);
     NSLog(@"category %@", self.category);
     NSLog(@"resultId %ld", self.resultId);
+     */
     NSLog(@"---- END LOGGING MEASUREMENT OBJECT----");
 }
 
