@@ -13,6 +13,9 @@
 }
 
 -(void)run {
+    //should never happen
+    if ([self.mkNetworkTests count == 0])
+        [MessageUtility alertWithTitle:NSLocalizedString(@"error", nil) message:NSLocalizedString(@"cant deactivate", nil) inView:self.view];
     for (MKNetworkTest *current in self.mkNetworkTests){
         [current run];
     }
@@ -64,7 +67,6 @@
             [facebookMessenger setIdx:2];
             [self initCommon:facebookMessenger];
         }
-        //TODO what to do if no tests are enabled
         [self.result save];
     }
     return self;

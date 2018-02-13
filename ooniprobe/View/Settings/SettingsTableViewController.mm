@@ -31,7 +31,7 @@
     if (category != nil)
         items = [SettingsUtility getSettingsForCategory:category];
     else if (testName != nil)
-        items = [SettingsUtility getSettingsForTest:testName];
+        items = [SettingsUtility getSettingsForTest:testName :YES];
     [self.tableView reloadData];
 }
 
@@ -178,6 +178,13 @@
         [MessageUtility notificationAlertinView:self.view];
         return;
     }*/
+    if (!mySwitch.on && ![self canSetSwitch]){
+        [mySwitch setOn:TRUE];
+        //TODO string missing
+        [MessageUtility alertWithTitle:NSLocalizedString(@"error", nil) message:NSLocalizedString(@"cant deactivate", nil) inView:self.view];
+        return;
+    }
+    
     if (mySwitch.on)
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
@@ -188,6 +195,23 @@
     [self reloadSettings];
 }
 
+-(BOOL)canSetSwitch{
+    if (testName != nil){
+        NSArray *items = [SettingsUtility getSettingsForTest:testName :NO];
+        NSUInteger numberOfTests = [items count];
+        if ([testName isEqualToString:@"performance"] || [testName isEqualToString:@"middle_boxes"] || [testName isEqualToString:@"instant_messaging"]){
+            for (NSString *current in items){
+                if (![[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
+                    numberOfTests--;
+            }
+            if (numberOfTests < 2)
+                return NO;
+            return YES;
+        }
+        return YES;
+    }
+    return YES;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

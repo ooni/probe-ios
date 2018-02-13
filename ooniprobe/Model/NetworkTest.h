@@ -2,6 +2,7 @@
 #import "Result.h"
 #import "MKNetworkTest.h"
 #import "SettingsUtility.h"
+#import "MessageUtility.h"
 
 @interface NetworkTest : NSObject <MKNetworkTestDelegate>
 @property Result *result;

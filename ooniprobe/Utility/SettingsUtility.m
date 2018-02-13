@@ -81,24 +81,28 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (NSArray*)getSettingsForTest:(NSString*)testName {
-    //TODO redo all with nsmutablearray for semplicity
++ (NSArray*)getSettingsForTest:(NSString*)testName :(BOOL)includeAll{
+    NSMutableArray *settings = [[NSMutableArray alloc] init];
     if ([testName isEqualToString:@"websites"]) {
-        return @[@"website_categories", @"max_runtime", @"custom_url"];
+        if (includeAll) [settings addObject:@"website_categories"];
+        if (includeAll) [settings addObject:@"max_runtime"];
+        if (includeAll) [settings addObject:@"custom_url"];
     }
     else if ([testName isEqualToString:@"instant_messaging"]) {
-        if ([self getSettingWithName:@"test_whatsapp"])
-            return @[@"test_whatsapp", @"test_whatsapp_extensive", @"test_telegram", @"test_facebook"];
-        else
-            return @[@"test_whatsapp", @"test_telegram", @"test_facebook"];
+        [settings addObject:@"test_whatsapp"];
+        if (includeAll && [self getSettingWithName:@"test_whatsapp"])
+            [settings addObject:@"test_whatsapp_extensive"];
+        [settings addObject:@"test_telegram"];
+        [settings addObject:@"test_facebook"];
     }
     else if ([testName isEqualToString:@"middle_boxes"]) {
-        return @[@"run_http_invalid_request_line", @"run_http_header_field_manipulation"];
+        [settings addObject:@"run_http_invalid_request_line"];
+        [settings addObject:@"run_http_header_field_manipulation"];
     }
     else if ([testName isEqualToString:@"performance"]) {
         NSMutableArray *settings = [[NSMutableArray alloc] init];
         [settings addObject:@"run_ndt"];
-        if ([self getSettingWithName:@"run_ndt"]){
+        if (includeAll && [self getSettingWithName:@"run_ndt"]){
             [settings addObject:@"ndt_server_auto"];
             if (![self getSettingWithName:@"ndt_server_auto"]){
                 [settings addObject:@"ndt_server"];
@@ -106,29 +110,15 @@
             }
         }
         [settings addObject:@"run_dash"];
-        if ([self getSettingWithName:@"run_dash"]){
+        if (includeAll && [self getSettingWithName:@"run_dash"]){
             [settings addObject:@"dash_server_auto"];
             if (![self getSettingWithName:@"dash_server_auto"]){
                 [settings addObject:@"dash_server"];
                 [settings addObject:@"dash_server_port"];
             }
         }
-        return settings;
-        /*
-        if ([self getSettingWithName:@"ndt_server_auto"] && [self getSettingWithName:@"dash_server_auto"])
-            //TODO keep ports?
-            //TODO remove server settings when disable tests ?
-            return @[@"run_ndt", @"ndt_server_auto", @"run_dash", @"dash_server_auto"];
-        else if ([self getSettingWithName:@"ndt_server_auto"])
-            return @[@"run_ndt", @"ndt_server_auto", @"run_dash", @"dash_server_auto", @"dash_server", @"dash_server_port"];
-        else if ([self getSettingWithName:@"dash_server_auto"])
-            return @[@"run_ndt", @"ndt_server_auto", @"ndt_server", @"ndt_server_port", @"run_dash", @"dash_server_auto"];
-        else
-            return @[@"run_ndt", @"ndt_server_auto", @"ndt_server", @"ndt_server_port", @"run_dash", @"dash_server_auto", @"dash_server", @"dash_server_port"];
-         */
     }
-    else
-        return nil;
+    return settings;
 }
 
 + (BOOL)getSettingWithName:(NSString*)settingName{
@@ -150,5 +140,4 @@
     }
     return [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
 }
-
 @end

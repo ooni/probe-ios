@@ -17,10 +17,9 @@
 + (NSArray*)getSitesCategoriesEnabled;
 + (void)addRemoveSitesCategory:(NSString*)categoryName;
 
-+ (NSArray*)getSettingsForTest:(NSString*)testName;
++ (NSArray*)getSettingsForTest:(NSString*)testName :(BOOL)includeAll;
 
 + (BOOL)getSettingWithName:(NSString*)settingName;
 
 + (UIColor*)getColorForTest:(NSString*)testName;
-
 @end

@@ -35,15 +35,14 @@
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
+    [self.measurement setState:measurementActive];
     [self.measurement setStartTime:[NSDate date]];
-    //TODO update db
+    [self.measurement save];
 }
 
 - (void)createMeasurementObject{
     self.measurement = [Measurement new];
     [self.measurement setResult:self.result];
-    [self.measurement setState:measurementActive];
-    //TODO update db ?
     self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
@@ -58,7 +57,6 @@
     self.progress = 0;
     self.max_runtime_enabled = TRUE;
     [self.measurement setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
-    [self.measurement save];
     
     //Configuring common test parameters
     test.set_option("geoip_country_path", [geoip_country UTF8String]);
@@ -113,6 +111,7 @@
 
 -(void)on_entry:(const char*)str{
     if (str != nil) {
+        //TODO Lo startdate ti consiglio di prenderlo dal primo `on_entry` ?
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -266,7 +265,6 @@
 
 -(void)updateBlocking:(int)blocking{
     if (blocking > self.measurement.blocking){
-        //TODO update db
         [self.measurement setBlocking:blocking];
     }
 }
@@ -278,7 +276,7 @@
     [self.measurement setEndTime:[NSDate date]];
     [self.measurement setState:measurementDone];
     [self updateProgress:100];
-    //TODO update db
+    [self.measurement save];
     [self.delegate testEnded:self];
 }
 
