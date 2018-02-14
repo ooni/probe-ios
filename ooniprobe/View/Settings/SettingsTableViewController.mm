@@ -181,7 +181,7 @@
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
         //TODO string missing
-        [MessageUtility alertWithTitle:NSLocalizedString(@"error", nil) message:NSLocalizedString(@"cant deactivate", nil) inView:self.view];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"error", nil) message:NSLocalizedString(@"cant deactivate", nil) inView:self];
         return;
     }
     

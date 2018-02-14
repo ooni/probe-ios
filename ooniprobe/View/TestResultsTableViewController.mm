@@ -101,14 +101,16 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"header"]){
+        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ResultsHeaderViewController *vc = (ResultsHeaderViewController * )segue.destinationViewController;
+        //NSString *current = [categories objectAtIndex:indexPath.row];
+        //[vc setTestName:@"performance"];
+    }
 }
-*/
 
 @end

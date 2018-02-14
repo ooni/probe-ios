@@ -39,4 +39,5 @@
     [lineView setBackgroundColor:[UIColor whiteColor]];
     [view addSubview:lineView];
 }
+
 @end

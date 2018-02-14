@@ -26,6 +26,7 @@
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
 		ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32E1D2337920061F266 /* GeoIP.dat */; };
 		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
+		ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.mm */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
@@ -110,6 +111,8 @@
 		ED3A2C761E87E87900419270 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED3AB32E1D2337920061F266 /* GeoIP.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIP.dat; sourceTree = "<group>"; };
 		ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIPASNum.dat; sourceTree = "<group>"; };
+		ED3AE9EE20341C8600DAAF36 /* ResultsHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsHeaderViewController.h; sourceTree = "<group>"; };
+		ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsHeaderViewController.m; sourceTree = "<group>"; };
 		ED3B5F8C1F0BAC54007CE2AF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED3B5F8D1F0BC991007CE2AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ED3B5F8E1F0BC997007CE2AF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -363,6 +366,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		ED3AE9ED20341C5600DAAF36 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				ED3AE9EE20341C8600DAAF36 /* ResultsHeaderViewController.h */,
+				ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */,
+				EDB6F9BA202352D000BDCB0B /* Header1ViewController.h */,
+				EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */,
+				EDB6F9BD202352DC00BDCB0B /* Header2ViewController.h */,
+				EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		ED58CF7B1FEBBA3D00E3C415 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,14 +430,11 @@
 		EDB6F9B62023524500BDCB0B /* TestOverview */ = {
 			isa = PBXGroup;
 			children = (
+				ED3AE9ED20341C5600DAAF36 /* Headers */,
 				ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */,
 				ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */,
 				EDB6F9B72023526300BDCB0B /* HeaderSwipeViewController.h */,
 				EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */,
-				EDB6F9BA202352D000BDCB0B /* Header1ViewController.h */,
-				EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */,
-				EDB6F9BD202352DC00BDCB0B /* Header2ViewController.h */,
-				EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */,
 			);
 			path = TestOverview;
 			sourceTree = "<group>";
@@ -760,6 +773,7 @@
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
 				ED70D5031FE8021400759463 /* Measurement.mm in Sources */,
+				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding4ViewController.m in Sources */,
 				ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,

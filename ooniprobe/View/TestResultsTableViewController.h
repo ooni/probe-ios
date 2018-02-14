@@ -3,6 +3,7 @@
 #import "Measurement.h"
 #import "Result.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import "ResultsHeaderViewController.h"
 
 @interface TestResultsTableViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
