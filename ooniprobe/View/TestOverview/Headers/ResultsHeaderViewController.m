@@ -13,8 +13,8 @@
     [self.testsLabel setText:NSLocalizedString(@"tests", nil)];
     [self.networksLabel setText:NSLocalizedString(@"networks", nil)];
     [self.dataUsageLabel setText:NSLocalizedString(@"data_usage", nil)];
-    [self.filterButton setTitle:NSLocalizedString(@"filter_tests", nil) forState:UIControlStateNormal];
     filter = @"";
+    
     SRKQuery *query =[[Result query] orderBy:@"startTime"];
 
 /*
@@ -48,7 +48,6 @@
     FROM tabella
     ```
  */
-    //numberTestsLabel,numberNetworksLabel, upLabel,downLabel
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -73,41 +72,55 @@
     [self.delegate testFilter:query];
 }
 
--(IBAction)showFilter:(id)sender{
-    //TODO use https://github.com/PhamBaTho/BTNavigationDropdownMenu
-    UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:nil
-                                 message:nil
-                                 preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* all_tests = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"all_tests", nil)
-                               style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action) {
-                                    filter = @"";
-                                    [self.filterButton setTitle:NSLocalizedString(@"all_tests", nil) forState:UIControlStateNormal];
-                                    [self reloadQuery];
+#pragma mark - MKDropdownMenuDataSource
 
-                                }];
-    [alert addAction:all_tests];
-
-    NSArray *tests =  [SettingsUtility getTestTypes];
-    for (NSString *current in tests){
-        UIAlertAction* button = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(current, nil)
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction * action) {
-                                       filter = current;
-                                       [self.filterButton setTitle:NSLocalizedString(current, nil) forState:UIControlStateNormal];
-                                       [self reloadQuery];
-                                   }];
-        [alert addAction:button];
-    }
-    [self presentViewController:alert animated:YES completion:nil];
+- (NSInteger)numberOfComponentsInDropdownMenu:(MKDropdownMenu *)dropdownMenu {
+    return 1;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
+    return [[SettingsUtility getTestTypes] count]+1;
+}
+
+#pragma mark - MKDropdownMenuDelegate
+
+- (CGFloat)dropdownMenu:(MKDropdownMenu *)dropdownMenu rowHeightForComponent:(NSInteger)component {
+    return 44;
+}
+
+- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForComponent:(NSInteger)component{
+    return NSLocalizedString(@"filter_tests", nil);
+}
+- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    if (row == 0)
+        return NSLocalizedString(@"all_tests", nil);
+    NSArray *tests =  [SettingsUtility getTestTypes];
+    return NSLocalizedString([tests objectAtIndex:row-1], nil);
+}
+
+- (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (row == 0 && [filter isEqualToString:@""])
+        return [UIColor colorWithRGBHexString:color_gray alpha:1.0f];
+    else if (row > 0 && [[[SettingsUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter])
+        return [UIColor colorWithRGBHexString:color_gray alpha:1.0f];
+    else
+        return [UIColor whiteColor];
+}
+
+- (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSString *current = @"";
+    if (row > 0){
+        NSArray *tests =  [SettingsUtility getTestTypes];
+        current = [tests objectAtIndex:row-1];
+    }
+    filter = current;
+    [self reloadQuery];
+
+    double delayInSeconds = 0.15;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self.dropdownMenu closeAllComponentsAnimated:YES];
+    });
 }
 
 -(void)addLine:(UIView*)view{

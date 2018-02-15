@@ -3,12 +3,13 @@
 #import "Result.h"
 #import "Measurement.h"
 #import "SettingsUtility.h"
+#import "MKDropdownMenu.h"
 
 @protocol ReloadFilterDelegate <NSObject>
 -(void)testFilter:(SRKQuery*)query;
 @end
 
-@interface ResultsHeaderViewController : UIViewController {
+@interface ResultsHeaderViewController : UIViewController <MKDropdownMenuDelegate, MKDropdownMenuDataSource>{
     NSString *filter;
 }
 
@@ -23,6 +24,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *dataUsageLabel;
 @property (strong, nonatomic) IBOutlet UILabel *upLabel;
 @property (strong, nonatomic) IBOutlet UILabel *downLabel;
-@property (strong, nonatomic) IBOutlet UIButton *filterButton;
+@property (strong, nonatomic) IBOutlet MKDropdownMenu *dropdownMenu;
 
 @end

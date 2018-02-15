@@ -14,4 +14,5 @@ target 'ooniprobe' do
     pod 'ContentfulDeliveryAPI'
     pod 'ContentfulPersistenceObjC'
     pod 'SharkORM'
+    pod 'MKDropdownMenu'
 end
