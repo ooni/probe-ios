@@ -16,7 +16,6 @@
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.tableFooterView = [UIView new];
 
-    results = [[Result query] fetch];
   /*
     SRKResultSet* results = [[[[[Person query]
                                 where:@"age = 35"]
@@ -31,6 +30,11 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.tabBarController.navigationItem.title = NSLocalizedString(@"test_results", nil);
+}
+
+-(void)testFilter:(SRKQuery*)query{
+    results = [query fetch];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -108,6 +112,7 @@
     if ([[segue identifier] isEqualToString:@"header"]){
         //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ResultsHeaderViewController *vc = (ResultsHeaderViewController * )segue.destinationViewController;
+        [vc setDelegate:self];
         //NSString *current = [categories objectAtIndex:indexPath.row];
         //[vc setTestName:@"performance"];
     }

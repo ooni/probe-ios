@@ -8,6 +8,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addLine:self.view2];
+    [self addLine:self.view3];
     [self.testsLabel setText:NSLocalizedString(@"tests", nil)];
     [self.networksLabel setText:NSLocalizedString(@"networks", nil)];
     [self.dataUsageLabel setText:NSLocalizedString(@"data_usage", nil)];
@@ -64,13 +66,15 @@
     
     double dataUsageDown = [query sumOf:@"dataUsageDown"];
     double dataUsageUp = [query sumOf:@"dataUsageUp"];
-    [self.upLabel setText:[NSString stringWithFormat:@"%f", dataUsageUp]];
-    [self.downLabel setText:[NSString stringWithFormat:@"%f", dataUsageDown]];
+    [self.upLabel setText:[NSString stringWithFormat:@"%.0f", dataUsageUp]];
+    [self.downLabel setText:[NSString stringWithFormat:@"%.0f", dataUsageDown]];
     [self.numberTestsLabel setText:[NSString stringWithFormat:@"%llu", [query count]]];
-    [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", [[[Measurement query] distinct:@"asn"] count]]];
+    [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", [[query distinct:@"asn"] count]]];
+    [self.delegate testFilter:query];
 }
 
 -(IBAction)showFilter:(id)sender{
+    //TODO use https://github.com/PhamBaTho/BTNavigationDropdownMenu
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:nil
                                  message:nil

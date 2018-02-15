@@ -25,9 +25,10 @@
 
 -(void)save{
     [self commit];
-    NSLog(@"---- START LOGGING RESULT OBJECT----");
-    NSLog(@"%@", self);
     /*
+     NSLog(@"---- START LOGGING RESULT OBJECT----");
+     NSLog(@"%@", self);
+     NSLog(@"---- END LOGGING RESULT OBJECT----");
     NSLog(@"name %@", self.name);
     NSLog(@"startTime %@", self.startTime);
     NSLog(@"endTime %@", self.endTime);
@@ -35,7 +36,6 @@
     NSLog(@"dataUsageDown %ld", self.dataUsageDown);
     NSLog(@"dataUsageUp %ld", self.dataUsageUp);
      */
-    NSLog(@"---- END LOGGING RESULT OBJECT----");
 }
 
 @end

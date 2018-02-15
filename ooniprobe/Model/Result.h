@@ -5,6 +5,7 @@
 
 //@property NSInteger Id;
 @property NSString *name;
+@property NSString *asn;
 @property NSDate *startTime;
 @property NSDate *endTime;
 @property NSInteger dataUsageDown;

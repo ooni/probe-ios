@@ -15,11 +15,12 @@
 
 -(void)save{
     [self commit];
-    NSLog(@"---- START LOGGING MEASUREMENT OBJECT----");
-    NSLog(@"%@", self);
-    NSLog(@"logFile %@", [self getLogFile]);
-    NSLog(@"reportFile %@", [self getReportFile]);
     /*
+     NSLog(@"---- START LOGGING MEASUREMENT OBJECT----");
+     NSLog(@"%@", self);
+     NSLog(@"logFile %@", [self getLogFile]);
+     NSLog(@"reportFile %@", [self getReportFile]);
+     NSLog(@"---- END LOGGING MEASUREMENT OBJECT----");
     NSLog(@"name %@", self.name);
     NSLog(@"startTime %@", self.startTime);
     NSLog(@"endTime %@", self.endTime);
@@ -37,7 +38,6 @@
     NSLog(@"category %@", self.category);
     NSLog(@"resultId %ld", self.resultId);
      */
-    NSLog(@"---- END LOGGING MEASUREMENT OBJECT----");
 }
 
 

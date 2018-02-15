@@ -92,7 +92,7 @@
         //NSLog(@"dataUsageUp %qu", d.up);
     });
     test.start([self]() {
-        [self testEnded:self];
+        [self testEnded];
     });
 }
 
@@ -122,8 +122,16 @@
             [self updateBlocking:blocking];
             return;
         }
-        if ([json safeObjectForKey:@"probe_asn"])
+        if ([json safeObjectForKey:@"probe_asn"]){
             [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
+            if (self.measurement.result.asn == nil){
+                [self.measurement.result setAsn:[json objectForKey:@"probe_asn"]];
+                [self.measurement.result save];
+            }
+            else {
+                //TODO check if asn is present and it's the same
+            }
+        }
         if ([json safeObjectForKey:@"probe_cc"])
             [self.measurement setCountry:[json objectForKey:@"probe_cc"]];
         if ([json safeObjectForKey:@"probe_ip"])
@@ -269,13 +277,13 @@
     }
 }
 
--(void)testEnded:(MKNetworkTest*)test{
+-(void)testEnded{
     NSLog(@"%@ testEnded", self.name);
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     [self.measurement setEndTime:[NSDate date]];
     [self.measurement setState:measurementDone];
-    [self updateProgress:100];
+    [self updateProgress:1];
     [self.measurement save];
     [self.delegate testEnded:self];
 }

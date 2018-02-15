@@ -4,10 +4,18 @@
 #import "Measurement.h"
 #import "SettingsUtility.h"
 
+@protocol ReloadFilterDelegate <NSObject>
+-(void)testFilter:(SRKQuery*)query;
+@end
+
 @interface ResultsHeaderViewController : UIViewController {
     NSString *filter;
 }
 
+@property id<ReloadFilterDelegate> delegate;
+@property (nonatomic, strong) IBOutlet UIStackView *view1;
+@property (nonatomic, strong) IBOutlet UIStackView *view2;
+@property (nonatomic, strong) IBOutlet UIStackView *view3;
 @property (strong, nonatomic) IBOutlet UILabel *testsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *numberTestsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *networksLabel;
