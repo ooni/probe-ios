@@ -22,16 +22,16 @@
                                 value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                                 range:NSMakeRange(0, description.length)];
     
-    NSString *test_desc = [NSString stringWithFormat:@"%@_longdesc", testName];
-    NSMutableAttributedString *test_desc_str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(test_desc, nil)]];
-    [test_desc_str addAttribute:NSFontAttributeName
+    NSString *testDesc = [NSString stringWithFormat:@"%@_longdesc", testName];
+    NSMutableAttributedString *testDescStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(testDesc, nil)]];
+    [testDescStr addAttribute:NSFontAttributeName
                                 value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                                range:NSMakeRange(0, test_desc.length)];
+                                range:NSMakeRange(0, testDesc.length)];
     
-    NSMutableAttributedString *attr_str = [[NSMutableAttributedString alloc] init];
-    [attr_str appendAttributedString:description];
-    [attr_str appendAttributedString:test_desc_str];
-    [self.testDescriptionLabel setAttributedText:attr_str];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
+    [attrStr appendAttributedString:description];
+    [attrStr appendAttributedString:testDescStr];
+    [self.testDescriptionLabel setAttributedText:attrStr];
 
     //TODO
     [self.timeLabel setText:@"2min 10MB"];

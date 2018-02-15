@@ -37,29 +37,29 @@
 }
 
 - (void)reloadQuestion{
-    NSMutableAttributedString *question_intro = [[NSMutableAttributedString alloc]
+    NSMutableAttributedString *questionIntro = [[NSMutableAttributedString alloc]
                                                  initWithString:[NSString stringWithFormat:@"%@ %ld/2\n\n", NSLocalizedString(@"question", nil), question_number]];
-    [question_intro addAttribute:NSFontAttributeName
+    [questionIntro addAttribute:NSFontAttributeName
                            value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                           range:NSMakeRange(0, question_intro.length)];
-    NSMutableAttributedString *question_text;
+                           range:NSMakeRange(0, questionIntro.length)];
+    NSMutableAttributedString *questionText;
     if (question_number == 1)
-        question_text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"question_1", nil)];
+        questionText = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"question_1", nil)];
     else if (question_number == 2)
-        question_text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"question_2", nil)];
+        questionText = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"question_2", nil)];
     else {
         //should not happen
         assert(false);
     }
         
-    [question_text addAttribute:NSFontAttributeName
+    [questionText addAttribute:NSFontAttributeName
                           value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                          range:NSMakeRange(0, question_text.length)];
+                          range:NSMakeRange(0, questionText.length)];
     
-    NSMutableAttributedString *attr_str = [[NSMutableAttributedString alloc] init];
-    [attr_str appendAttributedString:question_intro];
-    [attr_str appendAttributedString:question_text];
-    [self.textLabel setAttributedText:attr_str];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
+    [attrStr appendAttributedString:questionIntro];
+    [attrStr appendAttributedString:questionText];
+    [self.textLabel setAttributedText:attrStr];
 }
 
 - (void)nextQuestion {

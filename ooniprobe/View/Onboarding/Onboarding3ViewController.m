@@ -28,12 +28,12 @@
     [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.titleLabel setText:NSLocalizedString(@"things_to_know", nil)];
     
-    NSMutableAttributedString *things_to_know_1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"• %@\n\n• %@\n\n• %@\n\n• %@", NSLocalizedString(@"things_to_know_1", nil), NSLocalizedString(@"things_to_know_2", nil), NSLocalizedString(@"things_to_know_3", nil), NSLocalizedString(@"things_to_know_4", nil)]];
-    [things_to_know_1 addAttribute:NSFontAttributeName
+    NSMutableAttributedString *thingsToKnow1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"• %@\n\n• %@\n\n• %@\n\n• %@", NSLocalizedString(@"things_to_know_1", nil), NSLocalizedString(@"things_to_know_2", nil), NSLocalizedString(@"things_to_know_3", nil), NSLocalizedString(@"things_to_know_4", nil)]];
+    [thingsToKnow1 addAttribute:NSFontAttributeName
                                 value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                                range:NSMakeRange(0, things_to_know_1.length)];
+                                range:NSMakeRange(0, thingsToKnow1.length)];
     
-    [self.textLabel setAttributedText:things_to_know_1];
+    [self.textLabel setAttributedText:thingsToKnow1];
     [self.textLabel setTextColor:[UIColor whiteColor]];
     [self.nextButton setTitle:[NSLocalizedString(@"i_understand", nil) uppercaseString] forState:UIControlStateNormal];
     

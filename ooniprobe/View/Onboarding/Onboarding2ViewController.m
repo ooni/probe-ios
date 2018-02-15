@@ -23,20 +23,20 @@
     [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.titleLabel setText:NSLocalizedString(@"what_is_ooniprobe", nil)];
     
-    NSMutableAttributedString *what_is_ooniprobe_1 = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"what_is_ooniprobe_1", nil)];
-    [what_is_ooniprobe_1 addAttribute:NSFontAttributeName
+    NSMutableAttributedString *whatIsOoniprobe1 = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"what_is_ooniprobe_1", nil)];
+    [whatIsOoniprobe1 addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                    range:NSMakeRange(0, what_is_ooniprobe_1.length)];
+                    range:NSMakeRange(0, whatIsOoniprobe1.length)];
     
-    NSMutableAttributedString *what_is_ooniprobe_2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(@"what_is_ooniprobe_2", nil)]];
-    [what_is_ooniprobe_2 addAttribute:NSFontAttributeName
+    NSMutableAttributedString *whatIsOoniprobe2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(@"what_is_ooniprobe_2", nil)]];
+    [whatIsOoniprobe2 addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                    range:NSMakeRange(0, what_is_ooniprobe_2.length)];
+                    range:NSMakeRange(0, whatIsOoniprobe2.length)];
 
-    NSMutableAttributedString *attr_str = [[NSMutableAttributedString alloc] init];
-    [attr_str appendAttributedString:what_is_ooniprobe_1];
-    [attr_str appendAttributedString:what_is_ooniprobe_2];
-    [self.textLabel setAttributedText:attr_str];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
+    [attrStr appendAttributedString:whatIsOoniprobe1];
+    [attrStr appendAttributedString:whatIsOoniprobe2];
+    [self.textLabel setAttributedText:attrStr];
     [self.textLabel setTextColor:[UIColor whiteColor]];
 }
 
