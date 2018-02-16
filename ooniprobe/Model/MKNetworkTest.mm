@@ -36,6 +36,7 @@
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     [self.measurement setState:measurementActive];
+    //TODO use startTime in OnEntry
     [self.measurement setStartTime:[NSDate date]];
     [self.measurement save];
 }
@@ -124,16 +125,26 @@
         }
         if ([json safeObjectForKey:@"probe_asn"]){
             [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
-            if (self.measurement.result.asn == nil){
-                [self.measurement.result setAsn:[json objectForKey:@"probe_asn"]];
-                [self.measurement.result save];
+            if (self.result.asn == nil){
+                [self.result setAsn:[json objectForKey:@"probe_asn"]];
+                [self.result save];
             }
             else {
-                //TODO check if asn is present and it's the same
+                if (![self.result.asn isEqualToString:self.measurement.asn])
+                    NSLog(@"Something's wrong");
             }
         }
-        if ([json safeObjectForKey:@"probe_cc"])
+        if ([json safeObjectForKey:@"probe_cc"]){
             [self.measurement setCountry:[json objectForKey:@"probe_cc"]];
+            if (self.result.country == nil){
+                [self.result setCountry:[json objectForKey:@"probe_cc"]];
+                [self.result save];
+            }
+            else {
+                if (![self.result.country isEqualToString:self.measurement.country])
+                    NSLog(@"Something's wrong");
+            }
+        }
         if ([json safeObjectForKey:@"probe_ip"])
             [self.measurement setIp:[json objectForKey:@"probe_ip"]];
         if ([json safeObjectForKey:@"report_id"])

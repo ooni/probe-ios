@@ -5,17 +5,19 @@
 
 //@property NSInteger Id;
 @property NSString *name;
-@property NSString *asn;
 @property NSDate *startTime;
 @property NSDate *endTime;
 @property NSInteger dataUsageDown;
 @property NSInteger dataUsageUp;
+@property NSString *asn;
+@property NSString *asnName;
+@property NSString *country;
 
 //The json of the result is a summary that contains just a few kbs vs MBs of the report file
 @property NSString *summary;
 /*
  WebCensorship Json
- number of sites + blocked?
+ number of sites + blocked + anomalies
  
  Performance Json
  video streaming quality
@@ -24,10 +26,11 @@
  ping
  
  IM Json
- -
+ number tested
+ number blocked
  
  MiddleBox Json
- 
+ found/not found
  */
 @property BOOL done;
 

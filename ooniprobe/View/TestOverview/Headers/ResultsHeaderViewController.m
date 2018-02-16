@@ -15,7 +15,6 @@
     [self.dataUsageLabel setText:NSLocalizedString(@"data_usage", nil)];
     filter = @"";
     
-    SRKQuery *query =[[Result query] orderBy:@"startTime"];
 
 /*
     let query = Person.query()
@@ -59,15 +58,16 @@
 -(void)reloadQuery{
     SRKQuery *query;
     if ([filter length] > 0)
-        query = [[Result query] where:[NSString stringWithFormat:@"name = '%@'", filter]];
+        query = [[[Result query] where:[NSString stringWithFormat:@"name = '%@'", filter]] orderByDescending:@"startTime"];
     else
-        query = [Result query];
+        query = [[Result query] orderByDescending:@"startTime"];
     
     double dataUsageDown = [query sumOf:@"dataUsageDown"];
     double dataUsageUp = [query sumOf:@"dataUsageUp"];
     [self.upLabel setText:[NSString stringWithFormat:@"%.0f", dataUsageUp]];
     [self.downLabel setText:[NSString stringWithFormat:@"%.0f", dataUsageDown]];
     [self.numberTestsLabel setText:[NSString stringWithFormat:@"%llu", [query count]]];
+    //TODO BUG this count also the nulls
     [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", [[query distinct:@"asn"] count]]];
     [self.delegate testFilter:query];
 }

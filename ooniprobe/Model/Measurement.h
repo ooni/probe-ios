@@ -23,6 +23,7 @@ typedef enum
 @property NSDate *endTime;
 @property NSString *ip;
 @property NSString *asn;
+@property NSString *asnName;
 @property NSString *country;
 @property NSString *networkName;
 @property NSString *networkType;

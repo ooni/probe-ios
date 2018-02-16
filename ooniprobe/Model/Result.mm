@@ -2,9 +2,10 @@
 #import "Measurement.h"
 
 @implementation Result
-@dynamic name, startTime, endTime, summary, dataUsageUp, dataUsageDown, done;
+@dynamic name, startTime, endTime, summary, dataUsageUp, dataUsageDown, asn, asnName, country, done;
 
 + (NSDictionary *)defaultValuesForEntity {
+    //TODO set default for asn, asnName, country
     return @{@"startTime": [NSDate date], @"done" : [NSNumber numberWithBool:FALSE], @"dataUsageDown" : [NSNumber numberWithInt:0], @"dataUsageUp" : [NSNumber numberWithInt:0]};
 }
 
@@ -25,6 +26,10 @@
 
 -(void)save{
     [self commit];
+    NSLog(@"---- START LOGGING RESULT OBJECT----");
+    NSLog(@"%@", self);
+    NSLog(@"---- END LOGGING RESULT OBJECT----");
+
     /*
      NSLog(@"---- START LOGGING RESULT OBJECT----");
      NSLog(@"%@", self);

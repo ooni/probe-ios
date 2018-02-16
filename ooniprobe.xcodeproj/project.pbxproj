@@ -354,13 +354,15 @@
 		ED25281F1CEA353A0073A29B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ED58CF7B1FEBBA3D00E3C415 /* Tabs */,
+				ED58CF781FEBB9A900E3C415 /* DashboardTableViewController.h */,
+				ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.mm */,
 				EDB6F9B62023524500BDCB0B /* TestOverview */,
 				ED0D8D6D201866D8003DDF23 /* RunTest */,
 				EDDB0B5E1FFF3A5A00EFD9C8 /* TabsViewController.h */,
 				EDDB0B5D1FFF3A5A00EFD9C8 /* TabsViewController.m */,
 				ED0A61FF200B52A300235E70 /* OONIRun */,
 				EDDB0B561FFF32B900EFD9C8 /* Settings */,
+				ED55C0C6203585F900738260 /* Feed */,
 				EDDB0B631FFF6C8B00EFD9C8 /* Onboarding */,
 			);
 			path = View;
@@ -379,17 +381,13 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
-		ED58CF7B1FEBBA3D00E3C415 /* Tabs */ = {
+		ED55C0C6203585F900738260 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				ED58CF781FEBB9A900E3C415 /* DashboardTableViewController.h */,
-				ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.mm */,
-				EDDB0B4E1FFD320000EFD9C8 /* TestResultsTableViewController.h */,
-				EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.mm */,
 				EDDB0B4B1FFD31B600EFD9C8 /* FeedTableViewController.h */,
 				EDDB0B4C1FFD31B600EFD9C8 /* FeedTableViewController.m */,
 			);
-			name = Tabs;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		ED58E8C71D0C625300C74F10 /* Utility */ = {
@@ -431,6 +429,8 @@
 			isa = PBXGroup;
 			children = (
 				ED3AE9ED20341C5600DAAF36 /* Headers */,
+				EDDB0B4E1FFD320000EFD9C8 /* TestResultsTableViewController.h */,
+				EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.mm */,
 				ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */,
 				ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */,
 				EDB6F9B72023526300BDCB0B /* HeaderSwipeViewController.h */,

@@ -15,7 +15,6 @@
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.tableFooterView = [UIView new];
-
   /*
     SRKResultSet* results = [[[[[Person query]
                                 where:@"age = 35"]
@@ -24,7 +23,6 @@
                              fetch];
    [[[Person query] where:@"department.name = 'Test Department'"] fetch]
 */
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -34,6 +32,18 @@
 
 -(void)testFilter:(SRKQuery*)query{
     results = [query fetch];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"yyyy-MM";
+    for (Result *current in results){
+        /*
+         build a dictionary like
+         17-07
+         17-08
+         18-01
+         */
+        [df stringFromDate:current.startTime]
+        NSLog(@"%@", current.startTime);
+    }
     [self.tableView reloadData];
 }
 
@@ -66,45 +76,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Result *current = [results objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text  = current.name;
+    UIImageView *testIcon = (UIImageView*)[cell viewWithTag:1];
+    UILabel *titleLabel = (UILabel*)[cell viewWithTag:2];
+    UILabel *asnLabel = (UILabel*)[cell viewWithTag:3];
+    UILabel *timeLabel = (UILabel*)[cell viewWithTag:4];
+    [testIcon setImage:[UIImage imageNamed:current.name]];
+    titleLabel.text  = NSLocalizedString(current.name, nil);
+    
+    //TODO check for null or empty and change the string
+    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:current.asnName];
+    [asnName addAttribute:NSFontAttributeName
+                        value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
+                        range:NSMakeRange(0, asnName.length)];
+    NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", [NSString stringWithFormat:@"%@ (%@)", current.asn, current.country]]];
+    [asnText addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
+                          range:NSMakeRange(0, asnText.length)];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
+    [attrStr appendAttributedString:asnName];
+    [attrStr appendAttributedString:asnText];
+    [asnLabel setAttributedText:attrStr];
+    
+    //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:current.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    timeLabel.text = localizedDateTime;
+    
     return cell;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 
