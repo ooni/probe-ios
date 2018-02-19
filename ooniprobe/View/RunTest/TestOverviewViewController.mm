@@ -35,8 +35,15 @@
 
     //TODO
     [self.timeLabel setText:@"2min 10MB"];
-    [self.lastRunLabel setText:@"2 days ago"];
     
+    SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"name = '%@'", testName]] orderByDescending:@"startTime"] fetch];
+    
+    //TODO localize this string
+    if ([results count] > 0)
+        [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld days ago", [self daysBetweenTwoDates:[[results objectAtIndex:0] startTime]]]];
+    else
+        [self.lastRunLabel setText:NSLocalizedString(@"never", nil)];
+
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
     defaultColor = [SettingsUtility getColorForTest:testName];
     [self.backgroundView setBackgroundColor:defaultColor];
@@ -45,6 +52,15 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBarTintColor:defaultColor];
+}
+
+-(NSInteger)daysBetweenTwoDates:(NSDate*)testDate{
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitDay
+                                                        fromDate:testDate
+                                                          toDate:[NSDate date]
+                                                         options:0];
+    return components.day;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

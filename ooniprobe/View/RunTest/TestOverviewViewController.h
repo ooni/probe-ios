@@ -2,6 +2,7 @@
 #import "ConfigureButton.h"
 #import "RunButton.h"
 #import "TestRunningViewController.h"
+#import "Result.h"
 
 @interface TestOverviewViewController : UIViewController {
     UIColor *defaultColor;
