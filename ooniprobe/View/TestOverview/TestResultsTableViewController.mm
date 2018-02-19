@@ -15,6 +15,17 @@
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.tableFooterView = [UIView new];
+    /*
+    for (int i = 0; i< 25; i++){
+        int lowerBound = 0;
+        int upperBound = 31557600;
+        int rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
+        Result *r = [Result new];
+        [r setStartTime:[NSDate dateWithTimeIntervalSinceNow:rndValue]];
+        [r setName:@"instant_messaging"];
+        [r commit];
+    }
+     */
   /*
     SRKResultSet* results = [[[[[Person query]
                                 where:@"age = 35"]
@@ -32,18 +43,30 @@
 
 -(void)testFilter:(SRKQuery*)query{
     results = [query fetch];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"yyyy-MM";
     for (Result *current in results){
+        NSMutableArray *arr = [[NSMutableArray alloc] init];
+        NSString *key = [df stringFromDate:current.startTime];
+        if ([dic objectForKey:key])
+            arr = [[dic objectForKey:key] mutableCopy];
+        [arr addObject:current];
+        [dic setObject:arr forKey:key];
         /*
          build a dictionary like
          17-07
          17-08
          18-01
          */
-        [df stringFromDate:current.startTime]
-        NSLog(@"%@", current.startTime);
+        //NSLog(@"%@", [df stringFromDate:current.startTime]);
     }
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO selector:@selector(localizedStandardCompare:)];
+    //NSArray *sortedKeys = [[dic allKeys] sortedArrayUsingSelector: @selector(compare:)];
+    keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];
+    resultsDic = dic;
+    //NSLog(@"STODIC %@", sortedKeys);
+
     [self.tableView reloadData];
 }
 
@@ -64,17 +87,27 @@
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *month = [keys objectAtIndex:section];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"yyyy-MM";
+    NSDate *convertedDate = [df dateFromString:month];
+    df.dateFormat = @"MMMM yyyy";
+    return [df stringFromDate:convertedDate];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [keys count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [results count];
+    return [[resultsDic objectForKey:[keys objectAtIndex:section]] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Result *current = [results objectAtIndex:indexPath.row];
+    Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     UIImageView *testIcon = (UIImageView*)[cell viewWithTag:1];
     UILabel *titleLabel = (UILabel*)[cell viewWithTag:2];
@@ -83,8 +116,8 @@
     [testIcon setImage:[UIImage imageNamed:current.name]];
     titleLabel.text  = NSLocalizedString(current.name, nil);
     
-    //TODO check for null or empty and change the string
-    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:current.asnName];
+    //TODO check for null or empty and change the string current.asnName
+    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:@"ASN NAME"];
     [asnName addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                         range:NSMakeRange(0, asnName.length)];

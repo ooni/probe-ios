@@ -5,7 +5,10 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import "ResultsHeaderViewController.h"
 
-@interface TestResultsTableViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate>
+@interface TestResultsTableViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate> {
+    NSArray *keys;
+    NSDictionary *resultsDic;
+}
 
 @property (nonatomic, strong) IBOutlet UIView *headerView;
 @property (nonatomic, strong) SRKResultSet* results;
