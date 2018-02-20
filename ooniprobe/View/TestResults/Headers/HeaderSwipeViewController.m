@@ -18,7 +18,10 @@
 - (UIViewController *)first {
     if (!_first) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _first = [sb instantiateViewControllerWithIdentifier:@"Header_1"];
+        if ([result.name isEqualToString:@"middle_boxes"])
+            _first = [sb instantiateViewControllerWithIdentifier:@"Header_1_mb"];
+        else
+            _first = [sb instantiateViewControllerWithIdentifier:@"Header_1"];
         [_first setResult:result];
     }
     return _first;

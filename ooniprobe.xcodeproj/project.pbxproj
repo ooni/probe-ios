@@ -29,6 +29,7 @@
 		ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.mm */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
+		ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55C0C8203BD52900738260 /* Header1MBViewController.m */; };
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
 		ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.mm */; };
 		ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */; };
@@ -123,6 +124,8 @@
 		ED49509B1F951F1D00344E42 /* MessageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageUtility.h; path = Utility/MessageUtility.h; sourceTree = "<group>"; };
 		ED49509C1F951F1D00344E42 /* MessageUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MessageUtility.mm; path = Utility/MessageUtility.mm; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED55C0C7203BD52900738260 /* Header1MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header1MBViewController.h; sourceTree = "<group>"; };
+		ED55C0C8203BD52900738260 /* Header1MBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Header1MBViewController.m; sourceTree = "<group>"; };
 		ED58CF741FEBB77600E3C415 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		ED58CF781FEBB9A900E3C415 /* DashboardTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewController.h; sourceTree = "<group>"; };
 		ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DashboardTableViewController.mm; sourceTree = "<group>"; };
@@ -377,6 +380,8 @@
 				EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */,
 				EDB6F9BA202352D000BDCB0B /* Header1ViewController.h */,
 				EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */,
+				ED55C0C7203BD52900738260 /* Header1MBViewController.h */,
+				ED55C0C8203BD52900738260 /* Header1MBViewController.m */,
 				EDB6F9BD202352DC00BDCB0B /* Header2ViewController.h */,
 				EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */,
 			);
@@ -772,6 +777,7 @@
 				ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
+				ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */,
 				ED70D5031FE8021400759463 /* Measurement.mm in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding4ViewController.m in Sources */,

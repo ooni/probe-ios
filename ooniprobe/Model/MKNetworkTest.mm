@@ -57,8 +57,9 @@
     NSString *geoip_country = [[NSBundle mainBundle] pathForResource:@"GeoIP" ofType:@"dat"];
     self.progress = 0;
     self.max_runtime_enabled = TRUE;
+    [self.result setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
     [self.measurement setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
-    
+
     //Configuring common test parameters
     test.set_option("geoip_country_path", [geoip_country UTF8String]);
     test.set_option("geoip_asn_path", [geoip_asn UTF8String]);
@@ -145,8 +146,17 @@
                     NSLog(@"Something's wrong");
             }
         }
-        if ([json safeObjectForKey:@"probe_ip"])
+        if ([json safeObjectForKey:@"probe_ip"]){
             [self.measurement setIp:[json objectForKey:@"probe_ip"]];
+            if (self.result.ip == nil){
+                [self.result setIp:[json objectForKey:@"probe_ip"]];
+                [self.result save];
+            }
+            else {
+                if (![self.result.ip isEqualToString:self.measurement.ip])
+                    NSLog(@"Something's wrong");
+            }
+        }
         if ([json safeObjectForKey:@"report_id"])
             [self.measurement setReportId:[json objectForKey:@"report_id"]];
         if ([self.name isEqualToString:@"web_connectivity"]){

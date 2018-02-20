@@ -3,6 +3,12 @@
 @implementation Measurement
 @dynamic name, startTime, endTime, ip, asn, asnName, country, networkName, networkType, state, blocking, input, category, result;
 
+-(void)setAsn:(NSString *)asn{
+    //TODO calculate asnname
+    self.asnName = asn;
+    self.asn = asn;
+}
+
 //UNUSED
 -(NSString*)getReportFile{
     return [NSString stringWithFormat:@"test-%@.json", self.Id];

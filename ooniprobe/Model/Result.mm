@@ -2,7 +2,7 @@
 #import "Measurement.h"
 
 @implementation Result
-@dynamic name, startTime, endTime, summary, dataUsageUp, dataUsageDown, asn, asnName, country, done;
+@dynamic name, startTime, endTime, summary, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, done;
 
 + (NSDictionary *)defaultValuesForEntity {
     //TODO set default for asn, asnName, country
@@ -11,6 +11,12 @@
 
 - (SRKResultSet*)measurements {
     return [[[Measurement query] whereWithFormat:@"result = %@", self] fetch];
+}
+
+-(void)setAsn:(NSString *)asn{
+    //TODO calculate asnname
+    self.asnName = asn;
+    self.asn = asn;
 }
 
 //Shark supports indexing by overriding the indexDefinitionForEntity method and returning an SRKIndexDefinition object which describes all of the indexes that need to be maintained on the object.
