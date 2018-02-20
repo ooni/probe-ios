@@ -100,9 +100,9 @@
 
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (row == 0 && [filter isEqualToString:@""])
-        return [UIColor colorWithRGBHexString:color_gray alpha:1.0f];
+        return [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
     else if (row > 0 && [[[SettingsUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter])
-        return [UIColor colorWithRGBHexString:color_gray alpha:1.0f];
+        return [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
     else
         return [UIColor whiteColor];
 }

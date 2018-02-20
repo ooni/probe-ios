@@ -50,19 +50,7 @@
     //TODO
     [estimateTime setText:@"2min"];
     [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_big", testName]]];
-    
-    if ([testName isEqualToString:@"websites"]){
-        [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_pink7 alpha:1.0f]];
-    }
-    else if ([testName isEqualToString:@"performance"]){
-        [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_cyan7 alpha:1.0f]];
-    }
-    else if ([testName isEqualToString:@"middle_boxes"]){
-        [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow7 alpha:1.0f]];
-    }
-    else if ([testName isEqualToString:@"instant_messaging"]){
-        [backgroundView setBackgroundColor:[UIColor colorWithRGBHexString:color_teal7 alpha:1.0f]];
-    }
+    [backgroundView setBackgroundColor:[SettingsUtility getColorForTest:testName]];
     backgroundView.layer.cornerRadius = 15;
     backgroundView.layer.masksToBounds = YES;
 

@@ -82,7 +82,7 @@
     NSString *text = NSLocalizedString(@"past_tests_empty", nil);
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
-                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray alpha:1.0f]};
+                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
@@ -116,7 +116,7 @@
     [testIcon setImage:[UIImage imageNamed:current.name]];
     titleLabel.text  = NSLocalizedString(current.name, nil);
     
-    //TODO check for null or empty and change the string current.asnName
+    //TODO check for null or empty and change the string current.asnName (AS0 and Unknown Network)
     NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:@"ASN NAME"];
     [asnName addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]

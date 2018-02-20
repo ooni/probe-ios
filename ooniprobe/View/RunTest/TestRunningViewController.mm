@@ -9,20 +9,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[SettingsUtility getColorForTest:testName]];
     if ([testName isEqualToString:@"websites"]){
-        [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_pink7 alpha:1.0f]];
         currentTest = [[WCNetworkTest alloc] init];
     }
     else if ([testName isEqualToString:@"performance"]){
-        [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_cyan7 alpha:1.0f]];
         currentTest = [[SPNetworkTest alloc] init];
     }
     else if ([testName isEqualToString:@"middle_boxes"]){
-        [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow7 alpha:1.0f]];
         currentTest = [[MBNetworkTest alloc] init];
     }
     else if ([testName isEqualToString:@"instant_messaging"]){
-        [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_teal7 alpha:1.0f]];
         currentTest = [[IMNetworkTest alloc] init];
     }
     
