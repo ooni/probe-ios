@@ -5,9 +5,12 @@
 @end
 
 @implementation TestSummaryTableViewController
+@synthesize result;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //TODO self.navigationController.navigationBar.topItem.title = @""; DATE TEST 
+
     //self.title = NSLocalizedString(@"test_results", nil);
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -15,7 +18,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBarTintColor:[SettingsUtility getColorForTest:result.name]];
     //self.tabBarController.navigationItem.title = NSLocalizedString(@"test_results", nil);
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    UIColor *defaultColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
+    [self.navigationController.navigationBar setBarTintColor:defaultColor];
 }
 
 #pragma mark - Table view data source
@@ -74,7 +84,7 @@
         //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         HeaderSwipeViewController *vc = (HeaderSwipeViewController * )segue.destinationViewController;
         //NSString *current = [categories objectAtIndex:indexPath.row];
-        [vc setTestName:@"performance"];
+        [vc setResult:result];
     }
 }
 

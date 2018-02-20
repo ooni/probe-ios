@@ -4,6 +4,7 @@
 #import "Result.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "ResultsHeaderViewController.h"
+#import "TestSummaryTableViewController.h"
 
 @interface TestResultsTableViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate> {
     NSArray *keys;

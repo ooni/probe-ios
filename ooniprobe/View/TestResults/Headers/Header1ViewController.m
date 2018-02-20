@@ -1,13 +1,15 @@
 #import "Header1ViewController.h"
-
+#import "SettingsUtility.h"
 @interface Header1ViewController ()
 
 @end
 
 @implementation Header1ViewController
+@synthesize result;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.headerView setBackgroundColor:[SettingsUtility getColorForTest:result.name]];
     [self addLine:self.view2];
     [self addLine:self.view3];
     [self addLine:self.view4];

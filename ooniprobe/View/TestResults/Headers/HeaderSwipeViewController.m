@@ -13,11 +13,13 @@
 @end
 
 @implementation HeaderSwipeViewController
+@synthesize result;
 
 - (UIViewController *)first {
     if (!_first) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         _first = [sb instantiateViewControllerWithIdentifier:@"Header_1"];
+        [_first setResult:result];
     }
     return _first;
 }
@@ -26,6 +28,7 @@
     if (!_second) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         _second = [sb instantiateViewControllerWithIdentifier:@"Header_2"];
+        [_second setResult:result];
     }
     return _second;
 }
@@ -33,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[SettingsUtility getColorForTest:self.testName]];
+    [self.view setBackgroundColor:[SettingsUtility getColorForTest:result.name]];
 
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     

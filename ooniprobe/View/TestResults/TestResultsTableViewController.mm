@@ -147,6 +147,12 @@
         //NSString *current = [categories objectAtIndex:indexPath.row];
         //[vc setTestName:@"performance"];
     }
+    else if ([[segue identifier] isEqualToString:@"summary"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        TestSummaryTableViewController *vc = (TestSummaryTableViewController * )segue.destinationViewController;
+        Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        [vc setResult:current];
+    }
 }
 
 @end
