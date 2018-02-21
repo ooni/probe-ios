@@ -12,7 +12,7 @@
     return [[[Measurement query] whereWithFormat:@"result = %@", self] fetch];
 }
 
--(void)setAsn:(NSString *)asn{
+-(void)setAsnAndCalculateName:(NSString *)asn{
     //TODO calculate asnname
     self.asnName = @"Vodafone";
     self.asn = asn;

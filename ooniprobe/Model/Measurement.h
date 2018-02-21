@@ -41,6 +41,7 @@ typedef enum
 
 //@property NSInteger resultId;
 
+-(void)setAsnAndCalculateName:(NSString *)asn;
 -(void)save;
 
 @end

@@ -126,9 +126,9 @@
         }
         //if the user doesn't want to share asn leave null on the db object
         if ([json safeObjectForKey:@"probe_asn"] && [SettingsUtility getSettingWithName:@"include_asn"]){
-            [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
+            [self.measurement setAsnAndCalculateName:[json objectForKey:@"probe_asn"]];
             if (self.result.asn == nil){
-                [self.result setAsn:[json objectForKey:@"probe_asn"]];
+                [self.result setAsnAndCalculateName:[json objectForKey:@"probe_asn"]];
                 [self.result save];
             }
             else {

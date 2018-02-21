@@ -15,6 +15,7 @@
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.tableFooterView = [UIView new];
+
     /*
     for (int i = 0; i< 25; i++){
         int lowerBound = 0;
@@ -108,7 +109,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    TestResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[TestResultTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    [cell setResult:current];
+    /*
     UIImageView *testIcon = (UIImageView*)[cell viewWithTag:1];
     UILabel *titleLabel = (UILabel*)[cell viewWithTag:2];
     UILabel *asnLabel = (UILabel*)[cell viewWithTag:3];
@@ -117,23 +123,31 @@
     titleLabel.text  = NSLocalizedString(current.name, nil);
     
     //TODO what to write when is null? (user disabled sharing asn)
-    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:current.asnName];
-    [asnName addAttribute:NSFontAttributeName
+    //TODO these methods can be the GET of relative classes
+    NSString *asn = @"";
+    NSString *asnName = @"";
+    NSString *country = @"";
+    if (current.asn) asnName = current.asn;
+    if (current.asnName) asnName = current.asnName;
+    if (current.country) asnName = current.country;
+
+    NSMutableAttributedString *asnNameAttr = [[NSMutableAttributedString alloc] initWithString:asnName];
+    [asnNameAttr addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                        range:NSMakeRange(0, asnName.length)];
-    NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", [NSString stringWithFormat:@"%@ (%@)", current.asn, current.country]]];
+                        range:NSMakeRange(0, asnNameAttr.length)];
+    NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", [NSString stringWithFormat:@"%@ (%@)", asn, country]]];
     [asnText addAttribute:NSFontAttributeName
                           value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                           range:NSMakeRange(0, asnText.length)];
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
-    [attrStr appendAttributedString:asnName];
+    [attrStr appendAttributedString:asnNameAttr];
     [attrStr appendAttributedString:asnText];
     [asnLabel setAttributedText:attrStr];
     
     //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:current.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     timeLabel.text = localizedDateTime;
-    
+    */
     return cell;
 }
 

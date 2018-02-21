@@ -3,7 +3,7 @@
 @implementation Measurement
 @dynamic name, startTime, endTime, ip, asn, asnName, country, networkName, networkType, state, blocking, input, category, result;
 
--(void)setAsn:(NSString *)asn{
+-(void)setAsnAndCalculateName:(NSString *)asn{
     //TODO calculate asnname
     self.asnName = @"Vodafone";
     self.asn = asn;

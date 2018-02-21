@@ -35,8 +35,10 @@
  MiddleBox Json
  found/not found
  */
+
 @property BOOL done;
 
+-(void)setAsnAndCalculateName:(NSString *)asn;
 -(void)save;
 -(SRKResultSet*)measurements;
 @end

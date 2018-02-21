@@ -46,6 +46,7 @@
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
 		EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */; };
+		EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */; };
 		EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */; };
 		EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */; };
 		EDC2C9E01FD8061400FF01D3 /* FiraSans-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB0891FD5B06C00FA4838 /* FiraSans-LightItalic.otf */; };
@@ -163,6 +164,8 @@
 		EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Header1ViewController.m; sourceTree = "<group>"; };
 		EDB6F9BD202352DC00BDCB0B /* Header2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header2ViewController.h; sourceTree = "<group>"; };
 		EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Header2ViewController.m; sourceTree = "<group>"; };
+		EDBBB2DD203D2EF200B84F6F /* TestResultTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestResultTableViewCell.h; sourceTree = "<group>"; };
+		EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestResultTableViewCell.m; sourceTree = "<group>"; };
 		EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Light.otf"; sourceTree = "<group>"; };
 		EDBCB0891FD5B06C00FA4838 /* FiraSans-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-LightItalic.otf"; sourceTree = "<group>"; };
 		EDBCB08A1FD5B06C00FA4838 /* FiraSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Regular.otf"; sourceTree = "<group>"; };
@@ -435,6 +438,7 @@
 		EDB6F9B62023524500BDCB0B /* TestResults */ = {
 			isa = PBXGroup;
 			children = (
+				EDBBB2DC203D2ED400B84F6F /* Rows */,
 				ED3AE9ED20341C5600DAAF36 /* Headers */,
 				EDDB0B4E1FFD320000EFD9C8 /* TestResultsTableViewController.h */,
 				EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.mm */,
@@ -442,6 +446,15 @@
 				ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */,
 			);
 			path = TestResults;
+			sourceTree = "<group>";
+		};
+		EDBBB2DC203D2ED400B84F6F /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				EDBBB2DD203D2EF200B84F6F /* TestResultTableViewCell.h */,
+				EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */,
+			);
+			path = Rows;
 			sourceTree = "<group>";
 		};
 		EDBCB0871FD5B06C00FA4838 /* fonts */ = {
@@ -761,6 +774,7 @@
 				ED0A61FE200B075000235E70 /* CustomURLTableViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.mm in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
+				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
 				EDDB0B4D1FFD31B600EFD9C8 /* FeedTableViewController.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				EDDB0B721FFF6C8B00EFD9C8 /* ICSwipeViewController.m in Sources */,
