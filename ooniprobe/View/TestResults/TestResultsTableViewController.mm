@@ -116,8 +116,8 @@
     [testIcon setImage:[UIImage imageNamed:current.name]];
     titleLabel.text  = NSLocalizedString(current.name, nil);
     
-    //TODO check for null or empty and change the string current.asnName (AS0 and Unknown Network)
-    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:@"ASN NAME"];
+    //TODO what to write when is null? (user disabled sharing asn)
+    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:current.asnName];
     [asnName addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                         range:NSMakeRange(0, asnName.length)];

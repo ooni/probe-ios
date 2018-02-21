@@ -124,7 +124,8 @@
             [self updateBlocking:blocking];
             return;
         }
-        if ([json safeObjectForKey:@"probe_asn"]){
+        //if the user doesn't want to share asn leave null on the db object
+        if ([json safeObjectForKey:@"probe_asn"] && [SettingsUtility getSettingWithName:@"include_asn"]){
             [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
             if (self.result.asn == nil){
                 [self.result setAsn:[json objectForKey:@"probe_asn"]];
@@ -135,7 +136,7 @@
                     NSLog(@"Something's wrong");
             }
         }
-        if ([json safeObjectForKey:@"probe_cc"]){
+        if ([json safeObjectForKey:@"probe_cc"] && [SettingsUtility getSettingWithName:@"include_cc"]){
             [self.measurement setCountry:[json objectForKey:@"probe_cc"]];
             if (self.result.country == nil){
                 [self.result setCountry:[json objectForKey:@"probe_cc"]];
@@ -146,7 +147,7 @@
                     NSLog(@"Something's wrong");
             }
         }
-        if ([json safeObjectForKey:@"probe_ip"]){
+        if ([json safeObjectForKey:@"probe_ip"] && [SettingsUtility getSettingWithName:@"include_ip"]){
             [self.measurement setIp:[json objectForKey:@"probe_ip"]];
             if (self.result.ip == nil){
                 [self.result setIp:[json objectForKey:@"probe_ip"]];

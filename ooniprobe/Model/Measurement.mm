@@ -5,7 +5,7 @@
 
 -(void)setAsn:(NSString *)asn{
     //TODO calculate asnname
-    self.asnName = asn;
+    self.asnName = @"Vodafone";
     self.asn = asn;
 }
 

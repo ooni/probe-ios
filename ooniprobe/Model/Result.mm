@@ -5,7 +5,6 @@
 @dynamic name, startTime, endTime, summary, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, done;
 
 + (NSDictionary *)defaultValuesForEntity {
-    //TODO set default for asn, asnName, country
     return @{@"startTime": [NSDate date], @"done" : [NSNumber numberWithBool:FALSE], @"dataUsageDown" : [NSNumber numberWithInt:0], @"dataUsageUp" : [NSNumber numberWithInt:0]};
 }
 
@@ -15,7 +14,7 @@
 
 -(void)setAsn:(NSString *)asn{
     //TODO calculate asnname
-    self.asnName = asn;
+    self.asnName = @"Vodafone";
     self.asn = asn;
 }
 
