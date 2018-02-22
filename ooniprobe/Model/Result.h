@@ -38,6 +38,8 @@
 
 @property BOOL done;
 
+- (NSString*)getFormattedDataUsageDown;
+- (NSString*)getFormattedDataUsageUp;
 -(void)setAsnAndCalculateName:(NSString *)asn;
 -(void)save;
 -(SRKResultSet*)measurements;

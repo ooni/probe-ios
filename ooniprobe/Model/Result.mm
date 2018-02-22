@@ -18,6 +18,15 @@
     self.asn = asn;
 }
 
+//https://stackoverflow.com/questions/7846495/how-to-get-file-size-properly-and-convert-it-to-mb-gb-in-cocoa
+- (NSString*)getFormattedDataUsageUp{
+    return [NSByteCountFormatter stringFromByteCount:self.dataUsageUp countStyle:NSByteCountFormatterCountStyleFile];
+}
+    
+- (NSString*)getFormattedDataUsageDown{
+    return [NSByteCountFormatter stringFromByteCount:self.dataUsageDown countStyle:NSByteCountFormatterCountStyleFile];
+}
+
 //Shark supports indexing by overriding the indexDefinitionForEntity method and returning an SRKIndexDefinition object which describes all of the indexes that need to be maintained on the object.
 
 /*

@@ -64,8 +64,9 @@
     
     double dataUsageDown = [query sumOf:@"dataUsageDown"];
     double dataUsageUp = [query sumOf:@"dataUsageUp"];
-    [self.upLabel setText:[NSString stringWithFormat:@"%.0f", dataUsageUp]];
-    [self.downLabel setText:[NSString stringWithFormat:@"%.0f", dataUsageDown]];
+    
+    [self.upLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageUp countStyle:NSByteCountFormatterCountStyleFile]];
+    [self.downLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageDown countStyle:NSByteCountFormatterCountStyleFile]];
     [self.numberTestsLabel setText:[NSString stringWithFormat:@"%llu", [query count]]];
     //TODO BUG this count also the nulls
     [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", [[query distinct:@"asn"] count]]];

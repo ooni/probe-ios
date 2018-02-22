@@ -36,8 +36,8 @@
     
     [self.labelDataUsage setText:NSLocalizedString(@"data_usage", nil)];
 
-    [self.labelDataUsageUpload setText:[NSString stringWithFormat:@"%.0ld", result.dataUsageUp]];
-    [self.labelDataUsageUpload setText:[NSString stringWithFormat:@"%.0ld", result.dataUsageDown]];
+    [self.labelDataUsageUpload setText:[result getFormattedDataUsageUp]];
+    [self.labelDataUsageDownload setText:[result getFormattedDataUsageDown]];
 
     [self.labelRuntime setText:NSLocalizedString(@"runtime", nil)];
     [self.labelRuntimeDetail setText:@"2 min"];
