@@ -36,8 +36,6 @@
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     [self.measurement setState:measurementActive];
-    //TODO use startTime in OnEntry
-    [self.measurement setStartTime:[NSDate date]];
     [self.measurement save];
 }
 
@@ -86,12 +84,8 @@
         [self on_entry:s.c_str()];
     });
     test.on_overall_data_usage([self](mk::DataUsage d) {
-        //NSNumber* down = [NSNumber numberWithUnsignedLongLong:d.down];
-        //NSNumber* up = [NSNumber numberWithUnsignedLongLong:d.up];
         [self.result setDataUsageDown:self.result.dataUsageDown+d.down];
         [self.result setDataUsageUp:self.result.dataUsageUp+d.up];
-        //NSLog(@"dataUsageDown %qu", d.down);
-        //NSLog(@"dataUsageUp %qu", d.up);
     });
     test.start([self]() {
         [self testEnded];
@@ -123,6 +117,14 @@
             blocking = ANOMALY_ORANGE;
             [self updateBlocking:blocking];
             return;
+        }
+        if ([json safeObjectForKey:@"test_start_time"])
+            [self.result setStartTimeWithUTCstr:[json safeObjectForKey:@"test_start_time"]];
+        if ([json safeObjectForKey:@"measurement_start_time"])
+            [self.measurement setStartTimeWithUTCstr:[json safeObjectForKey:@"measurement_start_time"]];
+        if ([json safeObjectForKey:@"test_runtime"]){
+            [self.measurement setDuration:[[json safeObjectForKey:@"test_runtime"] floatValue]];
+            [self.result addDuration:[[json safeObjectForKey:@"test_runtime"] floatValue]];
         }
         //if the user doesn't want to share asn leave null on the db object
         if ([json safeObjectForKey:@"probe_asn"] && [SettingsUtility getSettingWithName:@"include_asn"]){
@@ -303,7 +305,6 @@
     NSLog(@"%@ testEnded", self.name);
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
-    [self.measurement setEndTime:[NSDate date]];
     [self.measurement setState:measurementDone];
     [self updateProgress:1];
     [self.measurement save];

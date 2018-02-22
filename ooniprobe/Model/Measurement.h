@@ -20,7 +20,7 @@ typedef enum
 //@property NSInteger Id;
 @property NSString *name;
 @property NSDate *startTime;
-@property NSDate *endTime;
+@property float duration;
 @property NSString *ip;
 @property NSString *asn;
 @property NSString *asnName;
@@ -40,7 +40,7 @@ typedef enum
 @property NSString *category;
 
 //@property NSInteger resultId;
-
+-(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(void)setAsnAndCalculateName:(NSString *)asn;
 -(void)save;
 

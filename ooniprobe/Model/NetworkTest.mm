@@ -38,7 +38,6 @@
     if ([self.mkNetworkTests count] == 0){
         NSLog(@"ALL test_ended");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
-        [self.result setEndTime:[NSDate date]];
         [self.result setDone:YES];
     }
     [self.result save];

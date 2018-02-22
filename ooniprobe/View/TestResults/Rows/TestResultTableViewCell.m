@@ -42,6 +42,7 @@
     //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     self.testTimeLabel.text = localizedDateTime;
+    
     if ([result.name isEqualToString:@"websites"]){
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];

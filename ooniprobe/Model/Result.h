@@ -6,7 +6,7 @@
 //@property NSInteger Id;
 @property NSString *name;
 @property NSDate *startTime;
-@property NSDate *endTime;
+@property float duration;
 @property NSInteger dataUsageDown;
 @property NSInteger dataUsageUp;
 @property NSString *ip;
@@ -38,8 +38,10 @@
 
 @property BOOL done;
 
-- (NSString*)getFormattedDataUsageDown;
-- (NSString*)getFormattedDataUsageUp;
+-(NSString*)getFormattedDataUsageDown;
+-(NSString*)getFormattedDataUsageUp;
+-(void)setStartTimeWithUTCstr:(NSString*)dateStr;
+-(void)addDuration:(float)value;
 -(void)setAsnAndCalculateName:(NSString *)asn;
 -(void)save;
 -(SRKResultSet*)measurements;

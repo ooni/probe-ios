@@ -1,12 +1,25 @@
 #import "Measurement.h"
 
 @implementation Measurement
-@dynamic name, startTime, endTime, ip, asn, asnName, country, networkName, networkType, state, blocking, input, category, result;
+@dynamic name, startTime, duration, ip, asn, asnName, country, networkName, networkType, state, blocking, input, category, result;
+
++ (NSDictionary *)defaultValuesForEntity {
+    return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0]};
+}
 
 -(void)setAsnAndCalculateName:(NSString *)asn{
     //TODO calculate asnname
     self.asnName = @"Vodafone";
     self.asn = asn;
+}
+
+-(void)setStartTimeWithUTCstr:(NSString*)dateStr{
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *localDate = [dateFormatter dateFromString:dateStr];
+    self.startTime = localDate;
 }
 
 //UNUSED

@@ -2,10 +2,10 @@
 #import "Measurement.h"
 
 @implementation Result
-@dynamic name, startTime, endTime, summary, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, done;
+@dynamic name, startTime, duration, summary, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, done;
 
 + (NSDictionary *)defaultValuesForEntity {
-    return @{@"startTime": [NSDate date], @"done" : [NSNumber numberWithBool:FALSE], @"dataUsageDown" : [NSNumber numberWithInt:0], @"dataUsageUp" : [NSNumber numberWithInt:0]};
+    return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"done" : [NSNumber numberWithBool:FALSE], @"dataUsageDown" : [NSNumber numberWithInt:0], @"dataUsageUp" : [NSNumber numberWithInt:0]};
 }
 
 - (SRKResultSet*)measurements {
@@ -16,6 +16,19 @@
     //TODO calculate asnname
     self.asnName = @"Vodafone";
     self.asn = asn;
+}
+    
+-(void)setStartTimeWithUTCstr:(NSString*)dateStr{
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *localDate = [dateFormatter dateFromString:dateStr];
+    self.startTime = localDate;
+}
+
+-(void)addDuration:(float)value{
+    self.duration+=value;
 }
 
 //https://stackoverflow.com/questions/7846495/how-to-get-file-size-properly-and-convert-it-to-mb-gb-in-cocoa
