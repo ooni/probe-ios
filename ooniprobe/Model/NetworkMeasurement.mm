@@ -51,7 +51,6 @@
     self.log_file = [NSString stringWithFormat:@"test-%@.log", self.test_id];
     self.progress = 0;
     self.running = TRUE;
-    self.max_runtime_enabled = TRUE;
     [TestStorage add_test:self];
     //Configuring common test parameters
     test.set_option("geoip_country_path", [geoip_country UTF8String]);
