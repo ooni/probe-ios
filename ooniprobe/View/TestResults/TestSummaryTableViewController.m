@@ -1,4 +1,7 @@
 #import "TestSummaryTableViewController.h"
+#define MEASUREMENT_OK 0
+#define MEASUREMENT_FAILURE 1
+#define MEASUREMENT_BLOCKED 2
 
 @interface TestSummaryTableViewController ()
 
@@ -9,6 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.measurements = result.measurements;
     //TODO self.navigationController.navigationBar.topItem.title = @""; DATE TEST 
 
     //self.title = NSLocalizedString(@"test_results", nil);
@@ -35,49 +39,85 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 30;
+    return [self.measurements count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text  = @"Test";
+    Measurement *current = [self.measurements objectAtIndex:indexPath.row];
+    UITableViewCell *cell;
+    if ([result.name isEqualToString:@"performance"])
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_per" forIndexPath:indexPath];
+    else if ([result.name isEqualToString:@"middle_boxes"])
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_mb" forIndexPath:indexPath];
+    else
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+
+    
+    UILabel *title = (UILabel*)[cell viewWithTag:1];
+    if (current.blocking == MEASUREMENT_OK || current.blocking == MEASUREMENT_BLOCKED){
+        [cell setBackgroundColor:[UIColor whiteColor]];
+        [title setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    }
+    else if (current.blocking == MEASUREMENT_FAILURE){
+        [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
+        [title setTextColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
+        [status setImage:[UIImage imageNamed:@"reload"]];
+    }
+    
+    if ([result.name isEqualToString:@"instant_messaging"]){
+        [title setText:NSLocalizedString(current.name, nil)];
+        UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
+        [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_black", current.name]]];
+        UIImageView *status = (UIImageView*)[cell viewWithTag:3];
+        if (current.blocking == MEASUREMENT_OK)
+            [status setImage:[UIImage imageNamed:@"tick_green"]];
+        else if (current.blocking == MEASUREMENT_BLOCKED)
+            [status setImage:[UIImage imageNamed:@"tick_red"]];
+    }
+    else if ([result.name isEqualToString:@"middle_boxes"]){
+        [title setText:NSLocalizedString(current.name, nil)];
+        UIImageView *status = (UIImageView*)[cell viewWithTag:3];
+        if (current.blocking == MEASUREMENT_OK)
+            [status setImage:[UIImage imageNamed:@"tick_green"]];
+        else if (current.blocking == MEASUREMENT_BLOCKED)
+            [status setImage:[UIImage imageNamed:@"exclamation_point_orange"]];
+    }
+    else if ([result.name isEqualToString:@"websites"]){
+        [title setText:NSLocalizedString(current.input, nil)];
+        UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
+        UIImageView *status = (UIImageView*)[cell viewWithTag:3];
+        [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.category]]];
+        [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+
+        if (current.blocking == MEASUREMENT_OK)
+            [status setImage:[UIImage imageNamed:@"tick_green"]];
+        else if (current.blocking == MEASUREMENT_BLOCKED)
+            [status setImage:[UIImage imageNamed:@"tick_red"]];
+    }
+    else if ([result.name isEqualToString:@"performance"]){
+        //TODO what to show in case of anomaly?
+        [title setText:NSLocalizedString(current.name, nil)];
+        UIImageView *detail1Image = (UIImageView*)[cell viewWithTag:5];
+        UILabel *detail1Label = (UILabel*)[cell viewWithTag:6];
+        UIStackView *stackView2 = (UIStackView*)[cell viewWithTag:4];
+        if ([current.name isEqualToString:@"ndt"]){
+            [stackView2 setHidden:NO];
+            UIImageView *detail2Image = (UIImageView*)[cell viewWithTag:7];
+            UILabel *detail2Label = (UILabel*)[cell viewWithTag:8];
+            [detail1Image setImage:[UIImage imageNamed:@"upload_black"]];
+            [detail2Image setImage:[UIImage imageNamed:@"download_black"]];
+            [detail1Label setText:@"10 Mbps"];
+            [detail2Label setText:@"1 Mbps"];
+        }
+        else if ([current.name isEqualToString:@"dash"]){
+            [stackView2 setHidden:YES];
+            [detail1Image setImage:[UIImage imageNamed:@"video_quality_black"]];
+            [detail1Label setText:[[self.result getSummary] getVideoQuality]];
+        }
+    }    
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){

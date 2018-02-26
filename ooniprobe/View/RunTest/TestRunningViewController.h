@@ -5,6 +5,7 @@
 
 @interface TestRunningViewController : UIViewController {
     float totalTests;
+    LOTAnimationView *animation;
 }
 
 @property (nonatomic, strong) NetworkTest *currentTest;

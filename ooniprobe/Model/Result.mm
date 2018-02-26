@@ -17,7 +17,7 @@
     self.asnName = @"Vodafone";
     self.asn = asn;
 }
-    
+
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr{
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -51,7 +51,28 @@
 }
 */
 
+/*
+ Three scenarios:
+   I'm running the test, I start the empty summary, I add stuff and save
+   I'm running the test, there is data in the summary, I add stuff and save
+   I have to get the summary of an old test and don't modify it
+ */
+- (Summary*)getSummary{
+    if (!self.summaryObj){
+        if (self.summary)
+            self.summaryObj = [[Summary alloc] initFromJson:self.summary];
+        else
+            self.summaryObj = [[Summary alloc] init];
+    }
+    return self.summaryObj;
+}
+
+- (void)setSummary{
+    self.summary = [self.summaryObj getJsonStr];
+}
+
 -(void)save{
+    [self setSummary];
     [self commit];
     NSLog(@"---- START LOGGING RESULT OBJECT----");
     NSLog(@"%@", self);

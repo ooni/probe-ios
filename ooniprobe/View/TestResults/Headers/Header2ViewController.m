@@ -40,7 +40,7 @@
     [self.labelDataUsageDownload setText:[result getFormattedDataUsageDown]];
 
     [self.labelRuntime setText:NSLocalizedString(@"runtime", nil)];
-    [self.labelRuntimeDetail setText:[NSString stringWithFormat:@"%.02f sec"], result.duration];
+    [self.labelRuntimeDetail setText:[NSString stringWithFormat:@"%.02f sec", result.duration]];
 }
 
 

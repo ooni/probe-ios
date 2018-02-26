@@ -17,7 +17,6 @@ typedef enum
     measurementProcessed
 } MeasurementStatus;
 
-//@property NSInteger Id;
 @property NSString *name;
 @property NSDate *startTime;
 @property float duration;

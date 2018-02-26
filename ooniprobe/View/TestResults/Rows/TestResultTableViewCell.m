@@ -46,7 +46,7 @@
     if ([result.name isEqualToString:@"websites"]){
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
-        [self.image1 setImage:[UIImage imageNamed:@"red_x"]];
+        [self.image1 setImage:[UIImage imageNamed:@"x_red"]];
         [self.label1 setText:@"1 blocked"];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"globe_black"]];
@@ -56,10 +56,10 @@
     else if ([result.name isEqualToString:@"instant_messaging"]){
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
-        [self.image1 setImage:[UIImage imageNamed:@"red_x"]];
+        [self.image1 setImage:[UIImage imageNamed:@"x_red"]];
         [self.label1 setText:@"1 blocked"];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.image2 setImage:[UIImage imageNamed:@"green_v"]];
+        [self.image2 setImage:[UIImage imageNamed:@"tick_black"]];
         [self.label2 setText:@"2 available"];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
@@ -80,7 +80,7 @@
         [self.label2 setText:@"10kbps"];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.image3 setImage:[UIImage imageNamed:@"video_quality_black"]];
-        [self.label3 setText:@"1080p"];
+        [self.label3 setText:[[result getSummary] getVideoQuality]];
         [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
 }

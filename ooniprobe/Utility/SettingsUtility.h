@@ -22,4 +22,6 @@
 + (BOOL)getSettingWithName:(NSString*)settingName;
 
 + (UIColor*)getColorForTest:(NSString*)testName;
+
++ (NSArray*)getUrlsTest;
 @end

@@ -35,7 +35,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *testName = [items objectAtIndex:indexPath.row];
-    
+    [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
     UIView *backgroundView = (UIView*)[cell viewWithTag:1];
     UILabel *titleLabel = (UILabel*)[cell viewWithTag:2];
     UILabel *descLabel = (UILabel*)[cell viewWithTag:3];

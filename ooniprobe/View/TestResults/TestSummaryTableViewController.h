@@ -7,5 +7,5 @@
     UIColor *defaultColor;
 }
 @property (nonatomic, strong) Result* result;
-
+@property (nonatomic, strong) SRKResultSet *measurements;
 @end

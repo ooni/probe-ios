@@ -44,19 +44,19 @@
     else if ([result.name isEqualToString:@"performance"]){
         [self addLine:self.view4];
         [self.label1Top setText:NSLocalizedString(@"video", nil)];
-        [self.label1Central setText:@"0"];
+        [self.label1Central setText:[[self.result getSummary] getVideoQuality]];
         [self.label1Bottom setText:NSLocalizedString(@"quality", nil)];
         
         [self.label2Top setText:NSLocalizedString(@"upload", nil)];
-        [self.label2Central setText:@"0"];
+        [self.label2Central setText:[[self.result getSummary] getUpload]];
         [self.label2Bottom setText:NSLocalizedString(@"kbps", nil)];
         
         [self.label3Top setText:NSLocalizedString(@"download", nil)];
-        [self.label3Central setText:@"0"];
+        [self.label3Central setText:[[self.result getSummary] getDownload]];
         [self.label3Bottom setText:NSLocalizedString(@"mbps", nil)];
 
         [self.label4Top setText:NSLocalizedString(@"ping", nil)];
-        [self.label4Central setText:@"0"];
+        [self.label4Central setText:[[self.result getSummary] getPing]];
         [self.label4Bottom setText:NSLocalizedString(@"ms", nil)];
     }
 

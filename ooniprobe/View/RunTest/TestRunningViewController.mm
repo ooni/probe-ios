@@ -43,6 +43,13 @@
 
     //NOT USED
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testEnded) name:@"testEnded" object:nil];
+    animation = [LOTAnimationView animationNamed:@"checkMark"];
+    //[animation setBackgroundColor:[SettingsUtility getColorForTest:testName]];
+    animation.contentMode = UIViewContentModeScaleAspectFit;
+    [self.animationView addSubview:animation];
+    CGRect c = self.animationView.bounds;
+    animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
+    [self.animationView setNeedsLayout];
 }
 
 -(void)updateProgress:(NSNotification *)notification{
@@ -61,6 +68,10 @@
         [self.currentTestLabel setText:[NSString stringWithFormat:@"... %@ %@", [NSLocalizedString(@"running", nil) lowercaseString], NSLocalizedString(name, nil)]];
         [self.progressBar setProgress:progress animated:YES];
     });
+    [animation playWithCompletion:^(BOOL animationFinished) {
+        //[animation removeFromSuperview];
+    }];
+
 }
 
 /*

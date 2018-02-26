@@ -24,7 +24,7 @@
 
 -(void)initCommon:(MKNetworkTest*)test{
     [test setDelegate:self];
-    [test setResult:self.result];
+    [test setResultOfMeasurement:self.result];
     [self.mkNetworkTests addObject:test];
 }
 
@@ -85,8 +85,6 @@
     if (self) {
         [self.result setName:@"websites"];
         WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
-        NSMutableArray *urls = [[NSMutableArray alloc] initWithObjects:@"http://www.google.it", @"http://www.wikipedia.org", @"http://www.reddit.com", nil];
-        webConnectivity.inputs = urls;
         [webConnectivity setMax_runtime_enabled:YES];
         [webConnectivity setIdx:0];
         [self initCommon:webConnectivity];
@@ -111,7 +109,7 @@
             [httpInvalidRequestLine setIdx:0];
             [self initCommon:httpInvalidRequestLine];
         }
-        else if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"]){
+        if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"]){
             HttpHeaderFieldManipulation *httpHeaderFieldManipulation = [[HttpHeaderFieldManipulation alloc] init];
             [httpHeaderFieldManipulation setIdx:1];
             [self initCommon:httpHeaderFieldManipulation];
@@ -137,7 +135,7 @@
             [ndtTest setIdx:0];
             [self initCommon:ndtTest];
         }
-        else if ([SettingsUtility getSettingWithName:@"run_dash"]){
+        if ([SettingsUtility getSettingWithName:@"run_dash"]){
             Dash *dash = [[Dash alloc] init];
             [dash setIdx:1];
             [self initCommon:dash];

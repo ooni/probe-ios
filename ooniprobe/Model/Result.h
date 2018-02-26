@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
+#import "Summary.h"
 
 @interface Result : SRKObject
 
-//@property NSInteger Id;
 @property NSString *name;
 @property NSDate *startTime;
 @property float duration;
@@ -15,26 +15,8 @@
 @property NSString *country;
 @property NSString *networkName;
 @property NSString *networkType;
-
-//The json of the result is a summary that contains just a few kbs vs MBs of the report file
 @property NSString *summary;
-/*
- WebCensorship Json
- number of sites + blocked + anomalies
- 
- Performance Json
- video streaming quality
- upload
- download
- ping
- 
- IM Json
- number tested
- number blocked
- 
- MiddleBox Json
- found/not found
- */
+@property Summary *summaryObj;
 
 @property BOOL done;
 
@@ -45,4 +27,5 @@
 -(void)setAsnAndCalculateName:(NSString *)asn;
 -(void)save;
 -(SRKResultSet*)measurements;
+-(Summary*)getSummary;
 @end

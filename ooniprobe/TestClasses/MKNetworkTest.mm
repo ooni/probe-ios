@@ -14,9 +14,9 @@
 #include <dns.h>
 
 #define VERBOSITY MK_LOG_WARNING
-#define ANOMALY_GREEN 0
-#define ANOMALY_ORANGE 1
-#define ANOMALY_RED 2
+#define MEASUREMENT_OK 0
+#define MEASUREMENT_FAILURE 1
+#define MEASUREMENT_BLOCKED 2
 
 
 @implementation MKNetworkTest
@@ -39,9 +39,18 @@
     [self.measurement save];
 }
 
+- (void)setResultOfMeasurement:(Result *)result{
+    self.result = result;
+    [self.measurement setResult:self.result];
+}
+
 - (void)createMeasurementObject{
     self.measurement = [Measurement new];
-    [self.measurement setResult:self.result];
+    //If needed for the second measurement object (websites)
+    if (self.result != NULL)
+        [self.measurement setResult:self.result];
+    if (self.name != NULL)
+        [self.measurement setName:self.name];
     self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
@@ -111,10 +120,10 @@
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = ANOMALY_GREEN;
+        int blocking = MEASUREMENT_OK;
         if (error != nil) {
             NSLog(@"Error parsing JSON: %@", error);
-            blocking = ANOMALY_ORANGE;
+            blocking = MEASUREMENT_FAILURE;
             [self updateBlocking:blocking];
             return;
         }
@@ -174,9 +183,9 @@
             if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
                 //this case shouldn't happen
                 if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
-                    blocking = ANOMALY_ORANGE;
+                    blocking = MEASUREMENT_FAILURE;
                 else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
-                    blocking = ANOMALY_RED;
+                    blocking = MEASUREMENT_BLOCKED;
             }
         }
         else if ([self.name isEqualToString:@"http_header_field_manipulation"]){
@@ -186,7 +195,7 @@
              otherwise the keys in the "tampering" object will be checked, if any of them is TRUE, then anomaly will be set to 2 (red)
              */
             if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
-                blocking = ANOMALY_ORANGE;
+                blocking = MEASUREMENT_FAILURE;
             else {
                 NSDictionary *tampering = [[json objectForKey:@"test_keys"] objectForKey:@"tampering"];
                 NSArray *keys = [[NSArray alloc]initWithObjects:@"header_field_name", @"header_field_number", @"header_field_value", @"header_name_capitalization", @"request_line_capitalization", @"total", nil];
@@ -194,7 +203,7 @@
                     if ([tampering objectForKey:key] &&
                         [tampering objectForKey:key] != [NSNull null] &&
                         [[tampering objectForKey:key] boolValue]) {
-                        blocking = ANOMALY_RED;
+                        blocking = MEASUREMENT_BLOCKED;
                     }
                 }
             }
@@ -205,7 +214,11 @@
              if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
              */
             if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
-                blocking = ANOMALY_ORANGE;
+                blocking = MEASUREMENT_FAILURE;
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"simple"]){
+                Summary *summary = [self.result getSummary];
+                [summary.json setValue:[[json objectForKey:@"test_keys"] objectForKey:@"simple"] forKey:self.name];
+            }
         }
         else if ([self.name isEqualToString:@"whatsapp"]){
             // whatsapp: red if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server" are "blocked"
@@ -213,11 +226,11 @@
             for (NSString *key in keys) {
                 if ([[json objectForKey:@"test_keys"] objectForKey:key]){
                     if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
-                        if (blocking < ANOMALY_ORANGE)
-                            blocking = ANOMALY_ORANGE;
+                        if (blocking < MEASUREMENT_FAILURE)
+                            blocking = MEASUREMENT_FAILURE;
                     }
                     else if ([[[json objectForKey:@"test_keys"] objectForKey:key] isEqualToString:@"blocked"]) {
-                        blocking = ANOMALY_RED;
+                        blocking = MEASUREMENT_BLOCKED;
                     }
                 }
             }
@@ -231,21 +244,21 @@
             for (NSString *key in keys) {
                 if ([[json objectForKey:@"test_keys"] objectForKey:key]){
                     if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
-                        if (blocking < ANOMALY_ORANGE)
-                            blocking = ANOMALY_ORANGE;
+                        if (blocking < MEASUREMENT_FAILURE)
+                            blocking = MEASUREMENT_FAILURE;
                     }
                     else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
-                        blocking = ANOMALY_RED;
+                        blocking = MEASUREMENT_BLOCKED;
                     }
                 }
             }
             if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"]){
                 if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] == [NSNull null]) {
-                    if (blocking < ANOMALY_ORANGE)
-                        blocking = ANOMALY_ORANGE;
+                    if (blocking < MEASUREMENT_FAILURE)
+                        blocking = MEASUREMENT_FAILURE;
                 }
                 else if ([[[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
-                    blocking = ANOMALY_RED;
+                    blocking = MEASUREMENT_BLOCKED;
                 }
             }
         }
@@ -255,11 +268,11 @@
             for (NSString *key in keys) {
                 if ([[json objectForKey:@"test_keys"] objectForKey:key]){
                     if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
-                        if (blocking < ANOMALY_ORANGE)
-                            blocking = ANOMALY_ORANGE;
+                        if (blocking < MEASUREMENT_FAILURE)
+                            blocking = MEASUREMENT_FAILURE;
                     }
                     else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
-                        blocking = ANOMALY_RED;
+                        blocking = MEASUREMENT_BLOCKED;
                     }
                 }
             }
@@ -271,7 +284,8 @@
             self.entryIdx++;
             if (self.entryIdx < [self.inputs count]){
                 [self createMeasurementObject];
-                self.measurement.input = [self.inputs objectAtIndex:self.entryIdx];
+                self.measurement.input = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"url"];
+                self.measurement.category = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"category_code"];
             }
         }
     }
@@ -320,7 +334,6 @@
     if (self) {
         self.name = @"web_connectivity";
         self.measurement.name = self.name;
-        //TODO update db o trova un modo per farlo nella superclass
     }
     return self;
 }
@@ -334,13 +347,16 @@
     NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     mk::nettests::WebConnectivityTest test;
     self.entryIdx = 0;
-    self.measurement.input = [self.inputs objectAtIndex:self.entryIdx];
+    self.inputs = [SettingsUtility getUrlsTest];
+    self.measurement.input = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"url"];
+    self.measurement.category = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"category_code"];
+
     if (self.max_runtime_enabled){
         test.set_option("max_runtime", [max_runtime doubleValue]);
     }
     if ([self.inputs count] > 0) {
-        for (NSString* input in self.inputs) {
-            test.add_input([input UTF8String]);
+        for (NSDictionary* input in self.inputs) {
+            test.add_input([[input objectForKey:@"url"] UTF8String]);
         }
     }
     [super init_common:test];
@@ -414,7 +430,7 @@
 -(void) run_test {
     mk::nettests::NdtTest test;
     [super init_common:test];
-    //when setting server check first ndt_server_auto
+    //TODO when setting server check first ndt_server_auto
 }
 
 @end

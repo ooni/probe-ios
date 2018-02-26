@@ -27,6 +27,7 @@
 @property id<MKNetworkTestDelegate> delegate;
 @property int entryIdx;
 
+-(void)setResultOfMeasurement:(Result *)result;
 -(void) run;
 @end
 
