@@ -23,7 +23,7 @@
 }
 
 //UNUSED
--(NSString*)getReportFile{
+-(NSString*)getReportFifle{
     return [NSString stringWithFormat:@"test-%@.json", self.Id];
 }
 

@@ -55,6 +55,7 @@
 
     
     UILabel *title = (UILabel*)[cell viewWithTag:1];
+    UIImageView *status = (UIImageView*)[cell viewWithTag:3];
     if (current.blocking == MEASUREMENT_OK || current.blocking == MEASUREMENT_BLOCKED){
         [cell setBackgroundColor:[UIColor whiteColor]];
         [title setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
@@ -64,12 +65,12 @@
         [title setTextColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
         [status setImage:[UIImage imageNamed:@"reload"]];
     }
-    
+    Summary *summary = [result getSummary];
+
     if ([result.name isEqualToString:@"instant_messaging"]){
         [title setText:NSLocalizedString(current.name, nil)];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_black", current.name]]];
-        UIImageView *status = (UIImageView*)[cell viewWithTag:3];
         if (current.blocking == MEASUREMENT_OK)
             [status setImage:[UIImage imageNamed:@"tick_green"]];
         else if (current.blocking == MEASUREMENT_BLOCKED)
@@ -77,7 +78,6 @@
     }
     else if ([result.name isEqualToString:@"middle_boxes"]){
         [title setText:NSLocalizedString(current.name, nil)];
-        UIImageView *status = (UIImageView*)[cell viewWithTag:3];
         if (current.blocking == MEASUREMENT_OK)
             [status setImage:[UIImage imageNamed:@"tick_green"]];
         else if (current.blocking == MEASUREMENT_BLOCKED)
@@ -86,7 +86,6 @@
     else if ([result.name isEqualToString:@"websites"]){
         [title setText:NSLocalizedString(current.input, nil)];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
-        UIImageView *status = (UIImageView*)[cell viewWithTag:3];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.category]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
 
@@ -101,19 +100,26 @@
         UIImageView *detail1Image = (UIImageView*)[cell viewWithTag:5];
         UILabel *detail1Label = (UILabel*)[cell viewWithTag:6];
         UIStackView *stackView2 = (UIStackView*)[cell viewWithTag:4];
+        
+        //TODO
+        if (current.blocking == MEASUREMENT_OK)
+            [status setImage:nil];
+        else if (current.blocking == MEASUREMENT_BLOCKED)
+            [status setImage:nil];
+
         if ([current.name isEqualToString:@"ndt"]){
             [stackView2 setHidden:NO];
             UIImageView *detail2Image = (UIImageView*)[cell viewWithTag:7];
             UILabel *detail2Label = (UILabel*)[cell viewWithTag:8];
             [detail1Image setImage:[UIImage imageNamed:@"upload_black"]];
             [detail2Image setImage:[UIImage imageNamed:@"download_black"]];
-            [detail1Label setText:@"10 Mbps"];
-            [detail2Label setText:@"1 Mbps"];
+            [detail1Label setText:[NSString stringWithFormat:@"%@ kbps", [summary getUpload]]];
+            [detail2Label setText:[NSString stringWithFormat:@"%@ kbps", [summary getDownload]]];
         }
         else if ([current.name isEqualToString:@"dash"]){
             [stackView2 setHidden:YES];
             [detail1Image setImage:[UIImage imageNamed:@"video_quality_black"]];
-            [detail1Label setText:[[self.result getSummary] getVideoQuality]];
+            [detail1Label setText:[summary getVideoQuality:NO]];
         }
     }    
     return cell;

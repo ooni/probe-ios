@@ -310,9 +310,16 @@
 
 
 -(void)updateBlocking:(int)blocking{
-    if (blocking > self.measurement.blocking){
-        [self.measurement setBlocking:blocking];
-    }
+    //if (blocking > self.measurement.blocking){
+    [self.measurement setBlocking:blocking];
+    Summary *summary = [self.result getSummary];
+    summary.totalMeasurements++;
+    if (blocking == MEASUREMENT_OK)
+        summary.okMeasurements++;
+    else if (blocking == MEASUREMENT_FAILURE)
+        summary.failedMeasurements++;
+    else if (blocking == MEASUREMENT_BLOCKED)
+        summary.blockedMeasurements++;
 }
 
 -(void)testEnded{

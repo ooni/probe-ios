@@ -602,7 +602,7 @@
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = MADPSAYN6T;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -966,8 +966,9 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (584LT894QR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lorenzo Primiterra (584LT894QR)";
-				DEVELOPMENT_TEAM = MADPSAYN6T;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -985,8 +986,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "6154daac-50fe-40d2-a6f1-8824d8dccc1c";
-				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1003,9 +1004,10 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = MADPSAYN6T;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1028,8 +1030,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "6466561b-61cf-4936-acbb-ce19114baf31";
-				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

@@ -3,32 +3,37 @@
 @interface Summary : NSObject
 /*
  Dict Structure
- test_result: {
- total,
- ok,
- failure,
- blocked
+ stats: {
+    total,
+    ok,
+    failed,
+    blocked
  }
  ndt: {
- //copy "simple" array in test_keys
- upload
- download
- ping
+    upload
+    download
+    ping
  }
  dash: {
- connect_latency
- median_bitrate
- min_playout_delay
+    connect_latency
+    median_bitrate
+    min_playout_delay
  }
  */
+
+@property NSInteger totalMeasurements;
+@property NSInteger okMeasurements;
+@property NSInteger failedMeasurements;
+@property NSInteger blockedMeasurements;
 
 @property NSMutableDictionary *json;
 
 - (id)initFromJson:(NSString*)json;
 - (NSString*)getJsonStr;
-
 - (NSString*)getUpload;
+- (NSString*)getUploadUnit;
 - (NSString*)getDownload;
+- (NSString*)getDownloadUnit;
 - (NSString*)getPing;
-- (NSString*)getVideoQuality;
+- (NSString*)getVideoQuality:(BOOL)shortened;
 @end

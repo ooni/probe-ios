@@ -60,16 +60,51 @@
 
     }
     */
-    
+    /*
+    NSLog(@"%f : %@", 83.245, [self getUpload:83.245]);
+    NSLog(@"%f : %@", 110.321, [self getUpload:110.321]);
+    NSLog(@"%f : %@", 1110.321, [self getUpload:1110.321]);
+    NSLog(@"%f : %@", 20110.321, [self getUpload:20110.321]);
+    NSLog(@"%f : %@", 20110.321, [self getUpload:20110.321]);
+    NSLog(@"%f : %@", 60100.42732, [self getUpload:60100.42732]);
+    NSLog(@"%f : %@", 123456.42732, [self getUpload:123456.42732]);
+*/
     return YES;
 }
+/*
+0.11 Mbit/s
+1.11 Mbit/s
+20.1 Mbit/s
+83.2 Kbit/s
+ */
+/*
+- (NSString*)getUpload:(float)upload{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMinimumFractionDigits:1];
+    [formatter setMaximumFractionDigits:2];
+    [formatter setUsesSignificantDigits:YES];
+    [formatter setMinimumSignificantDigits:2];
+    [formatter setMaximumSignificantDigits:3];
+    
+
+    if (upload < 100)
+        return [NSString stringWithFormat:@"%@ kbit/s", [formatter stringFromNumber:[NSNumber numberWithDouble:upload]]];
+    else if (upload < 100000)
+        return [NSString stringWithFormat:@"%@ Mbit/s", [formatter stringFromNumber:[NSNumber numberWithDouble:upload/1000]]];
+    else
+        return [NSString stringWithFormat:@"%@ Gbit/s", [formatter stringFromNumber:[NSNumber numberWithDouble:upload/1000000]]];
+}
+*/
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     //NSLog(@"token: %@",token);
+#ifdef RELEASE
     [[NotificationService sharedNotificationService] setDevice_token:token];
     [[NotificationService sharedNotificationService] updateClient];
+#endif
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -264,4 +299,5 @@
 - (void)databaseError:(SRKError *)error {
     NSLog(@"DB error: %@", error.errorMessage);
 }
+
 @end
