@@ -177,7 +177,7 @@
     NSLog(@"url path: %@", [url path]);
     NSLog(@"dict: %@", dict);
     NSLog(@"parameters: %@", parameters);
-     */
+    */
     //creating parameters dict
 
     NSString *minimum_version = [parameters objectForKey:@"mv"];
@@ -204,8 +204,16 @@
                 action = [url host];
             if ([action isEqualToString:@"nettest"]){
                 //For now checking only test name
-                if ([parameters objectForKey:@"tn"] && [[Tests currentTests] getTestWithName:[parameters objectForKey:@"tn"]])
+                if ([parameters objectForKey:@"tn"] && [[Tests currentTests] getTestWithName:[parameters objectForKey:@"tn"]]){
+                    //Checking that ta is a correct array
+                    if ([parameters objectForKey:@"ta"] && ![[parameters objectForKey:@"ta"] isKindOfClass:[NSDictionary class]]){
+                        [MessageUtility alertWithTitle:NSLocalizedString(@"invalid_parameter", nil)
+                                               message:[NSString stringWithFormat:@"ta"]
+                                                inView:self.window.rootViewController];
+                        return;
+                    }
                     [self openURIschemeScreen:parameters];
+                }
                 else {
                     [MessageUtility alertWithTitle:NSLocalizedString(@"invalid_parameter", nil)
                                            message:[NSString stringWithFormat:@"%@ : %@", NSLocalizedString(@"test_name", nil), [parameters objectForKey:@"tn"]]
@@ -213,6 +221,11 @@
                 }
             }
         }
+    }
+    else {
+        [MessageUtility alertWithTitle:NSLocalizedString(@"invalid_parameter", nil)
+                               message:[NSString stringWithFormat:@"mv"]
+                                inView:self.window.rootViewController];
     }
 }
 
