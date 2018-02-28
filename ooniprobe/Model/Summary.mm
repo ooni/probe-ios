@@ -74,21 +74,8 @@
 
 - (NSString*)getUpload{
     if ([self.json safeObjectForKey:@"ndt"]){
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        [formatter setMinimumFractionDigits:1];
-        [formatter setMaximumFractionDigits:2];
-        [formatter setUsesSignificantDigits:YES];
-        [formatter setMinimumSignificantDigits:2];
-        [formatter setMaximumSignificantDigits:3];
-
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
-        if (upload < 100)
-            return [formatter stringFromNumber:[NSNumber numberWithDouble:upload]];
-        else if (upload < 100000)
-            return [formatter stringFromNumber:[NSNumber numberWithDouble:upload/1000]];
-        else
-            return [formatter stringFromNumber:[NSNumber numberWithDouble:upload/1000000]];
+        return [self setFractionalDigits:[self getScaledValue:upload]];
     }
     return @"";
 }
@@ -103,21 +90,8 @@
 
 - (NSString*)getDownload{
     if ([self.json safeObjectForKey:@"ndt"]){
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        [formatter setMinimumFractionDigits:1];
-        [formatter setMaximumFractionDigits:2];
-        [formatter setUsesSignificantDigits:YES];
-        [formatter setMinimumSignificantDigits:2];
-        [formatter setMaximumSignificantDigits:3];
-
         float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
-        if (download < 100)
-            return [formatter stringFromNumber:[NSNumber numberWithDouble:download]];
-        else if (download < 100000)
-            return [formatter stringFromNumber:[NSNumber numberWithDouble:download/1000]];
-        else
-            return [formatter stringFromNumber:[NSNumber numberWithDouble:download/1000000]];
+        return [self setFractionalDigits:[self getScaledValue:download]];
     }
     return @"";
 }
@@ -130,19 +104,36 @@
     return @"";
 }
 
-- (NSString*)getPing{
-    if ([self.json safeObjectForKey:@"ndt"])
-        return [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"ping"] stringValue];
-    return @"";
+- (float)getScaledValue:(float)value{
+    if (value < 100)
+        return value;
+    else if (value < 100000)
+        return value/1000;
+    else
+        return value/1000000;
+}
+
+- (NSString*)setFractionalDigits:(float)value{
+    if (value < 10)
+        return [NSString stringWithFormat:@"%.2f", value];
+    else
+        return [NSString stringWithFormat:@"%.1f", value];
 }
 
 - (NSString*)getUnit:(float)value{
+    //We assume there is no Tbit/s (for now!)
     if (value < 100)
         return @"kbit/s";
     else if (value < 100000)
         return @"Mbit/s";
     else
         return @"Gbit/s";
+}
+
+- (NSString*)getPing{
+    if ([self.json safeObjectForKey:@"ndt"])
+        return [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"ping"] stringValue];
+    return @"";
 }
 
 /*
