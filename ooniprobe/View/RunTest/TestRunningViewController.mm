@@ -50,6 +50,16 @@
     CGRect c = self.animationView.bounds;
     animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
     [self.animationView setNeedsLayout];
+    
+    if ([SettingsUtility getSettingWithName:@"keep_screen_on"]){
+        [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    }
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
 -(void)updateProgress:(NSNotification *)notification{

@@ -67,10 +67,8 @@
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     //NSLog(@"token: %@",token);
-#ifdef RELEASE
     [[NotificationService sharedNotificationService] setDevice_token:token];
     [[NotificationService sharedNotificationService] updateClient];
-#endif
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
