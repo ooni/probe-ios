@@ -143,12 +143,6 @@
             [image setImage:[UIImage imageNamed:current.name]];
             title.textColor = color_ooni_blue;
         }
-        //this wont work, as in this case the entry is set to true but the anomaly is set to default (0)
-        /*
-         Maybe do this check but memory consuming
-         NSArray *items = [Tests getItems:nextTest.json_file];
-         if ([items count] > 1)
-         */
         else if (current.anomaly == 1){
             [image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_warning", current.name]]];
             title.textColor = color_warning_orange;

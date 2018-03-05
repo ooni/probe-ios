@@ -87,7 +87,6 @@
         NetworkMeasurement* test = [cache objectAtIndex:i];
         if ([test.test_id isEqualToNumber:test_id]){
             test.running = FALSE;
-            test.entry = TRUE;
             [cache setObject:test atIndexedSubscript:i];
             [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:cache] forKey:@"tests"];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:TRUE] forKey:@"new_tests"];
