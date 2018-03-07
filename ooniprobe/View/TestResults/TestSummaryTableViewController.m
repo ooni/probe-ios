@@ -125,12 +125,60 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    segueObj = [self.measurements objectAtIndex:indexPath.row];
+    [self showPopup];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)showPopup{
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:nil
+                                 message:nil
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* viewLogButton = [UIAlertAction
+                                 actionWithTitle:NSLocalizedString(@"view_log", nil)
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action) {
+                                     segueType = @"log";
+                                     [self performSegueWithIdentifier:@"log" sender:self];
+                                 }];
+    UIAlertAction* viewJsonButton = [UIAlertAction
+                                 actionWithTitle:NSLocalizedString(@"view_json", nil)
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action) {
+                                     segueType = @"json";
+                                     [self performSegueWithIdentifier:@"log" sender:self];
+                                 }];
+    UIAlertAction* viewDBButton = [UIAlertAction
+                                 actionWithTitle:NSLocalizedString(@"view_db_obj", nil)
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action) {
+                                     segueType = @"db";
+                                     [self performSegueWithIdentifier:@"log" sender:self];
+                                 }];
+    UIAlertAction* cancelButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"cancel", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+    [alert addAction:viewLogButton];
+    [alert addAction:viewJsonButton];
+    [alert addAction:viewDBButton];
+    [alert addAction:cancelButton];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){
         //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         HeaderSwipeViewController *vc = (HeaderSwipeViewController * )segue.destinationViewController;
         //NSString *current = [categories objectAtIndex:indexPath.row];
         [vc setResult:result];
+    }
+    else if ([[segue identifier] isEqualToString:@"log"]){
+        LogViewController *vc = (LogViewController * )segue.destinationViewController;
+        [vc setType:segueType];
+        [vc setMeasurement:segueObj];
     }
 }
 

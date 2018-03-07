@@ -4,11 +4,10 @@
 
 -(id) init {
     self = [super init];
-    if (!self) {
-        return nil;
+    if (self) {
+        self.result = [Result new];
+        self.mkNetworkTests = [[NSMutableArray alloc] init];
     }
-    self.result = [Result new];
-    self.mkNetworkTests = [[NSMutableArray alloc] init];
     return self;
 }
 

@@ -340,6 +340,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="pRv-Pv-65d"/>
+                    <connections>
+                        <segue destination="zYs-kh-5bZ" kind="show" identifier="log" id="bg9-QD-Ox0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5r-Y9-a25" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1091,6 +1094,43 @@
             </objects>
             <point key="canvasLocation" x="5195.652173913044" y="1801.6304347826087"/>
         </scene>
+        <!--Log View Controller-->
+        <scene sceneID="Qb3-q7-lMc">
+            <objects>
+                <viewController id="zYs-kh-5bZ" customClass="LogViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HWN-uv-rZK"/>
+                        <viewControllerLayoutGuide type="bottom" id="ebA-EZ-xo9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gEt-06-csL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-cC-vHE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="672" id="TMf-Qh-Yxz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hqF-cC-vHE" secondAttribute="trailing" id="NQD-zh-KhO"/>
+                            <constraint firstItem="hqF-cC-vHE" firstAttribute="leading" secondItem="gEt-06-csL" secondAttribute="leading" id="cwI-7I-P8A"/>
+                            <constraint firstItem="hqF-cC-vHE" firstAttribute="top" secondItem="HWN-uv-rZK" secondAttribute="bottom" id="nBA-jr-coQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="hqF-cC-vHE" id="4bh-wv-HMI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5o-Yh-Tx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2705.7971014492755" y="2295.6521739130435"/>
+        </scene>
         <!--Header1 View Controller-->
         <scene sceneID="prO-CZ-p5m">
             <objects>
@@ -1502,7 +1542,7 @@
         <image name="websites_white" width="78" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ezm-vB-MfX"/>
-        <segue reference="teh-nb-OgK"/>
+        <segue reference="bjV-cE-1hN"/>
+        <segue reference="bP5-uf-jSV"/>
     </inferredMetricsTieBreakers>
 </document>

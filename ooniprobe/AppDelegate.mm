@@ -40,7 +40,6 @@
     if(notification) {
         [self handleNotification:notification :application];
     }
-    
     //If old test are detected, tell the user we are deleting them, no cancel button for now
     //TODO waiting for https://github.com/TheTorProject/ooniprobe-ios/issues/161
     /*if ([TestStorage get_old_tests]){
@@ -264,4 +263,12 @@
     NSLog(@"DB error: %@", error.errorMessage);
 }
 
+//TODO remove
+-(void)logAll{
+    SRKQuery *query = [[Result query] orderByDescending:@"startTime"];
+    SRKResultSet *results = [query fetch];
+    for (Result *current in results){
+        NSLog(@"%@", current);
+    }
+}
 @end
