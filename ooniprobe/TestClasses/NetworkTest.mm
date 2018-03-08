@@ -11,6 +11,61 @@
     return self;
 }
 
+-(id) initWithMeasurement:(Measurement*)existingMeasurement {
+    self = [super init];
+    if (self) {
+        self.result = existingMeasurement.result;
+        self.mkNetworkTests = [[NSMutableArray alloc] init];
+        [self addTest:existingMeasurement.name];
+        //TODO set input for web_connectivity
+        [existingMeasurement remove];
+    }
+    return self;
+}
+
+-(void)addTest:(NSString*)testName{
+    if ([testName isEqualToString:@"whatsapp"]){
+        Whatsapp *whatsapp = [[Whatsapp alloc] init];
+        [self initCommon:whatsapp];
+    }
+    else if ([testName isEqualToString:@"telegram"]){
+        Telegram *telegram = [[Telegram alloc] init];
+        [self initCommon:telegram];
+    }
+    else if ([testName isEqualToString:@"facebook_messenger"]){
+        FacebookMessenger *facebookMessenger = [[FacebookMessenger alloc] init];
+        [self initCommon:facebookMessenger];
+    }
+    else if ([testName isEqualToString:@"web_connectivity"]){
+        WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
+        [webConnectivity setMax_runtime_enabled:YES];
+        [self initCommon:webConnectivity];
+    }
+    else if ([testName isEqualToString:@"http_invalid_request_line"]){
+        HttpInvalidRequestLine *httpInvalidRequestLine = [[HttpInvalidRequestLine alloc] init];
+        [self initCommon:httpInvalidRequestLine];
+    }
+    else if ([testName isEqualToString:@"http_header_field_manipulation"]){
+        HttpHeaderFieldManipulation *httpHeaderFieldManipulation = [[HttpHeaderFieldManipulation alloc] init];
+        [self initCommon:httpHeaderFieldManipulation];
+    }
+    else if ([testName isEqualToString:@"ndt"]){
+        NdtTest *ndtTest = [[NdtTest alloc] init];
+        [self initCommon:ndtTest];
+    }
+    else if ([testName isEqualToString:@"dash"]){
+        Dash *dash = [[Dash alloc] init];
+        [self initCommon:dash];
+    }
+}
+
+-(void)initCommon:(MKNetworkTest*)test{
+    [test setIdx:[self.mkNetworkTests count]];
+    [test setDelegate:self];
+    [test setResultOfMeasurement:self.result];
+    [self.mkNetworkTests addObject:test];
+}
+
 -(void)run {
     //TODO should never happen
     /*if ([self.mkNetworkTests count] == 0)
@@ -21,11 +76,7 @@
     }
 }
 
--(void)initCommon:(MKNetworkTest*)test{
-    [test setDelegate:self];
-    [test setResultOfMeasurement:self.result];
-    [self.mkNetworkTests addObject:test];
-}
+
 
 -(void)testEnded:(MKNetworkTest*)test{
     NSLog(@"CALLBACK test_ended %@", test.name);
@@ -52,19 +103,13 @@
     if (self) {
         [self.result setName:@"instant_messaging"];
         if ([SettingsUtility getSettingWithName:@"test_whatsapp"]){
-            Whatsapp *whatsapp = [[Whatsapp alloc] init];
-            [whatsapp setIdx:0];
-            [self initCommon:whatsapp];
+            [self addTest:@"whatsapp"];
         }
         if ([SettingsUtility getSettingWithName:@"test_telegram"]){
-            Telegram *telegram = [[Telegram alloc] init];
-            [telegram setIdx:1];
-            [self initCommon:telegram];
+            [self addTest:@"telegram"];
         }
-        if ([SettingsUtility getSettingWithName:@"test_facebook"]){
-            FacebookMessenger *facebookMessenger = [[FacebookMessenger alloc] init];
-            [facebookMessenger setIdx:2];
-            [self initCommon:facebookMessenger];
+        if ([SettingsUtility getSettingWithName:@"test_facebook_messenger"]){
+            [self addTest:@"facebook_messenger"];
         }
         [self.result save];
     }
@@ -83,10 +128,7 @@
     self = [super init];
     if (self) {
         [self.result setName:@"websites"];
-        WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
-        [webConnectivity setMax_runtime_enabled:YES];
-        [webConnectivity setIdx:0];
-        [self initCommon:webConnectivity];
+        [self addTest:@"web_connectivity"];
     }
     return self;
 }
@@ -104,14 +146,10 @@
     if (self) {
         [self.result setName:@"middle_boxes"];
         if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"]){
-            HttpInvalidRequestLine *httpInvalidRequestLine = [[HttpInvalidRequestLine alloc] init];
-            [httpInvalidRequestLine setIdx:0];
-            [self initCommon:httpInvalidRequestLine];
+            [self addTest:@"http_invalid_request_line"];
         }
         if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"]){
-            HttpHeaderFieldManipulation *httpHeaderFieldManipulation = [[HttpHeaderFieldManipulation alloc] init];
-            [httpHeaderFieldManipulation setIdx:1];
-            [self initCommon:httpHeaderFieldManipulation];
+            [self addTest:@"http_header_field_manipulation"];
         }
     }
     return self;
@@ -130,14 +168,10 @@
     if (self) {
         [self.result setName:@"performance"];
         if ([SettingsUtility getSettingWithName:@"run_ndt"]){
-            NdtTest *ndtTest = [[NdtTest alloc] init];
-            [ndtTest setIdx:0];
-            [self initCommon:ndtTest];
+            [self addTest:@"ndt"];
         }
         if ([SettingsUtility getSettingWithName:@"run_dash"]){
-            Dash *dash = [[Dash alloc] init];
-            [dash setIdx:1];
-            [self initCommon:dash];
+            [self addTest:@"dash"];
         }
     }
     return self;

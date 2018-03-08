@@ -103,7 +103,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[resultsDic objectForKey:[keys objectAtIndex:section]] count];
+    return [(NSArray*)[resultsDic objectForKey:[keys objectAtIndex:section]] count];
 }
 
 

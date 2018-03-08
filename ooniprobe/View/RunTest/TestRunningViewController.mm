@@ -5,23 +5,11 @@
 @end
 
 @implementation TestRunningViewController
-@synthesize testName, currentTest;
+@synthesize currentTest;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[SettingsUtility getColorForTest:testName]];
-    if ([testName isEqualToString:@"websites"]){
-        currentTest = [[WCNetworkTest alloc] init];
-    }
-    else if ([testName isEqualToString:@"performance"]){
-        currentTest = [[SPNetworkTest alloc] init];
-    }
-    else if ([testName isEqualToString:@"middle_boxes"]){
-        currentTest = [[MBNetworkTest alloc] init];
-    }
-    else if ([testName isEqualToString:@"instant_messaging"]){
-        currentTest = [[IMNetworkTest alloc] init];
-    }
+    [self.view setBackgroundColor:[SettingsUtility getColorForTest:currentTest.result.name]];
     
     if (currentTest){
         totalTests = [currentTest.mkNetworkTests count];
@@ -32,7 +20,7 @@
     self.progressBar.layer.masksToBounds = YES;
 
     [self.runningTestsLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"running_tests", nil)]];
-    [self.testNameLabel setText:NSLocalizedString(self.testName, nil)];
+    [self.testNameLabel setText:NSLocalizedString(currentTest.result.name, nil)];
     [self.etaLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"estimated_time_remaining", nil)]];
     [self.currentTestLabel setText:@""];
 
@@ -92,7 +80,9 @@
 
 -(void)networkTestEnded{
     //TODO toast?
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:TRUE completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
+    }];
 }
 
 @end

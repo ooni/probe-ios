@@ -9,7 +9,6 @@
 }
 
 @property (nonatomic, strong) NetworkTest *currentTest;
-@property (nonatomic, strong) NSString *testName;
 @property (strong, nonatomic) IBOutlet UILabel *runningTestsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *testNameLabel;
 @property (strong, nonatomic) IBOutlet UIView *animationView;

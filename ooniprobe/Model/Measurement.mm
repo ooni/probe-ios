@@ -4,7 +4,8 @@
 @dynamic name, startTime, duration, ip, asn, asnName, country, networkName, networkType, state, blocking, input, category, result;
 
 + (NSDictionary *)defaultValuesForEntity {
-    return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0]};
+    //defailt test to failure in case on_entry is never called
+    return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"blocking": [NSNumber numberWithInt:MEASUREMENT_FAILURE]};
 }
 
 -(void)setAsnAndCalculateName:(NSString *)asn{

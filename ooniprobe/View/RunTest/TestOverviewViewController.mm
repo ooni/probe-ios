@@ -72,7 +72,14 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setTestName:testName];
+        if ([testName isEqualToString:@"websites"])
+            [vc setCurrentTest:[[WCNetworkTest alloc] init]];
+        else if ([testName isEqualToString:@"performance"])
+            [vc setCurrentTest:[[SPNetworkTest alloc] init]];
+        else if ([testName isEqualToString:@"middle_boxes"])
+            [vc setCurrentTest:[[MBNetworkTest alloc] init]];
+        else if ([testName isEqualToString:@"instant_messaging"])
+            [vc setCurrentTest:[[IMNetworkTest alloc] init]];
     }
 }
 

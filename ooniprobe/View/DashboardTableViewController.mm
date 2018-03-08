@@ -74,11 +74,18 @@
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         NSString *testName = [items objectAtIndex:indexPath.row];
-        [vc setTestName:testName];
+        if ([testName isEqualToString:@"websites"])
+            [vc setCurrentTest:[[WCNetworkTest alloc] init]];
+        else if ([testName isEqualToString:@"performance"])
+            [vc setCurrentTest:[[SPNetworkTest alloc] init]];
+        else if ([testName isEqualToString:@"middle_boxes"])
+            [vc setCurrentTest:[[MBNetworkTest alloc] init]];
+        else if ([testName isEqualToString:@"instant_messaging"])
+            [vc setCurrentTest:[[IMNetworkTest alloc] init]];
     }
     else if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
+        TestOverviewViewController *vc = (TestOverviewViewController * )segue.destinationViewController;
         NSString *testName = [items objectAtIndex:indexPath.row];
         [vc setTestName:testName];
     }    

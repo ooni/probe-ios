@@ -93,7 +93,7 @@
         if (includeAll && [self getSettingWithName:@"test_whatsapp"])
             [settings addObject:@"test_whatsapp_extensive"];
         [settings addObject:@"test_telegram"];
-        [settings addObject:@"test_facebook"];
+        [settings addObject:@"test_facebook_messenger"];
     }
     else if ([testName isEqualToString:@"middle_boxes"]) {
         [settings addObject:@"run_http_invalid_request_line"];

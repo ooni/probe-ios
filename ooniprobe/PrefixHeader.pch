@@ -17,6 +17,11 @@
 
 #define RELEASE_NAME @"-alpha.1"
 
+#define VERBOSITY MK_LOG_WARNING
+#define MEASUREMENT_OK 0
+#define MEASUREMENT_FAILURE 1
+#define MEASUREMENT_BLOCKED 2
+
 #define color_base @"#0588cb"
 #define color_black @"#000000"
 #define color_gray0 @"#f8f9fa"

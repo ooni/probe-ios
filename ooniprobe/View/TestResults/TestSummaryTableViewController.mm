@@ -157,6 +157,7 @@
                                      segueType = @"db";
                                      [self performSegueWithIdentifier:@"log" sender:self];
                                  }];
+
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"cancel", nil)
                                    style:UIAlertActionStyleDefault
@@ -164,6 +165,15 @@
     [alert addAction:viewLogButton];
     [alert addAction:viewJsonButton];
     [alert addAction:viewDBButton];
+    if (segueObj.blocking == MEASUREMENT_FAILURE){
+        UIAlertAction* reRunButton = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"re_run_test", nil)
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+                                           [self performSegueWithIdentifier:@"toTestRun" sender:self];
+                                       }];
+        [alert addAction:reRunButton];
+    }
     [alert addAction:cancelButton];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -179,6 +189,10 @@
         LogViewController *vc = (LogViewController * )segue.destinationViewController;
         [vc setType:segueType];
         [vc setMeasurement:segueObj];
+    }
+    else if ([[segue identifier] isEqualToString:@"toTestRun"]){
+        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
+        [vc setCurrentTest:[[NetworkTest alloc] initWithMeasurement:segueObj]];
     }
 }
 

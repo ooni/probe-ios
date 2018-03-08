@@ -13,35 +13,16 @@
 #include <resolv.h>
 #include <dns.h>
 
-#define VERBOSITY MK_LOG_WARNING
-#define MEASUREMENT_OK 0
-#define MEASUREMENT_FAILURE 1
-#define MEASUREMENT_BLOCKED 2
-
 
 @implementation MKNetworkTest
 
 -(id) init {
     self = [super init];
-    if (!self) {
-        return nil;
-    }
-    [self createMeasurementObject];
-    return self;
-}
-
--(void)run {
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+    if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
-    [self.measurement setState:measurementActive];
-    [self.measurement save];
-}
-
-- (void)setResultOfMeasurement:(Result *)result{
-    self.result = result;
-    [self.measurement setResult:self.result];
+        [self createMeasurementObject];
+    }
+    return self;
 }
 
 - (void)createMeasurementObject{
@@ -51,7 +32,11 @@
         [self.measurement setResult:self.result];
     if (self.name != NULL)
         [self.measurement setName:self.name];
-    self.backgroundTask = UIBackgroundTaskInvalid;
+}
+
+- (void)setResultOfMeasurement:(Result *)result{
+    self.result = result;
+    [self.measurement setResult:self.result];
 }
 
 - (void) init_common:(mk::nettests::BaseTest&) test{
@@ -320,6 +305,15 @@
         summary.failedMeasurements++;
     else if (blocking == MEASUREMENT_BLOCKED)
         summary.blockedMeasurements++;
+}
+
+-(void)run {
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self.measurement setState:measurementActive];
+    [self.measurement save];
 }
 
 -(void)testEnded{
