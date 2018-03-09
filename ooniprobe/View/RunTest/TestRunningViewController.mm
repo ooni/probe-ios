@@ -81,7 +81,7 @@
 -(void)networkTestEnded{
     //TODO toast?
     [self dismissViewControllerAnimated:TRUE completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
+        //[[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTests" object:nil];
     }];
 }
 

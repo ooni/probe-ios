@@ -14,7 +14,8 @@
     [self.networksLabel setText:NSLocalizedString(@"networks", nil)];
     [self.dataUsageLabel setText:NSLocalizedString(@"data_usage", nil)];
     filter = @"";
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"networkTestEnded" object:nil];
+
 
 /*
     let query = Person.query()

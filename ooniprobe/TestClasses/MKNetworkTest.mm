@@ -348,7 +348,8 @@
     NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
     mk::nettests::WebConnectivityTest test;
     self.entryIdx = 0;
-    self.inputs = [SettingsUtility getUrlsTest];
+    if (!self.inputs)
+        self.inputs = [SettingsUtility getUrlsTest];
     self.measurement.input = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"url"];
     self.measurement.category = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"category_code"];
 

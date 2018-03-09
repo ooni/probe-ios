@@ -12,9 +12,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.measurements = result.measurements;
-    //TODO self.navigationController.navigationBar.topItem.title = @""; DATE TEST 
-
+    //TODO self.navigationController.navigationBar.topItem.title = @""; DATE TEST
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"networkTestEnded" object:nil];
+    [self reloadMeasurements];
     //self.title = NSLocalizedString(@"test_results", nil);
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -30,6 +30,11 @@
     [super viewWillDisappear:animated];
     UIColor *defaultColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
     [self.navigationController.navigationBar setBarTintColor:defaultColor];
+}
+
+-(void)reloadMeasurements{
+    self.measurements = result.measurements;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source

@@ -16,14 +16,14 @@
     if (self) {
         self.result = existingMeasurement.result;
         self.mkNetworkTests = [[NSMutableArray alloc] init];
-        [self addTest:existingMeasurement.name];
+        [self addTest:existingMeasurement.name :existingMeasurement];
         //TODO set input for web_connectivity
         [existingMeasurement remove];
     }
     return self;
 }
 
--(void)addTest:(NSString*)testName{
+-(void)addTest:(NSString*)testName :(Measurement*)existingMeasurement{
     if ([testName isEqualToString:@"whatsapp"]){
         Whatsapp *whatsapp = [[Whatsapp alloc] init];
         [self initCommon:whatsapp];
@@ -39,6 +39,8 @@
     else if ([testName isEqualToString:@"web_connectivity"]){
         WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
         [webConnectivity setMax_runtime_enabled:YES];
+        if (existingMeasurement != nil)
+            [webConnectivity setInputs:@[@{@"category_code": existingMeasurement.category,@"url":existingMeasurement.input}]];
         [self initCommon:webConnectivity];
     }
     else if ([testName isEqualToString:@"http_invalid_request_line"]){
@@ -103,13 +105,13 @@
     if (self) {
         [self.result setName:@"instant_messaging"];
         if ([SettingsUtility getSettingWithName:@"test_whatsapp"]){
-            [self addTest:@"whatsapp"];
+            [self addTest:@"whatsapp" :nil];
         }
         if ([SettingsUtility getSettingWithName:@"test_telegram"]){
-            [self addTest:@"telegram"];
+            [self addTest:@"telegram" :nil];
         }
         if ([SettingsUtility getSettingWithName:@"test_facebook_messenger"]){
-            [self addTest:@"facebook_messenger"];
+            [self addTest:@"facebook_messenger" :nil];
         }
         [self.result save];
     }
@@ -128,7 +130,7 @@
     self = [super init];
     if (self) {
         [self.result setName:@"websites"];
-        [self addTest:@"web_connectivity"];
+        [self addTest:@"web_connectivity" :nil];
     }
     return self;
 }
@@ -146,10 +148,10 @@
     if (self) {
         [self.result setName:@"middle_boxes"];
         if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"]){
-            [self addTest:@"http_invalid_request_line"];
+            [self addTest:@"http_invalid_request_line" :nil];
         }
         if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"]){
-            [self addTest:@"http_header_field_manipulation"];
+            [self addTest:@"http_header_field_manipulation" :nil];
         }
     }
     return self;
@@ -168,10 +170,10 @@
     if (self) {
         [self.result setName:@"performance"];
         if ([SettingsUtility getSettingWithName:@"run_ndt"]){
-            [self addTest:@"ndt"];
+            [self addTest:@"ndt" :nil];
         }
         if ([SettingsUtility getSettingWithName:@"run_dash"]){
-            [self addTest:@"dash"];
+            [self addTest:@"dash" :nil];
         }
     }
     return self;
