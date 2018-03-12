@@ -81,6 +81,12 @@
         else if ([testName isEqualToString:@"instant_messaging"])
             [vc setCurrentTest:[[IMNetworkTest alloc] init]];
     }
+    else if ([[segue identifier] isEqualToString:@"toTestSettings"]){
+        SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
+        [vc setTestName:testName];
+    }
+
 }
+
 
 @end

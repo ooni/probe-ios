@@ -90,15 +90,36 @@
     return 44;
 }
 
-- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForComponent:(NSInteger)component{
-    return NSLocalizedString(@"filter_tests", nil);
+- (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component{
+    NSString *text = NSLocalizedString(@"filter_tests", nil);
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
+                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
+
+-(NSAttributedString*)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    NSString *text;
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
+                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
+    if (row == 0)
+        text = NSLocalizedString(@"all_tests", nil);
+    else {
+        NSArray *tests =  [SettingsUtility getTestTypes];
+        text = NSLocalizedString([tests objectAtIndex:row-1], nil);
+    }
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+/*
 - (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     if (row == 0)
         return NSLocalizedString(@"all_tests", nil);
     NSArray *tests =  [SettingsUtility getTestTypes];
     return NSLocalizedString([tests objectAtIndex:row-1], nil);
 }
+*/
 
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (row == 0 && [filter isEqualToString:@""])
