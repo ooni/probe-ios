@@ -81,10 +81,10 @@
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:NO];
         [self.image1 setImage:[UIImage imageNamed:@"upload_black"]];
-        [self.label1 setText:[NSString stringWithFormat:@"%@ kbps", [summary getUpload]]];
+        [self.label1 setText:[NSString stringWithFormat:@"%@ %@", [summary getUpload], [summary getUploadUnit]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"download_black"]];
-        [self.label2 setText:[NSString stringWithFormat:@"%@ kbps", [summary getDownload]]];
+        [self.label2 setText:[NSString stringWithFormat:@"%@ %@", [summary getDownload], [summary getDownloadUnit]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.image3 setImage:[UIImage imageNamed:@"video_quality_black"]];
         [self.label3 setText:[summary getVideoQuality:NO]];

@@ -100,7 +100,6 @@
         [settings addObject:@"run_http_header_field_manipulation"];
     }
     else if ([testName isEqualToString:@"performance"]) {
-        NSMutableArray *settings = [[NSMutableArray alloc] init];
         [settings addObject:@"run_ndt"];
         if (includeAll && [self getSettingWithName:@"run_ndt"]){
             [settings addObject:@"ndt_server_auto"];

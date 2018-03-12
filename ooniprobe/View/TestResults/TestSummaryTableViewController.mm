@@ -118,8 +118,8 @@
             UILabel *detail2Label = (UILabel*)[cell viewWithTag:8];
             [detail1Image setImage:[UIImage imageNamed:@"upload_black"]];
             [detail2Image setImage:[UIImage imageNamed:@"download_black"]];
-            [detail1Label setText:[NSString stringWithFormat:@"%@ kbps", [summary getUpload]]];
-            [detail2Label setText:[NSString stringWithFormat:@"%@ kbps", [summary getDownload]]];
+            [detail1Label setText:[NSString stringWithFormat:@"%@ %@", [summary getUpload], [summary getDownloadUnit]]];
+            [detail2Label setText:[NSString stringWithFormat:@"%@ %@", [summary getDownload], [summary getUploadUnit]]];
         }
         else if ([current.name isEqualToString:@"dash"]){
             [stackView2 setHidden:YES];

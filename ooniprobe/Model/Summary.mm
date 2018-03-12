@@ -83,7 +83,7 @@
 -(NSString*)getUploadUnit{
     if ([self.json safeObjectForKey:@"ndt"]){
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
-        [self getUnit:upload];
+        return [self getUnit:upload];
     }
     return @"";
 }
@@ -99,7 +99,7 @@
 -(NSString*)getDownloadUnit{
     if ([self.json safeObjectForKey:@"ndt"]){
         float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
-        [self getUnit:download];
+        return [self getUnit:download];
     }
     return @"";
 }
@@ -151,7 +151,6 @@
 }
 
 - (NSString*)minimumBitrateForVideo:(float)videoQuality{
-    //TODO localize?
     if (videoQuality < 600)
         return @"240p";
     else if (videoQuality < 1000)
@@ -169,7 +168,6 @@
 }
 
 - (NSString*)minimumShortBitrateForVideo:(float)videoQuality{
-    //TODO localize?
     if (videoQuality < 600)
         return @"240p";
     else if (videoQuality < 1000)

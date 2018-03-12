@@ -50,11 +50,11 @@
         
         [self.label2Top setText:NSLocalizedString(@"upload", nil)];
         [self.label2Central setText:[summary getUpload]];
-        [self.label2Bottom setText:NSLocalizedString(@"kbps", nil)];
+        [self.label2Bottom setText:[summary getUploadUnit]];
         
         [self.label3Top setText:NSLocalizedString(@"download", nil)];
         [self.label3Central setText:[summary getDownload]];
-        [self.label3Bottom setText:NSLocalizedString(@"mbps", nil)];
+        [self.label3Bottom setText:[summary getDownloadUnit]];
 
         [self.label4Top setText:NSLocalizedString(@"ping", nil)];
         [self.label4Central setText:[summary getPing]];
