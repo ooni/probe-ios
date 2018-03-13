@@ -39,8 +39,13 @@
     SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"name = '%@'", testName]] orderByDescending:@"startTime"] fetch];
     
     //TODO localize this string
-    if ([results count] > 0)
-        [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld days ago", [self daysBetweenTwoDates:[[results objectAtIndex:0] startTime]]]];
+    if ([results count] > 0){
+        NSInteger daysAgo = [self daysBetweenTwoDates:[[results objectAtIndex:0] startTime]];
+        if (daysAgo < 2)
+            [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld %@", daysAgo, NSLocalizedString(@"day_ago", nil)]];
+        else
+            [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld %@", daysAgo, NSLocalizedString(@"days_ago", nil)]];
+    }
     else
         [self.lastRunLabel setText:NSLocalizedString(@"never", nil)];
 
@@ -63,10 +68,12 @@
     return components.day;
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    UIColor *defaultColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
-    [self.navigationController.navigationBar setBarTintColor:defaultColor];
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+    [super willMoveToParentViewController:parent];
+    if (!parent) {
+        UIColor *defaultColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
+        [self.navigationController.navigationBar setBarTintColor:defaultColor];
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -14,7 +14,7 @@
 }
 
 -(void)setResult:(Result*)result{
-    [self.testIcon setImage:[UIImage imageNamed:result.name]];
+    [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_row", result.name]]];
     self.testNameLabel.text  = NSLocalizedString(result.name, nil);
     
     //TODO what to write when is null? (user disabled sharing asn)
@@ -87,7 +87,7 @@
         [self.label2 setText:[NSString stringWithFormat:@"%@ %@", [summary getDownload], [summary getDownloadUnit]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.image3 setImage:[UIImage imageNamed:@"video_quality_black"]];
-        [self.label3 setText:[summary getVideoQuality:NO]];
+        [self.label3 setText:[summary getVideoQuality:YES]];
         [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
 }

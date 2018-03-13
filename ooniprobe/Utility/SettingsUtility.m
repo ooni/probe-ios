@@ -67,12 +67,13 @@
 + (NSArray*)getSitesCategories{
     return @[@"ALDR", @"REL", @"PORN", @"PROV", @"POLR", @"HUMR", @"ENV", @"MILX", @"HATE", @"NEWS", @"XED", @"PUBH", @"GMB", @"ANON", @"DATE", @"GRP", @"LGBT", @"FILE", @"HACK", @"COMT", @"MMED", @"HOST", @"SRCH", @"GAME", @"CULTR", @"ECON", @"GOVT", @"COMM", @"CTRL", @"IGO", @"MISC"];
 }
+
 + (NSArray*)getSitesCategoriesEnabled {
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"sites_categories"];
 }
 
 + (void)addRemoveSitesCategory:(NSString*)categoryName {
-    NSMutableArray *sites_categories = [[self getSitesCategories] mutableCopy];
+    NSMutableArray *sites_categories = [[self getSitesCategoriesEnabled] mutableCopy];
     if ([sites_categories containsObject:categoryName])
         [sites_categories removeObject:categoryName];
     else

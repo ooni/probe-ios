@@ -15,7 +15,17 @@
     [self.dataUsageLabel setText:NSLocalizedString(@"data_usage", nil)];
     filter = @"";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"networkTestEnded" object:nil];
-
+    self.dropdownMenu.tintColor = [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    /*
+    self.disclosureIndicatorView.image = image;
+    [self.disclosureIndicatorView sizeToFit];
+    CGFloat insetLeft = 8;
+    CGFloat insetRight = (image.size.width > 0) ? image.size.width + 4 + insetLeft : insetLeft;
+    self.contentEdgeInsets = UIEdgeInsetsMake(0, insetLeft, 0, insetRight);
+    [self setNeedsLayout];
+*/
+   //[self.dropdownMenu.disclosureIndicatorImage setFrame:CGRectMake(0, 0, 35, 50)];
+    //[self.dropdownMenu.disclosureIndicatorImage setNeedsLayout];
 
 /*
     let query = Person.query()
@@ -101,8 +111,14 @@
 
 -(NSAttributedString*)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
     NSString *text;
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
-                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
+    NSDictionary *attributes;
+    if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[SettingsUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
+        attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-SemiBold" size:16],
+                       NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
+    else
+        attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
+                       NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
+
     if (row == 0)
         text = NSLocalizedString(@"all_tests", nil);
     else {
@@ -122,10 +138,8 @@
 */
 
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if (row == 0 && [filter isEqualToString:@""])
-        return [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
-    else if (row > 0 && [[[SettingsUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter])
-        return [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
+    if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[SettingsUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
+        return [UIColor colorWithRGBHexString:color_gray2 alpha:1.0f];
     else
         return [UIColor whiteColor];
 }

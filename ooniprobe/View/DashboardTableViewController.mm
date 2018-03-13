@@ -40,8 +40,8 @@
     UILabel *titleLabel = (UILabel*)[cell viewWithTag:2];
     UILabel *descLabel = (UILabel*)[cell viewWithTag:3];
     UILabel *estimateTime = (UILabel*)[cell viewWithTag:4];
-    RunButton *runButton = (RunButton*)[cell viewWithTag:5];
-    ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
+    //RunButton *runButton = (RunButton*)[cell viewWithTag:5];
+    //ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
 
     [titleLabel setText:NSLocalizedString(testName, nil)];

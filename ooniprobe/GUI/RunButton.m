@@ -22,7 +22,7 @@
 
 - (void)commonInit
 {
-    self.layer.cornerRadius = 10;
+    self.layer.cornerRadius = 15;
     self.layer.masksToBounds = YES;
     [self setTitle:NSLocalizedString(@"run", nil) forState:UIControlStateNormal];
 /*

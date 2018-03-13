@@ -26,11 +26,14 @@
     //self.tabBarController.navigationItem.title = NSLocalizedString(@"test_results", nil);
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    UIColor *defaultColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
-    [self.navigationController.navigationBar setBarTintColor:defaultColor];
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+    [super willMoveToParentViewController:parent];
+    if (!parent) {
+        UIColor *defaultColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
+        [self.navigationController.navigationBar setBarTintColor:defaultColor];
+    }
 }
+
 
 -(void)reloadMeasurements{
     self.measurements = result.measurements;

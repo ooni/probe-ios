@@ -16,6 +16,7 @@
     [super viewWillAppear:animated];
     categories = [SettingsUtility getSitesCategories];
     categories_enabled = [SettingsUtility getSitesCategoriesEnabled];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
