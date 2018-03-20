@@ -32,8 +32,10 @@
 - (NSString*)getJsonStr;
 - (NSString*)getUpload;
 - (NSString*)getUploadUnit;
+- (NSString*)getUploadWithUnit;
 - (NSString*)getDownload;
 - (NSString*)getDownloadUnit;
+- (NSString*)getDownloadWithUnit;
 - (NSString*)getPing;
 - (NSString*)getVideoQuality:(BOOL)shortened;
 @end

@@ -14,6 +14,8 @@
     [self.networksLabel setText:NSLocalizedString(@"networks", nil)];
     [self.dataUsageLabel setText:NSLocalizedString(@"data_usage", nil)];
     filter = @"";
+    [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"networkTestEnded" object:nil];
     self.dropdownMenu.tintColor = [UIColor colorWithRGBHexString:color_black alpha:1.0f];
     /*

@@ -3,11 +3,12 @@
 #import "MKNetworkTest.h"
 #import "SettingsUtility.h"
 #import "MessageUtility.h"
+#import "Url.h"
 
 @interface NetworkTest : NSObject <MKNetworkTestDelegate>
 @property Result *result;
 @property NSMutableArray *mkNetworkTests;
--(id)initWithMeasurement:(Measurement*)existingMeasurement;
+//-(id)initWithMeasurement:(Measurement*)existingMeasurement;
 -(void)testEnded:(MKNetworkTest*)test;
 -(void)run;
 @end
@@ -17,6 +18,7 @@
 @end
 
 @interface WCNetworkTest : NetworkTest
+-(id)initWithUrls:(NSArray*)urls;
 -(void)run;
 @end
 

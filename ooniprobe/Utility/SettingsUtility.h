@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-
+#import "Url.h"
 @interface SettingsUtility : NSObject
 
 + (NSArray*)getSettingsCategories;

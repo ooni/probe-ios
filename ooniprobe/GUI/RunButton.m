@@ -22,9 +22,9 @@
 
 - (void)commonInit
 {
-    self.layer.cornerRadius = 15;
+    self.layer.cornerRadius = self.bounds.size.height/2;
     self.layer.masksToBounds = YES;
-    [self setTitle:NSLocalizedString(@"run", nil) forState:UIControlStateNormal];
+    [self setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
 /*
     UIColor *defaultTintColor = color_ooni_blue;
     self.layer.borderWidth = 1;

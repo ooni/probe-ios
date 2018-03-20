@@ -5,6 +5,7 @@
 #import "SettingsUtility.h"
 #import "Measurement.h"
 #import "Result.h"
+#import "Url.h"
 
 @class MKNetworkTest;
 

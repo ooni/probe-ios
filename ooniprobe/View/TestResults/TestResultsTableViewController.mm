@@ -9,7 +9,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"test_results", nil);
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.tableView.emptyDataSetSource = self;
@@ -39,10 +38,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.tabBarController.navigationItem.title = NSLocalizedString(@"test_results", nil);
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"test_results", nil);
 }
 
--(void)testFilter:(SRKQuery*)query{
+-(void)testFilter:(SRKQuery*)newQuery{
+    query = newQuery;
     results = [query fetch];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -156,6 +156,35 @@
     timeLabel.text = localizedDateTime;
     */
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        [current deleteObject];
+        [self testFilter:query];
+    }
+}
+
+/*
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if ([scrollView.panGestureRecognizer translationInView:scrollView.superview].y > 0)
+        [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+    else
+        [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+}
+*/
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.y<=0) {
+        scrollView.contentOffset = CGPointZero;
+    }
 }
 
 #pragma mark - Navigation

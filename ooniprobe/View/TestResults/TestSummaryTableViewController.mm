@@ -12,12 +12,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //TODO self.navigationController.navigationBar.topItem.title = @""; DATE TEST
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"networkTestEnded" object:nil];
-    [self reloadMeasurements];
-    //self.title = NSLocalizedString(@"test_results", nil);
+    //TODO insert date
+    self.navigationController.navigationBar.topItem.title = @"";
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.tableView.tableFooterView = [UIView new];
+    //self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    self.title = localizedDateTime;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"networkTestEnded" object:nil];
+    [self reloadMeasurements];
+    defaultColor = [SettingsUtility getColorForTest:result.name];
+    //self.title = NSLocalizedString(@"test_results", nil);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -29,8 +37,7 @@
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
     if (!parent) {
-        UIColor *defaultColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
-        [self.navigationController.navigationBar setBarTintColor:defaultColor];
+        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     }
 }
 
@@ -121,8 +128,8 @@
             UILabel *detail2Label = (UILabel*)[cell viewWithTag:8];
             [detail1Image setImage:[UIImage imageNamed:@"upload_black"]];
             [detail2Image setImage:[UIImage imageNamed:@"download_black"]];
-            [detail1Label setText:[NSString stringWithFormat:@"%@ %@", [summary getUpload], [summary getDownloadUnit]]];
-            [detail2Label setText:[NSString stringWithFormat:@"%@ %@", [summary getDownload], [summary getUploadUnit]]];
+            [detail1Label setText:[NSString stringWithFormat:@"%@", [summary getUploadWithUnit]]];
+            [detail2Label setText:[NSString stringWithFormat:@"%@", [summary getDownloadWithUnit]]];
         }
         else if ([current.name isEqualToString:@"dash"]){
             [stackView2 setHidden:YES];
@@ -186,6 +193,12 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.y<=0) {
+        scrollView.contentOffset = CGPointZero;
+    }
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){
         //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -200,7 +213,9 @@
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setCurrentTest:[[NetworkTest alloc] initWithMeasurement:segueObj]];
+        Url *currentUrl = [[Url alloc] initWithUrl:segueObj.input category:segueObj.category];
+        [vc setCurrentTest:[[WCNetworkTest alloc] initWithUrls:@[currentUrl]]];
+        [segueObj remove];
     }
 }
 

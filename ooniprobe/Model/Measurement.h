@@ -41,6 +41,8 @@ typedef enum
 //@property NSInteger resultId;
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(void)setAsnAndCalculateName:(NSString *)asn;
+-(NSString*)getReportFifle;
+-(NSString*)getLogFile;
 -(void)save;
 
 @end

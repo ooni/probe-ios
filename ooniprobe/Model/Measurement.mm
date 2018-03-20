@@ -23,12 +23,10 @@
     self.startTime = localDate;
 }
 
-//UNUSED
 -(NSString*)getReportFifle{
     return [NSString stringWithFormat:@"test-%@.json", self.Id];
 }
 
-//UNUSED
 -(NSString*)getLogFile{
     return [NSString stringWithFormat:@"test-%@.log", self.Id];
 }

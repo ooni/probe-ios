@@ -122,7 +122,7 @@
                     <connections>
                         <segue destination="FSd-Zs-3Da" kind="show" identifier="website_categories" id="RGp-0d-dQf"/>
                         <segue destination="9vw-NZ-b2F" kind="show" identifier="enabled_tests" id="XVG-wH-Bbk"/>
-                        <segue destination="Fcl-mW-hoH" kind="presentation" identifier="custom_url" id="f9n-42-937"/>
+                        <segue destination="QTB-Ru-Efu" kind="show" identifier="custom_url" id="O0z-dz-UxK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-AJ-MWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,6 +264,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="2na-jD-p15">
+                            <rect key="frame" x="0.0" y="133.5" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDn-cB-IQV">
+                                    <rect key="frame" x="345" y="11" width="22" height="22"/>
+                                    <connections>
+                                        <action selector="addRow:" destination="QTB-Ru-Efu" eventType="touchUpInside" id="cZL-0Y-iDm"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="pDn-cB-IQV" secondAttribute="bottom" constant="11" id="HAR-re-aTn"/>
+                                <constraint firstAttribute="trailing" secondItem="pDn-cB-IQV" secondAttribute="trailing" constant="8" id="Pzd-aJ-9CH"/>
+                                <constraint firstItem="pDn-cB-IQV" firstAttribute="top" secondItem="2na-jD-p15" secondAttribute="top" constant="11" id="vOz-Gk-aPY"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="2Wo-pb-QU3" style="IBUITableViewCellStyleDefault" id="uDC-Z4-eop">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
@@ -289,35 +307,22 @@
                             <outlet property="delegate" destination="QTB-Ru-Efu" id="bhS-iV-Ird"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ll2-jE-RbR">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Pc3-r3-YZU">
-                            <connections>
-                                <action selector="close:" destination="QTB-Ru-Efu" id="eW3-D6-P0m"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Ll2-jE-RbR"/>
+                    <connections>
+                        <segue destination="fha-Tp-5xt" kind="presentation" identifier="toTestRun" id="v4n-RO-WDr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdr-xB-PSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3510" y="1710"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cjK-jd-E61">
+        <!--testRunning-->
+        <scene sceneID="E9p-dz-wwH">
             <objects>
-                <navigationController id="Fcl-mW-hoH" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2Zs-3R-atJ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="QTB-Ru-Efu" kind="relationship" relationship="rootViewController" id="s8b-Md-J8r"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Iwh-g4-hN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="testRunning" id="fha-Tp-5xt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xl5-SN-jiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698" y="1710"/>
+            <point key="canvasLocation" x="4075" y="1525"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="Iv3-iC-dd1">

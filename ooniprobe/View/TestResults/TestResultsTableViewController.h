@@ -10,6 +10,7 @@
 @interface TestResultsTableViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate> {
     NSArray *keys;
     NSDictionary *resultsDic;
+    SRKQuery *query;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *headerView;

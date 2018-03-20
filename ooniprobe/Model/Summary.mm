@@ -77,7 +77,7 @@
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
         return [self setFractionalDigits:[self getScaledValue:upload]];
     }
-    return @"";
+    return @"N/A";
 }
 
 -(NSString*)getUploadUnit{
@@ -85,7 +85,14 @@
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
         return [self getUnit:upload];
     }
-    return @"";
+    return @"N/A";
+}
+
+-(NSString*)getUploadWithUnit{
+    NSString *uploadUnit = [self getUploadUnit];
+    if (![uploadUnit isEqualToString:@"N/A"])
+        return [NSString stringWithFormat:@"%@ %@", [self getUpload], uploadUnit];
+    return @"N/A";
 }
 
 - (NSString*)getDownload{
@@ -93,7 +100,7 @@
         float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
         return [self setFractionalDigits:[self getScaledValue:download]];
     }
-    return @"";
+    return @"N/A";
 }
 
 -(NSString*)getDownloadUnit{
@@ -101,7 +108,14 @@
         float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
         return [self getUnit:download];
     }
-    return @"";
+    return @"N/A";
+}
+
+-(NSString*)getDownloadWithUnit{
+    NSString *downloadUnit = [self getDownloadUnit];
+    if (![downloadUnit isEqualToString:@"N/A"])
+        return [NSString stringWithFormat:@"%@ %@", [self getDownload], downloadUnit];
+    return @"N/A";
 }
 
 - (float)getScaledValue:(float)value{
@@ -133,7 +147,8 @@
 - (NSString*)getPing{
     if ([self.json safeObjectForKey:@"ndt"])
         return [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"ping"] stringValue];
-    return @"";
+    //TODO localize all N/A
+    return @"N/A";
 }
 
 /*
@@ -147,7 +162,7 @@
         else
             return [self minimumBitrateForVideo:[[[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"median_bitrate"] floatValue]];
     }
-    return @"";
+    return @"N/A";
 }
 
 - (NSString*)minimumBitrateForVideo:(float)videoQuality{

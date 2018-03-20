@@ -25,14 +25,14 @@
     UIColor *defaultTintColor = [UIColor whiteColor];
     self.layer.borderWidth = 1;
     self.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.layer.cornerRadius = 15;
+    self.layer.cornerRadius = self.bounds.size.height/2;
     self.layer.masksToBounds = YES;
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     UIImage *backGroundImage = [self createSolidColorImageWithColor:defaultTintColor
                                                             andSize:self.bounds.size];
     [self setBackgroundImage:backGroundImage forState:UIControlStateHighlighted];
-    [self setTitle:NSLocalizedString(@"configure", nil) forState:UIControlStateNormal];
+    [self setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"configure", nil)] forState:UIControlStateNormal];
 }
 
 - (UIImage*)createSolidColorImageWithColor:(UIColor*)color andSize:(CGSize)size

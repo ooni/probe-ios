@@ -86,6 +86,7 @@
 */
 }
 
+//TODO bugged in right to left layout
 -(void)addLine:(UIView*)view{
     UIView *lineView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, view.frame.size.height)];
     [lineView setBackgroundColor:[UIColor whiteColor]];

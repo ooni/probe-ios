@@ -9,31 +9,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(self.testName, nil);
+    //self.title = NSLocalizedString(self.testName, nil);
     self.navigationController.navigationBar.topItem.title = @"";
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 
-    
+    //TODO here and in the two headers
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"networkTestEnded" object:nil];
+
     [self.testNameLabel setText:NSLocalizedString(self.testName, nil)];
     
-    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"description", nil)];
-    [description addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                                range:NSMakeRange(0, description.length)];
-    
     NSString *testDesc = [NSString stringWithFormat:@"%@_longdesc", testName];
-    NSMutableAttributedString *testDescStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(testDesc, nil)]];
-    [testDescStr addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                                range:NSMakeRange(0, testDesc.length)];
-    
-    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
-    [attrStr appendAttributedString:description];
-    [attrStr appendAttributedString:testDescStr];
-    [self.testDescriptionLabel setAttributedText:attrStr];
+    [self.testDescriptionLabel setText:NSLocalizedString(testDesc, nil)];
 
-    //TODO
+    //TODOs
     [self.timeLabel setText:@"2min 10MB"];
     
     SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"name = '%@'", testName]] orderByDescending:@"startTime"] fetch];
@@ -51,6 +40,7 @@
 
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
     defaultColor = [SettingsUtility getColorForTest:testName];
+    [self.runButton setTitleColor:defaultColor forState:UIControlStateNormal];
     [self.backgroundView setBackgroundColor:defaultColor];
 }
 
@@ -71,8 +61,7 @@
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
     if (!parent) {
-        UIColor *defaultColor = [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
-        [self.navigationController.navigationBar setBarTintColor:defaultColor];
+        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     }
 }
 

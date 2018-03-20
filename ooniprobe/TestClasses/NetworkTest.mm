@@ -11,19 +11,22 @@
     return self;
 }
 
+/*
 -(id) initWithMeasurement:(Measurement*)existingMeasurement {
     self = [super init];
     if (self) {
         self.result = existingMeasurement.result;
         self.mkNetworkTests = [[NSMutableArray alloc] init];
-        [self addTest:existingMeasurement.name :existingMeasurement];
-        //TODO set input for web_connectivity
+        Url *currentUrl = [[Url alloc] initWithUrl:existingMeasurement.input category:existingMeasurement.category];
+        
+        [self addTest:existingMeasurement.name :@[currentUrl]];
         [existingMeasurement remove];
     }
     return self;
 }
+*/
 
--(void)addTest:(NSString*)testName :(Measurement*)existingMeasurement{
+-(void)addTest:(NSString*)testName :(NSArray*)urls{
     if ([testName isEqualToString:@"whatsapp"]){
         Whatsapp *whatsapp = [[Whatsapp alloc] init];
         [self initCommon:whatsapp];
@@ -39,8 +42,9 @@
     else if ([testName isEqualToString:@"web_connectivity"]){
         WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
         [webConnectivity setMax_runtime_enabled:YES];
-        if (existingMeasurement != nil)
-            [webConnectivity setInputs:@[@{@"category_code": existingMeasurement.category,@"url":existingMeasurement.input}]];
+        if (urls != nil){
+            [webConnectivity setInputs:urls];
+        }
         [self initCommon:webConnectivity];
     }
     else if ([testName isEqualToString:@"http_invalid_request_line"]){
@@ -131,6 +135,15 @@
     if (self) {
         [self.result setName:@"websites"];
         [self addTest:@"web_connectivity" :nil];
+    }
+    return self;
+}
+
+-(id) initWithUrls:(NSArray*)urls {
+    self = [super init];
+    if (self) {
+        [self.result setName:@"websites"];
+        [self addTest:@"web_connectivity" :urls];
     }
     return self;
 }

@@ -28,4 +28,5 @@
 -(void)save;
 -(SRKResultSet*)measurements;
 -(Summary*)getSummary;
+-(void)deleteObject;
 @end

@@ -9,12 +9,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     items = [SettingsUtility getTestTypes];
-    self.title = NSLocalizedString(@"dashboard", nil);
+    [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.tabBarController.navigationItem.title = NSLocalizedString(@"dashboard", nil);
+    UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooniprobe_logo"]];
+    navbarImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [navbarImageView.widthAnchor constraintEqualToConstant:135].active = YES;
+    [navbarImageView.heightAnchor constraintEqualToConstant:24].active = YES;
+    self.navigationController.navigationBar.topItem.titleView = navbarImageView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -40,7 +44,9 @@
     UILabel *titleLabel = (UILabel*)[cell viewWithTag:2];
     UILabel *descLabel = (UILabel*)[cell viewWithTag:3];
     UILabel *estimateTime = (UILabel*)[cell viewWithTag:4];
-    //RunButton *runButton = (RunButton*)[cell viewWithTag:5];
+    RunButton *runButton = (RunButton*)[cell viewWithTag:5];
+    [runButton setTitleColor:[SettingsUtility getColorForTest:testName] forState:UIControlStateNormal];
+
     //ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
 
@@ -49,7 +55,7 @@
     [descLabel setText:NSLocalizedString(test_desc, nil)];
     //TODO
     [estimateTime setText:@"2min"];
-    [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_big", testName]]];
+    [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
     [backgroundView setBackgroundColor:[SettingsUtility getColorForTest:testName]];
     backgroundView.layer.cornerRadius = 15;
     backgroundView.layer.masksToBounds = YES;

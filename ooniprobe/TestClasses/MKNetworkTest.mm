@@ -269,8 +269,9 @@
             self.entryIdx++;
             if (self.entryIdx < [self.inputs count]){
                 [self createMeasurementObject];
-                self.measurement.input = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"url"];
-                self.measurement.category = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"category_code"];
+                Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
+                self.measurement.input = currentUrl.url;
+                self.measurement.category = currentUrl.category_code;
             }
         }
     }
@@ -350,15 +351,16 @@
     self.entryIdx = 0;
     if (!self.inputs)
         self.inputs = [SettingsUtility getUrlsTest];
-    self.measurement.input = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"url"];
-    self.measurement.category = [[self.inputs objectAtIndex:self.entryIdx] objectForKey:@"category_code"];
+    Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
+    self.measurement.input = currentUrl.url;
+    self.measurement.category = currentUrl.category_code;
 
     if (self.max_runtime_enabled){
         test.set_option("max_runtime", [max_runtime doubleValue]);
     }
     if ([self.inputs count] > 0) {
-        for (NSDictionary* input in self.inputs) {
-            test.add_input([[input objectForKey:@"url"] UTF8String]);
+        for (Url* input in self.inputs) {
+            test.add_input([input.url UTF8String]);
         }
     }
     [super init_common:test];

@@ -10,9 +10,11 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"custom_url", nil);
     self.navigationController.navigationBar.topItem.title = @"";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"run", nil) style:UIBarButtonItemStylePlain target:self action:@selector(close:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"run", nil) style:UIBarButtonItemStylePlain target:self action:@selector(run:)];
+    rows = 1;
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
+    urls = [[NSMutableDictionary alloc] init];
     UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                       target:nil action:nil];
@@ -27,6 +29,27 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(IBAction)addRow:(id)sender{
+    rows++;
+    [self.tableView reloadData];
+}
+
+-(IBAction)run:(id)sender{
+    urlArray = [[NSMutableArray alloc] init];
+    for (NSString *key in [urls allKeys]){
+        if (![[urls objectForKey:key] isEqualToString:@"http://"]){
+            Url *currentUrl = [[Url alloc] initWithUrl:[urls objectForKey:key] category:@""];
+            [urlArray addObject:currentUrl];
+        }
+    }
+    if ([urlArray count] > 0) {
+        [self performSegueWithIdentifier:@"toTestRun" sender:self];
+        [self.navigationController popToRootViewControllerAnimated:NO];
+    }
+    else
+        [MessageUtility showToast:@"no_urls_entered" inView:self.view];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -34,7 +57,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return rows;
 }
 
 
@@ -43,6 +66,10 @@
     cell.textLabel.text = NSLocalizedString(@"url", nil);
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     UITextField *textField = [self createTextField];
+    if ([urls objectForKey:[NSNumber numberWithInteger:indexPath.row]])
+        textField.text = [urls objectForKey:[NSNumber numberWithInteger:indexPath.row]];
+    else
+        textField.text = @"http://";
     cell.accessoryView = textField;
     return cell;
 }
@@ -56,6 +83,7 @@
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.keyboardType = UIKeyboardTypeURL;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     textField.inputAccessoryView = keyboardToolbar;
     return textField;
 }
@@ -64,11 +92,19 @@
     return YES;
 }
 
-
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    url = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    UITableViewCell *cell = (UITableViewCell *)textField.superview;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [urls setObject:[textField.text stringByReplacingCharactersInRange:range withString:string] forKey:[NSNumber numberWithInteger:indexPath.row]];
+    //url = [textField.text stringByReplacingCharactersInRange:range withString:string];
     return YES;
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toTestRun"]){
+        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
+        [vc setCurrentTest:[[WCNetworkTest alloc] initWithUrls:urlArray]];
+    }
+}
 @end

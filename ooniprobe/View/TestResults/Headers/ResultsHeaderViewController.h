@@ -14,6 +14,7 @@
 }
 
 @property id<ReloadFilterDelegate> delegate;
+@property (nonatomic, strong) IBOutlet UIView *headerView;
 @property (nonatomic, strong) IBOutlet UIStackView *view1;
 @property (nonatomic, strong) IBOutlet UIStackView *view2;
 @property (nonatomic, strong) IBOutlet UIStackView *view3;
