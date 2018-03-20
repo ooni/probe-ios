@@ -50,9 +50,19 @@
 "middle_boxes_longdesc" = "This test tries to detect the presence of middle boxes that could be responsible for censorship or surveillance by sending HTTP requests with non-canonical headers to a backend control server.";
 "performance_longdesc" = "This test measures the speed and performance of your network. \n\nDisclaimer:\nThis is a 3rd party performance test based on 3rd party servers, and we cannot guarantee that your IP address will not be collected.";
 
+"http_invalid_request_line" = "HTTP Invalid request line";
+"http_header_field_manipulation" = "HTTP Header field manipulation";
+"web_connectivity" = "Web Connectivity";
+"ndt" = "NDT Speed Test";
+"dash" = "DASH Streaming Test";
+"whatsapp" = "WhatsApp";
+"telegram" = "Telegram";
+"facebook_messenger" = "Facebook Messenger";
+
 "enabled" = "Enabled";
 "disabled" = "Disabled";
 "configure" = "Configure";
+"run" = "Run";
 
 /* Tabs */
 "dashboard" = "Dashboard";
@@ -65,7 +75,12 @@
 "automated_testing" = "Automated testing";
 "sharing" = "Sharing";
 "advanced" = "Advanced";
+
 "about_ooni" = "About OONI";
+"about_text_1" = "The Open Observatory of Network Interference (OONI) is a free software project under The Tor Project that aims to increase transparency of internet censorship around the world.";
+"about_text_2" ="Since 2012, OONI has collected millions of network measurements from around the world, shedding light on multiple instances of internet censorship and traffic manipulation.";
+"learn_more" = "Learn more";
+"view_data_policy" = "Click here to view our data policy";
 
 "notifications_enabled" = "Enabled";
 "notifications_completion" = "Notify on test completion";
@@ -144,6 +159,7 @@
 "reachable" = "Reachable";
 "days_ago" = "Days ago";
 "day_ago" = "Day ago";
+"no_internet" = "No internet";
 
 /* Test Running */
 "running_tests" = "Running Tests";
@@ -188,18 +204,36 @@
 "MISC" = "Miscelaneous content";
 
 /* Others */
+"cancel" = "Cancel";
+"ok" = "OK";
+
+"finished_running" = "%@ finished running";
+"open_url_alert" = "Do you want to open the following URL?";
+"max_runtime_low" = "The max runtime you have entered is too low, setting to default.";
+"clear_all_tests_alert" = "Do you want to delete all test results?";
+
+"try_mirror" = "Try mirror";
+"loading" = "Loading...";
+"set_default" = "Set default";
+
+"run_test_message" = "You are about to run an ooniprobe test on your network";
+"urls" = "URLs";
+"test_name" = "Test name";
+"test_details" = "Test Details";
+"ooniprobe_outdate" = "ooniprobe is out of date";
+"ooniprobe_outdate_msg" = "In order to run this test you need a newer version of ooniprobe, click on the button below to update";
+"invalid_parameter" = "Invalid parameter";
+"random_sampling_urls" = "A random sampling of URLs from the global list";
+
+"view_log" = "View log";
+"copy_to_clipboard" = "Copy to clipboard";
+"copied_clipboard" = "Copied into clipboard";
+"send_crash" = "Send crash reports";
+
+/*
 "run_tests" = "Run Tests";
 "past_tests" = "Past Tests";
 "about" = "About";
-
-"http_invalid_request_line" = "HTTP Invalid request line";
-"http_header_field_manipulation" = "HTTP Header field manipulation";
-"web_connectivity" = "Web Connectivity";
-"ndt" = "NDT Speed Test";
-"dash" = "DASH Streaming Test";
-"whatsapp" = "WhatsApp";
-"telegram" = "Telegram";
-"facebook_messenger" = "Facebook Messenger";
 
 "web_connectivity_desc" = "Check if websites are blocked";
 "http_invalid_request_line_desc" = "Find 'middle boxes'";
@@ -233,22 +267,13 @@
 "change" = "Change";
 
 "set_up_sharing" = "Setup Sharing";
-/*
-"include_ip" = "Include your IP?";
-"include_asn" = "Include your network info?";
-"include_cc" = "Include your country name?";
-"upload_results" = "Share results publicly?";
- */
-"settings_text" = "All measurements are sent by default to OONI's measurement collector and automately published through the OONI explorer and OONI's list of measurements.";
+
+ "settings_text" = "All measurements are sent by default to OONI's measurement collector and automately published through the OONI explorer and OONI's list of measurements.";
 "im_all_set" = "I'm all set!";
 "ooniprobe_configured" ="Successfully configured ooniprobe. You are all set to go!";
 
 "about_ooni" = "About OONI";
-"about_text_1" = "The Open Observatory of Network Interference (OONI) is a free software project under The Tor Project that aims to increase transparency of internet censorship around the world.";
-"about_text_2" ="Since 2012, OONI has collected millions of network measurements from around the world, shedding light on multiple instances of internet censorship and traffic manipulation.";
-"learn_more" = "Learn more";
 
-"run" = "Run";
 "view" = "View";
 
 "no_result" = "No results";
@@ -258,29 +283,8 @@
 "local_notifications_time" = "Time";
 "local_notifications_text" = "Time to run tests";
 
+ "test_name_finished" = "%@ finished, go to Past Tests to see the results";
 //"max_runtime" = "Web Connectivity max runtime (seconds)";
 "advanced_settings" = "Advanced settings";
-"finished_running" = "%@ finished running";
-"view_log" = "View log";
-"copy_to_clipboard" = "Copy to clipboard";
-"copied_clipboard" = "Copied into clipboard";
-"send_crash" = "Send crash reports";
 "privacy" = "Privacy";
-"view_data_policy" = "Click here to view our data policy";
-"test_name_finished" = "%@ finished, go to Past Tests to see the results";
-"open_url_alert" = "Do you want to open the following URL?";
-"max_runtime_low" = "The max runtime you have entered is too low, setting to default.";
-"clear_all_tests_alert" = "Do you want to delete all test results?";
-
-"try_mirror" = "Try mirror";
-"loading" = "Loading...";
-"set_default" = "Set default";
-
-"run_test_message" = "You are about to run an ooniprobe test on your network";
-"urls" = "URLs";
-"test_name" = "Test name";
-"test_details" = "Test Details";
-"ooniprobe_outdate" = "ooniprobe is out of date";
-"ooniprobe_outdate_msg" = "In order to run this test you need a newer version of ooniprobe, click on the button below to update";
-"invalid_parameter" = "Invalid parameter";
-"random_sampling_urls" = "A random sampling of URLs from the global list";
+*/
