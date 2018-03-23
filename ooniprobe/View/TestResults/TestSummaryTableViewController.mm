@@ -12,20 +12,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //TODO insert date
     self.navigationController.navigationBar.topItem.title = @"";
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.tableView.tableFooterView = [UIView new];
-    //self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
+
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     self.title = localizedDateTime;
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"networkTestEnded" object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"networkTestEnded" object:nil];
     [self reloadMeasurements];
     defaultColor = [SettingsUtility getColorForTest:result.name];
-    //self.title = NSLocalizedString(@"test_results", nil);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -41,10 +40,17 @@
     }
 }
 
+- (void)resultUpdated:(NSNotification *)notification
+{
+    result = [notification object];
+    [self reloadMeasurements];
+}
 
 -(void)reloadMeasurements{
     self.measurements = result.measurements;
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 #pragma mark - Table view data source
@@ -110,22 +116,30 @@
             [status setImage:[UIImage imageNamed:@"tick_red"]];
     }
     else if ([result.name isEqualToString:@"performance"]){
-        //TODO what to show in case of anomaly?
         [title setText:NSLocalizedString(current.name, nil)];
         UIImageView *detail1Image = (UIImageView*)[cell viewWithTag:5];
         UILabel *detail1Label = (UILabel*)[cell viewWithTag:6];
         UIStackView *stackView2 = (UIStackView*)[cell viewWithTag:4];
-        
-        //TODO
+        UIImageView *detail2Image = (UIImageView*)[cell viewWithTag:7];
+        UILabel *detail2Label = (UILabel*)[cell viewWithTag:8];
+        [detail1Image setHidden:NO];
+        [detail2Image setHidden:NO];
+        [detail1Label setHidden:NO];
+        [detail2Label setHidden:NO];
+
         if (current.blocking == MEASUREMENT_OK)
             [status setImage:nil];
         else if (current.blocking == MEASUREMENT_BLOCKED)
             [status setImage:nil];
+        else if (current.blocking == MEASUREMENT_FAILURE){
+            [detail1Image setHidden:YES];
+            [detail2Image setHidden:YES];
+            [detail1Label setHidden:YES];
+            [detail2Label setHidden:YES];
+        }
 
         if ([current.name isEqualToString:@"ndt"]){
             [stackView2 setHidden:NO];
-            UIImageView *detail2Image = (UIImageView*)[cell viewWithTag:7];
-            UILabel *detail2Label = (UILabel*)[cell viewWithTag:8];
             [detail1Image setImage:[UIImage imageNamed:@"upload_black"]];
             [detail2Image setImage:[UIImage imageNamed:@"download_black"]];
             [detail1Label setText:[NSString stringWithFormat:@"%@", [summary getUploadWithUnit]]];
@@ -213,9 +227,12 @@
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        Url *currentUrl = [[Url alloc] initWithUrl:segueObj.input category:segueObj.category];
-        [vc setCurrentTest:[[WCNetworkTest alloc] initWithUrls:@[currentUrl]]];
-        [segueObj remove];
+        /*if ([result.name isEqualToString:@"websites"]) {
+            Url *currentUrl = [[Url alloc] initWithUrl:segueObj.input category:segueObj.category];
+            [vc setCurrentTest:[[WCNetworkTest alloc] initWithUrls:@[currentUrl]]];
+            [segueObj remove];
+        }*/
+        [vc setCurrentTest:[[NetworkTest alloc] initWithMeasurement:segueObj]];
     }
 }
 

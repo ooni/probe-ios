@@ -11,20 +11,33 @@
     return self;
 }
 
-/*
 -(id) initWithMeasurement:(Measurement*)existingMeasurement {
     self = [super init];
     if (self) {
         self.result = existingMeasurement.result;
         self.mkNetworkTests = [[NSMutableArray alloc] init];
-        Url *currentUrl = [[Url alloc] initWithUrl:existingMeasurement.input category:existingMeasurement.category];
-        
-        [self addTest:existingMeasurement.name :@[currentUrl]];
+        if ([existingMeasurement.name isEqualToString:@"web_connectivity"]){
+            Url *currentUrl = [[Url alloc] initWithUrl:existingMeasurement.input category:existingMeasurement.category];
+            [self addTest:existingMeasurement.name :@[currentUrl]];
+        }
+        else
+            [self addTest:existingMeasurement.name :nil];
         [existingMeasurement remove];
     }
     return self;
 }
-*/
+
+//TODO when internet is off the totalMeasurements is 0
+-(void)updateMeasurementNumber:(Measurement*)oldMeasurement{
+    Summary *summary = [self.result getSummary];
+    summary.totalMeasurements--;
+    //if (oldMeasurement.blocking == MEASUREMENT_OK)
+    //    summary.okMeasurements++;
+    //else if (oldMeasurement.blocking == MEASUREMENT_FAILURE)
+        summary.failedMeasurements++;
+    //else if (oldMeasurement.blocking == MEASUREMENT_BLOCKED)
+    //    summary.blockedMeasurements--;
+}
 
 -(void)addTest:(NSString*)testName :(NSArray*)urls{
     if ([testName isEqualToString:@"whatsapp"]){
@@ -66,7 +79,7 @@
 }
 
 -(void)initCommon:(MKNetworkTest*)test{
-    [test setIdx:[self.mkNetworkTests count]];
+    [test setIdx:(int)[self.mkNetworkTests count]];
     [test setDelegate:self];
     [test setResultOfMeasurement:self.result];
     [self.mkNetworkTests addObject:test];
@@ -86,16 +99,15 @@
 
 -(void)testEnded:(MKNetworkTest*)test{
     NSLog(@"CALLBACK test_ended %@", test.name);
-    //TODO build json somehow
-    [self.result setSummary:@""];
+    //[self.result setSummary:@""];
     [self.mkNetworkTests removeObject:test];
-    
     //if last test
     if ([self.mkNetworkTests count] == 0){
         NSLog(@"ALL test_ended");
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
         [self.result setDone:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
     }
+    [self.result setSummary];
     [self.result save];
 }
 

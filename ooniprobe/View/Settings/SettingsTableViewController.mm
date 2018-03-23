@@ -109,7 +109,7 @@
     return cell;
 }
 
-//TODO
+//TODO not used now
 - (UITextField*)createAlertField:(NSString*)type :(NSString*)text{
     return nil;
 }
@@ -180,8 +180,7 @@
     }*/
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
-        //TODO string missing
-        [MessageUtility alertWithTitle:NSLocalizedString(@"error", nil) message:NSLocalizedString(@"cant deactivate", nil) inView:self];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"cant_deactivate", nil) message:nil inView:self];
         return;
     }
     

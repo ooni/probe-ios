@@ -16,21 +16,18 @@
 -(void)setResult:(Result*)result{
     [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_row", result.name]]];
     self.testNameLabel.text  = NSLocalizedString(result.name, nil);
-    
-    //TODO what to write when is null? (user disabled sharing asn)
-    //TODO these methods can be the GET of relative classes
-    NSString *asn = @"";
-    NSString *asnName = @"";
-    NSString *country = @"";
-    if (result.asn) asn = result.asn;
-    if (result.asnName) asnName = result.asnName;
-    if (result.country) country = result.country;
+    NSString *asn = [result getAsn];
+    NSString *asnName = [result getAsnName];
+    NSString *country = [result getCountry];
     
     NSMutableAttributedString *asnNameAttr = [[NSMutableAttributedString alloc] initWithString:asnName];
     [asnNameAttr addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                         range:NSMakeRange(0, asnNameAttr.length)];
-    NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", [NSString stringWithFormat:@"%@ (%@)", asn, country]]];
+    NSString *asnString = [NSString stringWithFormat:@" %@", [NSString stringWithFormat:@"%@ (%@)", asn, country]];
+    if ([asnString isEqualToString:@"  ()"])
+        asnString = NSLocalizedString(@"unknown", nil);
+    NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:asnString];
     [asnText addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                     range:NSMakeRange(0, asnText.length)];
@@ -72,7 +69,6 @@
         else if (summary.okMeasurements == summary.totalMeasurements)
             [self.label1 setText:NSLocalizedString(@"not_found", nil)];
         else
-            //TODO string
             [self.label1 setText:NSLocalizedString(@"failed", nil)];
 
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];

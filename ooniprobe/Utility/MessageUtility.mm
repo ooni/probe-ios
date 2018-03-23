@@ -45,11 +45,10 @@
     });
 }
 
-//TODO set strings
 + (void)notificationAlertinView:(UIViewController *)view
 {
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:NSLocalizedString(@"alert", nil)
+                                 alertControllerWithTitle:nil
                                  message:NSLocalizedString(@"enable_notification_first_time", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okButton = [UIAlertAction

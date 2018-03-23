@@ -4,7 +4,6 @@
 #import "DictionaryUtility.h"
 #import "RunTestViewController.h"
 #import "MessageUtility.h"
-#import "TestStorage.h"
 
 @interface AppDelegate ()
 
@@ -40,25 +39,27 @@
     if(notification) {
         [self handleNotification:notification :application];
     }
-    //If old test are detected, tell the user we are deleting them, no cancel button for now
-    //TODO waiting for https://github.com/TheTorProject/ooniprobe-ios/issues/161
-    /*if ([TestStorage get_old_tests]){
+    
+    //If old test are detected, tell the user we are deleting them, no cancel button
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:NSLocalizedString(@"old_test_detected", nil)
+                                     message:nil
+                                     preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* okButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"ok", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-                                       //[TestStorage remove_all_tests];
-                                       NSArray *finishedTests = [[TestStorage get_tests_rev] mutableCopy];
-                                       for (NetworkMeasurement *current in finishedTests)
-                                           NSLog(@"%@", current.json_file);
+                                       [self removeOldTests];
+                                       [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"new_tests"];
+                                       [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"tests"];
                                    }];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"old_test_detected", nil)
-                               message:nil
-                              okButton:okButton
-                                inView:self.window.rootViewController];
-
+        [alert addAction:okButton];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+        });
     }
-    */
+    
     return YES;
 }
 
@@ -271,4 +272,19 @@
         NSLog(@"%@", current);
     }
 }
+
+-(void)removeOldTests{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *paths = [fileManager contentsOfDirectoryAtPath:documentDirPath error:nil];
+    for (NSString *path in paths) {
+        if ([path containsString:@".json"] || [path containsString:@".log"]) {
+            // path is directory
+            NSError *error;
+            NSString *filePath = [documentDirPath stringByAppendingPathComponent:path];
+            [fileManager removeItemAtPath:filePath error:&error];
+        }
+    }
+}
+
 @end

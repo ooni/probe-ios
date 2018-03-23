@@ -10,6 +10,7 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showToast:) name:@"showToast" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openSettings) name:@"openSettings" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goToResults) name:@"goToResults" object:nil];
 
     UITabBarItem * tabItem = [self.tabBar.items objectAtIndex: 0];
     tabItem.image = [UIImage imageNamed:@"tab_dashboard"];
@@ -31,7 +32,6 @@
     }
 }
 
-
 -(void)showToast:(NSNotification *) notification{
     NSDictionary *userInfo = notification.userInfo;
     NSString *message = [userInfo objectForKey:@"message"];
@@ -42,6 +42,10 @@
 
 - (void)openSettings{
     [self performSegueWithIdentifier:@"settings" sender:self];
+}
+
+-(void)goToResults{
+    [self setSelectedIndex:1];
 }
 
 @end

@@ -14,30 +14,17 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 
-    //TODO here and in the two headers
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"networkTestEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
 
     [self.testNameLabel setText:NSLocalizedString(self.testName, nil)];
     
     NSString *testDesc = [NSString stringWithFormat:@"%@_longdesc", testName];
     [self.testDescriptionLabel setText:NSLocalizedString(testDesc, nil)];
 
-    //TODOs
+    //TODO Estimated Time test
     [self.timeLabel setText:@"2min 10MB"];
     
-    SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"name = '%@'", testName]] orderByDescending:@"startTime"] fetch];
-    
-    //TODO localize this string
-    if ([results count] > 0){
-        NSInteger daysAgo = [self daysBetweenTwoDates:[[results objectAtIndex:0] startTime]];
-        if (daysAgo < 2)
-            [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld %@", daysAgo, NSLocalizedString(@"day_ago", nil)]];
-        else
-            [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld %@", daysAgo, NSLocalizedString(@"days_ago", nil)]];
-    }
-    else
-        [self.lastRunLabel setText:NSLocalizedString(@"never", nil)];
-
+    [self reloadLastMeasurement];
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
     defaultColor = [SettingsUtility getColorForTest:testName];
     [self.runButton setTitleColor:defaultColor forState:UIControlStateNormal];
@@ -47,6 +34,20 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBarTintColor:defaultColor];
+}
+
+-(void)reloadLastMeasurement{
+    SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"name = '%@'", testName]] orderByDescending:@"startTime"] fetch];
+    
+    if ([results count] > 0){
+        NSInteger daysAgo = [self daysBetweenTwoDates:[[results objectAtIndex:0] startTime]];
+        if (daysAgo < 2)
+            [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld %@", daysAgo, NSLocalizedString(@"day_ago", nil)]];
+        else
+            [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld %@", daysAgo, NSLocalizedString(@"days_ago", nil)]];
+    }
+    else
+        [self.lastRunLabel setText:NSLocalizedString(@"never", nil)];
 }
 
 -(NSInteger)daysBetweenTwoDates:(NSDate*)testDate{

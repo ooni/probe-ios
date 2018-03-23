@@ -63,7 +63,7 @@
     test.set_option("software_version", [software_version UTF8String]);
     test.set_error_filepath([[TestUtility getFileName:self.measurement.Id ext:@"log"] UTF8String]);
     test.set_output_filepath([[TestUtility getFileName:self.measurement.Id ext:@"json"] UTF8String]);
-    test.set_verbosity(VERBOSITY);
+    test.set_verbosity([SettingsUtility getVerbosity]);
     test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
     test.on_log([self](uint32_t type, const char *s) {
         NSLog(@"%s", s);

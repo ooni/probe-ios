@@ -9,7 +9,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addLine:self.view2];
-    [self addLine:self.view3];
+    if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
+        [self addLine:self.view1];
+    }
+    else {
+        [self addLine:self.view3];
+    }
     [self.testsLabel setText:NSLocalizedString(@"tests", nil)];
     [self.networksLabel setText:NSLocalizedString(@"networks", nil)];
     [self.dataUsageLabel setText:NSLocalizedString(@"data_usage", nil)];
@@ -40,7 +45,6 @@
     let peopleBySurname = query.groupBy("surname")
     let totalAge = query.sumOf("age")
     
-    //TODO reload in case of filter
     //SRKRawResults* results = [SharkORM rawQuery:@""];
     
     +(SRKRawResults*)rawQuery:(NSString*)sql;
@@ -64,7 +68,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //TODO query every appear or send update every test?
     [self reloadQuery];
 }
 

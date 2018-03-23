@@ -20,9 +20,9 @@
         //string - to - NSDictionary
         NSError *error;
         NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
-        self.json = [NSJSONSerialization JSONObjectWithData:data
-                                                    options:kNilOptions
-                                                      error:&error];
+        self.json = [[NSJSONSerialization JSONObjectWithData:data
+                                                     options:kNilOptions
+                                                       error:&error] mutableCopy] ;
         if (error){
             NSLog(@"%@",[error description]);
             self.json = [[NSMutableDictionary alloc] init];
@@ -47,6 +47,7 @@
     }
 }
 
+//TODO what to do when a test is re-run?
 - (void)setStats {
     NSMutableDictionary *stats = [[NSMutableDictionary alloc] init];
     [stats setObject:[NSNumber numberWithInteger:self.totalMeasurements] forKey:@"total"];
@@ -77,7 +78,7 @@
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
         return [self setFractionalDigits:[self getScaledValue:upload]];
     }
-    return @"N/A";
+    return NSLocalizedString(@"n_a", nil);
 }
 
 -(NSString*)getUploadUnit{
@@ -85,14 +86,14 @@
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
         return [self getUnit:upload];
     }
-    return @"N/A";
+    return NSLocalizedString(@"n_a", nil);
 }
 
 -(NSString*)getUploadWithUnit{
     NSString *uploadUnit = [self getUploadUnit];
     if (![uploadUnit isEqualToString:@"N/A"])
         return [NSString stringWithFormat:@"%@ %@", [self getUpload], uploadUnit];
-    return @"N/A";
+    return NSLocalizedString(@"n_a", nil);
 }
 
 - (NSString*)getDownload{
@@ -100,7 +101,7 @@
         float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
         return [self setFractionalDigits:[self getScaledValue:download]];
     }
-    return @"N/A";
+    return NSLocalizedString(@"n_a", nil);
 }
 
 -(NSString*)getDownloadUnit{
@@ -108,14 +109,14 @@
         float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
         return [self getUnit:download];
     }
-    return @"N/A";
+    return NSLocalizedString(@"n_a", nil);
 }
 
 -(NSString*)getDownloadWithUnit{
     NSString *downloadUnit = [self getDownloadUnit];
     if (![downloadUnit isEqualToString:@"N/A"])
         return [NSString stringWithFormat:@"%@ %@", [self getDownload], downloadUnit];
-    return @"N/A";
+    return NSLocalizedString(@"n_a", nil);
 }
 
 - (float)getScaledValue:(float)value{
@@ -148,7 +149,7 @@
     if ([self.json safeObjectForKey:@"ndt"])
         return [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"ping"] stringValue];
     //TODO localize all N/A
-    return @"N/A";
+    return NSLocalizedString(@"n_a", nil);
 }
 
 /*
@@ -162,7 +163,7 @@
         else
             return [self minimumBitrateForVideo:[[[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"median_bitrate"] floatValue]];
     }
-    return @"N/A";
+    return NSLocalizedString(@"n_a", nil);
 }
 
 - (NSString*)minimumBitrateForVideo:(float)videoQuality{

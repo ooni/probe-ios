@@ -19,7 +19,9 @@
 @property Summary *summaryObj;
 
 @property BOOL done;
-
+-(NSString*)getAsn;
+-(NSString*)getAsnName;
+-(NSString*)getCountry;
 -(NSString*)getFormattedDataUsageDown;
 -(NSString*)getFormattedDataUsageUp;
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr;
@@ -28,5 +30,6 @@
 -(void)save;
 -(SRKResultSet*)measurements;
 -(Summary*)getSummary;
+-(void)setSummary;
 -(void)deleteObject;
 @end

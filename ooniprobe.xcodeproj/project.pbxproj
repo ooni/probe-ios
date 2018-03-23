@@ -34,7 +34,7 @@
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
 		ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.mm */; };
 		ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */; };
-		ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* TestStorage.mm */; };
+		ED58E8CA1D0C627D00C74F10 /* OldTestStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58E8C91D0C627D00C74F10 /* OldTestStorage.mm */; };
 		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */; };
 		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
 		ED6AC44B1FF8F97F003EA230 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC44A1FF8F97F003EA230 /* NSDictionary+Safety.m */; };
@@ -64,7 +64,7 @@
 		EDDB0B4D1FFD31B600EFD9C8 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B4C1FFD31B600EFD9C8 /* FeedTableViewController.m */; };
 		EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.mm */; };
 		EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */; };
-		EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.m */; };
+		EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */; };
 		EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B581FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m */; };
 		EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B5A1FFF330700EFD9C8 /* SettingsTableViewController.mm */; };
 		EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B5D1FFF3A5A00EFD9C8 /* TabsViewController.m */; };
@@ -137,8 +137,8 @@
 		ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DashboardTableViewController.mm; sourceTree = "<group>"; };
 		ED58CF7C1FEBBE2800E3C415 /* TestUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestUtility.h; path = Utility/TestUtility.h; sourceTree = "<group>"; };
 		ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TestUtility.mm; path = Utility/TestUtility.mm; sourceTree = "<group>"; };
-		ED58E8C81D0C627D00C74F10 /* TestStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestStorage.h; sourceTree = "<group>"; };
-		ED58E8C91D0C627D00C74F10 /* TestStorage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestStorage.mm; sourceTree = "<group>"; };
+		ED58E8C81D0C627D00C74F10 /* OldTestStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldTestStorage.h; sourceTree = "<group>"; };
+		ED58E8C91D0C627D00C74F10 /* OldTestStorage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OldTestStorage.mm; sourceTree = "<group>"; };
 		ED5F8A281F77C4AA0093C8F5 /* VersionUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VersionUtility.h; path = Utility/VersionUtility.h; sourceTree = "<group>"; };
 		ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = VersionUtility.mm; path = Utility/VersionUtility.mm; sourceTree = "<group>"; };
 		ED62AB9B1ED5B70500778249 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 		EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestResultsTableViewController.mm; sourceTree = "<group>"; };
 		EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
 		EDDB0B531FFF2C5300EFD9C8 /* SettingsUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsUtility.h; path = Utility/SettingsUtility.h; sourceTree = "<group>"; };
-		EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SettingsUtility.m; path = Utility/SettingsUtility.m; sourceTree = "<group>"; };
+		EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SettingsUtility.mm; path = Utility/SettingsUtility.mm; sourceTree = "<group>"; };
 		EDDB0B571FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsCategoriesTableViewController.h; path = Settings/SettingsCategoriesTableViewController.h; sourceTree = "<group>"; };
 		EDDB0B581FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SettingsCategoriesTableViewController.m; path = Settings/SettingsCategoriesTableViewController.m; sourceTree = "<group>"; };
 		EDDB0B5A1FFF330700EFD9C8 /* SettingsTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SettingsTableViewController.mm; path = Settings/SettingsTableViewController.mm; sourceTree = "<group>"; };
@@ -339,8 +339,8 @@
 		ED1CC8032015C0CB0041089A /* deprecated */ = {
 			isa = PBXGroup;
 			children = (
-				ED58E8C81D0C627D00C74F10 /* TestStorage.h */,
-				ED58E8C91D0C627D00C74F10 /* TestStorage.mm */,
+				ED58E8C81D0C627D00C74F10 /* OldTestStorage.h */,
+				ED58E8C91D0C627D00C74F10 /* OldTestStorage.mm */,
 			);
 			path = deprecated;
 			sourceTree = "<group>";
@@ -430,7 +430,7 @@
 				ED58CF7C1FEBBE2800E3C415 /* TestUtility.h */,
 				ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */,
 				EDDB0B531FFF2C5300EFD9C8 /* SettingsUtility.h */,
-				EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.m */,
+				EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -776,7 +776,7 @@
 			files = (
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
-				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.m in Sources */,
+				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
 				ED0D8D7020186742003DDF23 /* TestOverviewViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */,
@@ -815,7 +815,7 @@
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
-				ED58E8CA1D0C627D00C74F10 /* TestStorage.mm in Sources */,
+				ED58E8CA1D0C627D00C74F10 /* OldTestStorage.mm in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
 				ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */,
@@ -991,6 +991,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
+				IBC_WARNINGS = NO;
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = ooniprobe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1035,6 +1036,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
+				IBC_WARNINGS = NO;
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = ooniprobe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

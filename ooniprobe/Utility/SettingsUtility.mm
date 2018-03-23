@@ -1,4 +1,5 @@
 #import "SettingsUtility.h"
+#import <measurement_kit/common.hpp>
 
 @implementation SettingsUtility
 
@@ -30,7 +31,7 @@
 }
 
 + (NSString*)getTypeForSetting:(NSString*)setting{
-    //TODO make array with type
+    //TODO make array with type - REDOAFTERSTRINGS
     if ([setting isEqualToString:@"website_categories"] || [setting isEqualToString:@"enabled_tests"] || [setting isEqualToString:@"custom_url"])
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"] || [setting isEqualToString:@"ndt_server_port"] || [setting isEqualToString:@"dash_server_port"])
@@ -51,6 +52,12 @@
 
 + (NSArray*)getAutomaticTestsEnabled{
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"automatic_tests"];
+}
+
++ (int)getVerbosity {
+    if ([self getSettingWithName:@"debug_logs"])
+        return MK_LOG_DEBUG2;
+    return MK_LOG_WARNING;
 }
 
 + (NSArray*)addRemoveAutomaticTest:(NSString*)testName{

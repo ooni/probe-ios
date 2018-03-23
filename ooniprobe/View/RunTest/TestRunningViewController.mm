@@ -24,13 +24,11 @@
     [self.etaLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"estimated_time_remaining", nil)]];
     [self.currentTestLabel setText:@""];
 
-    //TODO
+    //TODO Estimated Time test
     [self.timeLabel setText:[NSString stringWithFormat:@"0 seconds"]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
 
-    //NOT USED
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testEnded) name:@"testEnded" object:nil];
     animation = [LOTAnimationView animationNamed:@"checkMark"];
     //[animation setBackgroundColor:[SettingsUtility getColorForTest:testName]];
     animation.contentMode = UIViewContentModeScaleAspectFit;
@@ -72,16 +70,13 @@
 
 }
 
-/*
--(void)testEnded{
-    //TODO completion
-}
-*/
-
 -(void)networkTestEnded{
-    //TODO toast?
+    //TODO Change screen
+    /*
+     b. Go to the general results and show the row of that test result as highlighted (this has the benefit of "teaching" the user that this screen exists and how it works)
+     */
     [self dismissViewControllerAnimated:TRUE completion:^{
-        //[[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTests" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
     }];
 }
 

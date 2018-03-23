@@ -53,7 +53,7 @@
     [titleLabel setText:NSLocalizedString(testName, nil)];
     NSString *test_desc = [NSString stringWithFormat:@"%@_desc", testName];
     [descLabel setText:NSLocalizedString(test_desc, nil)];
-    //TODO
+    //TODO Estimated Time test
     [estimateTime setText:@"2min"];
     [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
     [backgroundView setBackgroundColor:[SettingsUtility getColorForTest:testName]];

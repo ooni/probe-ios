@@ -71,12 +71,30 @@
     self.summary = [self.summaryObj getJsonStr];
 }
 
+-(NSString*)getAsn{
+    if (self.asn != nil)
+        return self.asn;
+    return @"";
+}
+
+-(NSString*)getAsnName{
+    if (self.asnName != nil)
+        return self.asnName;
+    return @"";
+}
+
+-(NSString*)getCountry{
+    if (self.country != nil)
+        return self.country;
+    return @"";
+}
+
 -(void)save{
-    [self setSummary];
     [self commit];
     NSLog(@"---- START LOGGING RESULT OBJECT----");
     NSLog(@"%@", self);
     NSLog(@"---- END LOGGING RESULT OBJECT----");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"resultUpdated" object:self];
     /*
      NSLog(@"---- START LOGGING RESULT OBJECT----");
      NSLog(@"%@", self);
