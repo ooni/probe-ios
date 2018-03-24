@@ -22,21 +22,18 @@
         }
         else
             [self addTest:existingMeasurement.name :nil];
+        [self updateMeasurementNumber];
         [existingMeasurement remove];
     }
     return self;
 }
 
-//TODO when internet is off the totalMeasurements is 0
--(void)updateMeasurementNumber:(Measurement*)oldMeasurement{
+-(void)updateMeasurementNumber{
     Summary *summary = [self.result getSummary];
     summary.totalMeasurements--;
-    //if (oldMeasurement.blocking == MEASUREMENT_OK)
-    //    summary.okMeasurements++;
-    //else if (oldMeasurement.blocking == MEASUREMENT_FAILURE)
-        summary.failedMeasurements++;
-    //else if (oldMeasurement.blocking == MEASUREMENT_BLOCKED)
-    //    summary.blockedMeasurements--;
+    summary.failedMeasurements--;
+    [self.result setSummary];
+    [self.result save];
 }
 
 -(void)addTest:(NSString*)testName :(NSArray*)urls{

@@ -52,6 +52,12 @@
     [self.result setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
     [self.measurement setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
 
+    Summary *summary = [self.result getSummary];
+    summary.totalMeasurements++;
+    summary.failedMeasurements++;
+    [self.result setSummary];
+    [self.result save];
+
     //Configuring common test parameters
     test.set_option("geoip_country_path", [geoip_country UTF8String]);
     test.set_option("geoip_asn_path", [geoip_asn UTF8String]);
@@ -296,16 +302,17 @@
 
 
 -(void)updateBlocking:(int)blocking{
-    //if (blocking > self.measurement.blocking){
     [self.measurement setBlocking:blocking];
     Summary *summary = [self.result getSummary];
-    summary.totalMeasurements++;
-    if (blocking == MEASUREMENT_OK)
-        summary.okMeasurements++;
-    else if (blocking == MEASUREMENT_FAILURE)
-        summary.failedMeasurements++;
-    else if (blocking == MEASUREMENT_BLOCKED)
-        summary.blockedMeasurements++;
+    if (blocking != MEASUREMENT_FAILURE){
+        summary.failedMeasurements--;
+        if (blocking == MEASUREMENT_OK)
+            summary.okMeasurements++;
+        else if (blocking == MEASUREMENT_BLOCKED)
+            summary.blockedMeasurements++;
+        [self.result setSummary];
+        [self.result save];
+    }
 }
 
 -(void)run {
