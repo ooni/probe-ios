@@ -109,7 +109,7 @@
                                                         <color key="titleColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="4q0-13-6dh" kind="presentation" identifier="toTestRun" id="bP5-uf-jSV"/>
+                                                        <action selector="run:" destination="xoz-EJ-COn" eventType="touchUpInside" id="rPu-zn-efu"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -158,6 +158,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="4q0-13-6dh" kind="presentation" identifier="toTestRun" id="wqI-w5-99i"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcU-8V-FpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -517,7 +520,7 @@
                                             <color key="titleColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4q0-13-6dh" kind="presentation" identifier="toTestRun" id="teh-nb-OgK"/>
+                                            <action selector="run:" destination="KQ9-fn-Vaa" eventType="touchUpInside" id="ycI-0x-Waj"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ 2 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WB-R0-WW0">
@@ -608,6 +611,7 @@
                         <outlet property="testImage" destination="8lW-6g-uP6" id="GWF-nd-G8Q"/>
                         <outlet property="testNameLabel" destination="P4V-eN-VhB" id="7qY-OR-WYr"/>
                         <outlet property="timeLabel" destination="5WB-R0-WW0" id="gex-t9-7iy"/>
+                        <segue destination="4q0-13-6dh" kind="presentation" identifier="toTestRun" id="Get-FV-hMZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngJ-KH-xLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1553,7 +1557,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bjV-cE-1hN"/>
-        <segue reference="teh-nb-OgK"/>
+        <segue reference="Get-FV-hMZ"/>
         <segue reference="HUp-5Z-Q68"/>
     </inferredMetricsTieBreakers>
 </document>

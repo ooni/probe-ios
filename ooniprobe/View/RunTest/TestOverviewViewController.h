@@ -4,6 +4,7 @@
 #import "TestRunningViewController.h"
 #import "Result.h"
 #import "SettingsTableViewController.h"
+#import "ReachabilityManager.h"
 
 @interface TestOverviewViewController : UIViewController {
     UIColor *defaultColor;

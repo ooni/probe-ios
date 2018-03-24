@@ -67,6 +67,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(IBAction)run:(id)sender{
+    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
+        [self performSegueWithIdentifier:@"toTestRun" sender:sender];
+    else
+        [MessageUtility alertWithTitle:@"warning" message:@"no_internet" inView:self];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestSettings"]){
         UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];

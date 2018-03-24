@@ -4,6 +4,7 @@
 #import "RunButton.h"
 #import "ConfigureButton.h"
 #import "TestOverviewViewController.h"
+#import "ReachabilityManager.h"
 
 @interface DashboardTableViewController : UITableViewController {
     NSArray *items;

@@ -66,6 +66,14 @@
     }
 }
 
+-(IBAction)run:(id)sender{
+    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
+        [self performSegueWithIdentifier:@"toTestRun" sender:self];
+    else
+        [MessageUtility alertWithTitle:@"warning" message:@"no_internet" inView:self];
+}
+
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
