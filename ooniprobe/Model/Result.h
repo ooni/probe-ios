@@ -17,8 +17,9 @@
 @property NSString *networkType;
 @property NSString *summary;
 @property Summary *summaryObj;
-
+@property BOOL viewed;
 @property BOOL done;
+
 -(NSString*)getAsn;
 -(NSString*)getAsnName;
 -(NSString*)getCountry;

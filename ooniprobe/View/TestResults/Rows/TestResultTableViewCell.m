@@ -14,6 +14,11 @@
 }
 
 -(void)setResult:(Result*)result{
+    if (!result.viewed)
+        [self setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow5 alpha:1.0f]];
+    else
+        [self setBackgroundColor:[UIColor clearColor]];
+
     [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_row", result.name]]];
     self.testNameLabel.text  = NSLocalizedString(result.name, nil);
     NSString *asn = [result getAsn];

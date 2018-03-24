@@ -168,6 +168,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         TestSummaryTableViewController *vc = (TestSummaryTableViewController * )segue.destinationViewController;
         Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        if (!current.viewed){
+            [current setViewed:YES];
+            [current save];
+        }
         [vc setResult:current];
     }
 }
