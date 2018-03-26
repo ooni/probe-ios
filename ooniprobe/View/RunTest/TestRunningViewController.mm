@@ -71,10 +71,6 @@
 }
 
 -(void)networkTestEnded{
-    //TODO Change screen
-    /*
-     b. Go to the general results and show the row of that test result as highlighted (this has the benefit of "teaching" the user that this screen exists and how it works)
-     */
     [self dismissViewControllerAnimated:TRUE completion:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
     }];

@@ -82,15 +82,14 @@
         query = [[[Result query] where:[NSString stringWithFormat:@"name = '%@'", filter]] orderByDescending:@"startTime"];
     else
         query = [[Result query] orderByDescending:@"startTime"];
-    
+
     double dataUsageDown = [query sumOf:@"dataUsageDown"];
     double dataUsageUp = [query sumOf:@"dataUsageUp"];
     
     [self.upLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageUp countStyle:NSByteCountFormatterCountStyleFile]];
     [self.downLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageDown countStyle:NSByteCountFormatterCountStyleFile]];
     [self.numberTestsLabel setText:[NSString stringWithFormat:@"%llu", [query count]]];
-    //TODO BUG this count also the nulls
-    [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", [[query distinct:@"asn"] count]]];
+    [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", [[[query where:[NSString stringWithFormat:@"asn != 'null'"]] distinct:@"asn"] count]]];
     [self.delegate testFilter:query];
 }
 
