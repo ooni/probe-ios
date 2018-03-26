@@ -21,7 +21,7 @@
     filter = @"";
     [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"networkTestEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQueryNoFilter) name:@"networkTestEnded" object:nil];
     self.dropdownMenu.tintColor = [UIColor colorWithRGBHexString:color_black alpha:1.0f];
     /*
     self.disclosureIndicatorView.image = image;
@@ -68,6 +68,11 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self reloadQuery];
+}
+
+-(void)reloadQueryNoFilter{
+    filter = @"";
     [self reloadQuery];
 }
 
