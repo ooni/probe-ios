@@ -5,6 +5,7 @@
 #import "Result.h"
 #import "SettingsTableViewController.h"
 #import "ReachabilityManager.h"
+#import "RHMarkdownLabel.h"
 
 @interface TestOverviewViewController : UIViewController {
     UIColor *defaultColor;
@@ -18,7 +19,7 @@
 @property (strong, nonatomic) IBOutlet ConfigureButton *configureButton;
 @property (strong, nonatomic) IBOutlet RunButton *runButton;
 @property (strong, nonatomic) IBOutlet UILabel *lastRunLabel;
-@property (strong, nonatomic) IBOutlet UILabel *testDescriptionLabel;
+@property (strong, nonatomic) IBOutlet RHMarkdownLabel *testDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 
 @end

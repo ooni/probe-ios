@@ -31,9 +31,13 @@ PODS:
   - MBProgressHUD (1.1.0)
   - measurement_kit (0.8.1)
   - MKDropdownMenu (1.4)
+  - RHMarkdownLabel (0.0.1):
+    - TTTAttributedLabel
+    - XNGMarkdownParser
   - SharkORM (2.1.3)
   - Toast (4.0.0)
   - TTTAttributedLabel (2.0.0)
+  - XNGMarkdownParser (0.3.2)
 
 DEPENDENCIES:
   - ContentfulDeliveryAPI
@@ -45,9 +49,9 @@ DEPENDENCIES:
   - MBProgressHUD
   - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, tag `v0.8.1`)
   - MKDropdownMenu
+  - RHMarkdownLabel
   - SharkORM
   - Toast (~> 4.0.0)
-  - TTTAttributedLabel
 
 EXTERNAL SOURCES:
   measurement_kit:
@@ -71,10 +75,12 @@ SPEC CHECKSUMS:
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   measurement_kit: 6ba384d6352526c3711979ff3db66af794ef8b35
   MKDropdownMenu: 269df4a41d21a1db684ce8bc709befe419fc5bae
+  RHMarkdownLabel: 81d6772768e621be57302b7fd5212ad4f78fb0bd
   SharkORM: 0dd55f13d82ab4c68f7c54012211c6a34a9f0001
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  XNGMarkdownParser: aed98c14f0c0eb20064184ddf9bac26c482722b2
 
-PODFILE CHECKSUM: 64e874b2da82c6d28918b3bf0d86addb8ca941a5
+PODFILE CHECKSUM: da10a2ba03c924d256280d90305c320ed22e46a6
 
 COCOAPODS: 1.4.0

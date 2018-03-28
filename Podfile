@@ -15,5 +15,5 @@ target 'ooniprobe' do
     pod 'ContentfulPersistenceObjC'
     pod 'SharkORM'
     pod 'MKDropdownMenu'
-    pod 'TTTAttributedLabel'
+    pod 'RHMarkdownLabel'
 end

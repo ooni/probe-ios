@@ -19,8 +19,11 @@
     [self.testNameLabel setText:NSLocalizedString(self.testName, nil)];
     
     NSString *testDesc = [NSString stringWithFormat:@"%@_longdesc", testName];
-    [self.testDescriptionLabel setText:NSLocalizedString(testDesc, nil)];
-
+    [self.testDescriptionLabel setMarkdown:testDesc];
+    [self.testDescriptionLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
+        [[UIApplication sharedApplication] openURL:url];
+    }];
+    
     //TODO Estimated Time test
     [self.timeLabel setText:@"2min 10MB"];
     
