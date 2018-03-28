@@ -10,10 +10,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *textLabel;
 @property (strong, nonatomic) IBOutlet UIButton *nextButton;
-@property (nonatomic, assign) NSInteger question_number;
+@property (nonatomic, assign) int question_number;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
--(void)setQuestion_number:(NSInteger)qn;
+-(void)setQuestion_number:(int)qn;
 
 @end

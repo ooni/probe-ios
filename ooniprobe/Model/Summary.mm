@@ -34,10 +34,10 @@
 
 - (void)initVars{
     if ([self.json safeObjectForKey:@"stats"]){
-        self.totalMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"total"] integerValue];
-        self.okMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"ok"] integerValue];
-        self.failedMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"failed"] integerValue];
-        self.blockedMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"blocked"] integerValue];
+        self.totalMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"total"] intValue];
+        self.okMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"ok"] intValue];
+        self.failedMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"failed"] intValue];
+        self.blockedMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"blocked"] intValue];
     }
     else {
         self.totalMeasurements = 0;

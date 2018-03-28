@@ -29,7 +29,7 @@ typedef enum
 
 @property MeasurementStatus state;
 
-@property NSInteger blocking;
+@property int blocking;
 
 @property Result *result;
 

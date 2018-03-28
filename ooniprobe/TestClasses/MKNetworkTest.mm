@@ -84,8 +84,8 @@
         [self on_entry:s.c_str()];
     });
     test.on_overall_data_usage([self](mk::DataUsage d) {
-        [self.result setDataUsageDown:self.result.dataUsageDown+d.down];
-        [self.result setDataUsageUp:self.result.dataUsageUp+d.up];
+        [self.result setDataUsageDown:self.result.dataUsageDown+(long)d.down];
+        [self.result setDataUsageUp:self.result.dataUsageUp+(long)d.up];
     });
     test.start([self]() {
         [self testEnded];

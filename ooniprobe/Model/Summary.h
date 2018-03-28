@@ -21,10 +21,10 @@
  }
  */
 
-@property NSInteger totalMeasurements;
-@property NSInteger okMeasurements;
-@property NSInteger failedMeasurements;
-@property NSInteger blockedMeasurements;
+@property int totalMeasurements;
+@property int okMeasurements;
+@property int failedMeasurements;
+@property int blockedMeasurements;
 
 @property NSMutableDictionary *json;
 

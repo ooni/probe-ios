@@ -42,9 +42,9 @@
     if ([results count] > 0){
         NSInteger daysAgo = [self daysBetweenTwoDates:[[results objectAtIndex:0] startTime]];
         if (daysAgo < 2)
-            [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld %@", daysAgo, NSLocalizedString(@"day_ago", nil)]];
+            [self.lastRunLabel setText:[NSString stringWithFormat:@"%d %@", (int)daysAgo, NSLocalizedString(@"day_ago", nil)]];
         else
-            [self.lastRunLabel setText:[NSString stringWithFormat:@"%ld %@", daysAgo, NSLocalizedString(@"days_ago", nil)]];
+            [self.lastRunLabel setText:[NSString stringWithFormat:@"%d %@", (int)daysAgo, NSLocalizedString(@"days_ago", nil)]];
     }
     else
         [self.lastRunLabel setText:NSLocalizedString(@"never", nil)];

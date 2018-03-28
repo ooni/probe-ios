@@ -43,7 +43,7 @@
 
 }
 
--(void)setQuestion_number:(NSInteger)qn;
+-(void)setQuestion_number:(int)qn
 {
     question_number = qn;
     if (qn == 3){

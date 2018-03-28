@@ -38,7 +38,7 @@
 
 - (void)reloadQuestion{
     NSMutableAttributedString *questionIntro = [[NSMutableAttributedString alloc]
-                                                 initWithString:[NSString stringWithFormat:@"%@ %ld/2\n\n", NSLocalizedString(@"question", nil), question_number]];
+                                                 initWithString:[NSString stringWithFormat:@"%@ %d/2\n\n", NSLocalizedString(@"question", nil), question_number]];
     [questionIntro addAttribute:NSFontAttributeName
                            value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                            range:NSMakeRange(0, questionIntro.length)];

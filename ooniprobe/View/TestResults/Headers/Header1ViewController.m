@@ -68,14 +68,14 @@
     Summary *summary = [self.result getSummary];
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([result.name isEqualToString:@"websites"]){
-            [self.label1Central setText:[NSString stringWithFormat:@"%ld", summary.totalMeasurements]];
-            [self.label2Central setText:[NSString stringWithFormat:@"%ld", summary.blockedMeasurements]];
-            [self.label3Central setText:[NSString stringWithFormat:@"%ld", summary.okMeasurements]];
+            [self.label1Central setText:[NSString stringWithFormat:@"%d", summary.totalMeasurements]];
+            [self.label2Central setText:[NSString stringWithFormat:@"%d", summary.blockedMeasurements]];
+            [self.label3Central setText:[NSString stringWithFormat:@"%d", summary.okMeasurements]];
         }
         else if ([result.name isEqualToString:@"instant_messaging"]){
-            [self.label1Central setText:[NSString stringWithFormat:@"%ld", summary.totalMeasurements]];
-            [self.label2Central setText:[NSString stringWithFormat:@"%ld", summary.blockedMeasurements]];
-            [self.label3Central setText:[NSString stringWithFormat:@"%ld", summary.okMeasurements]];
+            [self.label1Central setText:[NSString stringWithFormat:@"%d", summary.totalMeasurements]];
+            [self.label2Central setText:[NSString stringWithFormat:@"%d", summary.blockedMeasurements]];
+            [self.label3Central setText:[NSString stringWithFormat:@"%d", summary.okMeasurements]];
         }
         else if ([result.name isEqualToString:@"performance"]){
             [self.label1Central setText:[summary getVideoQuality:YES]];

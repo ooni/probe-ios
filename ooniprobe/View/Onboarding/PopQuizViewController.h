@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *closeView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *textLabel;
-@property (nonatomic, assign) NSInteger question_number;
+@property (nonatomic, assign) int question_number;
 @property (nonatomic, weak) id<PopQuizViewControllerDelegate> delegate;
 
 -(void)nextQuestion;

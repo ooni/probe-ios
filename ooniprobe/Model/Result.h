@@ -7,8 +7,8 @@
 @property NSString *name;
 @property NSDate *startTime;
 @property float duration;
-@property NSInteger dataUsageDown;
-@property NSInteger dataUsageUp;
+@property long dataUsageDown;
+@property long dataUsageUp;
 @property NSString *ip;
 @property NSString *asn;
 @property NSString *asnName;
