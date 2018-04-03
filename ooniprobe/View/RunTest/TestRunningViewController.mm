@@ -20,14 +20,14 @@
     self.progressBar.layer.masksToBounds = YES;
 
     [self.runningTestsLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"running_tests", nil)]];
-    [self.testNameLabel setText:NSLocalizedString(currentTest.result.name, nil)];
+    [self.logLabel setText:@""];
     [self.etaLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"estimated_time_remaining", nil)]];
-    [self.currentTestLabel setText:@""];
 
     //TODO Estimated Time test
     [self.timeLabel setText:[NSString stringWithFormat:@"0 seconds"]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
 
     animation = [LOTAnimationView animationNamed:@"checkMark"];
     //[animation setBackgroundColor:[SettingsUtility getColorForTest:testName]];
@@ -48,6 +48,14 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
+
+
+-(void)updateLog:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *log = [userInfo objectForKey:@"log"];
+    [self.logLabel setText:log];
+}
+
 -(void)updateProgress:(NSNotification *)notification{
     /*
      Format string with minute and seconds
@@ -61,8 +69,10 @@
     float prevProgress = [index floatValue]/totalTests;
     float progress = ([prog floatValue]/totalTests)+prevProgress;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.currentTestLabel setText:[NSString stringWithFormat:@"... %@ %@", [NSLocalizedString(@"running", nil) lowercaseString], NSLocalizedString(name, nil)]];
+        //[self.currentTestLabel setText:[NSString stringWithFormat:@"... %@ %@", [NSLocalizedString(@"running", nil) lowercaseString], NSLocalizedString(name, nil)]];
         [self.progressBar setProgress:progress animated:YES];
+        [self.testNameLabel setText:NSLocalizedString(name, nil)];
+
     });
     [animation playWithCompletion:^(BOOL animationFinished) {
         //[animation removeFromSuperview];

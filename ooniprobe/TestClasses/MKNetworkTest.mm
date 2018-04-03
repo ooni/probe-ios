@@ -72,7 +72,7 @@
     test.set_verbosity([SettingsUtility getVerbosity]);
     test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
     test.on_log([self](uint32_t type, const char *s) {
-        NSLog(@"%s", s);
+        [self sendLog:[NSString stringWithFormat:@"%s", s]];
     });
     test.on_begin([self]() {
         [self updateProgress:0];
@@ -89,6 +89,15 @@
     });
     test.start([self]() {
         [self testEnded];
+    });
+}
+
+-(void)sendLog:(NSString*)log{
+    NSLog(@"on_log %@", log);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
+        [noteInfo setObject:log forKey:@"log"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateLog" object:nil userInfo:noteInfo];
     });
 }
 

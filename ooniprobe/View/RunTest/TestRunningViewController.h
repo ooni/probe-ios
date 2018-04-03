@@ -15,6 +15,6 @@
 @property (strong, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (strong, nonatomic) IBOutlet UILabel *etaLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *currentTestLabel;
+@property (strong, nonatomic) IBOutlet UILabel *logLabel;
 
 @end
