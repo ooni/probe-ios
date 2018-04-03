@@ -21,14 +21,14 @@
     }
     
     [self.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.titleLabel setText:NSLocalizedString(@"what_is_ooniprobe", nil)];
+    [self.titleLabel setText:NSLocalizedString(@"Onboarding.WhatIsOONIProbe.Title", nil)];
     
-    NSMutableAttributedString *whatIsOoniprobe1 = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"what_is_ooniprobe_1", nil)];
+    NSMutableAttributedString *whatIsOoniprobe1 = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.WhatIsOONIProbe.Paragraph.1", nil)];
     [whatIsOoniprobe1 addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                     range:NSMakeRange(0, whatIsOoniprobe1.length)];
     
-    NSMutableAttributedString *whatIsOoniprobe2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(@"what_is_ooniprobe_2", nil)]];
+    NSMutableAttributedString *whatIsOoniprobe2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(@"Onboarding.WhatIsOONIProbe.Paragraph.2", nil)]];
     [whatIsOoniprobe2 addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                     range:NSMakeRange(0, whatIsOoniprobe2.length)];

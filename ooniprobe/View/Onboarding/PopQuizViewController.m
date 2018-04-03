@@ -10,10 +10,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.trueButton addTarget:self action:@selector(answer:) forControlEvents:UIControlEventTouchUpInside];
-    [self.trueButton setTitle:[NSLocalizedString(@"_true", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.trueButton setTitle:[NSLocalizedString(@"Onboarding.PopQuiz.True", nil) uppercaseString] forState:UIControlStateNormal];
     
     [self.falseButton addTarget:self action:@selector(answer:) forControlEvents:UIControlEventTouchUpInside];
-    [self.falseButton setTitle:[NSLocalizedString(@"_false", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.falseButton setTitle:[NSLocalizedString(@"Onboarding.PopQuiz.False", nil) uppercaseString] forState:UIControlStateNormal];
     
     [self.trueButton setTitleColor:[UIColor whiteColor]
                             forState:UIControlStateNormal];
@@ -29,7 +29,7 @@
     [self.cointainerWindow setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     [self.cointainerWindow setBackgroundColor:[UIColor colorWithRed:5.0/255.0 green:136.0/255.0 blue:203.0/255.0 alpha:1.0]];
     
-    [self.titleLabel setText:NSLocalizedString(@"pop_quiz", nil)];
+    [self.titleLabel setText:NSLocalizedString(@"Onboarding.PopQuiz.Title", nil)];
     [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.textLabel setTextColor:[UIColor whiteColor]];
 
@@ -114,6 +114,7 @@
     if ([[segue identifier] isEqualToString:@"toWrongAnswer"]){
         WrongAnswerViewController *vc = (WrongAnswerViewController * )segue.destinationViewController;
         [vc setDelegate:self];
+        [vc setQuestion_number:question_number];
     }
 }
 

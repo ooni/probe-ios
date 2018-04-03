@@ -1,29 +1,34 @@
 // Part of MeasurementKit <https://measurement-kit.github.io/>.
 // MeasurementKit is free software. See AUTHORS and LICENSE for more
 // information on the copying conditions.
-"app_name" = "OONI Probe";
+"General.AppName" = "OONI Probe";
+"Onboarding.Welcome.Title" = "Welcome to";
+"Onboarding.WhatIsOONIProbe.Title" = "What is OONI Probe?";
+"Onboarding.WhatIsOONIProbe.Paragraph.1" = "Your tool for detecting internet censorship!";
+"Onboarding.WhatIsOONIProbe.Paragraph.2" = "OONI Probe checks whether your provider blocks access to sites and services. Run OONI Probe to collect evidence of internet censorship and to measure your network performance.";
+"Onboarding.WhatIsOONIProbe.Button" = "Learn more";
+"Onboarding.ThingsToKnow.Title" = "Heads-up";
+"Onboarding.ThingsToKnow.Bullet.1" = "OONI data is openly published and will include your network information.";
+"Onboarding.ThingsToKnow.Bullet.2" = "Anyone monitoring your internet activity (e.g governments or ISP) will know that you are running OONI Probe.";
+"Onboarding.ThingsToKnow.Bullet.3" = "You may test objectionable sites.";
+"Onboarding.ThingsToKnow.Bullet.4" = "Read the docs to learn more.";
+"Onboarding.ThingsToKnow.Button" = "I understand";
+"Onboarding.PopQuiz.Title" = "Pop Quiz";
 
-/* Onboarding */
-"welcome_to" = "Welcome to";
-"what_is_ooniprobe" = "What is OONI Probe?";
-"what_is_ooniprobe_1" = "OONI Probe is free and open source software that enables you to examine internet censorship in your network.";
-"what_is_ooniprobe_2" = "The data that you can collect through this app can serve as evidence of censorship events.";
-"things_to_know" = "Things to know";
-"things_to_know_1" = "OONI data is openly published and will include your network information.";
-"things_to_know_2" = "Anyone monitoring your internet activity (e.g governments or ISP) will know that you are running OONI Probe.";
-"things_to_know_3" = "You may test objectionable sites.";
-"things_to_know_4" = "Read the docs to learn more.";
-"i_understand" = "I understand";
-"pop_quiz" = "Pop Quiz";
 "question" = "Question";
-"question_1" = "Anyone monitoring your internet activity may be able to see that you are running OONI Probe.";
-"question_2" = "My measurements will get published by OONI and they will include my network information.";
-"_true" = "True";
-"_false" = "False";
+
+"Onboarding.PopQuiz.1.Question" = "Anyone monitoring my internet activity may be able to see that I am running OONI Probe.";
+"Onboarding.PopQuiz.2.Question" = "The network data I will collect will automatically be published (unless I opt-out in the settings).";
+"Onboarding.PopQuiz.True" = "True";
+"Onboarding.PopQuiz.False" = "False";
+
 "actually" = "Actually";
-"question_1_wrong" = "Anyone monitoring your internet activity (e.g government, ISP, employer) will know that you are running OONI Probe, just like any other software.";
-"go_back" = "Go back";
-"_continue" = "Continue";
+
+"Onboarding.PopQuiz.1.Wrong.Paragraph" = "OONI Probe is not a privacy tool. Therefore, anyone monitoring your internet activity may be able to see which software you are running.";
+"Onboarding.PopQuiz.2.Wrong.Paragraph" = "The network data you will collect will automatically be published to increase transparency of internet censorship (unless you opt-out in the settings).";
+"Onboarding.PopQuiz.Wrong.Button.Back" = "Go back";
+"Onboarding.PopQuiz.Wrong.Button.Continue" = "Continue";
+
 "default_settings" = "Default Settings";
 "we_will_collect" = "We will collect and publish:";
 "default_settings_1" = "Country code of measurements";
@@ -79,7 +84,6 @@
 "about_ooni" = "About OONI";
 "about_text_1" = "The Open Observatory of Network Interference (OONI) is a free software project under The Tor Project that aims to increase transparency of internet censorship around the world.";
 "about_text_2" ="Since 2012, OONI has collected millions of network measurements from around the world, shedding light on multiple instances of internet censorship and traffic manipulation.";
-"learn_more" = "Learn more";
 "view_data_policy" = "Click here to view our data policy";
 
 "notifications_enabled" = "Enabled";
