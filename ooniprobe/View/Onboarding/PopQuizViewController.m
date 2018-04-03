@@ -37,20 +37,25 @@
 }
 
 - (void)reloadQuestion{
-    NSMutableAttributedString *questionIntro = [[NSMutableAttributedString alloc]
-                                                 initWithString:[NSString stringWithFormat:@"%@ %d/2\n\n", NSLocalizedString(@"question", nil), question_number]];
-    [questionIntro addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                           range:NSMakeRange(0, questionIntro.length)];
+    
+    NSMutableAttributedString *questionTitle;
     NSMutableAttributedString *questionText;
-    if (question_number == 1)
-        questionText = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"question_1", nil)];
-    else if (question_number == 2)
-        questionText = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"question_2", nil)];
+    if (question_number == 1){
+        questionTitle = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.PopQuiz.1.Title", nil)];
+        questionText = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.PopQuiz.1.Question", nil)];
+    }
+    else if (question_number == 2){
+        questionTitle = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.PopQuiz.1.Title", nil)];
+        questionText = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.PopQuiz.2.Question", nil)];
+    }
     else {
         //should not happen
         assert(false);
     }
+    [questionTitle addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
+                           range:NSMakeRange(0, questionTitle.length)];
+
         
     [questionText addAttribute:NSFontAttributeName
                           value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
