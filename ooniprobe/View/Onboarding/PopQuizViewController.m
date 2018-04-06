@@ -62,7 +62,7 @@
                           range:NSMakeRange(0, questionText.length)];
     
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
-    [attrStr appendAttributedString:questionIntro];
+    [attrStr appendAttributedString:questionTitle];
     [attrStr appendAttributedString:questionText];
     [self.textLabel setAttributedText:attrStr];
 }

@@ -17,7 +17,8 @@
 #pragma mark - Table view data source
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return NSLocalizedString(@"some_inro_text", nil);
+    NSString *categoryDescription = [NSString stringWithFormat:@"CategoryCode.%@.Description", category];
+    return NSLocalizedString(categoryDescription, nil);
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
@@ -37,7 +38,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = NSLocalizedString(category, nil);
+    NSString *categoryTitle = [NSString stringWithFormat:@"CategoryCode.%@.Title", category];
+    cell.textLabel.text = NSLocalizedString(categoryTitle, nil);
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", category]];
     UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];

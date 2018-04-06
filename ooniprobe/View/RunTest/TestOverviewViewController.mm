@@ -24,6 +24,9 @@
         [[UIApplication sharedApplication] openURL:url];
     }];
     
+    [self.runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"Dashboard.Overview.Run", nil)] forState:UIControlStateNormal];
+    [self.configureButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"Dashboard.Overview.Configure", nil)] forState:UIControlStateNormal];
+
     //TODO Estimated Time test
     [self.timeLabel setText:@"2min 10MB"];
     

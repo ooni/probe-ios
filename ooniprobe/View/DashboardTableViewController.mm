@@ -45,7 +45,11 @@
     UILabel *descLabel = (UILabel*)[cell viewWithTag:3];
     UILabel *estimateTime = (UILabel*)[cell viewWithTag:4];
     RunButton *runButton = (RunButton*)[cell viewWithTag:5];
+    ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
+
     [runButton setTitleColor:[SettingsUtility getColorForTest:testName] forState:UIControlStateNormal];
+    [runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
+    [configureButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"Dashboard.Card.Configure", nil)] forState:UIControlStateNormal];
 
     //ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];

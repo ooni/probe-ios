@@ -14,15 +14,15 @@
 
     UITabBarItem * tabItem = [self.tabBar.items objectAtIndex: 0];
     tabItem.image = [UIImage imageNamed:@"tab_dashboard"];
-    tabItem.title = NSLocalizedString(@"dashboard", nil);
+    tabItem.title = NSLocalizedString(@"Dashboard.Tab.Title", nil);
 
     UITabBarItem * tabItem1 = [self.tabBar.items objectAtIndex: 1];
     tabItem1.image = [UIImage imageNamed:@"tab_test_results"];
-    tabItem1.title = NSLocalizedString(@"test_results", nil);
+    tabItem1.title = NSLocalizedString(@"TestResults.Overview.Tab.Title", nil);
     
     UITabBarItem * tabItem2 = [self.tabBar.items objectAtIndex: 2];
     tabItem2.image = [UIImage imageNamed:@"tab_feed"];
-    tabItem2.title = NSLocalizedString(@"feed", nil);
+    tabItem2.title = NSLocalizedString(@"Feed.Tab.Title", nil);
 }
 
 -(void)viewDidAppear:(BOOL)animated{
