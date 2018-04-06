@@ -16,4 +16,5 @@ target 'ooniprobe' do
     pod 'SharkORM'
     pod 'MKDropdownMenu'
     pod 'RHMarkdownLabel'
+    pod 'DateTools'
 end

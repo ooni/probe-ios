@@ -6,6 +6,7 @@
 #import "SettingsTableViewController.h"
 #import "ReachabilityManager.h"
 #import "RHMarkdownLabel.h"
+#import "DateTools.h"
 
 @interface TestOverviewViewController : UIViewController {
     UIColor *defaultColor;
