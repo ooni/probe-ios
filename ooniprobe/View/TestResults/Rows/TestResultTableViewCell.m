@@ -20,7 +20,7 @@
         [self setBackgroundColor:[UIColor clearColor]];
 
     [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_row", result.name]]];
-    self.testNameLabel.text  = NSLocalizedString(result.name, nil);
+    self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.name];
     NSString *asn = [result getAsn];
     NSString *asnName = [result getAsnName];
     NSString *country = [result getCountry];
@@ -49,20 +49,20 @@
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:[UIImage imageNamed:@"x_red"]];
-        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, NSLocalizedString(@"blocked", nil)]];
+        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, NSLocalizedString(@"TestResults.Overview.Websites.Blocked", nil)]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"globe_black"]];
-        [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.totalMeasurements, NSLocalizedString(@"tested", nil)]];
+        [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.totalMeasurements, NSLocalizedString(@"TestResults.Overview.Websites.Tested", nil)]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
     else if ([result.name isEqualToString:@"instant_messaging"]){
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:[UIImage imageNamed:@"x_red"]];
-        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, NSLocalizedString(@"blocked", nil)]];
+        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, NSLocalizedString(@"TestResults.Overview.InstantMessaging.Blocked", nil)]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"tick_black"]];
-        [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.okMeasurements, NSLocalizedString(@"available", nil)]];
+        [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.okMeasurements, NSLocalizedString(@"TestResults.Overview.InstantMessaging.Available", nil)]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
     else if ([result.name isEqualToString:@"middle_boxes"]){
@@ -70,11 +70,11 @@
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:nil];
         if (summary.failedMeasurements > 0)
-            [self.label1 setText:NSLocalizedString(@"found", nil)];
+            [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)];
         else if (summary.okMeasurements == summary.totalMeasurements)
-            [self.label1 setText:NSLocalizedString(@"not_found", nil)];
+            [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];
         else
-            [self.label1 setText:NSLocalizedString(@"failed", nil)];
+            [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];
 
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
     }

@@ -2,6 +2,7 @@
 #import <Lottie/Lottie.h>
 #import <QuartzCore/QuartzCore.h>
 #import "NetworkTest.h"
+#import "TestUtility.h"
 
 @interface TestRunningViewController : UIViewController {
     float totalTests;

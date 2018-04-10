@@ -18,6 +18,16 @@
     self.asn = asn;
 }
 
+-(NSString*)getLocalizedNetworkType{
+    if ([self.networkType isEqualToString:@"wifi"])
+        return NSLocalizedString(@"TestResults.Summary.Hero.WiFi", nil);
+    else if ([self.networkType isEqualToString:@"mobile"])
+        return NSLocalizedString(@"TestResults.Summary.Hero.Mobile", nil);
+    else if ([self.networkType isEqualToString:@"no_internet"])
+        return NSLocalizedString(@"TestResults.Summary.Hero.NoInternet", nil);
+    return @"";
+}
+
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr{
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

@@ -3,6 +3,7 @@
 #import "Result.h"
 #import "Measurement.h"
 #import "SettingsUtility.h"
+#import "TestUtility.h"
 #import "MKDropdownMenu.h"
 
 @protocol ReloadFilterDelegate <NSObject>

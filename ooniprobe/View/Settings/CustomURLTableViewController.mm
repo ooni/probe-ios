@@ -8,7 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"custom_url", nil);
+    self.title = NSLocalizedString(@"Settings.Websites.CustomURL", nil);
     self.navigationController.navigationBar.topItem.title = @"";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"run", nil) style:UIBarButtonItemStylePlain target:self action:@selector(run:)];
     rows = 1;
@@ -47,7 +47,7 @@
         [self.navigationController popToRootViewControllerAnimated:NO];
     }
     else
-        [MessageUtility showToast:@"no_urls_entered" inView:self.view];
+        [MessageUtility showToast:@"Settings.Websites.CustomURL.NoURLEntered" inView:self.view];
 }
 
 #pragma mark - Table view data source
@@ -63,7 +63,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = NSLocalizedString(@"url", nil);
+    cell.textLabel.text = NSLocalizedString(@"Settings.Websites.CustomURL.URL", nil);
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     UITextField *textField = [self createTextField];
     if ([urls objectForKey:[NSNumber numberWithInteger:indexPath.row]])

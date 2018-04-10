@@ -366,7 +366,7 @@
     mk::nettests::WebConnectivityTest test;
     self.entryIdx = 0;
     if (!self.inputs)
-        self.inputs = [SettingsUtility getUrlsTest];
+        self.inputs = [TestUtility getUrlsTest];
     Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
     self.measurement.input = currentUrl.url;
     self.measurement.category = currentUrl.category_code;

@@ -38,7 +38,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"test_results", nil);
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"TestResults.Overview.Title", nil);
 }
 
 -(void)testFilter:(SRKQuery*)newQuery{
@@ -81,8 +81,7 @@
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = NSLocalizedString(@"past_tests_empty", nil);
-    
+    NSString *text = NSLocalizedString(@"TestResults.Overview.NoTestsHaveBeenRun", nil);
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
                                  NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]};
     

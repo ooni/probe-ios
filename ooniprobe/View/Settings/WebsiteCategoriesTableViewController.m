@@ -8,7 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"categories", nil);
+    self.title = NSLocalizedString(@"Settings.AutomatedTesting.Categories.Title", nil);
     self.navigationController.navigationBar.topItem.title = @"";
 }
 
@@ -37,13 +37,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *current = [categories objectAtIndex:indexPath.row];
-    NSString *categoryTitle = [NSString stringWithFormat:@"CategoryCode.%@.Title", current];
+    NSString *categoryTitle = [NSString stringWithFormat:@"CategoryCode.%@.Name", current];
     cell.textLabel.text = NSLocalizedString(categoryTitle, nil);
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current]];
     cell.detailTextLabel.textColor = [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
-    if ([categories_enabled containsObject:current]) cell.detailTextLabel.text = NSLocalizedString(@"enabled", nil);
-    else cell.detailTextLabel.text = NSLocalizedString(@"disabled", nil);
+    if ([categories_enabled containsObject:current]) cell.detailTextLabel.text = NSLocalizedString(@"Settings.Enabled", nil);
+    else cell.detailTextLabel.text = NSLocalizedString(@"Settings.Disabled", nil);
     return cell;
 }
 

@@ -24,12 +24,12 @@
 
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"networkTestEnded" object:nil];
     [self reloadMeasurements];
-    defaultColor = [SettingsUtility getColorForTest:result.name];
+    defaultColor = [TestUtility getColorForTest:result.name];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBarTintColor:[SettingsUtility getColorForTest:result.name]];
+    [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.name]];
     //self.tabBarController.navigationItem.title = NSLocalizedString(@"test_results", nil);
 }
 
@@ -89,7 +89,7 @@
     Summary *summary = [result getSummary];
 
     if ([result.name isEqualToString:@"instant_messaging"]){
-        [title setText:NSLocalizedString(current.name, nil)];
+        [title setText:[LocalizationUtility getNameForTest:current.name]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_black", current.name]]];
         if (current.blocking == MEASUREMENT_OK)
@@ -98,14 +98,14 @@
             [status setImage:[UIImage imageNamed:@"tick_red"]];
     }
     else if ([result.name isEqualToString:@"middle_boxes"]){
-        [title setText:NSLocalizedString(current.name, nil)];
+        [title setText:[LocalizationUtility getNameForTest:current.name]];
         if (current.blocking == MEASUREMENT_OK)
             [status setImage:[UIImage imageNamed:@"tick_green"]];
         else if (current.blocking == MEASUREMENT_BLOCKED)
             [status setImage:[UIImage imageNamed:@"exclamation_point_orange"]];
     }
     else if ([result.name isEqualToString:@"websites"]){
-        [title setText:NSLocalizedString(current.input, nil)];
+        [title setText:[NSString stringWithFormat:@"%@", current.input]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.category]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
@@ -116,7 +116,7 @@
             [status setImage:[UIImage imageNamed:@"tick_red"]];
     }
     else if ([result.name isEqualToString:@"performance"]){
-        [title setText:NSLocalizedString(current.name, nil)];
+        [title setText:[LocalizationUtility getNameForTest:current.name]];
         UIImageView *detail1Image = (UIImageView*)[cell viewWithTag:5];
         UILabel *detail1Label = (UILabel*)[cell viewWithTag:6];
         UIStackView *stackView2 = (UIStackView*)[cell viewWithTag:4];

@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "Result.h"
+#import "TestUtility.h"
 
 @interface TestResultTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *testIcon;

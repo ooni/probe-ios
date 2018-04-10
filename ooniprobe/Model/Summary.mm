@@ -78,7 +78,7 @@
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
         return [self setFractionalDigits:[self getScaledValue:upload]];
     }
-    return NSLocalizedString(@"n_a", nil);
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 -(NSString*)getUploadUnit{
@@ -86,14 +86,14 @@
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
         return [self getUnit:upload];
     }
-    return NSLocalizedString(@"n_a", nil);
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 -(NSString*)getUploadWithUnit{
     NSString *uploadUnit = [self getUploadUnit];
     if (![uploadUnit isEqualToString:@"N/A"])
         return [NSString stringWithFormat:@"%@ %@", [self getUpload], uploadUnit];
-    return NSLocalizedString(@"n_a", nil);
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 - (NSString*)getDownload{
@@ -101,7 +101,7 @@
         float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
         return [self setFractionalDigits:[self getScaledValue:download]];
     }
-    return NSLocalizedString(@"n_a", nil);
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 -(NSString*)getDownloadUnit{
@@ -109,14 +109,14 @@
         float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
         return [self getUnit:download];
     }
-    return NSLocalizedString(@"n_a", nil);
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 -(NSString*)getDownloadWithUnit{
     NSString *downloadUnit = [self getDownloadUnit];
     if (![downloadUnit isEqualToString:@"N/A"])
         return [NSString stringWithFormat:@"%@ %@", [self getDownload], downloadUnit];
-    return NSLocalizedString(@"n_a", nil);
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 - (float)getScaledValue:(float)value{
@@ -138,18 +138,17 @@
 - (NSString*)getUnit:(float)value{
     //We assume there is no Tbit/s (for now!)
     if (value < 100)
-        return @"kbit/s";
+        return NSLocalizedString(@"TestResults.Kbps", nil);
     else if (value < 100000)
-        return @"Mbit/s";
+        return NSLocalizedString(@"TestResults.Mbps", nil);
     else
-        return @"Gbit/s";
+        return NSLocalizedString(@"TestResults.Gbps", nil);
 }
 
 - (NSString*)getPing{
     if ([self.json safeObjectForKey:@"ndt"])
         return [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"ping"] stringValue];
-    //TODO localize all N/A
-    return NSLocalizedString(@"n_a", nil);
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 /*
@@ -163,7 +162,7 @@
         else
             return [self minimumBitrateForVideo:[[[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"median_bitrate"] floatValue]];
     }
-    return NSLocalizedString(@"n_a", nil);
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 - (NSString*)minimumBitrateForVideo:(float)videoQuality{

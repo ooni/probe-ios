@@ -38,23 +38,23 @@
 }
 
 - (void)reachabilityDidChange:(NSNotification *)notification {
-    NSString *network_type = [self getStatus];
-    if (![network_type isEqualToString:@"no_internet"]){
-        [[NotificationService sharedNotificationService] setNetwork_type:network_type];
+    NSString *networkType = [self getStatus];
+    if (![networkType isEqualToString:@"no_internet"]){
+        [[NotificationService sharedNotificationService] setNetwork_type:networkType];
         [[NotificationService sharedNotificationService] updateClient];
     }
 }
 
 - (NSString*)getStatus{
     NetworkStatus status = [self.reachability currentReachabilityStatus];
-    NSString *network_type;
+    NSString *networkType;
     if (status == ReachableViaWiFi)
-        network_type = @"wifi";
+        networkType = @"wifi";
     else if (status == ReachableViaWWAN)
-        network_type = @"mobile";
+        networkType = @"mobile";
     else if(status == NotReachable)
-        network_type = @"no_internet";
-    return network_type;
+        networkType = @"no_internet";
+    return networkType;
 }
 
 @end

@@ -8,7 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"settings", nil);
+    self.title = NSLocalizedString(@"Settings.Title", nil);
     categories = [SettingsUtility getSettingsCategories];
 }
 
@@ -34,7 +34,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *current = [categories objectAtIndex:indexPath.row];
-    cell.textLabel.text = NSLocalizedString(current, nil);
+    cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     cell.imageView.image = [UIImage imageNamed:current];
     return cell;

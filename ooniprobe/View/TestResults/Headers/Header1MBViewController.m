@@ -11,7 +11,7 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
 
-    [self.headerView setBackgroundColor:[SettingsUtility getColorForTest:result.name]];
+    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.name]];
     [self reloadMeasurement];
 }
 
@@ -24,16 +24,16 @@
 -(void)reloadMeasurement{
     Summary *summary = [result getSummary];
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSMutableAttributedString *middleBoxes = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"middle_boxes", nil)];
+        NSMutableAttributedString *middleBoxes = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Test.Middleboxes.Fullname", nil)];
         [middleBoxes addAttribute:NSFontAttributeName
                             value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                             range:NSMakeRange(0, middleBoxes.length)];
         
         NSString *found;
         if (summary.failedMeasurements > 0)
-            found = NSLocalizedString(@"found", nil);
+            found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Found", nil);
         else if (summary.okMeasurements == summary.totalMeasurements)
-            found = NSLocalizedString(@"not_found", nil);
+            found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.NotFound", nil);
         else
             found = NSLocalizedString(@"failed", nil);
         NSMutableAttributedString *foundStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", found]];

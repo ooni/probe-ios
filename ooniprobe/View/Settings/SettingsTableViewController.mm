@@ -9,9 +9,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (category != nil)
-        self.title = NSLocalizedString(category, nil);
+        self.title = [LocalizationUtility getNameForSetting:category];
     else if (testName != nil)
-        self.title = NSLocalizedString(testName, nil);
+        self.title = [LocalizationUtility getNameForTest:testName];
     self.navigationController.navigationBar.topItem.title = @"";
 
     keyboardToolbar = [[UIToolbar alloc] init];
@@ -70,7 +70,7 @@
     NSString *current = [items objectAtIndex:indexPath.row];
     if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"bool"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         //cell.imageView.image = [UIImage imageNamed:current];
         UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
@@ -81,14 +81,14 @@
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"segue"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         //cell.imageView.image = [UIImage imageNamed:current];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         //cell.imageView.image = [UIImage imageNamed:current];
         NSNumber *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
@@ -99,7 +99,7 @@
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"string"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        cell.textLabel.text = NSLocalizedString(current, nil);
+        cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         //cell.imageView.image = [UIImage imageNamed:current];
         NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
@@ -146,7 +146,7 @@
             f.numberStyle = NSNumberFormatterDecimalStyle;
             [[NSUserDefaults standardUserDefaults] setObject:[f numberFromString:@"10"] forKey:@"max_runtime"];
             [self.tableView reloadData];
-            [self.view makeToast:NSLocalizedString(@"max_runtime_low", nil)];
+            [self.view makeToast:NSLocalizedString(@"Settings.Error.TestDurationTooLow", nil)];
         }
     }
 }
@@ -180,7 +180,7 @@
     }*/
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"cant_deactivate", nil) message:nil inView:self];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.CantDeactivate", nil) message:nil inView:self];
         return;
     }
     

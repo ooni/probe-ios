@@ -15,9 +15,9 @@
     else {
         [self addLine:self.view3];
     }
-    [self.testsLabel setText:NSLocalizedString(@"tests", nil)];
-    [self.networksLabel setText:NSLocalizedString(@"networks", nil)];
-    [self.dataUsageLabel setText:NSLocalizedString(@"data_usage", nil)];
+    [self.testsLabel setText:NSLocalizedString(@"TestResults.Overview.Hero.Tests", nil)];
+    [self.networksLabel setText:NSLocalizedString(@"TestResults.Overview.Hero.Networks", nil)];
+    [self.dataUsageLabel setText:NSLocalizedString(@"TestResults.Overview.Hero.DataUsage", nil)];
     filter = @"";
     [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
 
@@ -100,7 +100,7 @@
 }
 
 - (NSInteger)dropdownMenu:(MKDropdownMenu *)dropdownMenu numberOfRowsInComponent:(NSInteger)component {
-    return [[SettingsUtility getTestTypes] count]+1;
+    return [[TestUtility getTestTypes] count]+1;
 }
 
 #pragma mark - MKDropdownMenuDelegate
@@ -110,8 +110,7 @@
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component{
-    NSString *text = NSLocalizedString(@"filter_tests", nil);
-    
+    NSString *text = NSLocalizedString(@"TestResults.Overview.FilterTests", nil);
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
                                  NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
     
@@ -121,7 +120,7 @@
 -(NSAttributedString*)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
     NSString *text;
     NSDictionary *attributes;
-    if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[SettingsUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
+    if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[TestUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
         attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-SemiBold" size:16],
                        NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
     else
@@ -129,10 +128,10 @@
                        NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
 
     if (row == 0)
-        text = NSLocalizedString(@"all_tests", nil);
+        text = NSLocalizedString(@"TestResults.Overview.FilterTests.AllTests", nil);
     else {
-        NSArray *tests =  [SettingsUtility getTestTypes];
-        text = NSLocalizedString([tests objectAtIndex:row-1], nil);
+        NSArray *tests =  [TestUtility getTestTypes];
+        text = [LocalizationUtility getFilterNameForTest:[tests objectAtIndex:row-1]];
     }
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
@@ -141,13 +140,13 @@
 - (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     if (row == 0)
         return NSLocalizedString(@"all_tests", nil);
-    NSArray *tests =  [SettingsUtility getTestTypes];
+    NSArray *tests =  [TestUtility getTestTypes];
     return NSLocalizedString([tests objectAtIndex:row-1], nil);
 }
 */
 
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[SettingsUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
+    if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[TestUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
         return [UIColor colorWithRGBHexString:color_gray2 alpha:1.0f];
     else
         return [UIColor whiteColor];
@@ -156,7 +155,7 @@
 - (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     NSString *current = @"";
     if (row > 0){
-        NSArray *tests =  [SettingsUtility getTestTypes];
+        NSArray *tests =  [TestUtility getTestTypes];
         current = [tests objectAtIndex:row-1];
     }
     filter = current;

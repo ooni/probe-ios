@@ -44,6 +44,8 @@
 		ED78B6382042A8F800C43E5C /* Summary.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6372042A8F800C43E5C /* Summary.mm */; };
 		ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6392042A92200C43E5C /* MKNetworkTest.mm */; };
 		ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B63C2042A92200C43E5C /* NetworkTest.mm */; };
+		ED997D0A207BB7C400C97B1F /* LocalizationUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.mm */; };
+		ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED997D0B207BCEE400C97B1F /* Strings.plist */; };
 		EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
@@ -160,6 +162,9 @@
 		ED8569581EB146B500D435EB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED997D08207BB7C400C97B1F /* LocalizationUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocalizationUtility.h; path = Utility/LocalizationUtility.h; sourceTree = "<group>"; };
+		ED997D09207BB7C400C97B1F /* LocalizationUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = LocalizationUtility.mm; path = Utility/LocalizationUtility.mm; sourceTree = "<group>"; };
+		ED997D0B207BCEE400C97B1F /* Strings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Strings.plist; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hexadecimal.h"; sourceTree = "<group>"; };
@@ -282,6 +287,7 @@
 				D4A2F5DD1A6C3244001B8460 /* Info.plist */,
 				D4A2F5DE1A6C3244001B8460 /* main.m */,
 				EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */,
+				ED997D0B207BCEE400C97B1F /* Strings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -418,6 +424,8 @@
 				ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */,
 				EDDB0B531FFF2C5300EFD9C8 /* SettingsUtility.h */,
 				EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */,
+				ED997D08207BB7C400C97B1F /* LocalizationUtility.h */,
+				ED997D09207BB7C400C97B1F /* LocalizationUtility.mm */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -666,6 +674,7 @@
 				ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */,
 				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
+				ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */,
 				ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
 			);
@@ -797,6 +806,7 @@
 				ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
+				ED997D0A207BB7C400C97B1F /* LocalizationUtility.mm in Sources */,
 				ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */,
 				ED70D5031FE8021400759463 /* Measurement.mm in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,

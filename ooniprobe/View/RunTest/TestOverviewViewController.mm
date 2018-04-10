@@ -18,8 +18,9 @@
 
     [self.testNameLabel setText:NSLocalizedString(self.testName, nil)];
     
-    NSString *testDesc = [NSString stringWithFormat:@"%@_longdesc", testName];
-    [self.testDescriptionLabel setMarkdown:testDesc];
+    NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testName];
+    [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
+    [self.testDescriptionLabel setMarkdown:testLongDesc];
     [self.testDescriptionLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
     }];
@@ -32,7 +33,7 @@
     
     [self reloadLastMeasurement];
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
-    defaultColor = [SettingsUtility getColorForTest:testName];
+    defaultColor = [TestUtility getColorForTest:testName];
     [self.runButton setTitleColor:defaultColor forState:UIControlStateNormal];
     [self.backgroundView setBackgroundColor:defaultColor];
 }

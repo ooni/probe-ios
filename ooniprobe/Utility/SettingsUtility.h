@@ -1,14 +1,10 @@
 #import <Foundation/Foundation.h>
-#import "Url.h"
 
 @interface SettingsUtility : NSObject
 
 + (NSArray*)getSettingsCategories;
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName;
 + (NSString*)getTypeForSetting:(NSString*)setting;
-
-+ (NSDictionary*)getTests;
-+ (NSArray*)getTestTypes;
 
 + (NSArray*)getAutomaticTestsEnabled;
 + (NSArray*)addRemoveAutomaticTest:(NSString*)testName;
@@ -24,7 +20,4 @@
 
 + (BOOL)getSettingWithName:(NSString*)settingName;
 
-+ (UIColor*)getColorForTest:(NSString*)testName;
-
-+ (NSArray*)getUrlsTest;
 @end

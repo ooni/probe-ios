@@ -25,6 +25,7 @@
 -(NSString*)getCountry;
 -(NSString*)getFormattedDataUsageDown;
 -(NSString*)getFormattedDataUsageUp;
+-(NSString*)getLocalizedNetworkType;
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(void)addDuration:(float)value;
 -(void)setAsnAndCalculateName:(NSString *)asn;

@@ -11,10 +11,10 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
     
-    [self.headerView setBackgroundColor:[SettingsUtility getColorForTest:result.name]];
-    [self.labelNetwork setText:NSLocalizedString(@"network", nil)];
-    [self.labelDataUsage setText:NSLocalizedString(@"data_usage", nil)];
-    [self.labelRuntime setText:NSLocalizedString(@"runtime", nil)];
+    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.name]];
+    [self.labelNetwork setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
+    [self.labelDataUsage setText:NSLocalizedString(@"TestResults.Summary.Hero.DataUsage", nil)];
+    [self.labelRuntime setText:NSLocalizedString(@"TestResults.Summary.Hero.Runtime", nil)];
     [self reloadMeasurement];
 }
 
@@ -26,7 +26,7 @@
 
 -(void)reloadMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.labelNetworkType setText:NSLocalizedString(result.networkType, nil)];
+        [self.labelNetworkType setText:[result getLocalizedNetworkType]];
         NSString *asn = [result getAsn];
         NSString *asnName = [result getAsnName];
         NSString *country = [result getCountry];
@@ -43,7 +43,6 @@
         [attrStr appendAttributedString:asnText];
         [attrStr appendAttributedString:countryName];
         [self.labelNetworkDetail setAttributedText:attrStr];
-        
         [self.labelDataUsageUpload setText:[result getFormattedDataUsageUp]];
         [self.labelDataUsageDownload setText:[result getFormattedDataUsageDown]];
         

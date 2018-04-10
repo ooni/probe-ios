@@ -18,8 +18,8 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"enabled_tests", nil);
     self.navigationController.navigationBar.topItem.title = @"";
-    tests = [SettingsUtility getTests];
-    test_types = [SettingsUtility getTestTypes];
+    tests = [TestUtility getTests];
+    test_types = [TestUtility getTestTypes];
     automatic_tests = [SettingsUtility getAutomaticTestsEnabled];
 }
 
@@ -29,7 +29,7 @@
   - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *test_type = [test_types objectAtIndex:section];
-    return NSLocalizedString(test_type, nil);
+    return [LocalizationUtility getNameForTest:test_type];
 }
 /*
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -64,7 +64,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *test_type = [test_types objectAtIndex:indexPath.section];
     NSString *current = [[tests objectForKey:test_type] objectAtIndex:indexPath.row];
-    cell.textLabel.text = NSLocalizedString(current, nil);
+    cell.textLabel.text = [LocalizationUtility getNameForTest:current];
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     if ([test_type isEqualToString:@"instant_messaging"])
         cell.imageView.image = [UIImage imageNamed:current];

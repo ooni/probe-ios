@@ -9,7 +9,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[SettingsUtility getColorForTest:currentTest.result.name]];
+    [self.view setBackgroundColor:[TestUtility getColorForTest:currentTest.result.name]];
     
     if (currentTest){
         totalTests = [currentTest.mkNetworkTests count];
@@ -19,9 +19,9 @@
     self.progressBar.layer.cornerRadius = 15;
     self.progressBar.layer.masksToBounds = YES;
 
-    [self.runningTestsLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"running_tests", nil)]];
+    [self.runningTestsLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"Dashboard.Running.Running", nil)]];
     [self.logLabel setText:@""];
-    [self.etaLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"estimated_time_remaining", nil)]];
+    [self.etaLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)]];
 
     //TODO Estimated Time test
     [self.timeLabel setText:[NSString stringWithFormat:@"0 seconds"]];
@@ -30,7 +30,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
 
     animation = [LOTAnimationView animationNamed:@"checkMark"];
-    //[animation setBackgroundColor:[SettingsUtility getColorForTest:testName]];
+    //[animation setBackgroundColor:[TestUtility getColorForTest:testName]];
     animation.contentMode = UIViewContentModeScaleAspectFit;
     [self.animationView addSubview:animation];
     CGRect c = self.animationView.bounds;
@@ -71,7 +71,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         //[self.currentTestLabel setText:[NSString stringWithFormat:@"... %@ %@", [NSLocalizedString(@"running", nil) lowercaseString], NSLocalizedString(name, nil)]];
         [self.progressBar setProgress:progress animated:YES];
-        [self.testNameLabel setText:NSLocalizedString(name, nil)];
+        [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
 
     });
     [animation playWithCompletion:^(BOOL animationFinished) {

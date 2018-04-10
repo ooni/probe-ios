@@ -38,7 +38,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    NSString *categoryTitle = [NSString stringWithFormat:@"CategoryCode.%@.Title", category];
+    NSString *categoryTitle = [NSString stringWithFormat:@"CategoryCode.%@.Name", category];
     cell.textLabel.text = NSLocalizedString(categoryTitle, nil);
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", category]];

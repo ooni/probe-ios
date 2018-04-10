@@ -8,7 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    items = [SettingsUtility getTestTypes];
+    items = [TestUtility getTestTypes];
     [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
 }
 
@@ -47,20 +47,18 @@
     RunButton *runButton = (RunButton*)[cell viewWithTag:5];
     ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
 
-    [runButton setTitleColor:[SettingsUtility getColorForTest:testName] forState:UIControlStateNormal];
+    [runButton setTitleColor:[TestUtility getColorForTest:testName] forState:UIControlStateNormal];
     [runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
     [configureButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"Dashboard.Card.Configure", nil)] forState:UIControlStateNormal];
 
     //ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
-
-    [titleLabel setText:NSLocalizedString(testName, nil)];
-    NSString *test_desc = [NSString stringWithFormat:@"%@_desc", testName];
-    [descLabel setText:NSLocalizedString(test_desc, nil)];
+    [titleLabel setText:[LocalizationUtility getNameForTest:testName]];
+    [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
     //TODO Estimated Time test
     [estimateTime setText:@"2min"];
     [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
-    [backgroundView setBackgroundColor:[SettingsUtility getColorForTest:testName]];
+    [backgroundView setBackgroundColor:[TestUtility getColorForTest:testName]];
     backgroundView.layer.cornerRadius = 15;
     backgroundView.layer.masksToBounds = YES;
 
