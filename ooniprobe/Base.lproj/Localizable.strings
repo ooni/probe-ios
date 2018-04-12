@@ -163,8 +163,6 @@
 "TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Okay"                           = "OK";
 "TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Failed"                         = "Failed";
 "TestResults.Details.InstantMessaging.Telegram.Reachable.Content.Paragraph.1"               = "This test successfully connected to Telegram's endpoints and web interface.";
-"TestResults.Details.InstantMessaging.Telegram.Error.Hero.Title"                            = "Error";
-"TestResults.Details.InstantMessaging.Telegram.Error.Content.Paragraph.1"                   = "This test was unable to perform. Please check if you are connected to the internet.";
 "TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Hero.Title"                    = "Telegram appears to be blocked";
 "TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.1"           = "Telegram appears to be blocked via {BlockingReason}.";
 "TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.BlockingReason.DNS"            = "via DNS";
@@ -196,6 +194,8 @@
 "Feed.Post"                                                                                 = "";
 "Modal.OK"                                                                                  = "OK";
 "Modal.Cancel"                                                                              = "Cancel";
+"Modal.Error"                                                                               = "Error";
+"Modal.Error.NoInternet"                                                                    = "We were unable to run the test. Please check your internet connectivity.";
 "Modal.ResultsNotUploaded.Title"                                                            = "Results not uploaded";
 "Modal.ResultsNotUploaded.Paragraph"                                                        = "Some of your test results have not been uploaded to OONI servers. If you'd like to contribute to OONI's dataset, please upload them.";
 "Modal.ResultsNotUploaded.Button.Cancel"                                                    = "Cancel";

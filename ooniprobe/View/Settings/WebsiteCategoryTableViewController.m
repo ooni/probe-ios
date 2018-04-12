@@ -17,6 +17,7 @@
 #pragma mark - Table view data source
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    //TODO lowercase
     NSString *categoryDescription = [NSString stringWithFormat:@"CategoryCode.%@.Description", category];
     return NSLocalizedString(categoryDescription, nil);
 }
