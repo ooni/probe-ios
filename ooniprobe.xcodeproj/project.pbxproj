@@ -46,6 +46,7 @@
 		ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B63C2042A92200C43E5C /* NetworkTest.mm */; };
 		ED997D0A207BB7C400C97B1F /* LocalizationUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.mm */; };
 		ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED997D0B207BCEE400C97B1F /* Strings.plist */; };
+		ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */; };
 		EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
@@ -165,6 +166,8 @@
 		ED997D08207BB7C400C97B1F /* LocalizationUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocalizationUtility.h; path = Utility/LocalizationUtility.h; sourceTree = "<group>"; };
 		ED997D09207BB7C400C97B1F /* LocalizationUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = LocalizationUtility.mm; path = Utility/LocalizationUtility.mm; sourceTree = "<group>"; };
 		ED997D0B207BCEE400C97B1F /* Strings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Strings.plist; sourceTree = "<group>"; };
+		ED9D8B99207F5C4A00189FAE /* TestDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDetailsViewController.h; sourceTree = "<group>"; };
+		ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDetailsViewController.m; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hexadecimal.h"; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 				ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.mm */,
 				ED1EC16F204E9B61000DEB9F /* LogViewController.h */,
 				ED1EC170204E9B61000DEB9F /* LogViewController.m */,
+				ED9D8B99207F5C4A00189FAE /* TestDetailsViewController.h */,
+				ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */,
 			);
 			path = TestResults;
 			sourceTree = "<group>";
@@ -607,7 +612,7 @@
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = MADPSAYN6T;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -784,6 +789,7 @@
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				ED70D5061FE8022300759463 /* Result.mm in Sources */,
 				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.mm in Sources */,
+				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
 				ED0A61FE200B075000235E70 /* CustomURLTableViewController.mm in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.mm in Sources */,
@@ -977,9 +983,9 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (584LT894QR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -998,8 +1004,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "25f0c818-9519-4c51-b389-1d1450850b33";
+				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1016,10 +1022,10 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1043,8 +1049,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "25f0c818-9519-4c51-b389-1d1450850b33";
+				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

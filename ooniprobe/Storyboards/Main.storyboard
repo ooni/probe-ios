@@ -349,6 +349,7 @@
                     <connections>
                         <segue destination="zYs-kh-5bZ" kind="show" identifier="log" id="bg9-QD-Ox0"/>
                         <segue destination="4q0-13-6dh" kind="presentation" identifier="toTestRun" id="dwA-jS-ZCo"/>
+                        <segue destination="LVz-Qp-laQ" kind="show" identifier="toTestDetails" id="lw1-6r-kHV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5r-Y9-a25" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -931,6 +932,191 @@
             </objects>
             <point key="canvasLocation" x="-1155" y="2258"/>
         </scene>
+        <!--Test Details View Controller-->
+        <scene sceneID="J8w-db-7Bl">
+            <objects>
+                <viewController id="LVz-Qp-laQ" customClass="TestDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eTA-Ee-8JV"/>
+                        <viewControllerLayoutGuide type="bottom" id="l65-fh-ScD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GRr-JF-zET">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ud-28-zVK">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZJg-iX-hV8">
+                                        <rect key="frame" x="8.0000000000000071" y="3" width="116.66666666666669" height="95"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2Kx-0b-UUo">
+                                                <rect key="frame" x="0.0" y="0.0" width="111.66666666666667" height="19"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network" translatesAutoresizingMaskIntoConstraints="NO" id="vtG-nG-lUn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLD-17-jlM">
+                                                        <rect key="frame" x="21.000000000000007" y="0.0" width="90.666666666666686" height="19"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="g37-aJ-MYP">
+                                                <rect key="frame" x="0.0" y="19" width="116.66666666666667" height="19"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date_and_time" translatesAutoresizingMaskIntoConstraints="NO" id="nsV-iw-LtS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9O-mV-zYD">
+                                                        <rect key="frame" x="21.000000000000007" y="0.0" width="95.666666666666686" height="19"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="EJU-nY-3YK">
+                                                <rect key="frame" x="0.0" y="38" width="78" height="19"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe" translatesAutoresizingMaskIntoConstraints="NO" id="xV4-1h-rZ9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erx-qm-MP9">
+                                                        <rect key="frame" x="21" y="0.0" width="57" height="19"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ToD-gr-6lq">
+                                                <rect key="frame" x="0.0" y="57" width="96.666666666666671" height="19"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="data_usage" translatesAutoresizingMaskIntoConstraints="NO" id="05x-2B-6jm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Usage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t15-Ud-ife">
+                                                        <rect key="frame" x="21" y="0.0" width="75.666666666666671" height="19"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IB4-AZ-ZH8">
+                                                <rect key="frame" x="0.0" y="76" width="78.333333333333329" height="19"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="runtime" translatesAutoresizingMaskIntoConstraints="NO" id="dCv-Jf-RJO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myg-y2-IqE">
+                                                        <rect key="frame" x="21.000000000000004" y="0.0" width="57.333333333333343" height="19"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="OP4-qX-fd8">
+                                        <rect key="frame" x="292.33333333333331" y="6" width="113.66666666666669" height="90"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFd-uB-9lT">
+                                                <rect key="frame" x="109.66666666666669" y="0.0" width="4" height="18"/>
+                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g0-jH-fVW">
+                                                <rect key="frame" x="83.333333333333371" y="18" width="30.333333333333329" height="18"/>
+                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvT-oE-5Rb">
+                                                <rect key="frame" x="89" y="36" width="24.666666666666671" height="18"/>
+                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Bf-pH-WO8">
+                                                <rect key="frame" x="0.0" y="54" width="113.66666666666667" height="19"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload" translatesAutoresizingMaskIntoConstraints="NO" id="fcy-re-SZh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LN-kg-YqX">
+                                                        <rect key="frame" x="19" y="0.0" width="39" height="19"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="uNw-kN-9z5">
+                                                        <rect key="frame" x="58" y="0.0" width="19" height="19"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-Kg-BgH">
+                                                        <rect key="frame" x="77" y="0.0" width="36.666666666666657" height="19"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mim-1J-nJ6">
+                                                <rect key="frame" x="76" y="73" width="37.666666666666657" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="17" id="dfG-aO-8gJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="mim-1J-nJ6" firstAttribute="leading" secondItem="OP4-qX-fd8" secondAttribute="leading" constant="76" id="OyC-fw-a9u"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.75294117650000003" green="0.019607843140000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OP4-qX-fd8" secondAttribute="trailing" constant="8" id="BFP-XQ-e5W"/>
+                                    <constraint firstItem="ZJg-iX-hV8" firstAttribute="leading" secondItem="5ud-28-zVK" secondAttribute="leadingMargin" id="F4j-yC-hem"/>
+                                    <constraint firstItem="ZJg-iX-hV8" firstAttribute="centerY" secondItem="5ud-28-zVK" secondAttribute="centerY" id="IBA-kA-y6T"/>
+                                    <constraint firstAttribute="height" constant="102" id="TpI-ee-JK9"/>
+                                    <constraint firstItem="OP4-qX-fd8" firstAttribute="top" secondItem="5ud-28-zVK" secondAttribute="top" constant="6" id="Wqb-kc-Rfn"/>
+                                    <constraint firstAttribute="bottom" secondItem="OP4-qX-fd8" secondAttribute="bottom" constant="6" id="lFJ-OJ-ufA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5ud-28-zVK" firstAttribute="top" secondItem="eTA-Ee-8JV" secondAttribute="bottom" id="4ty-hT-Xcb"/>
+                            <constraint firstItem="5ud-28-zVK" firstAttribute="leading" secondItem="GRr-JF-zET" secondAttribute="leading" id="N0e-10-1Ys"/>
+                            <constraint firstAttribute="trailing" secondItem="5ud-28-zVK" secondAttribute="trailing" id="UdG-C9-lyI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headerView" destination="5ud-28-zVK" id="omN-CT-7In"/>
+                        <outlet property="labelDataUsage" destination="t15-Ud-ife" id="4sy-hO-KZ5"/>
+                        <outlet property="labelDataUsageDownload" destination="e4d-Kg-BgH" id="y9a-dZ-hba"/>
+                        <outlet property="labelDataUsageUpload" destination="4LN-kg-YqX" id="v86-oZ-Pq4"/>
+                        <outlet property="labelDate" destination="N9O-mV-zYD" id="eyz-rg-V6l"/>
+                        <outlet property="labelDateDetail" destination="6g0-jH-fVW" id="kDC-2f-C4o"/>
+                        <outlet property="labelNetwork" destination="Erx-qm-MP9" id="g3i-tn-8UD"/>
+                        <outlet property="labelNetworkDetail" destination="UvT-oE-5Rb" id="ss2-nT-nkr"/>
+                        <outlet property="labelNetworkType" destination="HLD-17-jlM" id="plA-rb-h0q"/>
+                        <outlet property="labelRuntime" destination="myg-y2-IqE" id="3qn-Fz-xB7"/>
+                        <outlet property="labelRuntimeDetail" destination="mim-1J-nJ6" id="mZW-ar-7IB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mQu-ZW-Foi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4373.913043478261" y="1176.358695652174"/>
+        </scene>
         <!--Header Swipe View Controller-->
         <scene sceneID="9gk-mh-mAh">
             <objects>
@@ -947,7 +1133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VPV-FY-5pV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3549" y="1552"/>
+            <point key="canvasLocation" x="3175" y="1681"/>
         </scene>
         <!--Header2 View Controller-->
         <scene sceneID="RGq-0r-6pZ">
@@ -1107,7 +1293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xP6-29-Gda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5195.652173913044" y="1801.6304347826087"/>
+            <point key="canvasLocation" x="3893" y="2101"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="Qb3-q7-lMc">
@@ -1144,7 +1330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5o-Yh-Tx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705.7971014492755" y="2295.6521739130435"/>
+            <point key="canvasLocation" x="2275" y="2363"/>
         </scene>
         <!--Header1 View Controller-->
         <scene sceneID="prO-CZ-p5m">
@@ -1318,7 +1504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jaz-sC-LmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4441" y="1802"/>
+            <point key="canvasLocation" x="3213" y="2101"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="Gue-gm-rbq">
@@ -1537,12 +1723,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGS-rh-EuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5857.971014492754" y="1801.6304347826087"/>
+            <point key="canvasLocation" x="4583" y="2101"/>
         </scene>
     </scenes>
     <resources>
         <image name="Group 926" width="360" height="640"/>
         <image name="data_usage" width="19" height="19"/>
+        <image name="date_and_time" width="19" height="19"/>
         <image name="download" width="19" height="19"/>
         <image name="download_black" width="19" height="19"/>
         <image name="globe" width="19" height="19"/>
@@ -1560,7 +1747,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bjV-cE-1hN"/>
-        <segue reference="wqI-w5-99i"/>
+        <segue reference="dwA-jS-ZCo"/>
         <segue reference="yaa-0s-SbM"/>
     </inferredMetricsTieBreakers>
 </document>

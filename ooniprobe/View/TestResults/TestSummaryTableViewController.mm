@@ -203,6 +203,15 @@
                                        }];
         [alert addAction:reRunButton];
     }
+    else {
+        UIAlertAction* goToDetailsButton = [UIAlertAction
+                                      actionWithTitle:NSLocalizedString(@"Go to TestDetails", nil)
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action) {
+                                          [self performSegueWithIdentifier:@"toTestDetails" sender:self];
+                                      }];
+        [alert addAction:goToDetailsButton];
+    }
     [alert addAction:cancelButton];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -233,6 +242,11 @@
             [segueObj remove];
         }*/
         [vc setCurrentTest:[[NetworkTest alloc] initWithMeasurement:segueObj]];
+    }
+    else if ([[segue identifier] isEqualToString:@"toTestDetails"]){
+        TestDetailsViewController *vc = (TestDetailsViewController * )segue.destinationViewController;
+        [vc setResult:result];
+        [vc setMeasurement:segueObj];
     }
 }
 

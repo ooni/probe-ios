@@ -4,6 +4,7 @@
 #import "Measurement.h"
 #import "LogViewController.h"
 #import "TestRunningViewController.h"
+#import "TestDetailsViewController.h"
 
 @interface TestSummaryTableViewController : UITableViewController {
     UIColor *defaultColor;
