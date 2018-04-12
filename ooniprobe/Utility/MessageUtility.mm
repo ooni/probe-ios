@@ -19,7 +19,7 @@
                                  message:msg
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okButton = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"ok", nil)
+                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:nil];
     [alert addAction:okButton];
@@ -35,7 +35,7 @@
                                  message:msg
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* cancelButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"cancel", nil)
+                                   actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:nil];
     [alert addAction:cancelButton];
@@ -47,12 +47,12 @@
 
 + (void)notificationAlertinView:(UIViewController *)view
 {
+    //TODO add Modal.EnableGPS and Modal.EnableNotifications.News
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:nil
-                                 message:NSLocalizedString(@"enable_notification_first_time", nil)
+                                 alertControllerWithTitle:nil message:NSLocalizedString(@"Modal.EnableNotifications.AutomatedTesting", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okButton = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"ok", nil)
+                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
                                    [NotificationService registerUserNotification];
@@ -60,7 +60,7 @@
                                    //TODECIDE when popup randomly what to enable
                                }];
     UIAlertAction* cancelButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"cancel", nil)
+                                   actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:nil];
     [alert addAction:cancelButton];
@@ -69,5 +69,4 @@
         [view presentViewController:alert animated:YES completion:nil];
     });
 }
-
 @end

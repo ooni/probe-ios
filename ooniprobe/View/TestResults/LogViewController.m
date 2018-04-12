@@ -11,7 +11,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithTitle:NSLocalizedString(@"copy_to_clipboard", nil)
+                                              initWithTitle:NSLocalizedString(@"TestResults.Details.CopyToClipboard", nil)
                                             style:UIBarButtonItemStylePlain
                                             target:self
                                             action:@selector(copy_clipboard:)];
@@ -42,7 +42,7 @@
 -(IBAction)copy_clipboard:(id)sender{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.textView.text;
-    [MessageUtility showToast:NSLocalizedString(@"copied_clipboard", nil) inView:self.view];
+    [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
 }
 
 @end

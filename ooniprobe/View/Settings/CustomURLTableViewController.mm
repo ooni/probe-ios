@@ -10,7 +10,7 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Settings.Websites.CustomURL", nil);
     self.navigationController.navigationBar.topItem.title = @"";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"run", nil) style:UIBarButtonItemStylePlain target:self action:@selector(run:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Settings.Websites.CustomURL.Run", nil) style:UIBarButtonItemStylePlain target:self action:@selector(run:)];
     rows = 1;
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];

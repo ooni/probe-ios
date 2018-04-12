@@ -29,13 +29,15 @@
                             value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                             range:NSMakeRange(0, middleBoxes.length)];
         
+        //TODO this shouldn't have singolar plural
+
         NSString *found;
         if (summary.failedMeasurements > 0)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Found", nil);
         else if (summary.okMeasurements == summary.totalMeasurements)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.NotFound", nil);
         else
-            found = NSLocalizedString(@"failed", nil);
+            found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Failed", nil);
         NSMutableAttributedString *foundStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", found]];
         [foundStr addAttribute:NSFontAttributeName
                          value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]

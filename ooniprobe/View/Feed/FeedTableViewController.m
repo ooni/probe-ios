@@ -11,7 +11,7 @@
     //https://www.contentful.com/blog/2014/05/09/ios-content-synchronization/
     
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"feed", nil);
+    self.title = NSLocalizedString(@"Feed.Title", nil);
     self.client = [[CDAClient alloc] initWithSpaceKey:@"brg7eld9zwg1"
         accessToken:@"d2372f3d4caa2a58ec165bcf8e0c8fec1ae2aa49ab54e8fb14ae910ed8be90c5"];
     //[self.client registerClass:[Article class] forContentTypeWithIdentifier:@"6yvmL10FkAIkOaqgiuI4Oy"];
@@ -89,7 +89,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.tabBarController.navigationItem.title = NSLocalizedString(@"feed", nil);
+    self.tabBarController.navigationItem.title = NSLocalizedString(@"Feed.Tab.Label", nil);
 }
 
 #pragma mark - Table view data source

@@ -43,11 +43,11 @@
     //If old test are detected, tell the user we are deleting them, no cancel button
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
         UIAlertController * alert = [UIAlertController
-                                     alertControllerWithTitle:NSLocalizedString(@"old_test_detected", nil)
+                                     alertControllerWithTitle:NSLocalizedString(@"Modal.OldTestsDetected", nil)
                                      message:nil
                                      preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* okButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"ok", nil)
+                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
                                        [self removeOldTests];
@@ -91,7 +91,7 @@
     {
         if ([type isEqualToString:@"open_href"]){
             UIAlertAction* okButton = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"ok", nil)
+                                       actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction * action) {
                                            [self openBrowser];
@@ -200,14 +200,14 @@
         if ([minimum_version compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending) {
             //actualVersion is lower than the requiredVersion
             UIAlertAction* okButton = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"ok", nil)
+                                       actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction * action) {
                                            NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1199566366?mt=8";
                                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
                                        }];
-            [MessageUtility alertWithTitle:NSLocalizedString(@"ooniprobe_outdate", nil)
-                                   message:NSLocalizedString(@"ooniprobe_outdate_msg", nil)
+            [MessageUtility alertWithTitle:NSLocalizedString(@"OONIRun.OONIProbeOutOfDate", nil)
+                                   message:NSLocalizedString(@"OONIRun.OONIProbeNewerVersion", nil)
                                   okButton:okButton
                                     inView:self.window.rootViewController];
         }

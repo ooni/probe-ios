@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"enabled_tests", nil);
+    self.title = NSLocalizedString(@"Settings.AutomatedTesting.EnabledTests", nil);
     self.navigationController.navigationBar.topItem.title = @"";
     tests = [TestUtility getTests];
     test_types = [TestUtility getTestTypes];

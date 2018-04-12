@@ -153,6 +153,19 @@
     }
 }
 
+-(IBAction)removeAllTests:(id)sender{
+    //TODO not yet implemented
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"ok", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                               }];
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.DoYouWantToDeleteResults", nil)
+                           message:nil
+                          okButton:okButton
+                            inView:self];
+}
+
 #pragma mark - Navigation
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

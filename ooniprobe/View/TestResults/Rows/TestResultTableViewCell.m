@@ -31,7 +31,7 @@
                         range:NSMakeRange(0, asnNameAttr.length)];
     NSString *asnString = [NSString stringWithFormat:@" %@", [NSString stringWithFormat:@"%@ (%@)", asn, country]];
     if ([asnString isEqualToString:@"  ()"])
-        asnString = NSLocalizedString(@"unknown", nil);
+        asnString = NSLocalizedString(@"TestResults.UnknownASN", nil);
     NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:asnString];
     [asnText addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
@@ -49,20 +49,20 @@
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:[UIImage imageNamed:@"x_red"]];
-        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, NSLocalizedString(@"TestResults.Overview.Websites.Blocked", nil)]];
+        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, [LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"globe_black"]];
-        [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.totalMeasurements, NSLocalizedString(@"TestResults.Overview.Websites.Tested", nil)]];
+        [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.totalMeasurements, [LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
     else if ([result.name isEqualToString:@"instant_messaging"]){
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:[UIImage imageNamed:@"x_red"]];
-        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, NSLocalizedString(@"TestResults.Overview.InstantMessaging.Blocked", nil)]];
+        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, [LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"tick_black"]];
-        [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.okMeasurements, NSLocalizedString(@"TestResults.Overview.InstantMessaging.Available", nil)]];
+        [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.okMeasurements, [LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
     else if ([result.name isEqualToString:@"middle_boxes"]){

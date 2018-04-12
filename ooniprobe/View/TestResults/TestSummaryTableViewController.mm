@@ -166,7 +166,7 @@
                                  message:nil
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* viewLogButton = [UIAlertAction
-                                 actionWithTitle:NSLocalizedString(@"view_log", nil)
+                                 actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
                                  style:UIAlertActionStyleDefault
                                  handler:^(UIAlertAction * action) {
                                      segueType = @"log";
@@ -188,7 +188,7 @@
                                  }];
 
     UIAlertAction* cancelButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"cancel", nil)
+                                   actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:nil];
     [alert addAction:viewLogButton];

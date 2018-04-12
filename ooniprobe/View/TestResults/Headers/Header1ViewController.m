@@ -25,19 +25,9 @@
 -(void)addLabels{
     if ([result.name isEqualToString:@"websites"]){
         [self.view4 setHidden:YES];
-        [self.label1Top setText:NSLocalizedString(@"TestResults.Summary.Websites.Hero.Tested", nil)];
-        [self.label2Top setText:NSLocalizedString(@"TestResults.Summary.Websites.Hero.Blocked", nil)];
-        [self.label3Top setText:NSLocalizedString(@"TestResults.Summary.Websites.Hero.Reachable", nil)];
     }
     else if ([result.name isEqualToString:@"instant_messaging"]){
         [self.view4 setHidden:YES];
-        [self.label1Top setText:NSLocalizedString(@"TestResults.Summary.InstantMessaging.Hero.Tested", nil)];
-        //TODO manage singolar plural
-        [self.label1Bottom setText:NSLocalizedString(@"TestResults.Summary.InstantMessaging.Hero.Apps.One", nil)];
-        [self.label2Top setText:NSLocalizedString(@"TestResults.Summary.InstantMessaging.Hero.Blocked", nil)];
-        [self.label2Bottom setText:NSLocalizedString(@"TestResults.Summary.InstantMessaging.Hero.Apps.One", nil)];
-        [self.label3Top setText:NSLocalizedString(@"TestResults.Summary.InstantMessaging.Hero.Reachable", nil)];
-        [self.label3Bottom setText:NSLocalizedString(@"TestResults.Summary.InstantMessaging.Hero.Apps.One", nil)];
     }
     else if ([result.name isEqualToString:@"performance"]){
         if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
@@ -66,20 +56,27 @@
     Summary *summary = [self.result getSummary];
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([result.name isEqualToString:@"websites"]){
-            [self setSitesSingularPlural:summary.totalMeasurements :self.label1Bottom];
-            [self setSitesSingularPlural:summary.blockedMeasurements :self.label2Bottom];
-            [self setSitesSingularPlural:summary.okMeasurements :self.label3Bottom];
+            [self.label1Top setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.Websites.Hero.Tested"]];
+            [self.label2Top setText:[LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Summary.Websites.Hero.Blocked"]];
+            [self.label3Top setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.Websites.Hero.Reachable"]];
             [self.label1Central setText:[NSString stringWithFormat:@"%d", summary.totalMeasurements]];
             [self.label2Central setText:[NSString stringWithFormat:@"%d", summary.blockedMeasurements]];
             [self.label3Central setText:[NSString stringWithFormat:@"%d", summary.okMeasurements]];
+            [self.label1Bottom setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
+            [self.label2Bottom setText:[LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
+            [self.label3Bottom setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
+
         }
         else if ([result.name isEqualToString:@"instant_messaging"]){
-            [self setAppsSingularPlural:summary.totalMeasurements :self.label1Bottom];
-            [self setAppsSingularPlural:summary.blockedMeasurements :self.label2Bottom];
-            [self setAppsSingularPlural:summary.okMeasurements :self.label3Bottom];
+            [self.label1Top setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Tested"]];
+            [self.label2Top setText:[LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Blocked"]];
+            [self.label3Top setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]];
             [self.label1Central setText:[NSString stringWithFormat:@"%d", summary.totalMeasurements]];
             [self.label2Central setText:[NSString stringWithFormat:@"%d", summary.blockedMeasurements]];
             [self.label3Central setText:[NSString stringWithFormat:@"%d", summary.okMeasurements]];
+            [self.label1Bottom setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
+            [self.label2Bottom setText:[LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
+            [self.label3Bottom setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
         }
         else if ([result.name isEqualToString:@"performance"]){
             [self.label1Central setText:[summary getVideoQuality:YES]];
@@ -92,23 +89,6 @@
     });
 }
 
--(void)setSitesSingularPlural:(int)value :(UITextView*)label{
-    if (value == 1){
-        [label setText:NSLocalizedString(@"TestResults.Summary.Websites.Hero.Sites.One", nil)];
-    }
-    else {
-        [label setText:NSLocalizedString(@"TestResults.Summary.Websites.Hero.Sites.Many", nil)];
-    }
-}
-
--(void)setAppsSingularPlural:(int)value :(UITextView*)label{
-    if (value == 1){
-        [label setText:NSLocalizedString(@"TestResults.Summary.InstantMessaging.Hero.Apps.One", nil)];
-    }
-    else {
-        [label setText:NSLocalizedString(@"TestResults.Summary.InstantMessaging.Hero.Apps.Many", nil)];
-    }
-}
 
 -(void)addLine:(UIView*)view{
     UIView *lineView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, view.frame.size.height)];

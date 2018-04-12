@@ -62,4 +62,15 @@
         return NSLocalizedString([stringDict objectForKey:settingName], nil);
     return settingName;
 }
+
++(NSString*)getSingularPlural:(int)value :(NSString*)locString{
+    NSString *string;
+    if (value == 1){
+        string = [NSString stringWithFormat:@"%@.Singular", locString];
+    }
+    else {
+        string = [NSString stringWithFormat:@"%@.Plural", locString];
+    }
+    return NSLocalizedString(string, nil);
+}
 @end

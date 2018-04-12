@@ -12,11 +12,10 @@
     self.navigationController.navigationBar.topItem.title = @"";
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    //self.tableView.tableFooterView = [UIView new];
-    
-    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-    self.title = localizedDateTime;
+    self.title = [LocalizationUtility getNameForTest:measurement.name];
 
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    [self.labelDateDetail setText:localizedDateTime];
     [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.name]];
     [self.labelNetwork setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.labelDataUsage setText:NSLocalizedString(@"TestResults.Summary.Hero.DataUsage", nil)];

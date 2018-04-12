@@ -9,14 +9,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.title = NSLocalizedString(self.testName, nil);
     self.navigationController.navigationBar.topItem.title = @"";
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
 
-    [self.testNameLabel setText:NSLocalizedString(self.testName, nil)];
+    [self.testNameLabel setText:[LocalizationUtility getNameForTest:testName]];
     
     NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testName];
     [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
@@ -51,7 +50,7 @@
         [self.lastRunLabel setText:ago];
     }
     else
-        [self.lastRunLabel setText:NSLocalizedString(@"never", nil)];
+        [self.lastRunLabel setText:NSLocalizedString(@"Dashboard.Overview.LastRun.Never", nil)];
 }
 
 -(NSInteger)daysBetweenTwoDates:(NSDate*)testDate{
@@ -71,6 +70,7 @@
 }
 
 -(IBAction)run:(id)sender{
+    //TODO STRINGS
     if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
         [self performSegueWithIdentifier:@"toTestRun" sender:self];
     else
