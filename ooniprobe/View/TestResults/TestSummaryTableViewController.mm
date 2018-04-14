@@ -160,6 +160,29 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        /*
+         //TODO
+         - Reload header 1 (number test, blocked, available)
+         - Change summary
+         */
+        Measurement *current = [self.measurements objectAtIndex:indexPath.row];
+        [current deleteObject];
+        [self reloadMeasurements];
+        if ([self.measurements count] == 0){
+            NSLog(@"AAAAAAAAAA");
+            //TODO back and delete Result
+        }
+    }
+}
+
 -(void)showPopup{
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:nil

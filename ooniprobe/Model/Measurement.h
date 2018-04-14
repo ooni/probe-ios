@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
 #import "Result.h"
+#import "TestUtility.h"
 
 @interface Measurement : SRKObject
 
@@ -44,5 +45,6 @@ typedef enum
 -(NSString*)getReportFifle;
 -(NSString*)getLogFile;
 -(void)save;
+-(void)deleteObject;
 
 @end

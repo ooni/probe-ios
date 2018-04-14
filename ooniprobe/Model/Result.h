@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
 #import "Summary.h"
+#import "TestUtility.h"
 
 @interface Result : SRKObject
 

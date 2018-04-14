@@ -59,5 +59,10 @@
      */
 }
 
+-(void)deleteObject{
+    [TestUtility removeFile:[self getLogFile]];
+    [TestUtility removeFile:[self getReportFifle]];
+    [self remove];
+}
 
 @end

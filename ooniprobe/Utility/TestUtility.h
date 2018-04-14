@@ -9,5 +9,5 @@
 + (NSArray*)getTestTypes;
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (NSArray*)getUrlsTest;
-
++ (void)removeFile:(NSString*)fileName;
 @end

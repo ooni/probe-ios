@@ -120,26 +120,11 @@
 
 -(void)deleteObject{
     for (Measurement* measurement in self.measurements){
-        [self removeFile:[measurement getLogFile]];
-        [self removeFile:[measurement getReportFifle]];
+        [TestUtility removeFile:[measurement getLogFile]];
+        [TestUtility removeFile:[measurement getReportFifle]];
         [measurement remove];
     }
     [self remove];
-}
-
-- (void)removeFile:(NSString*)fileName {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
-    NSError *error;
-    BOOL success = [fileManager removeItemAtPath:filePath error:&error];
-    if (success) {
-        NSLog(@"File %@ deleted", fileName);
-    }
-    else
-    {
-        NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
-    }
 }
 
 @end
