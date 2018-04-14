@@ -1308,10 +1308,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-cC-vHE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="672" id="TMf-Qh-Yxz"/>
+                                    <constraint firstAttribute="height" constant="623" id="TMf-Qh-Yxz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1324,13 +1324,14 @@
                             <constraint firstItem="hqF-cC-vHE" firstAttribute="top" secondItem="HWN-uv-rZK" secondAttribute="bottom" id="nBA-jr-coQ"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="textView" destination="hqF-cC-vHE" id="4bh-wv-HMI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5o-Yh-Tx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2275" y="2363"/>
+            <point key="canvasLocation" x="2273.913043478261" y="2362.5"/>
         </scene>
         <!--Header1 View Controller-->
         <scene sceneID="prO-CZ-p5m">

@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "Measurement.h"
+#import <JSONSyntaxHighlight/JSONSyntaxHighlight.h>
 
 @interface LogViewController : UIViewController
 
