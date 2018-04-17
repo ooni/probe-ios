@@ -8,14 +8,12 @@
 @property (nonatomic, strong) Result *result;
 @property (nonatomic, strong) Measurement *measurement;
 @property (nonatomic, strong) IBOutlet UIView *headerView;
-@property (nonatomic, strong) IBOutlet UILabel *labelNetworkType;
-@property (nonatomic, strong) IBOutlet UILabel *labelNetwork;
-@property (nonatomic, strong) IBOutlet UILabel *labelNetworkDetail;
 @property (nonatomic, strong) IBOutlet UILabel *labelDate;
 @property (nonatomic, strong) IBOutlet UILabel *labelDateDetail;
-@property (nonatomic, strong) IBOutlet UILabel *labelDataUsage;
-@property (nonatomic, strong) IBOutlet UILabel *labelDataUsageUpload;
-@property (nonatomic, strong) IBOutlet UILabel *labelDataUsageDownload;
+@property (nonatomic, strong) IBOutlet UILabel *labelNetwork;
+@property (nonatomic, strong) IBOutlet UILabel *labelNetworkDetail;
+@property (nonatomic, strong) IBOutlet UILabel *labelCountry;
+@property (nonatomic, strong) IBOutlet UILabel *labelCountryDetail;
 @property (nonatomic, strong) IBOutlet UILabel *labelRuntime;
 @property (nonatomic, strong) IBOutlet UILabel *labelRuntimeDetail;
 

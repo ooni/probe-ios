@@ -18,30 +18,39 @@
     [self.labelDateDetail setText:localizedDateTime];
     [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.name]];
     [self.labelNetwork setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
-    [self.labelDataUsage setText:NSLocalizedString(@"TestResults.Summary.Hero.DataUsage", nil)];
-    [self.labelRuntime setText:NSLocalizedString(@"TestResults.Summary.Hero.Runtime", nil)];
+    [self.labelCountry setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
+    [self.labelRuntime setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
     [self.labelDate setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
 
-    [self.labelNetworkType setText:[result getLocalizedNetworkType]];
-    NSString *asn = [result getAsn];
-    NSString *asnName = [result getAsnName];
-    NSString *country = [result getCountry];
+    //TODO how to behave when not resolved bold not bold
+    NSString *asn;
+    if ([result getAsnName] != NULL)
+        asn = [result getAsnName];
+    else
+        asn = [result getAsn];
     
-    NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@ - ", asnName, asn]];
+    //TODO if we can resolve the name properly we should drop the ASN
+    NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", asn]];
     [asnText addAttribute:NSFontAttributeName
-                    value:[UIFont fontWithName:@"FiraSans-Regular" size:15]
+                    value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
                     range:NSMakeRange(0, asnText.length)];
-    NSMutableAttributedString *countryName = [[NSMutableAttributedString alloc] initWithString:country];
-    [countryName addAttribute:NSFontAttributeName
-                        value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
-                        range:NSMakeRange(0, countryName.length)];
+    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" - %@", [result getAsn]]];
+    [asnName addAttribute:NSFontAttributeName
+                        value:[UIFont fontWithName:@"FiraSans-Regular" size:15]
+                        range:NSMakeRange(0, asnName.length)];
+    NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)", [result getLocalizedNetworkType]]];
+    [networkText addAttribute:NSFontAttributeName
+                        value:[UIFont fontWithName:@"FiraSans-Regular" size:15]
+                        range:NSMakeRange(0, networkText.length)];
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
     [attrStr appendAttributedString:asnText];
-    [attrStr appendAttributedString:countryName];
+    [attrStr appendAttributedString:asnName];
+    [attrStr appendAttributedString:networkText];
     [self.labelNetworkDetail setAttributedText:attrStr];
-    [self.labelDataUsageUpload setText:[result getFormattedDataUsageUp]];
-    [self.labelDataUsageDownload setText:[result getFormattedDataUsageDown]];
     
+    NSString *country = [result getCountry];
+    [self.labelCountryDetail setText:country];
+
     [self.labelRuntimeDetail setText:[NSString stringWithFormat:@"%.02f sec", measurement.duration]];
 }
 
