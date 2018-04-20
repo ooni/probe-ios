@@ -9,7 +9,7 @@
 - (UIViewController *)first {
     if (!_first) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
-        _first = [sb instantiateViewControllerWithIdentifier:@"Onboarding_1"];
+        _first = [sb instantiateViewControllerWithIdentifier:@"onboarding_1"];
     }
     return _first;
 }
@@ -17,21 +17,21 @@
 - (UIViewController *)second {
     if (!_second) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
-        _second = [sb instantiateViewControllerWithIdentifier:@"Onboarding_2"];
+        _second = [sb instantiateViewControllerWithIdentifier:@"onboarding_2"];
     }
     return _second;
 }
 - (UIViewController *)third {
     if (!_third) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
-        _third = [sb instantiateViewControllerWithIdentifier:@"Onboarding_3"];
+        _third = [sb instantiateViewControllerWithIdentifier:@"onboarding_3"];
     }
     return _third;
 }
 - (UIViewController *)fourth {
     if (!_fourth) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
-        _fourth = [sb instantiateViewControllerWithIdentifier:@"Onboarding_4"];
+        _fourth = [sb instantiateViewControllerWithIdentifier:@"osnboarding_4"];
     }
     return _fourth;
 }

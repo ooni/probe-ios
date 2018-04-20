@@ -52,6 +52,9 @@
 		EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AF8208A30E100D46D0F /* MiddleBoxesDetailsViewController.m */; };
 		EDA17AFE208A310300D46D0F /* DASHDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AFD208A310300D46D0F /* DASHDetailsViewController.m */; };
 		EDA17B01208A312C00D46D0F /* NDTDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17B00208A312C00D46D0F /* NDTDetailsViewController.m */; };
+		EDA17B03208A358000D46D0F /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B02208A358000D46D0F /* Feed.storyboard */; };
+		EDA17B05208A37BF00D46D0F /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B04208A37BF00D46D0F /* Dashboard.storyboard */; };
+		EDA17B07208A389F00D46D0F /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B06208A389F00D46D0F /* Result.storyboard */; };
 		EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
@@ -183,6 +186,9 @@
 		EDA17AFD208A310300D46D0F /* DASHDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DASHDetailsViewController.m; sourceTree = "<group>"; };
 		EDA17AFF208A312C00D46D0F /* NDTDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDTDetailsViewController.h; sourceTree = "<group>"; };
 		EDA17B00208A312C00D46D0F /* NDTDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDTDetailsViewController.m; sourceTree = "<group>"; };
+		EDA17B02208A358000D46D0F /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Feed.storyboard; path = Storyboards/Feed.storyboard; sourceTree = "<group>"; };
+		EDA17B04208A37BF00D46D0F /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Dashboard.storyboard; path = Storyboards/Dashboard.storyboard; sourceTree = "<group>"; };
+		EDA17B06208A389F00D46D0F /* Result.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Result.storyboard; path = Storyboards/Result.storyboard; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hexadecimal.h"; sourceTree = "<group>"; };
@@ -503,6 +509,9 @@
 			isa = PBXGroup;
 			children = (
 				ED58CF741FEBB77600E3C415 /* Main.storyboard */,
+				EDA17B04208A37BF00D46D0F /* Dashboard.storyboard */,
+				EDA17B06208A389F00D46D0F /* Result.storyboard */,
+				EDA17B02208A358000D46D0F /* Feed.storyboard */,
 				EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */,
 				EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */,
 				ED0A6200200B52C000235E70 /* OONIRun.storyboard */,
@@ -695,14 +704,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDA17B07208A389F00D46D0F /* Result.storyboard in Resources */,
 				EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */,
 				EDC2C9E01FD8061400FF01D3 /* FiraSans-LightItalic.otf in Resources */,
 				EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */,
+				EDA17B05208A37BF00D46D0F /* Dashboard.storyboard in Resources */,
 				EDC2C9E21FD8061400FF01D3 /* FiraSans-Italic.otf in Resources */,
 				EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */,
 				EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */,
 				EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */,
 				ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */,
+				EDA17B03208A358000D46D0F /* Feed.storyboard in Resources */,
 				ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */,
 				EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */,
 				EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */,
