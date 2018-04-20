@@ -28,6 +28,7 @@
 		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
 		ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */; };
 		ED3AEABE205A625100CFE360 /* Url.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3AEABD205A625100CFE360 /* Url.mm */; };
+		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.mm */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55C0C8203BD52900738260 /* Header1MBViewController.m */; };
@@ -47,6 +48,10 @@
 		ED997D0A207BB7C400C97B1F /* LocalizationUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.mm */; };
 		ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED997D0B207BCEE400C97B1F /* Strings.plist */; };
 		ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */; };
+		EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AF4208A30E000D46D0F /* InstantMessagingDetailsViewController.m */; };
+		EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AF8208A30E100D46D0F /* MiddleBoxesDetailsViewController.m */; };
+		EDA17AFE208A310300D46D0F /* DASHDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AFD208A310300D46D0F /* DASHDetailsViewController.m */; };
+		EDA17B01208A312C00D46D0F /* NDTDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17B00208A312C00D46D0F /* NDTDetailsViewController.m */; };
 		EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
@@ -125,6 +130,8 @@
 		ED3B5F8C1F0BAC54007CE2AF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED3B5F8D1F0BC991007CE2AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ED3B5F8E1F0BC997007CE2AF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		ED41D8B62089E9C500543191 /* WebsitesDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebsitesDetailsViewController.h; sourceTree = "<group>"; };
+		ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebsitesDetailsViewController.m; sourceTree = "<group>"; };
 		ED459A291E5E0EB900EAE084 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED459A2A1E5E0EC000EAE084 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED459A2B1E5E124100EAE084 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -168,6 +175,14 @@
 		ED997D0B207BCEE400C97B1F /* Strings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Strings.plist; sourceTree = "<group>"; };
 		ED9D8B99207F5C4A00189FAE /* TestDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDetailsViewController.h; sourceTree = "<group>"; };
 		ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDetailsViewController.m; sourceTree = "<group>"; };
+		EDA17AF3208A30E000D46D0F /* InstantMessagingDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstantMessagingDetailsViewController.h; sourceTree = "<group>"; };
+		EDA17AF4208A30E000D46D0F /* InstantMessagingDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstantMessagingDetailsViewController.m; sourceTree = "<group>"; };
+		EDA17AF7208A30E100D46D0F /* MiddleBoxesDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleBoxesDetailsViewController.h; sourceTree = "<group>"; };
+		EDA17AF8208A30E100D46D0F /* MiddleBoxesDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleBoxesDetailsViewController.m; sourceTree = "<group>"; };
+		EDA17AFC208A310300D46D0F /* DASHDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DASHDetailsViewController.h; sourceTree = "<group>"; };
+		EDA17AFD208A310300D46D0F /* DASHDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DASHDetailsViewController.m; sourceTree = "<group>"; };
+		EDA17AFF208A312C00D46D0F /* NDTDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDTDetailsViewController.h; sourceTree = "<group>"; };
+		EDA17B00208A312C00D46D0F /* NDTDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDTDetailsViewController.m; sourceTree = "<group>"; };
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hexadecimal.h"; sourceTree = "<group>"; };
@@ -449,6 +464,7 @@
 		EDB6F9B62023524500BDCB0B /* TestResults */ = {
 			isa = PBXGroup;
 			children = (
+				EDDBDFB52086900200A170BD /* Details */,
 				EDBBB2DC203D2ED400B84F6F /* Rows */,
 				ED3AE9ED20341C5600DAAF36 /* Headers */,
 				EDDB0B4E1FFD320000EFD9C8 /* TestResultsTableViewController.h */,
@@ -457,8 +473,6 @@
 				ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.mm */,
 				ED1EC16F204E9B61000DEB9F /* LogViewController.h */,
 				ED1EC170204E9B61000DEB9F /* LogViewController.m */,
-				ED9D8B99207F5C4A00189FAE /* TestDetailsViewController.h */,
-				ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */,
 			);
 			path = TestResults;
 			sourceTree = "<group>";
@@ -556,6 +570,25 @@
 				EDDB0B6C1FFF6C8B00EFD9C8 /* WrongAnswerViewController.m */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		EDDBDFB52086900200A170BD /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				ED9D8B99207F5C4A00189FAE /* TestDetailsViewController.h */,
+				ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */,
+				ED41D8B62089E9C500543191 /* WebsitesDetailsViewController.h */,
+				ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */,
+				EDA17AF3208A30E000D46D0F /* InstantMessagingDetailsViewController.h */,
+				EDA17AF4208A30E000D46D0F /* InstantMessagingDetailsViewController.m */,
+				EDA17AF7208A30E100D46D0F /* MiddleBoxesDetailsViewController.h */,
+				EDA17AF8208A30E100D46D0F /* MiddleBoxesDetailsViewController.m */,
+				EDA17AFC208A310300D46D0F /* DASHDetailsViewController.h */,
+				EDA17AFD208A310300D46D0F /* DASHDetailsViewController.m */,
+				EDA17AFF208A312C00D46D0F /* NDTDetailsViewController.h */,
+				EDA17B00208A312C00D46D0F /* NDTDetailsViewController.m */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		F4F15431D4412F561191270F /* Frameworks */ = {
@@ -780,6 +813,7 @@
 			files = (
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
+				EDA17B01208A312C00D46D0F /* NDTDetailsViewController.m in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
 				ED0D8D7020186742003DDF23 /* TestOverviewViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
@@ -805,6 +839,7 @@
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
+				EDA17AFE208A310300D46D0F /* DASHDetailsViewController.m in Sources */,
 				EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */,
 				ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
@@ -815,10 +850,12 @@
 				ED997D0A207BB7C400C97B1F /* LocalizationUtility.mm in Sources */,
 				ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */,
 				ED70D5031FE8021400759463 /* Measurement.mm in Sources */,
+				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding4ViewController.m in Sources */,
 				ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.mm in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
+				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
@@ -831,6 +868,7 @@
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.mm in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
+				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

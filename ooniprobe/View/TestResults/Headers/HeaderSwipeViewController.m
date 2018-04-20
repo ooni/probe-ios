@@ -19,9 +19,9 @@
     if (!_first) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         if ([result.name isEqualToString:@"middle_boxes"])
-            _first = [sb instantiateViewControllerWithIdentifier:@"Header_1_mb"];
+            _first = [sb instantiateViewControllerWithIdentifier:@"test_summary_header_mb"];
         else
-            _first = [sb instantiateViewControllerWithIdentifier:@"Header_1"];
+            _first = [sb instantiateViewControllerWithIdentifier:@"test_summary_header_1"];
         [_first setResult:result];
     }
     return _first;
@@ -30,7 +30,7 @@
 - (UIViewController *)second {
     if (!_second) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _second = [sb instantiateViewControllerWithIdentifier:@"Header_2"];
+        _second = [sb instantiateViewControllerWithIdentifier:@"test_summary_header_2"];
         [_second setResult:result];
     }
     return _second;

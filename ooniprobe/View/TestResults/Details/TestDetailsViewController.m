@@ -54,11 +54,6 @@
     [self.labelRuntimeDetail setText:[NSString stringWithFormat:@"%.02f sec", measurement.duration]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 /*
 #pragma mark - Navigation
 
