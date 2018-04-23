@@ -225,17 +225,17 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){
         //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        HeaderSwipeViewController *vc = (HeaderSwipeViewController * )segue.destinationViewController;
+        HeaderSwipeViewController *vc = (HeaderSwipeViewController *)segue.destinationViewController;
         //NSString *current = [categories objectAtIndex:indexPath.row];
         [vc setResult:result];
     }
     else if ([[segue identifier] isEqualToString:@"log"]){
-        LogViewController *vc = (LogViewController * )segue.destinationViewController;
+        LogViewController *vc = (LogViewController *)segue.destinationViewController;
         [vc setType:segueType];
         [vc setMeasurement:segueObj];
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
+        TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
         /*if ([result.name isEqualToString:@"websites"]) {
             Url *currentUrl = [[Url alloc] initWithUrl:segueObj.input category:segueObj.category];
             [vc setCurrentTest:[[WCNetworkTest alloc] initWithUrls:@[currentUrl]]];
@@ -244,7 +244,7 @@
         [vc setCurrentTest:[[NetworkTest alloc] initWithMeasurement:segueObj]];
     }
     else if ([[segue identifier] isEqualToString:@"toTestDetails"]){
-        TestDetailsViewController *vc = (TestDetailsViewController * )segue.destinationViewController;
+        TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;
         [vc setResult:result];
         [vc setMeasurement:segueObj];
     }

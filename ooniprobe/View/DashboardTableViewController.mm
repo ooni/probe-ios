@@ -48,8 +48,8 @@
     ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
 
     [runButton setTitleColor:[TestUtility getColorForTest:testName] forState:UIControlStateNormal];
-    [runButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
-    [configureButton setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"Dashboard.Card.Configure", nil)] forState:UIControlStateNormal];
+    [runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
+    [configureButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Configure", nil)] forState:UIControlStateNormal];
 
     //ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];

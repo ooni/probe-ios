@@ -24,32 +24,6 @@
 {
     self.layer.cornerRadius = self.bounds.size.height/2;
     self.layer.masksToBounds = YES;
-    //[self setTitle:[NSString stringWithFormat:@"   %@   ", NSLocalizedString(@"run", nil)] forState:UIControlStateNormal];
-/*
-    UIColor *defaultTintColor = color_ooni_blue;
-    self.layer.borderWidth = 1;
-    self.layer.borderColor = defaultTintColor.CGColor;
-    self.layer.cornerRadius = 5;
-    self.layer.masksToBounds = YES;
-    [self setTitleColor:defaultTintColor forState:UIControlStateNormal];
-    [self setTitleColor:color_off_white forState:UIControlStateHighlighted];
-    UIImage *backGroundImage = [self createSolidColorImageWithColor:defaultTintColor
-                                                               andSize:self.bounds.size];
-    [self setBackgroundImage:backGroundImage forState:UIControlStateHighlighted];
- */
-}
-
-- (UIImage*)createSolidColorImageWithColor:(UIColor*)color andSize:(CGSize)size
-{
-    CGFloat scale = [[UIScreen mainScreen] scale];
-    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
-    CGContextRef currentContext = UIGraphicsGetCurrentContext();
-    CGRect fillRect = CGRectMake(0, 0, size.width, size.height);
-    CGContextSetFillColorWithColor(currentContext, color.CGColor);
-    CGContextFillRect(currentContext, fillRect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
 }
 
 @end

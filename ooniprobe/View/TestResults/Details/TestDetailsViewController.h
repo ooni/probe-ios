@@ -2,19 +2,24 @@
 #import "Result.h"
 #import "Measurement.h"
 #import "TestUtility.h"
+#import "LogViewController.h"
 
-@interface TestDetailsViewController : UIViewController
+@interface TestDetailsViewController : UIViewController {
+    NSString *segueType;
+}
 
 @property (nonatomic, strong) Result *result;
 @property (nonatomic, strong) Measurement *measurement;
 @property (nonatomic, strong) IBOutlet UIView *headerView;
-@property (nonatomic, strong) IBOutlet UILabel *labelDate;
-@property (nonatomic, strong) IBOutlet UILabel *labelDateDetail;
-@property (nonatomic, strong) IBOutlet UILabel *labelNetwork;
-@property (nonatomic, strong) IBOutlet UILabel *labelNetworkDetail;
-@property (nonatomic, strong) IBOutlet UILabel *labelCountry;
-@property (nonatomic, strong) IBOutlet UILabel *labelCountryDetail;
-@property (nonatomic, strong) IBOutlet UILabel *labelRuntime;
-@property (nonatomic, strong) IBOutlet UILabel *labelRuntimeDetail;
+@property (nonatomic, strong) IBOutlet UILabel *dateLabel;
+@property (nonatomic, strong) IBOutlet UILabel *dateDetailLabel;
+@property (nonatomic, strong) IBOutlet UILabel *networkLabel;
+@property (nonatomic, strong) IBOutlet UILabel *networkDetailLabel;
+@property (nonatomic, strong) IBOutlet UILabel *countryLabel;
+@property (nonatomic, strong) IBOutlet UILabel *countryDetailLabel;
+@property (nonatomic, strong) IBOutlet UILabel *runtimeLabel;
+@property (nonatomic, strong) IBOutlet UILabel *runtimeDetailLabel;
+@property (nonatomic, strong) IBOutlet UIButton *viewLogButton;
+@property (nonatomic, strong) IBOutlet UIButton *rawDataButton;
 
 @end

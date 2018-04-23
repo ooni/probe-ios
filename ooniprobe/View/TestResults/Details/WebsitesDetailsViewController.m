@@ -8,7 +8,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.learnCircumventButton setTitle:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent", nil) forState:UIControlStateNormal];
+    if (super.measurement.blocking == MEASUREMENT_OK){
+        [self.statusImage setImage:[UIImage imageNamed:@"tick_green"]];
+        [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Hero.Title", nil)];
+        [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Content.Paragraph.1", nil)];
+        [self.learnCircumventButton setHidden:YES];
+    }
+    else if (super.measurement.blocking == MEASUREMENT_BLOCKED){
+        [self.statusImage setImage:[UIImage imageNamed:@"tick_red"]];
+        [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Hero.Title", nil)];
+        [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph.1", nil)];
+        [self.learnCircumventButton setHidden:NO];
+    }
+}
+
+- (IBAction)learnCircumvent{
 }
 
 /*

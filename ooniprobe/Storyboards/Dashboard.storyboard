@@ -90,6 +90,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="14"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                     <state key="normal" title="Configure">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -105,6 +106,7 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="WOX-iB-foz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="18"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                     <state key="normal" title="Run">
                                                         <color key="titleColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -320,6 +322,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="14"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="Configure">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -335,6 +338,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="e9b-LL-PKn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="20"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="Run">
                                             <color key="titleColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -380,15 +384,13 @@
                                 <constraints>
                                     <constraint firstItem="1MC-ZK-PPc" firstAttribute="centerX" secondItem="5WB-R0-WW0" secondAttribute="centerX" id="7eq-h2-t8Z"/>
                                     <constraint firstItem="1MC-ZK-PPc" firstAttribute="top" secondItem="P4V-eN-VhB" secondAttribute="bottom" constant="4" id="9Dd-rj-Poc"/>
-                                    <constraint firstItem="2hp-nu-K1s" firstAttribute="leading" relation="lessThanOrEqual" secondItem="OFB-mp-BTr" secondAttribute="leading" constant="169" id="A3U-82-z6h"/>
                                     <constraint firstItem="P4V-eN-VhB" firstAttribute="leading" secondItem="OFB-mp-BTr" secondAttribute="leadingMargin" id="BVL-xH-DzL"/>
-                                    <constraint firstItem="1MC-ZK-PPc" firstAttribute="leading" relation="lessThanOrEqual" secondItem="OFB-mp-BTr" secondAttribute="leading" constant="162" id="BgF-b3-tG2"/>
                                     <constraint firstItem="ZkB-Qa-WMT" firstAttribute="bottom" secondItem="OFB-mp-BTr" secondAttribute="bottomMargin" constant="-13" id="HCv-pa-hvW"/>
                                     <constraint firstItem="P4V-eN-VhB" firstAttribute="trailing" secondItem="OFB-mp-BTr" secondAttribute="trailingMargin" id="KwG-bf-1fE"/>
                                     <constraint firstItem="2hp-nu-K1s" firstAttribute="top" secondItem="5WB-R0-WW0" secondAttribute="bottom" constant="16" id="NUJ-gZ-KLQ"/>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="2hp-nu-K1s" secondAttribute="trailing" constant="168" id="OnT-sy-Np5"/>
                                     <constraint firstItem="P4V-eN-VhB" firstAttribute="leading" secondItem="5WB-R0-WW0" secondAttribute="leading" id="OwK-iy-87k"/>
                                     <constraint firstItem="ZkB-Qa-WMT" firstAttribute="top" secondItem="2hp-nu-K1s" secondAttribute="bottom" constant="4" id="T2v-dJ-nE4"/>
+                                    <constraint firstItem="1MC-ZK-PPc" firstAttribute="centerX" secondItem="OFB-mp-BTr" secondAttribute="centerX" id="XCc-dV-QH7"/>
                                     <constraint firstItem="ZkB-Qa-WMT" firstAttribute="leading" secondItem="OFB-mp-BTr" secondAttribute="leading" constant="9" id="aCp-at-Uas"/>
                                     <constraint firstItem="P4V-eN-VhB" firstAttribute="top" secondItem="8lW-6g-uP6" secondAttribute="bottom" constant="-3" id="afx-1V-o0F"/>
                                     <constraint firstItem="P4V-eN-VhB" firstAttribute="trailing" secondItem="5WB-R0-WW0" secondAttribute="trailing" id="avx-US-gSU"/>
@@ -396,7 +398,7 @@
                                     <constraint firstItem="2hp-nu-K1s" firstAttribute="centerX" secondItem="ZkB-Qa-WMT" secondAttribute="centerX" id="e4B-yY-h4e"/>
                                     <constraint firstItem="8lW-6g-uP6" firstAttribute="top" secondItem="OFB-mp-BTr" secondAttribute="topMargin" constant="-8" id="hgL-li-Nrq"/>
                                     <constraint firstItem="8lW-6g-uP6" firstAttribute="centerX" secondItem="P4V-eN-VhB" secondAttribute="centerX" id="iGC-gW-ggV"/>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="1MC-ZK-PPc" secondAttribute="trailing" constant="162" id="njb-OY-r8f"/>
+                                    <constraint firstItem="2hp-nu-K1s" firstAttribute="centerX" secondItem="OFB-mp-BTr" secondAttribute="centerX" id="lvV-vh-BN6"/>
                                     <constraint firstItem="5WB-R0-WW0" firstAttribute="centerX" secondItem="2hp-nu-K1s" secondAttribute="centerX" id="wEY-Fp-naf"/>
                                     <constraint firstAttribute="height" constant="266" id="wzK-iT-U1v"/>
                                 </constraints>
@@ -464,7 +466,7 @@
         <image name="websites_white" width="167" height="167"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wqI-w5-99i"/>
+        <segue reference="Get-FV-hMZ"/>
         <segue reference="HUp-5Z-Q68"/>
     </inferredMetricsTieBreakers>
 </document>

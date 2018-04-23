@@ -15,12 +15,17 @@
     self.title = [LocalizationUtility getNameForTest:measurement.name];
 
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-    [self.labelDateDetail setText:localizedDateTime];
     [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.name]];
-    [self.labelNetwork setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
-    [self.labelCountry setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
-    [self.labelRuntime setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
-    [self.labelDate setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
+    [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
+    [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
+    [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
+    [self.dateLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
+    [self.dateDetailLabel setText:localizedDateTime];
+
+    self.rawDataButton.layer.cornerRadius = self.rawDataButton.bounds.size.height/2;
+    self.rawDataButton.layer.masksToBounds = YES;
+    [self.rawDataButton setTitle:NSLocalizedString(@"Raw Data", nil) forState:UIControlStateNormal];
+    [self.viewLogButton setTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil) forState:UIControlStateNormal];
 
     //TODO how to behave when not resolved bold not bold
     NSString *asn;
@@ -46,22 +51,33 @@
     [attrStr appendAttributedString:asnText];
     [attrStr appendAttributedString:asnName];
     [attrStr appendAttributedString:networkText];
-    [self.labelNetworkDetail setAttributedText:attrStr];
+    [self.networkDetailLabel setAttributedText:attrStr];
     
     NSString *country = [result getCountry];
-    [self.labelCountryDetail setText:country];
+    [self.countryDetailLabel setText:country];
 
-    [self.labelRuntimeDetail setText:[NSString stringWithFormat:@"%.02f sec", measurement.duration]];
+    [self.runtimeDetailLabel setText:[NSString stringWithFormat:@"%.02f sec", measurement.duration]];
 }
 
-/*
+- (IBAction)viewLogs{
+    segueType = @"log";
+    [self performSegueWithIdentifier:@"log" sender:self];
+}
+
+- (IBAction)rawData{
+    segueType = @"json";
+    [self performSegueWithIdentifier:@"log" sender:self];
+}
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"toViewLog"]){
+        LogViewController *vc = (LogViewController *)segue.destinationViewController;
+        [vc setType:segueType];
+        [vc setMeasurement:measurement];
+    }
 }
-*/
+
 
 @end

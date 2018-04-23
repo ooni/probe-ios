@@ -12,10 +12,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
     
     [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.name]];
-    [self.labelNetwork setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
-    [self.labelCountry setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
-    [self.labelDataUsage setText:NSLocalizedString(@"TestResults.Summary.Hero.DataUsage", nil)];
-    [self.labelRuntime setText:NSLocalizedString(@"TestResults.Summary.Hero.Runtime", nil)];
+    [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
+    [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
+    [self.dataUsageLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DataUsage", nil)];
+    [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Runtime", nil)];
     [self reloadMeasurement];
 }
 
@@ -45,15 +45,15 @@
         NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
         [attrStr appendAttributedString:asnText];
         [attrStr appendAttributedString:networkText];
-        [self.labelNetworkDetail setAttributedText:attrStr];
+        [self.networkDetailLabel setAttributedText:attrStr];
 
         NSString *country = [result getCountry];
-        [self.labelCountryDetail setText:country];
+        [self.countryDetailLabel setText:country];
 
-        [self.labelDataUsageUpload setText:[result getFormattedDataUsageUp]];
-        [self.labelDataUsageDownload setText:[result getFormattedDataUsageDown]];
+        [self.dataUsageUploadLabel setText:[result getFormattedDataUsageUp]];
+        [self.dataUsageDownloadLabel setText:[result getFormattedDataUsageDown]];
         
-        [self.labelRuntimeDetail setText:[NSString stringWithFormat:@"%.02f sec", result.duration]];
+        [self.runtimeDetailLabel setText:[NSString stringWithFormat:@"%.02f sec", result.duration]];
     });
 }
 @end
