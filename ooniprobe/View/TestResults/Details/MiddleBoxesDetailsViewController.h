@@ -3,4 +3,7 @@
 
 @interface MiddleBoxesDetailsViewController : TestDetailsViewController
 
+//@property (nonatomic, strong) IBOutlet UIImageView *statusImage;
+@property (nonatomic, strong) IBOutlet JTImageLabel *titleLabel;
+
 @end

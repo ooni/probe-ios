@@ -8,7 +8,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    if (super.measurement.blocking == MEASUREMENT_OK){
+        [self.statusImage setImage:[UIImage imageNamed:@"tick_green"]];
+        [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Hero.Title", nil)];
+    }
+    else if (super.measurement.blocking == MEASUREMENT_BLOCKED){
+        [self.statusImage setImage:[UIImage imageNamed:@"x_red"]];
+        [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Hero.Title", nil)];
+    }
 }
 
 /*

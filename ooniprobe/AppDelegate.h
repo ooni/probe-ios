@@ -2,7 +2,6 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import <SharkORM/SharkORM.h>
-#import "Result.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CrashlyticsDelegate, SRKDelegate> {
     NSMutableArray *links;

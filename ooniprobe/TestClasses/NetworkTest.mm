@@ -11,7 +11,7 @@
     return self;
 }
 
--(id) initWithMeasurement:(Measurement*)existingMeasurement {
+-(id)initWithMeasurement:(Measurement*)existingMeasurement {
     self = [super init];
     if (self) {
         self.result = existingMeasurement.result;
@@ -91,8 +91,6 @@
         [current run];
     }
 }
-
-
 
 -(void)testEnded:(MKNetworkTest*)test{
     NSLog(@"CALLBACK test_ended %@", test.name);

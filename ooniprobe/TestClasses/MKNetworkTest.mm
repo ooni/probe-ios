@@ -32,6 +32,15 @@
         [self.measurement setResult:self.result];
     if (self.name != NULL)
         [self.measurement setName:self.name];
+    [self.measurement save];
+}
+
+-(void)updateCounter{
+    Summary *summary = [self.result getSummary];
+    summary.totalMeasurements++;
+    summary.failedMeasurements++;
+    [self.result setSummary];
+    [self.result save];
 }
 
 - (void)setResultOfMeasurement:(Result *)result{
@@ -52,12 +61,6 @@
     [self.result setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
     [self.measurement setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
 
-    Summary *summary = [self.result getSummary];
-    summary.totalMeasurements++;
-    summary.failedMeasurements++;
-    [self.result setSummary];
-    [self.result save];
-
     //Configuring common test parameters
     test.set_option("geoip_country_path", [geoip_country UTF8String]);
     test.set_option("geoip_asn_path", [geoip_asn UTF8String]);
@@ -67,14 +70,18 @@
     test.set_option("no_collector", !upload_results);
     test.set_option("software_name", [@"ooniprobe-ios" UTF8String]);
     test.set_option("software_version", [software_version UTF8String]);
-    test.set_error_filepath([[TestUtility getFileName:self.measurement.Id ext:@"log"] UTF8String]);
-    test.set_output_filepath([[TestUtility getFileName:self.measurement.Id ext:@"json"] UTF8String]);
+    test.set_error_filepath([[TestUtility getFileName:self.measurement ext:@"log"] UTF8String]);
+    if (![self.name isEqualToString:@"web_connectivity"])
+        test.set_output_filepath([[TestUtility getFileName:self.measurement ext:@"json"] UTF8String]);
+    //TODO remove
+    //NSLog(@"FILE set_output_filepath %@", [TestUtility getFileName:self.measurement ext:@"json"]);
     test.set_verbosity([SettingsUtility getVerbosity]);
     test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
     test.on_log([self](uint32_t type, const char *s) {
         [self sendLog:[NSString stringWithFormat:@"%s", s]];
     });
     test.on_begin([self]() {
+        [self updateCounter];
         [self updateProgress:0];
     });
     test.on_progress([self](double prog, const char *s) {
@@ -172,6 +179,9 @@
         if ([json safeObjectForKey:@"report_id"])
             [self.measurement setReportId:[json objectForKey:@"report_id"]];
         if ([self.name isEqualToString:@"web_connectivity"]){
+            //TODO remove
+            NSLog(@"FILE writeToFile %@", [TestUtility getFileName:self.measurement ext:@"json"]);
+            [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
             blocking = [self checkBlocking:[json objectForKey:@"test_keys"]];
         }
         else if ([self.name isEqualToString:@"http_invalid_request_line"]){
@@ -280,10 +290,12 @@
         [self updateBlocking:blocking];
         [self.measurement save];
         //create new measurement entry if web_connectivity test
+        //TODO this case doesn not handle the timeout @sbs
         if ([self.name isEqualToString:@"web_connectivity"]){
             self.entryIdx++;
             if (self.entryIdx < [self.inputs count]){
                 [self createMeasurementObject];
+                [self updateCounter];
                 Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
                 self.measurement.input = currentUrl.url;
                 self.measurement.category = currentUrl.category_code;
@@ -299,20 +311,20 @@
      string (dns, tcp-ip, http-failure, http-diff) => blocked (red)
      */
     id element = [test_keys objectForKey:@"blocking"];
-    int blocking = 0;
+    int blocking = MEASUREMENT_OK;
     if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
-        blocking = 1;
+        blocking = MEASUREMENT_FAILURE;
     }
     else if (([element isKindOfClass:[NSString class]])) {
-        blocking = 2;
+        blocking = MEASUREMENT_BLOCKED;
     }
     return blocking;
 }
 
-
 -(void)updateBlocking:(int)blocking{
     [self.measurement setBlocking:blocking];
     Summary *summary = [self.result getSummary];
+    //TODO how to count failed? will they appear here?
     if (blocking != MEASUREMENT_FAILURE){
         summary.failedMeasurements--;
         if (blocking == MEASUREMENT_OK)

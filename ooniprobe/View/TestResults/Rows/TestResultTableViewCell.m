@@ -69,7 +69,7 @@
         [self.stackView2 setHidden:YES];
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:nil];
-        if (summary.failedMeasurements > 0)
+        if (summary.blockedMeasurements > 0)
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)];
         else if (summary.okMeasurements == summary.totalMeasurements)
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];

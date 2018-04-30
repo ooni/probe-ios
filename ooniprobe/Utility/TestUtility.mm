@@ -24,10 +24,10 @@
     return [dateformatter stringFromDate:[NSDate date]];
 }
 
-+ (NSString*) getFileName:(NSNumber*)uniqueId ext:(NSString*)ext {
++ (NSString*)getFileName:(Measurement*)measurement ext:(NSString*)ext{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [NSString stringWithFormat:@"%@/test-%@.%@", documentsDirectory, uniqueId, ext];
+    NSString *fileName = [NSString stringWithFormat:@"%@/%@", documentsDirectory, [measurement getFile:ext]];
     return fileName;
 }
 

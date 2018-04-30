@@ -31,7 +31,7 @@
 - (UIViewController *)fourth {
     if (!_fourth) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil];
-        _fourth = [sb instantiateViewControllerWithIdentifier:@"osnboarding_4"];
+        _fourth = [sb instantiateViewControllerWithIdentifier:@"onboarding_4"];
     }
     return _fourth;
 }

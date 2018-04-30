@@ -8,8 +8,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    /*
+    [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point_orange"]];
+    [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.Found.Hero.Title", nil)];
+    [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.Found.Content.Paragraph", nil)];
+    */
+    self.titleLabel.imageView.image = [UIImage imageNamed:@"exclamation_point_orange"];
+    self.titleLabel.textLabel.text = NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.Found.Content.Paragraph", nil);
+    self.titleLabel.textLabel.textColor = [UIColor blackColor];
+    self.titleLabel.textLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.space = 0;
+    self.titleLabel.textLabel.numberOfLines = 0;
+
+
 }
+
 
 /*
 #pragma mark - Navigation

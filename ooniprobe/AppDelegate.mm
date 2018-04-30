@@ -4,6 +4,7 @@
 #import "DictionaryUtility.h"
 #import "RunTestViewController.h"
 #import "MessageUtility.h"
+#import "Result.h"
 
 @interface AppDelegate ()
 

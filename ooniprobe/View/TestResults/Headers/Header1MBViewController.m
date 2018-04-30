@@ -29,10 +29,8 @@
                             value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                             range:NSMakeRange(0, middleBoxes.length)];
         
-        //TODO this shouldn't have singolar plural
-
         NSString *found;
-        if (summary.failedMeasurements > 0)
+        if (summary.blockedMeasurements > 0)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Found", nil);
         else if (summary.okMeasurements == summary.totalMeasurements)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.NotFound", nil);

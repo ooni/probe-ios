@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
 #import "Result.h"
-#import "TestUtility.h"
 
 @interface Measurement : SRKObject
 
@@ -42,7 +41,8 @@ typedef enum
 //@property NSInteger resultId;
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(void)setAsnAndCalculateName:(NSString *)asn;
--(NSString*)getReportFifle;
+-(NSString*)getFile:(NSString*)ext;
+-(NSString*)getReportFile;
 -(NSString*)getLogFile;
 -(void)save;
 -(void)deleteObject;

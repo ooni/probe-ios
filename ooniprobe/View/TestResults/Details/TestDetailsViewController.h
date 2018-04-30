@@ -3,6 +3,7 @@
 #import "Measurement.h"
 #import "TestUtility.h"
 #import "LogViewController.h"
+#import "JTImageLabel.h"
 
 @interface TestDetailsViewController : UIViewController {
     NSString *segueType;

@@ -95,7 +95,7 @@
         if (current.blocking == MEASUREMENT_OK)
             [status setImage:[UIImage imageNamed:@"tick_green"]];
         else if (current.blocking == MEASUREMENT_BLOCKED)
-            [status setImage:[UIImage imageNamed:@"tick_red"]];
+            [status setImage:[UIImage imageNamed:@"x_red"]];
     }
     else if ([result.name isEqualToString:@"middle_boxes"]){
         [title setText:[LocalizationUtility getNameForTest:current.name]];
@@ -113,7 +113,7 @@
         if (current.blocking == MEASUREMENT_OK)
             [status setImage:[UIImage imageNamed:@"tick_green"]];
         else if (current.blocking == MEASUREMENT_BLOCKED)
-            [status setImage:[UIImage imageNamed:@"tick_red"]];
+            [status setImage:[UIImage imageNamed:@"x_red"]];
     }
     else if ([result.name isEqualToString:@"performance"]){
         [title setText:[LocalizationUtility getNameForTest:current.name]];

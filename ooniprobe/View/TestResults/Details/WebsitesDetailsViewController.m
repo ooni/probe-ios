@@ -16,7 +16,7 @@
         [self.learnCircumventButton setHidden:YES];
     }
     else if (super.measurement.blocking == MEASUREMENT_BLOCKED){
-        [self.statusImage setImage:[UIImage imageNamed:@"tick_red"]];
+        [self.statusImage setImage:[UIImage imageNamed:@"x_red"]];
         [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Hero.Title", nil)];
         [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph.1", nil)];
         [self.learnCircumventButton setHidden:NO];

@@ -24,7 +24,7 @@
 
     self.rawDataButton.layer.cornerRadius = self.rawDataButton.bounds.size.height/2;
     self.rawDataButton.layer.masksToBounds = YES;
-    [self.rawDataButton setTitle:NSLocalizedString(@"Raw Data", nil) forState:UIControlStateNormal];
+    [self.rawDataButton setTitle:NSLocalizedString(@"TestResults.Details.RawData", nil) forState:UIControlStateNormal];
     [self.viewLogButton setTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil) forState:UIControlStateNormal];
 
     //TODO how to behave when not resolved bold not bold

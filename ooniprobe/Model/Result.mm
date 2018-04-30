@@ -1,5 +1,6 @@
 #import "Result.h"
 #import "Measurement.h"
+#import "TestUtility.h"
 
 @implementation Result
 @dynamic name, startTime, duration, summary, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, viewed, done;
@@ -9,7 +10,7 @@
 }
 
 - (SRKResultSet*)measurements {
-    return [[[Measurement query] whereWithFormat:@"result = %@", self] fetch];
+    return [[[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"] fetch];
 }
 
 -(void)setAsnAndCalculateName:(NSString *)asn{
@@ -121,7 +122,7 @@
 -(void)deleteObject{
     for (Measurement* measurement in self.measurements){
         [TestUtility removeFile:[measurement getLogFile]];
-        [TestUtility removeFile:[measurement getReportFifle]];
+        [TestUtility removeFile:[measurement getReportFile]];
         [measurement remove];
     }
     [self remove];

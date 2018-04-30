@@ -1,4 +1,5 @@
 #import "Measurement.h"
+#import "TestUtility.h"
 
 @implementation Measurement
 @dynamic name, startTime, duration, ip, asn, asnName, country, networkName, networkType, state, blocking, input, category, result;
@@ -23,12 +24,22 @@
     self.startTime = localDate;
 }
 
--(NSString*)getReportFifle{
-    return [NSString stringWithFormat:@"test-%@.json", self.Id];
+- (NSString*)getFile:(NSString*)ext{
+    //log files are unique for web_connectivity test
+    if ([self.name isEqualToString:@"web_connectivity"] && [ext isEqualToString:@"log"]){
+        //TODO remove
+        NSLog(@"FILE %@",[NSString stringWithFormat:@"%@-%@.%@", self.result.name, self.result.Id, ext]);
+        return [NSString stringWithFormat:@"%@-%@.%@", self.result.name, self.result.Id, ext];
+    }
+    return [NSString stringWithFormat:@"%@-%@.%@", self.result.name, self.Id, ext];
+}
+
+-(NSString*)getReportFile{
+    return [self getFile:@"json"];
 }
 
 -(NSString*)getLogFile{
-    return [NSString stringWithFormat:@"test-%@.log", self.Id];
+    return [self getFile:@"log"];
 }
 
 -(void)save{
@@ -61,7 +72,7 @@
 
 -(void)deleteObject{
     [TestUtility removeFile:[self getLogFile]];
-    [TestUtility removeFile:[self getReportFifle]];
+    [TestUtility removeFile:[self getReportFile]];
     [self remove];
 }
 
