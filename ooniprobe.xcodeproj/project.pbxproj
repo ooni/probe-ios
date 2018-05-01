@@ -442,7 +442,7 @@
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = MADPSAYN6T;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -786,9 +786,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (584LT894QR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -806,11 +806,12 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "25f0c818-9519-4c51-b389-1d1450850b33";
+				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "arm64 armv7s i386 x84_64";
 			};
 			name = Debug;
 		};
@@ -824,8 +825,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
@@ -849,11 +850,12 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "25f0c818-9519-4c51-b389-1d1450850b33";
+				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "arm64 armv7s i386 x84_64";
 			};
 			name = Release;
 		};
