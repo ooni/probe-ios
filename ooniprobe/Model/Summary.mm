@@ -199,4 +199,21 @@
         return @"2160p";
 }
 
+- (NSArray*)getSent{
+    if ([self.json safeObjectForKey:@"http_invalid_request_line"]){
+        NSArray *sent = [[self.json safeObjectForKey:@"http_invalid_request_line"] safeObjectForKey:@"sent"];
+        return sent;
+    }
+    return nil;
+}
+
+- (NSArray*)getReceived{
+    if ([self.json safeObjectForKey:@"http_invalid_request_line"]){
+        NSArray *received = [[self.json safeObjectForKey:@"http_invalid_request_line"] safeObjectForKey:@"received"];
+        return received;
+    }
+    return nil;
+}
+
+
 @end

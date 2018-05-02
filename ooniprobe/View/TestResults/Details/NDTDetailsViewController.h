@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "TestDetailsViewController.h"
 
-@interface NDTDetailsViewController : TestDetailsViewController
+@interface NdtDetailsViewController : TestDetailsViewController
 
 @property (nonatomic, strong) IBOutlet UILabel *downloadTitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *downloadValueLabel;

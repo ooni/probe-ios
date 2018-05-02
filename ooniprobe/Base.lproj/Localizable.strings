@@ -129,7 +129,7 @@
 "TestResults.Details.Websites.Reachable.Hero.Title"                                         = "Accessible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph.1"                                = "The site {WebsiteURL} is accessible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title"                                     = "Likely blocked";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph.1"                            = "The site {WebsiteURL} is likely blocked due to {BlockingReason}.";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph.1"                            = "The site {{WebsiteURL}} is likely blocked due to {{BlockingReason}}.";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent"                      = "Censorship Circumvention";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS"                             = "via DNS";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP"                           = "by means of TCP/IP based blocking";
@@ -154,7 +154,7 @@
 "TestResults.Details.InstantMessaging.WhatsApp.Reachable.Hero.Title"                        = "WhatsApp works";
 "TestResults.Details.InstantMessaging.WhatsApp.Reachable.Content.Paragraph.1"               = "This test successfully connected to WhatsApp's endpoints, registration service and web interface.";
 "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.Hero.Title"                    = "WhatsApp appears to be blocked";
-"TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.Content.Paragraph.1"           = "WhatsApp appears to be blocked {BlockingReason}.";
+"TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.Content.Paragraph.1"           = "WhatsApp appears to be blocked {{BlockingReason}}.";
 "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.BlockingReason.DNS"            = "via DNS";
 "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.BlockingReason.TCPIP"          = "by means of TCP/IP based blocking";
 "TestResults.Details.InstantMessaging.Telegram.Application.Label.Title"                     = "Mobile App";
@@ -165,7 +165,7 @@
 "TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Failed"                         = "Failed";
 "TestResults.Details.InstantMessaging.Telegram.Reachable.Content.Paragraph.1"               = "This test successfully connected to Telegram's endpoints and web interface.";
 "TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Hero.Title"                    = "Telegram appears to be blocked";
-"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.1"           = "Telegram appears to be blocked via {BlockingReason}.";
+"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.1"           = "Telegram appears to be blocked via {{BlockingReason}}.";
 "TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.BlockingReason.DNS"            = "via DNS";
 "TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.BlockingReason.TCPIP"          = "by means of TCP/IP based blocking";
 "TestResults.Details.InstantMessaging.FacebookMessenger.TCP.Label.Title"                    = "TCP connections";
@@ -177,7 +177,7 @@
 "TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Hero.Title"               = "Facebook Messenger works";
 "TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Content.Paragraph.1"      = "This test successfully connected to Facebook's endpoints.";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Hero.Title"           = "Facebook Messenger appears to be blocked";
-"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph.1"  = "Facebook Messenger appears to be blocked {BlockingReason}.";
+"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph.1"  = "Facebook Messenger appears to be blocked {{BlockingReason}}.";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.DNS"   = "via DNS";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.TCPIP" = "by means of TCP/IP based blocking";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Hero.Title"                = "No middleboxes detected";
@@ -190,6 +190,8 @@
 "TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.Found.Hero.Title"              = "Sign of network tampering";
 "TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.Found.Content.Paragraph.1"     = "When contacting our control servers we noticed that network traffic was manipulated.";
 "TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.Found.Content.Paragraph.2"     = "This means that there may be a middlebox in your network, which could be responsible for censorship and/or surveillance.";
+"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.YouSent"                            = "You Sent";
+"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.YouReceived"                        = "You Received";
 "TestResults.Details.Performance.NDT.Upload"                                                = "Upload";
 "TestResults.Details.Performance.NDT.Download"                                              = "Download";
 "TestResults.Details.Performance.NDT.Ping"                                                  = "Ping";
@@ -200,7 +202,7 @@
 "TestResults.Details.Performance.NDT.MaxPing"                                               = "Max Ping";
 "TestResults.Details.Performance.NDT.MSS"                                                   = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts"                                              = "Timeouts";
-"TestResults.Details.Performance.Dash.VideoWithoutBuffering"                                = "You can stream up to %@ without buffering";
+"TestResults.Details.Performance.Dash.VideoWithoutBuffering"                                = "You can stream up to {{VideoQuality}} without buffering";
 "TestResults.Details.Performance.Dash.MedianBitrate"                                        = "Median Bitrate";
 "TestResults.Details.Performance.Dash.PlayoutDelay"                                         = "Playout Delay";
 "Feed.Tab.Label"                                                                            = "Feed";

@@ -18,4 +18,5 @@ target 'ooniprobe' do
     pod 'RHMarkdownLabel'
     pod 'DateTools'
     pod 'JSONSyntaxHighlight'
+    pod 'GRMustache'
 end

@@ -29,7 +29,10 @@
 @property NSMutableDictionary *json;
 
 - (id)initFromJson:(NSString*)json;
+
 - (NSString*)getJsonStr;
+
+//NDT
 - (NSString*)getUpload;
 - (NSString*)getUploadUnit;
 - (NSString*)getUploadWithUnit;
@@ -37,5 +40,11 @@
 - (NSString*)getDownloadUnit;
 - (NSString*)getDownloadWithUnit;
 - (NSString*)getPing;
+
+//DASH
 - (NSString*)getVideoQuality:(BOOL)shortened;
+
+//HIRL
+- (NSArray*)getSent;
+- (NSArray*)getReceived;
 @end

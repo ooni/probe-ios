@@ -20,6 +20,7 @@
 		ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.mm */; };
 		ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1EC170204E9B61000DEB9F /* LogViewController.m */; };
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
+		ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED209669209791C40028BEA3 /* PaddingLabel.m */; };
 		ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0751F8990E3008DFD0D /* global.csv */; };
 		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.mm */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
@@ -50,8 +51,8 @@
 		ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */; };
 		EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AF4208A30E000D46D0F /* InstantMessagingDetailsViewController.m */; };
 		EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AF8208A30E100D46D0F /* MiddleBoxesDetailsViewController.m */; };
-		EDA17AFE208A310300D46D0F /* DASHDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AFD208A310300D46D0F /* DASHDetailsViewController.m */; };
-		EDA17B01208A312C00D46D0F /* NDTDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17B00208A312C00D46D0F /* NDTDetailsViewController.m */; };
+		EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AFD208A310300D46D0F /* DashDetailsViewController.m */; };
+		EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17B00208A312C00D46D0F /* NdtDetailsViewController.m */; };
 		EDA17B03208A358000D46D0F /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B02208A358000D46D0F /* Feed.storyboard */; };
 		EDA17B05208A37BF00D46D0F /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B04208A37BF00D46D0F /* Dashboard.storyboard */; };
 		EDA17B07208A389F00D46D0F /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B06208A389F00D46D0F /* Result.storyboard */; };
@@ -117,6 +118,8 @@
 		ED1EC170204E9B61000DEB9F /* LogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
 		ED1F33601EFD552F00B42FEC /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
 		ED1F33611EFD552F00B42FEC /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
+		ED209668209791C40028BEA3 /* PaddingLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaddingLabel.h; sourceTree = "<group>"; };
+		ED209669209791C40028BEA3 /* PaddingLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaddingLabel.m; sourceTree = "<group>"; };
 		ED21E0751F8990E3008DFD0D /* global.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = global.csv; sourceTree = "<group>"; };
 		ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
 		ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestSummaryTableViewController.mm; sourceTree = "<group>"; };
@@ -182,10 +185,10 @@
 		EDA17AF4208A30E000D46D0F /* InstantMessagingDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstantMessagingDetailsViewController.m; sourceTree = "<group>"; };
 		EDA17AF7208A30E100D46D0F /* MiddleBoxesDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleBoxesDetailsViewController.h; sourceTree = "<group>"; };
 		EDA17AF8208A30E100D46D0F /* MiddleBoxesDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleBoxesDetailsViewController.m; sourceTree = "<group>"; };
-		EDA17AFC208A310300D46D0F /* DASHDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DASHDetailsViewController.h; sourceTree = "<group>"; };
-		EDA17AFD208A310300D46D0F /* DASHDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DASHDetailsViewController.m; sourceTree = "<group>"; };
-		EDA17AFF208A312C00D46D0F /* NDTDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDTDetailsViewController.h; sourceTree = "<group>"; };
-		EDA17B00208A312C00D46D0F /* NDTDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDTDetailsViewController.m; sourceTree = "<group>"; };
+		EDA17AFC208A310300D46D0F /* DashDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashDetailsViewController.h; sourceTree = "<group>"; };
+		EDA17AFD208A310300D46D0F /* DashDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashDetailsViewController.m; sourceTree = "<group>"; };
+		EDA17AFF208A312C00D46D0F /* NdtDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NdtDetailsViewController.h; sourceTree = "<group>"; };
+		EDA17B00208A312C00D46D0F /* NdtDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NdtDetailsViewController.m; sourceTree = "<group>"; };
 		EDA17B02208A358000D46D0F /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Feed.storyboard; path = Storyboards/Feed.storyboard; sourceTree = "<group>"; };
 		EDA17B04208A37BF00D46D0F /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Dashboard.storyboard; path = Storyboards/Dashboard.storyboard; sourceTree = "<group>"; };
 		EDA17B06208A389F00D46D0F /* Result.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Result.storyboard; path = Storyboards/Result.storyboard; sourceTree = "<group>"; };
@@ -463,6 +466,8 @@
 				ED1CC7FE20158D630041089A /* ConfigureButton.m */,
 				EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */,
 				EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */,
+				ED209668209791C40028BEA3 /* PaddingLabel.h */,
+				ED209669209791C40028BEA3 /* PaddingLabel.m */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -592,10 +597,10 @@
 				EDA17AF4208A30E000D46D0F /* InstantMessagingDetailsViewController.m */,
 				EDA17AF7208A30E100D46D0F /* MiddleBoxesDetailsViewController.h */,
 				EDA17AF8208A30E100D46D0F /* MiddleBoxesDetailsViewController.m */,
-				EDA17AFC208A310300D46D0F /* DASHDetailsViewController.h */,
-				EDA17AFD208A310300D46D0F /* DASHDetailsViewController.m */,
-				EDA17AFF208A312C00D46D0F /* NDTDetailsViewController.h */,
-				EDA17B00208A312C00D46D0F /* NDTDetailsViewController.m */,
+				EDA17AFC208A310300D46D0F /* DashDetailsViewController.h */,
+				EDA17AFD208A310300D46D0F /* DashDetailsViewController.m */,
+				EDA17AFF208A312C00D46D0F /* NdtDetailsViewController.h */,
+				EDA17B00208A312C00D46D0F /* NdtDetailsViewController.m */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -654,7 +659,7 @@
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = MADPSAYN6T;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -825,7 +830,7 @@
 			files = (
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
-				EDA17B01208A312C00D46D0F /* NDTDetailsViewController.m in Sources */,
+				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
 				ED0D8D7020186742003DDF23 /* TestOverviewViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
@@ -851,7 +856,7 @@
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
-				EDA17AFE208A310300D46D0F /* DASHDetailsViewController.m in Sources */,
+				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
 				EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */,
 				ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
@@ -872,6 +877,7 @@
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
+				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
 				ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */,
 				ED75A3972011AC2F009792C6 /* Article.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
@@ -1032,9 +1038,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lorenzo Primiterra (584LT894QR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1054,8 +1060,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "25f0c818-9519-4c51-b389-1d1450850b33";
-				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1072,9 +1078,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: The Tor Project, Inc (MADPSAYN6T)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
@@ -1100,8 +1106,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
-				PROVISIONING_PROFILE = "25f0c818-9519-4c51-b389-1d1450850b33";
-				PROVISIONING_PROFILE_SPECIFIER = "ooniprobe appstore distribution profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

@@ -45,6 +45,8 @@
 }
 
 -(void)goToResults{
+    UINavigationController *navController = [[self viewControllers] objectAtIndex:1];
+    [navController popToRootViewControllerAnimated:NO];
     [self setSelectedIndex:1];
 }
 

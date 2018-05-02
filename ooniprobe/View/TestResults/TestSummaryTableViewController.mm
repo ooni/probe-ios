@@ -208,7 +208,19 @@
                                       actionWithTitle:NSLocalizedString(@"Go to TestDetails", nil)
                                       style:UIAlertActionStyleDefault
                                       handler:^(UIAlertAction * action) {
-                                          [self performSegueWithIdentifier:@"toTestDetails" sender:self];
+                                          if ([segueObj.name isEqualToString:@"ndt"])
+                                              [self performSegueWithIdentifier:@"toNdtTestDetails" sender:self];
+                                          else if ([segueObj.name isEqualToString:@"dash"])
+                                              [self performSegueWithIdentifier:@"toDashTestDetails" sender:self];
+                                          else if ([segueObj.name isEqualToString:@"whatsapp"] ||
+                                                   [segueObj.name isEqualToString:@"telegram"] ||
+                                                   [segueObj.name isEqualToString:@"facebook_messenger"])
+                                              [self performSegueWithIdentifier:@"toInstantMessagingTestDetails" sender:self];
+                                          else if ([segueObj.name isEqualToString:@"http_invalid_request_line"] ||
+                                                   [segueObj.name isEqualToString:@"http_header_field_manipulation"])
+                                              [self performSegueWithIdentifier:@"toMiddleBoxesTestDetails" sender:self];
+                                          else if ([segueObj.name isEqualToString:@"web_connectivity"])
+                                              [self performSegueWithIdentifier:@"toWebsitesTestDetails" sender:self];
                                       }];
         [alert addAction:goToDetailsButton];
     }
@@ -243,7 +255,7 @@
         }*/
         [vc setCurrentTest:[[NetworkTest alloc] initWithMeasurement:segueObj]];
     }
-    else if ([[segue identifier] isEqualToString:@"toTestDetails"]){
+    else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"]){
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;
         [vc setResult:result];
         [vc setMeasurement:segueObj];

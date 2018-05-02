@@ -197,6 +197,15 @@
                 else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
                     blocking = MEASUREMENT_BLOCKED;
             }
+            Summary *summary = [self.result getSummary];
+            NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"sent"]){
+                [values setObject:[[json objectForKey:@"test_keys"] objectForKey:@"sent"] forKey:@"sent"];
+            }
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"received"]){
+                [values setObject:[[json objectForKey:@"test_keys"] objectForKey:@"received"] forKey:@"received"];
+            }
+            [summary.json setValue:values forKey:self.name];
         }
         else if ([self.name isEqualToString:@"http_header_field_manipulation"]){
             /*

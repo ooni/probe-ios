@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "TestDetailsViewController.h"
 
-@interface DASHDetailsViewController : TestDetailsViewController
+@interface DashDetailsViewController : TestDetailsViewController
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *subtitleLabel;

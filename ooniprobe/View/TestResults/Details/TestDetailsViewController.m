@@ -61,12 +61,12 @@
 
 - (IBAction)viewLogs{
     segueType = @"log";
-    [self performSegueWithIdentifier:@"log" sender:self];
+    [self performSegueWithIdentifier:@"toViewLog" sender:self];
 }
 
 - (IBAction)rawData{
     segueType = @"json";
-    [self performSegueWithIdentifier:@"log" sender:self];
+    [self performSegueWithIdentifier:@"toViewLog" sender:self];
 }
 
 #pragma mark - Navigation
