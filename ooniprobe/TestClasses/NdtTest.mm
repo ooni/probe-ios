@@ -67,25 +67,25 @@
     }
     NSDictionary *advanced = [keys safeObjectForKey:@"advanced"];
     if ([advanced safeObjectForKey:@"server_address"]){
-        [values setObject:[simple safeObjectForKey:@"server_address"] forKey:@"server_address"];
+        [values setObject:[advanced safeObjectForKey:@"server_address"] forKey:@"server_address"];
     }
     if ([advanced safeObjectForKey:@"packet_loss"]){
-        [values setObject:[simple safeObjectForKey:@"packet_loss"] forKey:@"packet_loss"];
+        [values setObject:[advanced safeObjectForKey:@"packet_loss"] forKey:@"packet_loss"];
     }
     if ([advanced safeObjectForKey:@"out_of_order"]){
-        [values setObject:[simple safeObjectForKey:@"out_of_order"] forKey:@"out_of_order"];
+        [values setObject:[advanced safeObjectForKey:@"out_of_order"] forKey:@"out_of_order"];
     }
     if ([advanced safeObjectForKey:@"avg_rtt"]){
-        [values setObject:[simple safeObjectForKey:@"avg_rtt"] forKey:@"avg_rtt"];
+        [values setObject:[advanced safeObjectForKey:@"avg_rtt"] forKey:@"avg_rtt"];
     }
     if ([advanced safeObjectForKey:@"max_rtt"]){
-        [values setObject:[simple safeObjectForKey:@"max_rtt"] forKey:@"max_rtt"];
+        [values setObject:[advanced safeObjectForKey:@"max_rtt"] forKey:@"max_rtt"];
     }
     if ([advanced safeObjectForKey:@"mss"]){
-        [values setObject:[simple safeObjectForKey:@"mss"] forKey:@"mss"];
+        [values setObject:[advanced safeObjectForKey:@"mss"] forKey:@"mss"];
     }
     if ([advanced safeObjectForKey:@"timeouts"]){
-        [values setObject:[simple safeObjectForKey:@"timeouts"] forKey:@"timeouts"];
+        [values setObject:[advanced safeObjectForKey:@"timeouts"] forKey:@"timeouts"];
     }
     [summary.json setValue:values forKey:self.name];
     [self.result save];
