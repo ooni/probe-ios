@@ -36,10 +36,6 @@
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if ([keys objectForKey:@"failure"] != [NSNull null])
             blocking = MEASUREMENT_FAILURE;
-        if ([keys objectForKey:@"simple"]){
-            Summary *summary = [self.result getSummary];
-            [summary.json setValue:[[json objectForKey:@"test_keys"] objectForKey:@"simple"] forKey:self.name];
-        }
         [super updateBlocking:blocking];
         [self setTestSummary:keys];
         [self.measurement save];
@@ -53,8 +49,8 @@
     if ([simple safeObjectForKey:@"median_bitrate"]){
         [values setObject:[simple safeObjectForKey:@"median_bitrate"] forKey:@"median_bitrate"];
     }
-    if ([simple safeObjectForKey:@"min_payout_delay"]){
-        [values setObject:[simple safeObjectForKey:@"min_payout_delay"] forKey:@"min_payout_delay"];
+    if ([simple safeObjectForKey:@"min_playout_delay"]){
+        [values setObject:[simple safeObjectForKey:@"min_playout_delay"] forKey:@"min_playout_delay"];
     }
     [summary.json setValue:values forKey:self.name];
     [self.result save];

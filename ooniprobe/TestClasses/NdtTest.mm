@@ -37,10 +37,6 @@
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if ([keys objectForKey:@"failure"] != [NSNull null])
             blocking = MEASUREMENT_FAILURE;
-        if ([keys objectForKey:@"simple"]){
-            Summary *summary = [self.result getSummary];
-            [summary.json setValue:[keys objectForKey:@"simple"] forKey:self.name];
-        }
         [super updateBlocking:blocking];
         [self setTestSummary:keys];
         [self.measurement save];

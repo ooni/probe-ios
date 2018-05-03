@@ -32,6 +32,8 @@
 
 //DASH
 - (NSString*)getVideoQuality:(BOOL)shortened;
+- (NSString*)getMedianBitrate;
+- (NSString*)getPlayoutDelay;
 
 //HIRL
 - (NSArray*)getSent;
