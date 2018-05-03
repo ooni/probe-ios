@@ -41,6 +41,14 @@
 - (NSString*)getDownloadWithUnit;
 - (NSString*)getPing;
 
+- (NSString*)getServer;
+- (NSString*)getPacketLoss;
+- (NSString*)getOutOfOrder;
+- (NSString*)getAveragePing;
+- (NSString*)getMaxPing;
+- (NSString*)getMSS;
+- (NSString*)getTimeouts;
+
 //DASH
 - (NSString*)getVideoQuality:(BOOL)shortened;
 

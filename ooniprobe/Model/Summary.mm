@@ -199,6 +199,22 @@
         return @"2160p";
 }
 
+- (NSString*)getServer {
+    if ([self.json safeObjectForKey:@"dash"]){
+        return [[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"server_address"];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+/*
+- (NSString*)getPacketLoss;
+- (NSString*)getOutOfOrder;
+- (NSString*)getAveragePing;
+- (NSString*)getMaxPing;
+- (NSString*)getMSS;
+- (NSString*)getTimeouts;
+*/
+
 - (NSArray*)getSent{
     if ([self.json safeObjectForKey:@"http_invalid_request_line"]){
         NSArray *sent = [[self.json safeObjectForKey:@"http_invalid_request_line"] safeObjectForKey:@"sent"];

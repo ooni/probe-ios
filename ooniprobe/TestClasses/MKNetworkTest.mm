@@ -227,7 +227,7 @@
                 }
             }
         }
-        else if ([self.name isEqualToString:@"ndt"] || [self.name isEqualToString:@"dash"]){
+        else if ([self.name isEqualToString:@"dash"]){
             /*
              on_entry method for ndt and dash test
              if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
@@ -238,7 +238,70 @@
                 Summary *summary = [self.result getSummary];
                 [summary.json setValue:[[json objectForKey:@"test_keys"] objectForKey:@"simple"] forKey:self.name];
             }
+            Summary *summary = [self.result getSummary];
+            NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
+            //TODO use safeobject forkey
+            NSDictionary *simple = [[json objectForKey:@"test_keys"] objectForKey:@"simple"];
+            if ([simple objectForKey:@"median_bitrate"]){
+                [values setObject:[simple objectForKey:@"median_bitrate"] forKey:@"median_bitrate"];
+            }
+            if ([simple objectForKey:@"min_payout_delay"]){
+                [values setObject:[simple objectForKey:@"min_payout_delay"] forKey:@"min_payout_delay"];
+            }
+            [summary.json setValue:values forKey:self.name];
         }
+        else if ([self.name isEqualToString:@"ndt"]){
+            /*
+             on_entry method for ndt and dash test
+             if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+             */
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+                blocking = MEASUREMENT_FAILURE;
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"simple"]){
+                Summary *summary = [self.result getSummary];
+                [summary.json setValue:[[json objectForKey:@"test_keys"] objectForKey:@"simple"] forKey:self.name];
+            }
+            Summary *summary = [self.result getSummary];
+            NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
+            //TODO calculate server_name and server_country
+            if ([[json objectForKey:@"test_keys"] objectForKey:@"server_address"]){
+                [values setObject:[[json objectForKey:@"test_keys"] objectForKey:@"server_address"] forKey:@"server_address"];
+            }
+            NSDictionary *simple = [[json objectForKey:@"test_keys"] objectForKey:@"simple"];
+            if ([simple objectForKey:@"upload"]){
+                [values setObject:[simple objectForKey:@"upload"] forKey:@"upload"];
+            }
+            if ([simple objectForKey:@"download"]){
+                [values setObject:[simple objectForKey:@"download"] forKey:@"download"];
+            }
+            if ([simple objectForKey:@"ping"]){
+                [values setObject:[simple objectForKey:@"ping"] forKey:@"ping"];
+            }
+            NSDictionary *advanced = [[json objectForKey:@"test_keys"] objectForKey:@"advanced"];
+            if ([advanced objectForKey:@"server_address"]){
+                [values setObject:[simple objectForKey:@"server_address"] forKey:@"server_address"];
+            }
+            if ([advanced objectForKey:@"packet_loss"]){
+                [values setObject:[simple objectForKey:@"packet_loss"] forKey:@"packet_loss"];
+            }
+            if ([advanced objectForKey:@"out_of_order"]){
+                [values setObject:[simple objectForKey:@"out_of_order"] forKey:@"out_of_order"];
+            }
+            if ([advanced objectForKey:@"avg_rtt"]){
+                [values setObject:[simple objectForKey:@"avg_rtt"] forKey:@"avg_rtt"];
+            }
+            if ([advanced objectForKey:@"max_rtt"]){
+                [values setObject:[simple objectForKey:@"max_rtt"] forKey:@"max_rtt"];
+            }
+            if ([advanced objectForKey:@"mss"]){
+                [values setObject:[simple objectForKey:@"mss"] forKey:@"mss"];
+            }
+            if ([advanced objectForKey:@"timeouts"]){
+                [values setObject:[simple objectForKey:@"timeouts"] forKey:@"timeouts"];
+            }
+            [summary.json setValue:values forKey:self.name];
+        }
+
         else if ([self.name isEqualToString:@"whatsapp"]){
             // whatsapp: red if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server" are "blocked"
             NSArray *keys = [[NSArray alloc] initWithObjects:@"whatsapp_endpoints_status", @"whatsapp_web_status", @"registration_server_status", nil];
