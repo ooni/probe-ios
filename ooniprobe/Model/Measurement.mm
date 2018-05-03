@@ -5,7 +5,7 @@
 @dynamic name, startTime, duration, ip, asn, asnName, country, networkName, networkType, state, blocking, input, category, result;
 
 + (NSDictionary *)defaultValuesForEntity {
-    //defailt test to failure in case on_entry is never called
+    //defailt test to failure in case onEntry is never called
     return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"blocking": [NSNumber numberWithInt:MEASUREMENT_FAILURE]};
 }
 

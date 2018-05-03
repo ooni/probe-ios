@@ -71,7 +71,7 @@
         [self.image1 setImage:nil];
         if (summary.blockedMeasurements > 0)
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)];
-        else if (summary.okMeasurements == summary.totalMeasurements)
+        else if (summary.okMeasurements == summary.totalMeasurements-summary.failedMeasurements)
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];
         else
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];

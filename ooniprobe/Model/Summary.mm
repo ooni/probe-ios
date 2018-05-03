@@ -72,7 +72,6 @@
     return jsonString;
 }
 
-
 - (NSString*)getUpload{
     if ([self.json safeObjectForKey:@"ndt"]){
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
