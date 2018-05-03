@@ -14,8 +14,10 @@
     [self.titleLabel setText:[summary getVideoQuality:YES]];
     [self.subtitleLabel setText:rendering];
     [self.bitrateTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.Dash.MedianBitrate", nil)];
+    [self.bitrateValueLabel setText:[summary getMedianBitrate]];
     [self.bitrateUnitLabel setText:@""];
     [self.delayTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.Dash.PlayoutDelay", nil)];
+    [self.delayValueLabel setText:[summary getPlayoutDelay]];
     [self.delayUnitLabel setText:@""];
 }
 

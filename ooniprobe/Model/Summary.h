@@ -1,25 +1,6 @@
 #import <Foundation/Foundation.h>
 
 @interface Summary : NSObject
-/*
- Dict Structure
- stats: {
-    total,
-    ok,
-    failed,
-    blocked
- }
- ndt: {
-    upload
-    download
-    ping
- }
- dash: {
-    connect_latency
-    median_bitrate
-    min_playout_delay
- }
- */
 
 @property int totalMeasurements;
 @property int okMeasurements;
@@ -51,6 +32,8 @@
 
 //DASH
 - (NSString*)getVideoQuality:(BOOL)shortened;
+- (NSString*)getMedianBitrate;
+- (NSString*)getPlayoutDelay;
 
 //HIRL
 - (NSArray*)getSent;

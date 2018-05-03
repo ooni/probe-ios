@@ -2,10 +2,20 @@
 #import <UIKit/UIKit.h>
 
 #import <measurement_kit/common.hpp>
+#include <measurement_kit/ooni.hpp>
+#include <measurement_kit/nettests.hpp>
+#include <measurement_kit/ndt.hpp>
+
+#include <arpa/inet.h>
+#include <ifaddrs.h>
+#include <resolv.h>
+#include <dns.h>
+
 #import "SettingsUtility.h"
 #import "Measurement.h"
 #import "Result.h"
 #import "Url.h"
+#import "TestUtility.h"
 
 @class MKNetworkTest;
 
@@ -28,31 +38,11 @@
 @property id<MKNetworkTestDelegate> delegate;
 @property int entryIdx;
 
+-(void)createMeasurementObject;
+-(void)updateCounter;
+-(void)initCommon:(mk::nettests::BaseTest&) test;
+-(NSDictionary*)onEntryCommon:(const char*)str;
+-(void)updateBlocking:(int)blocking;
 -(void)setResultOfMeasurement:(Result *)result;
--(void) run;
+-(void)run;
 @end
-
-@interface WebConnectivity : MKNetworkTest
-@end
-
-@interface HttpInvalidRequestLine : MKNetworkTest
-@end
-
-@interface HttpHeaderFieldManipulation : MKNetworkTest
-@end
-
-@interface NdtTest : MKNetworkTest
-@end
-
-@interface Dash : MKNetworkTest
-@end
-
-@interface Whatsapp : MKNetworkTest
-@end
-
-@interface Telegram : MKNetworkTest
-@end
-
-@interface FacebookMessenger : MKNetworkTest
-@end
-

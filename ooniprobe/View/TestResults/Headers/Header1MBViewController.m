@@ -32,7 +32,7 @@
         NSString *found;
         if (summary.blockedMeasurements > 0)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Found", nil);
-        else if (summary.okMeasurements == summary.totalMeasurements)
+        else if (summary.okMeasurements == summary.totalMeasurements-summary.failedMeasurements)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.NotFound", nil);
         else
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Failed", nil);

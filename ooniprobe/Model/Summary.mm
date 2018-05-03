@@ -72,7 +72,6 @@
     return jsonString;
 }
 
-
 - (NSString*)getUpload{
     if ([self.json safeObjectForKey:@"ndt"]){
         float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
@@ -199,9 +198,24 @@
         return @"2160p";
 }
 
-- (NSString*)getServer {
+- (NSString*)getMedianBitrate{
     if ([self.json safeObjectForKey:@"dash"]){
-        return [[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"server_address"];
+        return [NSString stringWithFormat:@"%@", [[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"median_bitrate"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getPlayoutDelay{
+    //TODO handle string and number
+    if ([self.json safeObjectForKey:@"dash"]){
+        return [NSString stringWithFormat:@"%@", [[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"min_playout_delay"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getServer {
+    if ([self.json safeObjectForKey:@"ndt"]){
+        return [[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"server_address"];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -214,6 +228,7 @@
 - (NSString*)getMSS;
 - (NSString*)getTimeouts;
 */
+
 
 - (NSArray*)getSent{
     if ([self.json safeObjectForKey:@"http_invalid_request_line"]){
