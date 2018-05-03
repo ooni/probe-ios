@@ -45,7 +45,10 @@
     if (json){
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
-        int blocking = [self checkBlocking:[json objectForKey:@"test_keys"]];
+        int blocking = MEASUREMENT_FAILURE;
+        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
+        if (keys)
+            [self checkBlocking:keys];
         [super updateBlocking:blocking];
         [self.measurement save];
         //create new measurement entry if web_connectivity test
@@ -61,15 +64,15 @@
     }
 }
 
-- (int)checkBlocking:(NSDictionary*)test_keys{
+- (int)checkBlocking:(NSDictionary*)keys{
     /*
      null => anomaly, (orange
      false => not blocked, (green)
      string (dns, tcp-ip, http-failure, http-diff) => blocked (red)
      */
-    id element = [test_keys objectForKey:@"blocking"];
+    id element = [keys objectForKey:@"blocking"];
     int blocking = MEASUREMENT_OK;
-    if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
+    if ([keys objectForKey:@"blocking"] == [NSNull null]) {
         blocking = MEASUREMENT_FAILURE;
     }
     else if (([element isKindOfClass:[NSString class]])) {

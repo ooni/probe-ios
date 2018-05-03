@@ -33,23 +33,23 @@
          if the "tampering" key exists and is null then anomaly will be set to 1 (orange)
          otherwise "tampering" object exists and is TRUE, then anomaly will be set to 2 (red)
          */
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"]){
+        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
+        if ([keys objectForKey:@"tampering"]){
             //this case shouldn't happen
-            if ([[json objectForKey:@"test_keys"] objectForKey:@"tampering"] == [NSNull null])
+            if ([keys objectForKey:@"tampering"] == [NSNull null])
                 blocking = MEASUREMENT_FAILURE;
-            else if ([[[json objectForKey:@"test_keys"] objectForKey:@"tampering"] boolValue])
+            else if ([[keys objectForKey:@"tampering"] boolValue])
                 blocking = MEASUREMENT_BLOCKED;
         }
         [super updateBlocking:blocking];
-        [self setTestSummary:json];
+        [self setTestSummary:keys];
         [self.measurement save];
     }
 }
 
--(void)setTestSummary:(NSDictionary*)json{
+-(void)setTestSummary:(NSDictionary*)keys{
     Summary *summary = [self.result getSummary];
     NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
-    NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
     if ([keys safeObjectForKey:@"sent"]){
         [values setObject:[keys safeObjectForKey:@"sent"] forKey:@"sent"];
     }
@@ -57,6 +57,7 @@
         [values setObject:[keys safeObjectForKey:@"received"] forKey:@"received"];
     }
     [summary.json setValue:values forKey:self.name];
+    [self.result save];
 }
 
 @end

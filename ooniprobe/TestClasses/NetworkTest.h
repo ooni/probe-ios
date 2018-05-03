@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "Result.h"
 #import "MKNetworkTest.h"
+#import "MKNetworkTests.h"
 #import "SettingsUtility.h"
 #import "MessageUtility.h"
 #import "Url.h"

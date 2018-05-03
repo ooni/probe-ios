@@ -28,15 +28,16 @@
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
         int blocking = MEASUREMENT_OK;
+        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         // FB: red blocking if either "facebook_tcp_blocking" or "facebook_dns_blocking" is true
-        NSArray *keys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
-        for (NSString *key in keys) {
-            if ([[json objectForKey:@"test_keys"] objectForKey:key]){
-                if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
+        NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
+        for (NSString *key in checkKeys) {
+            if ([keys objectForKey:key]){
+                if ([keys objectForKey:key] == [NSNull null]) {
                     if (blocking < MEASUREMENT_FAILURE)
                         blocking = MEASUREMENT_FAILURE;
                 }
-                else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
+                else if ([[keys objectForKey:key] boolValue]) {
                     blocking = MEASUREMENT_BLOCKED;
                 }
             }

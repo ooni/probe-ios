@@ -33,22 +33,22 @@
          onEntry method for ndt and dash test
          if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
          */
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
+        if ([keys objectForKey:@"failure"] != [NSNull null])
             blocking = MEASUREMENT_FAILURE;
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"simple"]){
+        if ([keys objectForKey:@"simple"]){
             Summary *summary = [self.result getSummary];
             [summary.json setValue:[[json objectForKey:@"test_keys"] objectForKey:@"simple"] forKey:self.name];
         }
         [super updateBlocking:blocking];
-        [self setTestSummary:json];
+        [self setTestSummary:keys];
         [self.measurement save];
     }
 }
 
--(void)setTestSummary:(NSDictionary*)json{
+-(void)setTestSummary:(NSDictionary*)keys{
     Summary *summary = [self.result getSummary];
     NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
-    NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
     NSDictionary *simple = [keys safeObjectForKey:@"simple"];
     if ([simple safeObjectForKey:@"median_bitrate"]){
         [values setObject:[simple safeObjectForKey:@"median_bitrate"] forKey:@"median_bitrate"];
@@ -57,6 +57,7 @@
         [values setObject:[simple safeObjectForKey:@"min_payout_delay"] forKey:@"min_payout_delay"];
     }
     [summary.json setValue:values forKey:self.name];
+    [self.result save];
 }
 
 @end

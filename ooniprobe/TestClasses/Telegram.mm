@@ -33,24 +33,25 @@
          for telegram: red if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if ""telegram_web_status" is "blocked"
          the "*_failure" keys for telegram and whatsapp might indicate a test failure / anomaly
          */
-        NSArray *keys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];
-        for (NSString *key in keys) {
-            if ([[json objectForKey:@"test_keys"] objectForKey:key]){
-                if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
+        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
+        NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];
+        for (NSString *key in checkKeys) {
+            if ([keys objectForKey:key]){
+                if ([keys objectForKey:key] == [NSNull null]) {
                     if (blocking < MEASUREMENT_FAILURE)
                         blocking = MEASUREMENT_FAILURE;
                 }
-                else if ([[[json objectForKey:@"test_keys"] objectForKey:key] boolValue]) {
+                else if ([[keys objectForKey:key] boolValue]) {
                     blocking = MEASUREMENT_BLOCKED;
                 }
             }
         }
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"]){
-            if ([[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] == [NSNull null]) {
+        if ([keys objectForKey:@"telegram_web_status"]){
+            if ([keys objectForKey:@"telegram_web_status"] == [NSNull null]) {
                 if (blocking < MEASUREMENT_FAILURE)
                     blocking = MEASUREMENT_FAILURE;
             }
-            else if ([[[json objectForKey:@"test_keys"] objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
+            else if ([[keys objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
                 blocking = MEASUREMENT_BLOCKED;
             }
         }

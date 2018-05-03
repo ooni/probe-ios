@@ -34,6 +34,7 @@
          onEntry method for ndt and dash test
          if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
          */
+        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if ([keys objectForKey:@"failure"] != [NSNull null])
             blocking = MEASUREMENT_FAILURE;
         if ([keys objectForKey:@"simple"]){
@@ -41,15 +42,14 @@
             [summary.json setValue:[keys objectForKey:@"simple"] forKey:self.name];
         }
         [super updateBlocking:blocking];
-        [self setTestSummary:json];
+        [self setTestSummary:keys];
         [self.measurement save];
     }
 }
 
--(void)setTestSummary:(NSDictionary*)json{
+-(void)setTestSummary:(NSDictionary*)keys{
     Summary *summary = [self.result getSummary];
     NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
-    NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
     //TODO calculate server_name and server_country
     if ([keys safeObjectForKey:@"server_address"]){
         [values setObject:[keys safeObjectForKey:@"server_address"] forKey:@"server_address"];
@@ -87,7 +87,8 @@
     if ([advanced safeObjectForKey:@"timeouts"]){
         [values setObject:[simple safeObjectForKey:@"timeouts"] forKey:@"timeouts"];
     }
-    //[self.json setValue:values forKey:self.name];
+    [summary.json setValue:values forKey:self.name];
+    [self.result save];
 }
 
 @end

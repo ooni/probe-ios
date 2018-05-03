@@ -33,12 +33,13 @@
          if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
          otherwise the keys in the "tampering" object will be checked, if any of them is TRUE, then anomaly will be set to 2 (red)
          */
-        if ([[json objectForKey:@"test_keys"] objectForKey:@"failure"] != [NSNull null])
+        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
+        if ([keys objectForKey:@"failure"] != [NSNull null])
             blocking = MEASUREMENT_FAILURE;
         else {
-            NSDictionary *tampering = [[json objectForKey:@"test_keys"] objectForKey:@"tampering"];
-            NSArray *keys = [[NSArray alloc]initWithObjects:@"header_field_name", @"header_field_number", @"header_field_value", @"header_name_capitalization", @"request_line_capitalization", @"total", nil];
-            for (NSString *key in keys) {
+            NSDictionary *tampering = [keys objectForKey:@"tampering"];
+            NSArray *chcekKeys = [[NSArray alloc]initWithObjects:@"header_field_name", @"header_field_number", @"header_field_value", @"header_name_capitalization", @"request_line_capitalization", @"total", nil];
+            for (NSString *key in chcekKeys) {
                 if ([tampering objectForKey:key] &&
                     [tampering objectForKey:key] != [NSNull null] &&
                     [[tampering objectForKey:key] boolValue]) {

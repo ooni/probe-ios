@@ -29,14 +29,15 @@
     if (json){
         int blocking = MEASUREMENT_OK;
         // whatsapp: red if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server" are "blocked"
-        NSArray *keys = [[NSArray alloc] initWithObjects:@"whatsapp_endpoints_status", @"whatsapp_web_status", @"registration_server_status", nil];
-        for (NSString *key in keys) {
-            if ([[json objectForKey:@"test_keys"] objectForKey:key]){
-                if ([[json objectForKey:@"test_keys"] objectForKey:key] == [NSNull null]) {
+        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
+        NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"whatsapp_endpoints_status", @"whatsapp_web_status", @"registration_server_status", nil];
+        for (NSString *key in checkKeys) {
+            if ([keys objectForKey:key]){
+                if ([keys objectForKey:key] == [NSNull null]) {
                     if (blocking < MEASUREMENT_FAILURE)
                         blocking = MEASUREMENT_FAILURE;
                 }
-                else if ([[[json objectForKey:@"test_keys"] objectForKey:key] isEqualToString:@"blocked"]) {
+                else if ([[keys objectForKey:key] isEqualToString:@"blocked"]) {
                     blocking = MEASUREMENT_BLOCKED;
                 }
             }
