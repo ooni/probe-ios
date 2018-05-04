@@ -46,11 +46,20 @@
 -(void)setTestSummary:(NSDictionary*)keys{
     Summary *summary = [self.result getSummary];
     NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
-    //TODO calculate server_name and server_country
     if ([keys safeObjectForKey:@"server_address"]){
-        [values setObject:[keys safeObjectForKey:@"server_address"] forKey:@"server_address"];
+        NSString *server_address = [keys safeObjectForKey:@"server_address"];
+        [values setObject:server_address forKey:@"server_address"];
+        NSArray *arr = [server_address componentsSeparatedByString:@"."];
+        if ([arr count] > 3){
+            NSString *server_name = [arr objectAtIndex:3];
+            [values setObject:server_name forKey:@"server_name"];
+            NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Airports" ofType:@"plist"];
+            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
+            if ([dict objectForKey:[server_name substringToIndex:3]])
+                [values setObject:[dict objectForKey:[server_name substringToIndex:3]] forKey:@"server_country"];
+        }
     }
-    
+
     NSDictionary *simple = [keys safeObjectForKey:@"simple"];
     if ([simple safeObjectForKey:@"upload"]){
         [values setObject:[simple safeObjectForKey:@"upload"] forKey:@"upload"];
@@ -62,9 +71,6 @@
         [values setObject:[simple safeObjectForKey:@"ping"] forKey:@"ping"];
     }
     NSDictionary *advanced = [keys safeObjectForKey:@"advanced"];
-    if ([advanced safeObjectForKey:@"server_address"]){
-        [values setObject:[advanced safeObjectForKey:@"server_address"] forKey:@"server_address"];
-    }
     if ([advanced safeObjectForKey:@"packet_loss"]){
         [values setObject:[advanced safeObjectForKey:@"packet_loss"] forKey:@"packet_loss"];
     }

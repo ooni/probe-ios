@@ -72,17 +72,27 @@
     return jsonString;
 }
 
+- (NSDictionary*)getDicForTest:(NSString*)test{
+    if ([self.json safeObjectForKey:test])
+        return [self.json safeObjectForKey:test];
+    return nil;
+}
+
+#pragma mark NDT
+
 - (NSString*)getUpload{
-    if ([self.json safeObjectForKey:@"ndt"]){
-        float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        float upload = [[dic safeObjectForKey:@"upload"] floatValue];
         return [self setFractionalDigits:[self getScaledValue:upload]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 -(NSString*)getUploadUnit{
-    if ([self.json safeObjectForKey:@"ndt"]){
-        float upload = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"upload"] floatValue];
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        float upload = [[dic safeObjectForKey:@"upload"] floatValue];
         return [self getUnit:upload];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
@@ -96,16 +106,18 @@
 }
 
 - (NSString*)getDownload{
-    if ([self.json safeObjectForKey:@"ndt"]){
-        float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        float download = [[dic safeObjectForKey:@"download"] floatValue];
         return [self setFractionalDigits:[self getScaledValue:download]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 -(NSString*)getDownloadUnit{
-    if ([self.json safeObjectForKey:@"ndt"]){
-        float download = [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"download"] floatValue];
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        float download = [[dic safeObjectForKey:@"download"] floatValue];
         return [self getUnit:download];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
@@ -145,21 +157,93 @@
 }
 
 - (NSString*)getPing{
-    if ([self.json safeObjectForKey:@"ndt"])
-        return [[[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"ping"] stringValue];
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"ping"]];
+    }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
-/*
- {\"ndt\":{\"upload\":14372.1621726751,\"download\":7500.1648334420097,\"ping\":33},\"dash\":{\"connect_latency\":0.0374929904937744,\"median_bitrate\":1549,\"min_playout_delay\":0.64208292961120605}}
- */
+
+- (NSString*)getServer {
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        //TODO add fallback
+        return [NSString stringWithFormat:@"%@ - %@", [dic safeObjectForKey:@"server_name"], [dic safeObjectForKey:@"server_country"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getPacketLoss{
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"packet_loss"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getOutOfOrder{
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"out_of_order"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getAveragePing{
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"avg_rtt"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getMaxPing{
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"max_rtt"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getMSS{
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"mss"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getTimeouts{
+    NSDictionary *dic = [self getDicForTest:@"ndt"];
+    if (dic){
+        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"timeouts"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+#pragma mark Dash
+
+- (NSString*)getMedianBitrate{
+    //TODO get unit bitrate
+    NSDictionary *dic = [self getDicForTest:@"dash"];
+    if (dic){
+        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"median_bitrate"]];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+-(NSString*)getMedianBitrateUnit{
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
 
 - (NSString*)getVideoQuality:(BOOL)shortened{
-    if ([self.json safeObjectForKey:@"dash"]){
+    NSDictionary *dic = [self getDicForTest:@"dash"];
+    if (dic){
         if (shortened)
-            return [self minimumShortBitrateForVideo:[[[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"median_bitrate"] floatValue]];
+            return [self minimumShortBitrateForVideo:[[dic safeObjectForKey:@"median_bitrate"] floatValue]];
         else
-            return [self minimumBitrateForVideo:[[[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"median_bitrate"] floatValue]];
+            return [self minimumBitrateForVideo:[[dic safeObjectForKey:@"median_bitrate"] floatValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -198,49 +282,30 @@
         return @"2160p";
 }
 
-- (NSString*)getMedianBitrate{
-    if ([self.json safeObjectForKey:@"dash"]){
-        return [NSString stringWithFormat:@"%@", [[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"median_bitrate"]];
-    }
-    return NSLocalizedString(@"TestResults.NotAvailable", nil);
-}
-
 - (NSString*)getPlayoutDelay{
     //TODO handle string and number
-    if ([self.json safeObjectForKey:@"dash"]){
-        return [NSString stringWithFormat:@"%@", [[self.json safeObjectForKey:@"dash"] safeObjectForKey:@"min_playout_delay"]];
+    NSDictionary *dic = [self getDicForTest:@"dash"];
+    if (dic){
+        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"min_playout_delay"]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
-- (NSString*)getServer {
-    if ([self.json safeObjectForKey:@"ndt"]){
-        return [[self.json safeObjectForKey:@"ndt"] safeObjectForKey:@"server_address"];
-    }
-    return NSLocalizedString(@"TestResults.NotAvailable", nil);
-}
-
-/*
-- (NSString*)getPacketLoss;
-- (NSString*)getOutOfOrder;
-- (NSString*)getAveragePing;
-- (NSString*)getMaxPing;
-- (NSString*)getMSS;
-- (NSString*)getTimeouts;
-*/
-
+#pragma mark HIRL
 
 - (NSArray*)getSent{
-    if ([self.json safeObjectForKey:@"http_invalid_request_line"]){
-        NSArray *sent = [[self.json safeObjectForKey:@"http_invalid_request_line"] safeObjectForKey:@"sent"];
+    NSDictionary *dic = [self getDicForTest:@"http_invalid_request_line"];
+    if (dic){
+        NSArray *sent = [dic safeObjectForKey:@"sent"];
         return sent;
     }
     return nil;
 }
 
 - (NSArray*)getReceived{
-    if ([self.json safeObjectForKey:@"http_invalid_request_line"]){
-        NSArray *received = [[self.json safeObjectForKey:@"http_invalid_request_line"] safeObjectForKey:@"received"];
+    NSDictionary *dic = [self getDicForTest:@"http_invalid_request_line"];
+    if (dic){
+        NSArray *received = [dic safeObjectForKey:@"received"];
         return received;
     }
     return nil;

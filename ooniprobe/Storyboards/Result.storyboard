@@ -1453,7 +1453,7 @@
                                     <constraint firstAttribute="trailing" secondItem="h3F-YW-zE7" secondAttribute="trailing" constant="16.333333333333314" id="w1M-Th-Hit"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyz-kL-zZo">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyz-kL-zZo">
                                 <rect key="frame" x="0.0" y="105" width="375" height="449"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WY4-zI-cf6">
@@ -2066,7 +2066,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="B0Y-a5-LW2">
-                                        <rect key="frame" x="233" y="103" width="107" height="51"/>
+                                        <rect key="frame" x="260.5" y="103" width="79.5" height="51"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-Lh-6D2">
                                                 <rect key="frame" x="0.0" y="0.0" width="34.5" height="17"/>
@@ -2075,7 +2075,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LWh-FE-5cz">
-                                                <rect key="frame" x="0.0" y="17" width="107" height="34"/>
+                                                <rect key="frame" x="0.0" y="17" width="79.5" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoE-TX-W2C">
                                                         <rect key="frame" x="0.0" y="0.0" width="67.5" height="34"/>
@@ -2083,8 +2083,8 @@
                                                         <color key="textColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-79-ycI">
-                                                        <rect key="frame" x="72.5" y="13" width="34.5" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1H-79-ycI">
+                                                        <rect key="frame" x="72.5" y="13" width="7" height="17"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2824,6 +2824,6 @@ U0FIV1AgSzRLU08LTTEwV08gMFpXNkw
         <image name="upload_black" width="19" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0ag-7t-oqr"/>
+        <segue reference="yN4-8S-vNp"/>
     </inferredMetricsTieBreakers>
 </document>
