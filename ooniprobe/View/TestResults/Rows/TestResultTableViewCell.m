@@ -87,7 +87,7 @@
         [self.label2 setText:[NSString stringWithFormat:@"%@", [summary getDownloadWithUnit]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.image3 setImage:[UIImage imageNamed:@"video_quality_black"]];
-        [self.label3 setText:[summary getVideoQuality:YES]];
+        [self.label3 setText:[summary getVideoQuality:NO]];
         [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
 }

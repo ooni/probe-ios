@@ -31,7 +31,7 @@
 - (NSString*)getTimeouts;
 
 //DASH
-- (NSString*)getVideoQuality:(BOOL)shortened;
+- (NSString*)getVideoQuality:(BOOL)extended;
 - (NSString*)getMedianBitrate;
 - (NSString*)getMedianBitrateUnit;
 - (NSString*)getPlayoutDelay;

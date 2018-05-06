@@ -159,7 +159,7 @@
 - (NSString*)getPing{
     NSDictionary *dic = [self getDicForTest:@"ndt"];
     if (dic){
-        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"ping"]];
+        return [NSString stringWithFormat:@"%.1f", [[dic safeObjectForKey:@"ping"] floatValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -177,7 +177,8 @@
 - (NSString*)getPacketLoss{
     NSDictionary *dic = [self getDicForTest:@"ndt"];
     if (dic){
-        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"packet_loss"]];
+        float pl = [[dic safeObjectForKey:@"packet_loss"] floatValue]*100;
+        return [NSString stringWithFormat:@"%.3f", pl];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -185,7 +186,8 @@
 - (NSString*)getOutOfOrder{
     NSDictionary *dic = [self getDicForTest:@"ndt"];
     if (dic){
-        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"out_of_order"]];
+        float ooo = [[dic safeObjectForKey:@"out_of_order"] floatValue]*100;
+        return [NSString stringWithFormat:@"%.1f", ooo];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -193,7 +195,7 @@
 - (NSString*)getAveragePing{
     NSDictionary *dic = [self getDicForTest:@"ndt"];
     if (dic){
-        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"avg_rtt"]];
+        return [NSString stringWithFormat:@"%.1f", [[dic safeObjectForKey:@"avg_rtt"] floatValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -201,7 +203,7 @@
 - (NSString*)getMaxPing{
     NSDictionary *dic = [self getDicForTest:@"ndt"];
     if (dic){
-        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"max_rtt"]];
+        return [NSString stringWithFormat:@"%.1f", [[dic safeObjectForKey:@"max_rtt"] floatValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -225,47 +227,32 @@
 #pragma mark Dash
 
 - (NSString*)getMedianBitrate{
-    //TODO get unit bitrate
     NSDictionary *dic = [self getDicForTest:@"dash"];
     if (dic){
-        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"median_bitrate"]];
+        float mb = [[dic safeObjectForKey:@"median_bitrate"] floatValue];
+        return [self setFractionalDigits:[self getScaledValue:mb]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
 -(NSString*)getMedianBitrateUnit{
-    return NSLocalizedString(@"TestResults.NotAvailable", nil);
-}
-
-- (NSString*)getVideoQuality:(BOOL)shortened{
     NSDictionary *dic = [self getDicForTest:@"dash"];
     if (dic){
-        if (shortened)
-            return [self minimumShortBitrateForVideo:[[dic safeObjectForKey:@"median_bitrate"] floatValue]];
-        else
-            return [self minimumBitrateForVideo:[[dic safeObjectForKey:@"median_bitrate"] floatValue]];
+        float mb = [[dic safeObjectForKey:@"median_bitrate"] floatValue];
+        return [self getUnit:mb];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
-- (NSString*)minimumBitrateForVideo:(float)videoQuality{
-    if (videoQuality < 600)
-        return @"240p";
-    else if (videoQuality < 1000)
-        return @"360p";
-    else if (videoQuality < 2500)
-        return @"480p";
-    else if (videoQuality < 5000)
-        return @"720p (HD)";
-    else if (videoQuality < 8000)
-        return @"1080p (full HD)";
-    else if (videoQuality < 16000)
-        return @"1440p (2k)";
-    else
-        return @"2160p (4k)";
+- (NSString*)getVideoQuality:(BOOL)extended{
+    NSDictionary *dic = [self getDicForTest:@"dash"];
+    if (dic){
+        return [self minimumBitrateForVideo:[[dic safeObjectForKey:@"median_bitrate"] floatValue] extended:extended];
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
-- (NSString*)minimumShortBitrateForVideo:(float)videoQuality{
+- (NSString*)minimumBitrateForVideo:(float)videoQuality extended:(BOOL)extended{
     if (videoQuality < 600)
         return @"240p";
     else if (videoQuality < 1000)
@@ -273,20 +260,19 @@
     else if (videoQuality < 2500)
         return @"480p";
     else if (videoQuality < 5000)
-        return @"720p";
+        return (extended) ? @"720p (HD)" : @"720p";
     else if (videoQuality < 8000)
-        return @"1080p";
+        return (extended) ? @"1080p (full HD)" : @"1080p";
     else if (videoQuality < 16000)
-        return @"1440p";
+        return (extended) ? @"1440p (2k)" : @"1440p";
     else
-        return @"2160p";
+        return (extended) ? @"2160p (4k)" : @"2160p";
 }
 
 - (NSString*)getPlayoutDelay{
-    //TODO handle string and number
     NSDictionary *dic = [self getDicForTest:@"dash"];
     if (dic){
-        return [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"min_playout_delay"]];
+        return [NSString stringWithFormat:@"%.2f", [[dic safeObjectForKey:@"min_playout_delay"] floatValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }

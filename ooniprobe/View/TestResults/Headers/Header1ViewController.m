@@ -79,7 +79,7 @@
             [self.label3Bottom setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
         }
         else if ([result.name isEqualToString:@"performance"]){
-            [self.label1Central setText:[summary getVideoQuality:YES]];
+            [self.label1Central setText:[summary getVideoQuality:NO]];
             [self.label2Central setText:[summary getUpload]];
             [self.label2Bottom setText:[summary getUploadUnit]];
             [self.label3Central setText:[summary getDownload]];

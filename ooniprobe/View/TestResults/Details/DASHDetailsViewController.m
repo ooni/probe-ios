@@ -10,7 +10,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     Summary *summary = [self.result getSummary];
-    NSString *rendering = [GRMustacheTemplate renderObject:@{ @"VideoQuality": [summary getVideoQuality:YES] } fromString:NSLocalizedString(@"TestResults.Details.Performance.Dash.VideoWithoutBuffering", nil) error:NULL];
+    NSString *rendering = [GRMustacheTemplate renderObject:@{ @"VideoQuality": [summary getVideoQuality:NO] } fromString:NSLocalizedString(@"TestResults.Details.Performance.Dash.VideoWithoutBuffering", nil) error:NULL];
     [self.titleLabel setText:[summary getVideoQuality:YES]];
     [self.subtitleLabel setText:rendering];
     

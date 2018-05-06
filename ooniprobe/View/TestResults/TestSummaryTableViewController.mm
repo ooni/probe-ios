@@ -148,7 +148,7 @@
         else if ([current.name isEqualToString:@"dash"]){
             [stackView2 setHidden:YES];
             [detail1Image setImage:[UIImage imageNamed:@"video_quality_black"]];
-            [detail1Label setText:[summary getVideoQuality:NO]];
+            [detail1Label setText:[summary getVideoQuality:YES]];
         }
     }    
     return cell;
