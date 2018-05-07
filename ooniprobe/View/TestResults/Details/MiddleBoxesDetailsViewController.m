@@ -10,9 +10,11 @@
     [super viewDidLoad];
     if (super.measurement.blocking == MEASUREMENT_OK){
         [self.statusImage setImage:[UIImage imageNamed:@"tick_green"]];
+        [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
     }
     else {
         [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point_orange"]];
+        [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
     }
     
     if ([self.measurement.name isEqualToString:@"http_invalid_request_line"]){

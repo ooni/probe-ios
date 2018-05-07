@@ -79,7 +79,7 @@
 }
 
 #pragma mark Websites
-- (NSString*)getBlocking:(NSString*)input{
+- (NSString*)getWebsiteBlocking:(NSString*)input{
     NSDictionary *dic = [self getDicForTest:input];
     NSLog(@"dic %@", dic);
     if (dic){
@@ -94,6 +94,134 @@
         else if ([blocking isEqualToString:@"http-failure"])
             return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.HTTPDiff", nil);
         //TODO return generic string
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+#pragma mark WHATSAPP
+
+- (NSString*)getWhatsappEndpointStatus {
+    NSDictionary *dic = [self getDicForTest:@"whatsapp"];
+    if (dic){
+        NSString* endpointStatus = [dic safeObjectForKey:@"whatsapp_endpoints_status"];
+        if ([endpointStatus isEqualToString:@"blocked"])
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Failed", nil);
+        else
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Okay", nil);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getWhatsappWebStatus {
+    NSDictionary *dic = [self getDicForTest:@"whatsapp"];
+    if (dic){
+        NSString* webStatus = [dic safeObjectForKey:@"whatsapp_web_status"];
+        if ([webStatus isEqualToString:@"blocked"])
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Failed", nil);
+        else
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Okay", nil);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getWhatsappRegistrationStatus {
+    NSDictionary *dic = [self getDicForTest:@"whatsapp"];
+    if (dic){
+        NSString* registrationStatus = [dic safeObjectForKey:@"registration_server_status"];
+        if ([registrationStatus isEqualToString:@"blocked"])
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed", nil);
+        else
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay", nil);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getWhatsappBlocking{
+    /*
+     "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.BlockingReason.DNS"            = "via DNS";
+     "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.BlockingReason.TCPIP"          = "by means of TCP/IP based blocking";
+     */
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+#pragma mark TELEGRAM
+
+- (NSString*)getTelegramEndpointStatus {
+    NSDictionary *dic = [self getDicForTest:@"telegram"];
+    if (dic){
+        BOOL httpBlocking = [[dic safeObjectForKey:@"telegram_http_blocking"] boolValue];
+        BOOL tcpBlocking = [[dic safeObjectForKey:@"telegram_tcp_blocking"] boolValue];
+        if (httpBlocking || tcpBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed", nil);
+        else
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay", nil);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getTelegramWebStatus {
+    NSDictionary *dic = [self getDicForTest:@"telegram"];
+    if (dic){
+        NSString* registrationStatus = [dic safeObjectForKey:@"telegram_web_status"];
+        if ([registrationStatus isEqualToString:@"blocked"])
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Failed", nil);
+        else
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Okay", nil);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getTelegramBlocking{
+    NSDictionary *dic = [self getDicForTest:@"telegram"];
+    if (dic){
+        BOOL httpBlocking = [[dic safeObjectForKey:@"telegram_http_blocking"] boolValue];
+        BOOL tcpBlocking = [[dic safeObjectForKey:@"telegram_tcp_blocking"] boolValue];
+        //TODO string is DNS not http
+        if (httpBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.DNS.Label.Failed", nil);
+        else if (tcpBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.DNS.Label.Okay", nil);
+        //TODO when both?
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+#pragma mark FB
+
+- (NSString*)getFacebookMessengerDns {
+    NSDictionary *dic = [self getDicForTest:@"facebook_messenger"];
+    if (dic){
+        BOOL dnsBlocking = [[dic safeObjectForKey:@"facebook_dns_blocking"] boolValue];
+        if (dnsBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed", nil);
+        else
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay", nil);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getFacebookMessengerTcp {
+    NSDictionary *dic = [self getDicForTest:@"facebook_messenger"];
+    if (dic){
+        BOOL tcpBlocking = [[dic safeObjectForKey:@"facebook_tcp_blocking"] boolValue];
+        if (tcpBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.TCP.Label.Failed", nil);
+        else
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.TCP.Label.Okay", nil);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getFacebookMessengerBlocking{
+    NSDictionary *dic = [self getDicForTest:@"facebook_messenger"];
+    if (dic){
+        BOOL dnsBlocking = [[dic safeObjectForKey:@"facebook_dns_blocking"] boolValue];
+        BOOL tcpBlocking = [[dic safeObjectForKey:@"facebook_tcp_blocking"] boolValue];
+        if (dnsBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.DNS", nil);
+        else if (tcpBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.TCPIP", nil);
+        //TODO when both?
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }

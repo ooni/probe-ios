@@ -14,7 +14,23 @@
 - (NSString*)getJsonStr;
 
 //WEB
-- (NSString*)getBlocking:(NSString*)input;
+- (NSString*)getWebsiteBlocking:(NSString*)input;
+
+//WHATSAPP
+- (NSString*)getWhatsappEndpointStatus;
+- (NSString*)getWhatsappWebStatus;
+- (NSString*)getWhatsappRegistrationStatus;
+- (NSString*)getWhatsappBlocking;
+
+//TELEGRAM
+- (NSString*)getTelegramEndpointStatus;
+- (NSString*)getTelegramWebStatus;
+- (NSString*)getTelegramBlocking;
+
+//FACEBOOK
+- (NSString*)getFacebookMessengerDns;
+- (NSString*)getFacebookMessengerTcp;
+- (NSString*)getFacebookMessengerBlocking;
 
 //NDT
 - (NSString*)getUpload;
