@@ -53,7 +53,7 @@
     if ([keys safeObjectForKey:@"sent"]){
         [values setObject:[keys safeObjectForKey:@"sent"] forKey:@"sent"];
     }
-    if ([keys objectForKey:@"received"]){
+    if ([keys safeObjectForKey:@"received"]){
         [values setObject:[keys safeObjectForKey:@"received"] forKey:@"received"];
     }
     [summary.json setValue:values forKey:self.name];

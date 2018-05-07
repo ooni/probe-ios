@@ -43,8 +43,21 @@
             }
         }
         [super updateBlocking:blocking];
+        [self setTestSummary:keys :checkKeys];
         [self.measurement save];
     }
+}
+
+-(void)setTestSummary:(NSDictionary*)keys :(NSArray*)checkKeys{
+    Summary *summary = [self.result getSummary];
+    NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
+    for (NSString *key in checkKeys) {
+        if ([keys safeObjectForKey:key]){
+            [values setObject:[keys objectForKey:key] forKey:key];
+        }
+    }
+    [summary.json setValue:values forKey:self.name];
+    [self.result save];
 }
 
 @end

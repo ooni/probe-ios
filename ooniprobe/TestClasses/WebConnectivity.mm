@@ -47,8 +47,10 @@
         [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
         int blocking = MEASUREMENT_FAILURE;
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
-        if (keys)
-            [self checkBlocking:keys];
+        if (keys){
+            blocking = [self checkBlocking:keys];
+            [self setTestSummary:keys];
+        }
         [super updateBlocking:blocking];
         [self.measurement save];
         //create new measurement entry if web_connectivity test
@@ -81,4 +83,16 @@
     return blocking;
 }
 
+-(void)setTestSummary:(NSDictionary*)keys{
+    Summary *summary = [self.result getSummary];
+    NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
+    if ([keys safeObjectForKey:@"blocking"]){
+        [values setObject:[keys safeObjectForKey:@"blocking"] forKey:@"blocking"];
+    }
+    if ([keys safeObjectForKey:@"accessible"]){
+        [values setObject:[keys safeObjectForKey:@"accessible"] forKey:@"accessible"];
+    }
+    [summary.json setValue:values forKey:self.measurement.input];
+    [self.result save];
+}
 @end

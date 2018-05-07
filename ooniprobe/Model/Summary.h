@@ -13,6 +13,9 @@
 
 - (NSString*)getJsonStr;
 
+//WEB
+- (NSString*)getBlocking:(NSString*)input;
+
 //NDT
 - (NSString*)getUpload;
 - (NSString*)getUploadUnit;

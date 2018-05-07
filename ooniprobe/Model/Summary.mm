@@ -78,6 +78,26 @@
     return nil;
 }
 
+#pragma mark Websites
+- (NSString*)getBlocking:(NSString*)input{
+    NSDictionary *dic = [self getDicForTest:input];
+    NSLog(@"dic %@", dic);
+    if (dic){
+        NSString *blocking = [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"blocking"]];
+        if ([blocking isEqualToString:@"dns"])
+            return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS", nil);
+        else if ([blocking isEqualToString:@"tcp_ip"])
+            return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP", nil);
+        else if ([blocking isEqualToString:@"http-diff"])
+            return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.HTTPDiff", nil);
+        //TODO missing strings
+        else if ([blocking isEqualToString:@"http-failure"])
+            return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.HTTPDiff", nil);
+        //TODO return generic string
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
 #pragma mark NDT
 
 - (NSString*)getUpload{
