@@ -27,7 +27,7 @@
     [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Run", nil)] forState:UIControlStateNormal];
     [self.configureButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Configure", nil)] forState:UIControlStateNormal];
 
-    //TODO-ART Estimated Time and mb
+    //TODO-TIME Estimated Time and mb
     [self.timeLabel setText:@"2min 10MB"];
     
     [self reloadLastMeasurement];

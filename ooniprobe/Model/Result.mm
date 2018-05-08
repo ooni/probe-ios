@@ -14,7 +14,7 @@
 }
 
 -(void)setAsnAndCalculateName:(NSString *)asn{
-    //TODO-ART calculate asnname
+    //TODO-SBS calculate asnname
     self.asnName = @"Vodafone";
     self.asn = asn;
 }

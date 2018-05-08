@@ -54,19 +54,10 @@
             arr = [[dic objectForKey:key] mutableCopy];
         [arr addObject:current];
         [dic setObject:arr forKey:key];
-        /*
-         build a dictionary like
-         17-07
-         17-08
-         18-01
-         */
-        //NSLog(@"%@", [df stringFromDate:current.startTime]);
     }
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO selector:@selector(localizedStandardCompare:)];
-    //NSArray *sortedKeys = [[dic allKeys] sortedArrayUsingSelector: @selector(compare:)];
     keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];
     resultsDic = dic;
-    //NSLog(@"STODIC %@", sortedKeys);
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
@@ -135,6 +126,7 @@
         Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
         [current deleteObject];
         [self testFilter:query];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadHeader" object:nil];
     }
 }
 
@@ -154,11 +146,15 @@
 }
 
 -(IBAction)removeAllTests:(id)sender{
-    //TODO not yet implemented
     UIAlertAction* okButton = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"ok", nil)
+                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
+                                   for (Result *current in results){
+                                       [current deleteObject];
+                                   }
+                                   [self testFilter:query];
+                                   [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadHeader" object:nil];
                                }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.DoYouWantToDeleteResults", nil)
                            message:nil

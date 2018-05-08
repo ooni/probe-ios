@@ -55,7 +55,7 @@
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
     [titleLabel setText:[LocalizationUtility getNameForTest:testName]];
     [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
-    //TODO-ART Estimated Time test
+    //TODO-TIME Estimated Time test
     [estimateTime setText:@"2min"];
     [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
     [backgroundView setBackgroundColor:[TestUtility getColorForTest:testName]];

@@ -3,6 +3,7 @@
 #import "UIView+Toast.h"
 #import "MessageUtility.h"
 #import "TestUtility.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface SettingsTableViewController : UITableViewController <UITextFieldDelegate, UIAlertViewDelegate> {
     NSArray *items;

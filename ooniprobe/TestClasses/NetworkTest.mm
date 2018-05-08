@@ -83,10 +83,6 @@
 }
 
 -(void)run {
-    //TODO should never happen
-    /*if ([self.mkNetworkTests count] == 0)
-        [MessageUtility alertWithTitle:NSLocalizedString(@"error", nil) message:NSLocalizedString(@"cant deactivate", nil) inView:self.view];
-     */
     for (MKNetworkTest *current in self.mkNetworkTests){
         [current run];
     }

@@ -17,16 +17,18 @@
 #pragma mark - Table view data source
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    //TODO lowercase
     NSString *categoryDescription = [NSString stringWithFormat:@"CategoryCode.%@.Description", category];
     return NSLocalizedString(categoryDescription, nil);
 }
 
+
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    NSString *categoryDescription = [NSString stringWithFormat:@"CategoryCode.%@.Description", category];
     [header.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray6 alpha:1.0f]];
-    [header.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
+    [header.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:16]];
+    header.textLabel.text = NSLocalizedString(categoryDescription, nil);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

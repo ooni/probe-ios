@@ -5,7 +5,8 @@
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
-    return @[@"notifications", @"automated_testing", @"sharing", @"advanced", @"about_ooni"];
+    //TODO-2.1 reenable "automated_testing"
+    return @[@"notifications", @"sharing", @"advanced", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{

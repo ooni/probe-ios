@@ -36,7 +36,7 @@
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
-                                   style:UIAlertActionStyleDefault
+                                   style:UIAlertActionStyleCancel
                                    handler:nil];
     [alert addAction:cancelButton];
     [alert addAction:okButton];
@@ -47,21 +47,19 @@
 
 + (void)notificationAlertinView:(UIViewController *)view
 {
-    //TODO add Modal.EnableGPS and Modal.EnableNotifications.News
+    //TODO add Modal.EnableGPS and Modal.EnableNotifications.News and Modal.EnableNotifications.AutomatedTesting
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:nil message:NSLocalizedString(@"Modal.EnableNotifications.AutomatedTesting", nil)
+                                 alertControllerWithTitle:nil message:NSLocalizedString(@"Modal.EnableNotifications.Any", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
                                    [NotificationService registerUserNotification];
-                                   //TODO callback and enable the key the user was trying to enable.
-                                   //TODECIDE when popup randomly what to enable
                                }];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
-                                   style:UIAlertActionStyleDefault
+                                   style:UIAlertActionStyleCancel
                                    handler:nil];
     [alert addAction:cancelButton];
     [alert addAction:okButton];

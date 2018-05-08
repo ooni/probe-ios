@@ -23,7 +23,7 @@
     [self.logLabel setText:@""];
     [self.etaLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)]];
 
-    //TODO-ART Estimated Time test
+    //TODO-TIME Estimated Time test
     [self.timeLabel setText:[NSString stringWithFormat:@"0 seconds"]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];

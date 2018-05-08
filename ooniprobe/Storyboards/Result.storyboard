@@ -360,7 +360,13 @@
                             <outlet property="delegate" destination="eJh-bP-NZX" id="Nhk-X6-hbx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wl6-h2-YPP"/>
+                    <navigationItem key="navigationItem" id="wl6-h2-YPP">
+                        <barButtonItem key="rightBarButtonItem" image="trash" id="6uG-Ms-PKG">
+                            <connections>
+                                <action selector="removeAllTests:" destination="eJh-bP-NZX" id="vZ5-I4-Jt5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqe-Xy-6gx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2823,6 +2829,7 @@ U0FIV1AgSzRLU08LTTEwV08gMFpXNkw
         <image name="runtime" width="19" height="19"/>
         <image name="tab_test_results" width="23" height="20"/>
         <image name="tick_green" width="30" height="30"/>
+        <image name="trash" width="24" height="24"/>
         <image name="upload" width="19" height="19"/>
         <image name="upload_black" width="19" height="19"/>
     </resources>

@@ -4,7 +4,7 @@ inhibit_all_warnings!
 target 'ooniprobe' do
     pod 'measurement_kit',
         :git => 'https://github.com/measurement-kit/measurement-kit.git',
-	:tag => 'v0.8.2'
+	:tag => 'v0.8.3'
     pod 'Toast', '~> 4.0.0'
     pod 'Fabric'
     pod 'Crashlytics'

@@ -62,14 +62,6 @@
     return CGFLOAT_MIN;
 }
 
-/*-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
-{
-    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    header.textLabel.font = [UIFont fontWithName:@"FiraSans-Regular" size:15];
-    header.textLabel.textColor = color_off_black;
-}
-*/
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     NSString *current = [items objectAtIndex:indexPath.row];
@@ -77,7 +69,6 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
-        //cell.imageView.image = [UIImage imageNamed:current];
         UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
         [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
@@ -88,14 +79,12 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
-        //cell.imageView.image = [UIImage imageNamed:current];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
-        //cell.imageView.image = [UIImage imageNamed:current];
         NSNumber *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         NSDecimalNumber *someNumber = [NSDecimalNumber decimalNumberWithString:[value stringValue]];
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -106,17 +95,11 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
-        //cell.imageView.image = [UIImage imageNamed:current];
         NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         UITextField *textField = [self createTextField:@"string" :value];
         cell.accessoryView = textField;
     }
     return cell;
-}
-
-//TODO not used now
-- (UITextField*)createAlertField:(NSString*)type :(NSString*)text{
-    return nil;
 }
 
 - (UITextField*)createTextField:(NSString*)type :(NSString*)text{
@@ -140,7 +123,6 @@
     return YES;
 }
 
-//TODO review these two
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     UITableViewCell *cell = (UITableViewCell *)textField.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
@@ -176,17 +158,12 @@
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *current = [items objectAtIndex:indexPath.row];
-    //TODO-ART how to behave in case of automated_testing_enabled, enable notification automatically?
-     if ([current isEqualToString:@"notifications_enabled"]){
-         if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications]){
-             //or if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)])
-             //https://stackoverflow.com/questions/1535403/determine-on-iphone-if-user-has-enabled-push-notifications
-             //TODO enable notifications of one or other type (Ex. not send token)
-             [MessageUtility notificationAlertinView:self];
-             [mySwitch setOn:FALSE];
-             return;
-         }
+    //TODO-2.1 handle automated_testing_enabled
+    if ([current isEqualToString:@"notifications_enabled"] && mySwitch.on){
+        [self handleNotificationChanges];
+        [mySwitch setOn:FALSE];
     }
+    
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
         [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.CantDeactivate", nil) message:nil inView:self];
@@ -199,11 +176,41 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
-    //TODO when enable remote notification send something to backend
-    //TODO hide rows smooth XD
+    //TODO when enable remote news notification send something to backend
+    //TODO hide rows smooth
     [self reloadSettings];
 }
 
+- (void)handleNotificationChanges{
+    [[UNUserNotificationCenter currentNotificationCenter]getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        switch (settings.authorizationStatus) {
+            case UNAuthorizationStatusNotDetermined:{
+                //First launch
+                [MessageUtility notificationAlertinView:self];
+                break;
+            }
+            case UNAuthorizationStatusDenied:{
+                //Notification permission denied or disabled
+                UIAlertAction* okButton = [UIAlertAction
+                                           actionWithTitle:NSLocalizedString(@"Modal.Error.NotificationNotEnabled.GoToSettings", nil)
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction * action) {
+                                               [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                                           }];
+                [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                                       message:NSLocalizedString(@"Modal.Error.NotificationNotEnabled", nil)
+                                      okButton:okButton
+                                        inView:self];
+                break;
+            }
+            case UNAuthorizationStatusAuthorized:{
+                break;
+            }
+            default:
+                break;
+        }
+    }];
+}
 - (void)registeredForNotifications {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
     [self reloadSettings];

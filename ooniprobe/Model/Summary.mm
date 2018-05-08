@@ -81,7 +81,6 @@
 #pragma mark Websites
 - (NSString*)getWebsiteBlocking:(NSString*)input{
     NSDictionary *dic = [self getDicForTest:input];
-    NSLog(@"dic %@", dic);
     if (dic){
         NSString *blocking = [NSString stringWithFormat:@"%@", [dic safeObjectForKey:@"blocking"]];
         if ([blocking isEqualToString:@"dns"])
@@ -90,10 +89,9 @@
             return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP", nil);
         else if ([blocking isEqualToString:@"http-diff"])
             return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.HTTPDiff", nil);
-        //TODO-ART missing strings
         else if ([blocking isEqualToString:@"http-failure"])
-            return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.HTTPDiff", nil);
-        //TODO-ART return generic string
+            return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.HTTPFailure", nil);
+        return NSLocalizedString(@"TestResults.NotAvailable", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -137,7 +135,7 @@
 }
 
 - (NSString*)getWhatsappBlocking{
-    /*
+    /*TODO
      "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.BlockingReason.DNS"            = "via DNS";
      "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.BlockingReason.TCPIP"          = "by means of TCP/IP based blocking";
      */
@@ -176,12 +174,12 @@
     if (dic){
         BOOL httpBlocking = [[dic safeObjectForKey:@"telegram_http_blocking"] boolValue];
         BOOL tcpBlocking = [[dic safeObjectForKey:@"telegram_tcp_blocking"] boolValue];
-        //TODO-ART string is DNS not http
-        if (httpBlocking)
-            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.DNS.Label.Failed", nil);
+        if (httpBlocking && tcpBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.HTTPandTCPIP", nil);
+        else if (httpBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.HTTPOnly", nil);
         else if (tcpBlocking)
-            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.DNS.Label.Okay", nil);
-        //TODO-ART when both?
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.TCPIPOnly", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -316,7 +314,6 @@
 - (NSString*)getServer {
     NSDictionary *dic = [self getDicForTest:@"ndt"];
     if (dic){
-        //TODO-ART add fallback
         return [NSString stringWithFormat:@"%@ - %@", [dic safeObjectForKey:@"server_name"], [dic safeObjectForKey:@"server_country"]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);

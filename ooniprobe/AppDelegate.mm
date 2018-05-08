@@ -18,17 +18,6 @@
     [SharkORM openDatabaseNamed:@"OONISample1"];    
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultPreferences" ofType:@"plist"]]];
 
-    //TODO-ART this changes when I manually disable it in the app. how to behave?
-    /*Scenari
-     - Dico no1 riappare sempre popup
-     - Dico si1 no2. quando provo a riabilitarle deve dire vai nei settings
-     - Le disabilito a mano. provo a riabilitarle
-     */
-    if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
-        NSLog(@"NOT isRegisteredForRemoteNotifications");
-    else
-        NSLog(@"isRegisteredForRemoteNotifications");
-
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
@@ -83,7 +72,12 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"registeredForNotifications" object:self];
+    if (notificationSettings.types == UIUserNotificationTypeNone) {
+        NSLog(@"Permission not Granted by user");
+    }
+    else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"registeredForNotifications" object:self];
+    }
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -165,6 +159,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"notifications_enabled"];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
