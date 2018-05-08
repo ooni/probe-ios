@@ -90,10 +90,10 @@
             return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP", nil);
         else if ([blocking isEqualToString:@"http-diff"])
             return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.HTTPDiff", nil);
-        //TODO missing strings
+        //TODO-ART missing strings
         else if ([blocking isEqualToString:@"http-failure"])
             return NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.BlockingReason.HTTPDiff", nil);
-        //TODO return generic string
+        //TODO-ART return generic string
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -176,12 +176,12 @@
     if (dic){
         BOOL httpBlocking = [[dic safeObjectForKey:@"telegram_http_blocking"] boolValue];
         BOOL tcpBlocking = [[dic safeObjectForKey:@"telegram_tcp_blocking"] boolValue];
-        //TODO string is DNS not http
+        //TODO-ART string is DNS not http
         if (httpBlocking)
             return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.DNS.Label.Failed", nil);
         else if (tcpBlocking)
             return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.DNS.Label.Okay", nil);
-        //TODO when both?
+        //TODO-ART when both?
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -221,7 +221,7 @@
             return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.DNS", nil);
         else if (tcpBlocking)
             return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.TCPIP", nil);
-        //TODO when both?
+        //TODO-ART when both?
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -316,7 +316,7 @@
 - (NSString*)getServer {
     NSDictionary *dic = [self getDicForTest:@"ndt"];
     if (dic){
-        //TODO add fallback
+        //TODO-ART add fallback
         return [NSString stringWithFormat:@"%@ - %@", [dic safeObjectForKey:@"server_name"], [dic safeObjectForKey:@"server_country"]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);

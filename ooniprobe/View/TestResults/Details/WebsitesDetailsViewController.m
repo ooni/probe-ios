@@ -11,7 +11,6 @@
     [super viewDidLoad];
     [self.learnCircumventButton setTitle:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent", nil) forState:UIControlStateNormal];
     if (super.measurement.blocking == MEASUREMENT_OK){
-        //TODO color label
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"tick_green"]];
         [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Hero.Title", nil)];

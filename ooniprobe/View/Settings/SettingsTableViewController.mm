@@ -8,6 +8,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(registeredForNotifications)
+                                                 name:@"registeredForNotifications"
+                                               object:nil];
+
     if (category != nil)
         self.title = [LocalizationUtility getNameForSetting:category];
     else if (testName != nil)
@@ -171,13 +176,17 @@
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *current = [items objectAtIndex:indexPath.row];
-    /* TODO Commented for now, simulator doesn't have notifications
-     if (([current isEqualToString:@"notifications_enabled"] ||[current isEqualToString:@"automated_testing_enabled"]) && ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications]){
-        //or if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)])
-        //https://stackoverflow.com/questions/1535403/determine-on-iphone-if-user-has-enabled-push-notifications
-        [MessageUtility notificationAlertinView:self.view];
-        return;
-    }*/
+    //TODO-ART how to behave in case of automated_testing_enabled, enable notification automatically?
+     if ([current isEqualToString:@"notifications_enabled"]){
+         if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications]){
+             //or if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)])
+             //https://stackoverflow.com/questions/1535403/determine-on-iphone-if-user-has-enabled-push-notifications
+             //TODO enable notifications of one or other type (Ex. not send token)
+             [MessageUtility notificationAlertinView:self];
+             [mySwitch setOn:FALSE];
+             return;
+         }
+    }
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
         [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.CantDeactivate", nil) message:nil inView:self];
@@ -190,7 +199,13 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
+    //TODO when enable remote notification send something to backend
     //TODO hide rows smooth XD
+    [self reloadSettings];
+}
+
+- (void)registeredForNotifications {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
     [self reloadSettings];
 }
 

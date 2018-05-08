@@ -27,7 +27,7 @@
     [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Run", nil)] forState:UIControlStateNormal];
     [self.configureButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Configure", nil)] forState:UIControlStateNormal];
 
-    //TODO Estimated Time test
+    //TODO-ART Estimated Time and mb
     [self.timeLabel setText:@"2min 10MB"];
     
     [self reloadLastMeasurement];
@@ -70,7 +70,6 @@
 }
 
 -(IBAction)run:(id)sender{
-    //TODO STRINGS
     if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
         [self performSegueWithIdentifier:@"toTestRun" sender:self];
     else

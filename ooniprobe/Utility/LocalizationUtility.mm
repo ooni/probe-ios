@@ -2,7 +2,6 @@
 
 @implementation LocalizationUtility
 
-//TODO
 + (NSString*)getNameForTest:(NSString*)testName {
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Strings" ofType:@"plist"];
     NSDictionary *stringDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];

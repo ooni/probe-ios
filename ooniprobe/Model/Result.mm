@@ -14,7 +14,7 @@
 }
 
 -(void)setAsnAndCalculateName:(NSString *)asn{
-    //TODO calculate asnname
+    //TODO-ART calculate asnname
     self.asnName = @"Vodafone";
     self.asn = asn;
 }
@@ -85,19 +85,19 @@
 -(NSString*)getAsn{
     if (self.asn != nil)
         return self.asn;
-    return @"";
+    return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(NSString*)getAsnName{
     if (self.asnName != nil)
         return self.asnName;
-    return @"";
+    return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(NSString*)getCountry{
     if (self.country != nil)
         return self.country;
-    return @"";
+    return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(void)save{

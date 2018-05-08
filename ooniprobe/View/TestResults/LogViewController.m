@@ -18,8 +18,6 @@
 
     if ([self.type isEqualToString:@"log"] || [self.type isEqualToString:@"json"]){
         NSString *filePath = [TestUtility getFileName:self.measurement ext:self.type];
-        //TODO remove
-        NSLog(@"FILE: %@", filePath);
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if([fileManager fileExistsAtPath:filePath]) {
             NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
@@ -31,12 +29,6 @@
                 NSAttributedString *s;
                 s = [jsh highlightJSON];
                 [self.textView setAttributedText:s];
-                //TODO json is null because is JSONL
-                /*
-                NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&error];
-                NSString *prettyPrintedJson = [NSString stringWithUTF8String:[prettyJsonData bytes]];
-                [self.textView setText:prettyPrintedJson];
-                 */
             }
             else
                 [self.textView setText:content];

@@ -18,6 +18,17 @@
     [SharkORM openDatabaseNamed:@"OONISample1"];    
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultPreferences" ofType:@"plist"]]];
 
+    //TODO-ART this changes when I manually disable it in the app. how to behave?
+    /*Scenari
+     - Dico no1 riappare sempre popup
+     - Dico si1 no2. quando provo a riabilitarle deve dire vai nei settings
+     - Le disabilito a mano. provo a riabilitarle
+     */
+    if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
+        NSLog(@"NOT isRegisteredForRemoteNotifications");
+    else
+        NSLog(@"isRegisteredForRemoteNotifications");
+
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
@@ -30,9 +41,6 @@
 
     application.statusBarStyle = UIStatusBarStyleLightContent;
     
-    //TODO removed notification popup on start. TO decide where to put it
-    //[NotificationService registerUserNotification];
-
     //TODO Probably don't need it anymore when implementing backgound notifications
     //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo
     //https://stackoverflow.com/questions/38969229/what-is-uiapplicationlaunchoptionsremotenotificationkey-used-for
@@ -67,9 +75,15 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //NSLog(@"token: %@",token);
+    NSLog(@"token: %@",token);
+#ifdef RELEASE
     [[NotificationService sharedNotificationService] setDevice_token:token];
     [[NotificationService sharedNotificationService] updateClient];
+#endif
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"registeredForNotifications" object:self];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {

@@ -28,7 +28,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"]){
-        [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
+        //TODO [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
     }
 }
 

@@ -10,7 +10,7 @@
 }
 
 -(void)setAsnAndCalculateName:(NSString *)asn{
-    //TODO calculate asnname
+    //TODO-ART calculate asnname
     self.asnName = @"Vodafone";
     self.asn = asn;
 }
@@ -27,8 +27,6 @@
 - (NSString*)getFile:(NSString*)ext{
     //log files are unique for web_connectivity test
     if ([self.name isEqualToString:@"web_connectivity"] && [ext isEqualToString:@"log"]){
-        //TODO remove
-        NSLog(@"FILE %@",[NSString stringWithFormat:@"%@-%@.%@", self.result.name, self.result.Id, ext]);
         return [NSString stringWithFormat:@"%@-%@.%@", self.result.name, self.result.Id, ext];
     }
     return [NSString stringWithFormat:@"%@-%@.%@", self.result.name, self.Id, ext];

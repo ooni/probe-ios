@@ -27,13 +27,7 @@
 
 -(void)reloadMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSString *asn;
-        if ([result getAsnName] != NULL)
-            asn = [result getAsnName];
-        else
-            asn = [result getAsn];
-
-        //TODO reused function in another class
+        NSString *asn = [result getAsnName];
         NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", asn]];
         [asnText addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]

@@ -104,6 +104,19 @@
     }
     [self.result setSummary];
     [self.result save];
+    if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
+        [self showNotification];
+}
+
+- (void)showNotification {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate date];
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.alertBody = [NSString stringWithFormat:@"%@ %@", [LocalizationUtility getNameForTest:self.result.name], NSLocalizedString(@"Notification.FinishedRunning", nil)];
+        [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
+        [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    });
 }
 
 @end

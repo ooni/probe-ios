@@ -54,7 +54,7 @@
         [super updateBlocking:blocking];
         [self.measurement save];
         //create new measurement entry if web_connectivity test
-        //TODO this case doesn not handle the timeout @sbs
+        //TODO-SBS this case doesn not handle the timeout
         self.entryIdx++;
         if (self.entryIdx < [self.inputs count]){
             [super createMeasurementObject];

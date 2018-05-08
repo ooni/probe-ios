@@ -62,8 +62,6 @@
     test.set_error_filepath([[TestUtility getFileName:self.measurement ext:@"log"] UTF8String]);
     if (![self.name isEqualToString:@"web_connectivity"])
         test.set_output_filepath([[TestUtility getFileName:self.measurement ext:@"json"] UTF8String]);
-    //TODO remove
-    //NSLog(@"FILE set_output_filepath %@", [TestUtility getFileName:self.measurement ext:@"json"]);
     test.set_verbosity([SettingsUtility getVerbosity]);
     test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
     test.on_log([self](uint32_t type, const char *s) {
@@ -109,7 +107,6 @@
 
 -(NSDictionary*)onEntryCommon:(const char*)str{
     if (str != nil) {
-        //TODO Lo startdate ti consiglio di prenderlo dal primo `onEntry` ?
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -173,7 +170,6 @@
 -(void)updateBlocking:(int)blocking{
     [self.measurement setBlocking:blocking];
     Summary *summary = [self.result getSummary];
-    //TODO how to count failed? will they appear here?
     if (blocking != MEASUREMENT_FAILURE){
         summary.failedMeasurements--;
         if (blocking == MEASUREMENT_OK)

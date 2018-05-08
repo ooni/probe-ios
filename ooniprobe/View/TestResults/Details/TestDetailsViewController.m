@@ -27,30 +27,24 @@
     [self.rawDataButton setTitle:NSLocalizedString(@"TestResults.Details.RawData", nil) forState:UIControlStateNormal];
     [self.viewLogButton setTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil) forState:UIControlStateNormal];
 
-    //TODO how to behave when not resolved bold not bold
-    NSString *asn;
-    if ([result getAsnName] != NULL)
-        asn = [result getAsnName];
-    else
-        asn = [result getAsn];
-    
-    //TODO if we can resolve the name properly we should drop the ASN
+    NSString *asn = [result getAsnName];
     NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", asn]];
     [asnText addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
                     range:NSMakeRange(0, asnText.length)];
-    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" - %@", [result getAsn]]];
-    [asnName addAttribute:NSFontAttributeName
-                        value:[UIFont fontWithName:@"FiraSans-Regular" size:15]
-                        range:NSMakeRange(0, asnName.length)];
     NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)", [result getLocalizedNetworkType]]];
     [networkText addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-Regular" size:15]
                         range:NSMakeRange(0, networkText.length)];
+    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" - %@", [result getAsn]]];
+    [asnName addAttribute:NSFontAttributeName
+                    value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
+                    range:NSMakeRange(0, asnName.length)];
+
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
     [attrStr appendAttributedString:asnText];
-    [attrStr appendAttributedString:asnName];
     [attrStr appendAttributedString:networkText];
+    [attrStr appendAttributedString:asnName];
     [self.networkDetailLabel setAttributedText:attrStr];
     
     NSString *country = [result getCountry];
