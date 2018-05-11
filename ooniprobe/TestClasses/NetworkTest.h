@@ -10,6 +10,7 @@
 @property Result *result;
 @property NSMutableArray *mkNetworkTests;
 -(id)initWithMeasurement:(Measurement*)existingMeasurement;
+-(void)addTest:(NSString*)testName :(NSArray*)urls;
 -(void)testEnded:(MKNetworkTest*)test;
 -(void)run;
 @end

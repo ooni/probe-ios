@@ -62,6 +62,19 @@
     return @[@"websites", @"instant_messaging", @"middle_boxes", @"performance"];
 }
 
++ (NSString*)getCategoryforTest:(NSString*)testName{
+    NSDictionary *tests = [self getTests];
+    NSArray *keys = [tests allKeys];
+    for (NSString *key in keys){
+        NSArray *arr = [tests objectForKey:key];
+        for (NSString *str in arr)
+            if ([str isEqualToString:testName])
+                return key;
+    }
+    return nil;
+}
+
+
 + (UIColor*)getColorForTest:(NSString*)testName{
     if ([testName isEqualToString:@"websites"]){
         return [UIColor colorWithRGBHexString:color_indigo6 alpha:1.0f];

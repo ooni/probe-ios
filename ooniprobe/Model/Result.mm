@@ -102,21 +102,12 @@
 
 -(void)save{
     [self commit];
+    /*
     NSLog(@"---- START LOGGING RESULT OBJECT----");
     NSLog(@"%@", self);
     NSLog(@"---- END LOGGING RESULT OBJECT----");
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"resultUpdated" object:self];
-    /*
-     NSLog(@"---- START LOGGING RESULT OBJECT----");
-     NSLog(@"%@", self);
-     NSLog(@"---- END LOGGING RESULT OBJECT----");
-    NSLog(@"name %@", self.name);
-    NSLog(@"startTime %@", self.startTime);
-    NSLog(@"endTime %@", self.endTime);
-    NSLog(@"summary %@", self.summary);
-    NSLog(@"dataUsageDown %ld", self.dataUsageDown);
-    NSLog(@"dataUsageUp %ld", self.dataUsageUp);
      */
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"resultUpdated" object:self];
 }
 
 -(void)deleteObject{

@@ -81,9 +81,19 @@
 }
 
 -(void)networkTestEnded{
-    [self dismissViewControllerAnimated:TRUE completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (_presenting){
+            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:TRUE completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
+            }];
+        }
+        else {
+            [self dismissViewControllerAnimated:TRUE completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
+            }];
+        }
+    });
+
 }
 
 @end
