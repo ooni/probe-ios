@@ -20,7 +20,6 @@
 - (NSString*)getWhatsappEndpointStatus;
 - (NSString*)getWhatsappWebStatus;
 - (NSString*)getWhatsappRegistrationStatus;
-- (NSString*)getWhatsappBlocking;
 
 //TELEGRAM
 - (NSString*)getTelegramEndpointStatus;

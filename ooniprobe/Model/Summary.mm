@@ -134,14 +134,6 @@
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
-- (NSString*)getWhatsappBlocking{
-    /*TODO
-     "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.BlockingReason.DNS"            = "via DNS";
-     "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.BlockingReason.TCPIP"          = "by means of TCP/IP based blocking";
-     */
-    return NSLocalizedString(@"TestResults.NotAvailable", nil);
-}
-
 #pragma mark TELEGRAM
 
 - (NSString*)getTelegramEndpointStatus {
@@ -150,9 +142,9 @@
         BOOL httpBlocking = [[dic safeObjectForKey:@"telegram_http_blocking"] boolValue];
         BOOL tcpBlocking = [[dic safeObjectForKey:@"telegram_tcp_blocking"] boolValue];
         if (httpBlocking || tcpBlocking)
-            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Failed", nil);
         else
-            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -215,11 +207,12 @@
     if (dic){
         BOOL dnsBlocking = [[dic safeObjectForKey:@"facebook_dns_blocking"] boolValue];
         BOOL tcpBlocking = [[dic safeObjectForKey:@"facebook_tcp_blocking"] boolValue];
-        if (dnsBlocking)
-            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.DNS", nil);
+        if (dnsBlocking && tcpBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.DNSandTCPIP", nil);
+        else if (dnsBlocking)
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.DNSOnly", nil);
         else if (tcpBlocking)
-            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.TCPIP", nil);
-        //TODO-ART when both?
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.TCPIPOnly", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }

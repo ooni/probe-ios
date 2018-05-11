@@ -15,31 +15,19 @@
 
 -(void)setResult:(Result*)result{
     if (!result.viewed)
-        [self setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow5 alpha:1.0f]];
+        [self setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow0 alpha:1.0f]];
     else
         [self setBackgroundColor:[UIColor clearColor]];
 
     [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_row", result.name]]];
     self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.name];
-    NSString *asn = [result getAsn];
     NSString *asnName = [result getAsnName];
-    NSString *country = [result getCountry];
     
-    NSMutableAttributedString *asnNameAttr = [[NSMutableAttributedString alloc] initWithString:asnName];
-    [asnNameAttr addAttribute:NSFontAttributeName
+    NSMutableAttributedString *asnNameStr = [[NSMutableAttributedString alloc] initWithString:asnName];
+    [asnNameStr addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                        range:NSMakeRange(0, asnNameAttr.length)];
-    NSString *asnString = [NSString stringWithFormat:@" %@", [NSString stringWithFormat:@"%@ (%@)", asn, country]];
-    if ([asnString isEqualToString:@"  ()"])
-        asnString = NSLocalizedString(@"TestResults.UnknownASN", nil);
-    NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:asnString];
-    [asnText addAttribute:NSFontAttributeName
-                    value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                    range:NSMakeRange(0, asnText.length)];
-    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
-    [attrStr appendAttributedString:asnNameAttr];
-    [attrStr appendAttributedString:asnText];
-    [self.testAsnLabel setAttributedText:attrStr];
+                        range:NSMakeRange(0, asnNameStr.length)];
+    [self.testAsnLabel setAttributedText:asnNameStr];
     
     //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];

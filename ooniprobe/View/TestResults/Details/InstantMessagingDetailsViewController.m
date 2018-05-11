@@ -27,8 +27,7 @@
         }
         else {
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.Hero.Title", nil)];
-            NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"BlockingReason": [summary getWhatsappBlocking] } fromString:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.Content.Paragraph.1", nil) error:NULL];
-            [self.subtitleLabel setText:subtitle];
+            [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.Content.Paragraph.1", nil)];
         }
         [self.detail1TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Title", nil)];
         [self.detail2TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Title", nil)];
@@ -51,7 +50,7 @@
         [self.detail1TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Title", nil)];
         [self.detail2TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Title", nil)];
         [self.detail1SubtitleLabel setText:[summary getTelegramEndpointStatus]];
-        [self.detail1SubtitleLabel setText:[summary getTelegramWebStatus]];
+        [self.detail2SubtitleLabel setText:[summary getTelegramWebStatus]];
     }
     else if ([self.measurement.name isEqualToString:@"facebook_messenger"]){
         [self.detail3View setHidden:YES];
@@ -67,7 +66,7 @@
         [self.detail1TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.TCP.Label.Title", nil)];
         [self.detail2TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.DNS.Label.Title", nil)];
         [self.detail1SubtitleLabel setText:[summary getFacebookMessengerTcp]];
-        [self.detail1SubtitleLabel setText:[summary getFacebookMessengerDns]];
+        [self.detail2SubtitleLabel setText:[summary getFacebookMessengerDns]];
     }
 
 }
