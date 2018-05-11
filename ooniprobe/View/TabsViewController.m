@@ -23,13 +23,16 @@
     UITabBarItem * tabItem2 = [self.tabBar.items objectAtIndex: 2];
     tabItem2.image = [UIImage imageNamed:@"tab_feed"];
     tabItem2.title = NSLocalizedString(@"Feed.Tab.Label", nil);
+    [tabItem2 setEnabled:NO];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"]){
-        //TODO [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
+        [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
     }
+    UITabBarItem * tabItem2 = [self.tabBar.items objectAtIndex: 2];
+    [tabItem2 setEnabled:NO];
 }
 
 -(void)showToast:(NSNotification *) notification{
@@ -45,9 +48,11 @@
 }
 
 -(void)goToResults{
-    UINavigationController *navController = [[self viewControllers] objectAtIndex:1];
-    [navController popToRootViewControllerAnimated:NO];
-    [self setSelectedIndex:1];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UINavigationController *navController = [[self viewControllers] objectAtIndex:1];
+        [navController popToRootViewControllerAnimated:NO];
+        [self setSelectedIndex:1];
+    });
 }
 
 @end

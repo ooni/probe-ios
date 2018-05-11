@@ -73,7 +73,7 @@
     if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
         [self performSegueWithIdentifier:@"toTestRun" sender:sender];
     else
-        [MessageUtility alertWithTitle:@"warning" message:@"no_internet" inView:self];
+        [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.NoInternet" inView:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
