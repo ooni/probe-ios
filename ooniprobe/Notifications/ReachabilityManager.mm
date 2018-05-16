@@ -24,12 +24,9 @@
     
     if (self) {
         // Initialize Reachability
-        //self.reachability = [Reachability reachabilityWithHostName:@"www.google.com"];
         self.reachability = [Reachability reachabilityForInternetConnection];
-
         // Start Monitoring
         [self.reachability startNotifier];
-        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
         
     }

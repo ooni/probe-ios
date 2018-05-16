@@ -1,6 +1,7 @@
 #import "NotificationService.h"
 #include <measurement_kit/ooni.hpp>
 #import "VersionUtility.h"
+#import "TestUtility.h"
 
 @implementation NotificationService
 @synthesize geoip_asn_path, geoip_country_path, platform, software_name, software_version, supported_tests, network_type, available_bandwidth, device_token, language;
@@ -26,14 +27,7 @@
         platform = @"ios";
         software_name = @"ooniprobe-ios";
         software_version = [VersionUtility get_software_version];
-        NSMutableArray *supported_tests_ar = [[NSMutableArray alloc] init];
-        /*
-        Tests *currentTests = [Tests currentTests];
-        for (NetworkMeasurement *nm in currentTests.availableNetworkMeasurements){
-            [supported_tests_ar addObject:nm.name];
-        }*/
-        //TODO
-        supported_tests = supported_tests_ar;
+        supported_tests = [TestUtility getTestsArray];
         network_type = [[ReachabilityManager sharedManager] getStatus];
         language = [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode];
     }
@@ -76,8 +70,6 @@
         }
         client.probe_asn = probe_asn;
         client.probe_cc = probe_cc;
-        //[self setCC:[NSString stringWithFormat:@"%s", probe_cc.c_str()]];
-        //[self setASN:[NSString stringWithFormat:@"%s", probe_asn.c_str()]];
         mk::ooni::orchestrate::Auth auth;
         // Assumption: if we can load the secrets path then we have
         // already registered the probe, otherwise we need to register
@@ -125,16 +117,6 @@
                           @"orchestrator_secret.json"];
     return fileName;
 }
-
-/* TODO
--(void)setCC:(NSString*)cc{
-    [[TestLists sharedTestLists] setProbe_cc:cc];
-}
-
--(void)setASN:(NSString*)asn{
-    [[TestLists sharedTestLists] setProbe_asn:asn];
-}
-*/
 
 + (void)registerUserNotification{
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){

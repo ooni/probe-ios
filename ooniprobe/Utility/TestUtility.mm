@@ -74,6 +74,16 @@
     return nil;
 }
 
++ (NSArray*)getTestsArray{
+    NSMutableArray *returnArr = [[NSMutableArray alloc] init];
+    NSDictionary *tests = [self getTests];
+    NSArray *keys = [tests allKeys];
+    for (NSString *key in keys){
+        NSArray *arr = [tests objectForKey:key];
+        [returnArr addObjectsFromArray:arr];
+    }
+    return returnArr;
+}
 
 + (UIColor*)getColorForTest:(NSString*)testName{
     if ([testName isEqualToString:@"websites"]){

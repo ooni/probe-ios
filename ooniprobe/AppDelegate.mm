@@ -28,12 +28,6 @@
     [Fabric with:@[[Crashlytics class]]];
     #endif
 
-    /*
-    links = [[NSMutableArray alloc] init];
-    [links addObject:@"http://www.google.com"];
-    [self openBrowser];
-     */
-
     application.statusBarStyle = UIStatusBarStyleLightContent;
     
     //TODO Probably don't need it anymore when implementing backgound notifications

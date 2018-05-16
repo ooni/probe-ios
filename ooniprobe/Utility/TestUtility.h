@@ -8,6 +8,7 @@
 + (NSString*)getFileName:(Measurement*)measurement ext:(NSString*)ext;
 + (NSDictionary*)getTests;
 + (NSArray*)getTestTypes;
++ (NSArray*)getTestsArray;
 + (NSString*)getCategoryforTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (NSArray*)getUrlsTest;
