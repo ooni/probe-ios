@@ -234,7 +234,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulw-BA-UD8">
-                                            <rect key="frame" x="34" y="9" width="34.5" height="18"/>
+                                            <rect key="frame" x="34" y="9" width="35" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="aMp-j7-EXE"/>
                                             </constraints>
@@ -243,22 +243,22 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lso-kg-nwN">
-                                            <rect key="frame" x="12" y="30" width="42" height="20"/>
+                                            <rect key="frame" x="12" y="30" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QR-Qf-mSJ">
-                                            <rect key="frame" x="12" y="50" width="29.5" height="20"/>
+                                            <rect key="frame" x="12" y="50.5" width="30" height="19.5"/>
                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="12"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="IFH-XT-fap">
-                                            <rect key="frame" x="217" y="9" width="100" height="59"/>
+                                            <rect key="frame" x="220" y="9" width="97" height="59"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nds-sH-4aI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="77.5" height="19"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="78" height="19"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe_black" translatesAutoresizingMaskIntoConstraints="NO" id="YRF-xy-FYX">
                                                             <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
@@ -268,7 +268,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upe-TR-Js8">
-                                                            <rect key="frame" x="21" y="0.0" width="56.5" height="19"/>
+                                                            <rect key="frame" x="21" y="0.0" width="57" height="19"/>
                                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -276,7 +276,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6LG-h0-c4Y">
-                                                    <rect key="frame" x="0.0" y="20" width="100" height="19"/>
+                                                    <rect key="frame" x="0.0" y="20" width="97" height="19"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload_black" translatesAutoresizingMaskIntoConstraints="NO" id="hRB-3G-cxz">
                                                             <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
@@ -286,7 +286,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Usage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvF-5h-CAj">
-                                                            <rect key="frame" x="21" y="0.0" width="79" height="19"/>
+                                                            <rect key="frame" x="21" y="0.0" width="76" height="19"/>
                                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -294,7 +294,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dUS-Gx-JRd">
-                                                    <rect key="frame" x="0.0" y="40" width="77" height="19"/>
+                                                    <rect key="frame" x="0.0" y="40" width="78.5" height="19"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download_black" translatesAutoresizingMaskIntoConstraints="NO" id="ItA-Bi-cev">
                                                             <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
@@ -304,7 +304,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xu-Hm-NkI">
-                                                            <rect key="frame" x="21" y="0.0" width="56" height="19"/>
+                                                            <rect key="frame" x="21" y="0.0" width="57.5" height="19"/>
                                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -354,7 +354,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="wl6-h2-YPP">
-                        <barButtonItem key="rightBarButtonItem" image="trash" id="6uG-Ms-PKG">
+                        <barButtonItem key="rightBarButtonItem" image="delete_forever" id="6uG-Ms-PKG">
                             <connections>
                                 <action selector="removeAllTests:" destination="eJh-bP-NZX" id="vZ5-I4-Jt5"/>
                             </connections>
@@ -2812,6 +2812,7 @@ U0FIV1AgSzRLU08LTTEwV08gMFpXNkw
     <resources>
         <image name="data_usage" width="19" height="19"/>
         <image name="date_and_time" width="19" height="19"/>
+        <image name="delete_forever" width="17" height="21"/>
         <image name="download" width="19" height="19"/>
         <image name="download_black" width="19" height="19"/>
         <image name="globe" width="19" height="19"/>
@@ -2821,7 +2822,6 @@ U0FIV1AgSzRLU08LTTEwV08gMFpXNkw
         <image name="runtime" width="19" height="19"/>
         <image name="tab_test_results" width="23" height="20"/>
         <image name="tick_green" width="30" height="30"/>
-        <image name="trash" width="24" height="24"/>
         <image name="upload" width="19" height="19"/>
         <image name="upload_black" width="19" height="19"/>
     </resources>

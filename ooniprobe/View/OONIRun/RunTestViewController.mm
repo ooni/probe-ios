@@ -143,18 +143,6 @@
     }
 }
 
-/*
--(void)configureView{
-    currentTests = [Tests currentTests];
-
-
-    NetworkMeasurement *current = [currentTests getTestWithName:testName];
-    [self.test_titleLabel setText:NSLocalizedString(current.name, nil)];
-    [self.test_iconImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_big", current.name]]];
-    
-    
-}
-*/
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
