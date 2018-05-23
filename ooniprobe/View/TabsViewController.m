@@ -19,11 +19,6 @@
     UITabBarItem * tabItem1 = [self.tabBar.items objectAtIndex: 1];
     tabItem1.image = [UIImage imageNamed:@"tab_test_results"];
     tabItem1.title = NSLocalizedString(@"TestResults.Overview.Tab.Label", nil);
-    
-    UITabBarItem * tabItem2 = [self.tabBar.items objectAtIndex: 2];
-    tabItem2.image = [UIImage imageNamed:@"tab_feed"];
-    tabItem2.title = NSLocalizedString(@"Feed.Tab.Label", nil);
-    [tabItem2 setEnabled:NO];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -31,8 +26,6 @@
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"]){
         [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
     }
-    UITabBarItem * tabItem2 = [self.tabBar.items objectAtIndex: 2];
-    [tabItem2 setEnabled:NO];
 }
 
 -(void)showToast:(NSNotification *) notification{
