@@ -30,7 +30,7 @@
 
     application.statusBarStyle = UIStatusBarStyleLightContent;
     
-    //TODO Probably don't need it anymore when implementing backgound notifications
+    //TODO-2.1 Probably don't need it anymore when implementing backgound notifications
     //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo
     //https://stackoverflow.com/questions/38969229/what-is-uiapplicationlaunchoptionsremotenotificationkey-used-for
     NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -175,7 +175,7 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    //TODO start your long running bg task here
+    //TODO-2.1 start your long running bg task here
 }
 
 //Handles ooni:// links
@@ -219,7 +219,7 @@
     NSLog(@"DB error: %@", error.errorMessage);
 }
 
-//TODO remove
+//TODO remove in release
 -(void)logAll{
     SRKQuery *query = [[Result query] orderByDescending:@"startTime"];
     SRKResultSet *results = [query fetch];

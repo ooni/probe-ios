@@ -79,20 +79,22 @@
 }
 
 -(void)reloadQuery{
-    SRKQuery *query;
-    if ([filter length] > 0)
-        query = [[[Result query] where:[NSString stringWithFormat:@"name = '%@'", filter]] orderByDescending:@"startTime"];
-    else
-        query = [[Result query] orderByDescending:@"startTime"];
-
-    double dataUsageDown = [query sumOf:@"dataUsageDown"];
-    double dataUsageUp = [query sumOf:@"dataUsageUp"];
-    
-    [self.upLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageUp countStyle:NSByteCountFormatterCountStyleFile]];
-    [self.downLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageDown countStyle:NSByteCountFormatterCountStyleFile]];
-    [self.numberTestsLabel setText:[NSString stringWithFormat:@"%llu", [query count]]];
-    [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[[[query where:[NSString stringWithFormat:@"asn != 'null'"]] distinct:@"asn"] count]]];
-    [self.delegate testFilter:query];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        SRKQuery *query;
+        if ([filter length] > 0)
+            query = [[[Result query] where:[NSString stringWithFormat:@"name = '%@'", filter]] orderByDescending:@"startTime"];
+        else
+            query = [[Result query] orderByDescending:@"startTime"];
+        
+        double dataUsageDown = [query sumOf:@"dataUsageDown"];
+        double dataUsageUp = [query sumOf:@"dataUsageUp"];
+        
+        [self.upLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageUp countStyle:NSByteCountFormatterCountStyleFile]];
+        [self.downLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageDown countStyle:NSByteCountFormatterCountStyleFile]];
+        [self.numberTestsLabel setText:[NSString stringWithFormat:@"%llu", [query count]]];
+        [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[[[query where:[NSString stringWithFormat:@"asn != 'null'"]] distinct:@"asn"] count]]];
+        [self.delegate testFilter:query];
+    });
 }
 
 #pragma mark - MKDropdownMenuDataSource

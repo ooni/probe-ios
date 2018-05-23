@@ -47,7 +47,6 @@
     }
 }
 
-//TODO what to do when a test is re-run?
 - (void)setStats {
     NSMutableDictionary *stats = [[NSMutableDictionary alloc] init];
     [stats setObject:[NSNumber numberWithInteger:self.totalMeasurements] forKey:@"total"];

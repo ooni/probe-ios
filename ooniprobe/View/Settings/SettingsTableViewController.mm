@@ -177,7 +177,7 @@
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     //TODO when enable remote news notification send something to backend
-    //TODO hide rows smooth
+    //TODO-2.1 hide rows smooth
     [self reloadSettings];
 }
 

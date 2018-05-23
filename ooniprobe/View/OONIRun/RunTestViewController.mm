@@ -62,7 +62,6 @@
         }
     }
     else {
-        //TODO The OONI Run link is either malformed or your app is out of date
         [self showErrorScreen];
     }
 }
@@ -101,7 +100,7 @@
 
 - (void)showErrorScreen{
     [self.titleLabel setText:NSLocalizedString(@"OONIRun.InvalidParameter", nil)];
-    [self.subtitleLabel setText:NSLocalizedString(@"OONIRun.InvalidParameter", nil)];
+    [self.subtitleLabel setText:NSLocalizedString(@"OONIRun.InvalidParameter.Msg", nil)];
     [self.runButton setHidden:NO];
     [self.runButton setHidden:YES];
 }
