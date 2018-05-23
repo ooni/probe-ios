@@ -2,7 +2,7 @@
 #import "SettingsUtility.h"
 
 @interface WebsiteCategoryTableViewController : UITableViewController {
-    NSArray *categories_enabled;
+    NSArray *categories_disabled;
 }
 
 @property (nonatomic, strong) NSString *category;

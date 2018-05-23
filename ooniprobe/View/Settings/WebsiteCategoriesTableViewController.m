@@ -15,7 +15,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     categories = [SettingsUtility getSitesCategories];
-    categories_enabled = [SettingsUtility getSitesCategoriesEnabled];
+    categories_disabled = [SettingsUtility getSitesCategoriesDisabled];
     [self.tableView reloadData];
 }
 
@@ -42,8 +42,10 @@
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current]];
     cell.detailTextLabel.textColor = [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
-    if ([categories_enabled containsObject:current]) cell.detailTextLabel.text = NSLocalizedString(@"Settings.Enabled", nil);
-    else cell.detailTextLabel.text = NSLocalizedString(@"Settings.Disabled", nil);
+    if ([categories_disabled containsObject:current])
+        cell.detailTextLabel.text = NSLocalizedString(@"Settings.Disabled", nil);
+    else
+        cell.detailTextLabel.text = NSLocalizedString(@"Settings.Enabled", nil);
     return cell;
 }
 

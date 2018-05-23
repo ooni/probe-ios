@@ -10,7 +10,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(category, nil);
-    categories_enabled = [SettingsUtility getSitesCategoriesEnabled];
+    categories_disabled = [SettingsUtility getSitesCategoriesDisabled];
     self.navigationController.navigationBar.topItem.title = @"";
 }
 
@@ -47,8 +47,8 @@
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", category]];
     UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
     [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
-    if ([categories_enabled containsObject:category]) switchview.on = YES;
-    else switchview.on = NO;
+    if ([categories_disabled containsObject:category]) switchview.on = NO;
+    else switchview.on = YES;
     cell.accessoryView = switchview;
     return cell;
 }

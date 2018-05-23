@@ -67,17 +67,17 @@
     return @[@"ALDR", @"REL", @"PORN", @"PROV", @"POLR", @"HUMR", @"ENV", @"MILX", @"HATE", @"NEWS", @"XED", @"PUBH", @"GMB", @"ANON", @"DATE", @"GRP", @"LGBT", @"FILE", @"HACK", @"COMT", @"MMED", @"HOST", @"SRCH", @"GAME", @"CULTR", @"ECON", @"GOVT", @"COMM", @"CTRL", @"IGO", @"MISC"];
 }
 
-+ (NSArray*)getSitesCategoriesEnabled {
-    return [[NSUserDefaults standardUserDefaults] arrayForKey:@"sites_categories"];
++ (NSArray*)getSitesCategoriesDisabled {
+    return [[NSUserDefaults standardUserDefaults] arrayForKey:@"categories_disabled"];
 }
 
 + (void)addRemoveSitesCategory:(NSString*)categoryName {
-    NSMutableArray *sites_categories = [[self getSitesCategoriesEnabled] mutableCopy];
-    if ([sites_categories containsObject:categoryName])
-        [sites_categories removeObject:categoryName];
+    NSMutableArray *categories_disabled = [[self getSitesCategoriesDisabled] mutableCopy];
+    if ([categories_disabled containsObject:categoryName])
+        [categories_disabled removeObject:categoryName];
     else
-        [sites_categories addObject:categoryName];
-    [[NSUserDefaults standardUserDefaults] setObject:sites_categories forKey:@"sites_categories"];
+        [categories_disabled addObject:categoryName];
+    [[NSUserDefaults standardUserDefaults] setObject:categories_disabled forKey:@"categories_disabled"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

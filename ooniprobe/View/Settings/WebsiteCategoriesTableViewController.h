@@ -4,7 +4,7 @@
 
 @interface WebsiteCategoriesTableViewController : UITableViewController {
     NSArray *categories;
-    NSArray *categories_enabled;
+    NSArray *categories_disabled;
 }
 
 @end
