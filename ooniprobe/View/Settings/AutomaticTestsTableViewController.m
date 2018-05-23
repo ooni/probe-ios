@@ -1,11 +1,3 @@
-//
-//  AutomaticTestsTableViewController.m
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 06/01/18.
-//  Copyright © 2018 Simone Basso. All rights reserved.
-//
-
 #import "AutomaticTestsTableViewController.h"
 
 @interface AutomaticTestsTableViewController ()
@@ -31,17 +23,7 @@
     NSString *test_type = [test_types objectAtIndex:section];
     return [LocalizationUtility getNameForTest:test_type];
 }
-/*
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel *lbl = [[UILabel alloc] init];
-    NSString *test_type = [test_types objectAtIndex:section];
-    //lbl.textAlignment = UITextAlignmentCenter;
-    lbl.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
-    lbl.font = [UIFont fontWithName:@"FiraSans-Regular" size:17];
-    lbl.text = NSLocalizedString(test_type, nil);
-    return lbl;
-}
-*/
+
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
@@ -66,10 +48,13 @@
     NSString *current = [[tests objectForKey:test_type] objectAtIndex:indexPath.row];
     cell.textLabel.text = [LocalizationUtility getNameForTest:current];
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    
     if ([test_type isEqualToString:@"instant_messaging"])
         cell.imageView.image = [UIImage imageNamed:current];
     else
         cell.imageView.image = [UIImage imageNamed:test_type];
+    
+    [cell.imageView setTintColor:[UIColor colorWithRGBHexString:color_base alpha:1.0f]];
     UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
     [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
     if ([automatic_tests containsObject:current]) switchview.on = YES;

@@ -187,7 +187,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="RIJ-QZ-DGh" style="IBUITableViewCellStyleDefault" id="pJV-e4-tOK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="RIJ-QZ-DGh" style="IBUITableViewCellStyleDefault" id="pJV-e4-tOK" customClass="SettingCell">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJV-e4-tOK" id="DUN-pV-xaD">
@@ -264,12 +264,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="2na-jD-p15">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="2na-jD-p15">
                             <rect key="frame" x="0.0" y="133.5" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDn-cB-IQV">
-                                    <rect key="frame" x="345" y="11" width="22" height="22"/>
+                                    <rect key="frame" x="345" y="-11" width="22" height="22"/>
                                     <connections>
                                         <action selector="addRow:" destination="QTB-Ru-Efu" eventType="touchUpInside" id="cZL-0Y-iDm"/>
                                     </connections>

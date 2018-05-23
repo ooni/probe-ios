@@ -91,18 +91,25 @@
     if ([result.name isEqualToString:@"instant_messaging"]){
         [title setText:[LocalizationUtility getNameForTest:current.name]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
-        [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_black", current.name]]];
-        if (current.blocking == MEASUREMENT_OK)
-            [status setImage:[UIImage imageNamed:@"tick_green"]];
-        else if (current.blocking == MEASUREMENT_BLOCKED)
-            [status setImage:[UIImage imageNamed:@"x_red"]];
+        [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", current.name]]];
+        [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+        if (current.blocking == MEASUREMENT_OK){
+            [status setImage:[UIImage imageNamed:@"tick"]];
+            [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+        }
+        else if (current.blocking == MEASUREMENT_BLOCKED){
+            [status setImage:[UIImage imageNamed:@"cross"]];
+            [status setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+        }
     }
     else if ([result.name isEqualToString:@"middle_boxes"]){
         [title setText:[LocalizationUtility getNameForTest:current.name]];
-        if (current.blocking == MEASUREMENT_OK)
-            [status setImage:[UIImage imageNamed:@"tick_green"]];
+        if (current.blocking == MEASUREMENT_OK){
+            [status setImage:[UIImage imageNamed:@"tick"]];
+            [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+        }
         else if (current.blocking == MEASUREMENT_BLOCKED)
-            [status setImage:[UIImage imageNamed:@"exclamation_point_orange"]];
+            [status setImage:[UIImage imageNamed:@"exclamation_point"]];
     }
     else if ([result.name isEqualToString:@"websites"]){
         [title setText:[NSString stringWithFormat:@"%@", current.input]];
@@ -110,10 +117,14 @@
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.category]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
 
-        if (current.blocking == MEASUREMENT_OK)
-            [status setImage:[UIImage imageNamed:@"tick_green"]];
-        else if (current.blocking == MEASUREMENT_BLOCKED)
-            [status setImage:[UIImage imageNamed:@"x_red"]];
+        if (current.blocking == MEASUREMENT_OK){
+            [status setImage:[UIImage imageNamed:@"tick"]];
+            [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+        }
+        else if (current.blocking == MEASUREMENT_BLOCKED){
+            [status setImage:[UIImage imageNamed:@"cross"]];
+            [status setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+        }
     }
     else if ([result.name isEqualToString:@"performance"]){
         [title setText:[LocalizationUtility getNameForTest:current.name]];
@@ -137,17 +148,18 @@
             [detail1Label setHidden:YES];
             [detail2Label setHidden:YES];
         }
-
         if ([current.name isEqualToString:@"ndt"]){
             [stackView2 setHidden:NO];
             [detail1Image setImage:[UIImage imageNamed:@"upload_black"]];
+            [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
             [detail2Image setImage:[UIImage imageNamed:@"download_black"]];
+            [detail2Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
             [detail1Label setText:[NSString stringWithFormat:@"%@", [summary getUploadWithUnit]]];
             [detail2Label setText:[NSString stringWithFormat:@"%@", [summary getDownloadWithUnit]]];
         }
         else if ([current.name isEqualToString:@"dash"]){
             [stackView2 setHidden:YES];
-            [detail1Image setImage:[UIImage imageNamed:@"video_quality_black"]];
+            [detail1Image setImage:[UIImage imageNamed:@"video_quality"]];
             [detail1Label setText:[summary getVideoQuality:YES]];
         }
     }    
@@ -156,7 +168,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     segueObj = [self.measurements objectAtIndex:indexPath.row];
-    [self showPopup];
+    [self goToDetails];
+    //[self showPopup];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -208,24 +221,28 @@
                                       actionWithTitle:NSLocalizedString(@"Go to TestDetails", nil)
                                       style:UIAlertActionStyleDefault
                                       handler:^(UIAlertAction * action) {
-                                          if ([segueObj.name isEqualToString:@"ndt"])
-                                              [self performSegueWithIdentifier:@"toNdtTestDetails" sender:self];
-                                          else if ([segueObj.name isEqualToString:@"dash"])
-                                              [self performSegueWithIdentifier:@"toDashTestDetails" sender:self];
-                                          else if ([segueObj.name isEqualToString:@"whatsapp"] ||
-                                                   [segueObj.name isEqualToString:@"telegram"] ||
-                                                   [segueObj.name isEqualToString:@"facebook_messenger"])
-                                              [self performSegueWithIdentifier:@"toInstantMessagingTestDetails" sender:self];
-                                          else if ([segueObj.name isEqualToString:@"http_invalid_request_line"] ||
-                                                   [segueObj.name isEqualToString:@"http_header_field_manipulation"])
-                                              [self performSegueWithIdentifier:@"toMiddleBoxesTestDetails" sender:self];
-                                          else if ([segueObj.name isEqualToString:@"web_connectivity"])
-                                              [self performSegueWithIdentifier:@"toWebsitesTestDetails" sender:self];
+                                          [self goToDetails];
                                       }];
         [alert addAction:goToDetailsButton];
     }
     [alert addAction:cancelButton];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)goToDetails{
+    if ([segueObj.name isEqualToString:@"ndt"])
+        [self performSegueWithIdentifier:@"toNdtTestDetails" sender:self];
+    else if ([segueObj.name isEqualToString:@"dash"])
+        [self performSegueWithIdentifier:@"toDashTestDetails" sender:self];
+    else if ([segueObj.name isEqualToString:@"whatsapp"] ||
+             [segueObj.name isEqualToString:@"telegram"] ||
+             [segueObj.name isEqualToString:@"facebook_messenger"])
+        [self performSegueWithIdentifier:@"toInstantMessagingTestDetails" sender:self];
+    else if ([segueObj.name isEqualToString:@"http_invalid_request_line"] ||
+             [segueObj.name isEqualToString:@"http_header_field_manipulation"])
+        [self performSegueWithIdentifier:@"toMiddleBoxesTestDetails" sender:self];
+    else if ([segueObj.name isEqualToString:@"web_connectivity"])
+        [self performSegueWithIdentifier:@"toWebsitesTestDetails" sender:self];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{

@@ -1,11 +1,3 @@
-//
-//  PaddingLabel.m
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 30/04/18.
-//  Copyright © 2018 Simone Basso. All rights reserved.
-//
-
 #import "PaddingLabel.h"
 #define padding UIEdgeInsetsMake(5, 10, 5, 10)
 

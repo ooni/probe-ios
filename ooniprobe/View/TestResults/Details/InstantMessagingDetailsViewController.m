@@ -12,11 +12,13 @@
     Summary *summary = [self.result getSummary];
 
     if (super.measurement.blocking == MEASUREMENT_OK){
-        [self.statusImage setImage:[UIImage imageNamed:@"tick_green"]];
+        [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
+        [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
     }
     else {
-        [self.statusImage setImage:[UIImage imageNamed:@"x_red"]];
+        [self.statusImage setImage:[UIImage imageNamed:@"cross"]];
+        [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_red7 alpha:1.0f]];
     }
     

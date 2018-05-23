@@ -18,8 +18,10 @@
         [self setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow0 alpha:1.0f]];
     else
         [self setBackgroundColor:[UIColor clearColor]];
+    
+    [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", result.name]]];
+    [self.testIcon setTintColor:[TestUtility getColorForTest:result.name]];
 
-    [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_row", result.name]]];
     self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.name];
     NSString *asnName = [result getAsnName];
     
@@ -36,7 +38,8 @@
     if ([result.name isEqualToString:@"websites"]){
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
-        [self.image1 setImage:[UIImage imageNamed:@"x_red"]];
+        [self.image1 setImage:[UIImage imageNamed:@"cross"]];
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, [LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"globe_black"]];
@@ -46,10 +49,12 @@
     else if ([result.name isEqualToString:@"instant_messaging"]){
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
-        [self.image1 setImage:[UIImage imageNamed:@"x_red"]];
+        [self.image1 setImage:[UIImage imageNamed:@"cross"]];
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, [LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.image2 setImage:[UIImage imageNamed:@"tick_black"]];
+        [self.image2 setImage:[UIImage imageNamed:@"tick"]];
+        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.okMeasurements, [LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
@@ -68,13 +73,15 @@
     else if ([result.name isEqualToString:@"performance"]){
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:NO];
-        [self.image1 setImage:[UIImage imageNamed:@"upload_black"]];
+        [self.image1 setImage:[UIImage imageNamed:@"upload"]];
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.label1 setText:[NSString stringWithFormat:@"%@", [summary getUploadWithUnit]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-        [self.image2 setImage:[UIImage imageNamed:@"download_black"]];
+        [self.image2 setImage:[UIImage imageNamed:@"download"]];
+        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.label2 setText:[NSString stringWithFormat:@"%@", [summary getDownloadWithUnit]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-        [self.image3 setImage:[UIImage imageNamed:@"video_quality_black"]];
+        [self.image3 setImage:[UIImage imageNamed:@"video_quality"]];
         [self.label3 setText:[summary getVideoQuality:NO]];
         [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }

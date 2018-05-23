@@ -9,11 +9,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (super.measurement.blocking == MEASUREMENT_OK){
-        [self.statusImage setImage:[UIImage imageNamed:@"tick_green"]];
+        [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
+        [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
     }
     else {
-        [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point_orange"]];
+        [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
     }
     

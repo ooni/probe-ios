@@ -31,7 +31,8 @@
     [self.timeLabel setText:@"2min 10MB"];
     
     [self reloadLastMeasurement];
-    [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
+    [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
+    [self.testImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     defaultColor = [TestUtility getColorForTest:testName];
     [self.runButton setTitleColor:defaultColor forState:UIControlStateNormal];
     [self.backgroundView setBackgroundColor:defaultColor];

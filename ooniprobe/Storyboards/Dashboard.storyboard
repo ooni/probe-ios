@@ -40,8 +40,9 @@
                                         <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kk7-LL-zcm">
                                             <rect key="frame" x="16" y="11" width="288" height="203"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websites_white" translatesAutoresizingMaskIntoConstraints="NO" id="caW-18-OfO">
+                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websites" translatesAutoresizingMaskIntoConstraints="NO" id="caW-18-OfO">
                                                     <rect key="frame" x="130" y="8" width="150" height="150"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="Q3f-r4-qdD"/>
                                                         <constraint firstAttribute="height" constant="150" id="rDo-JW-bcD"/>
@@ -359,8 +360,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websites_white" translatesAutoresizingMaskIntoConstraints="NO" id="8lW-6g-uP6">
+                                    <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websites" translatesAutoresizingMaskIntoConstraints="NO" id="8lW-6g-uP6">
                                         <rect key="frame" x="120" y="0.0" width="80" height="80"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="eFd-kF-Dsd"/>
                                         </constraints>
@@ -471,7 +473,7 @@
         <image name="Group 926" width="360" height="640"/>
         <image name="settings_icon" width="23" height="23"/>
         <image name="tab_dashboard" width="26" height="21"/>
-        <image name="websites_white" width="167" height="167"/>
+        <image name="websites" width="78" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Get-FV-hMZ"/>

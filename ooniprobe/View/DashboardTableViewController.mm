@@ -57,7 +57,8 @@
     [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
     //TODO-TIME Estimated Time test
     [estimateTime setText:@"2min"];
-    [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_white", testName]]];
+    [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
+    [testLogo setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [backgroundView setBackgroundColor:[TestUtility getColorForTest:testName]];
     backgroundView.layer.cornerRadius = 15;
     backgroundView.layer.masksToBounds = YES;

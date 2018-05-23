@@ -1,11 +1,3 @@
-//
-//  HeaderSwipeViewController.m
-//  ooniprobe
-//
-//  Created by Lorenzo Primiterra on 01/02/18.
-//  Copyright © 2018 Simone Basso. All rights reserved.
-//
-
 #import "HeaderSwipeViewController.h"
 
 @interface HeaderSwipeViewController ()
