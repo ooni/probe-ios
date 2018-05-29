@@ -3,7 +3,5 @@
 
 @interface RunButton : UIButton
 
-- (UIImage*)createSolidColorImageWithColor:(UIColor*)color andSize:(CGSize)size;
-
 @end
 

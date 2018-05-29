@@ -19,6 +19,10 @@
 
 -(void) runTest {
     mk::nettests::NdtTest test;
+    if (![SettingsUtility getSettingWithName:@"ndt_server_auto"]){
+        test.set_option("server", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server"] UTF8String]);
+        test.set_option("port", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server_port"] UTF8String]);
+    }
     test.on_entry([self](std::string s) {
         [self onEntry:s.c_str()];
     });

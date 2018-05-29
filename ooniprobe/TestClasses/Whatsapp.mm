@@ -18,6 +18,9 @@
 
 -(void) runTest {
     mk::nettests::WhatsappTest test;
+    if ([SettingsUtility getSettingWithName:@"test_whatsapp_extensive"]){
+        test.set_option("all_endpoints", YES);
+    }
     test.on_entry([self](std::string s) {
         [self onEntry:s.c_str()];
     });

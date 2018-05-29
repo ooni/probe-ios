@@ -18,7 +18,10 @@
 
 -(void) runTest {
     mk::nettests::DashTest test;
-    //when setting server check first ndt_server_auto
+    if (![SettingsUtility getSettingWithName:@"dash_server_auto"]){
+        test.set_option("server", [[[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server"] UTF8String]);
+        test.set_option("port", [[[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server_port"] UTF8String]);
+    }
     test.on_entry([self](std::string s) {
         [self onEntry:s.c_str()];
     });

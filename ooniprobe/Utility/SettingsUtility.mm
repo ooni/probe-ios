@@ -23,10 +23,12 @@
             return @[@"automated_testing_enabled"];
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
-        return @[@"upload_results", @"include_ip", @"include_asn", @"include_gps"];
+        //TODO @"include_gps"
+        return @[@"upload_results", @"include_ip", @"include_asn"];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
-        return @[@"keep_screen_on", @"send_crash", @"debug_logs", @"use_domain_fronting", @"include_cc"];
+        //TODO @"use_domain_fronting"
+        return @[@"keep_screen_on", @"send_crash", @"debug_logs", @"include_cc"];
     }
     else
         return nil;
