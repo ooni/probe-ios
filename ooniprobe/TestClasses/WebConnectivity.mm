@@ -24,7 +24,7 @@
         self.inputs = [TestUtility getUrlsTest];
     Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
     self.measurement.input = currentUrl.url;
-    self.measurement.category = currentUrl.category_code;
+    self.measurement.category = currentUrl.categoryCode;
     
     if (self.max_runtime_enabled){
         test.set_option("max_runtime", [max_runtime doubleValue]);
@@ -61,7 +61,7 @@
             [super updateCounter];
             Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
             self.measurement.input = currentUrl.url;
-            self.measurement.category = currentUrl.category_code;
+            self.measurement.category = currentUrl.categoryCode;
         }
     }
 }

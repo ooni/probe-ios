@@ -15,12 +15,12 @@
 -(void)run;
 @end
 
-@interface IMNetworkTest : NetworkTest
+@interface WCNetworkTest : NetworkTest
+-(id)initWithUrls:(NSArray*)urls;
 -(void)run;
 @end
 
-@interface WCNetworkTest : NetworkTest
--(id)initWithUrls:(NSArray*)urls;
+@interface IMNetworkTest : NetworkTest
 -(void)run;
 @end
 

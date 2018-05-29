@@ -2,7 +2,7 @@
 
 @interface Url : NSObject
 @property (strong, nonatomic) NSString *url;
-@property (strong, nonatomic) NSString *category_code;
+@property (strong, nonatomic) NSString *categoryCode;
 
--(id) initWithUrl:(NSString*)url category:(NSString*)category_code;
+-(id) initWithUrl:(NSString*)url category:(NSString*)categoryCode;
 @end

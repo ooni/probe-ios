@@ -22,7 +22,6 @@
 		ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1EC170204E9B61000DEB9F /* LogViewController.m */; };
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED209669209791C40028BEA3 /* PaddingLabel.m */; };
-		ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED21E0751F8990E3008DFD0D /* global.csv */; };
 		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.mm */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
@@ -42,7 +41,6 @@
 		ED6AC44B1FF8F97F003EA230 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC44A1FF8F97F003EA230 /* NSDictionary+Safety.m */; };
 		ED70D5031FE8021400759463 /* Measurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5021FE8021400759463 /* Measurement.mm */; };
 		ED70D5061FE8022300759463 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5051FE8022300759463 /* Result.mm */; };
-		ED75A3972011AC2F009792C6 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = ED75A3962011AC2F009792C6 /* Article.m */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED78B6382042A8F800C43E5C /* Summary.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6372042A8F800C43E5C /* Summary.mm */; };
 		ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6392042A92200C43E5C /* MKNetworkTest.mm */; };
@@ -129,7 +127,6 @@
 		ED1F33611EFD552F00B42FEC /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
 		ED209668209791C40028BEA3 /* PaddingLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaddingLabel.h; sourceTree = "<group>"; };
 		ED209669209791C40028BEA3 /* PaddingLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaddingLabel.m; sourceTree = "<group>"; };
-		ED21E0751F8990E3008DFD0D /* global.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = global.csv; sourceTree = "<group>"; };
 		ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
 		ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestSummaryTableViewController.mm; sourceTree = "<group>"; };
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -172,8 +169,6 @@
 		ED70D5021FE8021400759463 /* Measurement.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Measurement.mm; path = Model/Measurement.mm; sourceTree = "<group>"; };
 		ED70D5041FE8022300759463 /* Result.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Result.h; path = Model/Result.h; sourceTree = "<group>"; };
 		ED70D5051FE8022300759463 /* Result.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Result.mm; path = Model/Result.mm; sourceTree = "<group>"; };
-		ED75A3952011AC2F009792C6 /* Article.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Article.h; path = Model/Article.h; sourceTree = "<group>"; };
-		ED75A3962011AC2F009792C6 /* Article.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Article.m; path = Model/Article.m; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
 		ED78B6362042A8F800C43E5C /* Summary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Summary.h; path = Model/Summary.h; sourceTree = "<group>"; };
@@ -347,7 +342,6 @@
 			children = (
 				EDC2C9EA1FD9939A00FF01D3 /* anim */,
 				EDBCB0871FD5B06C00FA4838 /* fonts */,
-				ED21E0591F8990E3008DFD0D /* test-lists */,
 				ED3AB32E1D2337920061F266 /* GeoIP.dat */,
 				ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */,
 			);
@@ -389,14 +383,6 @@
 			path = RunTest;
 			sourceTree = "<group>";
 		};
-		ED21E0591F8990E3008DFD0D /* test-lists */ = {
-			isa = PBXGroup;
-			children = (
-				ED21E0751F8990E3008DFD0D /* global.csv */,
-			);
-			path = "test-lists";
-			sourceTree = "<group>";
-		};
 		ED25280F1CEA34DA0073A29B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,8 +392,6 @@
 				ED70D5021FE8021400759463 /* Measurement.mm */,
 				ED78B6362042A8F800C43E5C /* Summary.h */,
 				ED78B6372042A8F800C43E5C /* Summary.mm */,
-				ED75A3952011AC2F009792C6 /* Article.h */,
-				ED75A3962011AC2F009792C6 /* Article.m */,
 				ED3AEABC205A625100CFE360 /* Url.h */,
 				ED3AEABD205A625100CFE360 /* Url.mm */,
 			);
@@ -759,7 +743,6 @@
 				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
 				ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */,
-				ED21E0AE1F8990ED008DFD0D /* global.csv in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -915,7 +898,6 @@
 				EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
 				ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */,
-				ED75A3972011AC2F009792C6 /* Article.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				EDDB0B731FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
 				ED78B6382042A8F800C43E5C /* Summary.mm in Sources */,

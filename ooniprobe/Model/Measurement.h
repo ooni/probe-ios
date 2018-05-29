@@ -38,7 +38,6 @@ typedef enum
 @property NSString *input;
 @property NSString *category;
 
-//@property NSInteger resultId;
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(void)setAsnAndCalculateName:(NSString *)asn;
 -(NSString*)getFile:(NSString*)ext;
