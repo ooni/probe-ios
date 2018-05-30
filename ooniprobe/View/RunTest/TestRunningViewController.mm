@@ -13,7 +13,7 @@
     
     if (currentTest){
         totalTests = [currentTest.mkNetworkTests count];
-        //[currentTest run];
+        [currentTest run];
     }
     
     self.progressBar.layer.cornerRadius = 15;

@@ -224,11 +224,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="running Whatsapp..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-4o-FNz">
-                                <rect key="frame" x="16" y="539" width="343" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="2Aj-6p-2dG"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="running Whatsapp..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-4o-FNz">
+                                <rect key="frame" x="16" y="539" width="343" height="17"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -265,6 +262,7 @@
                             <constraint firstItem="vNz-6C-NZt" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="cX6-TI-I1E"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="jWR-19-gZI"/>
                             <constraint firstItem="fnh-W9-gQv" firstAttribute="top" secondItem="WHK-n4-vcV" secondAttribute="top" id="kFy-oR-abh"/>
+                            <constraint firstItem="iDt-w7-KI4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RdD-4o-FNz" secondAttribute="bottom" constant="8" id="n0C-O4-NVK"/>
                             <constraint firstItem="vNz-6C-NZt" firstAttribute="centerX" secondItem="fnh-W9-gQv" secondAttribute="centerX" id="nIR-iw-87J"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="RdD-4o-FNz" secondAttribute="trailing" id="oXZ-td-EGv"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="top" secondItem="Xcv-iy-zO9" secondAttribute="bottom" constant="9" id="u1z-aa-XoP"/>
