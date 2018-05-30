@@ -13,7 +13,7 @@
     
     if (currentTest){
         totalTests = [currentTest.mkNetworkTests count];
-        [currentTest run];
+        //[currentTest run];
     }
     
     self.progressBar.layer.cornerRadius = 15;
@@ -29,13 +29,17 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
 
-    animation = [LOTAnimationView animationNamed:@"checkMark"];
-    //[animation setBackgroundColor:[TestUtility getColorForTest:testName]];
-    animation.contentMode = UIViewContentModeScaleAspectFit;
+    animation = [LOTAnimationView animationNamed:currentTest.result.name];
+    //[animation setBackgroundColor:[TestUtility getColorForTest:currentTest.result.name]];
+    animation.contentMode = UIViewContentModeScaleAspectFill;
     [self.animationView addSubview:animation];
+    
     CGRect c = self.animationView.bounds;
     animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
     [self.animationView setNeedsLayout];
+
+    [animation setLoopAnimation:YES];
+    [animation play];
     
     if ([SettingsUtility getSettingWithName:@"keep_screen_on"]){
         [[UIApplication sharedApplication] setIdleTimerDisabled:YES];

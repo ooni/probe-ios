@@ -38,6 +38,9 @@
 		ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */; };
 		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */; };
 		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
+		ED6911D820BDC0130022DCFE /* websites.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D720BDC0130022DCFE /* websites.json */; };
+		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
+		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED6AC44B1FF8F97F003EA230 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC44A1FF8F97F003EA230 /* NSDictionary+Safety.m */; };
 		ED70D5031FE8021400759463 /* Measurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5021FE8021400759463 /* Measurement.mm */; };
 		ED70D5061FE8022300759463 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5051FE8022300759463 /* Result.mm */; };
@@ -94,6 +97,7 @@
 		EDDB0B781FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B711FFF6C8B00EFD9C8 /* Onboarding2ViewController.m */; };
 		EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */; };
 		EDDB0B7E2004911300EFD9C8 /* WebsiteCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */; };
+		EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */; };
 		EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDFE07391F37526A00960AF2 /* RunTestViewController.mm */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
@@ -163,6 +167,9 @@
 		ED62AB9B1ED5B70500778249 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ED62AB9C1ED5B70500778249 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ooniprobe.entitlements; sourceTree = "<group>"; };
+		ED6911D720BDC0130022DCFE /* websites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = websites.json; sourceTree = "<group>"; };
+		ED6911D920BDC04D0022DCFE /* instant_messaging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = instant_messaging.json; sourceTree = "<group>"; };
+		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
 		ED6AC4491FF8F97F003EA230 /* NSDictionary+Safety.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safety.h"; path = "Utility/NSDictionary+Safety.h"; sourceTree = "<group>"; };
 		ED6AC44A1FF8F97F003EA230 /* NSDictionary+Safety.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Safety.m"; path = "Utility/NSDictionary+Safety.m"; sourceTree = "<group>"; };
 		ED70D5011FE8021400759463 /* Measurement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Measurement.h; path = Model/Measurement.h; sourceTree = "<group>"; };
@@ -266,6 +273,7 @@
 		EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AutomaticTestsTableViewController.m; path = Settings/AutomaticTestsTableViewController.m; sourceTree = "<group>"; };
 		EDDB0B7C2004911300EFD9C8 /* WebsiteCategoryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebsiteCategoryTableViewController.h; path = Settings/WebsiteCategoryTableViewController.h; sourceTree = "<group>"; };
 		EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WebsiteCategoryTableViewController.m; path = Settings/WebsiteCategoryTableViewController.m; sourceTree = "<group>"; };
+		EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = middle_boxes.json; sourceTree = "<group>"; };
 		EDFE07381F37526A00960AF2 /* RunTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTestViewController.h; sourceTree = "<group>"; };
 		EDFE07391F37526A00960AF2 /* RunTestViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RunTestViewController.mm; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
@@ -525,6 +533,10 @@
 			children = (
 				EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */,
 				EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */,
+				ED6911D720BDC0130022DCFE /* websites.json */,
+				ED6911D920BDC04D0022DCFE /* instant_messaging.json */,
+				EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */,
+				ED6911DA20BDC04D0022DCFE /* performance.json */,
 			);
 			path = anim;
 			sourceTree = "<group>";
@@ -725,10 +737,13 @@
 				EDA17B07208A389F00D46D0F /* Result.storyboard in Resources */,
 				EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */,
 				EDC2C9E01FD8061400FF01D3 /* FiraSans-LightItalic.otf in Resources */,
+				ED6911D820BDC0130022DCFE /* websites.json in Resources */,
+				ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */,
 				EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */,
 				ED163CE1209C7B880052FB46 /* Airports.plist in Resources */,
 				EDA17B05208A37BF00D46D0F /* Dashboard.storyboard in Resources */,
 				EDC2C9E21FD8061400FF01D3 /* FiraSans-Italic.otf in Resources */,
+				ED6911DC20BDC04D0022DCFE /* performance.json in Resources */,
 				EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */,
 				EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */,
 				EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */,
@@ -739,6 +754,7 @@
 				ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
+				EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */,
 				ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */,
 				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
