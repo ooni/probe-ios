@@ -16,21 +16,17 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.tableView.tableFooterView = [UIView new];
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
 
-    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-    self.title = localizedDateTime;
-
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"networkTestEnded" object:nil];
     [self reloadMeasurements];
     defaultColor = [TestUtility getColorForTest:result.name];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    self.title = localizedDateTime;
     [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.name]];
-    //self.tabBarController.navigationItem.title = NSLocalizedString(@"test_results", nil);
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {

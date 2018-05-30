@@ -93,7 +93,7 @@
         return [UIColor colorWithRGBHexString:color_fuchsia6 alpha:1.0f];
     }
     else if ([testName isEqualToString:@"middle_boxes"]){
-        return [UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f];
+        return [UIColor colorWithRGBHexString:color_violet8 alpha:1.0f];
     }
     else if ([testName isEqualToString:@"instant_messaging"]){
         return [UIColor colorWithRGBHexString:color_cyan6 alpha:1.0f];

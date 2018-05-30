@@ -29,21 +29,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
 
-    animation = [LOTAnimationView animationNamed:currentTest.result.name];
-    //[animation setBackgroundColor:[TestUtility getColorForTest:currentTest.result.name]];
-    animation.contentMode = UIViewContentModeScaleAspectFill;
-    [self.animationView addSubview:animation];
-    
-    CGRect c = self.animationView.bounds;
-    animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
-    [self.animationView setNeedsLayout];
-
-    [animation setLoopAnimation:YES];
-    [animation play];
-    
     if ([SettingsUtility getSettingWithName:@"keep_screen_on"]){
         [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     }
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self addAnimation];
 }
 
 
@@ -53,6 +46,26 @@
 }
 
 
+-(void)addAnimation{
+    animation = [LOTAnimationView animationNamed:currentTest.result.name];
+    //[animation setBackgroundColor:[TestUtility getColorForTest:currentTest.result.name]];
+    //animation.frame = self.animationView.bounds;
+    //animation.center = self.animationView.center;
+    animation.contentMode = UIViewContentModeScaleAspectFit;
+    
+    //NSLog(@"SIZE1 %f %f", animation.frame.size.width, animation.frame.size.height);
+    
+    CGRect c = self.animationView.bounds;
+    animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
+    [self.animationView setNeedsLayout];
+    [self.animationView setClipsToBounds:YES];
+    [self.animationView addSubview:animation];
+
+    //NSLog(@"SIZE2 %f %f", c.size.width, c.size.height);
+    
+    [animation setLoopAnimation:YES];
+    [animation play];
+}
 
 -(void)updateLog:(NSNotification *)notification{
     NSDictionary *userInfo = notification.userInfo;
