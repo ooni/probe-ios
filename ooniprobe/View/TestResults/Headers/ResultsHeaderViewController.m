@@ -86,14 +86,15 @@
         else
             query = [[Result query] orderByDescending:@"startTime"];
         
+        [self.delegate testFilter:query];
+
         double dataUsageDown = [query sumOf:@"dataUsageDown"];
         double dataUsageUp = [query sumOf:@"dataUsageUp"];
         
         [self.upLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageUp countStyle:NSByteCountFormatterCountStyleFile]];
         [self.downLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageDown countStyle:NSByteCountFormatterCountStyleFile]];
-        [self.numberTestsLabel setText:[NSString stringWithFormat:@"%llu", [query count]]];
+        [self.numberTestsLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[query count]]];
         [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[[[query where:[NSString stringWithFormat:@"asn != 'null'"]] distinct:@"asn"] count]]];
-        [self.delegate testFilter:query];
     });
 }
 
