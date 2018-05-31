@@ -214,7 +214,6 @@
 }
 
 // database delegates
-
 - (void)databaseError:(SRKError *)error {
     NSLog(@"DB error: %@", error.errorMessage);
 }

@@ -36,14 +36,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UILabel *title = (UILabel*)[cell viewWithTag:1];
+    UILabel *detail = (UILabel*)[cell viewWithTag:2];
+
     NSString *current = [categories objectAtIndex:indexPath.row];
     NSString *categoryTitle = [NSString stringWithFormat:@"CategoryCode.%@.Name", current];
-    cell.textLabel.text = NSLocalizedString(categoryTitle, nil);
-    cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    title.text = NSLocalizedString(categoryTitle, nil);
+    title.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current]];
-    cell.detailTextLabel.textColor = [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
+    detail.textColor = [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
+
     if ([categories_disabled containsObject:current])
-        cell.detailTextLabel.text = NSLocalizedString(@"Settings.Disabled", nil);
+        detail.text = NSLocalizedString(@"Settings.Disabled", nil);
     else
         cell.detailTextLabel.text = NSLocalizedString(@"Settings.Enabled", nil);
     return cell;

@@ -94,8 +94,7 @@
 
 -(void)updateProgress:(double)prog {
     self.progress = prog;
-    NSString *os = [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0];
-    NSLog(@"%@", os);
+    NSLog(@"%@", [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0]);
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
         [noteInfo setObject:[NSNumber numberWithInt:self.idx] forKey:@"index"];
