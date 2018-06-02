@@ -29,7 +29,7 @@
     [self.ppButton setTitleColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]
                         forState:UIControlStateNormal];
     
-    [self.versionLabel setText:[NSString stringWithFormat:@"ooniprobe: %@\nmeasurement-kit: %s", [VersionUtility get_software_version], mk_version()]];
+    [self.versionLabel setText:[NSString stringWithFormat:@"OONI Probe: %@\nmeasurement-kit: %s", [VersionUtility get_software_version], mk_version()]];
     [self.versionLabel setTextColor:[UIColor whiteColor]];
 }
 

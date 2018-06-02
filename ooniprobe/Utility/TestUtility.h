@@ -11,6 +11,7 @@
 + (NSArray*)getTestsArray;
 + (NSString*)getCategoryforTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName;
++ (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (NSArray*)getUrlsTest;
 + (void)removeFile:(NSString*)fileName;
 @end

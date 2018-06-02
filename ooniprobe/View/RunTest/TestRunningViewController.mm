@@ -16,9 +16,9 @@
         [currentTest run];
     }
     
-    self.progressBar.layer.cornerRadius = 15;
+    self.progressBar.layer.cornerRadius = 7.5;
     self.progressBar.layer.masksToBounds = YES;
-
+    [self.progressBar setTrackTintColor:[UIColor colorWithRGBHexString:color_white alpha:0.2f]];
     [self.runningTestsLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"Dashboard.Running.Running", nil)]];
     [self.logLabel setText:@""];
     [self.etaLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)]];
