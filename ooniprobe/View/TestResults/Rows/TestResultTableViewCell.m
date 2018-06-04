@@ -40,9 +40,10 @@
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:[UIImage imageNamed:@"cross"]];
         [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, [LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
+        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.anomalousMeasurements, [LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.image2 setImage:[UIImage imageNamed:@"globe_black"]];
+        [self.image2 setImage:[UIImage imageNamed:@"globe"]];
+        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.label2 setText:[NSString stringWithFormat:@"%d %@", summary.totalMeasurements, [LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
@@ -51,7 +52,7 @@
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:[UIImage imageNamed:@"cross"]];
         [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.blockedMeasurements, [LocalizationUtility getSingularPlural:summary.blockedMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
+        [self.label1 setText:[NSString stringWithFormat:@"%d %@", summary.anomalousMeasurements, [LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"tick"]];
         [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
@@ -62,7 +63,7 @@
         [self.stackView2 setHidden:YES];
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:nil];
-        if (summary.blockedMeasurements > 0)
+        if (summary.anomalousMeasurements > 0)
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)];
         else if (summary.okMeasurements == summary.totalMeasurements-summary.failedMeasurements)
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];

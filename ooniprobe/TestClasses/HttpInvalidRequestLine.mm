@@ -27,7 +27,6 @@
 -(void)onEntry:(const char*)str {
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
-        int blocking = MEASUREMENT_OK;
         /*
          onEntry method for http invalid request line test
          if the "tampering" key exists and is null then anomaly will be set to 1 (orange)
@@ -37,11 +36,11 @@
         if ([keys objectForKey:@"tampering"]){
             //this case shouldn't happen
             if ([keys objectForKey:@"tampering"] == [NSNull null])
-                blocking = MEASUREMENT_FAILURE;
+                [self.measurement setState:measurementFailed];
             else if ([[keys objectForKey:@"tampering"] boolValue])
-                blocking = MEASUREMENT_BLOCKED;
+                [self.measurement setAnomaly:YES];
         }
-        [super updateBlocking:blocking];
+        [super updateSummary];
         [self setTestSummary:keys];
         [self.measurement save];
     }

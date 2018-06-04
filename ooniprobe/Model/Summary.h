@@ -5,7 +5,7 @@
 @property int totalMeasurements;
 @property int okMeasurements;
 @property int failedMeasurements;
-@property int blockedMeasurements;
+@property int anomalousMeasurements;
 
 @property NSMutableDictionary *json;
 

@@ -27,21 +27,19 @@
         [self onEntry:s.c_str()];
     });
     [super initCommon:test];
-    //TODO when setting server check first ndt_server_auto
 }
 
 -(void)onEntry:(const char*)str {
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
-        int blocking = MEASUREMENT_OK;
         /*
          onEntry method for ndt and dash test
          if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
          */
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if ([keys objectForKey:@"failure"] != [NSNull null])
-            blocking = MEASUREMENT_FAILURE;
-        [super updateBlocking:blocking];
+            [self.measurement setState:measurementFailed];
+        [super updateSummary];
         [self setTestSummary:keys];
         [self.measurement save];
     }

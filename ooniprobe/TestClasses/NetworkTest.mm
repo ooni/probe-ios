@@ -89,8 +89,8 @@
 }
 
 -(void)testEnded:(MKNetworkTest*)test{
+    //TODO-URG bug websites there is always 1 more entry in summary.Total
     NSLog(@"CALLBACK test_ended %@", test.name);
-    //[self.result setSummary:@""];
     [self.mkNetworkTests removeObject:test];
     //if last test
     if ([self.mkNetworkTests count] == 0){

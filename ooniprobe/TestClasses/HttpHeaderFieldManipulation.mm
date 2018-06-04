@@ -27,7 +27,6 @@
 -(void)onEntry:(const char*)str {
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
-        int blocking = MEASUREMENT_OK;
         /*
          onEntry method for HttpHeaderFieldManipulation test
          if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
@@ -35,7 +34,7 @@
          */
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if ([keys objectForKey:@"failure"] != [NSNull null])
-            blocking = MEASUREMENT_FAILURE;
+            [self.measurement setState:measurementFailed];
         else {
             NSDictionary *tampering = [keys objectForKey:@"tampering"];
             NSArray *chcekKeys = [[NSArray alloc]initWithObjects:@"header_field_name", @"header_field_number", @"header_field_value", @"header_name_capitalization", @"request_line_capitalization", @"total", nil];
@@ -43,11 +42,11 @@
                 if ([tampering objectForKey:key] &&
                     [tampering objectForKey:key] != [NSNull null] &&
                     [[tampering objectForKey:key] boolValue]) {
-                    blocking = MEASUREMENT_BLOCKED;
+                    [self.measurement setAnomaly:YES];
                 }
             }
         }
-        [super updateBlocking:blocking];
+        [super updateSummary];
         [self.measurement save];
     }
 }

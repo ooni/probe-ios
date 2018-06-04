@@ -2,17 +2,11 @@
 #import "TestUtility.h"
 
 @implementation Measurement
-@dynamic name, startTime, duration, ip, asn, asnName, country, networkName, networkType, state, blocking, input, category, result;
+@dynamic name, startTime, duration, ip, asn, asnName, country, networkName, networkType, state, anomaly, input, category, result;
 
 + (NSDictionary *)defaultValuesForEntity {
     //defailt test to failure in case onEntry is never called
-    return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"blocking": [NSNumber numberWithInt:MEASUREMENT_FAILURE]};
-}
-
--(void)setAsnAndCalculateName:(NSString *)asn{
-    //TODO-SBS calculate asnname
-    self.asnName = @"Vodafone";
-    self.asn = asn;
+    return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"anomaly" : [NSNumber numberWithBool:FALSE]};
 }
 
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr{

@@ -6,16 +6,18 @@
 
 // The possible states of a measurements are:
 // * active, while the measurement is in progress
+// * failed, only option is re-runs
 // * done, when it's finished, but not necessarily uploaded
 // * uploaded, if it has been uploaded successfully
 // * processed, if the pipeline has processed the measurement
 typedef enum
 {
-    measurementActive = 1,
+    measurementActive,
+    measurementFailed,
     measurementDone,
     measurementUploaded,
     measurementProcessed
-} MeasurementStatus;
+} MeasurementState;
 
 @property NSString *name;
 @property NSDate *startTime;
@@ -27,9 +29,8 @@ typedef enum
 @property NSString *networkName;
 @property NSString *networkType;
 
-@property MeasurementStatus state;
-
-@property int blocking;
+@property MeasurementState state;
+@property BOOL anomaly;
 
 @property Result *result;
 
@@ -39,7 +40,6 @@ typedef enum
 @property NSString *category;
 
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr;
--(void)setAsnAndCalculateName:(NSString *)asn;
 -(NSString*)getFile:(NSString*)ext;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;

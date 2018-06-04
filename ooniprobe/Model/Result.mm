@@ -13,10 +13,19 @@
     return [[[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"] fetch];
 }
 
--(void)setAsnAndCalculateName:(NSString *)asn{
-    //TODO-SBS calculate asnname
-    self.asnName = @"Vodafone";
-    self.asn = asn;
+- (long)failedMeasurements {
+    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state = '%u'", self, measurementFailed]];
+    return [query count];
+}
+
+- (long)okMeasurements {
+    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state != '%u' AND status = TRUE", self, measurementFailed]];
+    return [query count];
+}
+
+- (long)anomalousMeasurements {
+    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state != '%u' AND status = FALSE", self, measurementFailed]];
+    return [query count];
 }
 
 -(NSString*)getLocalizedNetworkType{
@@ -50,17 +59,6 @@
 - (NSString*)getFormattedDataUsageDown{
     return [NSByteCountFormatter stringFromByteCount:self.dataUsageDown countStyle:NSByteCountFormatterCountStyleFile];
 }
-
-//Shark supports indexing by overriding the indexDefinitionForEntity method and returning an SRKIndexDefinition object which describes all of the indexes that need to be maintained on the object.
-
-/*
-+ (SRKIndexDefinition *)indexDefinitionForEntity {
-    SRKIndexDefinition* idx = [SRKIndexDefinition new];
-    [idx addIndexForProperty:@"name" propertyOrder:SRKIndexSortOrderAscending];
-    [idx addIndexForProperty:@"age" propertyOrder:SRKIndexSortOrderAscending];
-    return idx;
-}
-*/
 
 /*
  Three scenarios:

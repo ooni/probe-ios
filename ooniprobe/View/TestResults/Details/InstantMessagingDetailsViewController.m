@@ -11,7 +11,7 @@
     [super viewDidLoad];
     Summary *summary = [self.result getSummary];
 
-    if (super.measurement.blocking == MEASUREMENT_OK){
+    if (!super.measurement.anomaly){
         [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
         [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
@@ -23,7 +23,7 @@
     }
     
     if ([self.measurement.name isEqualToString:@"whatsapp"]){
-        if (super.measurement.blocking == MEASUREMENT_OK){
+        if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Reachable.Hero.Title", nil)];
             [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Reachable.Content.Paragraph.1", nil)];
         }
@@ -40,7 +40,7 @@
     }
     else if ([self.measurement.name isEqualToString:@"telegram"]){
         [self.detail3View setHidden:YES];
-        if (super.measurement.blocking == MEASUREMENT_OK){
+        if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Reachable.Hero.Title", nil)];
             [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Reachable.Content.Paragraph.1", nil)];
         }
@@ -56,7 +56,7 @@
     }
     else if ([self.measurement.name isEqualToString:@"facebook_messenger"]){
         [self.detail3View setHidden:YES];
-        if (super.measurement.blocking == MEASUREMENT_OK){
+        if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Hero.Title", nil)];
             [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Content.Paragraph.1", nil)];
         }

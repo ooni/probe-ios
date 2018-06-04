@@ -30,7 +30,7 @@
                             range:NSMakeRange(0, middleBoxes.length)];
         
         NSString *found;
-        if (summary.blockedMeasurements > 0)
+        if (summary.anomalousMeasurements > 0)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Found", nil);
         else if (summary.okMeasurements == summary.totalMeasurements-summary.failedMeasurements)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.NotFound", nil);

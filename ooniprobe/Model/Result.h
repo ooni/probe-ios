@@ -20,6 +20,9 @@
 @property BOOL viewed;
 @property BOOL done;
 
+- (long)failedMeasurements;
+- (long)okMeasurements;
+- (long)anomalousMeasurements;
 -(NSString*)getAsn;
 -(NSString*)getAsnName;
 -(NSString*)getCountry;
@@ -28,7 +31,6 @@
 -(NSString*)getLocalizedNetworkType;
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(void)addDuration:(float)value;
--(void)setAsnAndCalculateName:(NSString *)asn;
 -(void)save;
 -(SRKResultSet*)measurements;
 -(Summary*)getSummary;

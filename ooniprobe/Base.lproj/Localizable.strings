@@ -138,10 +138,10 @@
 "TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Title"                           = "Mobile App";
 "TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Okay"                            = "OK";
 "TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Failed"                          = "Failed";
-"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Title"                                = "web.whatsapp.com";
+"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Title"                                = "WhatsApp Web";
 "TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Okay"                                 = "OK";
 "TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Failed"                               = "Failed";
-"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Title"                         = "Registration service";
+"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Title"                         = "Registration";
 "TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay"                          = "OK";
 "TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed"                        = "Failed";
 "TestResults.Details.InstantMessaging.WhatsApp.Reachable.Hero.Title"                              = "Accessible";
@@ -151,7 +151,7 @@
 "TestResults.Details.InstantMessaging.Telegram.Application.Label.Title"                           = "Mobile App";
 "TestResults.Details.InstantMessaging.Telegram.Application.Label.Okay"                            = "OK";
 "TestResults.Details.InstantMessaging.Telegram.Application.Label.Failed"                          = "Failed";
-"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Title"                                = "web.telegram.org";
+"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Title"                                = "Telegram Web";
 "TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Okay"                                 = "OK";
 "TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Failed"                               = "Failed";
 "TestResults.Details.InstantMessaging.Telegram.Reachable.Hero.Title"                              = "Accessible";
@@ -217,6 +217,8 @@
 "Modal.OldTestsDetected"                                                                          = "Old results have been detected and will be deleted. Don't worry, you can always find them in OONI Explorer.";
 "Modal.DoYouWantToDeleteResults"                                                                  = "Do you want to delete all test results?";
 "Modal.CantDeactivate"                                                                            = "Can't deactivate";
+"Modal.ReRun.Title"                                                                               = "Re-run test";
+"Modal.ReRun.Paragraph"                                                                           = "This test has failed. Re-run the test?";
 "Toast.CopiedToClipboard"                                                                         = "Copied into clipboard";
 "Snackbar.ResultsNotUploaded.Text"                                                                = "Not uploaded";
 "Snackbar.ResultsNotUploaded.Upload"                                                              = "Upload";
@@ -287,7 +289,6 @@
 "Notification.FinishedRunning"                                                                    = "Finished running";
 "OONIRun.TryMirror"                                                                               = "Try mirror";
 "OONIRun.Loading"                                                                                 = "Loading...";
-"OONIRun.Update"                                                                                  = "Update";
 "OONIRun.YouAreAboutToRun"                                                                        = "You are about to run an OONI Probe test.";
 "OONIRun.URLs"                                                                                    = "URLs";
 "OONIRun.TestName"                                                                                = "Test name";
@@ -295,6 +296,7 @@
 "OONIRun.Run"                                                                                     = "Run";
 "OONIRun.OONIProbeOutOfDate"                                                                      = "OONI Probe is out of date.";
 "OONIRun.OONIProbeNewerVersion"                                                                   = "You need a newer version of OONI Probe to run this test.";
+"OONIRun.Update"                                                                                  = "Update";
 "OONIRun.InvalidParameter"                                                                        = "Invalid parameter";
 "OONIRun.InvalidParameter.Msg"                                                                    = "The OONI Run link is either malformed or your app is out of date";
 "OONIRun.RandomSamplingOfURLs"                                                                    = "A random sampling of URLs from the global test list";
@@ -311,7 +313,7 @@
 "CategoryCode.XED.Name"                                                                           = "Sex Education";
 "CategoryCode.PUBH.Name"                                                                          = "Public Health";
 "CategoryCode.GMB.Name"                                                                           = "Gambling";
-"CategoryCode.ANON.Name"                                                                          = "Anonymization and circumvention tools";
+"CategoryCode.ANON.Name"                                                                          = "Circumvention tools";
 "CategoryCode.DATE.Name"                                                                          = "Online Dating";
 "CategoryCode.GRP.Name"                                                                           = "Social Networking";
 "CategoryCode.LGBT.Name"                                                                          = "LGBT";
@@ -319,7 +321,7 @@
 "CategoryCode.HACK.Name"                                                                          = "Hacking Tools";
 "CategoryCode.COMT.Name"                                                                          = "Communication Tools";
 "CategoryCode.MMED.Name"                                                                          = "Media sharing";
-"CategoryCode.HOST.Name"                                                                          = "Hosting and Blogging Platforms";
+"CategoryCode.HOST.Name"                                                                          = "Hosting and Blogging";
 "CategoryCode.SRCH.Name"                                                                          = "Search Engines";
 "CategoryCode.GAME.Name"                                                                          = "Gaming";
 "CategoryCode.CULTR.Name"                                                                         = "Culture";
@@ -327,7 +329,7 @@
 "CategoryCode.GOVT.Name"                                                                          = "Government";
 "CategoryCode.COMM.Name"                                                                          = "E-commerce";
 "CategoryCode.CTRL.Name"                                                                          = "Control content";
-"CategoryCode.IGO.Name"                                                                           = "Intergovernmental Organizations";
+"CategoryCode.IGO.Name"                                                                           = "Intergovernmental Orgs.";
 "CategoryCode.MISC.Name"                                                                          = "Miscelaneous content";
 "CategoryCode.ALDR.Description"                                                                   = "Sites devoted to the use and sale of drugs and alcohol.";
 "CategoryCode.REL.Description"                                                                    = "Sites devoted to discussion of religious issues, both supportive and critical, as well as discussion of minority religious groups.";

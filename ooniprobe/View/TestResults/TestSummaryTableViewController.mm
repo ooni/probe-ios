@@ -1,7 +1,4 @@
 #import "TestSummaryTableViewController.h"
-#define MEASUREMENT_OK 0
-#define MEASUREMENT_FAILURE 1
-#define MEASUREMENT_BLOCKED 2
 
 @interface TestSummaryTableViewController ()
 
@@ -73,38 +70,38 @@
     
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UIImageView *status = (UIImageView*)[cell viewWithTag:3];
-    if (current.blocking == MEASUREMENT_OK || current.blocking == MEASUREMENT_BLOCKED){
-        [cell setBackgroundColor:[UIColor whiteColor]];
-        [title setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    }
-    else if (current.blocking == MEASUREMENT_FAILURE){
+    if (current.state == measurementFailed){
         [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
         [title setTextColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
         [status setImage:[UIImage imageNamed:@"reload"]];
     }
+    else {
+        [cell setBackgroundColor:[UIColor whiteColor]];
+        [title setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+        [status setImage:nil];
+    }
     Summary *summary = [result getSummary];
-
     if ([result.name isEqualToString:@"instant_messaging"]){
         [title setText:[LocalizationUtility getNameForTest:current.name]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", current.name]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
-        if (current.blocking == MEASUREMENT_OK){
+        if (!current.anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
             [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         }
-        else if (current.blocking == MEASUREMENT_BLOCKED){
+        else {
             [status setImage:[UIImage imageNamed:@"cross"]];
             [status setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         }
     }
     else if ([result.name isEqualToString:@"middle_boxes"]){
         [title setText:[LocalizationUtility getNameForTest:current.name]];
-        if (current.blocking == MEASUREMENT_OK){
+        if (!current.anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
             [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         }
-        else if (current.blocking == MEASUREMENT_BLOCKED)
+        else
             [status setImage:[UIImage imageNamed:@"exclamation_point"]];
     }
     else if ([result.name isEqualToString:@"websites"]){
@@ -112,14 +109,15 @@
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.category]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
-
-        if (current.blocking == MEASUREMENT_OK){
-            [status setImage:[UIImage imageNamed:@"tick"]];
-            [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
-        }
-        else if (current.blocking == MEASUREMENT_BLOCKED){
-            [status setImage:[UIImage imageNamed:@"cross"]];
-            [status setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+        if (current.state != measurementFailed){
+            if (!current.anomaly){
+                [status setImage:[UIImage imageNamed:@"tick"]];
+                [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+            }
+            else {
+                [status setImage:[UIImage imageNamed:@"cross"]];
+                [status setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+            }
         }
     }
     else if ([result.name isEqualToString:@"performance"]){
@@ -134,15 +132,17 @@
         [detail1Label setHidden:NO];
         [detail2Label setHidden:NO];
 
-        if (current.blocking == MEASUREMENT_OK)
-            [status setImage:nil];
-        else if (current.blocking == MEASUREMENT_BLOCKED)
-            [status setImage:nil];
-        else if (current.blocking == MEASUREMENT_FAILURE){
+        if (current.state == measurementFailed){
             [detail1Image setHidden:YES];
             [detail2Image setHidden:YES];
             [detail1Label setHidden:YES];
             [detail2Label setHidden:YES];
+        }
+        else {
+            if (!current.anomaly)
+                [status setImage:nil];
+            else
+                [status setImage:nil];
         }
         if ([current.name isEqualToString:@"ndt"]){
             [stackView2 setHidden:NO];
@@ -164,16 +164,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     segueObj = [self.measurements objectAtIndex:indexPath.row];
-    [self goToDetails];
-    //[self showPopup];
+    if (segueObj.state == measurementFailed){
+        [self showPopup];
+    }
+    else
+        [self goToDetails];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)showPopup{
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:nil
-                                 message:nil
+                                 alertControllerWithTitle:NSLocalizedString(@"Modal.ReRun.Title", nil)
+                                 message:NSLocalizedString(@"Modal.ReRun.Paragraph", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
+    /*
     UIAlertAction* viewLogButton = [UIAlertAction
                                  actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
                                  style:UIAlertActionStyleDefault
@@ -196,31 +200,18 @@
                                      [self performSegueWithIdentifier:@"log" sender:self];
                                  }];
 
+     */
+    UIAlertAction* reRunButton = [UIAlertAction
+                                  actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction * action) {
+                                      [self performSegueWithIdentifier:@"toTestRun" sender:self];
+                                  }];
+    [alert addAction:reRunButton];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
-                                   style:UIAlertActionStyleDefault
+                                   style:UIAlertActionStyleCancel
                                    handler:nil];
-    [alert addAction:viewLogButton];
-    [alert addAction:viewJsonButton];
-    [alert addAction:viewDBButton];
-    if (segueObj.blocking == MEASUREMENT_FAILURE){
-        UIAlertAction* reRunButton = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"re_run_test", nil)
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction * action) {
-                                           [self performSegueWithIdentifier:@"toTestRun" sender:self];
-                                       }];
-        [alert addAction:reRunButton];
-    }
-    else {
-        UIAlertAction* goToDetailsButton = [UIAlertAction
-                                      actionWithTitle:NSLocalizedString(@"Go to TestDetails", nil)
-                                      style:UIAlertActionStyleDefault
-                                      handler:^(UIAlertAction * action) {
-                                          [self goToDetails];
-                                      }];
-        [alert addAction:goToDetailsButton];
-    }
     [alert addAction:cancelButton];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -249,9 +240,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){
-        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         HeaderSwipeViewController *vc = (HeaderSwipeViewController *)segue.destinationViewController;
-        //NSString *current = [categories objectAtIndex:indexPath.row];
         [vc setResult:result];
     }
     else if ([[segue identifier] isEqualToString:@"log"]){
@@ -261,11 +250,6 @@
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
-        /*if ([result.name isEqualToString:@"websites"]) {
-            Url *currentUrl = [[Url alloc] initWithUrl:segueObj.input category:segueObj.category];
-            [vc setCurrentTest:[[WCNetworkTest alloc] initWithUrls:@[currentUrl]]];
-            [segueObj remove];
-        }*/
         [vc setCurrentTest:[[NetworkTest alloc] initWithMeasurement:segueObj]];
     }
     else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"]){

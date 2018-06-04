@@ -10,7 +10,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.learnCircumventButton setTitle:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent", nil) forState:UIControlStateNormal];
-    if (super.measurement.blocking == MEASUREMENT_OK){
+    if (!super.measurement.anomaly){
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
         [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
@@ -20,7 +20,7 @@
         [self.subtitleLabel setText:subtitle];
         [self.learnCircumventButton setHidden:YES];
     }
-    else if (super.measurement.blocking == MEASUREMENT_BLOCKED){
+    else {
         Summary *summary = [self.result getSummary];
         [self.statusImage setImage:[UIImage imageNamed:@"cross"]];
         [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];

@@ -42,7 +42,7 @@
 -(void)updateCounter;
 -(void)initCommon:(mk::nettests::BaseTest&) test;
 -(NSDictionary*)onEntryCommon:(const char*)str;
--(void)updateBlocking:(int)blocking;
+-(void)updateSummary;
 -(void)setResultOfMeasurement:(Result *)result;
 -(void)run;
 @end

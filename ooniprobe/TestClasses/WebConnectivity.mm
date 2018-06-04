@@ -45,13 +45,14 @@
     if (json){
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
-        int blocking = MEASUREMENT_FAILURE;
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if (keys){
-            blocking = [self checkBlocking:keys];
+            [self setBlocking:keys];
             [self setTestSummary:keys];
         }
-        [super updateBlocking:blocking];
+        else
+            [self.measurement setState:measurementFailed];
+        [super updateSummary];
         [self.measurement save];
         //create new measurement entry if web_connectivity test
         //TODO-SBS this case doesn not handle the timeout
@@ -66,21 +67,19 @@
     }
 }
 
-- (int)checkBlocking:(NSDictionary*)keys{
+- (void)setBlocking:(NSDictionary*)keys{
     /*
      null => anomaly, (orange
      false => not blocked, (green)
      string (dns, tcp-ip, http-failure, http-diff) => blocked (red)
      */
     id element = [keys objectForKey:@"blocking"];
-    int blocking = MEASUREMENT_OK;
     if ([keys objectForKey:@"blocking"] == [NSNull null]) {
-        blocking = MEASUREMENT_FAILURE;
+        [self.measurement setState:measurementFailed];
     }
     else if (([element isKindOfClass:[NSString class]])) {
-        blocking = MEASUREMENT_BLOCKED;
+        [self.measurement setAnomaly:YES];
     }
-    return blocking;
 }
 
 -(void)setTestSummary:(NSDictionary*)keys{

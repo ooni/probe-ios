@@ -37,13 +37,13 @@
         self.totalMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"total"] intValue];
         self.okMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"ok"] intValue];
         self.failedMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"failed"] intValue];
-        self.blockedMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"blocked"] intValue];
+        self.anomalousMeasurements = [[[self.json safeObjectForKey:@"stats"] objectForKey:@"anomalous"] intValue];
     }
     else {
         self.totalMeasurements = 0;
         self.okMeasurements = 0;
         self.failedMeasurements = 0;
-        self.blockedMeasurements = 0;
+        self.anomalousMeasurements = 0;
     }
 }
 
@@ -52,7 +52,7 @@
     [stats setObject:[NSNumber numberWithInteger:self.totalMeasurements] forKey:@"total"];
     [stats setObject:[NSNumber numberWithInteger:self.okMeasurements] forKey:@"ok"];
     [stats setObject:[NSNumber numberWithInteger:self.failedMeasurements] forKey:@"failed"];
-    [stats setObject:[NSNumber numberWithInteger:self.blockedMeasurements] forKey:@"blocked"];
+    [stats setObject:[NSNumber numberWithInteger:self.anomalousMeasurements] forKey:@"anomalous"];
     [self.json setObject:stats forKey:@"stats"];
 }
 

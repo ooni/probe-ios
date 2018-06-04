@@ -8,7 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (super.measurement.blocking == MEASUREMENT_OK){
+    if (!super.measurement.anomaly){
         [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
         [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
@@ -19,7 +19,7 @@
     }
     
     if ([self.measurement.name isEqualToString:@"http_invalid_request_line"]){
-        if (super.measurement.blocking == MEASUREMENT_OK){
+        if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Hero.Title", nil)];
             [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Content.Paragraph.1", nil)];
         }
@@ -44,7 +44,7 @@
     }
     else if ([self.measurement.name isEqualToString:@"http_header_field_manipulation"]){
         [self.sentReceivedStackView setHidden:YES];
-        if (super.measurement.blocking == MEASUREMENT_OK){
+        if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.NotFound.Hero.Title", nil)];
             [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.NotFound.Content.Paragraph.1", nil)];
         }

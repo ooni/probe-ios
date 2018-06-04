@@ -24,6 +24,7 @@
     [self.measurement save];
 }
 
+//TODO-URG not sure this is needed
 -(void)updateCounter{
     Summary *summary = [self.result getSummary];
     summary.totalMeasurements++;
@@ -109,11 +110,9 @@
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        int blocking = MEASUREMENT_OK;
         if (error != nil) {
             NSLog(@"Error parsing JSON: %@", error);
-            blocking = MEASUREMENT_FAILURE;
-            [self updateBlocking:blocking];
+            [self.measurement setState:measurementFailed];
             return nil;
         }
         if ([json safeObjectForKey:@"test_start_time"])
@@ -126,9 +125,13 @@
         }
         //if the user doesn't want to share asn leave null on the db object
         if ([json safeObjectForKey:@"probe_asn"] && [SettingsUtility getSettingWithName:@"include_asn"]){
-            [self.measurement setAsnAndCalculateName:[json objectForKey:@"probe_asn"]];
+            //TODO-SBS asn name
+            [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
+            [self.measurement setAsnName:@"Vodafone"];
             if (self.result.asn == nil){
-                [self.result setAsnAndCalculateName:[json objectForKey:@"probe_asn"]];
+                //TODO-SBS asn name
+                [self.result setAsn:[json objectForKey:@"probe_asn"]];
+                [self.result setAsnName:@"Vodafone"];
                 [self.result save];
             }
             else {
@@ -166,15 +169,15 @@
     return nil;
 }
 
--(void)updateBlocking:(int)blocking{
-    [self.measurement setBlocking:blocking];
+
+-(void)updateSummary;{
     Summary *summary = [self.result getSummary];
-    if (blocking != MEASUREMENT_FAILURE){
+    if (self.measurement.state != measurementFailed){
         summary.failedMeasurements--;
-        if (blocking == MEASUREMENT_OK)
+        if (!self.measurement.anomaly)
             summary.okMeasurements++;
-        else if (blocking == MEASUREMENT_BLOCKED)
-            summary.blockedMeasurements++;
+        else
+            summary.anomalousMeasurements++;
         [self.result setSummary];
         [self.result save];
     }
@@ -190,7 +193,7 @@
 }
 
 -(void)testEnded{
-    NSLog(@"%@ testEnded", self.name);
+    //NSLog(@"%@ testEnded", self.name);
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     [self.measurement setState:measurementDone];

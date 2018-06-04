@@ -28,7 +28,6 @@
 -(void)onEntry:(const char*)str {
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
-        int blocking = MEASUREMENT_OK;
         /*
          for telegram: red if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if ""telegram_web_status" is "blocked"
          the "*_failure" keys for telegram and whatsapp might indicate a test failure / anomaly
@@ -38,24 +37,24 @@
         for (NSString *key in checkKeys) {
             if ([keys objectForKey:key]){
                 if ([keys objectForKey:key] == [NSNull null]) {
-                    if (blocking < MEASUREMENT_FAILURE)
-                        blocking = MEASUREMENT_FAILURE;
+                    if (self.measurement.state != measurementFailed)
+                        [self.measurement setState:measurementFailed];
                 }
                 else if ([[keys objectForKey:key] boolValue]) {
-                    blocking = MEASUREMENT_BLOCKED;
+                    [self.measurement setAnomaly:YES];
                 }
             }
         }
         if ([keys objectForKey:@"telegram_web_status"]){
             if ([keys objectForKey:@"telegram_web_status"] == [NSNull null]) {
-                if (blocking < MEASUREMENT_FAILURE)
-                    blocking = MEASUREMENT_FAILURE;
+                if (self.measurement.state != measurementFailed)
+                    [self.measurement setState:measurementFailed];
             }
             else if ([[keys objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
-                blocking = MEASUREMENT_BLOCKED;
+                [self.measurement setAnomaly:YES];
             }
         }
-        [super updateBlocking:blocking];
+        [super updateSummary];
         [self setTestSummary:keys :[[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", @"telegram_web_status", nil]];
         [self.measurement save];
     }
