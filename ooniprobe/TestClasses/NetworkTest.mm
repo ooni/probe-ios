@@ -89,7 +89,6 @@
 }
 
 -(void)testEnded:(MKNetworkTest*)test{
-    //TODO-URG bug websites there is always 1 more entry in summary.Total
     NSLog(@"CALLBACK test_ended %@", test.name);
     [self.mkNetworkTests removeObject:test];
     //if last test
@@ -97,6 +96,13 @@
         NSLog(@"ALL test_ended");
         [self.result setDone:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
+        //TODO basic fix to remove last measurement
+        if ([self.result.name isEqualToString:@"websites"]){
+            for (Measurement *current in self.result.measurements){
+                if (!current.input)
+                    [current remove];
+            }
+        }
     }
     [self.result setSummary];
     [self.result save];

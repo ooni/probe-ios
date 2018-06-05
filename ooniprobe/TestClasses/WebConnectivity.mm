@@ -22,10 +22,10 @@
     self.entryIdx = 0;
     if (!self.inputs)
         self.inputs = [TestUtility getUrlsTest];
-    Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
+    /*Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
     self.measurement.input = currentUrl.url;
     self.measurement.category = currentUrl.categoryCode;
-    
+    */
     if (self.max_runtime_enabled){
         test.set_option("max_runtime", [max_runtime doubleValue]);
     }
@@ -45,6 +45,10 @@
     if (json){
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
+
+        self.measurement.input = [json safeObjectForKey:@"input"];
+        self.measurement.category = [TestUtility getCategoryForUrl:self.measurement.input];
+
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if (keys){
             [self setBlocking:keys];
@@ -52,17 +56,20 @@
         }
         else
             [self.measurement setState:measurementFailed];
+        
+
         [super updateSummary];
         [self.measurement save];
         //create new measurement entry if web_connectivity test
         //TODO-SBS this case doesn not handle the timeout
+        //move creation of new object in status.measurement_start (mk 0.9)
         self.entryIdx++;
         if (self.entryIdx < [self.inputs count]){
             [super createMeasurementObject];
             [super updateCounter];
-            Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
-            self.measurement.input = currentUrl.url;
-            self.measurement.category = currentUrl.categoryCode;
+            //Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
+            //self.measurement.input = currentUrl.url;
+            //self.measurement.category = currentUrl.categoryCode;
         }
     }
 }
@@ -91,6 +98,7 @@
     if ([keys safeObjectForKey:@"accessible"]){
         [values setObject:[keys safeObjectForKey:@"accessible"] forKey:@"accessible"];
     }
+    //TODO This crashes when input is nil. have to set input when measurement starts
     [summary.json setValue:values forKey:self.measurement.input];
     [self.result save];
 }

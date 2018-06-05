@@ -9,9 +9,10 @@
 + (NSDictionary*)getTests;
 + (NSArray*)getTestTypes;
 + (NSArray*)getTestsArray;
-+ (NSString*)getCategoryforTest:(NSString*)testName;
++ (NSString*)getCategoryForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (NSArray*)getUrlsTest;
++ (NSString*)getCategoryForUrl:(NSString*)url;
 + (void)removeFile:(NSString*)fileName;
 @end

@@ -24,7 +24,6 @@
     [self.measurement save];
 }
 
-//TODO-URG not sure this is needed
 -(void)updateCounter{
     Summary *summary = [self.result getSummary];
     summary.totalMeasurements++;
@@ -170,7 +169,7 @@
 }
 
 
--(void)updateSummary;{
+-(void)updateSummary{
     Summary *summary = [self.result getSummary];
     if (self.measurement.state != measurementFailed){
         summary.failedMeasurements--;

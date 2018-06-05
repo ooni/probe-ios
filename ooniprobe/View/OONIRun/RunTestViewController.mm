@@ -48,7 +48,7 @@
         NSDictionary *parameters = [DictionaryUtility getParametersFromDict:dict];
         //NSLog(@"parameters: %@", parameters);
         if ([self checkMv:parameters]){
-            if ([parameters objectForKey:@"tn"] && [TestUtility getCategoryforTest:[parameters objectForKey:@"tn"]]){
+            if ([parameters objectForKey:@"tn"] && [TestUtility getCategoryForTest:[parameters objectForKey:@"tn"]]){
                 [self setTestName:[parameters objectForKey:@"tn"]];
                 if ([parameters objectForKey:@"ta"])
                     [self setTestArguments:[parameters objectForKey:@"ta"]];
@@ -187,7 +187,7 @@
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         NetworkTest *currentTest = [[NetworkTest alloc] init];
-        [currentTest.result setName:[TestUtility getCategoryforTest:testName]];
+        [currentTest.result setName:[TestUtility getCategoryForTest:testName]];
         [currentTest addTest:testName :urls];
         [vc setCurrentTest:currentTest];
         [vc setPresenting:YES];

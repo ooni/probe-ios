@@ -62,7 +62,7 @@
     return @[@"websites", @"instant_messaging", @"middle_boxes", @"performance"];
 }
 
-+ (NSString*)getCategoryforTest:(NSString*)testName{
++ (NSString*)getCategoryForTest:(NSString*)testName{
     NSDictionary *tests = [self getTests];
     NSArray *keys = [tests allKeys];
     for (NSString *key in keys){
@@ -126,6 +126,14 @@
         [urls addObject:currentUrl];
     }
     return urls;
+}
+
++ (NSString*)getCategoryForUrl:(NSString*)url{
+    for (Url* current in [self getUrlsTest]){
+        if ([current.url isEqualToString:url])
+            return current.categoryCode;
+    }
+    return @"";
 }
 
 + (void)removeFile:(NSString*)fileName {
