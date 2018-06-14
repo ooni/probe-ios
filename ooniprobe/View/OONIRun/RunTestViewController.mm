@@ -189,6 +189,7 @@
         NetworkTest *currentTest = [[NetworkTest alloc] init];
         [currentTest.result setName:[TestUtility getCategoryForTest:testName]];
         [currentTest addTest:testName :urls];
+        [currentTest setMax_runtime_enabled:NO];
         [vc setCurrentTest:currentTest];
         [vc setPresenting:YES];
     }

@@ -46,7 +46,6 @@
     NSString *geoip_asn = [[NSBundle mainBundle] pathForResource:@"GeoIPASNum" ofType:@"dat"];
     NSString *geoip_country = [[NSBundle mainBundle] pathForResource:@"GeoIP" ofType:@"dat"];
     self.progress = 0;
-    self.max_runtime_enabled = TRUE;
     [self.result setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
     [self.measurement setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
 

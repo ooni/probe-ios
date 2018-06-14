@@ -76,9 +76,9 @@
 
 - (void)setBlocking:(NSDictionary*)keys{
     /*
-     null => anomaly, (orange
-     false => not blocked, (green)
-     string (dns, tcp-ip, http-failure, http-diff) => blocked (red)
+     null => failed
+     false => not blocked
+     string (dns, tcp-ip, http-failure, http-diff) => anomalous
      */
     id element = [keys objectForKey:@"blocking"];
     if ([keys objectForKey:@"blocking"] == [NSNull null]) {

@@ -33,8 +33,8 @@
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
         /*
-         onEntry method for ndt and dash test
-         if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
+         onEntry method for ndt test, check "failure" key
+         !=null => failed
          */
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if ([keys objectForKey:@"failure"] != [NSNull null])

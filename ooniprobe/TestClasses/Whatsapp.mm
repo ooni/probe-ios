@@ -30,7 +30,10 @@
 -(void)onEntry:(const char*)str {
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
-        // whatsapp: red if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server" are "blocked"
+        /*
+         if "whatsapp_endpoints_status", "whatsapp_web_status", "registration_server" are null => failed
+         if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server_status" are "blocked" => anomalous
+         */
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"whatsapp_endpoints_status", @"whatsapp_web_status", @"registration_server_status", nil];
         for (NSString *key in checkKeys) {

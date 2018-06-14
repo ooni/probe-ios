@@ -29,8 +29,8 @@
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
         /*
-         for telegram: red if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if ""telegram_web_status" is "blocked"
-         the "*_failure" keys for telegram and whatsapp might indicate a test failure / anomaly
+         if "telegram_http_blocking", "telegram_tcp_blocking", "telegram_web_status" are null => failed
+         if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if "telegram_web_status" is "blocked" => anomalous
          */
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];

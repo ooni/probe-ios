@@ -28,9 +28,18 @@
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
         /*
-         onEntry method for HttpHeaderFieldManipulation test
-         if the "failure" key exists and is not null then anomaly will be set to 1 (orange)
-         otherwise the keys in the "tampering" object will be checked, if any of them is TRUE, then anomaly will be set to 2 (red)
+         onEntry method for http header field manipulation test, check "failure" key
+         null => failed
+         true => anomalous
+         then the keys in the "tampering" object will be checked, if any of them is not null and TRUE, then test is anomalous
+         tampering {
+            header_field_name
+            header_field_number
+            header_field_value
+            header_name_capitalization
+            request_line_capitalization
+            total
+         }
          */
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if ([keys objectForKey:@"failure"] != [NSNull null])

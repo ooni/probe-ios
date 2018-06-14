@@ -28,9 +28,9 @@
     NSDictionary *json = [super onEntryCommon:str];
     if (json){
         /*
-         onEntry method for http invalid request line test
-         if the "tampering" key exists and is null then anomaly will be set to 1 (orange)
-         otherwise "tampering" object exists and is TRUE, then anomaly will be set to 2 (red)
+         onEntry method for http invalid request line test, check "tampering" key
+         null => failed
+         true => anomalous
          */
         NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
         if ([keys objectForKey:@"tampering"]){
