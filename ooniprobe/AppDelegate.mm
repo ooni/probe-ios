@@ -37,11 +37,10 @@
     if(notification) {
         [self handleNotification:notification :application];
     }
-    
+
     //If old test are detected, tell the user we are deleting them, no cancel button
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
-        UIAlertController * alert = [UIAlertController
-                                     alertControllerWithTitle:NSLocalizedString(@"Modal.OldTestsDetected", nil)
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Modal.OldTestsDetected", nil)
                                      message:nil
                                      preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* okButton = [UIAlertAction

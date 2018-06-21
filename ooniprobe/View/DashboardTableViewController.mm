@@ -14,15 +14,21 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Dashboard.Title", nil);
+    /*
     UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooniprobe_logo"]];
     navbarImageView.contentMode = UIViewContentModeScaleAspectFit;
     [navbarImageView.widthAnchor constraintEqualToConstant:135].active = YES;
     [navbarImageView.heightAnchor constraintEqualToConstant:24].active = YES;
     self.navigationController.navigationBar.topItem.titleView = navbarImageView;
+     */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return tableView.frame.size.width / 5 * 3;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        return tableView.frame.size.width / 5 * 3;
+    }
+    return (tableView.frame.size.width / 5 * 3 )/2;
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView

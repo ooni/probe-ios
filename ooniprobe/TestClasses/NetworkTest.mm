@@ -54,6 +54,7 @@
         [webConnectivity setMax_runtime_enabled:YES];
         if (urls != nil){
             [webConnectivity setInputs:urls];
+            [webConnectivity setMax_runtime_enabled:NO];
         }
         [self initCommon:webConnectivity];
     }
