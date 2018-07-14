@@ -13,6 +13,7 @@
     return [[[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"] fetch];
 }
 
+/*
 - (long)failedMeasurements {
     SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state = '%u'", self, measurementFailed]];
     return [query count];
@@ -27,6 +28,7 @@
     SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state != '%u' AND status = FALSE", self, measurementFailed]];
     return [query count];
 }
+*/
 
 -(NSString*)getLocalizedNetworkType{
     if ([self.networkType isEqualToString:@"wifi"])

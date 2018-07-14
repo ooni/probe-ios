@@ -20,9 +20,9 @@
 @property BOOL viewed;
 @property BOOL done;
 
-- (long)failedMeasurements;
-- (long)okMeasurements;
-- (long)anomalousMeasurements;
+//- (long)failedMeasurements;
+//- (long)okMeasurements;
+//- (long)anomalousMeasurements;
 -(NSString*)getAsn;
 -(NSString*)getAsnName;
 -(NSString*)getCountry;

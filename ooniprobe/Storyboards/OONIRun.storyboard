@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -231,13 +231,13 @@ from the global list</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZhR-X7-8Eo" firstAttribute="bottom" secondItem="iFb-Gu-Xqq" secondAttribute="top" id="6aJ-bW-iXm"/>
                             <constraint firstItem="ql9-6Y-SZd" firstAttribute="leading" secondItem="xuJ-Ky-cdj" secondAttribute="leading" id="JzB-Ab-RuP"/>
                             <constraint firstItem="ZhR-X7-8Eo" firstAttribute="top" secondItem="ql9-6Y-SZd" secondAttribute="bottom" id="PBg-k3-7e2"/>
+                            <constraint firstItem="ZhR-X7-8Eo" firstAttribute="bottom" secondItem="iFb-Gu-Xqq" secondAttribute="top" id="PeG-V2-FYF"/>
+                            <constraint firstItem="ql9-6Y-SZd" firstAttribute="top" secondItem="5tp-1G-x2c" secondAttribute="bottom" id="W8I-qV-dqA"/>
                             <constraint firstAttribute="trailing" secondItem="ql9-6Y-SZd" secondAttribute="trailing" id="YOW-0Q-Oub"/>
                             <constraint firstItem="ql9-6Y-SZd" firstAttribute="trailing" secondItem="ZhR-X7-8Eo" secondAttribute="trailing" id="byv-Oj-KaV"/>
                             <constraint firstItem="ql9-6Y-SZd" firstAttribute="leading" secondItem="ZhR-X7-8Eo" secondAttribute="leading" id="rFj-jc-iEZ"/>
-                            <constraint firstItem="ql9-6Y-SZd" firstAttribute="top" secondItem="5tp-1G-x2c" secondAttribute="bottom" id="t9D-UF-RLf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Jx-i8-mHj"/>
                     </view>
