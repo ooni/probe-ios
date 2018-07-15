@@ -16,6 +16,7 @@
 #import "Result.h"
 #import "Url.h"
 #import "TestUtility.h"
+#import "JsonResult.h"
 
 @class MKNetworkTest;
 

@@ -19,4 +19,6 @@ target 'ooniprobe' do
     pod 'DateTools'
     pod 'JSONSyntaxHighlight'
     pod 'GRMustache'
+    pod 'OCMapper', '2.0'
+    pod 'DCKeyValueObjectMapping'
 end

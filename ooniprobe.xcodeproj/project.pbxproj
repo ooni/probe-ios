@@ -65,6 +65,9 @@
 		EDA9CC96209B53B80062507F /* Dash.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC95209B53B80062507F /* Dash.mm */; };
 		EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC98209B53C70062507F /* Whatsapp.mm */; };
 		EDA9CC9C209B53D50062507F /* Telegram.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC9B209B53D50062507F /* Telegram.mm */; };
+		EDB252A620FA46DB00B4EDE4 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A420FA46DA00B4EDE4 /* JsonResult.m */; };
+		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
+		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
@@ -219,6 +222,12 @@
 		EDA9CC98209B53C70062507F /* Whatsapp.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Whatsapp.mm; path = TestClasses/Whatsapp.mm; sourceTree = "<group>"; };
 		EDA9CC9A209B53D50062507F /* Telegram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Telegram.h; path = TestClasses/Telegram.h; sourceTree = "<group>"; };
 		EDA9CC9B209B53D50062507F /* Telegram.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Telegram.mm; path = TestClasses/Telegram.mm; sourceTree = "<group>"; };
+		EDB252A220FA46DA00B4EDE4 /* TestKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestKeys.h; sourceTree = "<group>"; };
+		EDB252A320FA46DA00B4EDE4 /* JsonResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonResult.h; sourceTree = "<group>"; };
+		EDB252A420FA46DA00B4EDE4 /* JsonResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonResult.m; sourceTree = "<group>"; };
+		EDB252A520FA46DA00B4EDE4 /* TestKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestKeys.m; sourceTree = "<group>"; };
+		EDB252A820FA4D4F00B4EDE4 /* Tampering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tampering.h; sourceTree = "<group>"; };
+		EDB252A920FA4D4F00B4EDE4 /* Tampering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tampering.m; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hexadecimal.h"; sourceTree = "<group>"; };
 		EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hexadecimal.m"; sourceTree = "<group>"; };
@@ -394,6 +403,7 @@
 		ED25280F1CEA34DA0073A29B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EDB252A120FA46DA00B4EDE4 /* JsonResult */,
 				ED70D5041FE8022300759463 /* Result.h */,
 				ED70D5051FE8022300759463 /* Result.mm */,
 				ED70D5011FE8021400759463 /* Measurement.h */,
@@ -475,6 +485,20 @@
 				ED209669209791C40028BEA3 /* PaddingLabel.m */,
 			);
 			path = GUI;
+			sourceTree = "<group>";
+		};
+		EDB252A120FA46DA00B4EDE4 /* JsonResult */ = {
+			isa = PBXGroup;
+			children = (
+				EDB252A320FA46DA00B4EDE4 /* JsonResult.h */,
+				EDB252A420FA46DA00B4EDE4 /* JsonResult.m */,
+				EDB252A220FA46DA00B4EDE4 /* TestKeys.h */,
+				EDB252A520FA46DA00B4EDE4 /* TestKeys.m */,
+				EDB252A820FA4D4F00B4EDE4 /* Tampering.h */,
+				EDB252A920FA4D4F00B4EDE4 /* Tampering.m */,
+			);
+			name = JsonResult;
+			path = Model/JsonResult;
 			sourceTree = "<group>";
 		};
 		EDB6F9B62023524500BDCB0B /* TestResults */ = {
@@ -890,8 +914,10 @@
 				EDA9CC8A209B537C0062507F /* WebConnectivity.mm in Sources */,
 				EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */,
 				EDA9CC9C209B53D50062507F /* Telegram.mm in Sources */,
+				EDB252A620FA46DB00B4EDE4 /* JsonResult.m in Sources */,
 				ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
+				EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
@@ -921,6 +947,7 @@
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
+				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

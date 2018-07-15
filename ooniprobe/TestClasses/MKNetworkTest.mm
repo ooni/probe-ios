@@ -113,6 +113,54 @@
             [self.measurement setState:measurementFailed];
             return nil;
         }
+        InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
+        ObjectMapper *mapper = [[ObjectMapper alloc] init];
+        mapper.mappingProvider = mappingProvider;
+
+        //JsonResult *jsonResult = [JsonResult objectFromDictionary:json];
+        
+        /*
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
+        //[mappingProvider setDefaultDateFormatter:dateFormatter];
+        //[mappingProvider setDateFormatter:dateFormatter forPropertyKey:@"test_start_time" andClass:[JsonResult class]];
+        //[mappingProvider setDateFormatter:dateFormatter forPropertyKey:@"measurement_start_time" andClass:[JsonResult class]];
+         //[mappingProvider setDateFormatter:dateFormatter forProperty:@"test_start_time" andClass:[JsonResult class]];
+         //[mappingProvider setDateFormatter:dateFormatter forProperty:@"measurement_start_time" andClass:[JsonResult class]];
+        */
+        
+        //Hack to add UTC format to dates
+        //TODO maybe use android solution
+        [mappingProvider mapFromDictionaryKey:@"measurement_start_time" toPropertyKey:@"measurement_start_time" forClass:[JsonResult class] withTransformer:^id(id currentNode, id parentNode) {
+            NSString *currentDateStr = [NSString stringWithFormat:@"%@Z", (NSString*)currentNode];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
+            return [dateFormatter dateFromString:currentDateStr];
+        }];
+        [mappingProvider mapFromDictionaryKey:@"test_start_time" toPropertyKey:@"test_start_time" forClass:[JsonResult class] withTransformer:^id(id currentNode, id parentNode) {
+            NSString *currentDateStr = [NSString stringWithFormat:@"%@Z", (NSString*)currentNode];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
+            return [dateFormatter dateFromString:currentDateStr];
+        }];
+        [mappingProvider mapFromDictionaryKey:@"tampering" toPropertyKey:@"tampering" forClass:[TestKeys class] withTransformer:^id(id currentNode, id parentNode) {
+            return [[Tampering alloc] initWithValue:currentNode];
+        }];
+        JsonResult *jsonResult = [mapper objectFromSource:json toInstanceOfClass:[JsonResult class]];
+        /*
+        DCParserConfiguration *config = [DCParserConfiguration configuration];
+        //TODO add UTC altrimenti fa -2 ore
+        config.datePattern = @"yyyy-MM-dd HH:mm:ss";
+        DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass: [JsonResult class] andConfiguration: config];
+        //DCObjectMapping *testKeysMapper = [DCObjectMapping mapKeyPath:@"test_keys" toAttribute:@"test_keys" onClass:[TestKeys class]];
+        //[config addObjectMapping:testKeysMapper];
+        JsonResult *jsonResult = [parser parseDictionary:json];
+*/
+        NSLog(@"probe_cc:%@   test_runtime:%@  tampering:%@",
+              jsonResult.probe_cc,
+              jsonResult.test_runtime,
+              jsonResult.test_keys.tampering ? @"Yes" : @"No");
+
         if ([json safeObjectForKey:@"test_start_time"])
             [self.result setStartTimeWithUTCstr:[json safeObjectForKey:@"test_start_time"]];
         if ([json safeObjectForKey:@"measurement_start_time"])
