@@ -39,7 +39,7 @@ typedef enum
 @property NSString *input;
 @property NSString *category;
 
--(void)setStartTimeWithUTCstr:(NSString*)dateStr;
+//-(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(NSString*)getFile:(NSString*)ext;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;

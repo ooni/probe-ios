@@ -20,5 +20,5 @@ target 'ooniprobe' do
     pod 'JSONSyntaxHighlight'
     pod 'GRMustache'
     pod 'OCMapper', '2.0'
-    pod 'DCKeyValueObjectMapping'
+#    pod 'DCKeyValueObjectMapping'
 end

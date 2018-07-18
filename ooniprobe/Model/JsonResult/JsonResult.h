@@ -2,10 +2,6 @@
 #import "ObjectMapper.h"
 #import "InCodeMappingProvider.h"
 #import "NSObject+ObjectMapper.h"
-#import "DCKeyValueObjectMapping.h"
-#import "DCParserConfiguration.h"
-#import "DCParserConfiguration.h"
-#import "DCObjectMapping.h"
 #import "TestKeys.h"
 #import "InCodeMappingProvider.h"
 

@@ -8,7 +8,7 @@
     //defailt test to failure in case onEntry is never called
     return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"anomaly" : [NSNumber numberWithBool:FALSE]};
 }
-
+/*
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr{
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -17,7 +17,7 @@
     NSDate *localDate = [dateFormatter dateFromString:dateStr];
     self.startTime = localDate;
 }
-
+*/
 - (NSString*)getFile:(NSString*)ext{
     //log files are unique for web_connectivity test
     if ([self.name isEqualToString:@"web_connectivity"] && [ext isEqualToString:@"log"]){

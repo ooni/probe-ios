@@ -40,6 +40,7 @@
     return @"";
 }
 
+/*
 -(void)setStartTimeWithUTCstr:(NSString*)dateStr{
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -48,7 +49,8 @@
     NSDate *localDate = [dateFormatter dateFromString:dateStr];
     self.startTime = localDate;
 }
-
+*/
+    
 -(void)addDuration:(float)value{
     self.duration+=value;
 }

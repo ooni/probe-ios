@@ -7,6 +7,7 @@
 @property (nonatomic, strong) NSNumber *ping;
 @end
 
+//TODO check these formats
 @interface Advanced
 @property (nonatomic, strong) NSString *packet_loss;
 @property (nonatomic, strong) NSString *out_of_order;

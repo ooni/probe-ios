@@ -29,7 +29,7 @@
 -(NSString*)getFormattedDataUsageDown;
 -(NSString*)getFormattedDataUsageUp;
 -(NSString*)getLocalizedNetworkType;
--(void)setStartTimeWithUTCstr:(NSString*)dateStr;
+//-(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(void)addDuration:(float)value;
 -(void)save;
 -(SRKResultSet*)measurements;

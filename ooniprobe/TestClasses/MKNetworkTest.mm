@@ -147,36 +147,28 @@
             return [[Tampering alloc] initWithValue:currentNode];
         }];
         JsonResult *jsonResult = [mapper objectFromSource:json toInstanceOfClass:[JsonResult class]];
-        /*
-        DCParserConfiguration *config = [DCParserConfiguration configuration];
-        //TODO add UTC altrimenti fa -2 ore
-        config.datePattern = @"yyyy-MM-dd HH:mm:ss";
-        DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass: [JsonResult class] andConfiguration: config];
-        //DCObjectMapping *testKeysMapper = [DCObjectMapping mapKeyPath:@"test_keys" toAttribute:@"test_keys" onClass:[TestKeys class]];
-        //[config addObjectMapping:testKeysMapper];
-        JsonResult *jsonResult = [parser parseDictionary:json];
-*/
         NSLog(@"probe_cc:%@   test_runtime:%@  tampering:%@",
               jsonResult.probe_cc,
               jsonResult.test_runtime,
               jsonResult.test_keys.tampering ? @"Yes" : @"No");
 
-        if ([json safeObjectForKey:@"test_start_time"])
-            [self.result setStartTimeWithUTCstr:[json safeObjectForKey:@"test_start_time"]];
-        if ([json safeObjectForKey:@"measurement_start_time"])
-            [self.measurement setStartTimeWithUTCstr:[json safeObjectForKey:@"measurement_start_time"]];
-        if ([json safeObjectForKey:@"test_runtime"]){
-            [self.measurement setDuration:[[json safeObjectForKey:@"test_runtime"] floatValue]];
-            [self.result addDuration:[[json safeObjectForKey:@"test_runtime"] floatValue]];
+        //TODO check if I still need these checks
+        if (jsonResult.test_start_time)
+            [self.result setStartTime:jsonResult.test_start_time];
+        if (jsonResult.measurement_start_time)
+            [self.measurement setStartTime:jsonResult.test_start_time];
+        if (jsonResult.test_runtime){
+            [self.measurement setDuration:[jsonResult.test_runtime floatValue]];
+            [self.result addDuration:[jsonResult.test_runtime floatValue]];
         }
         //if the user doesn't want to share asn leave null on the db object
-        if ([json safeObjectForKey:@"probe_asn"] && [SettingsUtility getSettingWithName:@"include_asn"]){
+        if (jsonResult.probe_asn && [SettingsUtility getSettingWithName:@"include_asn"]){
             //TODO-SBS asn name
-            [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
+            [self.measurement setAsn:jsonResult.probe_asn];
             [self.measurement setAsnName:@"Vodafone"];
             if (self.result.asn == nil){
                 //TODO-SBS asn name
-                [self.result setAsn:[json objectForKey:@"probe_asn"]];
+                [self.result setAsn:jsonResult.probe_asn];
                 [self.result setAsnName:@"Vodafone"];
                 [self.result save];
             }
@@ -185,10 +177,10 @@
                     NSLog(@"Something's wrong");
             }
         }
-        if ([json safeObjectForKey:@"probe_cc"] && [SettingsUtility getSettingWithName:@"include_cc"]){
-            [self.measurement setCountry:[json objectForKey:@"probe_cc"]];
+        if (jsonResult.probe_cc && [SettingsUtility getSettingWithName:@"include_cc"]){
+            [self.measurement setCountry:jsonResult.probe_cc];
             if (self.result.country == nil){
-                [self.result setCountry:[json objectForKey:@"probe_cc"]];
+                [self.result setCountry:jsonResult.probe_cc];
                 [self.result save];
             }
             else {
@@ -196,10 +188,10 @@
                     NSLog(@"Something's wrong");
             }
         }
-        if ([json safeObjectForKey:@"probe_ip"] && [SettingsUtility getSettingWithName:@"include_ip"]){
-            [self.measurement setIp:[json objectForKey:@"probe_ip"]];
+        if (jsonResult.probe_ip && [SettingsUtility getSettingWithName:@"include_ip"]){
+            [self.measurement setIp:jsonResult.probe_ip];
             if (self.result.ip == nil){
-                [self.result setIp:[json objectForKey:@"probe_ip"]];
+                [self.result setIp:jsonResult.probe_ip];
                 [self.result save];
             }
             else {
@@ -207,8 +199,8 @@
                     NSLog(@"Something's wrong");
             }
         }
-        if ([json safeObjectForKey:@"report_id"])
-            [self.measurement setReportId:[json objectForKey:@"report_id"]];
+        if (jsonResult.report_id)
+            [self.measurement setReportId:jsonResult.report_id];
         
         return json;
     }
