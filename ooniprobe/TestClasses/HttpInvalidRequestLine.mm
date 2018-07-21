@@ -18,15 +18,12 @@
 
 -(void) runTest {
     mk::nettests::HttpInvalidRequestLineTest test;
-    test.on_entry([self](std::string s) {
-        [self onEntry:s.c_str()];
-    });
     [super initCommon:test];
 }
 
--(void)onEntry:(const char*)str {
-    NSDictionary *json = [super onEntryCommon:str];
-    if (json){
+-(void)onEntry:(JsonResult*)jsonResult {
+    [super onEntry:jsonResult];
+    if (jsonResult){
         /*
          onEntry method for http invalid request line test, check "tampering" key
          null => failed

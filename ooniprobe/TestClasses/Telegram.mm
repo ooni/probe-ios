@@ -19,15 +19,16 @@
 
 -(void) runTest {
     mk::nettests::TelegramTest test;
+    /*
     test.on_entry([self](std::string s) {
         [self onEntry:s.c_str()];
-    });
+    });*/
     [super initCommon:test];
 }
 
--(void)onEntry:(const char*)str {
-    NSDictionary *json = [super onEntryCommon:str];
-    if (json){
+-(void)onEntry:(JsonResult*)jsonResult {
+    [super onEntry:jsonResult];
+    if (jsonResult){
         /*
          if "telegram_http_blocking", "telegram_tcp_blocking", "telegram_web_status" are null => failed
          if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if "telegram_web_status" is "blocked" => anomalous

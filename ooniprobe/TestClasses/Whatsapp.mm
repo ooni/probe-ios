@@ -21,15 +21,16 @@
     if ([SettingsUtility getSettingWithName:@"test_whatsapp_extensive"]){
         test.set_option("all_endpoints", YES);
     }
+    /*
     test.on_entry([self](std::string s) {
         [self onEntry:s.c_str()];
-    });
+    });*/
     [super initCommon:test];
 }
 
--(void)onEntry:(const char*)str {
-    NSDictionary *json = [super onEntryCommon:str];
-    if (json){
+-(void)onEntry:(JsonResult*)jsonResult {
+    [super onEntry:jsonResult];
+    if (jsonResult){
         /*
          if "whatsapp_endpoints_status", "whatsapp_web_status", "registration_server" are null => failed
          if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server_status" are "blocked" => anomalous

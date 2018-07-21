@@ -77,6 +77,9 @@
         [self.result setDataUsageDown:self.result.dataUsageDown+(long)d.down];
         [self.result setDataUsageUp:self.result.dataUsageUp+(long)d.up];
     });
+    test.on_entry([self](std::string s) {
+        [self onEntry2:s.c_str()];
+    });
     test.start([self]() {
         [self testEnded];
     });
@@ -103,7 +106,7 @@
     });
 }
 
--(NSDictionary*)onEntryCommon:(const char*)str{
+-(void)onEntry2:(const char*)str {
     if (str != nil) {
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
@@ -116,18 +119,18 @@
         InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
         ObjectMapper *mapper = [[ObjectMapper alloc] init];
         mapper.mappingProvider = mappingProvider;
-
+        
         //JsonResult *jsonResult = [JsonResult objectFromDictionary:json];
         
         /*
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
-        //[mappingProvider setDefaultDateFormatter:dateFormatter];
-        //[mappingProvider setDateFormatter:dateFormatter forPropertyKey:@"test_start_time" andClass:[JsonResult class]];
-        //[mappingProvider setDateFormatter:dateFormatter forPropertyKey:@"measurement_start_time" andClass:[JsonResult class]];
+         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
+         //[mappingProvider setDefaultDateFormatter:dateFormatter];
+         //[mappingProvider setDateFormatter:dateFormatter forPropertyKey:@"test_start_time" andClass:[JsonResult class]];
+         //[mappingProvider setDateFormatter:dateFormatter forPropertyKey:@"measurement_start_time" andClass:[JsonResult class]];
          //[mappingProvider setDateFormatter:dateFormatter forProperty:@"test_start_time" andClass:[JsonResult class]];
          //[mappingProvider setDateFormatter:dateFormatter forProperty:@"measurement_start_time" andClass:[JsonResult class]];
-        */
+         */
         
         //Hack to add UTC format to dates
         //TODO maybe use android solution
@@ -147,11 +150,17 @@
             return [[Tampering alloc] initWithValue:currentNode];
         }];
         JsonResult *jsonResult = [mapper objectFromSource:json toInstanceOfClass:[JsonResult class]];
-        NSLog(@"probe_cc:%@   test_runtime:%@  tampering:%@",
-              jsonResult.probe_cc,
-              jsonResult.test_runtime,
-              jsonResult.test_keys.tampering ? @"Yes" : @"No");
+        /*
+         NSLog(@"probe_cc:%@   test_runtime:%@  tampering:%@",
+         jsonResult.probe_cc,
+         jsonResult.test_runtime,
+         jsonResult.test_keys.tampering ? @"Yes" : @"No");
+         */
+    }
+}
 
+-(void)onEntry:(JsonResult*)jsonResult{
+    if (jsonResult){
         //TODO check if I still need these checks
         if (jsonResult.test_start_time)
             [self.result setStartTime:jsonResult.test_start_time];
@@ -202,7 +211,7 @@
         if (jsonResult.report_id)
             [self.measurement setReportId:jsonResult.report_id];
         
-        return json;
+        return jsonResult;
     }
     return nil;
 }

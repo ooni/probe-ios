@@ -23,15 +23,16 @@
         test.set_option("server", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server"] UTF8String]);
         test.set_option("port", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server_port"] UTF8String]);
     }
+    /*
     test.on_entry([self](std::string s) {
         [self onEntry:s.c_str()];
-    });
+    });*/
     [super initCommon:test];
 }
 
--(void)onEntry:(const char*)str {
-    NSDictionary *json = [super onEntryCommon:str];
-    if (json){
+-(void)onEntry:(JsonResult*)jsonResult {
+    [super onEntry:jsonResult];
+    if (jsonResult){
         /*
          onEntry method for ndt test, check "failure" key
          !=null => failed

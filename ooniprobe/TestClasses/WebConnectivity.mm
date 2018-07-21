@@ -34,25 +34,26 @@
             test.add_input([input.url UTF8String]);
         }
     }
+    /*
     test.on_entry([self](std::string s) {
         [self onEntry:s.c_str()];
-    });
+    });*/
     [super initCommon:test];
 }
 
--(void)onEntry:(const char*)str {
-    NSDictionary *json = [super onEntryCommon:str];
-    if (json){
+-(void)onEntry:(JsonResult*)jsonResult {
+    [super onEntry:jsonResult];
+    if (jsonResult){
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
         [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
 
-        self.measurement.input = [json safeObjectForKey:@"input"];
+        self.measurement.input = jsonResult.input;
         self.measurement.category = [TestUtility getCategoryForUrl:self.measurement.input];
 
-        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
-        if (keys){
-            [self setBlocking:keys];
-            [self setTestSummary:keys];
+        if (jsonResult.test_keys){
+            //TODO
+            [self setBlocking:jsonResult.test_keys];
+            [self setTestSummary:jsonResult.test_keys];
         }
         else
             [self.measurement setState:measurementFailed];

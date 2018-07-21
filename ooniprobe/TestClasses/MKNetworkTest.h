@@ -42,7 +42,7 @@
 -(void)createMeasurementObject;
 -(void)updateCounter;
 -(void)initCommon:(mk::nettests::BaseTest&) test;
--(NSDictionary*)onEntryCommon:(const char*)str;
+-(void)onEntry:(JsonResult*)jsonResult;
 -(void)updateSummary;
 -(void)setResultOfMeasurement:(Result *)result;
 -(void)run;

@@ -18,15 +18,16 @@
 
 -(void) runTest {
     mk::nettests::HttpHeaderFieldManipulationTest test;
+    /*
     test.on_entry([self](std::string s) {
         [self onEntry:s.c_str()];
-    });
+    });*/
     [super initCommon:test];
 }
 
--(void)onEntry:(const char*)str {
-    NSDictionary *json = [super onEntryCommon:str];
-    if (json){
+-(void)onEntry:(JsonResult*)jsonResult {
+    [super onEntry:jsonResult];
+    if (jsonResult){
         /*
          onEntry method for http header field manipulation test, check "failure" key
          null => failed
