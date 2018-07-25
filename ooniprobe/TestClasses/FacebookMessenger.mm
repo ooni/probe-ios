@@ -18,10 +18,6 @@
 
 -(void) runTest {
     mk::nettests::FacebookMessengerTest test;
-    /*
-    test.on_entry([self](std::string s) {
-        [self onEntry:s.c_str()];
-    });*/
     [super initCommon:test];
 }
 
@@ -29,27 +25,33 @@
  if "facebook_tcp_blocking", "facebook_dns_blocking" are null => failed
  if "facebook_tcp_blocking" or "facebook_dns_blocking" are true => anomalous
  */
--(void)onEntry:(JsonResult*)jsonResult {
-    [super onEntry:jsonResult];
-    if (jsonResult){
-        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
-        //set anomaly if either "facebook_tcp_blocking" or "facebook_dns_blocking" is true
-        NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
-        for (NSString *key in checkKeys) {
-            if ([keys objectForKey:key]){
-                if ([keys objectForKey:key] == [NSNull null]) {
-                    if (self.measurement.state != measurementFailed)
-                        [self.measurement setState:measurementFailed];
-                }
-                else if ([[keys objectForKey:key] boolValue]) {
-                    [self.measurement setAnomaly:YES];
-                }
+-(void)onEntry:(JsonResult*)json {
+    [super onEntry:json];
+    //NSDictionary *testKeys = jsonResult.test_keys;
+    //set anomaly if either "facebook_tcp_blocking" or "facebook_dns_blocking" is true
+    if (json.test_keys.facebook_tcp_blocking == NULL || json.test_keys.facebook_dns_blocking == NULL)
+        [self.measurement setState:measurementFailed];
+    else {
+        [self.measurement setState:measurementDone];
+        self.measurement.anomaly = [json.test_keys.facebook_tcp_blocking boolValue] || [json.test_keys.facebook_dns_blocking boolValue];
+    }
+/*
+    NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"facebook_tcp_blocking", @"facebook_dns_blocking", nil];
+    for (NSString *key in checkKeys) {
+        if ([keys objectForKey:key]){
+            if ([keys objectForKey:key] == [NSNull null]) {
+                if (self.measurement.state != measurementFailed)
+                    [self.measurement setState:measurementFailed];
+            }
+            else if ([[keys objectForKey:key] boolValue]) {
+                [self.measurement setAnomaly:YES];
             }
         }
-        [super updateSummary];
-        [self setTestSummary:keys :checkKeys];
-        [self.measurement save];
     }
+ */
+    [super updateSummary];
+    //[self setTestSummary:keys :checkKeys];
+    [self.measurement save];
 }
 
 -(void)setTestSummary:(NSDictionary*)keys :(NSArray*)checkKeys{

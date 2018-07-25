@@ -34,59 +34,55 @@
             test.add_input([input.url UTF8String]);
         }
     }
-    /*
-    test.on_entry([self](std::string s) {
-        [self onEntry:s.c_str()];
-    });*/
     [super initCommon:test];
 }
 
--(void)onEntry:(JsonResult*)jsonResult {
-    [super onEntry:jsonResult];
-    if (jsonResult){
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
+-(void)onEntry:(JsonResult*)json {
+    [super onEntry:json];
 
-        self.measurement.input = jsonResult.input;
-        self.measurement.category = [TestUtility getCategoryForUrl:self.measurement.input];
+    self.measurement.input = json.input;
+    self.measurement.category = [TestUtility getCategoryForUrl:self.measurement.input];
+    [self setBlocking:json.test_keys];
+    //[self setTestSummary:json.test_keys];
 
-        if (jsonResult.test_keys){
-            //TODO
-            [self setBlocking:jsonResult.test_keys];
-            [self setTestSummary:jsonResult.test_keys];
-        }
-        else
-            [self.measurement setState:measurementFailed];
-        
-
-        [super updateSummary];
-        [self.measurement save];
-        //create new measurement entry if web_connectivity test
-        //TODO-SBS this case doesn not handle the timeout
-        //move creation of new object in status.measurement_start (mk 0.9)
-        self.entryIdx++;
-        if (self.entryIdx < [self.inputs count]){
-            [super createMeasurementObject];
-            [super updateCounter];
-            //Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
-            //self.measurement.input = currentUrl.url;
-            //self.measurement.category = currentUrl.categoryCode;
-        }
+    /*
+    if (json.test_keys){
+        //TODO
+        [self setBlocking:json.test_keys];
+        //[self setTestSummary:json.test_keys];
+    }
+    else
+        [self.measurement setState:measurementFailed];
+    */
+    
+    [super updateSummary];
+    [self.measurement save];
+    //create new measurement entry if web_connectivity test
+    //TODO-SBS this case doesn not handle the timeout
+    //move creation of new object in status.measurement_start (mk 0.9)
+    self.entryIdx++;
+    if (self.entryIdx < [self.inputs count]){
+        [super createMeasurementObject];
+        [super updateCounter];
+        //Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
+        //self.measurement.input = currentUrl.url;
+        //self.measurement.category = currentUrl.categoryCode;
     }
 }
 
-- (void)setBlocking:(NSDictionary*)keys{
+- (void)setBlocking:(TestKeys*)testKeys{
     /*
      null => failed
      false => not blocked
      string (dns, tcp-ip, http-failure, http-diff) => anomalous
      */
-    id element = [keys objectForKey:@"blocking"];
-    if ([keys objectForKey:@"blocking"] == [NSNull null]) {
+    //id element = testKeys.blocking;
+    if (testKeys.blocking == NULL) {
         [self.measurement setState:measurementFailed];
     }
-    else if (([element isKindOfClass:[NSString class]])) {
-        [self.measurement setAnomaly:YES];
+    else {
+        [self.measurement setState:measurementFailed];
+        self.measurement.anomaly = ![testKeys.blocking isEqualToString:@"false"];
     }
 }
 

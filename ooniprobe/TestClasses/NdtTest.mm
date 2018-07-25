@@ -23,27 +23,23 @@
         test.set_option("server", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server"] UTF8String]);
         test.set_option("port", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server_port"] UTF8String]);
     }
-    /*
-    test.on_entry([self](std::string s) {
-        [self onEntry:s.c_str()];
-    });*/
     [super initCommon:test];
 }
 
--(void)onEntry:(JsonResult*)jsonResult {
-    [super onEntry:jsonResult];
-    if (jsonResult){
-        /*
-         onEntry method for ndt test, check "failure" key
-         !=null => failed
-         */
-        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
-        if ([keys objectForKey:@"failure"] != [NSNull null])
-            [self.measurement setState:measurementFailed];
-        [super updateSummary];
-        [self setTestSummary:keys];
-        [self.measurement save];
-    }
+-(void)onEntry:(JsonResult*)json {
+    [super onEntry:json];
+    /*
+     onEntry method for ndt test, check "failure" key
+     !=null => failed
+     */
+    //TestKeys *testKeys = json.test_keys;
+    //if (testKeys.failure != NULL)
+    //    [self.measurement setState:measurementFailed];
+    self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
+
+    [super updateSummary];
+    //[self setTestSummary:keys];
+    [self.measurement save];
 }
 
 -(void)setTestSummary:(NSDictionary*)keys{

@@ -19,46 +19,48 @@
 
 -(void) runTest {
     mk::nettests::TelegramTest test;
-    /*
-    test.on_entry([self](std::string s) {
-        [self onEntry:s.c_str()];
-    });*/
     [super initCommon:test];
 }
 
--(void)onEntry:(JsonResult*)jsonResult {
-    [super onEntry:jsonResult];
-    if (jsonResult){
-        /*
-         if "telegram_http_blocking", "telegram_tcp_blocking", "telegram_web_status" are null => failed
-         if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if "telegram_web_status" is "blocked" => anomalous
-         */
-        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
-        NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];
-        for (NSString *key in checkKeys) {
-            if ([keys objectForKey:key]){
-                if ([keys objectForKey:key] == [NSNull null]) {
-                    if (self.measurement.state != measurementFailed)
-                        [self.measurement setState:measurementFailed];
-                }
-                else if ([[keys objectForKey:key] boolValue]) {
-                    [self.measurement setAnomaly:YES];
-                }
-            }
-        }
-        if ([keys objectForKey:@"telegram_web_status"]){
-            if ([keys objectForKey:@"telegram_web_status"] == [NSNull null]) {
+-(void)onEntry:(JsonResult*)json {
+    [super onEntry:json];
+    /*
+     if "telegram_http_blocking", "telegram_tcp_blocking", "telegram_web_status" are null => failed
+     if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if "telegram_web_status" is "blocked" => anomalous
+     */
+    //NSDictionary *testKeys = jsonResult.test_keys;
+    if (json.test_keys.telegram_http_blocking == NULL || json.test_keys.telegram_tcp_blocking == NULL || json.test_keys.telegram_web_status == NULL)
+        [self.measurement setState:measurementFailed];
+    else {
+        [self.measurement setState:measurementDone];
+        self.measurement.anomaly = [json.test_keys.telegram_http_blocking boolValue] || [json.test_keys.telegram_tcp_blocking boolValue] || [json.test_keys.telegram_web_status isEqualToString:@"blocked"];
+    }
+/*
+    NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];
+    for (NSString *key in checkKeys) {
+        if ([keys objectForKey:key]){
+            if ([keys objectForKey:key] == [NSNull null]) {
                 if (self.measurement.state != measurementFailed)
                     [self.measurement setState:measurementFailed];
             }
-            else if ([[keys objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
+            else if ([[keys objectForKey:key] boolValue]) {
                 [self.measurement setAnomaly:YES];
             }
         }
-        [super updateSummary];
-        [self setTestSummary:keys :[[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", @"telegram_web_status", nil]];
-        [self.measurement save];
     }
+    if ([keys objectForKey:@"telegram_web_status"]){
+        if ([keys objectForKey:@"telegram_web_status"] == [NSNull null]) {
+            if (self.measurement.state != measurementFailed)
+                [self.measurement setState:measurementFailed];
+        }
+        else if ([[keys objectForKey:@"telegram_web_status"] isEqualToString:@"blocked"]) {
+            [self.measurement setAnomaly:YES];
+        }
+    }
+ */
+    [super updateSummary];
+    //[self setTestSummary:keys :[[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", @"telegram_web_status", nil]];
+    [self.measurement save];
 }
 
 -(void)setTestSummary:(NSDictionary*)keys :(NSArray*)checkKeys{

@@ -18,10 +18,10 @@
 @end
 
 @interface TestKeys : NSObject
-@property (nonatomic) BOOL blocking;
+@property (nonatomic, strong) NSString *blocking;
 @property (nonatomic, strong) NSString *accessible;
-@property (nonatomic, strong) NSString *sent;
-@property (nonatomic, strong) NSString *received;
+@property (nonatomic, strong) NSArray *sent;
+@property (nonatomic, strong) NSArray *received;
 @property (nonatomic, strong) NSString *failure;
 @property (nonatomic, strong) NSString *header_field_name;
 @property (nonatomic, strong) NSString *header_field_number;
@@ -37,10 +37,11 @@
 @property (nonatomic, strong) NSString *whatsapp_endpoints_status;
 @property (nonatomic, strong) NSString *whatsapp_web_status;
 @property (nonatomic, strong) NSString *registration_server_status;
-@property (nonatomic, strong) NSString *facebook_tcp_blocking;
-@property (nonatomic, strong) NSString *facebook_dns_blocking;
-@property (nonatomic, strong) NSString *telegram_http_blocking;
-@property (nonatomic, strong) NSString *telegram_tcp_blocking;
+@property (nonatomic, strong) NSNumber *facebook_tcp_blocking;
+@property (nonatomic, strong) NSNumber *facebook_dns_blocking;
+@property (nonatomic, strong) NSNumber *telegram_http_blocking;
+@property (nonatomic, strong) NSNumber *telegram_tcp_blocking;
+@property (nonatomic, strong) NSString *telegram_web_status;
 @property (nonatomic, strong) Simple *simple;
 @property (nonatomic, strong) Advanced *advanced;
 @property (nonatomic, strong) Tampering *tampering;

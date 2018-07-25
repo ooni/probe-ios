@@ -78,7 +78,7 @@
         [self.result setDataUsageUp:self.result.dataUsageUp+(long)d.up];
     });
     test.on_entry([self](std::string s) {
-        [self onEntry2:s.c_str()];
+        [self onEntryCreate:s.c_str()];
     });
     test.start([self]() {
         [self testEnded];
@@ -106,21 +106,26 @@
     });
 }
 
--(void)onEntry2:(const char*)str {
+-(void)onEntryCreate:(const char*)str {
     if (str != nil) {
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         if (error != nil) {
             NSLog(@"Error parsing JSON: %@", error);
             [self.measurement setState:measurementFailed];
-            return nil;
+            return;
         }
+        if ([self.name isEqualToString:@"web_connectivity"]){
+            NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+            [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
+        }
+
         InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
         ObjectMapper *mapper = [[ObjectMapper alloc] init];
         mapper.mappingProvider = mappingProvider;
         
-        //JsonResult *jsonResult = [JsonResult objectFromDictionary:json];
+        //JsonResult *json = [JsonResult objectFromDictionary:json];
         
         /*
          NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -149,71 +154,69 @@
         [mappingProvider mapFromDictionaryKey:@"tampering" toPropertyKey:@"tampering" forClass:[TestKeys class] withTransformer:^id(id currentNode, id parentNode) {
             return [[Tampering alloc] initWithValue:currentNode];
         }];
-        JsonResult *jsonResult = [mapper objectFromSource:json toInstanceOfClass:[JsonResult class]];
+        JsonResult *json = [mapper objectFromSource:jsonDic toInstanceOfClass:[JsonResult class]];
         /*
          NSLog(@"probe_cc:%@   test_runtime:%@  tampering:%@",
-         jsonResult.probe_cc,
-         jsonResult.test_runtime,
-         jsonResult.test_keys.tampering ? @"Yes" : @"No");
+         json.probe_cc,
+         json.test_runtime,
+         json.test_keys.tampering ? @"Yes" : @"No");
          */
+        [self onEntry:json];
     }
 }
 
--(void)onEntry:(JsonResult*)jsonResult{
-    if (jsonResult){
-        //TODO check if I still need these checks
-        if (jsonResult.test_start_time)
-            [self.result setStartTime:jsonResult.test_start_time];
-        if (jsonResult.measurement_start_time)
-            [self.measurement setStartTime:jsonResult.test_start_time];
-        if (jsonResult.test_runtime){
-            [self.measurement setDuration:[jsonResult.test_runtime floatValue]];
-            [self.result addDuration:[jsonResult.test_runtime floatValue]];
-        }
-        //if the user doesn't want to share asn leave null on the db object
-        if (jsonResult.probe_asn && [SettingsUtility getSettingWithName:@"include_asn"]){
-            //TODO-SBS asn name
-            [self.measurement setAsn:jsonResult.probe_asn];
-            [self.measurement setAsnName:@"Vodafone"];
-            if (self.result.asn == nil){
-                //TODO-SBS asn name
-                [self.result setAsn:jsonResult.probe_asn];
-                [self.result setAsnName:@"Vodafone"];
-                [self.result save];
-            }
-            else {
-                if (![self.result.asn isEqualToString:self.measurement.asn])
-                    NSLog(@"Something's wrong");
-            }
-        }
-        if (jsonResult.probe_cc && [SettingsUtility getSettingWithName:@"include_cc"]){
-            [self.measurement setCountry:jsonResult.probe_cc];
-            if (self.result.country == nil){
-                [self.result setCountry:jsonResult.probe_cc];
-                [self.result save];
-            }
-            else {
-                if (![self.result.country isEqualToString:self.measurement.country])
-                    NSLog(@"Something's wrong");
-            }
-        }
-        if (jsonResult.probe_ip && [SettingsUtility getSettingWithName:@"include_ip"]){
-            [self.measurement setIp:jsonResult.probe_ip];
-            if (self.result.ip == nil){
-                [self.result setIp:jsonResult.probe_ip];
-                [self.result save];
-            }
-            else {
-                if (![self.result.ip isEqualToString:self.measurement.ip])
-                    NSLog(@"Something's wrong");
-            }
-        }
-        if (jsonResult.report_id)
-            [self.measurement setReportId:jsonResult.report_id];
-        
-        return jsonResult;
+-(void)onEntry:(JsonResult*)json{
+    NSLog(@"test_keys %@", json.test_keys);
+    //TODO check if I still need these checks
+    if (json.test_start_time)
+        [self.result setStartTime:json.test_start_time];
+    if (json.measurement_start_time)
+        [self.measurement setStartTime:json.test_start_time];
+    if (json.test_runtime){
+        [self.measurement setDuration:[json.test_runtime floatValue]];
+        [self.result addDuration:[json.test_runtime floatValue]];
     }
-    return nil;
+    //if the user doesn't want to share asn leave null on the db object
+    if (json.probe_asn && [SettingsUtility getSettingWithName:@"include_asn"]){
+        //TODO-SBS asn name
+        [self.measurement setAsn:json.probe_asn];
+        [self.measurement setAsnName:@"Vodafone"];
+        if (self.result.asn == nil){
+            //TODO-SBS asn name
+            [self.result setAsn:json.probe_asn];
+            [self.result setAsnName:@"Vodafone"];
+            [self.result save];
+        }
+        else {
+            if (![self.result.asn isEqualToString:self.measurement.asn])
+                NSLog(@"Something's wrong");
+        }
+    }
+    if (json.probe_cc && [SettingsUtility getSettingWithName:@"include_cc"]){
+        [self.measurement setCountry:json.probe_cc];
+        if (self.result.country == nil){
+            [self.result setCountry:json.probe_cc];
+            [self.result save];
+        }
+        else {
+            if (![self.result.country isEqualToString:self.measurement.country])
+                NSLog(@"Something's wrong");
+        }
+    }
+    if (json.probe_ip && [SettingsUtility getSettingWithName:@"include_ip"]){
+        [self.measurement setIp:json.probe_ip];
+        if (self.result.ip == nil){
+            [self.result setIp:json.probe_ip];
+            [self.result save];
+        }
+        else {
+            if (![self.result.ip isEqualToString:self.measurement.ip])
+                NSLog(@"Something's wrong");
+        }
+    }
+    if (json.report_id)
+        [self.measurement setReportId:json.report_id];
+    
 }
 
 
@@ -243,7 +246,7 @@
     //NSLog(@"%@ testEnded", self.name);
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
-    [self.measurement setState:measurementDone];
+    //[self.measurement setState:measurementDone];
     [self updateProgress:1];
     [self.measurement save];
     [self.delegate testEnded:self];

@@ -21,26 +21,32 @@
     [super initCommon:test];
 }
 
--(void)onEntry:(JsonResult*)jsonResult {
-    [super onEntry:jsonResult];
-    if (jsonResult){
-        /*
-         onEntry method for http invalid request line test, check "tampering" key
-         null => failed
-         true => anomalous
-         */
-        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
-        if ([keys objectForKey:@"tampering"]){
-            //this case shouldn't happen
-            if ([keys objectForKey:@"tampering"] == [NSNull null])
-                [self.measurement setState:measurementFailed];
-            else if ([[keys objectForKey:@"tampering"] boolValue])
-                [self.measurement setAnomaly:YES];
-        }
-        [super updateSummary];
-        [self setTestSummary:keys];
-        [self.measurement save];
+-(void)onEntry:(JsonResult*)json {
+    [super onEntry:json];
+    /*
+     onEntry method for http invalid request line test, check "tampering" key
+     null => failed
+     true => anomalous
+     */
+    //TestKeys *testKeys = json.test_keys;
+    if (json.test_keys.tampering == NULL)
+        [self.measurement setState:measurementFailed];
+    else {
+        [self.measurement setState:measurementDone];
+        self.measurement.anomaly = json.test_keys.tampering.value;
     }
+/*
+    if ([keys objectForKey:@"tampering"]){
+        //this case shouldn't happen
+        if ([keys objectForKey:@"tampering"] == [NSNull null])
+            [self.measurement setState:measurementFailed];
+        else if ([[keys objectForKey:@"tampering"] boolValue])
+            [self.measurement setAnomaly:YES];
+    }
+ */
+    [super updateSummary];
+    //[self setTestSummary:keys];
+    [self.measurement save];
 }
 
 -(void)setTestSummary:(NSDictionary*)keys{
