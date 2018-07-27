@@ -23,7 +23,6 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
-    [super onEntry:json];
     /*
      if "telegram_http_blocking", "telegram_tcp_blocking", "telegram_web_status" are null => failed
      if either "telegram_http_blocking" or "telegram_tcp_blocking" is true, OR if "telegram_web_status" is "blocked" => anomalous
@@ -35,6 +34,8 @@
         [self.measurement setState:measurementDone];
         self.measurement.anomaly = [json.test_keys.telegram_http_blocking boolValue] || [json.test_keys.telegram_tcp_blocking boolValue] || [json.test_keys.telegram_web_status isEqualToString:@"blocked"];
     }
+    [super onEntry:json];
+
 /*
     NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", nil];
     for (NSString *key in checkKeys) {
@@ -58,9 +59,9 @@
         }
     }
  */
-    [super updateSummary];
+    //[super updateSummary];
     //[self setTestSummary:keys :[[NSArray alloc] initWithObjects:@"telegram_http_blocking", @"telegram_tcp_blocking", @"telegram_web_status", nil]];
-    [self.measurement save];
+    //[self.measurement save];
 }
 
 -(void)setTestSummary:(NSDictionary*)keys :(NSArray*)checkKeys{
@@ -72,7 +73,7 @@
         }
     }
     [summary.json setValue:values forKey:self.name];
-    [self.result save];
+    //[self.result save];
 }
 
 @end

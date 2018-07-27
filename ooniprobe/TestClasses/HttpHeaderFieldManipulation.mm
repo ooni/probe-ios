@@ -22,7 +22,6 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
-    [super onEntry:json];
     /*
      onEntry method for http header field manipulation test, check "failure" key
      null => failed
@@ -44,7 +43,7 @@
         [self.measurement setState:measurementDone];
         self.measurement.anomaly = json.test_keys.tampering.value;
     }
-
+    [super onEntry:json];
 
     /*
     if (testKeys.failure != [NSNull null])
@@ -61,8 +60,8 @@
         }
     }
      */
-    [super updateSummary];
-    [self.measurement save];
+    //[super updateSummary];
+    //[self.measurement save];
 }
 
 @end

@@ -25,7 +25,6 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
-    [super onEntry:json];
     /*
      if "whatsapp_endpoints_status", "whatsapp_web_status", "registration_server" are null => failed
      if "whatsapp_endpoints_status" or "whatsapp_web_status" or "registration_server_status" are "blocked" => anomalous
@@ -37,6 +36,8 @@
         [self.measurement setState:measurementDone];
         self.measurement.anomaly = [json.test_keys.whatsapp_endpoints_status isEqualToString:@"blocked"] || [json.test_keys.whatsapp_web_status isEqualToString:@"blocked"] || [json.test_keys.registration_server_status isEqualToString:@"blocked"];
     }
+    [super onEntry:json];
+
     /*
     NSArray *checkKeys = [[NSArray alloc] initWithObjects:@"whatsapp_endpoints_status", @"whatsapp_web_status", @"registration_server_status", nil];
     for (NSString *key in checkKeys) {
@@ -51,9 +52,9 @@
         }
     }
      */
-    [super updateSummary];
+    //[super updateSummary];
     //[self setTestSummary:keys :checkKeys];
-    [self.measurement save];
+    //[self.measurement save];
 }
 
 -(void)setTestSummary:(NSDictionary*)keys :(NSArray*)checkKeys{
@@ -65,7 +66,7 @@
         }
     }
     [summary.json setValue:values forKey:self.name];
-    [self.result save];
+    //[self.result save];
 }
 
 @end

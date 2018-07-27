@@ -22,7 +22,6 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
-    [super onEntry:json];
     /*
      onEntry method for http invalid request line test, check "tampering" key
      null => failed
@@ -35,6 +34,7 @@
         [self.measurement setState:measurementDone];
         self.measurement.anomaly = json.test_keys.tampering.value;
     }
+    [super onEntry:json];
 /*
     if ([keys objectForKey:@"tampering"]){
         //this case shouldn't happen
@@ -44,9 +44,9 @@
             [self.measurement setAnomaly:YES];
     }
  */
-    [super updateSummary];
+    //[super updateSummary];
     //[self setTestSummary:keys];
-    [self.measurement save];
+    //[self.measurement save];
 }
 
 -(void)setTestSummary:(NSDictionary*)keys{
@@ -59,7 +59,7 @@
         [values setObject:[keys safeObjectForKey:@"received"] forKey:@"received"];
     }
     [summary.json setValue:values forKey:self.name];
-    [self.result save];
+    //[self.result save];
 }
 
 @end

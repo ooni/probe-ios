@@ -114,6 +114,8 @@
         if (error != nil) {
             NSLog(@"Error parsing JSON: %@", error);
             [self.measurement setState:measurementFailed];
+            [self.measurement save];
+            //[self.result save];
             return;
         }
         if ([self.name isEqualToString:@"web_connectivity"]){
@@ -162,11 +164,26 @@
          json.test_keys.tampering ? @"Yes" : @"No");
          */
         [self onEntry:json];
+        [self updateSummary];
+        [self.measurement save];
+        [self.result save];
+    }
+    if ([self.name isEqualToString:@"web_connectivity"]){
+        //create new measurement entry if web_connectivity test
+        //TODO-SBS this case doesn not handle the timeout
+        //move creation of new object in status.measurement_start (mk 0.9)
+        self.entryIdx++;
+        if (self.entryIdx < [self.inputs count]){
+            [self createMeasurementObject];
+            [self updateCounter];
+            //Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
+            //self.measurement.input = currentUrl.url;
+            //self.measurement.category = currentUrl.categoryCode;
+        }
     }
 }
 
 -(void)onEntry:(JsonResult*)json{
-    NSLog(@"test_keys %@", json.test_keys);
     //TODO check if I still need these checks
     if (json.test_start_time)
         [self.result setStartTime:json.test_start_time];
@@ -185,7 +202,6 @@
             //TODO-SBS asn name
             [self.result setAsn:json.probe_asn];
             [self.result setAsnName:@"Vodafone"];
-            [self.result save];
         }
         else {
             if (![self.result.asn isEqualToString:self.measurement.asn])
@@ -196,7 +212,6 @@
         [self.measurement setCountry:json.probe_cc];
         if (self.result.country == nil){
             [self.result setCountry:json.probe_cc];
-            [self.result save];
         }
         else {
             if (![self.result.country isEqualToString:self.measurement.country])
@@ -207,7 +222,6 @@
         [self.measurement setIp:json.probe_ip];
         if (self.result.ip == nil){
             [self.result setIp:json.probe_ip];
-            [self.result save];
         }
         else {
             if (![self.result.ip isEqualToString:self.measurement.ip])
@@ -217,6 +231,12 @@
     if (json.report_id)
         [self.measurement setReportId:json.report_id];
     
+    Summary *summary = [self.result getSummary];
+    NSDictionary *dictionary = [[[ObjectMapper alloc] init] dictionaryFromObject:json.test_keys];
+    if ([self.name isEqualToString:@"web_connectivity"])
+        [summary.json setObject:self.measurement.input forKey:self.name];
+    else
+        [summary.json setObject:dictionary forKey:self.name];
 }
 
 
@@ -229,7 +249,6 @@
         else
             summary.anomalousMeasurements++;
         [self.result setSummary];
-        [self.result save];
     }
 }
 

@@ -26,7 +26,6 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
-    [super onEntry:json];
     /*
      onEntry method for dash test, check "failure" key
      !=null => failed
@@ -35,14 +34,15 @@
     //if (testKeys.failure != NULL)
     //    [self.measurement setState:measurementFailed];
     self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
+    [super onEntry:json];
 
     //TODO controllali
-    [super updateSummary];
+    //[super updateSummary];
     
     //Summary *summary = [self.result getSummary];
     //[summary.json setValue:testKeys forKey:self.name];
     //[self setTestSummary:testKeys];
-    [self.measurement save];
+    //[self.measurement save];
 }
 
 -(void)setTestSummary:(NSDictionary*)keys{
@@ -56,7 +56,7 @@
         [values setObject:[simple safeObjectForKey:@"min_playout_delay"] forKey:@"min_playout_delay"];
     }
     [summary.json setValue:values forKey:self.name];
-    [self.result save];
+    //[self.result save];
 }
 
 @end

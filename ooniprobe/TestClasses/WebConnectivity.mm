@@ -38,8 +38,6 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
-    [super onEntry:json];
-
     self.measurement.input = json.input;
     self.measurement.category = [TestUtility getCategoryForUrl:self.measurement.input];
     [self setBlocking:json.test_keys];
@@ -54,20 +52,10 @@
     else
         [self.measurement setState:measurementFailed];
     */
-    
-    [super updateSummary];
-    [self.measurement save];
-    //create new measurement entry if web_connectivity test
-    //TODO-SBS this case doesn not handle the timeout
-    //move creation of new object in status.measurement_start (mk 0.9)
-    self.entryIdx++;
-    if (self.entryIdx < [self.inputs count]){
-        [super createMeasurementObject];
-        [super updateCounter];
-        //Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
-        //self.measurement.input = currentUrl.url;
-        //self.measurement.category = currentUrl.categoryCode;
-    }
+    [super onEntry:json];
+
+    //[super updateSummary];
+    //[self.measurement save];
 }
 
 - (void)setBlocking:(TestKeys*)testKeys{
@@ -81,8 +69,8 @@
         [self.measurement setState:measurementFailed];
     }
     else {
-        [self.measurement setState:measurementFailed];
-        self.measurement.anomaly = ![testKeys.blocking isEqualToString:@"false"];
+        [self.measurement setState:measurementDone];
+        self.measurement.anomaly = ![testKeys.blocking isEqualToString:@"0"];
     }
 }
 
@@ -97,6 +85,6 @@
     }
     //TODO This crashes when input is nil. have to set input when measurement starts
     [summary.json setValue:values forKey:self.measurement.input];
-    [self.result save];
+    //[self.result save];
 }
 @end

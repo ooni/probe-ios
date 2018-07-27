@@ -27,6 +27,8 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
+    [self calculateServerName:json];
+    self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
     [super onEntry:json];
     /*
      onEntry method for ndt test, check "failure" key
@@ -35,11 +37,25 @@
     //TestKeys *testKeys = json.test_keys;
     //if (testKeys.failure != NULL)
     //    [self.measurement setState:measurementFailed];
-    self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
 
-    [super updateSummary];
+    //[super updateSummary];
     //[self setTestSummary:keys];
-    [self.measurement save];
+    //[self.measurement save];
+}
+
+-(void)calculateServerName:(JsonResult*)json{
+    if (json.test_keys.server_address != NULL){
+        NSString *server_address = json.test_keys.server_address;
+        NSArray *arr = [server_address componentsSeparatedByString:@"."];
+        if ([arr count] > 3){
+            NSString *server_name = [arr objectAtIndex:3];
+            json.test_keys.server_name = server_name;
+            NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Airports" ofType:@"plist"];
+            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
+            if ([dict objectForKey:[server_name substringToIndex:3]])
+                json.test_keys.server_country = [dict objectForKey:[server_name substringToIndex:3]];
+        }
+    }
 }
 
 -(void)setTestSummary:(NSDictionary*)keys{
@@ -89,7 +105,7 @@
         [values setObject:[advanced safeObjectForKey:@"timeouts"] forKey:@"timeouts"];
     }
     [summary.json setValue:values forKey:self.name];
-    [self.result save];
+    //[self.result save];
 }
 
 @end
