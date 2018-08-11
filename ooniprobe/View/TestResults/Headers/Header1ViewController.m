@@ -53,9 +53,10 @@
 
 }
 -(void)reloadMeasurement{
-    Summary *summary = [self.result getSummary];
+    //TestKeys *testKeys = [self.measurement getTestKeys];
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([result.name isEqualToString:@"websites"]){
+            /* TODO count
             [self.label1Top setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.Websites.Hero.Tested"]];
             [self.label2Top setText:[LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Summary.Websites.Hero.Blocked"]];
             [self.label3Top setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.Websites.Hero.Reachable"]];
@@ -65,8 +66,10 @@
             [self.label1Bottom setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
             [self.label2Bottom setText:[LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
             [self.label3Bottom setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
+             */
         }
         else if ([result.name isEqualToString:@"instant_messaging"]){
+            /*
             [self.label1Top setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Tested"]];
             [self.label2Top setText:[LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Blocked"]];
             [self.label3Top setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]];
@@ -76,14 +79,17 @@
             [self.label1Bottom setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
             [self.label2Bottom setText:[LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
             [self.label3Bottom setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
+             */
         }
         else if ([result.name isEqualToString:@"performance"]){
-            [self.label1Central setText:[summary getVideoQuality:NO]];
-            [self.label2Central setText:[summary getUpload]];
-            [self.label2Bottom setText:[summary getUploadUnit]];
-            [self.label3Central setText:[summary getDownload]];
-            [self.label3Bottom setText:[summary getDownloadUnit]];
-            [self.label4Central setText:[summary getPing]];
+            /*
+            [self.label1Central setText:[testKeys getVideoQuality:NO]];
+            [self.label2Central setText:[testKeys getUpload]];
+            [self.label2Bottom setText:[testKeys getUploadUnit]];
+            [self.label3Central setText:[testKeys getDownload]];
+            [self.label3Bottom setText:[testKeys getDownloadUnit]];
+            [self.label4Central setText:[testKeys getPing]];
+             */
         }
     });
 }

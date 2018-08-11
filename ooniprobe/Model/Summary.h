@@ -1,13 +1,17 @@
 #import <Foundation/Foundation.h>
+#import "JsonResult.h"
 
 @interface Summary : NSObject
 
-@property int totalMeasurements;
-@property int okMeasurements;
-@property int failedMeasurements;
-@property int anomalousMeasurements;
+//@property (nonatomic, strong) NSNumber *
+@property int total;
+@property int ok;
+@property int failed;
+@property int anomalous;
 
-@property NSMutableDictionary *json;
+@property NSMutableDictionary *testKeys;
+//@property NSMutableDictionary *json;
+//@property TestKeys *testKeys;
 
 - (id)initFromJson:(NSString*)json;
 

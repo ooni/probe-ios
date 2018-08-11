@@ -39,10 +39,15 @@ typedef enum
 @property NSString *input;
 @property NSString *category;
 
+@property NSString *testKeys;
+@property TestKeys *testKeysObj;
+
 //-(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(NSString*)getFile:(NSString*)ext;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;
+-(TestKeys*)getTestKeysObj;
+-(void)setTestKeysObj:(TestKeys *)testKeysObj;
 -(void)save;
 -(void)deleteObject;
 

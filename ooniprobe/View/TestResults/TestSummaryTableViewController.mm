@@ -150,13 +150,13 @@
             [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
             [detail2Image setImage:[UIImage imageNamed:@"download_black"]];
             [detail2Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-            [detail1Label setText:[NSString stringWithFormat:@"%@", [summary getUploadWithUnit]]];
-            [detail2Label setText:[NSString stringWithFormat:@"%@", [summary getDownloadWithUnit]]];
+            [detail1Label setText:[NSString stringWithFormat:@"%@", [testKeys getUploadWithUnit]]];
+            [detail2Label setText:[NSString stringWithFormat:@"%@", [testKeys getDownloadWithUnit]]];
         }
         else if ([current.name isEqualToString:@"dash"]){
             [stackView2 setHidden:YES];
             [detail1Image setImage:[UIImage imageNamed:@"video_quality"]];
-            [detail1Label setText:[summary getVideoQuality:YES]];
+            [detail1Label setText:[testKeys getVideoQuality:YES]];
         }
     }    
     return cell;

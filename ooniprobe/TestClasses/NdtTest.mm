@@ -27,6 +27,7 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
+    //TODO check if serverName is stored
     [self calculateServerName:json];
     self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
     [super onEntry:json];
@@ -37,10 +38,6 @@
     //TestKeys *testKeys = json.test_keys;
     //if (testKeys.failure != NULL)
     //    [self.measurement setState:measurementFailed];
-
-    //[super updateSummary];
-    //[self setTestSummary:keys];
-    //[self.measurement save];
 }
 
 -(void)calculateServerName:(JsonResult*)json{
@@ -58,8 +55,9 @@
     }
 }
 
+//TODO
 -(void)setTestSummary:(NSDictionary*)keys{
-    Summary *summary = [self.result getSummary];
+    TestKeys *testKeys = [self.measurement getTestKeys];
     NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
     if ([keys safeObjectForKey:@"server_address"]){
         NSString *server_address = [keys safeObjectForKey:@"server_address"];
@@ -74,38 +72,6 @@
                 [values setObject:[dict objectForKey:[server_name substringToIndex:3]] forKey:@"server_country"];
         }
     }
-
-    NSDictionary *simple = [keys safeObjectForKey:@"simple"];
-    if ([simple safeObjectForKey:@"upload"]){
-        [values setObject:[simple safeObjectForKey:@"upload"] forKey:@"upload"];
-    }
-    if ([simple safeObjectForKey:@"download"]){
-        [values setObject:[simple safeObjectForKey:@"download"] forKey:@"download"];
-    }
-    if ([simple safeObjectForKey:@"ping"]){
-        [values setObject:[simple safeObjectForKey:@"ping"] forKey:@"ping"];
-    }
-    NSDictionary *advanced = [keys safeObjectForKey:@"advanced"];
-    if ([advanced safeObjectForKey:@"packet_loss"]){
-        [values setObject:[advanced safeObjectForKey:@"packet_loss"] forKey:@"packet_loss"];
-    }
-    if ([advanced safeObjectForKey:@"out_of_order"]){
-        [values setObject:[advanced safeObjectForKey:@"out_of_order"] forKey:@"out_of_order"];
-    }
-    if ([advanced safeObjectForKey:@"avg_rtt"]){
-        [values setObject:[advanced safeObjectForKey:@"avg_rtt"] forKey:@"avg_rtt"];
-    }
-    if ([advanced safeObjectForKey:@"max_rtt"]){
-        [values setObject:[advanced safeObjectForKey:@"max_rtt"] forKey:@"max_rtt"];
-    }
-    if ([advanced safeObjectForKey:@"mss"]){
-        [values setObject:[advanced safeObjectForKey:@"mss"] forKey:@"mss"];
-    }
-    if ([advanced safeObjectForKey:@"timeouts"]){
-        [values setObject:[advanced safeObjectForKey:@"timeouts"] forKey:@"timeouts"];
-    }
-    [summary.json setValue:values forKey:self.name];
-    //[self.result save];
 }
 
 @end

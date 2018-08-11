@@ -43,7 +43,6 @@
 -(void)updateCounter;
 -(void)initCommon:(mk::nettests::BaseTest&) test;
 -(void)onEntry:(JsonResult*)jsonResult;
--(void)updateSummary;
 -(void)setResultOfMeasurement:(Result *)result;
 -(void)run;
 @end

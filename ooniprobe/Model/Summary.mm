@@ -13,6 +13,13 @@
     return self;
 }
 
+/*
+ InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
+ ObjectMapper *mapper = [[ObjectMapper alloc] init];
+ mapper.mappingProvider = mappingProvider;
+ JsonResult *json = [mapper objectFromSource:jsonDic toInstanceOfClass:[JsonResult class]];
+*/
+
 - (id)initFromJson:(NSString*)json{
     self = [super init];
     if(self)

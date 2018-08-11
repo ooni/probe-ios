@@ -24,14 +24,6 @@
     [self.measurement save];
 }
 
--(void)updateCounter{
-    Summary *summary = [self.result getSummary];
-    summary.totalMeasurements++;
-    summary.failedMeasurements++;
-    [self.result setSummary];
-    [self.result save];
-}
-
 - (void)setResultOfMeasurement:(Result *)result{
     self.result = result;
     [self.measurement setResult:self.result];
@@ -164,7 +156,6 @@
          json.test_keys.tampering ? @"Yes" : @"No");
          */
         [self onEntry:json];
-        [self updateSummary];
         [self.measurement save];
         [self.result save];
     }
@@ -231,25 +222,8 @@
     if (json.report_id)
         [self.measurement setReportId:json.report_id];
     
-    Summary *summary = [self.result getSummary];
-    NSDictionary *dictionary = [[[ObjectMapper alloc] init] dictionaryFromObject:json.test_keys];
-    if ([self.name isEqualToString:@"web_connectivity"])
-        [summary.json setObject:self.measurement.input forKey:self.name];
-    else
-        [summary.json setObject:dictionary forKey:self.name];
-}
-
-
--(void)updateSummary{
-    Summary *summary = [self.result getSummary];
-    if (self.measurement.state != measurementFailed){
-        summary.failedMeasurements--;
-        if (!self.measurement.anomaly)
-            summary.okMeasurements++;
-        else
-            summary.anomalousMeasurements++;
-        [self.result setSummary];
-    }
+    if (json.test_keys)
+        [self.measurement setTestKeysObj:json.test_keys];
 }
 
 -(void)run {

@@ -44,22 +44,7 @@
             [self.measurement setAnomaly:YES];
     }
  */
-    //[super updateSummary];
-    //[self setTestSummary:keys];
-    //[self.measurement save];
 }
 
--(void)setTestSummary:(NSDictionary*)keys{
-    Summary *summary = [self.result getSummary];
-    NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
-    if ([keys safeObjectForKey:@"sent"]){
-        [values setObject:[keys safeObjectForKey:@"sent"] forKey:@"sent"];
-    }
-    if ([keys safeObjectForKey:@"received"]){
-        [values setObject:[keys safeObjectForKey:@"received"] forKey:@"received"];
-    }
-    [summary.json setValue:values forKey:self.name];
-    //[self.result save];
-}
 
 @end

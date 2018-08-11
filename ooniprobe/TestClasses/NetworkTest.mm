@@ -29,7 +29,7 @@
 }
 
 -(void)updateMeasurementNumber{
-    Summary *summary = [self.result getSummary];
+    TestKeys *testKeys = [self.measurement getTestKeys];
     summary.totalMeasurements--;
     summary.failedMeasurements--;
     [self.result setSummary];

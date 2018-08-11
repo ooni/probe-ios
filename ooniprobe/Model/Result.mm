@@ -3,7 +3,7 @@
 #import "TestUtility.h"
 
 @implementation Result
-@dynamic name, startTime, duration, summary, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, viewed, done;
+@dynamic name, startTime, duration, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, viewed, done;
 
 + (NSDictionary *)defaultValuesForEntity {
     return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"viewed" : [NSNumber numberWithBool:FALSE], @"done" : [NSNumber numberWithBool:FALSE], @"dataUsageDown" : [NSNumber numberWithInt:0], @"dataUsageUp" : [NSNumber numberWithInt:0]};
@@ -62,26 +62,6 @@
     
 - (NSString*)getFormattedDataUsageDown{
     return [NSByteCountFormatter stringFromByteCount:self.dataUsageDown countStyle:NSByteCountFormatterCountStyleFile];
-}
-
-/*
- Three scenarios:
-   I'm running the test, I start the empty summary, I add stuff and save
-   I'm running the test, there is data in the summary, I add stuff and save
-   I have to get the summary of an old test and don't modify it
- */
-- (Summary*)getSummary{
-    if (!self.summaryObj){
-        if (self.summary)
-            self.summaryObj = [[Summary alloc] initFromJson:self.summary];
-        else
-            self.summaryObj = [[Summary alloc] init];
-    }
-    return self.summaryObj;
-}
-
-- (void)setSummary{
-    self.summary = [self.summaryObj getJsonStr];
 }
 
 -(NSString*)getAsn{

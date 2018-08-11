@@ -27,14 +27,14 @@
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Hero.Title", nil)];
             [self.subtitleLabel setText:[NSString stringWithFormat:@"%@\n%@", NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Content.Paragraph.1", nil), NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Content.Paragraph.2", nil)]];
         }
-        Summary *summary = [self.result getSummary];
-        NSArray *sent = [summary getSent];
+        TestKeys *testKeys = [self.measurement getTestKeys];
+        NSArray *sent = testKeys.sent;
         [self setLabelValue:sent :0 :0];
         [self setLabelValue:sent :1 :0];
         [self setLabelValue:sent :2 :0];
         [self setLabelValue:sent :3 :0];
 
-        NSArray *received = [summary getReceived];
+        NSArray *received = testKeys.received;
         [self setLabelValue:received :0 :1];
         [self setLabelValue:received :1 :1];
         [self setLabelValue:received :2 :1];

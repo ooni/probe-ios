@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
-#import "Summary.h"
+#import "JsonResult.h"
 
 @interface Result : SRKObject
 
@@ -15,8 +15,6 @@
 @property NSString *country;
 @property NSString *networkName;
 @property NSString *networkType;
-@property NSString *summary;
-@property Summary *summaryObj;
 @property BOOL viewed;
 @property BOOL done;
 
@@ -33,7 +31,5 @@
 -(void)addDuration:(float)value;
 -(void)save;
 -(SRKResultSet*)measurements;
--(Summary*)getSummary;
--(void)setSummary;
 -(void)deleteObject;
 @end

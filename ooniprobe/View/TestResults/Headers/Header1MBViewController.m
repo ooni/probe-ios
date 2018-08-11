@@ -22,7 +22,7 @@
 }
 
 -(void)reloadMeasurement{
-    Summary *summary = [result getSummary];
+    //TestKeys *testKeys = [self.measurement getTestKeys];
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableAttributedString *middleBoxes = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Test.Middleboxes.Fullname", nil)];
         [middleBoxes addAttribute:NSFontAttributeName
@@ -30,7 +30,7 @@
                             range:NSMakeRange(0, middleBoxes.length)];
         
         NSString *found;
-        if (summary.anomalousMeasurements > 0)
+        /*TODO if (summary.anomalousMeasurements > 0)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Found", nil);
         else if (summary.okMeasurements == summary.totalMeasurements-summary.failedMeasurements)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.NotFound", nil);
@@ -44,6 +44,7 @@
         [attrStr appendAttributedString:middleBoxes];
         [attrStr appendAttributedString:foundStr];
         [self.headerTitle setAttributedText:attrStr];
+         */
     });    
 }
 

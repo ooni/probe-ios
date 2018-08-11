@@ -41,21 +41,7 @@
     self.measurement.input = json.input;
     self.measurement.category = [TestUtility getCategoryForUrl:self.measurement.input];
     [self setBlocking:json.test_keys];
-    //[self setTestSummary:json.test_keys];
-
-    /*
-    if (json.test_keys){
-        //TODO
-        [self setBlocking:json.test_keys];
-        //[self setTestSummary:json.test_keys];
-    }
-    else
-        [self.measurement setState:measurementFailed];
-    */
     [super onEntry:json];
-
-    //[super updateSummary];
-    //[self.measurement save];
 }
 
 - (void)setBlocking:(TestKeys*)testKeys{
@@ -74,17 +60,4 @@
     }
 }
 
--(void)setTestSummary:(NSDictionary*)keys{
-    Summary *summary = [self.result getSummary];
-    NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
-    if ([keys safeObjectForKey:@"blocking"]){
-        [values setObject:[keys safeObjectForKey:@"blocking"] forKey:@"blocking"];
-    }
-    if ([keys safeObjectForKey:@"accessible"]){
-        [values setObject:[keys safeObjectForKey:@"accessible"] forKey:@"accessible"];
-    }
-    //TODO This crashes when input is nil. have to set input when measurement starts
-    [summary.json setValue:values forKey:self.measurement.input];
-    //[self.result save];
-}
-@end
+    @end
