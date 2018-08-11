@@ -53,7 +53,7 @@
 
 }
 -(void)reloadMeasurement{
-    //TestKeys *testKeys = [self.measurement getTestKeys];
+    //TestKeys *testKeys = [self.measurement testKeysObj];
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([result.name isEqualToString:@"websites"]){
             /* TODO count

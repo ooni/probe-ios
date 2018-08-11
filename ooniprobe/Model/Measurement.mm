@@ -3,6 +3,7 @@
 
 @implementation Measurement
 @dynamic name, startTime, duration, ip, asn, asnName, country, networkName, networkType, state, anomaly, input, category, result, testKeys;
+@synthesize testKeysObj = _testKeysObj;
 
 + (NSDictionary *)defaultValuesForEntity {
     //defailt test to failure in case onEntry is never called
@@ -25,31 +26,33 @@
     I'm running the test, there is data in the summary, I add stuff and save
  I have to get the sum(no(nonatomic) natomic) mary of an old test and don't modify it
 */
-- (TestKeys*)getTestKeysObj{
-    if (!self.testKeysObj){
+- (TestKeys*)testKeysObj{
+    if (!_testKeysObj){
         if (self.testKeys){
             NSError *error;
             NSData *data = [self.testKeys dataUsingEncoding:NSUTF8StringEncoding];
             NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             if (error != nil) {
                 NSLog(@"Error parsing JSON: %@", error);
-                return nil;
+                _testKeysObj = [[TestKeys alloc] init];
             }
-            self.testKeysObj = [TestKeys objectFromDictionary:jsonDic];
+            /*
+             InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
+             ObjectMapper *mapper = [[ObjectMapper alloc] init];
+             mapper.mappingProvider = mappingProvider;
+             JsonResult *json = [mapper objectFromSource:jsonDic toInstanceOfClass:[JsonResult class]];
+             */
+            _testKeysObj = [TestKeys objectFromDictionary:jsonDic];
         }
         else
-            self.testKeysObj = [[TestKeys alloc] init];
+            _testKeysObj = [[TestKeys alloc] init];
     }
-    return self.testKeysObj;
+    return _testKeysObj;
 }
 
 - (void)setTestKeysObj:(TestKeys *)testKeysObj{
-    self.testKeysObj = testKeysObj;
+    _testKeysObj = testKeysObj;
     self.testKeys = [self.testKeysObj getJsonStr];
-}
-
-- (TestKeys*)getTestKeysObj{
-    return self.testKeysObj;
 }
 
 - (NSString*)getFile:(NSString*)ext{

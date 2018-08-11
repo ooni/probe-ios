@@ -9,7 +9,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    TestKeys *testKeys = [self.measurement getTestKeys];
+    TestKeys *testKeys = [self.measurement testKeysObj];
     NSString *rendering = [GRMustacheTemplate renderObject:@{ @"VideoQuality": [testKeys getVideoQuality:NO] } fromString:NSLocalizedString(@"TestResults.Details.Performance.Dash.VideoWithoutBuffering", nil) error:NULL];
     [self.titleLabel setText:[testKeys getVideoQuality:YES]];
     [self.subtitleLabel setText:rendering];

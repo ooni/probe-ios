@@ -90,7 +90,7 @@
 - (NSString*)getPlayoutDelay;
     
 //HIRL
-- (NSArray*)getSent;
-- (NSArray*)getReceived;
+//- (NSArray*)getSent;
+//- (NSArray*)getReceived;
 @end
 

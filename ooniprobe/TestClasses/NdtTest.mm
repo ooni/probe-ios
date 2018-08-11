@@ -57,7 +57,7 @@
 
 //TODO
 -(void)setTestSummary:(NSDictionary*)keys{
-    TestKeys *testKeys = [self.measurement getTestKeys];
+    //TestKeys *testKeys = [self.measurement testKeysObj];
     NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
     if ([keys safeObjectForKey:@"server_address"]){
         NSString *server_address = [keys safeObjectForKey:@"server_address"];

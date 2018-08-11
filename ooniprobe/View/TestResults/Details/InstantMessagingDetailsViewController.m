@@ -9,7 +9,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    TestKeys *testKeys = [self.measurement getTestKeys];
+    TestKeys *testKeys = [self.measurement testKeysObj];
 
     if (!super.measurement.anomaly){
         [self.statusImage setImage:[UIImage imageNamed:@"tick"]];

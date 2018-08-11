@@ -1,4 +1,5 @@
 #import "TestKeys.h"
+#import "JsonResult.h"
 
 @implementation TestKeys
 
@@ -244,7 +245,7 @@
     
 - (NSString*)getOutOfOrder{
     if (self.advanced.out_of_order != nil){
-        float ooo = [self.advanced.out_of_order != nil floatValue]*100;
+        float ooo = [self.advanced.out_of_order floatValue]*100;
         return [NSString stringWithFormat:@"%.1f", ooo];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);

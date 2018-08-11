@@ -27,7 +27,7 @@
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Hero.Title", nil)];
             [self.subtitleLabel setText:[NSString stringWithFormat:@"%@\n%@", NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Content.Paragraph.1", nil), NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Content.Paragraph.2", nil)]];
         }
-        TestKeys *testKeys = [self.measurement getTestKeys];
+        TestKeys *testKeys = [self.measurement testKeysObj];
         NSArray *sent = testKeys.sent;
         [self setLabelValue:sent :0 :0];
         [self setLabelValue:sent :1 :0];

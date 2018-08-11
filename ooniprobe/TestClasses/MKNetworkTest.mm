@@ -59,7 +59,6 @@
         [self sendLog:[NSString stringWithFormat:@"%s", s]];
     });
     test.on_begin([self]() {
-        [self updateCounter];
         [self updateProgress:0];
     });
     test.on_progress([self](double prog, const char *s) {
@@ -166,7 +165,6 @@
         self.entryIdx++;
         if (self.entryIdx < [self.inputs count]){
             [self createMeasurementObject];
-            [self updateCounter];
             //Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
             //self.measurement.input = currentUrl.url;
             //self.measurement.category = currentUrl.categoryCode;

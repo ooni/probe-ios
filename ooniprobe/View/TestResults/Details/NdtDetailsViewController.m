@@ -8,7 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    TestKeys *testKeys = [self.measurement getTestKeys];
+    TestKeys *testKeys = [self.measurement testKeysObj];
     [self.downloadTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Download", nil)];
     [self.downloadValueLabel setText:[testKeys getDownload]];
     [self.downloadUnitLabel setText:[testKeys getUploadUnit]];

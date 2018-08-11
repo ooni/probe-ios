@@ -21,7 +21,7 @@
         [self.learnCircumventButton setHidden:YES];
     }
     else {
-        TestKeys *testKeys = [self.measurement getTestKeys];
+        TestKeys *testKeys = [self.measurement testKeysObj];
         [self.statusImage setImage:[UIImage imageNamed:@"cross"]];
         [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_red7 alpha:1.0f]];

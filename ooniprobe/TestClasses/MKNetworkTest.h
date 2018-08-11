@@ -40,7 +40,6 @@
 @property int entryIdx;
 
 -(void)createMeasurementObject;
--(void)updateCounter;
 -(void)initCommon:(mk::nettests::BaseTest&) test;
 -(void)onEntry:(JsonResult*)jsonResult;
 -(void)setResultOfMeasurement:(Result *)result;
