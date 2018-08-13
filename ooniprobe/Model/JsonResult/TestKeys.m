@@ -282,24 +282,24 @@
 #pragma mark Dash
     
 - (NSString*)getMedianBitrate{
-    if (self.median_bitrate != nil){
-        float mb = [self.median_bitrate floatValue];
+    if (self.simple.median_bitrate != nil){
+        float mb = [self.simple.median_bitrate floatValue];
         return [self setFractionalDigits:[self getScaledValue:mb]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
     
 -(NSString*)getMedianBitrateUnit{
-    if (self.median_bitrate != nil){
-        float mb = [self.median_bitrate floatValue];
+    if (self.simple.median_bitrate != nil){
+        float mb = [self.simple.median_bitrate floatValue];
         return [self getUnit:mb];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
     
 - (NSString*)getVideoQuality:(BOOL)extended{
-    if (self.median_bitrate != nil){
-        return [self minimumBitrateForVideo:[self.median_bitrate floatValue] extended:extended];
+    if (self.simple.median_bitrate != nil){
+        return [self minimumBitrateForVideo:[self.simple.median_bitrate floatValue] extended:extended];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -322,8 +322,8 @@
 }
     
 - (NSString*)getPlayoutDelay{
-    if (self.min_playout_delay != nil){
-        return [NSString stringWithFormat:@"%.2f", [self.min_playout_delay floatValue]];
+    if (self.simple.min_playout_delay != nil){
+        return [NSString stringWithFormat:@"%.2f", [self.simple.min_playout_delay floatValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
