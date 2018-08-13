@@ -14,26 +14,6 @@
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.tableFooterView = [UIView new];
-
-    /*
-    for (int i = 0; i< 25; i++){
-        int lowerBound = 0;
-        int upperBound = 31557600;
-        int rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
-        Result *r = [Result new];
-        [r setStartTime:[NSDate dateWithTimeIntervalSinceNow:rndValue]];
-        [r setName:@"instant_messaging"];
-        [r commit];
-    }
-     */
-  /*
-    SRKResultSet* results = [[[[[Person query]
-                                where:@"age = 35"]
-                               limit:99]
-                              orderBy:@"name"]
-                             fetch];
-   [[[Person query] where:@"department.name = 'Test Department'"] fetch]
-*/
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -145,7 +145,7 @@
         }];
         //[mappingProvider mapFromDictionaryKey:@"simple" toPropertyKey:@"simple" forClass:[TestKeys class]];
         //[mappingProvider mapFromDictionaryKey:@"advanced" toPropertyKey:@"advanced" forClass:[TestKeys class]];
-        [mappingProvider mappingInfoForClass:[Simple class] andDictionaryKey:@"simple"];
+        //[mappingProvider mappingInfoForClass:[Simple class] andDictionaryKey:@"simple"];
         [mappingProvider mapFromDictionaryKey:@"tampering" toPropertyKey:@"tampering" forClass:[TestKeys class] withTransformer:^id(id currentNode, id parentNode) {
             return [[Tampering alloc] initWithValue:currentNode];
         }];
