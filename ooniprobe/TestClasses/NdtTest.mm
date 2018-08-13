@@ -23,76 +23,32 @@
         test.set_option("server", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server"] UTF8String]);
         test.set_option("port", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server_port"] UTF8String]);
     }
-    test.on_entry([self](std::string s) {
-        [self onEntry:s.c_str()];
-    });
     [super initCommon:test];
 }
 
--(void)onEntry:(const char*)str {
-    NSDictionary *json = [super onEntryCommon:str];
-    if (json){
-        /*
-         onEntry method for ndt test, check "failure" key
-         !=null => failed
-         */
-        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
-        if ([keys objectForKey:@"failure"] != [NSNull null])
-            [self.measurement setState:measurementFailed];
-        [super updateSummary];
-        [self setTestSummary:keys];
-        [self.measurement save];
-    }
+-(void)onEntry:(JsonResult*)json {
+    /*
+     onEntry method for ndt test, check "failure" key
+     !=null => failed
+     */
+    self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
+    [self calculateServerName:json];
+    [super onEntry:json];
 }
 
--(void)setTestSummary:(NSDictionary*)keys{
-    Summary *summary = [self.result getSummary];
-    NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
-    if ([keys safeObjectForKey:@"server_address"]){
-        NSString *server_address = [keys safeObjectForKey:@"server_address"];
-        [values setObject:server_address forKey:@"server_address"];
+-(void)calculateServerName:(JsonResult*)json{
+    if (json.test_keys.server_address != NULL){
+        NSString *server_address = json.test_keys.server_address;
         NSArray *arr = [server_address componentsSeparatedByString:@"."];
         if ([arr count] > 3){
             NSString *server_name = [arr objectAtIndex:3];
-            [values setObject:server_name forKey:@"server_name"];
+            json.test_keys.server_name = server_name;
             NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Airports" ofType:@"plist"];
             NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
             if ([dict objectForKey:[server_name substringToIndex:3]])
-                [values setObject:[dict objectForKey:[server_name substringToIndex:3]] forKey:@"server_country"];
+                json.test_keys.server_country = [dict objectForKey:[server_name substringToIndex:3]];
         }
     }
-
-    NSDictionary *simple = [keys safeObjectForKey:@"simple"];
-    if ([simple safeObjectForKey:@"upload"]){
-        [values setObject:[simple safeObjectForKey:@"upload"] forKey:@"upload"];
-    }
-    if ([simple safeObjectForKey:@"download"]){
-        [values setObject:[simple safeObjectForKey:@"download"] forKey:@"download"];
-    }
-    if ([simple safeObjectForKey:@"ping"]){
-        [values setObject:[simple safeObjectForKey:@"ping"] forKey:@"ping"];
-    }
-    NSDictionary *advanced = [keys safeObjectForKey:@"advanced"];
-    if ([advanced safeObjectForKey:@"packet_loss"]){
-        [values setObject:[advanced safeObjectForKey:@"packet_loss"] forKey:@"packet_loss"];
-    }
-    if ([advanced safeObjectForKey:@"out_of_order"]){
-        [values setObject:[advanced safeObjectForKey:@"out_of_order"] forKey:@"out_of_order"];
-    }
-    if ([advanced safeObjectForKey:@"avg_rtt"]){
-        [values setObject:[advanced safeObjectForKey:@"avg_rtt"] forKey:@"avg_rtt"];
-    }
-    if ([advanced safeObjectForKey:@"max_rtt"]){
-        [values setObject:[advanced safeObjectForKey:@"max_rtt"] forKey:@"max_rtt"];
-    }
-    if ([advanced safeObjectForKey:@"mss"]){
-        [values setObject:[advanced safeObjectForKey:@"mss"] forKey:@"mss"];
-    }
-    if ([advanced safeObjectForKey:@"timeouts"]){
-        [values setObject:[advanced safeObjectForKey:@"timeouts"] forKey:@"timeouts"];
-    }
-    [summary.json setValue:values forKey:self.name];
-    [self.result save];
 }
 
 @end

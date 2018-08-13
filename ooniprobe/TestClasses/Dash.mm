@@ -22,40 +22,16 @@
         test.set_option("server", [[[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server"] UTF8String]);
         test.set_option("port", [[[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server_port"] UTF8String]);
     }
-    test.on_entry([self](std::string s) {
-        [self onEntry:s.c_str()];
-    });
     [super initCommon:test];
 }
 
--(void)onEntry:(const char*)str {
-    NSDictionary *json = [super onEntryCommon:str];
-    if (json){
-        /*
-         onEntry method for dash test, check "failure" key
-         !=null => failed
-         */
-        NSDictionary *keys = [json safeObjectForKey:@"test_keys"];
-        if ([keys objectForKey:@"failure"] != [NSNull null])
-            [self.measurement setState:measurementFailed];
-        [super updateSummary];
-        [self setTestSummary:keys];
-        [self.measurement save];
-    }
-}
-
--(void)setTestSummary:(NSDictionary*)keys{
-    Summary *summary = [self.result getSummary];
-    NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
-    NSDictionary *simple = [keys safeObjectForKey:@"simple"];
-    if ([simple safeObjectForKey:@"median_bitrate"]){
-        [values setObject:[simple safeObjectForKey:@"median_bitrate"] forKey:@"median_bitrate"];
-    }
-    if ([simple safeObjectForKey:@"min_playout_delay"]){
-        [values setObject:[simple safeObjectForKey:@"min_playout_delay"] forKey:@"min_playout_delay"];
-    }
-    [summary.json setValue:values forKey:self.name];
-    [self.result save];
+-(void)onEntry:(JsonResult*)json {
+    /*
+     onEntry method for dash test, check "failure" key
+     !=null => failed
+     */
+    self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
+    [super onEntry:json];
 }
 
 @end

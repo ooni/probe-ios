@@ -45,7 +45,6 @@
 		ED70D5031FE8021400759463 /* Measurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5021FE8021400759463 /* Measurement.mm */; };
 		ED70D5061FE8022300759463 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5051FE8022300759463 /* Result.mm */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
-		ED78B6382042A8F800C43E5C /* Summary.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6372042A8F800C43E5C /* Summary.mm */; };
 		ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6392042A92200C43E5C /* MKNetworkTest.mm */; };
 		ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B63C2042A92200C43E5C /* NetworkTest.mm */; };
 		ED997D0A207BB7C400C97B1F /* LocalizationUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.mm */; };
@@ -65,6 +64,8 @@
 		EDA9CC96209B53B80062507F /* Dash.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC95209B53B80062507F /* Dash.mm */; };
 		EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC98209B53C70062507F /* Whatsapp.mm */; };
 		EDA9CC9C209B53D50062507F /* Telegram.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC9B209B53D50062507F /* Telegram.mm */; };
+		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
+		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
@@ -98,6 +99,9 @@
 		EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */; };
 		EDDB0B7E2004911300EFD9C8 /* WebsiteCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */; };
 		EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */; };
+		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
+		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
+		EDF20736212173B9005B06D7 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20734212173B9005B06D7 /* Advanced.m */; };
 		EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDFE07391F37526A00960AF2 /* RunTestViewController.mm */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
@@ -178,8 +182,6 @@
 		ED70D5051FE8022300759463 /* Result.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Result.mm; path = Model/Result.mm; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
-		ED78B6362042A8F800C43E5C /* Summary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Summary.h; path = Model/Summary.h; sourceTree = "<group>"; };
-		ED78B6372042A8F800C43E5C /* Summary.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Summary.mm; path = Model/Summary.mm; sourceTree = "<group>"; };
 		ED78B6392042A92200C43E5C /* MKNetworkTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKNetworkTest.mm; path = TestClasses/MKNetworkTest.mm; sourceTree = "<group>"; };
 		ED78B63A2042A92200C43E5C /* NetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkTest.h; path = TestClasses/NetworkTest.h; sourceTree = "<group>"; };
 		ED78B63B2042A92200C43E5C /* MKNetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKNetworkTest.h; path = TestClasses/MKNetworkTest.h; sourceTree = "<group>"; };
@@ -219,6 +221,11 @@
 		EDA9CC98209B53C70062507F /* Whatsapp.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Whatsapp.mm; path = TestClasses/Whatsapp.mm; sourceTree = "<group>"; };
 		EDA9CC9A209B53D50062507F /* Telegram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Telegram.h; path = TestClasses/Telegram.h; sourceTree = "<group>"; };
 		EDA9CC9B209B53D50062507F /* Telegram.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Telegram.mm; path = TestClasses/Telegram.mm; sourceTree = "<group>"; };
+		EDB252A220FA46DA00B4EDE4 /* TestKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestKeys.h; sourceTree = "<group>"; };
+		EDB252A320FA46DA00B4EDE4 /* JsonResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonResult.h; sourceTree = "<group>"; };
+		EDB252A520FA46DA00B4EDE4 /* TestKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestKeys.m; sourceTree = "<group>"; };
+		EDB252A820FA4D4F00B4EDE4 /* Tampering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tampering.h; sourceTree = "<group>"; };
+		EDB252A920FA4D4F00B4EDE4 /* Tampering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tampering.m; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hexadecimal.h"; sourceTree = "<group>"; };
 		EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hexadecimal.m"; sourceTree = "<group>"; };
@@ -274,6 +281,11 @@
 		EDDB0B7C2004911300EFD9C8 /* WebsiteCategoryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebsiteCategoryTableViewController.h; path = Settings/WebsiteCategoryTableViewController.h; sourceTree = "<group>"; };
 		EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WebsiteCategoryTableViewController.m; path = Settings/WebsiteCategoryTableViewController.m; sourceTree = "<group>"; };
 		EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = middle_boxes.json; sourceTree = "<group>"; };
+		EDF2072B2120EF12005B06D7 /* Simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
+		EDF2072E2120EF29005B06D7 /* Advanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Advanced.h; sourceTree = "<group>"; };
+		EDF2073121217340005B06D7 /* JsonResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonResult.m; sourceTree = "<group>"; };
+		EDF20733212173B8005B06D7 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
+		EDF20734212173B9005B06D7 /* Advanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advanced.m; sourceTree = "<group>"; };
 		EDFE07381F37526A00960AF2 /* RunTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTestViewController.h; sourceTree = "<group>"; };
 		EDFE07391F37526A00960AF2 /* RunTestViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RunTestViewController.mm; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
@@ -394,12 +406,11 @@
 		ED25280F1CEA34DA0073A29B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EDB252A120FA46DA00B4EDE4 /* JsonResult */,
 				ED70D5041FE8022300759463 /* Result.h */,
 				ED70D5051FE8022300759463 /* Result.mm */,
 				ED70D5011FE8021400759463 /* Measurement.h */,
 				ED70D5021FE8021400759463 /* Measurement.mm */,
-				ED78B6362042A8F800C43E5C /* Summary.h */,
-				ED78B6372042A8F800C43E5C /* Summary.mm */,
 				ED3AEABC205A625100CFE360 /* Url.h */,
 				ED3AEABD205A625100CFE360 /* Url.mm */,
 			);
@@ -475,6 +486,24 @@
 				ED209669209791C40028BEA3 /* PaddingLabel.m */,
 			);
 			path = GUI;
+			sourceTree = "<group>";
+		};
+		EDB252A120FA46DA00B4EDE4 /* JsonResult */ = {
+			isa = PBXGroup;
+			children = (
+				EDB252A320FA46DA00B4EDE4 /* JsonResult.h */,
+				EDF2073121217340005B06D7 /* JsonResult.m */,
+				EDB252A220FA46DA00B4EDE4 /* TestKeys.h */,
+				EDB252A520FA46DA00B4EDE4 /* TestKeys.m */,
+				EDB252A820FA4D4F00B4EDE4 /* Tampering.h */,
+				EDB252A920FA4D4F00B4EDE4 /* Tampering.m */,
+				EDF2072B2120EF12005B06D7 /* Simple.h */,
+				EDF20733212173B8005B06D7 /* Simple.m */,
+				EDF2072E2120EF29005B06D7 /* Advanced.h */,
+				EDF20734212173B9005B06D7 /* Advanced.m */,
+			);
+			name = JsonResult;
+			path = Model/JsonResult;
 			sourceTree = "<group>";
 		};
 		EDB6F9B62023524500BDCB0B /* TestResults */ = {
@@ -860,6 +889,7 @@
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
+				EDF20736212173B9005B06D7 /* Advanced.m in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
 				ED0D8D7020186742003DDF23 /* TestOverviewViewController.mm in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
@@ -892,6 +922,7 @@
 				EDA9CC9C209B53D50062507F /* Telegram.mm in Sources */,
 				ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
+				EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
@@ -916,11 +947,13 @@
 				ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				EDDB0B731FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
-				ED78B6382042A8F800C43E5C /* Summary.mm in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.mm in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
+				EDF2073221217340005B06D7 /* JsonResult.m in Sources */,
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
+				EDF20735212173B9005B06D7 /* Simple.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
+				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

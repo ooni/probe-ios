@@ -53,37 +53,38 @@
 
 }
 -(void)reloadMeasurement{
-    Summary *summary = [self.result getSummary];
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([result.name isEqualToString:@"websites"]){
-            [self.label1Top setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.Websites.Hero.Tested"]];
-            [self.label2Top setText:[LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Summary.Websites.Hero.Blocked"]];
-            [self.label3Top setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.Websites.Hero.Reachable"]];
-            [self.label1Central setText:[NSString stringWithFormat:@"%d", summary.totalMeasurements]];
-            [self.label2Central setText:[NSString stringWithFormat:@"%d", summary.anomalousMeasurements]];
-            [self.label3Central setText:[NSString stringWithFormat:@"%d", summary.okMeasurements]];
-            [self.label1Bottom setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
-            [self.label2Bottom setText:[LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
-            [self.label3Bottom setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
+            [self.label1Top setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.Websites.Hero.Tested"]];
+            [self.label2Top setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.Websites.Hero.Blocked"]];
+            [self.label3Top setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.Websites.Hero.Reachable"]];
+            [self.label1Central setText:[NSString stringWithFormat:@"%ld", result.totalMeasurements]];
+            [self.label2Central setText:[NSString stringWithFormat:@"%ld", result.anomalousMeasurements]];
+            [self.label3Central setText:[NSString stringWithFormat:@"%ld", result.okMeasurements]];
+            [self.label1Bottom setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
+            [self.label2Bottom setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
+            [self.label3Bottom setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
         }
         else if ([result.name isEqualToString:@"instant_messaging"]){
-            [self.label1Top setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Tested"]];
-            [self.label2Top setText:[LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Blocked"]];
-            [self.label3Top setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]];
-            [self.label1Central setText:[NSString stringWithFormat:@"%d", summary.totalMeasurements]];
-            [self.label2Central setText:[NSString stringWithFormat:@"%d", summary.anomalousMeasurements]];
-            [self.label3Central setText:[NSString stringWithFormat:@"%d", summary.okMeasurements]];
-            [self.label1Bottom setText:[LocalizationUtility getSingularPlural:summary.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
-            [self.label2Bottom setText:[LocalizationUtility getSingularPlural:summary.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
-            [self.label3Bottom setText:[LocalizationUtility getSingularPlural:summary.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
+            [self.label1Top setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Tested"]];
+            [self.label2Top setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Blocked"]];
+            [self.label3Top setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]];
+            [self.label1Central setText:[NSString stringWithFormat:@"%ld", result.totalMeasurements]];
+            [self.label2Central setText:[NSString stringWithFormat:@"%ld", result.anomalousMeasurements]];
+            [self.label3Central setText:[NSString stringWithFormat:@"%ld", result.okMeasurements]];
+            [self.label1Bottom setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
+            [self.label2Bottom setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
+            [self.label3Bottom setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
         }
         else if ([result.name isEqualToString:@"performance"]){
-            [self.label1Central setText:[summary getVideoQuality:NO]];
-            [self.label2Central setText:[summary getUpload]];
-            [self.label2Bottom setText:[summary getUploadUnit]];
-            [self.label3Central setText:[summary getDownload]];
-            [self.label3Bottom setText:[summary getDownloadUnit]];
-            [self.label4Central setText:[summary getPing]];
+            TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
+            TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
+            [self.label1Central setText:[testKeysDash getVideoQuality:NO]];
+            [self.label2Central setText:[testKeysNdt getUpload]];
+            [self.label2Bottom setText:[testKeysNdt getUploadUnit]];
+            [self.label3Central setText:[testKeysNdt getDownload]];
+            [self.label3Bottom setText:[testKeysNdt getDownloadUnit]];
+            [self.label4Central setText:[testKeysNdt getPing]];
         }
     });
 }

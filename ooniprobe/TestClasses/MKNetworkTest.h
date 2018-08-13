@@ -16,6 +16,7 @@
 #import "Result.h"
 #import "Url.h"
 #import "TestUtility.h"
+#import "JsonResult.h"
 
 @class MKNetworkTest;
 
@@ -39,10 +40,8 @@
 @property int entryIdx;
 
 -(void)createMeasurementObject;
--(void)updateCounter;
 -(void)initCommon:(mk::nettests::BaseTest&) test;
--(NSDictionary*)onEntryCommon:(const char*)str;
--(void)updateSummary;
+-(void)onEntry:(JsonResult*)jsonResult;
 -(void)setResultOfMeasurement:(Result *)result;
 -(void)run;
 @end

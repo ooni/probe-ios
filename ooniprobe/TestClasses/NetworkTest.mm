@@ -22,18 +22,9 @@
         }
         else
             [self addTest:existingMeasurement.name :nil];
-        [self updateMeasurementNumber];
         [existingMeasurement remove];
     }
     return self;
-}
-
--(void)updateMeasurementNumber{
-    Summary *summary = [self.result getSummary];
-    summary.totalMeasurements--;
-    summary.failedMeasurements--;
-    [self.result setSummary];
-    [self.result save];
 }
 
 -(void)addTest:(NSString*)testName :(NSArray*)urls{
@@ -105,7 +96,6 @@
             }
         }
     }
-    [self.result setSummary];
     [self.result save];
     if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
         [self showNotification];

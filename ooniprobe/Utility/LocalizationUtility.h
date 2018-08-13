@@ -7,5 +7,5 @@
 + (NSString*)getLongDescriptionForTest:(NSString*)testName;
 + (NSString*)getFilterNameForTest:(NSString*)testName;
 + (NSString*)getNameForSetting:(NSString*)settingName;
-+ (NSString*)getSingularPlural:(int)value :(NSString*)locString;
++ (NSString*)getSingularPlural:(long)value :(NSString*)locString;
 @end

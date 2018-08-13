@@ -44,14 +44,15 @@
 }
 
 -(void)reloadLastMeasurement{
-    SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"name = '%@'", testName]] orderByDescending:@"startTime"] fetch];
-    
-    if ([results count] > 0){
-        NSString *ago = [[[results objectAtIndex:0] startTime] timeAgoSinceNow];
-        [self.lastRunLabel setText:ago];
-    }
-    else
-        [self.lastRunLabel setText:NSLocalizedString(@"Dashboard.Overview.LastRun.Never", nil)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"name = '%@'", testName]] orderByDescending:@"startTime"] fetch];
+        if ([results count] > 0){
+            NSString *ago = [[[results objectAtIndex:0] startTime] timeAgoSinceNow];
+            [self.lastRunLabel setText:ago];
+        }
+        else
+            [self.lastRunLabel setText:NSLocalizedString(@"Dashboard.Overview.LastRun.Never", nil)];
+    });
 }
 
 -(NSInteger)daysBetweenTwoDates:(NSDate*)testDate{

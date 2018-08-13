@@ -8,38 +8,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Summary *summary = [self.result getSummary];
+    TestKeys *testKeys = [self.measurement testKeysObj];
     [self.downloadTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Download", nil)];
-    [self.downloadValueLabel setText:[summary getDownload]];
-    [self.downloadUnitLabel setText:[summary getUploadUnit]];
+    [self.downloadValueLabel setText:[testKeys getDownload]];
+    [self.downloadUnitLabel setText:[testKeys getUploadUnit]];
 
     [self.uploadTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Upload", nil)];
-    [self.uploadValueLabel setText:[summary getUpload]];
-    [self.uploadUnitLabel setText:[summary getUploadUnit]];
+    [self.uploadValueLabel setText:[testKeys getUpload]];
+    [self.uploadUnitLabel setText:[testKeys getUploadUnit]];
 
     [self.pingTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Ping", nil)];
-    [self.pingValueLabel setText:[summary getPing]];
+    [self.pingValueLabel setText:[testKeys getPing]];
 
     [self.serverTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Server", nil)];
-    [self.serverValueLabel setText:[summary getServer]];
+    [self.serverValueLabel setText:[testKeys getServer]];
     
     [self.packetlossTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.PacketLoss", nil)];
-    [self.packetlossValueLabel setText:[summary getPacketLoss]];
+    [self.packetlossValueLabel setText:[testKeys getPacketLoss]];
 
     [self.outoforderTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.OutOfOrder", nil)];
-    [self.outoforderValueLabel setText:[summary getOutOfOrder]];
+    [self.outoforderValueLabel setText:[testKeys getOutOfOrder]];
 
     [self.averagepingTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.AveragePing", nil)];
-    [self.averagepingValueLabel setText:[summary getAveragePing]];
+    [self.averagepingValueLabel setText:[testKeys getAveragePing]];
 
     [self.maxpingTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.MaxPing", nil)];
-    [self.maxpingValueLabel setText:[summary getMaxPing]];
+    [self.maxpingValueLabel setText:[testKeys getMaxPing]];
 
     [self.mssTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.MSS", nil)];
-    [self.mssValueLabel setText:[summary getMSS]];
+    [self.mssValueLabel setText:[testKeys getMSS]];
 
     [self.timeoutsTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Timeouts", nil)];
-    [self.timeoutsValueLabel setText:[summary getTimeouts]];
+    [self.timeoutsValueLabel setText:[testKeys getTimeouts]];
 }
 
 @end

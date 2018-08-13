@@ -24,14 +24,6 @@
     [self.measurement save];
 }
 
--(void)updateCounter{
-    Summary *summary = [self.result getSummary];
-    summary.totalMeasurements++;
-    summary.failedMeasurements++;
-    [self.result setSummary];
-    [self.result save];
-}
-
 - (void)setResultOfMeasurement:(Result *)result{
     self.result = result;
     [self.measurement setResult:self.result];
@@ -67,7 +59,6 @@
         [self sendLog:[NSString stringWithFormat:@"%s", s]];
     });
     test.on_begin([self]() {
-        [self updateCounter];
         [self updateProgress:0];
     });
     test.on_progress([self](double prog, const char *s) {
@@ -76,6 +67,9 @@
     test.on_overall_data_usage([self](mk::DataUsage d) {
         [self.result setDataUsageDown:self.result.dataUsageDown+(long)d.down];
         [self.result setDataUsageUp:self.result.dataUsageUp+(long)d.up];
+    });
+    test.on_entry([self](std::string s) {
+        [self onEntryCreate:s.c_str()];
     });
     test.start([self]() {
         [self testEnded];
@@ -103,82 +97,133 @@
     });
 }
 
--(NSDictionary*)onEntryCommon:(const char*)str{
+-(void)onEntryCreate:(const char*)str {
     if (str != nil) {
         NSError *error;
         NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         if (error != nil) {
             NSLog(@"Error parsing JSON: %@", error);
             [self.measurement setState:measurementFailed];
-            return nil;
+            [self.measurement save];
+            //[self.result save];
+            return;
         }
-        if ([json safeObjectForKey:@"test_start_time"])
-            [self.result setStartTimeWithUTCstr:[json safeObjectForKey:@"test_start_time"]];
-        if ([json safeObjectForKey:@"measurement_start_time"])
-            [self.measurement setStartTimeWithUTCstr:[json safeObjectForKey:@"measurement_start_time"]];
-        if ([json safeObjectForKey:@"test_runtime"]){
-            [self.measurement setDuration:[[json safeObjectForKey:@"test_runtime"] floatValue]];
-            [self.result addDuration:[[json safeObjectForKey:@"test_runtime"] floatValue]];
+        if ([self.name isEqualToString:@"web_connectivity"]){
+            NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+            [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
         }
-        //if the user doesn't want to share asn leave null on the db object
-        if ([json safeObjectForKey:@"probe_asn"] && [SettingsUtility getSettingWithName:@"include_asn"]){
-            //TODO-SBS asn name
-            [self.measurement setAsn:[json objectForKey:@"probe_asn"]];
-            [self.measurement setAsnName:@"Vodafone"];
-            if (self.result.asn == nil){
-                //TODO-SBS asn name
-                [self.result setAsn:[json objectForKey:@"probe_asn"]];
-                [self.result setAsnName:@"Vodafone"];
-                [self.result save];
-            }
-            else {
-                if (![self.result.asn isEqualToString:self.measurement.asn])
-                    NSLog(@"Something's wrong");
-            }
-        }
-        if ([json safeObjectForKey:@"probe_cc"] && [SettingsUtility getSettingWithName:@"include_cc"]){
-            [self.measurement setCountry:[json objectForKey:@"probe_cc"]];
-            if (self.result.country == nil){
-                [self.result setCountry:[json objectForKey:@"probe_cc"]];
-                [self.result save];
-            }
-            else {
-                if (![self.result.country isEqualToString:self.measurement.country])
-                    NSLog(@"Something's wrong");
-            }
-        }
-        if ([json safeObjectForKey:@"probe_ip"] && [SettingsUtility getSettingWithName:@"include_ip"]){
-            [self.measurement setIp:[json objectForKey:@"probe_ip"]];
-            if (self.result.ip == nil){
-                [self.result setIp:[json objectForKey:@"probe_ip"]];
-                [self.result save];
-            }
-            else {
-                if (![self.result.ip isEqualToString:self.measurement.ip])
-                    NSLog(@"Something's wrong");
-            }
-        }
-        if ([json safeObjectForKey:@"report_id"])
-            [self.measurement setReportId:[json objectForKey:@"report_id"]];
+
+        InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
+        ObjectMapper *mapper = [[ObjectMapper alloc] init];
+        mapper.mappingProvider = mappingProvider;
         
-        return json;
-    }
-    return nil;
-}
-
-
--(void)updateSummary{
-    Summary *summary = [self.result getSummary];
-    if (self.measurement.state != measurementFailed){
-        summary.failedMeasurements--;
-        if (!self.measurement.anomaly)
-            summary.okMeasurements++;
-        else
-            summary.anomalousMeasurements++;
-        [self.result setSummary];
+        //JsonResult *json = [JsonResult objectFromDictionary:json];
+        
+        /*
+         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
+         //[mappingProvider setDefaultDateFormatter:dateFormatter];
+         //[mappingProvider setDateFormatter:dateFormatter forPropertyKey:@"test_start_time" andClass:[JsonResult class]];
+         //[mappingProvider setDateFormatter:dateFormatter forPropertyKey:@"measurement_start_time" andClass:[JsonResult class]];
+         //[mappingProvider setDateFormatter:dateFormatter forProperty:@"test_start_time" andClass:[JsonResult class]];
+         //[mappingProvider setDateFormatter:dateFormatter forProperty:@"measurement_start_time" andClass:[JsonResult class]];
+         */
+        
+        //Hack to add UTC format to dates
+        [mappingProvider mapFromDictionaryKey:@"measurement_start_time" toPropertyKey:@"measurement_start_time" forClass:[JsonResult class] withTransformer:^id(id currentNode, id parentNode) {
+            NSString *currentDateStr = [NSString stringWithFormat:@"%@Z", (NSString*)currentNode];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
+            return [dateFormatter dateFromString:currentDateStr];
+        }];
+        [mappingProvider mapFromDictionaryKey:@"test_start_time" toPropertyKey:@"test_start_time" forClass:[JsonResult class] withTransformer:^id(id currentNode, id parentNode) {
+            NSString *currentDateStr = [NSString stringWithFormat:@"%@Z", (NSString*)currentNode];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
+            return [dateFormatter dateFromString:currentDateStr];
+        }];
+        //[mappingProvider mapFromDictionaryKey:@"simple" toPropertyKey:@"simple" forClass:[TestKeys class]];
+        //[mappingProvider mapFromDictionaryKey:@"advanced" toPropertyKey:@"advanced" forClass:[TestKeys class]];
+        //[mappingProvider mappingInfoForClass:[Simple class] andDictionaryKey:@"simple"];
+        [mappingProvider mapFromDictionaryKey:@"tampering" toPropertyKey:@"tampering" forClass:[TestKeys class] withTransformer:^id(id currentNode, id parentNode) {
+            return [[Tampering alloc] initWithValue:currentNode];
+        }];
+        JsonResult *json = [mapper objectFromSource:jsonDic toInstanceOfClass:[JsonResult class]];
+        /*
+         NSLog(@"probe_cc:%@   test_runtime:%@  tampering:%@",
+         json.probe_cc,
+         json.test_runtime,
+         json.test_keys.tampering ? @"Yes" : @"No");
+         */
+        [self onEntry:json];
+        [self.measurement save];
         [self.result save];
     }
+    if ([self.name isEqualToString:@"web_connectivity"]){
+        //create new measurement entry if web_connectivity test
+        //TODO-SBS this case doesn not handle the timeout
+        //move creation of new object in status.measurement_start (mk 0.9)
+        self.entryIdx++;
+        if (self.entryIdx < [self.inputs count]){
+            [self createMeasurementObject];
+            //Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
+            //self.measurement.input = currentUrl.url;
+            //self.measurement.category = currentUrl.categoryCode;
+        }
+    }
+}
+
+-(void)onEntry:(JsonResult*)json{
+    //TODO check if I still need these checks
+    if (json.test_start_time)
+        [self.result setStartTime:json.test_start_time];
+    if (json.measurement_start_time)
+        [self.measurement setStartTime:json.test_start_time];
+    if (json.test_runtime){
+        [self.measurement setDuration:[json.test_runtime floatValue]];
+        [self.result addDuration:[json.test_runtime floatValue]];
+    }
+    //if the user doesn't want to share asn leave null on the db object
+    if (json.probe_asn && [SettingsUtility getSettingWithName:@"include_asn"]){
+        //TODO-SBS asn name
+        [self.measurement setAsn:json.probe_asn];
+        [self.measurement setAsnName:@"Vodafone"];
+        if (self.result.asn == nil){
+            //TODO-SBS asn name
+            [self.result setAsn:json.probe_asn];
+            [self.result setAsnName:@"Vodafone"];
+        }
+        else {
+            if (![self.result.asn isEqualToString:self.measurement.asn])
+                NSLog(@"Something's wrong");
+        }
+    }
+    if (json.probe_cc && [SettingsUtility getSettingWithName:@"include_cc"]){
+        [self.measurement setCountry:json.probe_cc];
+        if (self.result.country == nil){
+            [self.result setCountry:json.probe_cc];
+        }
+        else {
+            if (![self.result.country isEqualToString:self.measurement.country])
+                NSLog(@"Something's wrong");
+        }
+    }
+    if (json.probe_ip && [SettingsUtility getSettingWithName:@"include_ip"]){
+        [self.measurement setIp:json.probe_ip];
+        if (self.result.ip == nil){
+            [self.result setIp:json.probe_ip];
+        }
+        else {
+            if (![self.result.ip isEqualToString:self.measurement.ip])
+                NSLog(@"Something's wrong");
+        }
+    }
+    if (json.report_id)
+        [self.measurement setReportId:json.report_id];
+    
+    if (json.test_keys)
+        [self.measurement setTestKeysObj:json.test_keys];
 }
 
 -(void)run {
@@ -194,7 +239,7 @@
     //NSLog(@"%@ testEnded", self.name);
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
-    [self.measurement setState:measurementDone];
+    //[self.measurement setState:measurementDone];
     [self updateProgress:1];
     [self.measurement save];
     [self.delegate testEnded:self];

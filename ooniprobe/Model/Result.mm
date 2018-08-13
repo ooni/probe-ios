@@ -1,9 +1,8 @@
 #import "Result.h"
-#import "Measurement.h"
 #import "TestUtility.h"
 
 @implementation Result
-@dynamic name, startTime, duration, summary, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, viewed, done;
+@dynamic name, startTime, duration, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, viewed, done;
 
 + (NSDictionary *)defaultValuesForEntity {
     return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"viewed" : [NSNumber numberWithBool:FALSE], @"done" : [NSNumber numberWithBool:FALSE], @"dataUsageDown" : [NSNumber numberWithInt:0], @"dataUsageUp" : [NSNumber numberWithInt:0]};
@@ -13,18 +12,39 @@
     return [[[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"] fetch];
 }
 
+-(Measurement*)getMeasurement:(NSString*)name{
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result = ? AND name = ?" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
+    if ([measurements count] > 0)
+        return [measurements objectAtIndex:0];
+    return nil;
+}
+
+- (long)totalMeasurements {
+    SRKQuery *query = [[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"];
+    return [query count];
+}
+
 - (long)failedMeasurements {
-    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state = '%u'", self, measurementFailed]];
+    SRKQuery *query = [[Measurement query] where:@"result = ? AND state = ?" parameters:@[self, @"1"]];
+    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@' AND state = '%u'", self, measurementFailed];
     return [query count];
 }
 
 - (long)okMeasurements {
-    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state != '%u' AND status = TRUE", self, measurementFailed]];
+    SRKQuery *query = [[Measurement query] where:@"result = ? AND state != ? AND anomaly = 0" parameters:@[self, @"1"]];
+    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@' AND state != '%u' AND anomaly = '0'", self, measurementFailed];
+    /*SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@'", self];
+    query = [query whereWithFormat:@"state != '%u'", measurementFailed];
+    query = [query where:@"anomaly = '0'"];
+     */
+    //SRKQuery *query = [[[[Measurement query] whereWithFormat:@"result = '%@'", self] whereWithFormat:@" state != '%u'", measurementFailed] where:@"anomaly = '0'"];
+
     return [query count];
 }
 
 - (long)anomalousMeasurements {
-    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state != '%u' AND status = FALSE", self, measurementFailed]];
+    SRKQuery *query = [[Measurement query] where:@"result = ? AND anomaly = 1" parameters:@[self]];
+    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@' AND anomaly = '1'", self];
     return [query count];
 }
 
@@ -37,16 +57,7 @@
         return NSLocalizedString(@"TestResults.Summary.Hero.NoInternet", nil);
     return @"";
 }
-
--(void)setStartTimeWithUTCstr:(NSString*)dateStr{
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *localDate = [dateFormatter dateFromString:dateStr];
-    self.startTime = localDate;
-}
-
+    
 -(void)addDuration:(float)value{
     self.duration+=value;
 }
@@ -58,26 +69,6 @@
     
 - (NSString*)getFormattedDataUsageDown{
     return [NSByteCountFormatter stringFromByteCount:self.dataUsageDown countStyle:NSByteCountFormatterCountStyleFile];
-}
-
-/*
- Three scenarios:
-   I'm running the test, I start the empty summary, I add stuff and save
-   I'm running the test, there is data in the summary, I add stuff and save
-   I have to get the summary of an old test and don't modify it
- */
-- (Summary*)getSummary{
-    if (!self.summaryObj){
-        if (self.summary)
-            self.summaryObj = [[Summary alloc] initFromJson:self.summary];
-        else
-            self.summaryObj = [[Summary alloc] init];
-    }
-    return self.summaryObj;
-}
-
-- (void)setSummary{
-    self.summary = [self.summaryObj getJsonStr];
 }
 
 -(NSString*)getAsn{

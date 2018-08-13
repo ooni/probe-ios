@@ -22,17 +22,16 @@
 }
 
 -(void)reloadMeasurement{
-    Summary *summary = [result getSummary];
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableAttributedString *middleBoxes = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Test.Middleboxes.Fullname", nil)];
         [middleBoxes addAttribute:NSFontAttributeName
                             value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                             range:NSMakeRange(0, middleBoxes.length)];
-        
         NSString *found;
-        if (summary.anomalousMeasurements > 0)
+        long anomalousMeasurements = [result anomalousMeasurements];
+        if (anomalousMeasurements > 0)
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Found", nil);
-        else if (summary.okMeasurements == summary.totalMeasurements-summary.failedMeasurements)
+        else if ([result okMeasurements] == [result totalMeasurements]-[result failedMeasurements])
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.NotFound", nil);
         else
             found = NSLocalizedString(@"TestResults.Summary.Middleboxes.Hero.Failed", nil);
