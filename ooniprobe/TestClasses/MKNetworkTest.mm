@@ -131,7 +131,6 @@
          */
         
         //Hack to add UTC format to dates
-        //TODO maybe use android solution
         [mappingProvider mapFromDictionaryKey:@"measurement_start_time" toPropertyKey:@"measurement_start_time" forClass:[JsonResult class] withTransformer:^id(id currentNode, id parentNode) {
             NSString *currentDateStr = [NSString stringWithFormat:@"%@Z", (NSString*)currentNode];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -144,6 +143,9 @@
             [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
             return [dateFormatter dateFromString:currentDateStr];
         }];
+        //[mappingProvider mapFromDictionaryKey:@"simple" toPropertyKey:@"simple" forClass:[TestKeys class]];
+        //[mappingProvider mapFromDictionaryKey:@"advanced" toPropertyKey:@"advanced" forClass:[TestKeys class]];
+        [mappingProvider mappingInfoForClass:[Simple class] andDictionaryKey:@"simple"];
         [mappingProvider mapFromDictionaryKey:@"tampering" toPropertyKey:@"tampering" forClass:[TestKeys class] withTransformer:^id(id currentNode, id parentNode) {
             return [[Tampering alloc] initWithValue:currentNode];
         }];

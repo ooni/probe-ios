@@ -18,7 +18,7 @@
 }
 
 #pragma mark Websites
-- (NSString*)getWebsiteBlocking:(NSString*)input{
+- (NSString*)getWebsiteBlocking{
     if (self.blocking != nil){
         NSString *blocking = [NSString stringWithFormat:@"%@", self.blocking];
         if ([blocking isEqualToString:@"dns"])

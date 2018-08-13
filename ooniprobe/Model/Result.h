@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
 #import "JsonResult.h"
+#import "Measurement.h"
 
 @interface Result : SRKObject
 
@@ -17,19 +18,19 @@
 @property NSString *networkType;
 @property BOOL viewed;
 @property BOOL done;
-
-//- (long)failedMeasurements;
-//- (long)okMeasurements;
-//- (long)anomalousMeasurements;
+- (long)totalMeasurements;
+- (long)failedMeasurements;
+- (long)okMeasurements;
+- (long)anomalousMeasurements;
 -(NSString*)getAsn;
 -(NSString*)getAsnName;
 -(NSString*)getCountry;
 -(NSString*)getFormattedDataUsageDown;
 -(NSString*)getFormattedDataUsageUp;
 -(NSString*)getLocalizedNetworkType;
-//-(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(void)addDuration:(float)value;
 -(void)save;
+-(Measurement*)getMeasurement:(NSString*)name;
 -(SRKResultSet*)measurements;
 -(void)deleteObject;
 @end

@@ -27,17 +27,13 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
-    //TODO check if serverName is stored
-    [self calculateServerName:json];
-    self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
-    [super onEntry:json];
     /*
      onEntry method for ndt test, check "failure" key
      !=null => failed
      */
-    //TestKeys *testKeys = json.test_keys;
-    //if (testKeys.failure != NULL)
-    //    [self.measurement setState:measurementFailed];
+    self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
+    [self calculateServerName:json];
+    [super onEntry:json];
 }
 
 -(void)calculateServerName:(JsonResult*)json{
@@ -51,25 +47,6 @@
             NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
             if ([dict objectForKey:[server_name substringToIndex:3]])
                 json.test_keys.server_country = [dict objectForKey:[server_name substringToIndex:3]];
-        }
-    }
-}
-
-//TODO
--(void)setTestSummary:(NSDictionary*)keys{
-    //TestKeys *testKeys = [self.measurement testKeysObj];
-    NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
-    if ([keys safeObjectForKey:@"server_address"]){
-        NSString *server_address = [keys safeObjectForKey:@"server_address"];
-        [values setObject:server_address forKey:@"server_address"];
-        NSArray *arr = [server_address componentsSeparatedByString:@"."];
-        if ([arr count] > 3){
-            NSString *server_name = [arr objectAtIndex:3];
-            [values setObject:server_name forKey:@"server_name"];
-            NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Airports" ofType:@"plist"];
-            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
-            if ([dict objectForKey:[server_name substringToIndex:3]])
-                [values setObject:[dict objectForKey:[server_name substringToIndex:3]] forKey:@"server_country"];
         }
     }
 }

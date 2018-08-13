@@ -1,6 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "Tampering.h"
+#import "Simple.h"
+#import "Advanced.h"
 
+/*
 @interface Simple
 @property (nonatomic, strong) NSNumber *upload;
 @property (nonatomic, strong) NSNumber *download;
@@ -16,6 +19,7 @@
 @property (nonatomic, strong) NSString *mss;
 @property (nonatomic, strong) NSString *timeouts;
 @end
+*/
 
 @interface TestKeys : NSObject
 @property (nonatomic, strong) NSString *blocking;
@@ -32,8 +36,6 @@
 @property (nonatomic, strong) NSString *server_address;
 @property (nonatomic, strong) NSString *server_name;
 @property (nonatomic, strong) NSString *server_country;
-@property (nonatomic, strong) NSNumber *median_bitrate;
-@property (nonatomic, strong) NSNumber *min_playout_delay;
 @property (nonatomic, strong) NSString *whatsapp_endpoints_status;
 @property (nonatomic, strong) NSString *whatsapp_web_status;
 @property (nonatomic, strong) NSString *registration_server_status;
@@ -49,7 +51,7 @@
 - (NSString*)getJsonStr;
 
 //WEB
-- (NSString*)getWebsiteBlocking:(NSString*)input;
+- (NSString*)getWebsiteBlocking;
     
 //WHATSAPP
 - (NSString*)getWhatsappEndpointStatus;

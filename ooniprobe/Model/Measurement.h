@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
-#import "Result.h"
+#import "JsonResult.h"
+@class Result;
 
 @interface Measurement : SRKObject
 
@@ -42,7 +43,6 @@ typedef enum
 @property NSString *testKeys;
 @property (strong, nonatomic) TestKeys *testKeysObj;
 
-//-(void)setStartTimeWithUTCstr:(NSString*)dateStr;
 -(NSString*)getFile:(NSString*)ext;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;

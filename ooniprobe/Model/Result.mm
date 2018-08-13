@@ -1,5 +1,4 @@
 #import "Result.h"
-#import "Measurement.h"
 #import "TestUtility.h"
 
 @implementation Result
@@ -13,22 +12,41 @@
     return [[[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"] fetch];
 }
 
-/*
+-(Measurement*)getMeasurement:(NSString*)name{
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result = ? AND name = ?" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
+    if ([measurements count] > 0)
+        return [measurements objectAtIndex:0];
+    return nil;
+}
+
+- (long)totalMeasurements {
+    SRKQuery *query = [[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"];
+    return [query count];
+}
+
 - (long)failedMeasurements {
-    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state = '%u'", self, measurementFailed]];
+    SRKQuery *query = [[Measurement query] where:@"result = ? AND state = ?" parameters:@[self, @"1"]];
+    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@' AND state = '%u'", self, measurementFailed];
     return [query count];
 }
 
 - (long)okMeasurements {
-    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state != '%u' AND status = TRUE", self, measurementFailed]];
+    SRKQuery *query = [[Measurement query] where:@"result = ? AND state != ? AND anomaly = 0" parameters:@[self, @"1"]];
+    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@' AND state != '%u' AND anomaly = '0'", self, measurementFailed];
+    /*SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@'", self];
+    query = [query whereWithFormat:@"state != '%u'", measurementFailed];
+    query = [query where:@"anomaly = '0'"];
+     */
+    //SRKQuery *query = [[[[Measurement query] whereWithFormat:@"result = '%@'", self] whereWithFormat:@" state != '%u'", measurementFailed] where:@"anomaly = '0'"];
+
     return [query count];
 }
 
 - (long)anomalousMeasurements {
-    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result = '%@' AND state != '%u' AND status = FALSE", self, measurementFailed]];
+    SRKQuery *query = [[Measurement query] where:@"result = ? AND anomaly = 1" parameters:@[self]];
+    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@' AND anomaly = '1'", self];
     return [query count];
 }
-*/
 
 -(NSString*)getLocalizedNetworkType{
     if ([self.networkType isEqualToString:@"wifi"])
@@ -39,17 +57,6 @@
         return NSLocalizedString(@"TestResults.Summary.Hero.NoInternet", nil);
     return @"";
 }
-
-/*
--(void)setStartTimeWithUTCstr:(NSString*)dateStr{
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *localDate = [dateFormatter dateFromString:dateStr];
-    self.startTime = localDate;
-}
-*/
     
 -(void)addDuration:(float)value{
     self.duration+=value;

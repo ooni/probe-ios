@@ -1,4 +1,5 @@
 #import "Measurement.h"
+#import "Result.h"
 #import "TestUtility.h"
 
 @implementation Measurement
@@ -9,17 +10,7 @@
     //defailt test to failure in case onEntry is never called
     return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"anomaly" : [NSNumber numberWithBool:FALSE]};
 }
-/*
--(void)setStartTimeWithUTCstr:(NSString*)dateStr{
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *localDate = [dateFormatter dateFromString:dateStr];
-    self.startTime = localDate;
-}
-*/
-    
+
 /*
     Three scenarios:
     I'm running the test, I start the empty summary, I add stuff and save
