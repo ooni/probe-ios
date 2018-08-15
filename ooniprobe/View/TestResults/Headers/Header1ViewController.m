@@ -11,7 +11,7 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
 
-    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.name]];
+    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
     [self addLabels];
     [self reloadMeasurement];
 }
@@ -23,13 +23,13 @@
 }
 
 -(void)addLabels{
-    if ([result.name isEqualToString:@"websites"]){
+    if ([result.test_group_name isEqualToString:@"websites"]){
         [self.view4 setHidden:YES];
     }
-    else if ([result.name isEqualToString:@"instant_messaging"]){
+    else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
         [self.view4 setHidden:YES];
     }
-    else if ([result.name isEqualToString:@"performance"]){
+    else if ([result.test_group_name isEqualToString:@"performance"]){
         if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
             [self addLine:self.view3];
         }
@@ -54,7 +54,7 @@
 }
 -(void)reloadMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([result.name isEqualToString:@"websites"]){
+        if ([result.test_group_name isEqualToString:@"websites"]){
             [self.label1Top setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.Websites.Hero.Tested"]];
             [self.label2Top setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.Websites.Hero.Blocked"]];
             [self.label3Top setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.Websites.Hero.Reachable"]];
@@ -65,7 +65,7 @@
             [self.label2Bottom setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
             [self.label3Bottom setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.Websites.Hero.Sites"]];
         }
-        else if ([result.name isEqualToString:@"instant_messaging"]){
+        else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
             [self.label1Top setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Tested"]];
             [self.label2Top setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Blocked"]];
             [self.label3Top setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]];
@@ -76,7 +76,7 @@
             [self.label2Bottom setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
             [self.label3Bottom setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
         }
-        else if ([result.name isEqualToString:@"performance"]){
+        else if ([result.test_group_name isEqualToString:@"performance"]){
             TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
             TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
             [self.label1Central setText:[testKeysDash getVideoQuality:NO]];

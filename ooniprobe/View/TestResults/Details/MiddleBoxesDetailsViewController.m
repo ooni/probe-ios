@@ -18,7 +18,7 @@
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
     }
     
-    if ([self.measurement.name isEqualToString:@"http_invalid_request_line"]){
+    if ([self.measurement.test_name isEqualToString:@"http_invalid_request_line"]){
         if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Hero.Title", nil)];
             [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Content.Paragraph.1", nil)];
@@ -42,7 +42,7 @@
         [self.sentTitleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.YouSent", nil)];
         [self.receivedTitleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPInvalidRequestLine.YouReceived", nil)];
     }
-    else if ([self.measurement.name isEqualToString:@"http_header_field_manipulation"]){
+    else if ([self.measurement.test_name isEqualToString:@"http_header_field_manipulation"]){
         [self.sentReceivedStackView setHidden:YES];
         if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.NotFound.Hero.Title", nil)];

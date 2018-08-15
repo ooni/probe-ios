@@ -16,14 +16,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
 
     [self reloadMeasurements];
-    defaultColor = [TestUtility getColorForTest:result.name];
+    defaultColor = [TestUtility getColorForTest:result.test_group_name];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     self.title = localizedDateTime;
-    [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.name]];
+    [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
@@ -60,9 +60,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Measurement *current = [self.measurements objectAtIndex:indexPath.row];
     UITableViewCell *cell;
-    if ([result.name isEqualToString:@"performance"])
+    if ([result.test_group_name isEqualToString:@"performance"])
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_per" forIndexPath:indexPath];
-    else if ([result.name isEqualToString:@"middle_boxes"])
+    else if ([result.test_group_name isEqualToString:@"middle_boxes"])
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell_mb" forIndexPath:indexPath];
     else
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
@@ -80,10 +80,10 @@
         [title setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [status setImage:nil];
     }
-    if ([result.name isEqualToString:@"instant_messaging"]){
-        [title setText:[LocalizationUtility getNameForTest:current.name]];
+    if ([result.test_group_name isEqualToString:@"instant_messaging"]){
+        [title setText:[LocalizationUtility getNameForTest:current.test_name]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
-        [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", current.name]]];
+        [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", current.test_name]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
         if (!current.anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
@@ -94,8 +94,8 @@
             [status setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         }
     }
-    else if ([result.name isEqualToString:@"middle_boxes"]){
-        [title setText:[LocalizationUtility getNameForTest:current.name]];
+    else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
+        [title setText:[LocalizationUtility getNameForTest:current.test_name]];
         if (!current.anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
             [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
@@ -103,7 +103,7 @@
         else
             [status setImage:[UIImage imageNamed:@"exclamation_point"]];
     }
-    else if ([result.name isEqualToString:@"websites"]){
+    else if ([result.test_group_name isEqualToString:@"websites"]){
         [title setText:[NSString stringWithFormat:@"%@", current.input]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.category]]];
@@ -119,8 +119,8 @@
             }
         }
     }
-    else if ([result.name isEqualToString:@"performance"]){
-        [title setText:[LocalizationUtility getNameForTest:current.name]];
+    else if ([result.test_group_name isEqualToString:@"performance"]){
+        [title setText:[LocalizationUtility getNameForTest:current.test_name]];
         UIImageView *detail1Image = (UIImageView*)[cell viewWithTag:5];
         UILabel *detail1Label = (UILabel*)[cell viewWithTag:6];
         UIStackView *stackView2 = (UIStackView*)[cell viewWithTag:4];
@@ -143,7 +143,7 @@
             else
                 [status setImage:nil];
         }
-        if ([current.name isEqualToString:@"ndt"]){
+        if ([current.test_name isEqualToString:@"ndt"]){
             TestKeys *testKeys = [current testKeysObj];
             [stackView2 setHidden:NO];
             [detail1Image setImage:[UIImage imageNamed:@"upload_black"]];
@@ -153,7 +153,7 @@
             [detail1Label setText:[NSString stringWithFormat:@"%@", [testKeys getUploadWithUnit]]];
             [detail2Label setText:[NSString stringWithFormat:@"%@", [testKeys getDownloadWithUnit]]];
         }
-        else if ([current.name isEqualToString:@"dash"]){
+        else if ([current.test_name isEqualToString:@"dash"]){
             TestKeys *testKeys = [current testKeysObj];
             [stackView2 setHidden:YES];
             [detail1Image setImage:[UIImage imageNamed:@"video_quality"]];
@@ -218,18 +218,18 @@
 }
 
 -(void)goToDetails{
-    if ([segueObj.name isEqualToString:@"ndt"])
+    if ([segueObj.test_name isEqualToString:@"ndt"])
         [self performSegueWithIdentifier:@"toNdtTestDetails" sender:self];
-    else if ([segueObj.name isEqualToString:@"dash"])
+    else if ([segueObj.test_name isEqualToString:@"dash"])
         [self performSegueWithIdentifier:@"toDashTestDetails" sender:self];
-    else if ([segueObj.name isEqualToString:@"whatsapp"] ||
-             [segueObj.name isEqualToString:@"telegram"] ||
-             [segueObj.name isEqualToString:@"facebook_messenger"])
+    else if ([segueObj.test_name isEqualToString:@"whatsapp"] ||
+             [segueObj.test_name isEqualToString:@"telegram"] ||
+             [segueObj.test_name isEqualToString:@"facebook_messenger"])
         [self performSegueWithIdentifier:@"toInstantMessagingTestDetails" sender:self];
-    else if ([segueObj.name isEqualToString:@"http_invalid_request_line"] ||
-             [segueObj.name isEqualToString:@"http_header_field_manipulation"])
+    else if ([segueObj.test_name isEqualToString:@"http_invalid_request_line"] ||
+             [segueObj.test_name isEqualToString:@"http_header_field_manipulation"])
         [self performSegueWithIdentifier:@"toMiddleBoxesTestDetails" sender:self];
-    else if ([segueObj.name isEqualToString:@"web_connectivity"])
+    else if ([segueObj.test_name isEqualToString:@"web_connectivity"])
         [self performSegueWithIdentifier:@"toWebsitesTestDetails" sender:self];
 }
 

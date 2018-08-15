@@ -6,7 +6,18 @@
     self = [super init];
     if (self) {
         self.url = url;
-        self.categoryCode = categoryCode;
+        self.category_code = categoryCode;
+        self.country_code = @"";
+    }
+    return self;
+}
+
+-(id) initWithUrl:(NSString*)url category:(NSString*)categoryCode country:(NSString*)countryCode{
+    self = [super init];
+    if (self) {
+        self.url = url;
+        self.category_code = categoryCode;
+        self.country_code = countryCode;
     }
     return self;
 }

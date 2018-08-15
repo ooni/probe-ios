@@ -5,19 +5,16 @@
 
 @interface Result : SRKObject
 
-@property NSString *name;
-@property NSDate *startTime;
-@property float duration;
-@property long dataUsageDown;
-@property long dataUsageUp;
-@property NSString *ip;
-@property NSString *asn;
-@property NSString *asnName;
-@property NSString *country;
-@property NSString *networkName;
-@property NSString *networkType;
-@property BOOL viewed;
-@property BOOL done;
+//Data schema from https://github.com/ooni/probe-cli/blob/6d2ca54590314b2442a60901d33e6d429bb9ff84/data/migrations/1_create_msmt_results.sql
+
+@property NSString *test_group_name;
+@property NSDate *start_time;
+@property float runtime;
+@property BOOL is_viewed;
+@property BOOL is_done;
+@property long data_usage_up;
+@property long data_usage_down;
+
 - (long)totalMeasurements;
 - (long)failedMeasurements;
 - (long)okMeasurements;
@@ -28,7 +25,7 @@
 -(NSString*)getFormattedDataUsageDown;
 -(NSString*)getFormattedDataUsageUp;
 -(NSString*)getLocalizedNetworkType;
--(void)addDuration:(float)value;
+-(void)addRuntime:(float)value;
 -(void)save;
 -(Measurement*)getMeasurement:(NSString*)name;
 -(SRKResultSet*)measurements;

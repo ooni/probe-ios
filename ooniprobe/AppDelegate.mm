@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [SharkORM setDelegate:self];
-    [SharkORM openDatabaseNamed:@"OONISample3"];    
+    [SharkORM openDatabaseNamed:@"OONISample4"];    
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultPreferences" ofType:@"plist"]]];
 
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
@@ -219,7 +219,7 @@
 
 //TODO remove in release
 -(void)logAll{
-    SRKQuery *query = [[Result query] orderByDescending:@"startTime"];
+    SRKQuery *query = [[Result query] orderByDescending:@"start_time"];
     SRKResultSet *results = [query fetch];
     for (Result *current in results){
         NSLog(@"%@", current);

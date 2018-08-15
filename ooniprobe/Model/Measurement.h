@@ -20,9 +20,9 @@ typedef enum
     measurementProcessed
 } MeasurementState;
 
-@property NSString *name;
-@property NSDate *startTime;
-@property float duration;
+@property NSString *test_name;
+@property NSDate *start_time;
+@property float runtime;
 @property NSString *ip;
 @property NSString *asn;
 @property NSString *asnName;

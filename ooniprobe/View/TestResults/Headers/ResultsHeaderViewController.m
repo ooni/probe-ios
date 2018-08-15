@@ -25,47 +25,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"reloadHeader" object:nil];
 
     self.dropdownMenu.tintColor = [UIColor colorWithRGBHexString:color_black alpha:1.0f];
-    /*
-    self.disclosureIndicatorView.image = image;
-    [self.disclosureIndicatorView sizeToFit];
-    CGFloat insetLeft = 8;
-    CGFloat insetRight = (image.size.width > 0) ? image.size.width + 4 + insetLeft : insetLeft;
-    self.contentEdgeInsets = UIEdgeInsetsMake(0, insetLeft, 0, insetRight);
-    [self setNeedsLayout];
-*/
-   //[self.dropdownMenu.disclosureIndicatorImage setFrame:CGRectMake(0, 0, 35, 50)];
-    //[self.dropdownMenu.disclosureIndicatorImage setNeedsLayout];
-
-/*
-    let query = Person.query()
-    .limit(1000)
-    .orderBy("Name")
-    .offset(25)
-    .batchSize(30)
-    
-    let numberOfPeople = query.count()
-    let peopleBySurname = query.groupBy("surname")
-    let totalAge = query.sumOf("age")
-    
-    //SRKRawResults* results = [SharkORM rawQuery:@""];
-    
-    +(SRKRawResults*)rawQuery:(NSString*)sql;
-    
-
-    SRKResultSet* results = [[Result query] count]
-
-    SRKResultSet* results = [[[Result query] sumOf:@"datausageUp"] ]
-
-
-    SELECT SUM(datausageUp), SUM(datausageDown)
-    FROM tabella
-    WHERE date < "2017-01-01"
-
-    ```SELECT
-    COUNT(DISTINCT asn)
-    FROM tabella
-    ```
- */
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -82,14 +41,14 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         SRKQuery *query;
         if ([filter length] > 0)
-            query = [[[Result query] where:[NSString stringWithFormat:@"name = '%@'", filter]] orderByDescending:@"startTime"];
+            query = [[[Result query] where:[NSString stringWithFormat:@"name = '%@'", filter]] orderByDescending:@"start_time"];
         else
-            query = [[Result query] orderByDescending:@"startTime"];
+            query = [[Result query] orderByDescending:@"start_time"];
         
         [self.delegate testFilter:query];
 
-        double dataUsageDown = [query sumOf:@"dataUsageDown"];
-        double dataUsageUp = [query sumOf:@"dataUsageUp"];
+        double dataUsageDown = [query sumOf:@"data_usage_down"];
+        double dataUsageUp = [query sumOf:@"data_usage_up"];
         
         [self.upLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageUp countStyle:NSByteCountFormatterCountStyleFile]];
         [self.downLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageDown countStyle:NSByteCountFormatterCountStyleFile]];

@@ -20,7 +20,7 @@
     if (self.result != NULL)
         [self.measurement setResult:self.result];
     if (self.name != NULL)
-        [self.measurement setName:self.name];
+        [self.measurement setTest_name:self.name];
     [self.measurement save];
 }
 
@@ -38,7 +38,6 @@
     NSString *geoip_asn = [[NSBundle mainBundle] pathForResource:@"GeoIPASNum" ofType:@"dat"];
     NSString *geoip_country = [[NSBundle mainBundle] pathForResource:@"GeoIP" ofType:@"dat"];
     self.progress = 0;
-    [self.result setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
     [self.measurement setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
 
     //Configuring common test parameters
@@ -65,8 +64,8 @@
         [self updateProgress:prog];
     });
     test.on_overall_data_usage([self](mk::DataUsage d) {
-        [self.result setDataUsageDown:self.result.dataUsageDown+(long)d.down];
-        [self.result setDataUsageUp:self.result.dataUsageUp+(long)d.up];
+        [self.result setData_usage_down:self.result.data_usage_down+(long)d.down];
+        [self.result setData_usage_up:self.result.data_usage_up+(long)d.up];
     });
     test.on_entry([self](std::string s) {
         [self onEntryCreate:s.c_str()];
@@ -177,48 +176,25 @@
 -(void)onEntry:(JsonResult*)json{
     //TODO check if I still need these checks
     if (json.test_start_time)
-        [self.result setStartTime:json.test_start_time];
+        [self.result setStart_time:json.test_start_time];
     if (json.measurement_start_time)
-        [self.measurement setStartTime:json.test_start_time];
+        [self.measurement setStart_time:json.test_start_time];
     if (json.test_runtime){
-        [self.measurement setDuration:[json.test_runtime floatValue]];
-        [self.result addDuration:[json.test_runtime floatValue]];
+        [self.measurement setRuntime:[json.test_runtime floatValue]];
+        [self.result addRuntime:[json.test_runtime floatValue]];
     }
     //if the user doesn't want to share asn leave null on the db object
-    if (json.probe_asn && [SettingsUtility getSettingWithName:@"include_asn"]){
+    if (json.probe_asn && [SettingsUtility getSettingWithName:@"include_asn"])
         //TODO-SBS asn name
         [self.measurement setAsn:json.probe_asn];
         [self.measurement setAsnName:@"Vodafone"];
-        if (self.result.asn == nil){
-            //TODO-SBS asn name
-            [self.result setAsn:json.probe_asn];
-            [self.result setAsnName:@"Vodafone"];
-        }
-        else {
-            if (![self.result.asn isEqualToString:self.measurement.asn])
-                NSLog(@"Something's wrong");
-        }
-    }
-    if (json.probe_cc && [SettingsUtility getSettingWithName:@"include_cc"]){
+    
+    if (json.probe_cc && [SettingsUtility getSettingWithName:@"include_cc"])
         [self.measurement setCountry:json.probe_cc];
-        if (self.result.country == nil){
-            [self.result setCountry:json.probe_cc];
-        }
-        else {
-            if (![self.result.country isEqualToString:self.measurement.country])
-                NSLog(@"Something's wrong");
-        }
-    }
-    if (json.probe_ip && [SettingsUtility getSettingWithName:@"include_ip"]){
+    
+    if (json.probe_ip && [SettingsUtility getSettingWithName:@"include_ip"])
         [self.measurement setIp:json.probe_ip];
-        if (self.result.ip == nil){
-            [self.result setIp:json.probe_ip];
-        }
-        else {
-            if (![self.result.ip isEqualToString:self.measurement.ip])
-                NSLog(@"Something's wrong");
-        }
-    }
+    
     if (json.report_id)
         [self.measurement setReportId:json.report_id];
     

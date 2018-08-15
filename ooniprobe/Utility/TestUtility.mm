@@ -131,7 +131,7 @@
 + (NSString*)getCategoryForUrl:(NSString*)url{
     for (Url* current in [self getUrlsTest]){
         if ([current.url isEqualToString:url])
-            return current.categoryCode;
+            return current.category_code;
     }
     return @"";
 }

@@ -2,10 +2,10 @@
 #import "TestUtility.h"
 
 @implementation Result
-@dynamic name, startTime, duration, dataUsageUp, dataUsageDown, ip, asn, asnName, country, networkName, networkType, viewed, done;
+@dynamic test_group_name, start_time, runtime, is_viewed, is_done, data_usage_up, data_usage_down;
 
 + (NSDictionary *)defaultValuesForEntity {
-    return @{@"startTime": [NSDate date], @"duration" : [NSNumber numberWithInt:0], @"viewed" : [NSNumber numberWithBool:FALSE], @"done" : [NSNumber numberWithBool:FALSE], @"dataUsageDown" : [NSNumber numberWithInt:0], @"dataUsageUp" : [NSNumber numberWithInt:0]};
+    return @{@"start_time": [NSDate date], @"runtime" : [NSNumber numberWithInt:0], @"is_viewed" : [NSNumber numberWithBool:FALSE], @"done" : [NSNumber numberWithBool:FALSE], @"data_usage_down" : [NSNumber numberWithInt:0], @"data_usage_up" : [NSNumber numberWithInt:0]};
 }
 
 - (SRKResultSet*)measurements {
@@ -18,6 +18,14 @@
         return [measurements objectAtIndex:0];
     return nil;
 }
+
+-(Measurement*)getFirstMeasurement{
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result = ?" parameters:@[self]] orderByDescending:@"Id"] fetch];
+    if ([measurements count] > 0)
+        return [measurements objectAtIndex:0];
+    return nil;
+}
+
 
 - (long)totalMeasurements {
     SRKQuery *query = [[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"];
@@ -49,43 +57,48 @@
 }
 
 -(NSString*)getLocalizedNetworkType{
-    if ([self.networkType isEqualToString:@"wifi"])
+    Measurement *measurement = [self getFirstMeasurement];
+    if ([measurement.networkType isEqualToString:@"wifi"])
         return NSLocalizedString(@"TestResults.Summary.Hero.WiFi", nil);
-    else if ([self.networkType isEqualToString:@"mobile"])
+    else if ([measurement.networkType isEqualToString:@"mobile"])
         return NSLocalizedString(@"TestResults.Summary.Hero.Mobile", nil);
-    else if ([self.networkType isEqualToString:@"no_internet"])
+    else if ([measurement.networkType isEqualToString:@"no_internet"])
         return NSLocalizedString(@"TestResults.Summary.Hero.NoInternet", nil);
     return @"";
 }
     
--(void)addDuration:(float)value{
-    self.duration+=value;
+-(void)addRuntime:(float)value{
+    self.runtime+=value;
 }
 
 //https://stackoverflow.com/questions/7846495/how-to-get-file-size-properly-and-convert-it-to-mb-gb-in-cocoa
 - (NSString*)getFormattedDataUsageUp{
-    return [NSByteCountFormatter stringFromByteCount:self.dataUsageUp countStyle:NSByteCountFormatterCountStyleFile];
+    return [NSByteCountFormatter stringFromByteCount:self.data_usage_up
+                                          countStyle:NSByteCountFormatterCountStyleFile];
 }
     
 - (NSString*)getFormattedDataUsageDown{
-    return [NSByteCountFormatter stringFromByteCount:self.dataUsageDown countStyle:NSByteCountFormatterCountStyleFile];
+    return [NSByteCountFormatter stringFromByteCount:self.data_usage_down countStyle:NSByteCountFormatterCountStyleFile];
 }
 
 -(NSString*)getAsn{
-    if (self.asn != nil)
-        return self.asn;
+    Measurement *measurement = [self getFirstMeasurement];
+    if (measurement.asn != nil)
+        return measurement.asn;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(NSString*)getAsnName{
-    if (self.asnName != nil)
-        return self.asnName;
+    Measurement *measurement = [self getFirstMeasurement];
+    if (measurement.asnName != nil)
+        return measurement.asnName;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(NSString*)getCountry{
-    if (self.country != nil)
-        return self.country;
+    Measurement *measurement = [self getFirstMeasurement];
+    if (measurement.country != nil)
+        return measurement.country;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 

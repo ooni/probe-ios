@@ -187,7 +187,7 @@
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         NetworkTest *currentTest = [[NetworkTest alloc] init];
-        [currentTest.result setName:[TestUtility getCategoryForTest:testName]];
+        [currentTest.result setTest_group_name:[TestUtility getCategoryForTest:testName]];
         [currentTest addTest:testName :urls];
         [vc setCurrentTest:currentTest];
         [vc setPresenting:YES];

@@ -98,6 +98,7 @@
 		EDDB0B781FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B711FFF6C8B00EFD9C8 /* Onboarding2ViewController.m */; };
 		EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */; };
 		EDDB0B7E2004911300EFD9C8 /* WebsiteCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */; };
+		EDEA783321247F8B006F4A72 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEA783221247F8B006F4A72 /* Network.m */; };
 		EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */; };
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
@@ -280,6 +281,8 @@
 		EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AutomaticTestsTableViewController.m; path = Settings/AutomaticTestsTableViewController.m; sourceTree = "<group>"; };
 		EDDB0B7C2004911300EFD9C8 /* WebsiteCategoryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebsiteCategoryTableViewController.h; path = Settings/WebsiteCategoryTableViewController.h; sourceTree = "<group>"; };
 		EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WebsiteCategoryTableViewController.m; path = Settings/WebsiteCategoryTableViewController.m; sourceTree = "<group>"; };
+		EDEA783121247F8B006F4A72 /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Network.h; path = Model/Network.h; sourceTree = "<group>"; };
+		EDEA783221247F8B006F4A72 /* Network.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Network.m; path = Model/Network.m; sourceTree = "<group>"; };
 		EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = middle_boxes.json; sourceTree = "<group>"; };
 		EDF2072B2120EF12005B06D7 /* Simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		EDF2072E2120EF29005B06D7 /* Advanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Advanced.h; sourceTree = "<group>"; };
@@ -413,6 +416,8 @@
 				ED70D5021FE8021400759463 /* Measurement.mm */,
 				ED3AEABC205A625100CFE360 /* Url.h */,
 				ED3AEABD205A625100CFE360 /* Url.mm */,
+				EDEA783121247F8B006F4A72 /* Network.h */,
+				EDEA783221247F8B006F4A72 /* Network.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -689,7 +694,6 @@
 				D4A2F5D61A6C3244001B8460 /* Frameworks */,
 				D4A2F5D71A6C3244001B8460 /* Resources */,
 				EDA66B691E3A23AF00DD22AC /* ShellScript */,
-				F03237170CA6826DA42132A9 /* [CP] Embed Pods Frameworks */,
 				0DB68370272A8F1E523AA5E2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -844,40 +848,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 529a3ff33bd5359fe86c53f6252035178bdb03a1 86750672d61af87e007dc755cb420380fa7027b48ac0c9cc5464d5231846dab8";
 		};
-		F03237170CA6826DA42132A9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Contentful/Contentful.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/Interstellar/Interstellar.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/NTYCSVTable/NTYCSVTable.framework",
-				"${BUILT_PRODUCTS_DIR}/PBRevealViewController/PBRevealViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
-				"${BUILT_PRODUCTS_DIR}/UIBarButtonItem-Badge-Coding/UIBarButtonItem_Badge_Coding.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Contentful.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Interstellar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NTYCSVTable.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PBRevealViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIBarButtonItem_Badge_Coding.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -911,6 +881,7 @@
 				EDDB0B721FFF6C8B00EFD9C8 /* ICSwipeViewController.m in Sources */,
 				EDA9CC90209B53980062507F /* HttpHeaderFieldManipulation.mm in Sources */,
 				EDDB0B7E2004911300EFD9C8 /* WebsiteCategoryTableViewController.m in Sources */,
+				EDEA783321247F8B006F4A72 /* Network.m in Sources */,
 				ED6AC44B1FF8F97F003EA230 /* NSDictionary+Safety.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */,
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,

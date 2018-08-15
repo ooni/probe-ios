@@ -6,7 +6,7 @@
     self = [super init];
     if (self) {
         self.name = @"http_invalid_request_line";
-        self.measurement.name = self.name;
+        self.measurement.test_name = self.name;
     }
     return self;
 }

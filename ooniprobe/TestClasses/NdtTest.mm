@@ -6,7 +6,7 @@
     self = [super init];
     if (self) {
         self.name = @"ndt";
-        self.measurement.name = self.name;
+        self.measurement.test_name = self.name;
     }
     return self;
 }

@@ -29,7 +29,7 @@
     df.dateFormat = @"yyyy-MM";
     for (Result *current in results){
         NSMutableArray *arr = [[NSMutableArray alloc] init];
-        NSString *key = [df stringFromDate:current.startTime];
+        NSString *key = [df stringFromDate:current.start_time];
         if ([dic objectForKey:key])
             arr = [[dic objectForKey:key] mutableCopy];
         [arr addObject:current];
@@ -156,8 +156,8 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         TestSummaryTableViewController *vc = (TestSummaryTableViewController * )segue.destinationViewController;
         Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-        if (!current.viewed){
-            [current setViewed:YES];
+        if (!current.is_viewed){
+            [current setIs_viewed:YES];
             [current save];
         }
         [vc setResult:current];

@@ -6,7 +6,7 @@
     self = [super init];
     if (self) {
         self.name = @"http_header_field_manipulation";
-        self.measurement.name = self.name;
+        self.measurement.test_name = self.name;
     }
     return self;
 }

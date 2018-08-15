@@ -22,7 +22,7 @@
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_red7 alpha:1.0f]];
     }
     
-    if ([self.measurement.name isEqualToString:@"whatsapp"]){
+    if ([self.measurement.test_name isEqualToString:@"whatsapp"]){
         if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Reachable.Hero.Title", nil)];
             [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Reachable.Content.Paragraph.1", nil)];
@@ -38,7 +38,7 @@
         [self.detail2SubtitleLabel setText:[testKeys getWhatsappWebStatus]];
         [self.detail3SubtitleLabel setText:[testKeys getWhatsappRegistrationStatus]];
     }
-    else if ([self.measurement.name isEqualToString:@"telegram"]){
+    else if ([self.measurement.test_name isEqualToString:@"telegram"]){
         [self.detail3View setHidden:YES];
         if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Reachable.Hero.Title", nil)];
@@ -54,7 +54,7 @@
         [self.detail1SubtitleLabel setText:[testKeys getTelegramEndpointStatus]];
         [self.detail2SubtitleLabel setText:[testKeys getTelegramWebStatus]];
     }
-    else if ([self.measurement.name isEqualToString:@"facebook_messenger"]){
+    else if ([self.measurement.test_name isEqualToString:@"facebook_messenger"]){
         [self.detail3View setHidden:YES];
         if (!super.measurement.anomaly){
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Hero.Title", nil)];

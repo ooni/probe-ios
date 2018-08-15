@@ -9,7 +9,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[TestUtility getColorForTest:currentTest.result.name]];
+    [self.view setBackgroundColor:[TestUtility getColorForTest:currentTest.result.test_group_name]];
     
     if (currentTest){
         totalTests = [currentTest.mkNetworkTests count];
@@ -47,8 +47,8 @@
 
 
 -(void)addAnimation{
-    animation = [LOTAnimationView animationNamed:currentTest.result.name];
-    //[animation setBackgroundColor:[TestUtility getColorForTest:currentTest.result.name]];
+    animation = [LOTAnimationView animationNamed:currentTest.result.test_group_name];
+    //[animation setBackgroundColor:[TestUtility getColorForTest:currentTest.result.test_group_name]];
     //animation.frame = self.animationView.bounds;
     //animation.center = self.animationView.center;
     animation.contentMode = UIViewContentModeScaleAspectFit;

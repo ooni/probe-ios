@@ -11,7 +11,7 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
     
-    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.name]];
+    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
     [self.dataUsageLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DataUsage", nil)];
@@ -47,7 +47,7 @@
         [self.dataUsageUploadLabel setText:[result getFormattedDataUsageUp]];
         [self.dataUsageDownloadLabel setText:[result getFormattedDataUsageDown]];
         
-        [self.runtimeDetailLabel setText:[NSString stringWithFormat:@"%.02f sec", result.duration]];
+        [self.runtimeDetailLabel setText:[NSString stringWithFormat:@"%.02f sec", result.runtime]];
     });
 }
 @end

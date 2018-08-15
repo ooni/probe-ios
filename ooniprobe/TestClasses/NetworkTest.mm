@@ -16,12 +16,12 @@
     if (self) {
         self.result = existingMeasurement.result;
         self.mkNetworkTests = [[NSMutableArray alloc] init];
-        if ([existingMeasurement.name isEqualToString:@"web_connectivity"]){
+        if ([existingMeasurement.test_name isEqualToString:@"web_connectivity"]){
             Url *currentUrl = [[Url alloc] initWithUrl:existingMeasurement.input category:existingMeasurement.category];
-            [self addTest:existingMeasurement.name :@[currentUrl]];
+            [self addTest:existingMeasurement.test_name :@[currentUrl]];
         }
         else
-            [self addTest:existingMeasurement.name :nil];
+            [self addTest:existingMeasurement.test_name :nil];
         [existingMeasurement remove];
     }
     return self;
@@ -86,10 +86,10 @@
     //if last test
     if ([self.mkNetworkTests count] == 0){
         NSLog(@"ALL test_ended");
-        [self.result setDone:YES];
+        [self.result setIs_done:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
         //TODO basic fix to remove last measurement
-        if ([self.result.name isEqualToString:@"websites"]){
+        if ([self.result.test_group_name isEqualToString:@"websites"]){
             for (Measurement *current in self.result.measurements){
                 if (!current.input)
                     [current remove];
@@ -106,7 +106,7 @@
         UILocalNotification* localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = [NSDate date];
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        localNotification.alertBody = [NSString stringWithFormat:@"%@ %@", [LocalizationUtility getNameForTest:self.result.name], NSLocalizedString(@"Notification.FinishedRunning", nil)];
+        localNotification.alertBody = [NSString stringWithFormat:@"%@ %@", [LocalizationUtility getNameForTest:self.result.test_group_name], NSLocalizedString(@"Notification.FinishedRunning", nil)];
         [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
         [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
     });
@@ -120,7 +120,7 @@
 -(id) init {
     self = [super init];
     if (self) {
-        [self.result setName:@"instant_messaging"];
+        [self.result setTest_group_name:@"instant_messaging"];
         if ([SettingsUtility getSettingWithName:@"test_whatsapp"]){
             [self addTest:@"whatsapp" :nil];
         }
@@ -146,7 +146,7 @@
 -(id) init {
     self = [super init];
     if (self) {
-        [self.result setName:@"websites"];
+        [self.result setTest_group_name:@"websites"];
         [self addTest:@"web_connectivity" :nil];
     }
     return self;
@@ -155,7 +155,7 @@
 -(id) initWithUrls:(NSArray*)urls {
     self = [super init];
     if (self) {
-        [self.result setName:@"websites"];
+        [self.result setTest_group_name:@"websites"];
         [self addTest:@"web_connectivity" :urls];
     }
     return self;
@@ -172,7 +172,7 @@
 -(id) init {
     self = [super init];
     if (self) {
-        [self.result setName:@"middle_boxes"];
+        [self.result setTest_group_name:@"middle_boxes"];
         if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"]){
             [self addTest:@"http_invalid_request_line" :nil];
         }
@@ -194,7 +194,7 @@
 -(id) init {
     self = [super init];
     if (self) {
-        [self.result setName:@"performance"];
+        [self.result setTest_group_name:@"performance"];
         if ([SettingsUtility getSettingWithName:@"run_ndt"]){
             [self addTest:@"ndt" :nil];
         }

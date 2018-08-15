@@ -12,10 +12,10 @@
     self.navigationController.navigationBar.topItem.title = @"";
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.title = [LocalizationUtility getNameForTest:measurement.name];
+    self.title = [LocalizationUtility getNameForTest:measurement.test_name];
 
-    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.name]];
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
@@ -50,7 +50,7 @@
     NSString *country = [result getCountry];
     [self.countryDetailLabel setText:country];
 
-    [self.runtimeDetailLabel setText:[NSString stringWithFormat:@"%.02f sec", measurement.duration]];
+    [self.runtimeDetailLabel setText:[NSString stringWithFormat:@"%.02f sec", measurement.runtime]];
 }
 
 - (IBAction)viewLogs{

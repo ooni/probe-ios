@@ -45,9 +45,9 @@
 
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
-        SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"name = '%@'", testName]] orderByDescending:@"startTime"] fetch];
+        SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"name = '%@'", testName]] orderByDescending:@"start_time"] fetch];
         if ([results count] > 0){
-            NSString *ago = [[[results objectAtIndex:0] startTime] timeAgoSinceNow];
+            NSString *ago = [[[results objectAtIndex:0] start_time] timeAgoSinceNow];
             [self.lastRunLabel setText:ago];
         }
         else

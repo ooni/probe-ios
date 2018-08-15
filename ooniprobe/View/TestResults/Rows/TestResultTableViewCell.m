@@ -14,15 +14,15 @@
 }
 
 -(void)setResult:(Result*)result{
-    if (!result.viewed)
+    if (!result.is_viewed)
         [self setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow0 alpha:1.0f]];
     else
         [self setBackgroundColor:[UIColor clearColor]];
     
-    [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", result.name]]];
-    [self.testIcon setTintColor:[TestUtility getColorForTest:result.name]];
+    [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", result.test_group_name]]];
+    [self.testIcon setTintColor:[TestUtility getColorForTest:result.test_group_name]];
 
-    self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.name];
+    self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.test_group_name];
     NSString *asnName = [result getAsnName];
     
     NSMutableAttributedString *asnNameStr = [[NSMutableAttributedString alloc] initWithString:asnName];
@@ -32,9 +32,9 @@
     [self.testAsnLabel setAttributedText:asnNameStr];
     
     //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
-    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     self.testTimeLabel.text = localizedDateTime;
-    if ([result.name isEqualToString:@"websites"]){
+    if ([result.test_group_name isEqualToString:@"websites"]){
         long anomalousMeasurements = [result anomalousMeasurements];
         long totalMeasurements = [result totalMeasurements];
         [self.stackView2 setHidden:NO];
@@ -48,7 +48,7 @@
         [self.label2 setText:[NSString stringWithFormat:@"%ld %@", totalMeasurements, [LocalizationUtility getSingularPlural:totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
-    else if ([result.name isEqualToString:@"instant_messaging"]){
+    else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
         long anomalousMeasurements = [result anomalousMeasurements];
         long okMeasurements = [result okMeasurements];
         [self.stackView2 setHidden:NO];
@@ -62,7 +62,7 @@
         [self.label2 setText:[NSString stringWithFormat:@"%ld %@", okMeasurements, [LocalizationUtility getSingularPlural:okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
-    else if ([result.name isEqualToString:@"middle_boxes"]){
+    else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
         long anomalousMeasurements = [result anomalousMeasurements];
         [self.stackView2 setHidden:YES];
         [self.stackView3 setHidden:YES];
@@ -75,7 +75,7 @@
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
     }
-    else if ([result.name isEqualToString:@"performance"]){
+    else if ([result.test_group_name isEqualToString:@"performance"]){
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:NO];
         [self.image1 setImage:[UIImage imageNamed:@"upload"]];

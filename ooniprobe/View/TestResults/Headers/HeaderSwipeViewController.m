@@ -10,7 +10,7 @@
 - (UIViewController *)first {
     if (!_first) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Result" bundle:nil];
-        if ([result.name isEqualToString:@"middle_boxes"])
+        if ([result.test_group_name isEqualToString:@"middle_boxes"])
             _first = [sb instantiateViewControllerWithIdentifier:@"test_summary_header_mb"];
         else
             _first = [sb instantiateViewControllerWithIdentifier:@"test_summary_header_1"];
@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[TestUtility getColorForTest:result.name]];
+    [self.view setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
 
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
