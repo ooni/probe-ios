@@ -31,11 +31,10 @@
      */
     //TestKeys *testKeys = jsonResult.test_keys;
     if (json.test_keys.whatsapp_endpoints_status == NULL || json.test_keys.whatsapp_web_status == NULL || json.test_keys.registration_server_status == NULL)
-        [self.measurement setState:measurementFailed];
-    else {
-        [self.measurement setState:measurementDone];
-        self.measurement.anomaly = [json.test_keys.whatsapp_endpoints_status isEqualToString:@"blocked"] || [json.test_keys.whatsapp_web_status isEqualToString:@"blocked"] || [json.test_keys.registration_server_status isEqualToString:@"blocked"];
-    }
+        [self.measurement setIs_failed:true];
+    else
+        self.measurement.is_anomaly = [json.test_keys.whatsapp_endpoints_status isEqualToString:@"blocked"] || [json.test_keys.whatsapp_web_status isEqualToString:@"blocked"] || [json.test_keys.registration_server_status isEqualToString:@"blocked"];
+    
     [super onEntry:json];
 }
 

@@ -11,7 +11,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                              initWithTitle:NSLocalizedString(@"TestResults.Details.CopyToClipboard", nil)
+                            initWithTitle:NSLocalizedString(@"TestResults.Details.CopyToClipboard", nil)
                                             style:UIBarButtonItemStylePlain
                                             target:self
                                             action:@selector(copy_clipboard:)];
@@ -33,9 +33,6 @@
             else
                 [self.textView setText:content];
         }
-    }
-    else if ([self.type isEqualToString:@"db"]){
-        [self.textView setText:[NSString stringWithFormat:@"RESULT OBJ : %@ \n\n MEASUREMENT OBJ: %@", self.measurement.result, self.measurement]];
     }
     self.textView.scrollEnabled = false;
     [self.textView layoutIfNeeded];

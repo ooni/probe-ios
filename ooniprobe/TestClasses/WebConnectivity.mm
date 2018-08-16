@@ -23,8 +23,8 @@
     if (!self.inputs)
         self.inputs = [TestUtility getUrlsTest];
     /*Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
-    self.measurement.input = currentUrl.url;
-    self.measurement.category = currentUrl.categoryCode;
+    self.measurement.url_id.url = currentUrl.url;
+    self.measurement.url_id.category_code = currentUrl.categoryCode;
     */
     if (self.max_runtime_enabled){
         test.set_option("max_runtime", [max_runtime doubleValue]);
@@ -38,8 +38,12 @@
 }
 
 -(void)onEntry:(JsonResult*)json {
-    self.measurement.input = json.input;
-    self.measurement.category = [TestUtility getCategoryForUrl:self.measurement.input];
+    //TODO add category and country code
+    Url *url = [Url new];
+    url.url = json.input;
+    url.category_code = @"";
+    //url.category_code = [TestUtility getUrl:json.input];
+    self.measurement.url_id = url;
     [self setBlocking:json.test_keys];
     [super onEntry:json];
 }
@@ -51,13 +55,11 @@
      string (dns, tcp-ip, http-failure, http-diff) => anomalous
      */
     //id element = testKeys.blocking;
-    if (testKeys.blocking == NULL) {
-        [self.measurement setState:measurementFailed];
-    }
-    else {
-        [self.measurement setState:measurementDone];
-        self.measurement.anomaly = ![testKeys.blocking isEqualToString:@"0"];
-    }
+    if (testKeys.blocking == NULL)
+        [self.measurement setIs_failed:true];
+    else
+        self.measurement.is_anomaly = ![testKeys.blocking isEqualToString:@"0"];
+    
 }
 
     @end

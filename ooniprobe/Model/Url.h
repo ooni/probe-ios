@@ -6,7 +6,7 @@
 @property (strong, nonatomic) NSString *category_code;
 @property (strong, nonatomic) NSString *country_code;
 
--(id)initWithUrl:(NSString*)url category:(NSString*)categoryCode;
+-(Url*)createOrReturn;
 -(id)initWithUrl:(NSString*)url category:(NSString*)categoryCode country:(NSString*)countryCode;
 
 @end

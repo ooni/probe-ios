@@ -27,23 +27,12 @@
      null => failed
      true => anomalous
      */
-    //TestKeys *testKeys = json.test_keys;
     if (json.test_keys.tampering == NULL)
-        [self.measurement setState:measurementFailed];
-    else {
-        [self.measurement setState:measurementDone];
-        self.measurement.anomaly = json.test_keys.tampering.value;
-    }
+        [self.measurement setIs_failed:true];
+    else
+        self.measurement.is_anomaly = json.test_keys.tampering.value;
+    
     [super onEntry:json];
-/*
-    if ([keys objectForKey:@"tampering"]){
-        //this case shouldn't happen
-        if ([keys objectForKey:@"tampering"] == [NSNull null])
-            [self.measurement setState:measurementFailed];
-        else if ([[keys objectForKey:@"tampering"] boolValue])
-            [self.measurement setAnomaly:YES];
-    }
- */
 }
 
 

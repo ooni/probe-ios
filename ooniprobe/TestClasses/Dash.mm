@@ -30,7 +30,7 @@
      onEntry method for dash test, check "failure" key
      !=null => failed
      */
-    self.measurement.state = json.test_keys.failure == NULL ? measurementDone : measurementFailed;
+    self.measurement.is_failed = json.test_keys.failure == NULL ? false : true;
     [super onEntry:json];
 }
 

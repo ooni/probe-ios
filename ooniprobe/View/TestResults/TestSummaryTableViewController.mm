@@ -70,7 +70,7 @@
     
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UIImageView *status = (UIImageView*)[cell viewWithTag:3];
-    if (current.state == measurementFailed){
+    if (current.is_failed){
         [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
         [title setTextColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
         [status setImage:[UIImage imageNamed:@"reload"]];
@@ -85,7 +85,7 @@
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", current.test_name]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
-        if (!current.anomaly){
+        if (!current.is_anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
             [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         }
@@ -96,7 +96,7 @@
     }
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
         [title setText:[LocalizationUtility getNameForTest:current.test_name]];
-        if (!current.anomaly){
+        if (!current.is_anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
             [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         }
@@ -104,12 +104,12 @@
             [status setImage:[UIImage imageNamed:@"exclamation_point"]];
     }
     else if ([result.test_group_name isEqualToString:@"websites"]){
-        [title setText:[NSString stringWithFormat:@"%@", current.input]];
+        [title setText:[NSString stringWithFormat:@"%@", current.url_id.url]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
-        [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.category]]];
+        [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.url_id.category_code]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
-        if (current.state != measurementFailed){
-            if (!current.anomaly){
+        if (current.is_failed){
+            if (!current.is_anomaly){
                 [status setImage:[UIImage imageNamed:@"tick"]];
                 [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
             }
@@ -131,14 +131,14 @@
         [detail1Label setHidden:NO];
         [detail2Label setHidden:NO];
 
-        if (current.state == measurementFailed){
+        if (current.is_failed){
             [detail1Image setHidden:YES];
             [detail2Image setHidden:YES];
             [detail1Label setHidden:YES];
             [detail2Label setHidden:YES];
         }
         else {
-            if (!current.anomaly)
+            if (!current.is_anomaly)
                 [status setImage:nil];
             else
                 [status setImage:nil];
@@ -165,7 +165,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     segueObj = [self.measurements objectAtIndex:indexPath.row];
-    if (segueObj.state == measurementFailed){
+    if (segueObj.is_failed){
         [self showPopup];
     }
     else

@@ -5,11 +5,13 @@
 @dynamic test_group_name, start_time, runtime, is_viewed, is_done, data_usage_up, data_usage_down;
 
 + (NSDictionary *)defaultValuesForEntity {
-    return @{@"start_time": [NSDate date], @"runtime" : [NSNumber numberWithInt:0], @"is_viewed" : [NSNumber numberWithBool:FALSE], @"done" : [NSNumber numberWithBool:FALSE], @"data_usage_down" : [NSNumber numberWithInt:0], @"data_usage_up" : [NSNumber numberWithInt:0]};
+    return @{@"start_time": [NSDate date]};
+             //, @"runtime" : [NSNumber numberWithInt:0], @"is_viewed" : [NSNumber numberWithBool:FALSE], @"done" : [NSNumber numberWithBool:FALSE], @"data_usage_down" : [NSNumber numberWithInt:0], @"data_usage_up" : [NSNumber numberWithInt:0]};
 }
 
 - (SRKResultSet*)measurements {
-    return [[[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"] fetch];
+    //Not showing the re_run measurements
+    return [[[[Measurement query] where:@"result = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"Id"] fetch];
 }
 
 -(Measurement*)getMeasurement:(NSString*)name{
@@ -58,12 +60,14 @@
 
 -(NSString*)getLocalizedNetworkType{
     Measurement *measurement = [self getFirstMeasurement];
-    if ([measurement.networkType isEqualToString:@"wifi"])
-        return NSLocalizedString(@"TestResults.Summary.Hero.WiFi", nil);
-    else if ([measurement.networkType isEqualToString:@"mobile"])
-        return NSLocalizedString(@"TestResults.Summary.Hero.Mobile", nil);
-    else if ([measurement.networkType isEqualToString:@"no_internet"])
-        return NSLocalizedString(@"TestResults.Summary.Hero.NoInternet", nil);
+    if (measurement.network_id.network_name != nil) {
+        if ([measurement.network_id.network_name isEqualToString:@"wifi"])
+            return NSLocalizedString(@"TestResults.Summary.Hero.WiFi", nil);
+        else if ([measurement.network_id.network_name isEqualToString:@"mobile"])
+            return NSLocalizedString(@"TestResults.Summary.Hero.Mobile", nil);
+        else if ([measurement.network_id.network_name isEqualToString:@"no_internet"])
+            return NSLocalizedString(@"TestResults.Summary.Hero.NoInternet", nil);
+    }
     return @"";
 }
     
@@ -83,22 +87,22 @@
 
 -(NSString*)getAsn{
     Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.asn != nil)
-        return measurement.asn;
+    if (measurement.network_id.asn != nil)
+        return measurement.network_id.asn;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(NSString*)getAsnName{
     Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.asnName != nil)
-        return measurement.asnName;
+    if (measurement.network_id.network_name != nil)
+        return measurement.network_id.network_name;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(NSString*)getCountry{
     Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.country != nil)
-        return measurement.country;
+    if (measurement.network_id.country_code != nil)
+        return measurement.network_id.country_code;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 

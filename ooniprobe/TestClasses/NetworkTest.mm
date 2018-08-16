@@ -14,10 +14,10 @@
 -(id)initWithMeasurement:(Measurement*)existingMeasurement {
     self = [super init];
     if (self) {
-        self.result = existingMeasurement.result;
+        self.result = existingMeasurement.result_id;
         self.mkNetworkTests = [[NSMutableArray alloc] init];
         if ([existingMeasurement.test_name isEqualToString:@"web_connectivity"]){
-            Url *currentUrl = [[Url alloc] initWithUrl:existingMeasurement.input category:existingMeasurement.category];
+            Url *currentUrl = [[Url alloc] initWithUrl:existingMeasurement.url_id.url category:existingMeasurement.url_id.category_code country:@"IT"];
             [self addTest:existingMeasurement.test_name :@[currentUrl]];
         }
         else
@@ -91,7 +91,7 @@
         //TODO basic fix to remove last measurement
         if ([self.result.test_group_name isEqualToString:@"websites"]){
             for (Measurement *current in self.result.measurements){
-                if (!current.input)
+                if (!current.url_id.url)
                     [current remove];
             }
         }

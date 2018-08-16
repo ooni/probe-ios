@@ -1,46 +1,32 @@
 #import <Foundation/Foundation.h>
 #import <SharkORM/SharkORM.h>
 #import "JsonResult.h"
+#import "Network.h"
+#import "Url.h"
+
 @class Result;
 
 @interface Measurement : SRKObject
 
-// The possible states of a measurements are:
-// * active, while the measurement is in progress
-// * failed, only option is re-runs
-// * done, when it's finished, but not necessarily uploaded
-// * uploaded, if it has been uploaded successfully
-// * processed, if the pipeline has processed the measurement
-typedef enum
-{
-    measurementActive,
-    measurementFailed,
-    measurementDone,
-    measurementUploaded,
-    measurementProcessed
-} MeasurementState;
-
 @property NSString *test_name;
 @property NSDate *start_time;
 @property float runtime;
-@property NSString *ip;
-@property NSString *asn;
-@property NSString *asnName;
-@property NSString *country;
-@property NSString *networkName;
-@property NSString *networkType;
-
-@property MeasurementState state;
-@property BOOL anomaly;
-
-@property Result *result;
-
-@property NSString *reportId;
-
-@property NSString *input;
-@property NSString *category;
-
+@property Network *network_id;
+@property BOOL is_done;
+@property BOOL is_uploaded;
+@property BOOL is_failed;
+@property NSString *failure_msg;
+@property BOOL is_upload_failed;
+@property NSString *upload_failure_msg;
+@property BOOL is_rerun;
+@property NSString *report_id;
+@property Url *url_id;
+@property long measurement_id;
+@property BOOL is_anomaly;
 @property NSString *testKeys;
+@property Result *result_id;
+
+//TODO check if it's saved on the db or should be deleted and created at runtime
 @property (strong, nonatomic) TestKeys *testKeysObj;
 
 -(NSString*)getFile:(NSString*)ext;

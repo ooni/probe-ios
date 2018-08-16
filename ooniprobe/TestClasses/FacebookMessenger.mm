@@ -29,11 +29,10 @@
     //NSDictionary *testKeys = jsonResult.test_keys;
     //set anomaly if either "facebook_tcp_blocking" or "facebook_dns_blocking" is true
     if (json.test_keys.facebook_tcp_blocking == NULL || json.test_keys.facebook_dns_blocking == NULL)
-        [self.measurement setState:measurementFailed];
-    else {
-        [self.measurement setState:measurementDone];
-        self.measurement.anomaly = [json.test_keys.facebook_tcp_blocking boolValue] || [json.test_keys.facebook_dns_blocking boolValue];
-    }
+        [self.measurement setIs_failed:true];
+    else
+        self.measurement.is_anomaly = [json.test_keys.facebook_tcp_blocking boolValue] || [json.test_keys.facebook_dns_blocking boolValue];
+    
     [super onEntry:json];
 }
 

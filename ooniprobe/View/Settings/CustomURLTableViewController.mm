@@ -38,7 +38,7 @@
     urlArray = [[NSMutableArray alloc] init];
     for (NSString *key in [urls allKeys]){
         if (![[urls objectForKey:key] isEqualToString:@"http://"]){
-            Url *currentUrl = [[Url alloc] initWithUrl:[urls objectForKey:key] category:@""];
+            Url *currentUrl = [[Url alloc] initWithUrl:[urls objectForKey:key] category:@"" country:@""];
             [urlArray addObject:currentUrl];
         }
     }

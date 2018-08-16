@@ -3,12 +3,14 @@
 #import "TestUtility.h"
 
 @implementation Measurement
-@dynamic test_name, start_time, runtime, ip, asn, asnName, country, networkName, networkType, state, anomaly, input, category, result, testKeys;
+@dynamic test_name, start_time, runtime, network_id, is_done, is_uploaded, is_failed, failure_msg, is_upload_failed, upload_failure_msg, is_rerun, report_id, url_id, measurement_id, testKeys, is_anomaly, result_id;
+
 @synthesize testKeysObj = _testKeysObj;
 
 + (NSDictionary *)defaultValuesForEntity {
     //defailt test to failure in case onEntry is never called
-    return @{@"start_time": [NSDate date], @"runtime" : [NSNumber numberWithInt:0], @"anomaly" : [NSNumber numberWithBool:FALSE]};
+    return @{@"start_time": [NSDate date]};
+    //, @"runtime" : [NSNumber numberWithInt:0], @"anomaly" : [NSNumber numberWithBool:FALSE]s
 }
 
 /*
@@ -49,9 +51,9 @@
 - (NSString*)getFile:(NSString*)ext{
     //log files are unique for web_connectivity test
     if ([self.test_name isEqualToString:@"web_connectivity"] && [ext isEqualToString:@"log"]){
-        return [NSString stringWithFormat:@"%@-%@.%@", self.result.test_group_name, self.result.Id, ext];
+        return [NSString stringWithFormat:@"%@-%@.%@", self.result_id.test_group_name, self.result_id.Id, ext];
     }
-    return [NSString stringWithFormat:@"%@-%@.%@", self.result.test_group_name, self.Id, ext];
+    return [NSString stringWithFormat:@"%@-%@.%@", self.result_id.test_group_name, self.Id, ext];
 }
 
 -(NSString*)getReportFile{

@@ -7,5 +7,8 @@
 @property (strong, nonatomic) NSString *ip;
 @property (strong, nonatomic) NSString *asn;
 @property (strong, nonatomic) NSString *country_code;
+@property (strong, nonatomic) NSString *network_type;
+
+-(Network*)createOrReturn;
 
 @end

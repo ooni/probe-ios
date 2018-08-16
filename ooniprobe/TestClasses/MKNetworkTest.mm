@@ -18,7 +18,7 @@
     self.measurement = [Measurement new];
     //If needed for the second measurement object (websites)
     if (self.result != NULL)
-        [self.measurement setResult:self.result];
+        [self.measurement setResult_id:self.result];
     if (self.name != NULL)
         [self.measurement setTest_name:self.name];
     [self.measurement save];
@@ -26,7 +26,7 @@
 
 - (void)setResultOfMeasurement:(Result *)result{
     self.result = result;
-    [self.measurement setResult:self.result];
+    [self.measurement setResult_id:self.result];
 }
 
 - (void) initCommon:(mk::nettests::BaseTest&) test{
@@ -38,7 +38,6 @@
     NSString *geoip_asn = [[NSBundle mainBundle] pathForResource:@"GeoIPASNum" ofType:@"dat"];
     NSString *geoip_country = [[NSBundle mainBundle] pathForResource:@"GeoIP" ofType:@"dat"];
     self.progress = 0;
-    [self.measurement setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
 
     //Configuring common test parameters
     test.set_option("geoip_country_path", [geoip_country UTF8String]);
@@ -53,7 +52,8 @@
     if (![self.name isEqualToString:@"web_connectivity"])
         test.set_output_filepath([[TestUtility getFileName:self.measurement ext:@"json"] UTF8String]);
     test.set_verbosity([SettingsUtility getVerbosity]);
-    test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
+    //TODO keep?
+    //test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
     test.on_log([self](uint32_t type, const char *s) {
         [self sendLog:[NSString stringWithFormat:@"%s", s]];
     });
@@ -103,7 +103,7 @@
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         if (error != nil) {
             NSLog(@"Error parsing JSON: %@", error);
-            [self.measurement setState:measurementFailed];
+            [self.measurement setIs_failed:true];
             [self.measurement save];
             //[self.result save];
             return;
@@ -167,8 +167,8 @@
         if (self.entryIdx < [self.inputs count]){
             [self createMeasurementObject];
             //Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
-            //self.measurement.input = currentUrl.url;
-            //self.measurement.category = currentUrl.categoryCode;
+            //self.measurement.url_id.url = currentUrl.url;
+            //self.measurement.url_id.category_code = currentUrl.categoryCode;
         }
     }
 }
@@ -183,20 +183,29 @@
         [self.measurement setRuntime:[json.test_runtime floatValue]];
         [self.result addRuntime:[json.test_runtime floatValue]];
     }
+
+    //TODO move on another callback
+    Network *network = [Network new];
+    [network setNetwork_type:[[ReachabilityManager sharedManager] getStatus]];
     //if the user doesn't want to share asn leave null on the db object
     if (json.probe_asn && [SettingsUtility getSettingWithName:@"include_asn"])
         //TODO-SBS asn name
-        [self.measurement setAsn:json.probe_asn];
-        [self.measurement setAsnName:@"Vodafone"];
+        [network setAsn:json.probe_asn];
+        [network setNetwork_name:@"Vodafone"];
     
     if (json.probe_cc && [SettingsUtility getSettingWithName:@"include_cc"])
-        [self.measurement setCountry:json.probe_cc];
+        [network setCountry_code:json.probe_cc];
     
     if (json.probe_ip && [SettingsUtility getSettingWithName:@"include_ip"])
-        [self.measurement setIp:json.probe_ip];
+        [network setIp:json.probe_ip];
     
+    [network commit];
+    [self.measurement setNetwork_id:network];
+    //[self.measurement setNetwork_id:[network createOrReturn]];
+    
+    //TODO move on another callback
     if (json.report_id)
-        [self.measurement setReportId:json.report_id];
+        [self.measurement setReport_id:json.report_id];
     
     if (json.test_keys)
         [self.measurement setTestKeysObj:json.test_keys];
@@ -207,7 +216,6 @@
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
-    [self.measurement setState:measurementActive];
     [self.measurement save];
 }
 

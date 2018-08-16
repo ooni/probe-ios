@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Measurement.h"
+#import "Url.h"
 
 @interface TestUtility : NSObject
 
@@ -13,6 +14,6 @@
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (NSArray*)getUrlsTest;
-+ (NSString*)getCategoryForUrl:(NSString*)url;
++ (Url*)getUrl:(NSString*)url;
 + (void)removeFile:(NSString*)fileName;
 @end
