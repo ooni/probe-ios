@@ -199,9 +199,9 @@
     if (json.probe_ip && [SettingsUtility getSettingWithName:@"include_ip"])
         [network setIp:json.probe_ip];
     
-    [network commit];
-    [self.measurement setNetwork_id:network];
-    //[self.measurement setNetwork_id:[network createOrReturn]];
+    //[network commit];
+    //[self.measurement setNetwork_id:network];
+    [self.measurement setNetwork_id:[network createOrReturn]];
     
     //TODO move on another callback
     if (json.report_id)
@@ -223,6 +223,7 @@
     //NSLog(@"%@ testEnded", self.name);
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
+    self.measurement.is_done = true;
     //[self.measurement setState:measurementDone];
     [self updateProgress:1];
     [self.measurement save];

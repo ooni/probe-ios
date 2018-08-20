@@ -41,9 +41,10 @@
     //TODO add category and country code
     Url *url = [Url new];
     url.url = json.input;
-    url.category_code = @"";
+    url.category_code = @"GAME";
+    url.country_code = @"IT";
     //url.category_code = [TestUtility getUrl:json.input];
-    self.measurement.url_id = url;
+    self.measurement.url_id = [url createOrReturn];
     [self setBlocking:json.test_keys];
     [super onEntry:json];
 }

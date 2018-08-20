@@ -11,50 +11,52 @@
 
 - (SRKResultSet*)measurements {
     //Not showing the re_run measurements
-    return [[[[Measurement query] where:@"result = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"Id"] fetch];
+    return [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"Id"] fetch];
 }
 
 -(Measurement*)getMeasurement:(NSString*)name{
-    SRKResultSet *measurements = [[[[Measurement query] where:@"result = ? AND name = ?" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND name = ?" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
     return nil;
 }
 
 -(Measurement*)getFirstMeasurement{
-    SRKResultSet *measurements = [[[[Measurement query] where:@"result = ?" parameters:@[self]] orderByDescending:@"Id"] fetch];
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ?" parameters:@[self]] orderByDescending:@"Id"] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
     return nil;
 }
 
-
+//TODO remove rerun measurements from every query
 - (long)totalMeasurements {
-    SRKQuery *query = [[[Measurement query] whereWithFormat:@"result = %@", self] orderByDescending:@"Id"];
+    //SRKQuery *query = [[[Measurement query] whereWithFormat:@"result_id = %@", self] orderByDescending:@"Id"];
+    SRKQuery *query = [[Measurement query] where:@"result_id = ?" parameters:@[self]];
     return [query count];
 }
 
 - (long)failedMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result = ? AND state = ?" parameters:@[self, @"1"]];
-    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@' AND state = '%u'", self, measurementFailed];
+    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_done = ? AND is_failed = ?" parameters:@[self, @"1", @"1"]];
+    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result_id = '%@' AND state = '%u'", self, measurementFailed];
     return [query count];
 }
-
+//TODO add is_failed, is_done, is_rerun, is_anomaly
 - (long)okMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result = ? AND state != ? AND anomaly = 0" parameters:@[self, @"1"]];
-    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@' AND state != '%u' AND anomaly = '0'", self, measurementFailed];
-    /*SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@'", self];
+    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_done = ? AND is_failed = ? AND is_anomaly = ?" parameters:@[self, @"1", @"0", @"0"]];
+    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result_id = '%@' AND state != '%u' AND anomaly = '0'", self, measurementFailed];
+    /*SRKQuery *query = [[Measurement query] whereWithFormat:@"result_id = '%@'", self];
     query = [query whereWithFormat:@"state != '%u'", measurementFailed];
     query = [query where:@"anomaly = '0'"];
      */
-    //SRKQuery *query = [[[[Measurement query] whereWithFormat:@"result = '%@'", self] whereWithFormat:@" state != '%u'", measurementFailed] where:@"anomaly = '0'"];
+    //SRKQuery *query = [[[[Measurement query] whereWithFormat:@"result_id = '%@'", self] whereWithFormat:@" state != '%u'", measurementFailed] where:@"anomaly = '0'"];
 
     return [query count];
 }
 
 - (long)anomalousMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result = ? AND anomaly = 1" parameters:@[self]];
-    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result = '%@' AND anomaly = '1'", self];
+    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_done = ? AND is_failed = ? AND is_anomaly = ?" parameters:@[self, @"1", @"0", @"1"]];
+    //SRKQuery *query = [[Measurement query] where:@"result_id = ? AND anomaly = 1" parameters:@[self]];
+    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result_id = '%@' AND anomaly = '1'", self];
     return [query count];
 }
 

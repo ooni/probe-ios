@@ -53,7 +53,7 @@
         [self.upLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageUp countStyle:NSByteCountFormatterCountStyleFile]];
         [self.downLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageDown countStyle:NSByteCountFormatterCountStyleFile]];
         [self.numberTestsLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[query count]]];
-        [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[[[query where:[NSString stringWithFormat:@"asn != 'null'"]] distinct:@"asn"] count]]];
+        [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[[[[Network query] where:[NSString stringWithFormat:@"asn != 'null'"]] distinct:@"asn"] count]]];
     });
 }
 

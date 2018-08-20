@@ -4,9 +4,6 @@
 @dynamic url, category_code, country_code;
 
 - (Url*)createOrReturn{
-    [self commit];
-    return self;
-
     //query table for url with url.
     //if exists return
     //else create
