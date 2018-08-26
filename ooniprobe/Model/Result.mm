@@ -15,7 +15,7 @@
 }
 
 -(Measurement*)getMeasurement:(NSString*)name{
-    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND name = ?" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND test_name = ?" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
     return nil;

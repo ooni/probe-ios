@@ -146,9 +146,9 @@
         if ([current.test_name isEqualToString:@"ndt"]){
             TestKeys *testKeys = [current testKeysObj];
             [stackView2 setHidden:NO];
-            [detail1Image setImage:[UIImage imageNamed:@"upload_black"]];
+            [detail1Image setImage:[UIImage imageNamed:@"upload"]];
             [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-            [detail2Image setImage:[UIImage imageNamed:@"download_black"]];
+            [detail2Image setImage:[UIImage imageNamed:@"download"]];
             [detail2Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
             [detail1Label setText:[NSString stringWithFormat:@"%@", [testKeys getUploadWithUnit]]];
             [detail2Label setText:[NSString stringWithFormat:@"%@", [testKeys getDownloadWithUnit]]];

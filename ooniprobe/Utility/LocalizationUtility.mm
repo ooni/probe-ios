@@ -16,9 +16,9 @@
     else if ([testName isEqualToString:@"performance"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.MiddleBoxes", nil);
     else if ([testName isEqualToString:@"middle_boxes"])
-        return NSLocalizedString(@"TestResults.Overview.FilterTests.Performance", nil);
-    else if ([testName isEqualToString:@"instant_messaging"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.InstantMessaging", nil);
+    else if ([testName isEqualToString:@"instant_messaging"])
+        return NSLocalizedString(@"TestResults.Overview.FilterTests.Performance", nil);
     return @"";
 }
 

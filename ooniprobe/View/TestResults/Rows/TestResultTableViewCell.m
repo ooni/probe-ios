@@ -67,12 +67,18 @@
         [self.stackView2 setHidden:YES];
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:nil];
-       if (anomalousMeasurements > 0)
+        if (anomalousMeasurements > 0){
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)];
-        else if ([result okMeasurements] == [result totalMeasurements]-[result failedMeasurements])
+            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
+        }
+        else if ([result okMeasurements] == [result totalMeasurements]-[result failedMeasurements]){
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];
-        else
+            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+        }
+        else {
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];
+            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        }
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
     }
     else if ([result.test_group_name isEqualToString:@"performance"]){
