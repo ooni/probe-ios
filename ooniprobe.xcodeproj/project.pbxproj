@@ -25,6 +25,7 @@
 		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.mm */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
+		ED3987CA2130EBB600FBA21E /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3987C92130EBB600FBA21E /* Settings.m */; };
 		ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32E1D2337920061F266 /* GeoIP.dat */; };
 		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
 		ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */; };
@@ -141,6 +142,8 @@
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		ED3932C21E3114740064CD11 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		ED3932C31E3114740064CD11 /* AboutViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutViewController.mm; sourceTree = "<group>"; };
+		ED3987C82130EBB600FBA21E /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Model/Settings.h; sourceTree = "<group>"; };
+		ED3987C92130EBB600FBA21E /* Settings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Model/Settings.m; sourceTree = "<group>"; };
 		ED3A2C761E87E87900419270 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED3AB32E1D2337920061F266 /* GeoIP.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIP.dat; sourceTree = "<group>"; };
 		ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIPASNum.dat; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 				ED3AEABD205A625100CFE360 /* Url.mm */,
 				EDEA783121247F8B006F4A72 /* Network.h */,
 				EDEA783221247F8B006F4A72 /* Network.m */,
+				ED3987C82130EBB600FBA21E /* Settings.h */,
+				ED3987C92130EBB600FBA21E /* Settings.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -913,6 +918,7 @@
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
+				ED3987CA2130EBB600FBA21E /* Settings.m in Sources */,
 				EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
 				ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */,

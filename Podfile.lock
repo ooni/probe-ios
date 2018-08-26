@@ -10,7 +10,7 @@ PODS:
   - JSONSyntaxHighlight (1.0.0)
   - lottie-ios (2.5.0)
   - MBProgressHUD (1.1.0)
-  - measurement_kit (0.8.3)
+  - measurement_kit (0.9.0-alpha.9-1)
   - MKDropdownMenu (1.4)
   - OCMapper (2.0)
   - RHMarkdownLabel (0.0.1):
@@ -30,7 +30,7 @@ DEPENDENCIES:
   - JSONSyntaxHighlight
   - lottie-ios
   - MBProgressHUD
-  - measurement_kit (from `https://github.com/measurement-kit/measurement-kit.git`, tag `v0.8.3`)
+  - measurement_kit (from `https://github.com/measurement-kit/ios-libs.git`)
   - MKDropdownMenu
   - OCMapper (= 2.0)
   - RHMarkdownLabel
@@ -58,13 +58,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   measurement_kit:
-    :git: https://github.com/measurement-kit/measurement-kit.git
-    :tag: v0.8.3
+    :git: https://github.com/measurement-kit/ios-libs.git
 
 CHECKOUT OPTIONS:
   measurement_kit:
-    :git: https://github.com/measurement-kit/measurement-kit.git
-    :tag: v0.8.3
+    :commit: 45d0117581331aba4cdc1636050d4cfda29aa5d5
+    :git: https://github.com/measurement-kit/ios-libs.git
 
 SPEC CHECKSUMS:
   Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa
@@ -76,7 +75,7 @@ SPEC CHECKSUMS:
   JSONSyntaxHighlight: 8685d8ad0259b909dc97a829fdfbefbec363f449
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  measurement_kit: b26424a2dabda0c5de70033c0cc64f2a3d3bef0b
+  measurement_kit: cc0c26b5aba94e6173d29197c091e2f598d89209
   MKDropdownMenu: 269df4a41d21a1db684ce8bc709befe419fc5bae
   OCMapper: 9b4d542543794c42adc01f1493d894f53e193cb0
   RHMarkdownLabel: 81d6772768e621be57302b7fd5212ad4f78fb0bd
@@ -85,6 +84,6 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XNGMarkdownParser: aed98c14f0c0eb20064184ddf9bac26c482722b2
 
-PODFILE CHECKSUM: 0dd19030152469d081476b06b3bd7b3798a469dc
+PODFILE CHECKSUM: b3a5b6bc7184ed9e1f71fbee5dd22f6899cce1f3
 
 COCOAPODS: 1.5.3
