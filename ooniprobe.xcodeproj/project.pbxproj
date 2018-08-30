@@ -43,6 +43,7 @@
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED6AC44B1FF8F97F003EA230 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC44A1FF8F97F003EA230 /* NSDictionary+Safety.m */; };
+		ED6F321E21333C9800438F1B /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6F321D21333C9800438F1B /* Options.m */; };
 		ED70D5031FE8021400759463 /* Measurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5021FE8021400759463 /* Measurement.mm */; };
 		ED70D5061FE8022300759463 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5051FE8022300759463 /* Result.mm */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
@@ -142,15 +143,15 @@
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		ED3932C21E3114740064CD11 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		ED3932C31E3114740064CD11 /* AboutViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutViewController.mm; sourceTree = "<group>"; };
-		ED3987C82130EBB600FBA21E /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Model/Settings.h; sourceTree = "<group>"; };
-		ED3987C92130EBB600FBA21E /* Settings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Model/Settings.m; sourceTree = "<group>"; };
+		ED3987C82130EBB600FBA21E /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		ED3987C92130EBB600FBA21E /* Settings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		ED3A2C761E87E87900419270 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED3AB32E1D2337920061F266 /* GeoIP.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIP.dat; sourceTree = "<group>"; };
 		ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIPASNum.dat; sourceTree = "<group>"; };
 		ED3AE9EE20341C8600DAAF36 /* ResultsHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsHeaderViewController.h; sourceTree = "<group>"; };
 		ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsHeaderViewController.m; sourceTree = "<group>"; };
-		ED3AEABC205A625100CFE360 /* Url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Url.h; path = Model/Url.h; sourceTree = "<group>"; };
-		ED3AEABD205A625100CFE360 /* Url.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Url.mm; path = Model/Url.mm; sourceTree = "<group>"; };
+		ED3AEABC205A625100CFE360 /* Url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Url.h; sourceTree = "<group>"; };
+		ED3AEABD205A625100CFE360 /* Url.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Url.mm; sourceTree = "<group>"; };
 		ED3B5F8C1F0BAC54007CE2AF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED3B5F8D1F0BC991007CE2AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ED3B5F8E1F0BC997007CE2AF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -180,10 +181,12 @@
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
 		ED6AC4491FF8F97F003EA230 /* NSDictionary+Safety.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safety.h"; path = "Utility/NSDictionary+Safety.h"; sourceTree = "<group>"; };
 		ED6AC44A1FF8F97F003EA230 /* NSDictionary+Safety.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Safety.m"; path = "Utility/NSDictionary+Safety.m"; sourceTree = "<group>"; };
-		ED70D5011FE8021400759463 /* Measurement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Measurement.h; path = Model/Measurement.h; sourceTree = "<group>"; };
-		ED70D5021FE8021400759463 /* Measurement.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Measurement.mm; path = Model/Measurement.mm; sourceTree = "<group>"; };
-		ED70D5041FE8022300759463 /* Result.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Result.h; path = Model/Result.h; sourceTree = "<group>"; };
-		ED70D5051FE8022300759463 /* Result.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Result.mm; path = Model/Result.mm; sourceTree = "<group>"; };
+		ED6F321C21333C9800438F1B /* Options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
+		ED6F321D21333C9800438F1B /* Options.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Options.m; sourceTree = "<group>"; };
+		ED70D5011FE8021400759463 /* Measurement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
+		ED70D5021FE8021400759463 /* Measurement.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Measurement.mm; sourceTree = "<group>"; };
+		ED70D5041FE8022300759463 /* Result.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
+		ED70D5051FE8022300759463 /* Result.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Result.mm; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
 		ED78B6392042A92200C43E5C /* MKNetworkTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKNetworkTest.mm; path = TestClasses/MKNetworkTest.mm; sourceTree = "<group>"; };
@@ -284,8 +287,8 @@
 		EDDB0B7A2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AutomaticTestsTableViewController.m; path = Settings/AutomaticTestsTableViewController.m; sourceTree = "<group>"; };
 		EDDB0B7C2004911300EFD9C8 /* WebsiteCategoryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebsiteCategoryTableViewController.h; path = Settings/WebsiteCategoryTableViewController.h; sourceTree = "<group>"; };
 		EDDB0B7D2004911300EFD9C8 /* WebsiteCategoryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WebsiteCategoryTableViewController.m; path = Settings/WebsiteCategoryTableViewController.m; sourceTree = "<group>"; };
-		EDEA783121247F8B006F4A72 /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Network.h; path = Model/Network.h; sourceTree = "<group>"; };
-		EDEA783221247F8B006F4A72 /* Network.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Network.m; path = Model/Network.m; sourceTree = "<group>"; };
+		EDEA783121247F8B006F4A72 /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		EDEA783221247F8B006F4A72 /* Network.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
 		EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = middle_boxes.json; sourceTree = "<group>"; };
 		EDF2072B2120EF12005B06D7 /* Simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		EDF2072E2120EF29005B06D7 /* Advanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Advanced.h; sourceTree = "<group>"; };
@@ -412,17 +415,9 @@
 		ED25280F1CEA34DA0073A29B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED6F322021333CB700438F1B /* Database */,
+				ED6F321F21333C9D00438F1B /* Settings */,
 				EDB252A120FA46DA00B4EDE4 /* JsonResult */,
-				ED70D5041FE8022300759463 /* Result.h */,
-				ED70D5051FE8022300759463 /* Result.mm */,
-				ED70D5011FE8021400759463 /* Measurement.h */,
-				ED70D5021FE8021400759463 /* Measurement.mm */,
-				ED3AEABC205A625100CFE360 /* Url.h */,
-				ED3AEABD205A625100CFE360 /* Url.mm */,
-				EDEA783121247F8B006F4A72 /* Network.h */,
-				EDEA783221247F8B006F4A72 /* Network.m */,
-				ED3987C82130EBB600FBA21E /* Settings.h */,
-				ED3987C92130EBB600FBA21E /* Settings.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -481,6 +476,32 @@
 				ED997D09207BB7C400C97B1F /* LocalizationUtility.mm */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		ED6F321F21333C9D00438F1B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ED3987C82130EBB600FBA21E /* Settings.h */,
+				ED3987C92130EBB600FBA21E /* Settings.m */,
+				ED6F321C21333C9800438F1B /* Options.h */,
+				ED6F321D21333C9800438F1B /* Options.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		ED6F322021333CB700438F1B /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				ED70D5041FE8022300759463 /* Result.h */,
+				ED70D5051FE8022300759463 /* Result.mm */,
+				ED70D5011FE8021400759463 /* Measurement.h */,
+				ED70D5021FE8021400759463 /* Measurement.mm */,
+				ED3AEABC205A625100CFE360 /* Url.h */,
+				ED3AEABD205A625100CFE360 /* Url.mm */,
+				EDEA783121247F8B006F4A72 /* Network.h */,
+				EDEA783221247F8B006F4A72 /* Network.m */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		ED70D5001FE7F65700759463 /* GUI */ = {
@@ -892,6 +913,7 @@
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
+				ED6F321E21333C9800438F1B /* Options.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
 				EDA9CC8A209B537C0062507F /* WebConnectivity.mm in Sources */,
 				EDDB0B7B2000F10E00EFD9C8 /* AutomaticTestsTableViewController.m in Sources */,
