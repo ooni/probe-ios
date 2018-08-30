@@ -48,10 +48,10 @@
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"automatic_tests"];
 }
 
-+ (int)getVerbosity {
++ (NSString*)getVerbosity {
     if ([self getSettingWithName:@"debug_logs"])
-        return MK_LOG_DEBUG2;
-    return MK_LOG_INFO;
+        return @"DEBUG";
+    return @"INFO";
 }
 
 + (NSArray*)addRemoveAutomaticTest:(NSString*)testName{

@@ -11,19 +11,13 @@
     return self;
 }
 
--(void)run {
-    [super run];
-    [self runTest];
-}
-
-
 -(void) runTest {
     mk::nettests::NdtTest test;
     if (![SettingsUtility getSettingWithName:@"ndt_server_auto"]){
         test.set_option("server", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server"] UTF8String]);
         test.set_option("port", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server_port"] UTF8String]);
     }
-    [super initCommon:test];
+    [super initCommon];
 }
 
 -(void)onEntry:(JsonResult*)json {

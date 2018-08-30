@@ -12,23 +12,23 @@
 -(id)initWithMeasurement:(Measurement*)existingMeasurement;
 -(void)addTest:(NSString*)testName :(NSArray*)urls;
 -(void)testEnded:(MKNetworkTest*)test;
--(void)run;
+-(void)runTestSuite;
 @end
 
 @interface WCNetworkTest : NetworkTest
 -(id)initWithUrls:(NSArray*)urls;
--(void)run;
+-(void)runTestSuite;
 @end
 
 @interface IMNetworkTest : NetworkTest
--(void)run;
+-(void)runTestSuite;
 @end
 
 @interface MBNetworkTest : NetworkTest
--(void)run;
+-(void)runTestSuite;
 @end
 
 @interface SPNetworkTest : NetworkTest
--(void)run;
+-(void)runTestSuite;
 @end
 

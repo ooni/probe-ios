@@ -5,20 +5,16 @@
 -(id) init {
     self = [super init];
     if (self) {
-        self.name = @"http_invalid_request_line";
+        self.name = @"HttpInvalidRequestLine";
         self.measurement.test_name = self.name;
     }
     return self;
 }
 
--(void)run {
-    [super run];
-    [self runTest];
-}
-
 -(void) runTest {
-    mk::nettests::HttpInvalidRequestLineTest test;
-    [super initCommon:test];
+    [super initCommon];
+    self.settings.name = self.name;
+    [super runTest];
 }
 
 -(void)onEntry:(JsonResult*)json {

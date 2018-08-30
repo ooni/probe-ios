@@ -3,6 +3,31 @@
 #import "VersionUtility.h"
 #import "ReachabilityManager.h"
 
+static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
+    mk_unique_event eventp{mk_task_wait_for_next_event(taskp.get())};
+    if (!eventp) {
+        NSLog(@"Cannot extract event");
+        return nil;
+    }
+    const char *s = mk_event_serialize(eventp.get());
+    if (s == nullptr) {
+        NSLog(@"Cannot serialize event");
+        return nil;
+    }
+    // Here it's important to specify freeWhenDone because we control
+    // the lifecycle of the data object using `eventp`.
+    NSData *data = [NSData dataWithBytesNoCopy:(void *)s length:strlen(s)
+                                  freeWhenDone:NO];
+    NSError *error = nil;
+    NSDictionary *evinfo = [NSJSONSerialization JSONObjectWithData:data
+                                                           options:0 error:&error];
+    if (error != nil) {
+        NSLog(@"Cannot parse serialized JSON event");
+        return nil;
+    }
+    return evinfo;
+}
+
 @implementation MKNetworkTest
 
 -(id) init {
@@ -29,31 +54,63 @@
     [self.measurement setResult_id:self.result];
 }
 
-- (void) initCommon:(mk::nettests::BaseTest&) test{
-    BOOL include_ip = [SettingsUtility getSettingWithName:@"include_ip"];
-    BOOL include_asn = [SettingsUtility getSettingWithName:@"include_asn"];
-    BOOL include_cc = [SettingsUtility getSettingWithName:@"include_cc"];
-    BOOL upload_results = [SettingsUtility getSettingWithName:@"upload_results"];
-    NSString *software_version = [VersionUtility get_software_version];
-    NSString *geoip_asn = [[NSBundle mainBundle] pathForResource:@"GeoIPASNum" ofType:@"dat"];
-    NSString *geoip_country = [[NSBundle mainBundle] pathForResource:@"GeoIP" ofType:@"dat"];
+- (void) initCommon{
     self.progress = 0;
 
-    //Configuring common test parameters
-    test.set_option("geoip_country_path", [geoip_country UTF8String]);
-    test.set_option("geoip_asn_path", [geoip_asn UTF8String]);
-    test.set_option("save_real_probe_ip", include_ip);
-    test.set_option("save_real_probe_asn", include_asn);
-    test.set_option("save_real_probe_cc", include_cc);
-    test.set_option("no_collector", !upload_results);
-    test.set_option("software_name", [@"ooniprobe-ios" UTF8String]);
-    test.set_option("software_version", [software_version UTF8String]);
-    test.set_error_filepath([[TestUtility getFileName:self.measurement ext:@"log"] UTF8String]);
+    self.settings = [Settings new];
+    self.settings.log_filepath = [TestUtility getFileName:self.measurement ext:@"log"];
+    //TODO remove and save file on the fly
     if (![self.name isEqualToString:@"web_connectivity"])
-        test.set_output_filepath([[TestUtility getFileName:self.measurement ext:@"json"] UTF8String]);
-    test.set_verbosity([SettingsUtility getVerbosity]);
-    //TODO keep?
-    //test.add_annotation("network_type", [self.measurement.networkType UTF8String]);
+        self.settings.output_filepath = [TestUtility getFileName:self.measurement ext:@"json"];
+}
+
+-(void)runTest{
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    [self.measurement save];
+    dispatch_async(
+                   dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                       mk_unique_task taskp{mk_nettest_start([[self.settings getSerializedSettings] UTF8String])};
+                       while (!mk_task_is_done(taskp.get())) {
+                           // Extract an event from the task queue and unmarshal it.
+                           NSDictionary *evinfo = wait_for_next_event(taskp);
+                           if (evinfo == nil) {
+                               break;
+                           }
+                           NSLog(@"Got event: %@", evinfo); // Uncomment when debugging
+                           NSString *key = [evinfo objectForKey:@"key"];
+                           NSDictionary *value = [evinfo objectForKey:@"value"];
+                           if (key == nil || value == nil) {
+                               return;
+                           }
+                           if ([key isEqualToString:@"log"]) {
+                               [self updateLogs:value];
+                           } else if ([key isEqualToString:@"status.progress"]) {
+                               [self updateProgress:value];
+                           } else if ([key isEqualToString:@"status.update.performance"]) {
+                               //[self updateSpeed:value];
+                           } else if ([key isEqualToString:@"measurement"]) {
+                               //[self updateJson:value];
+                           } else {
+                               NSLog(@"unused event: %@", evinfo);
+                           }
+
+                           // Notify the main thread about the latest event.
+                           dispatch_async(dispatch_get_main_queue(), ^{
+                               [[NSNotificationCenter defaultCenter]
+                                postNotificationName:@"event" object:nil userInfo:evinfo];
+                           });
+                       }
+                       // Notify the main thread that the task is now complete
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           [[NSNotificationCenter defaultCenter]
+                            postNotificationName:@"test_complete" object:nil];
+                       });
+                   });
+    
+    /*
     test.on_log([self](uint32_t type, const char *s) {
         [self sendLog:[NSString stringWithFormat:@"%s", s]];
     });
@@ -73,24 +130,37 @@
     test.start([self]() {
         [self testEnded];
     });
+*/
 }
 
--(void)sendLog:(NSString*)log{
-    NSLog(@"on_log %@", log);
+-(void)updateLogs:(NSDictionary *)value{
+    NSString *message = [value objectForKey:@"message"];
+    if (message == nil) {
+        return;
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
-        [noteInfo setObject:log forKey:@"log"];
+        [noteInfo setObject:message forKey:@"log"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateLog" object:nil userInfo:noteInfo];
     });
 }
 
--(void)updateProgress:(double)prog {
-    self.progress = prog;
-    NSLog(@"%@", [NSString stringWithFormat:@"Progress: %.1f%%", prog * 100.0]);
+-(void)updateProgress:(NSDictionary *)value {
+    NSNumber *percentage = [value objectForKey:@"percentage"];
+    NSString *message = [value objectForKey:@"message"];
+    if (percentage == nil || message == nil) {
+        return;
+    }
+    self.progress = [percentage doubleValue];
+    [self updateProgressReal:self.progress];
+}
+
+-(void)updateProgressReal:(double)progress{
+    NSLog(@"%@", [NSString stringWithFormat:@"Progress: %.1f%%", self.progress * 100.0]);
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
         [noteInfo setObject:[NSNumber numberWithInt:self.idx] forKey:@"index"];
-        [noteInfo setObject:[NSNumber numberWithDouble:prog] forKey:@"prog"];
+        [noteInfo setObject:[NSNumber numberWithDouble:progress] forKey:@"prog"];
         [noteInfo setObject:self.name forKey:@"name"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateProgress" object:nil userInfo:noteInfo];
     });
@@ -164,7 +234,7 @@
         //TODO-SBS this case doesn not handle the timeout
         //move creation of new object in status.measurement_start (mk 0.9)
         self.entryIdx++;
-        if (self.entryIdx < [self.inputs count]){
+        if (self.entryIdx < [self.settings.inputs count]){
             [self createMeasurementObject];
             //Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
             //self.measurement.url_id.url = currentUrl.url;
@@ -211,21 +281,13 @@
         [self.measurement setTestKeysObj:json.test_keys];
 }
 
--(void)run {
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
-    [self.measurement save];
-}
-
 -(void)testEnded{
     //NSLog(@"%@ testEnded", self.name);
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     self.measurement.is_done = true;
     //[self.measurement setState:measurementDone];
-    [self updateProgress:1];
+    [self updateProgressReal:1];
     [self.measurement save];
     [self.delegate testEnded:self];
 }

@@ -11,14 +11,9 @@
     return self;
 }
 
--(void)run {
-    [super run];
-    [self runTest];
-}
-
 -(void) runTest {
     mk::nettests::FacebookMessengerTest test;
-    [super initCommon:test];
+    [super initCommon];
 }
 
 /*

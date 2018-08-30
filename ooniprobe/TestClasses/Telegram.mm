@@ -11,15 +11,10 @@
     return self;
 }
 
--(void)run {
-    [super run];
-    [self runTest];
-}
-
 
 -(void) runTest {
     mk::nettests::TelegramTest test;
-    [super initCommon:test];
+    [super initCommon];
 }
 
 -(void)onEntry:(JsonResult*)json {

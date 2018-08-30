@@ -17,6 +17,7 @@
 #import "Url.h"
 #import "TestUtility.h"
 #import "JsonResult.h"
+#import "Settings.h"
 
 @class MKNetworkTest;
 
@@ -30,18 +31,17 @@
 
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property NSString *name;
-@property float progress;
+@property double progress;
 @property int idx;
 @property Result *result;
 @property Measurement *measurement;
-@property NSArray *inputs;
-@property BOOL max_runtime_enabled;
 @property id<MKNetworkTestDelegate> delegate;
 @property int entryIdx;
+@property Settings *settings;
 
 -(void)createMeasurementObject;
--(void)initCommon:(mk::nettests::BaseTest&) test;
+-(void)initCommon;
 -(void)onEntry:(JsonResult*)jsonResult;
 -(void)setResultOfMeasurement:(Result *)result;
--(void)run;
+-(void)runTest;
 @end

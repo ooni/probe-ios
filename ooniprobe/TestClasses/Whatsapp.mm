@@ -11,17 +11,12 @@
     return self;
 }
 
--(void)run {
-    [super run];
-    [self runTest];
-}
-
 -(void) runTest {
     mk::nettests::WhatsappTest test;
     if ([SettingsUtility getSettingWithName:@"test_whatsapp_extensive"]){
         test.set_option("all_endpoints", YES);
     }
-    [super initCommon:test];
+    [super initCommon];
 }
 
 -(void)onEntry:(JsonResult*)json {

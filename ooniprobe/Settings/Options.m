@@ -1,4 +1,6 @@
 #import "Options.h"
+#import "SettingsUtility.h"
+#import "VersionUtility.h"
 
 @implementation Options
 
@@ -20,7 +22,7 @@
         self.save_real_probe_cc = include_cc;
         self.no_collector = !upload_results;
         self.software_name = @"ooniprobe-ios";
-        self.software_version = software_version
+        self.software_version = software_version;
     }
     return self;
 }

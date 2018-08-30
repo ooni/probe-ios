@@ -42,11 +42,12 @@
     }
     else if ([testName isEqualToString:@"web_connectivity"]){
         WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
-        [webConnectivity setMax_runtime_enabled:YES];
+        //TODO handle max runtime in a better way
+        /*[webConnectivity setMax_runtime_enabled:YES];
         if (urls != nil){
             [webConnectivity setInputs:urls];
             [webConnectivity setMax_runtime_enabled:NO];
-        }
+        }*/
         [self initCommon:webConnectivity];
     }
     else if ([testName isEqualToString:@"http_invalid_request_line"]){
@@ -74,9 +75,9 @@
     [self.mkNetworkTests addObject:test];
 }
 
--(void)run {
+-(void)runTestSuite {
     for (MKNetworkTest *current in self.mkNetworkTests){
-        [current run];
+        [current runTest];
     }
 }
 
@@ -135,8 +136,9 @@
     return self;
 }
 
--(void)run {
-    [super run];
+//TODO maybe not needed
+-(void)runTestSuite {
+    [super runTestSuite];
 }
 
 @end
@@ -161,8 +163,8 @@
     return self;
 }
 
--(void)run {
-    [super run];
+-(void)runTestSuite {
+    [super runTestSuite];
 }
 
 @end
@@ -183,8 +185,8 @@
     return self;
 }
 
--(void)run {
-    [super run];
+-(void)runTestSuite {
+    [super runTestSuite];
 }
 
 @end
@@ -205,7 +207,7 @@
     return self;
 }
 
--(void)run {
-    [super run];
+-(void)runTestSuite {
+    [super runTestSuite];
 }
 @end

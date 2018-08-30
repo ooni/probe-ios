@@ -5,20 +5,16 @@
 -(id) init {
     self = [super init];
     if (self) {
-        self.name = @"http_header_field_manipulation";
+        self.name = @"HttpHeaderFieldManipulation";
         self.measurement.test_name = self.name;
     }
     return self;
 }
 
--(void)run {
-    [super run];
-    [self runTest];
-}
-
 -(void) runTest {
-    mk::nettests::HttpHeaderFieldManipulationTest test;
-    [super initCommon:test];
+    [super initCommon];
+    self.settings.name = self.name;
+    [super runTest];
 }
 
 -(void)onEntry:(JsonResult*)json {
