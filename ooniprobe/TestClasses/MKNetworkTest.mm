@@ -55,8 +55,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
 }
 
 - (void) initCommon{
-    self.progress = 0;
-
     self.settings = [Settings new];
     self.settings.log_filepath = [TestUtility getFileName:self.measurement ext:@"log"];
     //TODO remove and save file on the fly
@@ -85,14 +83,50 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            if (key == nil || value == nil) {
                                return;
                            }
-                           if ([key isEqualToString:@"log"]) {
+                           if ([key isEqualToString:@"status.started"]) {
+                               [self updateProgressBar:0];
+                           }
+                           else if ([key isEqualToString:@"status.measurement_start"]) {
+                               /*
+                                "- Creare oggetto measurement
+                                - Salvare input nel db
+                                (assegna categoria random)"
+                                */
+                           }
+                           else if ([key isEqualToString:@"status.geoip_lookup"]) {
+                               //Save Network info
+                               [self saveNetworkInfo:value];
+                           }
+                           else if ([key isEqualToString:@"log"]) {
                                [self updateLogs:value];
-                           } else if ([key isEqualToString:@"status.progress"]) {
+                           }
+                           else if ([key isEqualToString:@"status.progress"]) {
                                [self updateProgress:value];
-                           } else if ([key isEqualToString:@"status.update.performance"]) {
-                               //[self updateSpeed:value];
-                           } else if ([key isEqualToString:@"measurement"]) {
-                               //[self updateJson:value];
+                           }
+                           else if ([key isEqualToString:@"measurement"]) {
+                               [self onEntryCreate:value];
+                           }
+                           else if ([key isEqualToString:@"status.report_create"]) {
+                               //Save report_id
+                               NSString *report_id = [value objectForKey:@"report_id"];
+                               [self.measurement setReport_id:report_id];
+                           }
+                           else if ([key isEqualToString:@"status.measurement_submission"]) {
+                               //write uploaded on db (check failure.measurement_submission)
+                           }
+                           else if ([key isEqualToString:@"status.measurement_done"]) {
+                               //probabilmente da usare per indicare misura finita
+                           }
+                           else if ([key isEqualToString:@"status.end"]) {
+                               //update d.down e d.up
+                               NSNumber *down = [value objectForKey:@"downloaded_kb"];
+                               NSString *up = [value objectForKey:@"uploaded_kb"];
+                               [self.result setData_usage_down:self.result.data_usage_down+[down doubleValue]];
+                               [self.result setData_usage_up:self.result.data_usage_up+[up doubleValue]];
+                           }
+                           else if ([key isEqualToString:@"failure.startup"]) {
+                               //TODO chiudi schermata test?
+                               //runnare il prossimo?
                            } else {
                                NSLog(@"unused event: %@", evinfo);
                            }
@@ -151,12 +185,11 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     if (percentage == nil || message == nil) {
         return;
     }
-    self.progress = [percentage doubleValue];
-    [self updateProgressReal:self.progress];
+    [self updateProgressBar:[percentage doubleValue]];
 }
 
--(void)updateProgressReal:(double)progress{
-    NSLog(@"%@", [NSString stringWithFormat:@"Progress: %.1f%%", self.progress * 100.0]);
+-(void)updateProgressBar:(double)progress{
+    NSLog(@"%@", [NSString stringWithFormat:@"Progress: %.1f%%", progress * 100.0]);
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
         [noteInfo setObject:[NSNumber numberWithInt:self.idx] forKey:@"index"];
@@ -166,10 +199,39 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     });
 }
 
--(void)onEntryCreate:(const char*)str {
+-(void)saveNetworkInfo:(NSDictionary *)value{
+    NSString *probe_ip = [value objectForKey:@"probe_ip"];
+    NSString *probe_asn = [value objectForKey:@"probe_asn"];
+    NSString *probe_cc = [value objectForKey:@"probe_cc"];
+    NSString *probe_network_name = [value objectForKey:@"probe_network_name"];
+
+    Network *network = [Network new];
+    [network setNetwork_type:[[ReachabilityManager sharedManager] getStatus]];
+    //**empty object are empty not null, maybe we should save them anyway without checking**
+    
+    //if the user doesn't want to share asn leave null on the db object
+    if (probe_asn && [SettingsUtility getSettingWithName:@"include_asn"]){
+        //TODO-SBS asn name
+        [network setAsn:probe_asn];
+        [network setNetwork_name:probe_network_name];
+    }
+    if (probe_cc && [SettingsUtility getSettingWithName:@"include_cc"])
+        [network setCountry_code:probe_cc];
+    
+    if (probe_ip && [SettingsUtility getSettingWithName:@"include_ip"])
+        [network setIp:probe_ip];
+    
+    //[network commit];
+    //[self.measurement setNetwork_id:network];
+    [self.measurement setNetwork_id:[network createOrReturn]];
+}
+
+-(void)onEntryCreate:(NSDictionary*)value {
+    NSString *str = [value objectForKey:@"json_str"];
+    NSNumber *idx = [value objectForKey:@"idx"];
     if (str != nil) {
         NSError *error;
-        NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         if (error != nil) {
             NSLog(@"Error parsing JSON: %@", error);
@@ -179,7 +241,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
             return;
         }
         if ([self.name isEqualToString:@"web_connectivity"]){
-            NSData *data = [[NSString stringWithUTF8String:str] dataUsingEncoding:NSUTF8StringEncoding];
             [data writeToFile:[TestUtility getFileName:self.measurement ext:@"json"] atomically:YES];
         }
 
@@ -229,6 +290,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
         [self.measurement save];
         [self.result save];
     }
+    /*
     if ([self.name isEqualToString:@"web_connectivity"]){
         //create new measurement entry if web_connectivity test
         //TODO-SBS this case doesn not handle the timeout
@@ -241,6 +303,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
             //self.measurement.url_id.category_code = currentUrl.categoryCode;
         }
     }
+     */
 }
 
 -(void)onEntry:(JsonResult*)json{
@@ -254,24 +317,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
         [self.result addRuntime:[json.test_runtime floatValue]];
     }
 
-    //TODO move on another callback
-    Network *network = [Network new];
-    [network setNetwork_type:[[ReachabilityManager sharedManager] getStatus]];
-    //if the user doesn't want to share asn leave null on the db object
-    if (json.probe_asn && [SettingsUtility getSettingWithName:@"include_asn"])
-        //TODO-SBS asn name
-        [network setAsn:json.probe_asn];
-        [network setNetwork_name:@"Vodafone"];
-    
-    if (json.probe_cc && [SettingsUtility getSettingWithName:@"include_cc"])
-        [network setCountry_code:json.probe_cc];
-    
-    if (json.probe_ip && [SettingsUtility getSettingWithName:@"include_ip"])
-        [network setIp:json.probe_ip];
-    
-    //[network commit];
-    //[self.measurement setNetwork_id:network];
-    [self.measurement setNetwork_id:[network createOrReturn]];
     
     //TODO move on another callback
     if (json.report_id)
@@ -287,7 +332,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     self.backgroundTask = UIBackgroundTaskInvalid;
     self.measurement.is_done = true;
     //[self.measurement setState:measurementDone];
-    [self updateProgressReal:1];
+    [self updateProgressBar:1];
     [self.measurement save];
     [self.delegate testEnded:self];
 }

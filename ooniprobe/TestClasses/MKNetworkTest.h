@@ -31,7 +31,6 @@
 
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property NSString *name;
-@property double progress;
 @property int idx;
 @property Result *result;
 @property Measurement *measurement;
