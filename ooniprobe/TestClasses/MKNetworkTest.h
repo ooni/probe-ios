@@ -33,14 +33,15 @@
 @property NSString *name;
 @property int idx;
 @property Result *result;
-@property Measurement *measurement;
+@property NSMutableDictionary *measurements;
+//@property Measurement *measurement;
 @property id<MKNetworkTestDelegate> delegate;
 @property int entryIdx;
 @property Settings *settings;
 
--(void)createMeasurementObject;
+-(Measurement*)createMeasurementObject;
 -(void)initCommon;
--(void)onEntry:(JsonResult*)jsonResult;
--(void)setResultOfMeasurement:(Result *)result;
+-(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement;
+//-(void)setResultOfMeasurement:(Result *)result;
 -(void)runTest;
 @end

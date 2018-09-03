@@ -10,6 +10,14 @@
     return testName;
 }
 
++ (NSString*)getMKNameForTest:(NSString*)testName {
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Tests" ofType:@"plist"];
+    NSDictionary *stringDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    if ([stringDict objectForKey:testName])
+        return NSLocalizedString([stringDict objectForKey:testName], nil);
+    return testName;
+}
+
 + (NSString*)getFilterNameForTest:(NSString*)testName {
     if ([testName isEqualToString:@"websites"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.Websites", nil);

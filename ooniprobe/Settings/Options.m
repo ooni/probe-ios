@@ -17,10 +17,10 @@
 
         self.geoip_country_path = geoip_country;
         self.geoip_asn_path = geoip_asn;
-        self.save_real_probe_ip = include_ip;
-        self.save_real_probe_asn = include_asn;
-        self.save_real_probe_cc = include_cc;
-        self.no_collector = !upload_results;
+        self.save_real_probe_ip = [NSNumber numberWithBool:include_ip];
+        self.save_real_probe_asn = [NSNumber numberWithBool:include_asn];
+        self.save_real_probe_cc = [NSNumber numberWithBool:include_cc];
+        self.no_collector = [NSNumber numberWithBool:!upload_results];
         self.software_name = @"ooniprobe-ios";
         self.software_version = software_version;
     }

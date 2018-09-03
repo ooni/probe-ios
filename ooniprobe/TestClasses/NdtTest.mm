@@ -6,28 +6,27 @@
     self = [super init];
     if (self) {
         self.name = @"ndt";
-        self.measurement.test_name = self.name;
     }
     return self;
 }
 
 -(void) runTest {
-    mk::nettests::NdtTest test;
-    if (![SettingsUtility getSettingWithName:@"ndt_server_auto"]){
-        test.set_option("server", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server"] UTF8String]);
-        test.set_option("port", [[[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server_port"] UTF8String]);
-    }
     [super initCommon];
+    if (![SettingsUtility getSettingWithName:@"ndt_server_auto"]){
+        self.settings.options.server = [[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server"];
+        self.settings.options.port = [[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server_port"];
+    }
+    [super runTest];
 }
 
--(void)onEntry:(JsonResult*)json {
+-(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
     /*
      onEntry method for ndt test, check "failure" key
      !=null => failed
      */
-    self.measurement.is_failed = json.test_keys.failure == NULL ? false : true;
+    measurement.is_failed = json.test_keys.failure == NULL ? false : true;
     [self calculateServerName:json];
-    [super onEntry:json];
+    [super onEntry:json obj:measurement];
 }
 
 -(void)calculateServerName:(JsonResult*)json{

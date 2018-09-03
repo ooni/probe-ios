@@ -5,30 +5,27 @@
 -(id) init {
     self = [super init];
     if (self) {
-        self.name = @"HttpInvalidRequestLine";
-        self.measurement.test_name = self.name;
+        self.name = @"http_invalid_request_line";
     }
     return self;
 }
 
 -(void) runTest {
     [super initCommon];
-    self.settings.name = self.name;
     [super runTest];
 }
 
--(void)onEntry:(JsonResult*)json {
+-(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
     /*
      onEntry method for http invalid request line test, check "tampering" key
      null => failed
      true => anomalous
      */
     if (json.test_keys.tampering == NULL)
-        [self.measurement setIs_failed:true];
+        [measurement setIs_failed:true];
     else
-        self.measurement.is_anomaly = json.test_keys.tampering.value;
-    
-    [super onEntry:json];
+        measurement.is_anomaly = json.test_keys.tampering.value;
+    [super onEntry:json obj:measurement];
 }
 
 

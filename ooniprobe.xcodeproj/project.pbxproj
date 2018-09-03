@@ -38,6 +38,7 @@
 		ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.mm */; };
 		ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */; };
 		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */; };
+		ED614794213DABDE00F35E07 /* Tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED614793213DABDE00F35E07 /* Tests.plist */; };
 		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
 		ED6911D820BDC0130022DCFE /* websites.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D720BDC0130022DCFE /* websites.json */; };
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
@@ -173,6 +174,7 @@
 		ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TestUtility.mm; path = Utility/TestUtility.mm; sourceTree = "<group>"; };
 		ED5F8A281F77C4AA0093C8F5 /* VersionUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VersionUtility.h; path = Utility/VersionUtility.h; sourceTree = "<group>"; };
 		ED5F8A291F77C4AA0093C8F5 /* VersionUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = VersionUtility.mm; path = Utility/VersionUtility.mm; sourceTree = "<group>"; };
+		ED614793213DABDE00F35E07 /* Tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
 		ED62AB9B1ED5B70500778249 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ED62AB9C1ED5B70500778249 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ooniprobe.entitlements; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				D4A2F5DE1A6C3244001B8460 /* main.m */,
 				EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */,
 				ED997D0B207BCEE400C97B1F /* Strings.plist */,
+				ED614793213DABDE00F35E07 /* Tests.plist */,
 				ED163CE0209C7B880052FB46 /* Airports.plist */,
 			);
 			name = "Supporting Files";
@@ -800,6 +803,7 @@
 				ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */,
 				EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */,
 				ED163CE1209C7B880052FB46 /* Airports.plist in Resources */,
+				ED614794213DABDE00F35E07 /* Tests.plist in Resources */,
 				EDA17B05208A37BF00D46D0F /* Dashboard.storyboard in Resources */,
 				EDC2C9E21FD8061400FF01D3 /* FiraSans-Italic.otf in Resources */,
 				ED6911DC20BDC04D0022DCFE /* performance.json in Resources */,

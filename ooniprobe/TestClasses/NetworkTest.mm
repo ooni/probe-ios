@@ -71,7 +71,7 @@
 -(void)initCommon:(MKNetworkTest*)test{
     [test setIdx:(int)[self.mkNetworkTests count]];
     [test setDelegate:self];
-    [test setResultOfMeasurement:self.result];
+    //[test setResultOfMeasurement:self.result];
     [self.mkNetworkTests addObject:test];
 }
 
