@@ -6,12 +6,12 @@
     self = [super init];
     if (self) {
         self.name = @"facebook_messenger";
+        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
     }
     return self;
 }
 
 -(void) runTest {
-    [super initCommon];
     [super runTest];
 }
 

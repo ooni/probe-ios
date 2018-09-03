@@ -6,12 +6,12 @@
     self = [super init];
     if (self) {
         self.name = @"http_header_field_manipulation";
+        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
     }
     return self;
 }
 
 -(void) runTest {
-    [super initCommon];
     [super runTest];
 }
 

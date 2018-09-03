@@ -49,11 +49,17 @@
 }
 
 - (NSString*)getFile:(NSString*)ext{
-    //log files are unique for web_connectivity test
-    if ([self.test_name isEqualToString:@"web_connectivity"] && [ext isEqualToString:@"log"]){
+    //LOGS:
+    //resultID_test_name.log
+    //JSON:
+    //measurementID_test_name.log
+    /*if ([self.test_name isEqualToString:@"web_connectivity"] && [ext isEqualToString:@"log"]){
         return [NSString stringWithFormat:@"%@-%@.%@", self.result_id.test_group_name, self.result_id.Id, ext];
+    }*/
+    if ([ext isEqualToString:@"log"]){
+        return [NSString stringWithFormat:@"%@-%@.%@", self.result_id.Id, self.test_name, ext];
     }
-    return [NSString stringWithFormat:@"%@-%@.%@", self.result_id.test_group_name, self.Id, ext];
+    return [NSString stringWithFormat:@"%@-%@.%@",  self.Id, self.test_name, ext];
 }
 
 -(NSString*)getReportFile{

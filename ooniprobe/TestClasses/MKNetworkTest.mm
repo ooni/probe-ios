@@ -35,6 +35,11 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurements = [[NSMutableDictionary alloc] init];
+        self.settings = [Settings new];
+        //self.settings.log_filepath = [TestUtility getFileName:self.result ext:@"log"];
+        //TODO remove and save file on the fly
+        //if (![self.name isEqualToString:@"web_connectivity"])
+        //   self.settings.output_filepath = [TestUtility getFileName:self.measurement ext:@"json"];
     }
     return self;
 }
@@ -45,6 +50,10 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
         [measurement setResult_id:self.result];
     if (self.name != NULL)
         [measurement setTest_name:self.name];
+    if (self.reportId != NULL)
+        [measurement setReport_id:self.reportId];
+    if (self.network != NULL)
+        [measurement setNetwork_id:self.network];
     [measurement save];
     return measurement;
 }
@@ -55,16 +64,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     [self.measurement setResult_id:self.result];
 }
 */
-
-- (void) initCommon{
-    self.settings = [Settings new];
-    self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
-
-    //self.settings.log_filepath = [TestUtility getFileName:self.measurement ext:@"log"];
-    //TODO remove and save file on the fly
-    //if (![self.name isEqualToString:@"web_connectivity"])
-     //   self.settings.output_filepath = [TestUtility getFileName:self.measurement ext:@"json"];
-}
 
 -(void)runTest{
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -81,14 +80,14 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            if (evinfo == nil) {
                                break;
                            }
-                           NSLog(@"Got event: %@", evinfo); // Uncomment when debugging
+                           NSLog(@"Got event: %@", evinfo);
                            NSString *key = [evinfo objectForKey:@"key"];
                            NSDictionary *value = [evinfo objectForKey:@"value"];
                            if (key == nil || value == nil) {
                                return;
                            }
                            if ([key isEqualToString:@"status.started"]) {
-                               [self updateProgressBar:0];
+                               //[self updateProgressBar:0];
                            }
                            else if ([key isEqualToString:@"status.measurement_start"]) {
                                NSNumber *idx = [value objectForKey:@"idx"];
@@ -120,10 +119,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            }
                            else if ([key isEqualToString:@"status.report_create"]) {
                                //Save report_id
-                               NSString *report_id = [value objectForKey:@"report_id"];
-                               //TODO how to set report_id for every measurement
-                               //TODO? if (json.report_id)
-                               //[self.measurement setReport_id:report_id];
+                               self.reportId = [value objectForKey:@"report_id"];
                            }
                            else if ([key isEqualToString:@"status.measurement_submission"]) {
                                //write uploaded on db
@@ -152,22 +148,22 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                [self.result setData_usage_up:self.result.data_usage_up+[up doubleValue]];
                            }
                            else if ([key isEqualToString:@"failure.startup"]) {
-                               //TODO chiudi schermata test?
+                               //TODO chiudi schermata test? NO
                                //runnare il prossimo?
                            } else {
                                NSLog(@"unused event: %@", evinfo);
                            }
 
                            // Notify the main thread about the latest event.
-                           dispatch_async(dispatch_get_main_queue(), ^{
+                           /*dispatch_async(dispatch_get_main_queue(), ^{
                                [[NSNotificationCenter defaultCenter]
                                 postNotificationName:@"event" object:nil userInfo:evinfo];
-                           });
+                           });*/
                        }
                        // Notify the main thread that the task is now complete
                        dispatch_async(dispatch_get_main_queue(), ^{
-                           [[NSNotificationCenter defaultCenter]
-                            postNotificationName:@"test_complete" object:nil];
+                           [self testEnded];
+                           //[[NSNotificationCenter defaultCenter]  postNotificationName:@"test_complete" object:nil];
                        });
                    });
 }
@@ -194,10 +190,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
 }
 
 -(void)updateProgressBar:(double)progress{
-    NSLog(@"%@", [NSString stringWithFormat:@"Progress: %.1f%%", progress * 100.0]);
+    //NSLog(@"%@", [NSString stringWithFormat:@"Progress: %.1f%%", progress * 100.0]);
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
-        [noteInfo setObject:[NSNumber numberWithInt:self.idx] forKey:@"index"];
         [noteInfo setObject:[NSNumber numberWithDouble:progress] forKey:@"prog"];
         [noteInfo setObject:self.name forKey:@"name"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateProgress" object:nil userInfo:noteInfo];
@@ -209,27 +204,28 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     NSString *probe_asn = [value objectForKey:@"probe_asn"];
     NSString *probe_cc = [value objectForKey:@"probe_cc"];
     NSString *probe_network_name = [value objectForKey:@"probe_network_name"];
-
+/*
     Network *network = [Network new];
     [network setNetwork_type:[[ReachabilityManager sharedManager] getStatus]];
-    //**empty object are empty not null, maybe we should save them anyway without checking**
+    //empty object are empty not null, maybe we should save them anyway without checking
     
     //if the user doesn't want to share asn leave null on the db object
-    if (probe_asn && [SettingsUtility getSettingWithName:@"include_asn"]){
+    //if (probe_asn && [SettingsUtility getSettingWithName:@"include_asn"]){
         [network setAsn:probe_asn];
         [network setNetwork_name:probe_network_name];
-    }
-    if (probe_cc && [SettingsUtility getSettingWithName:@"include_cc"])
+    //}
+    //if (probe_cc && [SettingsUtility getSettingWithName:@"include_cc"])
         [network setCountry_code:probe_cc];
     
-    if (probe_ip && [SettingsUtility getSettingWithName:@"include_ip"])
+    //if (probe_ip && [SettingsUtility getSettingWithName:@"include_ip"])
         [network setIp:probe_ip];
     
     //[network commit];
     //[self.measurement setNetwork_id:network];
-    
+    */
+    self.network = [Network checkExistingAsn:probe_asn name:probe_network_name ip:probe_ip cc:probe_cc type:[[ReachabilityManager sharedManager] getStatus]];
     //TODO how to set network for every measurement
-    //[self.measurement setNetwork_id:[network createOrReturn]];
+    //[self.measurement setNetwork_id:network];
 }
 
 -(void)onEntryCreate:(NSDictionary*)value {
@@ -247,9 +243,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
             //[self.result save];
             return;
         }
-        if ([self.name isEqualToString:@"web_connectivity"]){
-            [data writeToFile:[TestUtility getFileName:measurement ext:@"json"] atomically:YES];
-        }
+        //if ([self.name isEqualToString:@"web_connectivity"]){
+        [data writeToFile:[TestUtility getFileName:measurement ext:@"json"] atomically:YES];
+        //}
 
         InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
         ObjectMapper *mapper = [[ObjectMapper alloc] init];
@@ -331,8 +327,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     //NSLog(@"%@ testEnded", self.name);
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
-    //[self.measurement setState:measurementDone];
-    [self updateProgressBar:1];
+    //[self updateProgressBar:1];
     [self.delegate testEnded:self];
 }
 

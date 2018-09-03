@@ -1,15 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import <measurement_kit/common.hpp>
-#include <measurement_kit/ooni.hpp>
-#include <measurement_kit/nettests.hpp>
-#include <measurement_kit/ndt.hpp>
-
-#include <arpa/inet.h>
-#include <ifaddrs.h>
-#include <resolv.h>
-#include <dns.h>
+#include <measurement_kit/ffi.h>
 
 #import "SettingsUtility.h"
 #import "Measurement.h"
@@ -27,11 +19,10 @@
 
 @interface MKNetworkTest : NSObject
 
-@property mk::Settings options;
-
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property NSString *name;
-@property int idx;
+@property NSString *reportId;
+@property Network *network;
 @property Result *result;
 @property NSMutableDictionary *measurements;
 //@property Measurement *measurement;
@@ -40,7 +31,6 @@
 @property Settings *settings;
 
 -(Measurement*)createMeasurementObject;
--(void)initCommon;
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement;
 //-(void)setResultOfMeasurement:(Result *)result;
 -(void)runTest;

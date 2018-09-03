@@ -6,16 +6,16 @@
     self = [super init];
     if (self) {
         self.name = @"ndt";
+        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
+        if (![SettingsUtility getSettingWithName:@"ndt_server_auto"]){
+            self.settings.options.server = [[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server"];
+            self.settings.options.port = [[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server_port"];
+        }
     }
     return self;
 }
 
 -(void) runTest {
-    [super initCommon];
-    if (![SettingsUtility getSettingWithName:@"ndt_server_auto"]){
-        self.settings.options.server = [[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server"];
-        self.settings.options.port = [[NSUserDefaults standardUserDefaults] objectForKey:@"ndt_server_port"];
-    }
     [super runTest];
 }
 

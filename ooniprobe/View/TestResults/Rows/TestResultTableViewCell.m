@@ -71,6 +71,10 @@
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)];
             [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
         }
+        else if ([result totalMeasurements] == 0){
+            [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];
+            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        }
         else if ([result okMeasurements] == [result totalMeasurements]-[result failedMeasurements]){
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];
             [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
@@ -82,18 +86,31 @@
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
     }
     else if ([result.test_group_name isEqualToString:@"performance"]){
+        Measurement *ndt = [result getMeasurement:@"ndt"];
+        Measurement *dash = [result getMeasurement:@"dash"];
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:NO];
         [self.image1 setImage:[UIImage imageNamed:@"upload"]];
         [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-        [self.label1 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getUploadWithUnit]]];
+        if (ndt){
+            [self.label1 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getUploadWithUnit]]];
+            [self.label2 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getDownloadWithUnit]]];
+        }
+        else {
+            [self.label1 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
+            [self.label2 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
+        }
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"download"]];
         [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-        [self.label2 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getDownloadWithUnit]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.image3 setImage:[UIImage imageNamed:@"video_quality"]];
-        [self.label3 setText:[[result getMeasurement:@"dash"].testKeysObj getVideoQuality:NO]];
+        if (dash){
+            [self.label3 setText:[[result getMeasurement:@"dash"].testKeysObj getVideoQuality:NO]];
+        }
+        else {
+            [self.label3 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
+        }
         [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
 }

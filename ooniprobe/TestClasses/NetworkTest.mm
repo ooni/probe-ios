@@ -7,6 +7,7 @@
     if (self) {
         self.result = [Result new];
         self.mkNetworkTests = [[NSMutableArray alloc] init];
+        self.measurementIdx = 0;
     }
     return self;
 }
@@ -69,9 +70,9 @@
 }
 
 -(void)initCommon:(MKNetworkTest*)test{
-    [test setIdx:(int)[self.mkNetworkTests count]];
+    //[test setIdx:(int)[self.mkNetworkTests count]];
     [test setDelegate:self];
-    //[test setResultOfMeasurement:self.result];
+    [test setResult:self.result];
     [self.mkNetworkTests addObject:test];
 }
 
@@ -98,6 +99,7 @@
         }
     }
     [self.result save];
+    self.measurementIdx++;
     if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
         [self showNotification];
 }

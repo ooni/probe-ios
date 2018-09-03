@@ -9,6 +9,6 @@
 @property (strong, nonatomic) NSString *country_code;
 @property (strong, nonatomic) NSString *network_type;
 
--(Network*)createOrReturn;
++ (Network*)checkExistingAsn:(NSString*)asn name:(NSString*)network_name ip:(NSString*)ip cc:(NSString*)country_code type:(NSString*)network_type;
 
 @end

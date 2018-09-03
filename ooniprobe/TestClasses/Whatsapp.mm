@@ -6,15 +6,15 @@
     self = [super init];
     if (self) {
         self.name = @"whatsapp";
+        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
+        if ([SettingsUtility getSettingWithName:@"test_whatsapp_extensive"]){
+            self.settings.options.all_endpoints = [NSNumber numberWithBool:YES];
+        }
     }
     return self;
 }
 
 -(void) runTest {
-    [super initCommon];
-    if ([SettingsUtility getSettingWithName:@"test_whatsapp_extensive"]){
-        self.settings.options.all_endpoints = [NSNumber numberWithBool:YES];
-    }
     [super runTest];
 }
 

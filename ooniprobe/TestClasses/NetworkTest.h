@@ -9,6 +9,7 @@
 @interface NetworkTest : NSObject <MKNetworkTestDelegate>
 @property Result *result;
 @property NSMutableArray *mkNetworkTests;
+@property int measurementIdx;
 -(id)initWithMeasurement:(Measurement*)existingMeasurement;
 -(void)addTest:(NSString*)testName :(NSArray*)urls;
 -(void)testEnded:(MKNetworkTest*)test;
