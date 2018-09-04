@@ -24,7 +24,7 @@
 @property NSString *reportId;
 @property Network *network;
 @property Result *result;
-@property NSMutableDictionary *measurements;
+@property (nonatomic, strong) NSMutableDictionary *measurements;
 //@property Measurement *measurement;
 @property id<MKNetworkTestDelegate> delegate;
 @property int entryIdx;

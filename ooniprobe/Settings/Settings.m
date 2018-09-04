@@ -7,7 +7,9 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.annotations = [NSDictionary dictionaryWithObject:[[ReachabilityManager sharedManager] getStatus] forKey:@"network_type"];
+        self.annotations = @{@"network_type" : [[ReachabilityManager sharedManager] getStatus]};
+        //self.annotations = [NSDictionary dictionaryWithObject:[[ReachabilityManager sharedManager] getStatus] forKey:@"network_type"];
+        self.disabled_events = @[@"status.queued"];
         self.log_level = [SettingsUtility getVerbosity];
         self.options = [Options new];
     }

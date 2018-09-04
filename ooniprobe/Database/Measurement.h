@@ -29,7 +29,6 @@
 //TODO check if it's saved on the db or should be deleted and created at runtime
 @property (strong, nonatomic) TestKeys *testKeysObj;
 
--(NSString*)getFile:(NSString*)ext;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;
 -(TestKeys*)testKeysObj;

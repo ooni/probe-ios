@@ -11,52 +11,40 @@
 
 - (SRKResultSet*)measurements {
     //Not showing the re_run measurements
-    return [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"Id"] fetch];
+    return [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0 AND is_done = 1" parameters:@[self]] orderByDescending:@"Id"] fetch];
 }
 
 -(Measurement*)getMeasurement:(NSString*)name{
-    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND test_name = ?" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND test_name = ? AND is_rerun = 0" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
     return nil;
 }
 
 -(Measurement*)getFirstMeasurement{
-    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ?" parameters:@[self]] orderByDescending:@"Id"] fetch];
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"Id"] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
     return nil;
 }
 
-//TODO remove rerun measurements from every query
 - (long)totalMeasurements {
-    //SRKQuery *query = [[[Measurement query] whereWithFormat:@"result_id = %@", self] orderByDescending:@"Id"];
-    SRKQuery *query = [[Measurement query] where:@"result_id = ?" parameters:@[self]];
+    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]];
     return [query count];
 }
 
 - (long)failedMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_done = ? AND is_failed = ?" parameters:@[self, @"1", @"1"]];
-    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result_id = '%@' AND state = '%u'", self, measurementFailed];
+    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_rerun = 0 AND is_done = 1 AND is_failed = 1" parameters:@[self]];
     return [query count];
 }
-//TODO add is_failed, is_done, is_rerun, is_anomaly
-- (long)okMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_done = ? AND is_failed = ? AND is_anomaly = ?" parameters:@[self, @"1", @"0", @"0"]];
-    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result_id = '%@' AND state != '%u' AND anomaly = '0'", self, measurementFailed];
-    /*SRKQuery *query = [[Measurement query] whereWithFormat:@"result_id = '%@'", self];
-    query = [query whereWithFormat:@"state != '%u'", measurementFailed];
-    query = [query where:@"anomaly = '0'"];
-     */
-    //SRKQuery *query = [[[[Measurement query] whereWithFormat:@"result_id = '%@'", self] whereWithFormat:@" state != '%u'", measurementFailed] where:@"anomaly = '0'"];
 
+- (long)okMeasurements {
+    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_rerun = 0 AND is_done = 1 AND is_failed = 0 AND is_anomaly = 0" parameters:@[self]];
     return [query count];
 }
 
 - (long)anomalousMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_done = ? AND is_failed = ? AND is_anomaly = ?" parameters:@[self, @"1", @"0", @"1"]];
-    //SRKQuery *query = [[Measurement query] where:@"result_id = ? AND anomaly = 1" parameters:@[self]];
-    //SRKQuery *query = [[Measurement query] whereWithFormat:@"result_id = '%@' AND anomaly = '1'", self];
+    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_rerun = 0 AND is_done = 1 AND is_failed = 0 AND is_anomaly = 1" parameters:@[self]];
     return [query count];
 }
 
@@ -108,6 +96,11 @@
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
+-(NSString*)getLogFile:(NSString*)test_name{
+    NSLog(@"logfile %@", [NSString stringWithFormat:@"%@-%@.log", self.Id, test_name]);
+    return [NSString stringWithFormat:@"%@-%@.log", self.Id, test_name];
+}
+
 -(void)save{
     [self commit];
     /*
@@ -120,6 +113,7 @@
 
 -(void)deleteObject{
     for (Measurement* measurement in self.measurements){
+        //TODO remove report that starts with reportID-%@
         [TestUtility removeFile:[measurement getLogFile]];
         [TestUtility removeFile:[measurement getReportFile]];
         [measurement remove];

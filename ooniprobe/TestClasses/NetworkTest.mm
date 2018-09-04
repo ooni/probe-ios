@@ -85,23 +85,16 @@
 -(void)testEnded:(MKNetworkTest*)test{
     NSLog(@"CALLBACK test_ended %@", test.name);
     [self.mkNetworkTests removeObject:test];
+    [self.result save];
+    self.measurementIdx++;
     //if last test
     if ([self.mkNetworkTests count] == 0){
         NSLog(@"ALL test_ended");
         [self.result setIs_done:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
-        //TODO basic fix to remove last measurement
-        if ([self.result.test_group_name isEqualToString:@"websites"]){
-            for (Measurement *current in self.result.measurements){
-                if (!current.url_id.url)
-                    [current remove];
-            }
-        }
+        if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
+            [self showNotification];
     }
-    [self.result save];
-    self.measurementIdx++;
-    if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
-        [self showNotification];
 }
 
 - (void)showNotification {

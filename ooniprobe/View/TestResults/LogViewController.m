@@ -17,7 +17,12 @@
                                             action:@selector(copy_clipboard:)];
 
     if ([self.type isEqualToString:@"log"] || [self.type isEqualToString:@"json"]){
-        NSString *filePath = [TestUtility getFileName:self.measurement ext:self.type];
+        NSString *fileName;
+        if ([self.type isEqualToString:@"log"])
+            fileName = [self.measurement getLogFile];
+        else if ([self.type isEqualToString:@"json"])
+            fileName = [self.measurement getReportFile];
+        NSString *filePath = [TestUtility getFileNamed:fileName];
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if([fileManager fileExistsAtPath:filePath]) {
             NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];

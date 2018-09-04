@@ -36,10 +36,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurements = [[NSMutableDictionary alloc] init];
         self.settings = [Settings new];
-        //self.settings.log_filepath = [TestUtility getFileName:self.result ext:@"log"];
-        //TODO remove and save file on the fly
-        //if (![self.name isEqualToString:@"web_connectivity"])
-        //   self.settings.output_filepath = [TestUtility getFileName:self.measurement ext:@"json"];
+        //self.settings.log_filepath = [TestUtility getFileNamed:[self.result getLogFile:self.name]];
     }
     return self;
 }
@@ -122,14 +119,10 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                self.reportId = [value objectForKey:@"report_id"];
                            }
                            else if ([key isEqualToString:@"status.measurement_submission"]) {
-                               //write uploaded on db
-                               //TODO (check failure.measurement_submission)
-                               NSNumber *idx = [value objectForKey:@"idx"];
-                               Measurement *measurement = [self.measurements objectForKey:idx];
-                               if (measurement != nil){
-                                   measurement.is_uploaded = true;
-                                   [measurement save];
-                               }
+                               [self setUploaded:true idx:[value objectForKey:@"idx"]];
+                           }
+                           else if ([key isEqualToString:@"failure.measurement_submission"]) {
+                               [self setUploaded:false idx:[value objectForKey:@"idx"]];
                            }
                            else if ([key isEqualToString:@"status.measurement_done"]) {
                                //probabilmente da usare per indicare misura finita
@@ -173,6 +166,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     if (message == nil) {
         return;
     }
+    //TODO manage the case the test is re run
+    //[self writeString:message toFile:[TestUtility getFileNamed:[self.result getLogFile:self.name]]];
+
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
         [noteInfo setObject:message forKey:@"log"];
@@ -199,6 +195,13 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     });
 }
 
+-(void)setUploaded:(BOOL)value idx:(NSNumber*)idx{
+    Measurement *measurement = [self.measurements objectForKey:idx];
+    if (measurement != nil){
+        measurement.is_uploaded = value;
+        [measurement save];
+    }
+}
 -(void)saveNetworkInfo:(NSDictionary *)value{
     NSString *probe_ip = [value objectForKey:@"probe_ip"];
     NSString *probe_asn = [value objectForKey:@"probe_asn"];
@@ -244,8 +247,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
             return;
         }
         //if ([self.name isEqualToString:@"web_connectivity"]){
-        [data writeToFile:[TestUtility getFileName:measurement ext:@"json"] atomically:YES];
+        //[data writeToFile:[TestUtility getFileName:measurement ext:@"json"] atomically:YES];
         //}
+        [self writeString:str toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
 
         InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
         ObjectMapper *mapper = [[ObjectMapper alloc] init];
@@ -309,18 +313,33 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
      */
 }
 
--(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
-    //TODO check if I still need these checks
-    if (json.test_start_time)
-        [self.result setStart_time:json.test_start_time];
-    if (json.measurement_start_time)
-        [measurement setStart_time:json.test_start_time];
-    if (json.test_runtime){
-        [measurement setRuntime:[json.test_runtime floatValue]];
-        [self.result addRuntime:[json.test_runtime floatValue]];
+-(void)writeString:(NSString*)str toFile:(NSString*)fileName{
+    NSError *error;
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileName];
+    if (fileHandle){
+        //TODO add @"\n"
+        [fileHandle seekToEndOfFile];
+        [fileHandle writeData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+        [fileHandle closeFile];
     }
-    if (json.test_keys)
-        [measurement setTestKeysObj:json.test_keys];
+    else {
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+        [data writeToFile:fileName atomically:YES];
+        /*
+        [str writeToFile:fileName
+                  atomically:NO
+                    encoding:NSStringEncodingConversionAllowLossy
+                       error:&error];
+         */
+    }
+}
+
+-(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
+    [self.result setStart_time:json.test_start_time];
+    [measurement setStart_time:json.test_start_time];
+    [measurement setRuntime:[json.test_runtime floatValue]];
+    [self.result addRuntime:[json.test_runtime floatValue]];
+    [measurement setTestKeysObj:json.test_keys];
 }
 
 -(void)testEnded{

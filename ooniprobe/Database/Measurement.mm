@@ -48,26 +48,14 @@
     self.testKeys = [self.testKeysObj getJsonStr];
 }
 
-- (NSString*)getFile:(NSString*)ext{
-    //LOGS:
-    //resultID_test_name.log
-    //JSON:
-    //measurementID_test_name.log
-    /*if ([self.test_name isEqualToString:@"web_connectivity"] && [ext isEqualToString:@"log"]){
-        return [NSString stringWithFormat:@"%@-%@.%@", self.result_id.test_group_name, self.result_id.Id, ext];
-    }*/
-    if ([ext isEqualToString:@"log"]){
-        return [NSString stringWithFormat:@"%@-%@.%@", self.result_id.Id, self.test_name, ext];
-    }
-    return [NSString stringWithFormat:@"%@-%@.%@",  self.Id, self.test_name, ext];
-}
-
 -(NSString*)getReportFile{
-    return [self getFile:@"json"];
+    //LOGS: resultID_test_name.log
+    return [NSString stringWithFormat:@"%@-%@.json",  self.Id, self.test_name];
 }
 
 -(NSString*)getLogFile{
-    return [self getFile:@"log"];
+    //JSON: measurementID_test_name.log
+    return [self.result_id getLogFile:self.test_name];
 }
 
 -(void)save{
