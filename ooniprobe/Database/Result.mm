@@ -82,7 +82,7 @@
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
--(NSString*)getAsnName{
+-(NSString*)getNetworkName{
     Measurement *measurement = [self getFirstMeasurement];
     if (measurement.network_id.network_name != nil)
         return measurement.network_id.network_name;

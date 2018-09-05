@@ -13,7 +13,6 @@
 + (NSString*)getCategoryForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
-+ (NSArray*)getUrlsTest;
-+ (Url*)getUrl:(NSString*)url;
++ (void)downloadUrls:(void (^)(NSArray *))completion;
 + (void)removeFile:(NSString*)fileName;
 @end

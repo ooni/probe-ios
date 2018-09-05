@@ -7,14 +7,10 @@
     if (self) {
         self.name = @"web_connectivity";
         self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
-        NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-        //TODO check this is not from ooni run
-        self.settings.options.max_runtime = max_runtime;
-        
         //mk::nettests::WebConnectivityTest test;
         self.entryIdx = 0;
-        if (!self.settings.inputs)
-            self.settings.inputs = [TestUtility getUrlsTest];
+        //if (!self.settings.inputs)
+        //    self.settings.inputs = [TestUtility downloadUrls];
         /*Url *currentUrl = [self.inputs objectAtIndex:self.entryIdx];
          self.measurement.url_id.url = currentUrl.url;
          self.measurement.url_id.category_code = currentUrl.categoryCode;

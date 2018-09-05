@@ -108,7 +108,7 @@
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.url_id.category_code]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
-        if (current.is_failed){
+        if (!current.is_failed){
             if (!current.is_anomaly){
                 [status setImage:[UIImage imageNamed:@"tick"]];
                 [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
@@ -251,7 +251,14 @@
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
-        [vc setCurrentTest:[[NetworkTest alloc] initWithMeasurement:segueObj]];
+        [vc setTestSuiteName:segueObj.result_id.test_group_name];
+        [vc setTestName:segueObj.test_name];
+        [vc setResult:segueObj.result_id];
+        if ([segueObj.test_name isEqualToString:@"websites"])
+            [vc setUrls:[NSArray arrayWithObject:segueObj.url_id.url]];
+        //TODO delete old log file
+        [segueObj setIs_rerun:YES];
+        [segueObj commit];
     }
     else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"]){
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;

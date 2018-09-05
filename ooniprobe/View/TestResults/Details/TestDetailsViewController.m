@@ -27,23 +27,23 @@
     [self.rawDataButton setTitle:NSLocalizedString(@"TestResults.Details.RawData", nil) forState:UIControlStateNormal];
     [self.viewLogButton setTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil) forState:UIControlStateNormal];
 
-    NSString *asn = [result getAsnName];
-    NSMutableAttributedString *asnText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", asn]];
-    [asnText addAttribute:NSFontAttributeName
-                    value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
-                    range:NSMakeRange(0, asnText.length)];
-    NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)", [result getLocalizedNetworkType]]];
+    NSString *network = [result getNetworkName];
+    NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", network]];
     [networkText addAttribute:NSFontAttributeName
+                    value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
+                    range:NSMakeRange(0, networkText.length)];
+    NSMutableAttributedString *networkTypeText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)", [result getLocalizedNetworkType]]];
+    [networkTypeText addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-Regular" size:15]
-                        range:NSMakeRange(0, networkText.length)];
+                        range:NSMakeRange(0, networkTypeText.length)];
     NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" - %@", [result getAsn]]];
     [asnName addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
                     range:NSMakeRange(0, asnName.length)];
 
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
-    [attrStr appendAttributedString:asnText];
     [attrStr appendAttributedString:networkText];
+    [attrStr appendAttributedString:networkTypeText];
     [attrStr appendAttributedString:asnName];
     [self.networkDetailLabel setAttributedText:attrStr];
     

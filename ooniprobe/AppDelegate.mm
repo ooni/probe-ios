@@ -56,7 +56,6 @@
             [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
         });
     }
-    
     return YES;
 }
 

@@ -25,13 +25,11 @@
 @property Network *network;
 @property Result *result;
 @property (nonatomic, strong) NSMutableDictionary *measurements;
-//@property Measurement *measurement;
 @property id<MKNetworkTestDelegate> delegate;
 @property int entryIdx;
 @property Settings *settings;
 
 -(Measurement*)createMeasurementObject;
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement;
-//-(void)setResultOfMeasurement:(Result *)result;
 -(void)runTest;
 @end

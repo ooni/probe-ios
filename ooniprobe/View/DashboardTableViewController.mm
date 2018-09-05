@@ -95,15 +95,8 @@
         UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        NSString *testName = [items objectAtIndex:indexPath.row];
-        if ([testName isEqualToString:@"websites"])
-            [vc setCurrentTest:[[WCNetworkTest alloc] init]];
-        else if ([testName isEqualToString:@"performance"])
-            [vc setCurrentTest:[[SPNetworkTest alloc] init]];
-        else if ([testName isEqualToString:@"middle_boxes"])
-            [vc setCurrentTest:[[MBNetworkTest alloc] init]];
-        else if ([testName isEqualToString:@"instant_messaging"])
-            [vc setCurrentTest:[[IMNetworkTest alloc] init]];
+        NSString *testSuiteName = [items objectAtIndex:indexPath.row];
+        [vc setTestSuiteName:testSuiteName];
     }
     else if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];

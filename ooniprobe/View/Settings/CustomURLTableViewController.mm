@@ -104,7 +104,8 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setCurrentTest:[[WCNetworkTest alloc] initWithUrls:urlArray]];
+        [vc setTestSuiteName:@"websites"];
+        [vc setUrls:urlArray];
     }
 }
 @end

@@ -1,5 +1,7 @@
 #import "TestUtility.h"
 #import "Url.h"
+#import "SettingsUtility.h"
+
 #define ANOMALY_GREEN 0
 #define ANOMALY_ORANGE 1
 #define ANOMALY_RED 2
@@ -116,26 +118,77 @@
     }
     return [UIColor colorWithRGBHexString:color_blue5 alpha:alpha];
 }
+/*
++ (NSArray*)downloadUrls {
+    //TODO add country code
+    NSString *path = @"https://events.proteus.test.ooni.io/api/v1/urls?country_code=MX";
+    if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
+         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
+        [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
+        path = [NSString stringWithFormat:@"%@&category_codes=%@", path, [categories componentsJoinedByString:@","]];
+    }
+    NSLog(@"%@", path);
 
-
-+ (NSArray*)getUrlsTest{
-    NSArray *urlsArray =  @[@{@"category_code":@"NEWS",@"url":@"http://www.foxnews.com",@"country_code":@"XX"},@{@"category_code":@"HOST",@"url":@"https://www.1and1.com/",@"country_code":@"XX"},@{@"category_code":@"ANON",@"url":@"http://www.anonymsurfen.com",@"country_code":@"XX"},@{@"category_code":@"FILE",@"url":@"http://www.bearshare.com",@"country_code":@"XX"},@{@"category_code":@"REL",@"url":@"http://www.themwl.org",@"country_code":@"XX"},@{@"category_code":@"REL",@"url":@"http://www.muhammadanism.com",@"country_code":@"XX"},@{@"category_code":@"GAME",@"url":@"http://www.counter-strike.net",@"country_code":@"XX"},@{@"category_code":@"GRP",@"url":@"http://craigslist.org",@"country_code":@"XX"},@{@"category_code":@"GRP",@"url":@"http://www.4chan.org",@"country_code":@"XX"},@{@"category_code":@"COMT",@"url":@"http://www.mywebcalls.com",@"country_code":@"XX"},@{@"category_code":@"HUMR",@"url":@"http://www.upci.org",@"country_code":@"XX"},@{@"category_code":@"HATE",@"url":@"http://godhatesfags.com",@"country_code":@"XX"},@{@"category_code":@"ANON",@"url":@"https://www.torproject.org",@"country_code":@"XX"},@{@"category_code":@"NEWS",@"url":@"http://www.kcna.kp",@"country_code":@"XX"},@{@"category_code":@"HOST",@"url":@"http://www.livejournal.com",@"country_code":@"XX"},@{@"category_code":@"XED",@"url":@"https://www.plannedparenthood.org/",@"country_code":@"XX"},@{@"category_code":@"ALDR",@"url":@"http://marijuana.nl",@"country_code":@"XX"},@{@"category_code":@"FILE",@"url":@"http://www.download.com",@"country_code":@"XX"},@{@"category_code":@"GRP",@"url":@"https://mixi.jp/",@"country_code":@"XX"},@{@"category_code":@"PUBH",@"url":@"http://www.circumcision.org",@"country_code":@"XX"},@{@"category_code":@"NEWS",@"url":@"https://cyber.harvard.edu/",@"country_code":@"XX"},@{@"category_code":@"NEWS",@"url":@"http://www.irna.ir",@"country_code":@"XX"},@{@"category_code":@"REL",@"url":@"http://www.csmonitor.com",@"country_code":@"XX"},@{@"category_code":@"PORN",@"url":@"http://beeg.com",@"country_code":@"XX"},@{@"category_code":@"COMT",@"url":@"https://outlook.live.com/",@"country_code":@"XX"},@{@"category_code":@"HACK",@"url":@"http://www.securitytracker.com",@"country_code":@"XX"},@{@"category_code":@"COMT",@"url":@"http://voice.yahoo.jajah.com",@"country_code":@"XX"},@{@"category_code":@"FILE",@"url":@"http://www.utorrent.com",@"country_code":@"XX"},@{@"category_code":@"ECON",@"url":@"http://wkkf.org/",@"country_code":@"XX"},@{@"category_code":@"ECON",@"url":@"http://www.imf.org",@"country_code":@"XX"},@{@"category_code":@"HUMR",@"url":@"http://www.isiswomen.org",@"country_code":@"XX"},@{@"category_code":@"GOVT",@"url":@"http://www.opec.org",@"country_code":@"XX"},@{@"category_code":@"XED",@"url":@"http://sfsi.org/",@"country_code":@"XX"},@{@"category_code":@"ANON",@"url":@"https://psiphon.ca/",@"country_code":@"XX"},@{@"category_code":@"PORN",@"url":@"http://www.playboy.com",@"country_code":@"XX"},@{@"category_code":@"FILE",@"url":@"http://www.kazaa.com",@"country_code":@"XX"},@{@"category_code":@"LGBT",@"url":@"http://www.gayegypt.com",@"country_code":@"XX"},@{@"category_code":@"GRP",@"url":@"http://www.linkedin.com/",@"country_code":@"XX"},@{@"category_code":@"NEWS",@"url":@"https://ipi.media/",@"country_code":@"XX"},@{@"category_code":@"MMED",@"url":@"https://www.netflix.com/",@"country_code":@"XX"},@{@"category_code":@"LGBT",@"url":@"http://transsexual.org",@"country_code":@"XX"},@{@"category_code":@"ANON",@"url":@"http://anonym.to",@"country_code":@"XX"},@{@"category_code":@"HOST",@"url":@"https://www.blogger.com/",@"country_code":@"XX"},@{@"category_code":@"HUMR",@"url":@"http://www.khrp.org",@"country_code":@"XX"},@{@"category_code":@"REL",@"url":@"https://www.om.org/",@"country_code":@"XX"},@{@"category_code":@"GRP",@"url":@"http://twitter.com/anonops",@"country_code":@"XX"},@{@"category_code":@"HUMR",@"url":@"http://www.ifj.org",@"country_code":@"XX"},@{@"category_code":@"HUMR",@"url":@"http://www.ucc.org",@"country_code":@"XX"},@{@"category_code":@"PUBH",@"url":@"http://www.implantinfo.com",@"country_code":@"XX"},@{@"category_code":@"ALDR",@"url":@"http://www.thegooddrugsguide.com",@"country_code":@"XX"},@{@"category_code":@"NEWS",@"url":@"http://www.pravda.ru",@"country_code":@"XX"},@{@"category_code":@"REL",@"url":@"https://www.csidonline.org/",@"country_code":@"XX"},@{@"category_code":@"GAME",@"url":@"http://ddo.com/",@"country_code":@"XX"},@{@"category_code":@"ALDR",@"url":@"http://www.rxmarijuana.com",@"country_code":@"XX"},@{@"category_code":@"ANON",@"url":@"http://peacefire.org/",@"country_code":@"XX"},@{@"category_code":@"GOVT",@"url":@"http://www.dia.mil",@"country_code":@"XX"},@{@"category_code":@"GAME",@"url":@"http://company.wizards.com/",@"country_code":@"XX"},@{@"category_code":@"ANON",@"url":@"http://www.jmarshall.com/tools/cgiproxy/",@"country_code":@"XX"},@{@"category_code":@"NEWS",@"url":@"http://www.dailymotion.com",@"country_code":@"XX"},@{@"category_code":@"GMB",@"url":@"http://www.spinpalace.com",@"country_code":@"XX"},@{@"category_code":@"MMED",@"url":@"https://twitpic.com/",@"country_code":@"XX"},@{@"category_code":@"SRCH",@"url":@"https://kids.yahoo.com",@"country_code":@"XX"},@{@"category_code":@"NEWS",@"url":@"http://www.theepochtimes.com",@"country_code":@"XX"},@{@"category_code":@"HUMR",@"url":@"http://www.oneworld.net",@"country_code":@"XX"},@{@"category_code":@"REL",@"url":@"http://www.scientology.org",@"country_code":@"XX"},@{@"category_code":@"MMED",@"url":@"https://video.google.com",@"country_code":@"XX"},@{@"category_code":@"MMED",@"url":@"http://mp3.com/",@"country_code":@"XX"},@{@"category_code":@"COMT",@"url":@"http://www.foreignword.com",@"country_code":@"XX"},@{@"category_code":@"SRCH",@"url":@"http://www.google.com/search?q=lesbian",@"country_code":@"XX"},@{@"category_code":@"ALDR",@"url":@"http://www.marijuana.com",@"country_code":@"XX"},@{@"category_code":@"MILX",@"url":@"http://www.aleph.to",@"country_code":@"XX"},@{@"category_code":@"PROV",@"url":@"https://trashy.com/",@"country_code":@"XX"},@{@"category_code":@"MMED",@"url":@"http://www.fring.com",@"country_code":@"XX"},@{@"category_code":@"FILE",@"url":@"http://imesh.com/",@"country_code":@"XX"},@{@"category_code":@"ECON",@"url":@"http://care.org",@"country_code":@"XX"},@{@"category_code":@"GAME",@"url":@"http://www.ghostrecon.com",@"country_code":@"XX"},@{@"category_code":@"XED",@"url":@"http://www.sexandu.ca/",@"country_code":@"XX"},@{@"category_code":@"LGBT",@"url":@"http://www.grindr.com/",@"country_code":@"XX"},@{@"category_code":@"FILE",@"url":@"https://extratorrent.cc",@"country_code":@"XX"},@{@"category_code":@"HOST",@"url":@"http://www.webspawner.com",@"country_code":@"XX"},@{@"category_code":@"HOST",@"url":@"https://noblogs.org",@"country_code":@"XX"},@{@"category_code":@"PUBH",@"url":@"http://www.hivandhepatitis.com",@"country_code":@"XX"},@{@"category_code":@"ALDR",@"url":@"https://www.buydutchseeds.com/",@"country_code":@"XX"},@{@"category_code":@"MILX",@"url":@"http://www.arabrenewal.com",@"country_code":@"XX"},@{@"category_code":@"MMED",@"url":@"http://www.pandora.com",@"country_code":@"XX"},@{@"category_code":@"NEWS",@"url":@"http://www.arabtimes.com",@"country_code":@"XX"},@{@"category_code":@"SRCH",@"url":@"http://www.maven.co.il",@"country_code":@"XX"},@{@"category_code":@"ALDR",@"url":@"http://www.cannabis.info",@"country_code":@"XX"},@{@"category_code":@"PROV",@"url":@"http://blueskyswimwear.com",@"country_code":@"XX"},@{@"category_code":@"FILE",@"url":@"https://thepiratebay.se",@"country_code":@"XX"},@{@"category_code":@"POLR",@"url":@"http://www.piratpartiet.se",@"country_code":@"XX"},@{@"category_code":@"MMED",@"url":@"https://www.liveleak.com/",@"country_code":@"XX"},@{@"category_code":@"HUMR",@"url":@"http://www.actionaid.org",@"country_code":@"XX"},@{@"category_code":@"COMT",@"url":@"https://login.live.com/",@"country_code":@"XX"},@{@"category_code":@"MMED",@"url":@"http://delicious.com",@"country_code":@"XX"},@{@"category_code":@"PROV",@"url":@"https://www.3wishes.com/",@"country_code":@"XX"},@{@"category_code":@"ENV",@"url":@"https://www.epa.gov/",@"country_code":@"XX"},@{@"category_code":@"POLR",@"url":@"http://www.fondationdefrance.org/",@"country_code":@"XX"},@{@"category_code":@"REL",@"url":@"http://www.wiesenthal.com",@"country_code":@"XX"},@{@"category_code":@"FILE",@"url":@"https://addons.mozilla.org",@"country_code":@"XX"}];
+    NSURL *url = [NSURL URLWithString:path];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSError *error = nil;
+    NSDictionary *s = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    NSArray *urlsArray = [s objectForKey:@"results"];
     NSMutableArray *urls = [[NSMutableArray alloc] init];
     for (NSDictionary* current in urlsArray){
+        //List for database
+        Url *url = [Url getUrl:[current objectForKey:@"url"]];
+        if (url != nil){
+            [url updateCategory:[current objectForKey:@"country_code"] cc:[current objectForKey:@"category_code"]];
+        }
+        else {
+            Url *newUrl = [[Url alloc] initWithUrl:[current objectForKey:@"url"] category:[current objectForKey:@"category_code"] country:[current objectForKey:@"country_code"]];
+            [newUrl commit];
+        }
+        //List for mk
         [urls addObject:[current objectForKey:@"url"]];
-        //Url *currentUrl = [[Url alloc] initWithUrl:[current objectForKey:@"url"] category:[current objectForKey:@"category_code"] country:[current objectForKey:@"country_code"]];
-        //[urls addObject:currentUrl];
     }
     return urls;
 }
-
-//TODO deprecate
-+ (Url*)getUrl:(NSString*)url{
-    for (Url* current in [self getUrlsTest]){
-        if ([current.url isEqualToString:url])
-            return current;
+*/
++ (void)downloadUrls:(void (^)(NSArray *))completion {
+    //TODO add country code https://github.com/measurement-kit/measurement-kit/issues/1656
+    NSString *path = @"https://events.proteus.test.ooni.io/api/v1/urls?country_code=MX";
+    if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
+        NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
+        [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
+        path = [NSString stringWithFormat:@"%@&category_codes=%@", path, [categories componentsJoinedByString:@","]];
     }
-    return nil;
+    NSLog(@"%@", path);
+
+    NSURL *url = [NSURL URLWithString:path];
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            NSArray *urlsArray = [dic objectForKey:@"results"];
+            NSMutableArray *urls = [[NSMutableArray alloc] init];
+            for (NSDictionary* current in urlsArray){
+                //List for database
+                Url *url = [Url getUrl:[current objectForKey:@"url"]];
+                if (url != nil){
+                    [url updateCategory:[current objectForKey:@"country_code"] cc:[current objectForKey:@"category_code"]];
+                }
+                else {
+                    Url *newUrl = [[Url alloc] initWithUrl:[current objectForKey:@"url"] category:[current objectForKey:@"category_code"] country:[current objectForKey:@"country_code"]];
+                    [newUrl commit];
+                }
+                //List for mk
+                [urls addObject:[current objectForKey:@"url"]];
+            }
+            completion(urls);
+        }
+        else {
+            // Fail
+            completion(nil);
+            NSLog(@"error : %@", error.description);
+        }
+    }];
+    [downloadTask resume];
 }
 
 + (void)removeFile:(NSString*)fileName {

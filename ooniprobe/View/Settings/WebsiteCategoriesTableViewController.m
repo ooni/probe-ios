@@ -49,7 +49,7 @@
     if ([categories_disabled containsObject:current])
         detail.text = NSLocalizedString(@"Settings.Disabled", nil);
     else
-        cell.detailTextLabel.text = NSLocalizedString(@"Settings.Enabled", nil);
+        detail.text = NSLocalizedString(@"Settings.Enabled", nil);
     return cell;
 }
 

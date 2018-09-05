@@ -186,10 +186,12 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        NetworkTest *currentTest = [[NetworkTest alloc] init];
-        [currentTest.result setTest_group_name:[TestUtility getCategoryForTest:testName]];
-        [currentTest addTest:testName :urls];
-        [vc setCurrentTest:currentTest];
+        NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
+        [vc setTestSuiteName:testSuiteName];
+        if ([testSuiteName isEqualToString:@"websites"])
+            [vc setUrls:urls];
+        else
+            [vc setTestName:testName];
         [vc setPresenting:YES];
     }
 }

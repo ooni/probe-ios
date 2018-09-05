@@ -23,13 +23,13 @@
     [self.testIcon setTintColor:[TestUtility getColorForTest:result.test_group_name]];
 
     self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.test_group_name];
-    NSString *asnName = [result getAsnName];
+    NSString *networkName = [result getNetworkName];
     
-    NSMutableAttributedString *asnNameStr = [[NSMutableAttributedString alloc] initWithString:asnName];
-    [asnNameStr addAttribute:NSFontAttributeName
+    NSMutableAttributedString *networkNameStr = [[NSMutableAttributedString alloc] initWithString:networkName];
+    [networkNameStr addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                        range:NSMakeRange(0, asnNameStr.length)];
-    [self.testAsnLabel setAttributedText:asnNameStr];
+                        range:NSMakeRange(0, networkNameStr.length)];
+    [self.testAsnLabel setAttributedText:networkNameStr];
     
     //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];

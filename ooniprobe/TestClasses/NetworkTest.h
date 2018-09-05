@@ -10,26 +10,29 @@
 @property Result *result;
 @property NSMutableArray *mkNetworkTests;
 @property int measurementIdx;
--(id)initWithMeasurement:(Measurement*)existingMeasurement;
--(void)addTest:(NSString*)testName :(NSArray*)urls;
+-(void)addTest:(NSString*)testName;
 -(void)testEnded:(MKNetworkTest*)test;
 -(void)runTestSuite;
 @end
 
 @interface WCNetworkTest : NetworkTest
--(id)initWithUrls:(NSArray*)urls;
+-(id)initWithUrls:(NSArray*)urls andResult:(Result*)result;
 -(void)runTestSuite;
+-(void)setMaxRuntime;
 @end
 
 @interface IMNetworkTest : NetworkTest
+-(id)initWithTest:(NSString*)test_name andResult:(Result*)result;
 -(void)runTestSuite;
 @end
 
 @interface MBNetworkTest : NetworkTest
+-(id)initWithTest:(NSString*)test_name andResult:(Result*)result;
 -(void)runTestSuite;
 @end
 
 @interface SPNetworkTest : NetworkTest
+-(id)initWithTest:(NSString*)test_name andResult:(Result*)result;
 -(void)runTestSuite;
 @end
 
