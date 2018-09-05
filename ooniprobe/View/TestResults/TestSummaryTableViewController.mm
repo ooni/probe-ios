@@ -254,7 +254,7 @@
         [vc setTestSuiteName:segueObj.result_id.test_group_name];
         [vc setTestName:segueObj.test_name];
         [vc setResult:segueObj.result_id];
-        if ([segueObj.test_name isEqualToString:@"websites"])
+        if ([segueObj.result_id.test_group_name isEqualToString:@"websites"])
             [vc setUrls:[NSArray arrayWithObject:segueObj.url_id.url]];
         //TODO delete old log file
         [segueObj setIs_rerun:YES];

@@ -38,8 +38,10 @@
     urlArray = [[NSMutableArray alloc] init];
     for (NSString *key in [urls allKeys]){
         if (![[urls objectForKey:key] isEqualToString:@"http://"]){
+            //TODO save in db the urls entered manually?
             Url *currentUrl = [[Url alloc] initWithUrl:[urls objectForKey:key] category:@"" country:@""];
-            [urlArray addObject:currentUrl];
+            [currentUrl commit];
+            [urlArray addObject:[urls objectForKey:key]];
         }
     }
     if ([urlArray count] > 0) {

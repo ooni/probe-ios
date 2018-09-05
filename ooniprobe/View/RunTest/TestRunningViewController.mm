@@ -16,6 +16,7 @@
             [TestUtility downloadUrls:^(NSArray *urls) {
                 if (urls != nil && [urls count] > 0){
                     currentTest = [[WCNetworkTest alloc] initWithUrls:urls andResult:result];
+                    [(WCNetworkTest*)currentTest setMaxRuntime];
                     [self runTest];
                 }
                 else {
