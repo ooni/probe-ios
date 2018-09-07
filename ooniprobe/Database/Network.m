@@ -1,4 +1,5 @@
 #import "Network.h"
+#import "Measurement.h"
 
 @implementation Network
 @dynamic network_name, ip, asn, country_code, network_type;
@@ -22,26 +23,13 @@
     }
 }
 
-/*
-- (Network*)createOrReturn {
-    //[self commit];
-    //return self;
-
-    //if any params nil crashes
-     //SOL 1: no nil, use blank instead
-     //SOL 2: getParam that doesn't retutn nil- nil != "", WONT WORK
-     //SOL 3: how to query for null param
-    SRKQuery *query = [[Network query] where:@"network_name = ? AND asn = ? AND country_code = ? AND network_type = ?" parameters:@[self.network_name, self.asn, self.country_code, self.network_type]];
-    if ([query count] > 0){
-        [self dealloc];
-        SRKResultSet *networks = [query fetch];
-        return [networks objectAtIndex:0];
+- (BOOL)entityWillDelete {
+    //TODO AND is_rerun = 0 ?
+    SRKQuery *query = [[[Measurement query] where:@"network_id = ?" parameters:@[self]] orderByDescending:@"Id"];
+    if ([query count] > 1){
+        return NO;
     }
-    else {
-        [self commit];
-        return self;
-    }
+    return YES;
 }
 
-*/
 @end

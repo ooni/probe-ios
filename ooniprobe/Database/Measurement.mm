@@ -68,6 +68,7 @@
 }
 
 -(void)deleteObject{
+    [self.network_id remove];
     [TestUtility removeFile:[self getLogFile]];
     [TestUtility removeFile:[self getReportFile]];
     [self remove];
