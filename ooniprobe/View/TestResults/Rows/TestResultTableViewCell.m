@@ -23,7 +23,7 @@
     [self.testIcon setTintColor:[TestUtility getColorForTest:result.test_group_name]];
 
     self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.test_group_name];
-    NSString *networkName = [result getNetworkName];
+    NSString *networkName = [result getNetworkNameOrAsn];
     
     NSMutableAttributedString *networkNameStr = [[NSMutableAttributedString alloc] initWithString:networkName];
     [networkNameStr addAttribute:NSFontAttributeName

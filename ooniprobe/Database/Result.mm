@@ -77,21 +77,28 @@
 
 -(NSString*)getAsn{
     Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.network_id.asn != nil)
+    if (measurement.network_id.asn != nil && [measurement.network_id.asn length] > 0)
         return measurement.network_id.asn;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(NSString*)getNetworkName{
     Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.network_id.network_name != nil)
+    if (measurement.network_id.network_name != nil && [measurement.network_id.network_name length] > 0)
         return measurement.network_id.network_name;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
+-(NSString*)getNetworkNameOrAsn{
+    Measurement *measurement = [self getFirstMeasurement];
+    if (measurement.network_id.network_name != nil && [measurement.network_id.network_name length] > 0)
+        return measurement.network_id.network_name;
+    else return [self getAsn];
+}
+
 -(NSString*)getCountry{
     Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.network_id.country_code != nil)
+    if (measurement.network_id.country_code != nil && [measurement.network_id.country_code length] > 0)
         return measurement.network_id.country_code;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }

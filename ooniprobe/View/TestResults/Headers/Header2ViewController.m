@@ -27,7 +27,7 @@
 
 -(void)reloadMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSString *network = [result getNetworkName];
+        NSString *network = [result getNetworkNameOrAsn];
         NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", network]];
         [networkText addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
