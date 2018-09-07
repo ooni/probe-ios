@@ -14,14 +14,13 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Dashboard.Title", nil);
-    /*
-    UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooniprobe_logo"]];
+    //self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Dashboard.Title", nil);
+    
+    UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooni_logo"]];
     navbarImageView.contentMode = UIViewContentModeScaleAspectFit;
     [navbarImageView.widthAnchor constraintEqualToConstant:135].active = YES;
     [navbarImageView.heightAnchor constraintEqualToConstant:24].active = YES;
     self.navigationController.navigationBar.topItem.titleView = navbarImageView;
-     */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
