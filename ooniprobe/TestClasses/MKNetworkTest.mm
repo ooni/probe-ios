@@ -106,10 +106,18 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                //Save report_id
                                self.reportId = [value objectForKey:@"report_id"];
                            }
+                           else if ([key isEqualToString:@"failure.report_create"]) {
+                               /*
+                                every measure should be resubmitted
+                                int mk_submit_report(const char *report_as_json);
+                                "value": {"failure": "<failure_string>"}
+                                */
+                           }
                            else if ([key isEqualToString:@"status.measurement_submission"]) {
                                [self setUploaded:true idx:[value objectForKey:@"idx"] reason:nil];
                            }
                            else if ([key isEqualToString:@"failure.measurement_submission"]) {
+                               //TODO let @sbs know if I need every callback of this in case of failure.report_create
                                [self setUploaded:false idx:[value objectForKey:@"idx"] reason:[value objectForKey:@"failure"]];
                            }
                            else if ([key isEqualToString:@"failure.measurement"]) {
@@ -153,7 +161,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
         return;
     }
     //TODO manage the case the test is re run
-    //[self writeString:message toFile:[TestUtility getFileNamed:[self.result getLogFile:self.name]]];
+    [self writeString:message toFile:[TestUtility getFileNamed:[self.result getLogFile:self.name]]];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
@@ -274,9 +282,8 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
 -(void)writeString:(NSString*)str toFile:(NSString*)fileName{
     NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileName];
     if (fileHandle){
-        //TODO add @"\n"
         [fileHandle seekToEndOfFile];
-        [fileHandle writeData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+        [fileHandle writeData:[[NSString stringWithFormat:@"\n%@", str] dataUsingEncoding:NSUTF8StringEncoding]];
         [fileHandle closeFile];
     }
     else {
