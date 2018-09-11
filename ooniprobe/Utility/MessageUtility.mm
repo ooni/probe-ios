@@ -45,6 +45,20 @@
     });
 }
 
++ (void)alertWithTitle:(NSString *)title message:(NSString *)msg okButton:(UIAlertAction*)okButton cancelButton:(UIAlertAction*)cancelButton inView:(UIViewController *)view
+{
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:title
+                                 message:msg
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:cancelButton];
+    [alert addAction:okButton];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view presentViewController:alert animated:YES completion:nil];
+    });
+}
+
+
 + (void)notificationAlertinView:(UIViewController *)view
 {
     //TODO add Modal.EnableGPS and Modal.EnableNotifications.News and Modal.EnableNotifications.AutomatedTesting
