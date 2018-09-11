@@ -99,7 +99,6 @@
 }
 
 -(NSString*)getLogFile:(NSString*)test_name{
-    NSLog(@"logfile %@", [NSString stringWithFormat:@"%@-%@.log", self.Id, test_name]);
     return [NSString stringWithFormat:@"%@-%@.log", self.Id, test_name];
 }
 

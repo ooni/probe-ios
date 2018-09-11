@@ -84,7 +84,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                    return;
                                }
                                Measurement *measurement = [self createMeasurementObject];
-                               if ([input length] > 0){
+                               if ([input length] != 0){
                                    measurement.url_id = [Url getUrl:input];
                                    [measurement save];
                                }
