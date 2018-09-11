@@ -118,39 +118,7 @@
     }
     return [UIColor colorWithRGBHexString:color_blue5 alpha:alpha];
 }
-/*
-+ (NSArray*)downloadUrls {
-    //TODO add country code
-    NSString *path = @"https://events.proteus.test.ooni.io/api/v1/urls?country_code=MX";
-    if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
-         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
-        [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
-        path = [NSString stringWithFormat:@"%@&category_codes=%@", path, [categories componentsJoinedByString:@","]];
-    }
-    NSLog(@"%@", path);
 
-    NSURL *url = [NSURL URLWithString:path];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    NSError *error = nil;
-    NSDictionary *s = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    NSArray *urlsArray = [s objectForKey:@"results"];
-    NSMutableArray *urls = [[NSMutableArray alloc] init];
-    for (NSDictionary* current in urlsArray){
-        //List for database
-        Url *url = [Url getUrl:[current objectForKey:@"url"]];
-        if (url != nil){
-            [url updateCategory:[current objectForKey:@"country_code"] cc:[current objectForKey:@"category_code"]];
-        }
-        else {
-            Url *newUrl = [[Url alloc] initWithUrl:[current objectForKey:@"url"] category:[current objectForKey:@"category_code"] country:[current objectForKey:@"country_code"]];
-            [newUrl commit];
-        }
-        //List for mk
-        [urls addObject:[current objectForKey:@"url"]];
-    }
-    return urls;
-}
-*/
 + (void)downloadUrls:(void (^)(NSArray *))completion {
     //TODO add country code https://github.com/measurement-kit/measurement-kit/issues/1656
     NSString *path = @"https://events.proteus.test.ooni.io/api/v1/urls?country_code=MX";

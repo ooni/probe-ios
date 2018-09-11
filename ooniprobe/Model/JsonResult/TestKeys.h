@@ -3,24 +3,6 @@
 #import "Simple.h"
 #import "Advanced.h"
 
-/*
-@interface Simple
-@property (nonatomic, strong) NSNumber *upload;
-@property (nonatomic, strong) NSNumber *download;
-@property (nonatomic, strong) NSNumber *ping;
-@end
-
-//TODO check these formats
-@interface Advanced
-@property (nonatomic, strong) NSString *packet_loss;
-@property (nonatomic, strong) NSString *out_of_order;
-@property (nonatomic, strong) NSString *avg_rtt;
-@property (nonatomic, strong) NSString *max_rtt;
-@property (nonatomic, strong) NSString *mss;
-@property (nonatomic, strong) NSString *timeouts;
-@end
-*/
-
 @interface TestKeys : NSObject
 @property (nonatomic, strong) NSString *blocking;
 @property (nonatomic, strong) NSString *accessible;

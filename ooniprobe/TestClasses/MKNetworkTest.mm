@@ -141,8 +141,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                [self.result setData_usage_up:self.result.data_usage_up+[up doubleValue]];
                            }
                            else if ([key isEqualToString:@"failure.startup"]) {
-                               //TODO chiudi schermata test? NO
-                               //runnare il prossimo?
+                               //What to do? Run next test
                            } else {
                                NSLog(@"unused event: %@", evinfo);
                            }
@@ -160,7 +159,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     if (message == nil) {
         return;
     }
-    //TODO manage the case the test is re run
+    //TODO-LOG manage the case the test is re run
     [self writeString:message toFile:[TestUtility getFileNamed:[self.result getLogFile:self.name]]];
 
     dispatch_async(dispatch_get_main_queue(), ^{

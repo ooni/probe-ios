@@ -124,7 +124,7 @@
         NSLog(@"urls: %@", urls);
         if ([urls count] > 0){
             for (NSString *url in urls){
-                //TODO save in db the urls got from ooni run?
+                //TODO-PRERELEASE save in db the urls got from ooni run?
                 Url *currentUrl = [[Url alloc] initWithUrl:url category:@"" country:@""];
                 [currentUrl commit];
             }

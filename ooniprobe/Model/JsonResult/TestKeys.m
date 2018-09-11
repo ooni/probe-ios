@@ -267,14 +267,14 @@
     
 - (NSString*)getMSS{
     if (self.advanced.mss != nil){
-        return [NSString stringWithFormat:@"%@", self.advanced.mss];
+        return [NSString stringWithFormat:@"%d", [self.advanced.mss intValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
     
 - (NSString*)getTimeouts{
     if (self.advanced.timeouts != nil){
-        return [NSString stringWithFormat:@"%@", self.advanced.timeouts];
+        return [NSString stringWithFormat:@"%d", [self.advanced.timeouts intValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }

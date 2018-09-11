@@ -20,7 +20,7 @@
                     [self runTest];
                 }
                 else {
-                    //TODO Show error and exit
+                    //TODO-PRERELEASE Show error and exit
                     [self networkTestEnded];
                 }
             }];

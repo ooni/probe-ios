@@ -23,11 +23,11 @@
             return @[@"automated_testing_enabled"];
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
-        //TODO @"include_gps"
+        //TODO-2.1 @"include_gps"
         return @[@"upload_results", @"include_ip", @"include_asn"];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
-        //TODO @"use_domain_fronting"
+        //TODO-2.1 @"use_domain_fronting"
         return @[@"keep_screen_on", @"send_crash", @"debug_logs", @"include_cc"];
     }
     else
