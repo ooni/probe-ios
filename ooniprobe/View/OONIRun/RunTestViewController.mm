@@ -124,8 +124,7 @@
         NSLog(@"urls: %@", urls);
         if ([urls count] > 0){
             for (NSString *url in urls){
-                //TODO-PRERELEASE save in db the urls got from ooni run?
-                Url *currentUrl = [[Url alloc] initWithUrl:url category:@"" country:@""];
+                Url *currentUrl = [[Url alloc] initWithUrl:url category:@"MISC" country:@"ZZ"];
                 [currentUrl commit];
             }
             self.tableView.estimatedRowHeight = 44.0;

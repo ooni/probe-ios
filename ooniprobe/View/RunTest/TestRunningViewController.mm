@@ -20,7 +20,7 @@
                     [self runTest];
                 }
                 else {
-                    //TODO-PRERELEASE Show error and exit
+                    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadUrls" inView:self];
                     [self networkTestEnded];
                 }
             }];
