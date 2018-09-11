@@ -2,7 +2,7 @@
 #import "TestUtility.h"
 
 @implementation Result
-@dynamic test_group_name, start_time, runtime, is_viewed, is_done, data_usage_up, data_usage_down;
+@dynamic test_group_name, start_time, runtime, network_id, is_viewed, is_done, data_usage_up, data_usage_down;
 
 + (NSDictionary *)defaultValuesForEntity {
     return @{@"start_time": [NSDate date]};
@@ -49,13 +49,12 @@
 }
 
 -(NSString*)getLocalizedNetworkType{
-    Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.network_id.network_name != nil) {
-        if ([measurement.network_id.network_name isEqualToString:@"wifi"])
+    if (self.network_id.network_name != nil) {
+        if ([self.network_id.network_name isEqualToString:@"wifi"])
             return NSLocalizedString(@"TestResults.Summary.Hero.WiFi", nil);
-        else if ([measurement.network_id.network_name isEqualToString:@"mobile"])
+        else if ([self.network_id.network_name isEqualToString:@"mobile"])
             return NSLocalizedString(@"TestResults.Summary.Hero.Mobile", nil);
-        else if ([measurement.network_id.network_name isEqualToString:@"no_internet"])
+        else if ([self.network_id.network_name isEqualToString:@"no_internet"])
             return NSLocalizedString(@"TestResults.Summary.Hero.NoInternet", nil);
     }
     return @"";
@@ -76,30 +75,26 @@
 }
 
 -(NSString*)getAsn{
-    Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.network_id.asn != nil && [measurement.network_id.asn length] > 0)
-        return measurement.network_id.asn;
+    if (self.network_id.asn != nil && [self.network_id.asn length] > 0)
+        return self.network_id.asn;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(NSString*)getNetworkName{
-    Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.network_id.network_name != nil && [measurement.network_id.network_name length] > 0)
-        return measurement.network_id.network_name;
+    if (self.network_id.network_name != nil && [self.network_id.network_name length] > 0)
+        return self.network_id.network_name;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
 -(NSString*)getNetworkNameOrAsn{
-    Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.network_id.network_name != nil && [measurement.network_id.network_name length] > 0)
-        return measurement.network_id.network_name;
+    if (self.network_id.network_name != nil && [self.network_id.network_name length] > 0)
+        return self.network_id.network_name;
     else return [self getAsn];
 }
 
 -(NSString*)getCountry{
-    Measurement *measurement = [self getFirstMeasurement];
-    if (measurement.network_id.country_code != nil && [measurement.network_id.country_code length] > 0)
-        return measurement.network_id.country_code;
+    if (self.network_id.country_code != nil && [self.network_id.country_code length] > 0)
+        return self.network_id.country_code;
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
@@ -125,6 +120,7 @@
         [TestUtility removeFile:[measurement getReportFile]];
         [measurement remove];
     }
+    [self.network_id remove];
     [self remove];
 }
 

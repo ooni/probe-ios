@@ -1,5 +1,5 @@
 #import "Network.h"
-#import "Measurement.h"
+#import "Result.h"
 
 @implementation Network
 @dynamic network_name, ip, asn, country_code, network_type;
@@ -24,8 +24,7 @@
 }
 
 - (BOOL)entityWillDelete {
-    //TODO AND is_rerun = 0 ?
-    SRKQuery *query = [[[Measurement query] where:@"network_id = ?" parameters:@[self]] orderByDescending:@"Id"];
+    SRKQuery *query = [[[Result query] where:@"network_id = ?" parameters:@[self]] orderByDescending:@"Id"];
     if ([query count] > 1){
         return NO;
     }

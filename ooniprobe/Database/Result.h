@@ -14,6 +14,7 @@
 @property BOOL is_done;
 @property long data_usage_up;
 @property long data_usage_down;
+@property Network *network_id;
 
 - (long)totalMeasurements;
 - (long)failedMeasurements;

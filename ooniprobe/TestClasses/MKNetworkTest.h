@@ -22,7 +22,6 @@
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property NSString *name;
 @property NSString *reportId;
-@property Network *network;
 @property Result *result;
 @property (nonatomic, strong) NSMutableDictionary *measurements;
 @property id<MKNetworkTestDelegate> delegate;

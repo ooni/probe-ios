@@ -49,8 +49,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
         [measurement setTest_name:self.name];
     if (self.reportId != NULL)
         [measurement setReport_id:self.reportId];
-    if (self.network != NULL)
-        [measurement setNetwork_id:self.network];
     [measurement save];
     return measurement;
 }
@@ -232,7 +230,8 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     //[network commit];
     //[self.measurement setNetwork_id:network];
     */
-    self.network = [Network checkExistingAsn:probe_asn name:probe_network_name ip:probe_ip cc:probe_cc type:[[ReachabilityManager sharedManager] getStatus]];
+    if (self.result != NULL && self.result.network_id == NULL)
+        [self.result setNetwork_id:[Network checkExistingAsn:probe_asn name:probe_network_name ip:probe_ip cc:probe_cc type:[[ReachabilityManager sharedManager] getStatus]]];
 }
 
 -(void)onEntryCreate:(NSDictionary*)value {
