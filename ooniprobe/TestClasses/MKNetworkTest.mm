@@ -80,6 +80,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            else if ([key isEqualToString:@"status.measurement_start"]) {
                                NSNumber *idx = [value objectForKey:@"idx"];
                                NSString *input = [value objectForKey:@"input"];
+                               if (idx == nil || input == nil) {
+                                   return;
+                               }
                                Measurement *measurement = [self createMeasurementObject];
                                if ([input length] > 0){
                                    measurement.url_id = [Url getUrl:input];
@@ -125,6 +128,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            else if ([key isEqualToString:@"status.measurement_done"]) {
                                //probabilmente da usare per indicare misura finita
                                NSNumber *idx = [value objectForKey:@"idx"];
+                               if (key == nil) {
+                                   return;
+                               }
                                Measurement *measurement = [self.measurements objectForKey:idx];
                                if (measurement != nil){
                                    measurement.is_done = true;
@@ -135,6 +141,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                //update d.down e d.up
                                NSNumber *down = [value objectForKey:@"downloaded_kb"];
                                NSString *up = [value objectForKey:@"uploaded_kb"];
+                               if (down == nil || up == nil) {
+                                   return;
+                               }
                                [self.result setData_usage_down:self.result.data_usage_down+[down doubleValue]];
                                [self.result setData_usage_up:self.result.data_usage_up+[up doubleValue]];
                            }
@@ -143,7 +152,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            } else {
                                NSLog(@"unused event: %@", evinfo);
                            }
-                           // Notify the main thread about the latest event.
                        }
                        // Notify the main thread that the task is now complete
                        dispatch_async(dispatch_get_main_queue(), ^{
@@ -187,6 +195,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
 }
 
 -(void)setUploaded:(BOOL)value idx:(NSNumber*)idx reason:(NSString*)reason{
+    if (idx == nil) {
+        return;
+    }
     Measurement *measurement = [self.measurements objectForKey:idx];
     if (measurement != nil){
         measurement.is_uploaded = value;
@@ -197,6 +208,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
 }
 
 -(void)setFailed:(BOOL)value idx:(NSNumber*)idx reason:(NSString*)reason{
+    if (idx == nil) {
+        return;
+    }
     Measurement *measurement = [self.measurements objectForKey:idx];
     if (measurement != nil){
         measurement.is_failed = value;
@@ -237,6 +251,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
 -(void)onEntryCreate:(NSDictionary*)value {
     NSString *str = [value objectForKey:@"json_str"];
     NSNumber *idx = [value objectForKey:@"idx"];
+    if (idx == nil) return;
     Measurement *measurement = [self.measurements objectForKey:idx];
     if (str != nil && measurement != nil) {
         NSError *error;
