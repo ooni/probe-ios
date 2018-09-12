@@ -121,7 +121,7 @@
     //reset the arrays: we may be called more than once for the same screen
     if ([testName isEqualToString:@"web_connectivity"]){
         urls = [testArguments objectForKey:@"urls"];
-        NSLog(@"urls: %@", urls);
+        //NSLog(@"urls: %@", urls);
         if ([urls count] > 0){
             for (NSString *url in urls){
                 Url *currentUrl = [[Url alloc] initWithUrl:url category:@"MISC" country:@"ZZ"];

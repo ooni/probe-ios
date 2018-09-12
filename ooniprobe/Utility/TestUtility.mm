@@ -127,19 +127,20 @@
         [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
         path = [NSString stringWithFormat:@"%@&category_codes=%@", path, [categories componentsJoinedByString:@","]];
     }
-    NSLog(@"%@", path);
+    //NSLog(@"url %@", path);
 
     NSURL *url = [NSURL URLWithString:path];
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             NSArray *urlsArray = [dic objectForKey:@"results"];
+            //NSLog(@"urlsArray %@", urlsArray);
             NSMutableArray *urls = [[NSMutableArray alloc] init];
             for (NSDictionary* current in urlsArray){
                 //List for database
                 Url *url = [Url getUrl:[current objectForKey:@"url"]];
                 if (url != nil){
-                    [url updateCategory:[current objectForKey:@"country_code"] cc:[current objectForKey:@"category_code"]];
+                    [url updateCategory:[current objectForKey:@"category_code"] cc:[current objectForKey:@"country_code"]];
                 }
                 else {
                     Url *newUrl = [[Url alloc] initWithUrl:[current objectForKey:@"url"] category:[current objectForKey:@"category_code"] country:[current objectForKey:@"country_code"]];
