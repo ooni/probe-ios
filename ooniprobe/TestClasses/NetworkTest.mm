@@ -5,29 +5,20 @@
 -(id) init {
     self = [super init];
     if (self) {
+        self.mkNetworkTests = [[NSMutableArray alloc] init];
+        self.measurementIdx = 0;
+    }
+    return self;
+}
+
+-(void)initResult:(Result*)result{
+    if (result != nil)
+        self.result = result;
+    else
         self.result = [Result new];
-        self.mkNetworkTests = [[NSMutableArray alloc] init];
-    }
-    return self;
 }
 
--(id)initWithMeasurement:(Measurement*)existingMeasurement {
-    self = [super init];
-    if (self) {
-        self.result = existingMeasurement.result_id;
-        self.mkNetworkTests = [[NSMutableArray alloc] init];
-        if ([existingMeasurement.test_name isEqualToString:@"web_connectivity"]){
-            Url *currentUrl = [[Url alloc] initWithUrl:existingMeasurement.url_id.url category:existingMeasurement.url_id.category_code country:@"IT"];
-            [self addTest:existingMeasurement.test_name :@[currentUrl]];
-        }
-        else
-            [self addTest:existingMeasurement.test_name :nil];
-        [existingMeasurement remove];
-    }
-    return self;
-}
-
--(void)addTest:(NSString*)testName :(NSArray*)urls{
+-(void)addTest:(NSString*)testName{
     if ([testName isEqualToString:@"whatsapp"]){
         Whatsapp *whatsapp = [[Whatsapp alloc] init];
         [self initCommon:whatsapp];
@@ -42,11 +33,6 @@
     }
     else if ([testName isEqualToString:@"web_connectivity"]){
         WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
-        [webConnectivity setMax_runtime_enabled:YES];
-        if (urls != nil){
-            [webConnectivity setInputs:urls];
-            [webConnectivity setMax_runtime_enabled:NO];
-        }
         [self initCommon:webConnectivity];
     }
     else if ([testName isEqualToString:@"http_invalid_request_line"]){
@@ -68,37 +54,30 @@
 }
 
 -(void)initCommon:(MKNetworkTest*)test{
-    [test setIdx:(int)[self.mkNetworkTests count]];
     [test setDelegate:self];
-    [test setResultOfMeasurement:self.result];
+    [test setResult:self.result];
     [self.mkNetworkTests addObject:test];
 }
 
--(void)run {
+-(void)runTestSuite {
     for (MKNetworkTest *current in self.mkNetworkTests){
-        [current run];
+        [current runTest];
     }
 }
 
 -(void)testEnded:(MKNetworkTest*)test{
     NSLog(@"CALLBACK test_ended %@", test.name);
     [self.mkNetworkTests removeObject:test];
+    [self.result save];
+    self.measurementIdx++;
     //if last test
     if ([self.mkNetworkTests count] == 0){
         NSLog(@"ALL test_ended");
         [self.result setIs_done:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
-        //TODO basic fix to remove last measurement
-        if ([self.result.test_group_name isEqualToString:@"websites"]){
-            for (Measurement *current in self.result.measurements){
-                if (!current.url_id.url)
-                    [current remove];
-            }
-        }
+        if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
+            [self showNotification];
     }
-    [self.result save];
-    if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
-        [self showNotification];
 }
 
 - (void)showNotification {
@@ -114,55 +93,84 @@
 
 @end
 
-@implementation IMNetworkTest : NetworkTest
-
+@implementation WCNetworkTest : NetworkTest
 
 -(id) init {
     self = [super init];
     if (self) {
+        [self initResult:nil];
+        [self.result setTest_group_name:@"websites"];
+        [self addTest:@"web_connectivity"];
+    }
+    return self;
+}
+
+-(id) initWithUrls:(NSArray*)urls andResult:(Result*)result{
+    self = [super init];
+    if (self) {
+        [self initResult:result];
+        [self.result setTest_group_name:@"websites"];
+        [self addTest:@"web_connectivity"];
+        [self setUrls:urls];
+    }
+    return self;
+}
+
+-(void)setUrls:(NSArray*)inputs{
+    if([self.mkNetworkTests count] > 0){
+        WebConnectivity *wc = [self.mkNetworkTests objectAtIndex:0];
+        wc.settings.inputs = inputs;
+    }
+}
+
+-(void)setMaxRuntime {
+    if([self.mkNetworkTests count] > 0){
+        WebConnectivity *wc = [self.mkNetworkTests objectAtIndex:0];
+        //TODO handle max runtime in a better way
+        NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
+        wc.settings.options.max_runtime = max_runtime;
+    }
+}
+
+
+-(void)runTestSuite {
+    [super runTestSuite];
+}
+
+@end
+@implementation IMNetworkTest : NetworkTest
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        [self initResult:nil];
         [self.result setTest_group_name:@"instant_messaging"];
         if ([SettingsUtility getSettingWithName:@"test_whatsapp"]){
-            [self addTest:@"whatsapp" :nil];
+            [self addTest:@"whatsapp"];
         }
         if ([SettingsUtility getSettingWithName:@"test_telegram"]){
-            [self addTest:@"telegram" :nil];
+            [self addTest:@"telegram"];
         }
         if ([SettingsUtility getSettingWithName:@"test_facebook_messenger"]){
-            [self addTest:@"facebook_messenger" :nil];
+            [self addTest:@"facebook_messenger"];
         }
         [self.result save];
     }
     return self;
 }
 
--(void)run {
-    [super run];
-}
-
-@end
-
-@implementation WCNetworkTest : NetworkTest
-
--(id) init {
+-(id) initWithTest:(NSString*)test_name andResult:(Result*)result{
     self = [super init];
     if (self) {
-        [self.result setTest_group_name:@"websites"];
-        [self addTest:@"web_connectivity" :nil];
+        [self initResult:result];
+        [self.result setTest_group_name:@"middle_boxes"];
+        [self addTest:test_name];
     }
     return self;
 }
 
--(id) initWithUrls:(NSArray*)urls {
-    self = [super init];
-    if (self) {
-        [self.result setTest_group_name:@"websites"];
-        [self addTest:@"web_connectivity" :urls];
-    }
-    return self;
-}
-
--(void)run {
-    [super run];
+-(void)runTestSuite {
+    [super runTestSuite];
 }
 
 @end
@@ -172,19 +180,30 @@
 -(id) init {
     self = [super init];
     if (self) {
+        [self initResult:nil];
         [self.result setTest_group_name:@"middle_boxes"];
         if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"]){
-            [self addTest:@"http_invalid_request_line" :nil];
+            [self addTest:@"http_invalid_request_line"];
         }
         if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"]){
-            [self addTest:@"http_header_field_manipulation" :nil];
+            [self addTest:@"http_header_field_manipulation"];
         }
     }
     return self;
 }
 
--(void)run {
-    [super run];
+-(id) initWithTest:(NSString*)test_name andResult:(Result*)result{
+    self = [super init];
+    if (self) {
+        [self initResult:result];
+        [self.result setTest_group_name:@"middle_boxes"];
+        [self addTest:test_name];
+    }
+    return self;
+}
+
+-(void)runTestSuite {
+    [super runTestSuite];
 }
 
 @end
@@ -194,18 +213,29 @@
 -(id) init {
     self = [super init];
     if (self) {
+        [self initResult:nil];
         [self.result setTest_group_name:@"performance"];
         if ([SettingsUtility getSettingWithName:@"run_ndt"]){
-            [self addTest:@"ndt" :nil];
+            [self addTest:@"ndt"];
         }
         if ([SettingsUtility getSettingWithName:@"run_dash"]){
-            [self addTest:@"dash" :nil];
+            [self addTest:@"dash"];
         }
     }
     return self;
 }
 
--(void)run {
-    [super run];
+-(id) initWithTest:(NSString*)test_name andResult:(Result*)result{
+    self = [super init];
+    if (self) {
+        [self initResult:result];
+        [self.result setTest_group_name:@"middle_boxes"];
+        [self addTest:test_name];
+    }
+    return self;
+}
+
+-(void)runTestSuite {
+    [super runTestSuite];
 }
 @end

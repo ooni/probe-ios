@@ -6,14 +6,13 @@
 @interface TestUtility : NSObject
 
 + (void)showNotification:(NSString*)name;
-+ (NSString*)getFileName:(Measurement*)measurement ext:(NSString*)ext;
++ (NSString*)getFileNamed:(NSString*)name;
 + (NSDictionary*)getTests;
 + (NSArray*)getTestTypes;
 + (NSArray*)getTestsArray;
 + (NSString*)getCategoryForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
-+ (NSArray*)getUrlsTest;
-+ (Url*)getUrl:(NSString*)url;
++ (void)downloadUrls:(void (^)(NSArray *))completion;
 + (void)removeFile:(NSString*)fileName;
 @end

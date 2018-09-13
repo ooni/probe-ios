@@ -14,14 +14,13 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Dashboard.Title", nil);
-    /*
-    UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooniprobe_logo"]];
+    //self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Dashboard.Title", nil);
+    
+    UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooni_logo"]];
     navbarImageView.contentMode = UIViewContentModeScaleAspectFit;
     [navbarImageView.widthAnchor constraintEqualToConstant:135].active = YES;
     [navbarImageView.heightAnchor constraintEqualToConstant:24].active = YES;
     self.navigationController.navigationBar.topItem.titleView = navbarImageView;
-     */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,15 +94,8 @@
         UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        NSString *testName = [items objectAtIndex:indexPath.row];
-        if ([testName isEqualToString:@"websites"])
-            [vc setCurrentTest:[[WCNetworkTest alloc] init]];
-        else if ([testName isEqualToString:@"performance"])
-            [vc setCurrentTest:[[SPNetworkTest alloc] init]];
-        else if ([testName isEqualToString:@"middle_boxes"])
-            [vc setCurrentTest:[[MBNetworkTest alloc] init]];
-        else if ([testName isEqualToString:@"instant_messaging"])
-            [vc setCurrentTest:[[IMNetworkTest alloc] init]];
+        NSString *testSuiteName = [items objectAtIndex:indexPath.row];
+        [vc setTestSuiteName:testSuiteName];
     }
     else if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];

@@ -3,7 +3,7 @@
 #import "TestUtility.h"
 
 @implementation Measurement
-@dynamic test_name, start_time, runtime, network_id, is_done, is_uploaded, is_failed, failure_msg, is_upload_failed, upload_failure_msg, is_rerun, report_id, url_id, measurement_id, testKeys, is_anomaly, result_id;
+@dynamic test_name, start_time, runtime, is_done, is_uploaded, is_failed, failure_msg, is_upload_failed, upload_failure_msg, is_rerun, report_id, url_id, measurement_id, test_keys, is_anomaly, result_id;
 
 @synthesize testKeysObj = _testKeysObj;
 
@@ -21,9 +21,9 @@
 */
 - (TestKeys*)testKeysObj{
     if (!_testKeysObj){
-        if (self.testKeys){
+        if (self.test_keys){
             NSError *error;
-            NSData *data = [self.testKeys dataUsingEncoding:NSUTF8StringEncoding];
+            NSData *data = [self.test_keys dataUsingEncoding:NSUTF8StringEncoding];
             NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             if (error != nil) {
                 NSLog(@"Error parsing JSON: %@", error);
@@ -45,23 +45,17 @@
 
 - (void)setTestKeysObj:(TestKeys *)testKeysObj{
     _testKeysObj = testKeysObj;
-    self.testKeys = [self.testKeysObj getJsonStr];
-}
-
-- (NSString*)getFile:(NSString*)ext{
-    //log files are unique for web_connectivity test
-    if ([self.test_name isEqualToString:@"web_connectivity"] && [ext isEqualToString:@"log"]){
-        return [NSString stringWithFormat:@"%@-%@.%@", self.result_id.test_group_name, self.result_id.Id, ext];
-    }
-    return [NSString stringWithFormat:@"%@-%@.%@", self.result_id.test_group_name, self.Id, ext];
+    self.test_keys = [self.testKeysObj getJsonStr];
 }
 
 -(NSString*)getReportFile{
-    return [self getFile:@"json"];
+    //LOGS: resultID_test_name.log
+    return [NSString stringWithFormat:@"%@-%@.json",  self.Id, self.test_name];
 }
 
 -(NSString*)getLogFile{
-    return [self getFile:@"log"];
+    //JSON: measurementID_test_name.log
+    return [self.result_id getLogFile:self.test_name];
 }
 
 -(void)save{

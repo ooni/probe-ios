@@ -121,8 +121,12 @@
     //reset the arrays: we may be called more than once for the same screen
     if ([testName isEqualToString:@"web_connectivity"]){
         urls = [testArguments objectForKey:@"urls"];
-        NSLog(@"urls: %@", urls);
+        //NSLog(@"urls: %@", urls);
         if ([urls count] > 0){
+            for (NSString *url in urls){
+                Url *currentUrl = [[Url alloc] initWithUrl:url category:@"MISC" country:@"ZZ"];
+                [currentUrl commit];
+            }
             self.tableView.estimatedRowHeight = 44.0;
             self.tableView.rowHeight = UITableViewAutomaticDimension;
             [self.tableView setHidden:NO];
@@ -186,10 +190,12 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        NetworkTest *currentTest = [[NetworkTest alloc] init];
-        [currentTest.result setTest_group_name:[TestUtility getCategoryForTest:testName]];
-        [currentTest addTest:testName :urls];
-        [vc setCurrentTest:currentTest];
+        NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
+        [vc setTestSuiteName:testSuiteName];
+        if ([testSuiteName isEqualToString:@"websites"])
+            [vc setUrls:urls];
+        else
+            [vc setTestName:testName];
         [vc setPresenting:YES];
     }
 }

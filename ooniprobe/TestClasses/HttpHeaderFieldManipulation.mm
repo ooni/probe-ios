@@ -6,22 +6,16 @@
     self = [super init];
     if (self) {
         self.name = @"http_header_field_manipulation";
-        self.measurement.test_name = self.name;
+        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
     }
     return self;
 }
 
--(void)run {
-    [super run];
-    [self runTest];
-}
-
 -(void) runTest {
-    mk::nettests::HttpHeaderFieldManipulationTest test;
-    [super initCommon:test];
+    [super runTest];
 }
 
--(void)onEntry:(JsonResult*)json {
+-(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
     /*
      onEntry method for http header field manipulation test, check "failure" key
      null => failed
@@ -38,11 +32,10 @@
      */
     //TestKeys *testKeys = json.test_keys;
     if (json.test_keys.failure != NULL && json.test_keys.tampering == NULL)
-        [self.measurement setIs_failed:true];
+        [measurement setIs_failed:true];
     else
-        self.measurement.is_anomaly = json.test_keys.tampering.value;
-    
-    [super onEntry:json];
+        measurement.is_anomaly = json.test_keys.tampering.value;    
+    [super onEntry:json obj:measurement];
 }
 
 @end

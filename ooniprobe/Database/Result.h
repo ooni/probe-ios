@@ -14,13 +14,15 @@
 @property BOOL is_done;
 @property long data_usage_up;
 @property long data_usage_down;
+@property Network *network_id;
 
 - (long)totalMeasurements;
 - (long)failedMeasurements;
 - (long)okMeasurements;
 - (long)anomalousMeasurements;
 -(NSString*)getAsn;
--(NSString*)getAsnName;
+-(NSString*)getNetworkName;
+-(NSString*)getNetworkNameOrAsn;
 -(NSString*)getCountry;
 -(NSString*)getFormattedDataUsageDown;
 -(NSString*)getFormattedDataUsageUp;
@@ -29,5 +31,6 @@
 -(void)save;
 -(Measurement*)getMeasurement:(NSString*)name;
 -(SRKResultSet*)measurements;
+-(NSString*)getLogFile:(NSString*)test_name;
 -(void)deleteObject;
 @end

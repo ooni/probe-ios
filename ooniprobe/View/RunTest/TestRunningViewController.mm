@@ -5,17 +5,49 @@
 @end
 
 @implementation TestRunningViewController
-@synthesize currentTest;
+@synthesize urls, testSuiteName, testName, result;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[TestUtility getColorForTest:currentTest.result.test_group_name]];
-    
-    if (currentTest){
-        totalTests = [currentTest.mkNetworkTests count];
-        [currentTest run];
+    [self.view setBackgroundColor:[TestUtility getColorForTest:testSuiteName]];
+    if ([testSuiteName isEqualToString:@"websites"]){
+        if (urls == nil){
+            //Download urls and then alloc class
+            [TestUtility downloadUrls:^(NSArray *urls) {
+                if (urls != nil && [urls count] > 0){
+                    currentTest = [[WCNetworkTest alloc] initWithUrls:urls andResult:result];
+                    [(WCNetworkTest*)currentTest setMaxRuntime];
+                    [self runTest];
+                }
+                else {
+                    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadUrls" inView:self];
+                    [self networkTestEnded];
+                }
+            }];
+        }
+        else {
+            currentTest = [[WCNetworkTest alloc] initWithUrls:urls andResult:result];
+        }
     }
-    
+    else if ([testSuiteName isEqualToString:@"performance"]){
+        if (testName != nil)
+            currentTest = [[SPNetworkTest alloc] initWithTest:testName andResult:result];
+        else
+            currentTest = [[SPNetworkTest alloc] init];
+    }
+    else if ([testSuiteName isEqualToString:@"middle_boxes"]){
+        if (testName != nil)
+            currentTest = [[MBNetworkTest alloc] initWithTest:testName andResult:result];
+        else
+            currentTest = [[MBNetworkTest alloc] init];
+    }
+    else if ([testSuiteName isEqualToString:@"instant_messaging"]){
+        if (testName != nil)
+            currentTest = [[IMNetworkTest alloc] initWithTest:testName andResult:result];
+        else
+            currentTest = [[IMNetworkTest alloc] init];
+    }
+    [self runTest];
     self.progressBar.layer.cornerRadius = 7.5;
     self.progressBar.layer.masksToBounds = YES;
     [self.progressBar setTrackTintColor:[UIColor colorWithRGBHexString:color_white alpha:0.2f]];
@@ -45,24 +77,24 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
-
+-(void)runTest{
+    if (currentTest != nil){
+        totalTests = [currentTest.mkNetworkTests count];
+        [currentTest runTestSuite];
+    }
+}
 -(void)addAnimation{
-    animation = [LOTAnimationView animationNamed:currentTest.result.test_group_name];
-    //[animation setBackgroundColor:[TestUtility getColorForTest:currentTest.result.test_group_name]];
+    animation = [LOTAnimationView animationNamed:testSuiteName];
+    //animation = [LOTAnimationView animationNamed:currentTest.result.test_group_name];
+    //[animation setBackgroundColor:[TestUtility getColorForTest:testSuiteName]];
     //animation.frame = self.animationView.bounds;
     //animation.center = self.animationView.center;
     animation.contentMode = UIViewContentModeScaleAspectFit;
-    
-    //NSLog(@"SIZE1 %f %f", animation.frame.size.width, animation.frame.size.height);
-    
     CGRect c = self.animationView.bounds;
     animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
     [self.animationView setNeedsLayout];
     [self.animationView setClipsToBounds:YES];
     [self.animationView addSubview:animation];
-
-    //NSLog(@"SIZE2 %f %f", c.size.width, c.size.height);
-    
     [animation setLoopAnimation:YES];
     [animation play];
 }
@@ -79,12 +111,18 @@
      https://stackoverflow.com/questions/27519533/how-to-format-date-in-to-string-like-as-one-days-ago-minutes-ago-in-ios
      https://stackoverflow.com/questions/2927028/how-do-i-get-hour-and-minutes-from-nsdate
      */
+    //int index = totalTests - [currentTest.mkNetworkTests count];
     NSDictionary *userInfo = notification.userInfo;
     NSString *name = [userInfo objectForKey:@"name"];
     NSNumber *prog = [userInfo objectForKey:@"prog"];
-    NSNumber *index = [userInfo objectForKey:@"index"];
-    float prevProgress = [index floatValue]/totalTests;
+    //NSNumber *index = [userInfo objectForKey:@"index"];
+    int index = currentTest.measurementIdx;
+    float prevProgress = index/totalTests;
     float progress = ([prog floatValue]/totalTests)+prevProgress;
+
+    //NSLog(@"YAHOOO %@ idx %d", [NSString stringWithFormat:@"Progress: %.1f%%", [prog floatValue] * 100.0], index);
+    //NSLog(@"prevProgress %f idx %f", prevProgress, progress);
+
     dispatch_async(dispatch_get_main_queue(), ^{
         //[self.currentTestLabel setText:[NSString stringWithFormat:@"... %@ %@", [NSLocalizedString(@"running", nil) lowercaseString], NSLocalizedString(name, nil)]];
         [self.progressBar setProgress:progress animated:YES];

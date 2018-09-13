@@ -23,12 +23,12 @@
             return @[@"automated_testing_enabled"];
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
-        //TODO @"include_gps"
-        return @[@"upload_results", @"include_ip", @"include_asn"];
+        //TODO-2.1 @"include_gps"
+        return @[@"upload_results", @"include_ip", @"include_asn", @"include_cc"];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
-        //TODO @"use_domain_fronting"
-        return @[@"keep_screen_on", @"send_crash", @"debug_logs", @"include_cc"];
+        //TODO-2.1 @"use_domain_fronting"
+        return @[@"keep_screen_on", @"send_crash", @"debug_logs"];
     }
     else
         return nil;
@@ -48,10 +48,10 @@
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"automatic_tests"];
 }
 
-+ (int)getVerbosity {
++ (NSString*)getVerbosity {
     if ([self getSettingWithName:@"debug_logs"])
-        return MK_LOG_DEBUG2;
-    return MK_LOG_INFO;
+        return @"DEBUG";
+    return @"INFO";
 }
 
 + (NSArray*)addRemoveAutomaticTest:(NSString*)testName{

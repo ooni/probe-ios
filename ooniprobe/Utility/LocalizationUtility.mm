@@ -10,15 +10,23 @@
     return testName;
 }
 
++ (NSString*)getMKNameForTest:(NSString*)testName {
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Tests" ofType:@"plist"];
+    NSDictionary *stringDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    if ([stringDict objectForKey:testName])
+        return NSLocalizedString([stringDict objectForKey:testName], nil);
+    return testName;
+}
+
 + (NSString*)getFilterNameForTest:(NSString*)testName {
     if ([testName isEqualToString:@"websites"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.Websites", nil);
     else if ([testName isEqualToString:@"performance"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.MiddleBoxes", nil);
     else if ([testName isEqualToString:@"middle_boxes"])
-        return NSLocalizedString(@"TestResults.Overview.FilterTests.Performance", nil);
-    else if ([testName isEqualToString:@"instant_messaging"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.InstantMessaging", nil);
+    else if ([testName isEqualToString:@"instant_messaging"])
+        return NSLocalizedString(@"TestResults.Overview.FilterTests.Performance", nil);
     return @"";
 }
 

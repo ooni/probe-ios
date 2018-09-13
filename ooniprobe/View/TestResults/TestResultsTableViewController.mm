@@ -66,7 +66,7 @@
     df.dateFormat = @"yyyy-MM";
     NSDate *convertedDate = [df dateFromString:month];
     df.dateFormat = @"MMMM yyyy";
-    return [df stringFromDate:convertedDate];
+    return [[df stringFromDate:convertedDate] uppercaseString];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section

@@ -6,32 +6,26 @@
     self = [super init];
     if (self) {
         self.name = @"dash";
-        self.measurement.test_name = self.name;
+        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
+        if (![SettingsUtility getSettingWithName:@"dash_server_auto"]){
+            self.settings.options.server = [[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server"];
+            self.settings.options.port = [[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server_port"];
+        }
     }
     return self;
 }
 
--(void)run {
-    [super run];
-    [self runTest];
-}
-
 -(void) runTest {
-    mk::nettests::DashTest test;
-    if (![SettingsUtility getSettingWithName:@"dash_server_auto"]){
-        test.set_option("server", [[[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server"] UTF8String]);
-        test.set_option("port", [[[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server_port"] UTF8String]);
-    }
-    [super initCommon:test];
+    [super runTest];
 }
 
--(void)onEntry:(JsonResult*)json {
+-(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
     /*
      onEntry method for dash test, check "failure" key
      !=null => failed
      */
-    self.measurement.is_failed = json.test_keys.failure == NULL ? false : true;
-    [super onEntry:json];
+    measurement.is_failed = json.test_keys.failure == NULL ? false : true;
+    [super onEntry:json obj:measurement];
 }
 
 @end

@@ -6,34 +6,27 @@
     self = [super init];
     if (self) {
         self.name = @"facebook_messenger";
-        self.measurement.test_name = self.name;
+        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
     }
     return self;
 }
 
--(void)run {
-    [super run];
-    [self runTest];
-}
-
 -(void) runTest {
-    mk::nettests::FacebookMessengerTest test;
-    [super initCommon:test];
+    [super runTest];
 }
 
 /*
  if "facebook_tcp_blocking", "facebook_dns_blocking" are null => failed
  if "facebook_tcp_blocking" or "facebook_dns_blocking" are true => anomalous
  */
--(void)onEntry:(JsonResult*)json {
+-(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
     //NSDictionary *testKeys = jsonResult.test_keys;
     //set anomaly if either "facebook_tcp_blocking" or "facebook_dns_blocking" is true
     if (json.test_keys.facebook_tcp_blocking == NULL || json.test_keys.facebook_dns_blocking == NULL)
-        [self.measurement setIs_failed:true];
+        [measurement setIs_failed:true];
     else
-        self.measurement.is_anomaly = [json.test_keys.facebook_tcp_blocking boolValue] || [json.test_keys.facebook_dns_blocking boolValue];
-    
-    [super onEntry:json];
+        measurement.is_anomaly = [json.test_keys.facebook_tcp_blocking boolValue] || [json.test_keys.facebook_dns_blocking boolValue];
+    [super onEntry:json obj:measurement];
 }
 
 @end

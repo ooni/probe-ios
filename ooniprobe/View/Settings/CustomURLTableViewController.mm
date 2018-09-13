@@ -38,8 +38,9 @@
     urlArray = [[NSMutableArray alloc] init];
     for (NSString *key in [urls allKeys]){
         if (![[urls objectForKey:key] isEqualToString:@"http://"]){
-            Url *currentUrl = [[Url alloc] initWithUrl:[urls objectForKey:key] category:@"" country:@""];
-            [urlArray addObject:currentUrl];
+            Url *currentUrl = [[Url alloc] initWithUrl:[urls objectForKey:key] category:@"MISC" country:@"ZZ"];
+            [currentUrl commit];
+            [urlArray addObject:[urls objectForKey:key]];
         }
     }
     if ([urlArray count] > 0) {
@@ -104,7 +105,8 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setCurrentTest:[[WCNetworkTest alloc] initWithUrls:urlArray]];
+        [vc setTestSuiteName:@"websites"];
+        [vc setUrls:urlArray];
     }
 }
 @end

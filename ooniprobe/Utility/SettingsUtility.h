@@ -9,7 +9,7 @@
 + (NSArray*)getAutomaticTestsEnabled;
 + (NSArray*)addRemoveAutomaticTest:(NSString*)testName;
 
-+ (int)getVerbosity;
++ (NSString*)getVerbosity;
 
 + (NSArray*)getSitesCategories;
 

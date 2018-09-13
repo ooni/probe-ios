@@ -56,6 +56,12 @@
     return @"";
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    if (category != nil && [category isEqualToString:@"sharing"])
+        return NSLocalizedString(@"Settings.Sharing.Footer", nil);
+    return nil;
+}
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -163,6 +169,28 @@
         [self handleNotificationChanges];
         [mySwitch setOn:FALSE];
     }
+    else if ([current isEqualToString:@"include_cc"] && !mySwitch.on){
+        UIAlertAction* okButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
+                                       [[NSUserDefaults standardUserDefaults] synchronize];
+                                       [self reloadSettings];
+                                   }];
+        UIAlertAction* cancelButton = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
+                                       style:UIAlertActionStyleCancel
+                                       handler:^(UIAlertAction * action) {
+                                           [mySwitch setOn:TRUE];
+                                       }];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Settings.Sharing.IncludeCountryCode", nil)
+                               message:NSLocalizedString(@"Settings.Sharing.IncludeCountryCode.PopUp", nil)
+                              okButton:okButton
+                          cancelButton:cancelButton
+                                inView:self];
+        return;
+    }
     
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
@@ -176,7 +204,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
-    //TODO when enable remote news notification send something to backend
+    //TODO-NOTIFICATIONS when enable remote news notification send something to backend
     //TODO-2.1 hide rows smooth
     [self reloadSettings];
 }

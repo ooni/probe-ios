@@ -7,9 +7,15 @@
 @interface TestRunningViewController : UIViewController {
     float totalTests;
     LOTAnimationView *animation;
+    NetworkTest *currentTest;
 }
 
-@property (nonatomic, strong) NetworkTest *currentTest;
+
+@property (nonatomic, strong) NSString *testSuiteName;
+@property (nonatomic, strong) NSString *testName;
+@property (nonatomic, strong) NSArray *urls;
+@property (nonatomic, strong) Result *result;
+
 @property (strong, nonatomic) IBOutlet UILabel *runningTestsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *testNameLabel;
 @property (strong, nonatomic) IBOutlet UIView *animationView;

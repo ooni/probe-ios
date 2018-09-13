@@ -108,7 +108,7 @@
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.url_id.category_code]]];
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
-        if (current.is_failed){
+        if (!current.is_failed){
             if (!current.is_anomaly){
                 [status setImage:[UIImage imageNamed:@"tick"]];
                 [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
@@ -146,9 +146,9 @@
         if ([current.test_name isEqualToString:@"ndt"]){
             TestKeys *testKeys = [current testKeysObj];
             [stackView2 setHidden:NO];
-            [detail1Image setImage:[UIImage imageNamed:@"upload_black"]];
+            [detail1Image setImage:[UIImage imageNamed:@"upload"]];
             [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-            [detail2Image setImage:[UIImage imageNamed:@"download_black"]];
+            [detail2Image setImage:[UIImage imageNamed:@"download"]];
             [detail2Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
             [detail1Label setText:[NSString stringWithFormat:@"%@", [testKeys getUploadWithUnit]]];
             [detail2Label setText:[NSString stringWithFormat:@"%@", [testKeys getDownloadWithUnit]]];
@@ -251,7 +251,14 @@
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
-        [vc setCurrentTest:[[NetworkTest alloc] initWithMeasurement:segueObj]];
+        [vc setTestSuiteName:segueObj.result_id.test_group_name];
+        [vc setTestName:segueObj.test_name];
+        [vc setResult:segueObj.result_id];
+        if ([segueObj.result_id.test_group_name isEqualToString:@"websites"])
+            [vc setUrls:[NSArray arrayWithObject:segueObj.url_id.url]];
+        //TODO-LOG delete old log file
+        [segueObj setIs_rerun:YES];
+        [segueObj commit];
     }
     else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"]){
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;

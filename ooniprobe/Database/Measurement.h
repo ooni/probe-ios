@@ -11,7 +11,6 @@
 @property NSString *test_name;
 @property NSDate *start_time;
 @property float runtime;
-@property Network *network_id;
 @property BOOL is_done;
 @property BOOL is_uploaded;
 @property BOOL is_failed;
@@ -23,13 +22,12 @@
 @property Url *url_id;
 @property long measurement_id;
 @property BOOL is_anomaly;
-@property NSString *testKeys;
+@property NSString *test_keys;
 @property Result *result_id;
 
 //TODO check if it's saved on the db or should be deleted and created at runtime
 @property (strong, nonatomic) TestKeys *testKeysObj;
 
--(NSString*)getFile:(NSString*)ext;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;
 -(TestKeys*)testKeysObj;
