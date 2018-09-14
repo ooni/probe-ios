@@ -57,11 +57,11 @@
 }
 
 + (NSDictionary*)getTests{
-    return @{@"websites": @[@"web_connectivity"], @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"], @"middle_boxes": @[@"http_invalid_request_line", @"http_header_field_manipulation"], @"performance": @[@"ndt", @"dash"]};
+    return @{@"websites": @[@"web_connectivity"], @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"], @"performance": @[@"ndt", @"dash"], @"middle_boxes": @[@"http_invalid_request_line", @"http_header_field_manipulation"]};
 }
 
 + (NSArray*)getTestTypes{
-    return @[@"websites", @"instant_messaging", @"middle_boxes", @"performance"];
+    return @[@"websites", @"instant_messaging", @"performance", @"middle_boxes"];
 }
 
 + (NSString*)getCategoryForTest:(NSString*)testName{
