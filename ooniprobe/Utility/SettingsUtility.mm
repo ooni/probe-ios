@@ -24,7 +24,7 @@
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
         //TODO-2.1 @"include_gps"
-        return @[@"upload_results", @"include_ip", @"include_asn", @"include_cc"];
+        return @[@"upload_results", @"include_asn", @"include_cc", @"include_ip"];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO-2.1 @"use_domain_fronting"
@@ -66,7 +66,37 @@
 }
 
 + (NSArray*)getSitesCategories{
-    return @[@"ALDR", @"REL", @"PORN", @"PROV", @"POLR", @"HUMR", @"ENV", @"MILX", @"HATE", @"NEWS", @"XED", @"PUBH", @"GMB", @"ANON", @"DATE", @"GRP", @"LGBT", @"FILE", @"HACK", @"COMT", @"MMED", @"HOST", @"SRCH", @"GAME", @"CULTR", @"ECON", @"GOVT", @"COMM", @"CTRL", @"IGO", @"MISC"];
+    return @[@"ANON",
+             @"COMT",
+             @"CTRL",
+             @"CULTR",
+             @"ALDR",
+             @"COMM",
+             @"ECON",
+             @"ENV",
+             @"FILE",
+             @"GMB",
+             @"GAME",
+             @"GOVT",
+             @"HACK",
+             @"HATE",
+             @"HOST",
+             @"HUMR",
+             @"IGO",
+             @"LGBT",
+             @"MMED",
+             @"MISC",
+             @"NEWS",
+             @"DATE",
+             @"POLR",
+             @"PORN",
+             @"PROV",
+             @"PUBH",
+             @"REL",
+             @"SRCH",
+             @"XED",
+             @"GRP",
+             @"MILX"];
 }
 
 + (NSArray*)getSitesCategoriesDisabled {
