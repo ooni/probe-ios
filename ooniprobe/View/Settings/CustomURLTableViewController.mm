@@ -38,9 +38,8 @@
     urlArray = [[NSMutableArray alloc] init];
     for (NSString *key in [urls allKeys]){
         if (![[urls objectForKey:key] isEqualToString:@"http://"]){
-            Url *currentUrl = [[Url alloc] initWithUrl:[urls objectForKey:key] category:@"MISC" country:@"ZZ"];
-            [currentUrl commit];
-            [urlArray addObject:[urls objectForKey:key]];
+            Url *currentUrl = [Url checkExistingUrl:[urls objectForKey:key]];
+            [urlArray addObject:currentUrl.url];
         }
     }
     if ([urlArray count] > 0) {

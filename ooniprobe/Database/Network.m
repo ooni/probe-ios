@@ -4,7 +4,7 @@
 @implementation Network
 @dynamic network_name, ip, asn, country_code, network_type;
 
-+ (Network*)checkExistingAsn:(NSString*)asn name:(NSString*)network_name ip:(NSString*)ip cc:(NSString*)country_code type:(NSString*)network_type {
++ (Network*)checkExistingNetworkWithAsn:(NSString*)asn networkName:(NSString*)network_name ip:(NSString*)ip cc:(NSString*)country_code networkType:(NSString*)network_type {
     SRKQuery *query = [[Network query] where:@"network_name = ? AND asn = ? AND ip = ? AND country_code = ? AND network_type = ?" parameters:@[network_name, asn, ip, country_code, network_type]];
     if ([query count] > 0){
         //[self dealloc];

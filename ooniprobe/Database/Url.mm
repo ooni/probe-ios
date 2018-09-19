@@ -13,10 +13,8 @@
     return self;
 }
 
--(void)updateCategory:(NSString*)category cc:(NSString*)countryCode{
-    [self setCountry_code:countryCode];
-    [self setCategory_code:category];
-    [self commit];
+-(id)initWithUrl:(NSString*)url{
+    return [self init initWithUrl:url category:@"MISC" country:@"XX"];
 }
 
 + (Url*)getUrl:(NSString*)url{
@@ -25,7 +23,28 @@
         SRKResultSet *urls = [query fetch];
         return [urls objectAtIndex:0];
     }
-    //TODO should never happen
     return nil;
 }
+
++ (Url*)checkExistingUrl:(NSString*)input{
+    return [self checkExistingUrl:input categoryCode:@"MISC" countryCode:@"XX"];
+}
+
++ (Url*)checkExistingUrl:(NSString*)input categoryCode:(NSString*)categoryCode countryCode:(NSString*)countryCode{
+    Url *url = [self getUrl:input];
+    if (url == nil){
+        url = [[Url alloc] initWithUrl:input category:categoryCode country:countryCode];
+        [url commit];
+    }
+    else if (
+             (![url.category_code isEqualToString:categoryCode] && ![categoryCode isEqualToString:@"MISC"]) ||
+             (![url.country_code isEqualToString:countryCode] && ![countryCode isEqualToString:@"XX"])){
+        url.category_code = categoryCode;
+        url.country_code = countryCode;
+        [url commit];
+    }
+    return url;
+}
+
+
 @end

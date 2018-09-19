@@ -124,8 +124,7 @@
         //NSLog(@"urls: %@", urls);
         if ([urls count] > 0){
             for (NSString *url in urls){
-                Url *currentUrl = [[Url alloc] initWithUrl:url category:@"MISC" country:@"ZZ"];
-                [currentUrl commit];
+                [Url checkExistingUrl:url];
             }
             self.tableView.estimatedRowHeight = 44.0;
             self.tableView.rowHeight = UITableViewAutomaticDimension;

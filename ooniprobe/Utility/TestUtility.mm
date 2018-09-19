@@ -138,16 +138,9 @@
             NSMutableArray *urls = [[NSMutableArray alloc] init];
             for (NSDictionary* current in urlsArray){
                 //List for database
-                Url *url = [Url getUrl:[current objectForKey:@"url"]];
-                if (url != nil){
-                    [url updateCategory:[current objectForKey:@"category_code"] cc:[current objectForKey:@"country_code"]];
-                }
-                else {
-                    Url *newUrl = [[Url alloc] initWithUrl:[current objectForKey:@"url"] category:[current objectForKey:@"category_code"] country:[current objectForKey:@"country_code"]];
-                    [newUrl commit];
-                }
+                Url *url = [Url checkExistingUrl:[current objectForKey:@"url"] categoryCode:[current objectForKey:@"category_code"] countryCode:[current objectForKey:@"country_code"]];
                 //List for mk
-                [urls addObject:[current objectForKey:@"url"]];
+                [urls addObject:url.url];
             }
             completion(urls);
         }
