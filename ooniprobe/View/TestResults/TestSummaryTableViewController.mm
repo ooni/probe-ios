@@ -256,7 +256,7 @@
         [vc setResult:segueObj.result_id];
         if ([segueObj.result_id.test_group_name isEqualToString:@"websites"])
             [vc setUrls:[NSArray arrayWithObject:segueObj.url_id.url]];
-        //TODO-LOG delete old log file
+        //TODO-2.0-LOG delete old log file
         [segueObj setIs_rerun:YES];
         [segueObj commit];
     }

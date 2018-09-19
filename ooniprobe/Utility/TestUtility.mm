@@ -120,21 +120,18 @@
 }
 
 + (void)downloadUrls:(void (^)(NSArray *))completion {
-    //TODO add country code https://github.com/measurement-kit/measurement-kit/issues/1656
+    //TODO-MK add country code https://github.com/measurement-kit/measurement-kit/issues/1656
     NSString *path = @"https://events.proteus.test.ooni.io/api/v1/urls?country_code=MX";
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
         [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
         path = [NSString stringWithFormat:@"%@&category_codes=%@", path, [categories componentsJoinedByString:@","]];
     }
-    //NSLog(@"url %@", path);
-
     NSURL *url = [NSURL URLWithString:path];
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             NSArray *urlsArray = [dic objectForKey:@"results"];
-            //NSLog(@"urlsArray %@", urlsArray);
             NSMutableArray *urls = [[NSMutableArray alloc] init];
             for (NSDictionary* current in urlsArray){
                 //List for database

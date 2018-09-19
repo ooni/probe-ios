@@ -43,7 +43,6 @@
 		ED6911D820BDC0130022DCFE /* websites.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D720BDC0130022DCFE /* websites.json */; };
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
-		ED6AC44B1FF8F97F003EA230 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC44A1FF8F97F003EA230 /* NSDictionary+Safety.m */; };
 		ED6F321E21333C9800438F1B /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6F321D21333C9800438F1B /* Options.m */; };
 		ED70D5031FE8021400759463 /* Measurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5021FE8021400759463 /* Measurement.mm */; };
 		ED70D5061FE8022300759463 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5051FE8022300759463 /* Result.mm */; };
@@ -181,8 +180,6 @@
 		ED6911D720BDC0130022DCFE /* websites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = websites.json; sourceTree = "<group>"; };
 		ED6911D920BDC04D0022DCFE /* instant_messaging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = instant_messaging.json; sourceTree = "<group>"; };
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
-		ED6AC4491FF8F97F003EA230 /* NSDictionary+Safety.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safety.h"; path = "Utility/NSDictionary+Safety.h"; sourceTree = "<group>"; };
-		ED6AC44A1FF8F97F003EA230 /* NSDictionary+Safety.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Safety.m"; path = "Utility/NSDictionary+Safety.m"; sourceTree = "<group>"; };
 		ED6F321C21333C9800438F1B /* Options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
 		ED6F321D21333C9800438F1B /* Options.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Options.m; sourceTree = "<group>"; };
 		ED70D5011FE8021400759463 /* Measurement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
@@ -465,8 +462,6 @@
 				ED70D5001FE7F65700759463 /* GUI */,
 				ED49509B1F951F1D00344E42 /* MessageUtility.h */,
 				ED49509C1F951F1D00344E42 /* MessageUtility.mm */,
-				ED6AC4491FF8F97F003EA230 /* NSDictionary+Safety.h */,
-				ED6AC44A1FF8F97F003EA230 /* NSDictionary+Safety.m */,
 				EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */,
 				EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */,
 				ED5F8A281F77C4AA0093C8F5 /* VersionUtility.h */,
@@ -912,7 +907,6 @@
 				EDA9CC90209B53980062507F /* HttpHeaderFieldManipulation.mm in Sources */,
 				EDDB0B7E2004911300EFD9C8 /* WebsiteCategoryTableViewController.m in Sources */,
 				EDEA783321247F8B006F4A72 /* Network.m in Sources */,
-				ED6AC44B1FF8F97F003EA230 /* NSDictionary+Safety.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */,
 				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,

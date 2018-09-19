@@ -25,7 +25,6 @@
 @property NSString *test_keys;
 @property Result *result_id;
 
-//TODO check if it's saved on the db or should be deleted and created at runtime
 @property (strong, nonatomic) TestKeys *testKeysObj;
 
 -(NSString*)getReportFile;

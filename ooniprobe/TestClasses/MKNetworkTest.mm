@@ -41,7 +41,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     return self;
 }
 
-//TODO costruttore che prende result, name e reportId
 - (Measurement*)createMeasurementObject{
     Measurement *measurement = [Measurement new];
     if (self.result != NULL)
@@ -119,11 +118,11 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                [self setUploaded:true idx:[value objectForKey:@"idx"] reason:nil];
                            }
                            else if ([key isEqualToString:@"failure.measurement_submission"]) {
-                               //TODO let @sbs know if I need every callback of this in case of failure.report_create
+                               //TODO-2.0 let @sbs know if I need every callback of this in case of failure.report_create
                                [self setUploaded:false idx:[value objectForKey:@"idx"] reason:[value objectForKey:@"failure"]];
                            }
                            else if ([key isEqualToString:@"failure.measurement"]) {
-                               //TODO idx missing https://github.com/measurement-kit/measurement-kit/issues/1657
+                               //TODO-MK idx missing https://github.com/measurement-kit/measurement-kit/issues/1657
                                //[self setFailed:true idx:[value objectForKey:@"idx"] reason:[value objectForKey:@"failure"]];
                            }
                            else if ([key isEqualToString:@"status.measurement_done"]) {

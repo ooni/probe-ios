@@ -216,7 +216,7 @@
     NSLog(@"DB error: %@", error.errorMessage);
 }
 
-//TODO remove in release
+//TODO-2.0 remove in release
 -(void)logAll{
     SRKQuery *query = [[Result query] orderByDescending:@"start_time"];
     SRKResultSet *results = [query fetch];
