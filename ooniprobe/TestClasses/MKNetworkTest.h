@@ -25,7 +25,6 @@
 @property Result *result;
 @property (nonatomic, strong) NSMutableDictionary *measurements;
 @property id<MKNetworkTestDelegate> delegate;
-@property int entryIdx;
 @property Settings *settings;
 
 -(Measurement*)createMeasurementObject;

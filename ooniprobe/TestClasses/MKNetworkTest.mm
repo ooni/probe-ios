@@ -41,6 +41,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     return self;
 }
 
+//TODO costruttore che prende result, name e reportId
 - (Measurement*)createMeasurementObject{
     Measurement *measurement = [Measurement new];
     if (self.result != NULL)
@@ -72,7 +73,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            NSString *key = [evinfo objectForKey:@"key"];
                            NSDictionary *value = [evinfo objectForKey:@"value"];
                            if (key == nil || value == nil) {
-                               return;
+                               break;
                            }
                            if ([key isEqualToString:@"status.started"]) {
                                //[self updateProgressBar:0];
@@ -81,7 +82,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                NSNumber *idx = [value objectForKey:@"idx"];
                                NSString *input = [value objectForKey:@"input"];
                                if (idx == nil || input == nil) {
-                                   return;
+                                   break;
                                }
                                Measurement *measurement = [self createMeasurementObject];
                                if ([input length] != 0){
@@ -129,7 +130,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                //probabilmente da usare per indicare misura finita
                                NSNumber *idx = [value objectForKey:@"idx"];
                                if (key == nil) {
-                                   return;
+                                   break;
                                }
                                Measurement *measurement = [self.measurements objectForKey:idx];
                                if (measurement != nil){
@@ -140,9 +141,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            else if ([key isEqualToString:@"status.end"]) {
                                //update d.down e d.up
                                NSNumber *down = [value objectForKey:@"downloaded_kb"];
-                               NSString *up = [value objectForKey:@"uploaded_kb"];
+                               NSNumber *up = [value objectForKey:@"uploaded_kb"];
                                if (down == nil || up == nil) {
-                                   return;
+                                   break;
                                }
                                [self.result setData_usage_down:self.result.data_usage_down+[down doubleValue]];
                                [self.result setData_usage_up:self.result.data_usage_up+[up doubleValue]];
@@ -221,6 +222,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
 }
 
 -(void)saveNetworkInfo:(NSDictionary *)value{
+    if (value == nil) return;
     NSString *probe_ip = [value objectForKey:@"probe_ip"];
     NSString *probe_asn = [value objectForKey:@"probe_asn"];
     NSString *probe_cc = [value objectForKey:@"probe_cc"];
@@ -245,7 +247,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     //[self.measurement setNetwork_id:network];
     */
     if (self.result != NULL && self.result.network_id == NULL)
-        [self.result setNetwork_id:[Network checkExistingAsn:probe_asn name:probe_network_name ip:probe_ip cc:probe_cc type:[[ReachabilityManager sharedManager] getStatus]]];
+        [self.result setNetwork_id:[Network checkExistingNetworkWithAsn:probe_asn networkName:probe_network_name ip:probe_ip cc:probe_cc networkType:[[ReachabilityManager sharedManager] getStatus]]];
 }
 
 -(void)onEntryCreate:(NSDictionary*)value {
