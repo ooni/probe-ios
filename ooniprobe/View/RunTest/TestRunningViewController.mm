@@ -111,27 +111,19 @@
      https://stackoverflow.com/questions/27519533/how-to-format-date-in-to-string-like-as-one-days-ago-minutes-ago-in-ios
      https://stackoverflow.com/questions/2927028/how-do-i-get-hour-and-minutes-from-nsdate
      */
-    //int index = totalTests - [currentTest.mkNetworkTests count];
     NSDictionary *userInfo = notification.userInfo;
     NSString *name = [userInfo objectForKey:@"name"];
     NSNumber *prog = [userInfo objectForKey:@"prog"];
-    //NSNumber *index = [userInfo objectForKey:@"index"];
     int index = currentTest.measurementIdx;
     float prevProgress = index/totalTests;
     float progress = ([prog floatValue]/totalTests)+prevProgress;
 
-    //NSLog(@"YAHOOO %@ idx %d", [NSString stringWithFormat:@"Progress: %.1f%%", [prog floatValue] * 100.0], index);
-    //NSLog(@"prevProgress %f idx %f", prevProgress, progress);
-
     dispatch_async(dispatch_get_main_queue(), ^{
-        //[self.currentTestLabel setText:[NSString stringWithFormat:@"... %@ %@", [NSLocalizedString(@"running", nil) lowercaseString], NSLocalizedString(name, nil)]];
         [self.progressBar setProgress:progress animated:YES];
         [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
 
     });
-    [animation playWithCompletion:^(BOOL animationFinished) {
-        //[animation removeFromSuperview];
-    }];
+    [animation playWithCompletion:^(BOOL animationFinished) {}];
 
 }
 

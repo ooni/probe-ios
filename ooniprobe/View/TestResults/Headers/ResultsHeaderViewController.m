@@ -100,15 +100,6 @@
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
-/*
-- (NSString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    if (row == 0)
-        return NSLocalizedString(@"all_tests", nil);
-    NSArray *tests =  [TestUtility getTestTypes];
-    return NSLocalizedString([tests objectAtIndex:row-1], nil);
-}
-*/
-
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
     if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[TestUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
         return [UIColor colorWithRGBHexString:color_gray2 alpha:1.0f];

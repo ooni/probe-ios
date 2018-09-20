@@ -178,30 +178,6 @@
                                  alertControllerWithTitle:NSLocalizedString(@"Modal.ReRun.Title", nil)
                                  message:NSLocalizedString(@"Modal.ReRun.Paragraph", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
-    /*
-    UIAlertAction* viewLogButton = [UIAlertAction
-                                 actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
-                                 style:UIAlertActionStyleDefault
-                                 handler:^(UIAlertAction * action) {
-                                     segueType = @"log";
-                                     [self performSegueWithIdentifier:@"log" sender:self];
-                                 }];
-    UIAlertAction* viewJsonButton = [UIAlertAction
-                                 actionWithTitle:NSLocalizedString(@"view_json", nil)
-                                 style:UIAlertActionStyleDefault
-                                 handler:^(UIAlertAction * action) {
-                                     segueType = @"json";
-                                     [self performSegueWithIdentifier:@"log" sender:self];
-                                 }];
-    UIAlertAction* viewDBButton = [UIAlertAction
-                                 actionWithTitle:NSLocalizedString(@"view_db_obj", nil)
-                                 style:UIAlertActionStyleDefault
-                                 handler:^(UIAlertAction * action) {
-                                     segueType = @"db";
-                                     [self performSegueWithIdentifier:@"log" sender:self];
-                                 }];
-
-     */
     UIAlertAction* reRunButton = [UIAlertAction
                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                   style:UIAlertActionStyleDefault
@@ -243,11 +219,6 @@
     if ([[segue identifier] isEqualToString:@"header"]){
         HeaderSwipeViewController *vc = (HeaderSwipeViewController *)segue.destinationViewController;
         [vc setResult:result];
-    }
-    else if ([[segue identifier] isEqualToString:@"log"]){
-        LogViewController *vc = (LogViewController *)segue.destinationViewController;
-        [vc setType:segueType];
-        [vc setMeasurement:segueObj];
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;

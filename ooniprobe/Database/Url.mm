@@ -14,7 +14,7 @@
 }
 
 -(id)initWithUrl:(NSString*)url{
-    return [self init initWithUrl:url category:@"MISC" country:@"XX"];
+    return [self initWithUrl:url category:@"MISC" country:@"XX"];
 }
 
 + (Url*)getUrl:(NSString*)url{

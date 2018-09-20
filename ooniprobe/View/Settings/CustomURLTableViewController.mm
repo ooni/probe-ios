@@ -97,7 +97,6 @@
     UITableViewCell *cell = (UITableViewCell *)textField.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [urls setObject:[textField.text stringByReplacingCharactersInRange:range withString:string] forKey:[NSNumber numberWithInteger:indexPath.row]];
-    //url = [textField.text stringByReplacingCharactersInRange:range withString:string];
     return YES;
 }
 

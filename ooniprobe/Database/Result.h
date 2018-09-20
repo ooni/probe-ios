@@ -5,8 +5,6 @@
 
 @interface Result : SRKObject
 
-//Data schema from https://github.com/ooni/probe-cli/blob/6d2ca54590314b2442a60901d33e6d429bb9ff84/data/migrations/1_create_msmt_results.sql
-
 @property NSString *test_group_name;
 @property NSDate *start_time;
 @property float runtime;

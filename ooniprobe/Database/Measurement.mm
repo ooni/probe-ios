@@ -8,9 +8,7 @@
 @synthesize testKeysObj = _testKeysObj;
 
 + (NSDictionary *)defaultValuesForEntity {
-    //defailt test to failure in case onEntry is never called
     return @{@"start_time": [NSDate date]};
-    //, @"runtime" : [NSNumber numberWithInt:0], @"anomaly" : [NSNumber numberWithBool:FALSE]s
 }
 
 /*
@@ -29,12 +27,6 @@
                 NSLog(@"Error parsing JSON: %@", error);
                 _testKeysObj = [[TestKeys alloc] init];
             }
-            /*
-             InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
-             ObjectMapper *mapper = [[ObjectMapper alloc] init];
-             mapper.mappingProvider = mappingProvider;
-             JsonResult *json = [mapper objectFromSource:jsonDic toInstanceOfClass:[JsonResult class]];
-             */
             _testKeysObj = [TestKeys objectFromDictionary:jsonDic];
         }
         else

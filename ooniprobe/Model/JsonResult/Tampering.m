@@ -6,9 +6,8 @@
     self = [super init];
     if(self)
     {
-        NSLog(@"currentValue %@", currentValue);
         if ([currentValue isKindOfClass:[NSDictionary class]]){
-            NSLog(@"currentValue NSDictionary");
+            //currentValue is NSDictionary
             self.value = NO;
             NSDictionary *dic = (NSDictionary*)currentValue;
             NSDictionary *tampering = [dic objectForKey:@"tampering"];
@@ -22,7 +21,7 @@
             }
         }
         else {
-            NSLog(@"currentValue Boolean");
+            //currentValue is Boolean
             Boolean value = (Boolean)currentValue;
             self.value = value;
         }

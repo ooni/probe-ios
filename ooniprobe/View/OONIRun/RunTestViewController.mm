@@ -46,7 +46,7 @@
     if ([action isEqualToString:@"nettest"]){
         //creating parameters dict
         NSDictionary *parameters = [DictionaryUtility getParametersFromDict:dict];
-        //NSLog(@"parameters: %@", parameters);
+        NSLog(@"parameters: %@", parameters);
         if ([self checkMv:parameters]){
             if ([parameters objectForKey:@"tn"] && [TestUtility getCategoryForTest:[parameters objectForKey:@"tn"]]){
                 [self setTestName:[parameters objectForKey:@"tn"]];
@@ -121,7 +121,6 @@
     //reset the arrays: we may be called more than once for the same screen
     if ([testName isEqualToString:@"web_connectivity"]){
         urls = [testArguments objectForKey:@"urls"];
-        //NSLog(@"urls: %@", urls);
         if ([urls count] > 0){
             for (NSString *url in urls){
                 [Url checkExistingUrl:url];

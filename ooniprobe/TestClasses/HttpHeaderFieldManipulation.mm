@@ -30,7 +30,6 @@
      total
      }
      */
-    //TestKeys *testKeys = json.test_keys;
     if (json.test_keys.failure != NULL && json.test_keys.tampering == NULL)
         [measurement setIs_failed:true];
     else

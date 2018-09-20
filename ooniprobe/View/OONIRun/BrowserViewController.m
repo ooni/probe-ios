@@ -86,7 +86,6 @@
 }
 
 -(void)nextUrl:(BOOL)cycle {
-    //NSLog(@"nextUrl %d %ld", urlIndex+1, (unsigned long)[urlList count]);
     if ((urlIndex+1) < [urlList count]){
         urlIndex++;
         [self loadPage];

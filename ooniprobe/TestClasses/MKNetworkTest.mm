@@ -2,6 +2,7 @@
 
 #import "VersionUtility.h"
 #import "ReachabilityManager.h"
+#import "NSDictionary+Safety.h"
 
 static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     mk_unique_event eventp{mk_task_wait_for_next_event(taskp.get())};
@@ -36,6 +37,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurements = [[NSMutableDictionary alloc] init];
         self.settings = [Settings new];
+        //TODO-LOG
         //self.settings.log_filepath = [TestUtility getFileNamed:[self.result getLogFile:self.name]];
     }
     return self;
@@ -60,7 +62,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     }];
     dispatch_async(
                    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                       NSLog(@"%@", [self.settings getSerializedSettings]);
+                       //NSLog(@"%@", [self.settings getSerializedSettings]);
                        mk_unique_task taskp{mk_nettest_start([[self.settings getSerializedSettings] UTF8String])};
                        while (!mk_task_is_done(taskp.get())) {
                            // Extract an event from the task queue and unmarshal it.
@@ -222,29 +224,10 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
 
 -(void)saveNetworkInfo:(NSDictionary *)value{
     if (value == nil) return;
-    NSString *probe_ip = [value objectForKey:@"probe_ip"];
-    NSString *probe_asn = [value objectForKey:@"probe_asn"];
-    NSString *probe_cc = [value objectForKey:@"probe_cc"];
-    NSString *probe_network_name = [value objectForKey:@"probe_network_name"];
-/*
-    Network *network = [Network new];
-    [network setNetwork_type:[[ReachabilityManager sharedManager] getStatus]];
-    //empty object are empty not null, maybe we should save them anyway without checking
-    
-    //if the user doesn't want to share asn leave null on the db object
-    //if (probe_asn && [SettingsUtility getSettingWithName:@"include_asn"]){
-        [network setAsn:probe_asn];
-        [network setNetwork_name:probe_network_name];
-    //}
-    //if (probe_cc && [SettingsUtility getSettingWithName:@"include_cc"])
-        [network setCountry_code:probe_cc];
-    
-    //if (probe_ip && [SettingsUtility getSettingWithName:@"include_ip"])
-        [network setIp:probe_ip];
-    
-    //[network commit];
-    //[self.measurement setNetwork_id:network];
-    */
+    NSString *probe_ip = [value safeObjectForKey:@"probe_ip"];
+    NSString *probe_asn = [value safeObjectForKey:@"probe_asn"];
+    NSString *probe_cc = [value safeObjectForKey:@"probe_cc"];
+    NSString *probe_network_name = [value safeObjectForKey:@"probe_network_name"];
     if (self.result != NULL && self.result.network_id == NULL)
         [self.result setNetwork_id:[Network checkExistingNetworkWithAsn:probe_asn networkName:probe_network_name ip:probe_ip cc:probe_cc networkType:[[ReachabilityManager sharedManager] getStatus]]];
 }
@@ -303,12 +286,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     else {
         NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
         [data writeToFile:fileName atomically:YES];
-        /*
-        [str writeToFile:fileName
-                  atomically:NO
-                    encoding:NSStringEncodingConversionAllowLossy
-                       error:&error];
-         */
     }
 }
 

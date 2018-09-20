@@ -56,7 +56,6 @@
     [runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
     [configureButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Configure", nil)] forState:UIControlStateNormal];
 
-    //ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
     [titleLabel setText:[LocalizationUtility getNameForTest:testName]];
     [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];

@@ -110,15 +110,6 @@
     }
 }
 
-/*
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if ([scrollView.panGestureRecognizer translationInView:scrollView.superview].y > 0)
-        [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
-    else
-        [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-}
-*/
-
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (scrollView.contentOffset.y<=0) {
         scrollView.contentOffset = CGPointZero;
@@ -146,11 +137,8 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){
-        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ResultsHeaderViewController *vc = (ResultsHeaderViewController * )segue.destinationViewController;
         [vc setDelegate:self];
-        //NSString *current = [categories objectAtIndex:indexPath.row];
-        //[vc setTestName:@"performance"];
     }
     else if ([[segue identifier] isEqualToString:@"summary"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];

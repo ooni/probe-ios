@@ -6,7 +6,6 @@
 
 + (NSDictionary *)defaultValuesForEntity {
     return @{@"start_time": [NSDate date]};
-             //, @"runtime" : [NSNumber numberWithInt:0], @"is_viewed" : [NSNumber numberWithBool:FALSE], @"done" : [NSNumber numberWithBool:FALSE], @"data_usage_down" : [NSNumber numberWithInt:0], @"data_usage_up" : [NSNumber numberWithInt:0]};
 }
 
 - (SRKResultSet*)measurements {
