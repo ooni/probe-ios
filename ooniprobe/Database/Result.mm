@@ -113,10 +113,7 @@
 
 -(void)deleteObject{
     for (Measurement* measurement in self.measurements){
-        //TODO-LOG remove report that starts with reportID-%@
-        [TestUtility removeFile:[measurement getLogFile]];
-        [TestUtility removeFile:[measurement getReportFile]];
-        [measurement remove];
+        [measurement deleteObject];
     }
     [self.network_id remove];
     [self remove];
