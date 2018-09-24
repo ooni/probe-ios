@@ -3,6 +3,7 @@
 #import "VersionUtility.h"
 #import "ReachabilityManager.h"
 #import "NSDictionary+Safety.h"
+#import "EventResult.h"
 
 static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     mk_unique_event eventp{mk_task_wait_for_next_event(taskp.get())};
@@ -37,8 +38,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurements = [[NSMutableDictionary alloc] init];
         self.settings = [Settings new];
-        //TODO-LOG
-        //self.settings.log_filepath = [TestUtility getFileNamed:[self.result getLogFile:self.name]];
     }
     return self;
 }
@@ -71,85 +70,82 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                break;
                            }
                            NSLog(@"Got event: %@", evinfo);
-                           NSString *key = [evinfo objectForKey:@"key"];
-                           NSDictionary *value = [evinfo objectForKey:@"value"];
-                           if (key == nil || value == nil) {
+                           InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
+                           ObjectMapper *mapper = [[ObjectMapper alloc] init];
+                           mapper.mappingProvider = mappingProvider;
+                           EventResult *event = [mapper objectFromSource:evinfo toInstanceOfClass:[EventResult class]];
+                           if (event.key == nil || event.value == nil) {
                                break;
                            }
-                           if ([key isEqualToString:@"status.started"]) {
+                           if ([event.key isEqualToString:@"status.started"]) {
                                //[self updateProgressBar:0];
                            }
-                           else if ([key isEqualToString:@"status.measurement_start"]) {
-                               NSNumber *idx = [value objectForKey:@"idx"];
-                               NSString *input = [value objectForKey:@"input"];
-                               if (idx == nil || input == nil) {
+                           else if ([event.key isEqualToString:@"status.measurement_start"]) {
+                               if (event.value.idx == nil || event.value.input == nil) {
                                    break;
                                }
                                Measurement *measurement = [self createMeasurementObject];
-                               if ([input length] != 0){
-                                   measurement.url_id = [Url getUrl:input];
+                               if ([event.value.input length] != 0){
+                                   measurement.url_id = [Url getUrl:event.value.input];
                                    [measurement save];
                                }
-                               [self.measurements setObject:measurement forKey:idx];
+                               [self.measurements setObject:measurement forKey:event.value.idx];
                            }
-                           else if ([key isEqualToString:@"status.geoip_lookup"]) {
+                           else if ([event.key isEqualToString:@"status.geoip_lookup"]) {
                                //Save Network info
-                               [self saveNetworkInfo:value];
+                               [self saveNetworkInfo:event.value];
                            }
-                           else if ([key isEqualToString:@"log"]) {
-                               [self updateLogs:value];
+                           else if ([event.key isEqualToString:@"log"]) {
+                               [self updateLogs:event.value];
                            }
-                           else if ([key isEqualToString:@"status.progress"]) {
-                               [self updateProgress:value];
+                           else if ([event.key isEqualToString:@"status.progress"]) {
+                               [self updateProgress:event.value];
                            }
-                           else if ([key isEqualToString:@"measurement"]) {
-                               [self onEntryCreate:value];
+                           else if ([event.key isEqualToString:@"measurement"]) {
+                               [self onEntryCreate:event.value];
                            }
-                           else if ([key isEqualToString:@"status.report_create"]) {
+                           else if ([event.key isEqualToString:@"status.report_create"]) {
                                //Save report_id
-                               self.reportId = [value objectForKey:@"report_id"];
+                               self.reportId = event.value.report_id;
                            }
-                           else if ([key isEqualToString:@"failure.report_create"]) {
+                           else if ([event.key isEqualToString:@"failure.report_create"]) {
                                /*
                                 every measure should be resubmitted
                                 int mk_submit_report(const char *report_as_json);
                                 "value": {"failure": "<failure_string>"}
                                 */
                            }
-                           else if ([key isEqualToString:@"status.measurement_submission"]) {
-                               [self setUploaded:true idx:[value objectForKey:@"idx"] reason:nil];
+                           else if ([event.key isEqualToString:@"status.measurement_submission"]) {
+                               [self setUploaded:true idx:event.value.idx failure:nil];
                            }
-                           else if ([key isEqualToString:@"failure.measurement_submission"]) {
-                               //TODO-2.0 let @sbs know if I need every callback of this in case of failure.report_create
-                               [self setUploaded:false idx:[value objectForKey:@"idx"] reason:[value objectForKey:@"failure"]];
+                           else if ([event.key isEqualToString:@"failure.measurement_submission"]) {
+                               //TODO-MK let @sbs know if I need every callback of this in case of failure.report_create
+                               [self setUploaded:false idx:event.value.idx failure:event.value.failure];
                            }
-                           else if ([key isEqualToString:@"failure.measurement"]) {
+                           else if ([event.key isEqualToString:@"failure.measurement"]) {
                                //TODO-MK idx missing https://github.com/measurement-kit/measurement-kit/issues/1657
-                               //[self setFailed:true idx:[value objectForKey:@"idx"] reason:[value objectForKey:@"failure"]];
+                               //[self setFailed:true idx:event.value.idx failure:event.value.failure];
                            }
-                           else if ([key isEqualToString:@"status.measurement_done"]) {
+                           else if ([event.key isEqualToString:@"status.measurement_done"]) {
                                //probabilmente da usare per indicare misura finita
-                               NSNumber *idx = [value objectForKey:@"idx"];
-                               if (key == nil) {
+                               if (event.value.idx == nil) {
                                    break;
                                }
-                               Measurement *measurement = [self.measurements objectForKey:idx];
+                               Measurement *measurement = [self.measurements objectForKey:event.value.idx];
                                if (measurement != nil){
                                    measurement.is_done = true;
                                    [measurement save];
                                }
                            }
-                           else if ([key isEqualToString:@"status.end"]) {
+                           else if ([event.key isEqualToString:@"status.end"]) {
                                //update d.down e d.up
-                               NSNumber *down = [value objectForKey:@"downloaded_kb"];
-                               NSNumber *up = [value objectForKey:@"uploaded_kb"];
-                               if (down == nil || up == nil) {
+                               if (event.value.downloaded_kb == nil || event.value.uploaded_kb == nil) {
                                    break;
                                }
-                               [self.result setData_usage_down:self.result.data_usage_down+[down doubleValue]];
-                               [self.result setData_usage_up:self.result.data_usage_up+[up doubleValue]];
+                               [self.result setData_usage_down:self.result.data_usage_down+[event.value.downloaded_kb doubleValue]];
+                               [self.result setData_usage_up:self.result.data_usage_up+[event.value.uploaded_kb doubleValue]];
                            }
-                           else if ([key isEqualToString:@"failure.startup"]) {
+                           else if ([event.key isEqualToString:@"failure.startup"]) {
                                //What to do? Run next test
                            } else {
                                NSLog(@"unused event: %@", evinfo);
@@ -162,12 +158,12 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                    });
 }
 
--(void)updateLogs:(NSDictionary *)value{
-    NSString *message = [value objectForKey:@"message"];
+-(void)updateLogs:(Value *)value{
+    NSString *message = value.message;
     if (message == nil) {
         return;
     }
-    //TODO-LOG manage the case the test is re run
+    //TODO-DISCUSS manage the case the test is re run
     [self writeString:message toFile:[TestUtility getFileNamed:[self.result getLogFile:self.name]]];
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -177,9 +173,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     });
 }
 
--(void)updateProgress:(NSDictionary *)value {
-    NSNumber *percentage = [value objectForKey:@"percentage"];
-    NSString *message = [value objectForKey:@"message"];
+-(void)updateProgress:(Value *)value {
+    NSNumber *percentage = value.percentage;
+    NSString *message = value.message;
     if (percentage == nil || message == nil) {
         return;
     }
@@ -196,45 +192,45 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     });
 }
 
--(void)setUploaded:(BOOL)value idx:(NSNumber*)idx reason:(NSString*)reason{
+-(void)setUploaded:(BOOL)value idx:(NSNumber*)idx failure:(NSString*)failure{
     if (idx == nil) {
         return;
     }
     Measurement *measurement = [self.measurements objectForKey:idx];
     if (measurement != nil){
         measurement.is_uploaded = value;
-        if (reason != nil)
-            measurement.upload_failure_msg = reason;
+        if (failure != nil)
+            measurement.upload_failure_msg = failure;
         [measurement save];
     }
 }
 
--(void)setFailed:(BOOL)value idx:(NSNumber*)idx reason:(NSString*)reason{
+-(void)setFailed:(BOOL)value idx:(NSNumber*)idx failure:(NSString*)failure{
     if (idx == nil) {
         return;
     }
     Measurement *measurement = [self.measurements objectForKey:idx];
     if (measurement != nil){
         measurement.is_failed = value;
-        if (reason != nil)
-            measurement.failure_msg = reason;
+        if (failure != nil)
+            measurement.failure_msg = failure;
         [measurement save];
     }
 }
 
--(void)saveNetworkInfo:(NSDictionary *)value{
+-(void)saveNetworkInfo:(Value *)value{
     if (value == nil) return;
-    NSString *probe_ip = [value safeObjectForKey:@"probe_ip"];
-    NSString *probe_asn = [value safeObjectForKey:@"probe_asn"];
-    NSString *probe_cc = [value safeObjectForKey:@"probe_cc"];
-    NSString *probe_network_name = [value safeObjectForKey:@"probe_network_name"];
+    NSString *probe_ip = value.probe_ip;
+    NSString *probe_asn = value.probe_asn;
+    NSString *probe_cc = value.probe_cc;
+    NSString *probe_network_name = value.probe_network_name;
     if (self.result != NULL && self.result.network_id == NULL)
         [self.result setNetwork_id:[Network checkExistingNetworkWithAsn:probe_asn networkName:probe_network_name ip:probe_ip cc:probe_cc networkType:[[ReachabilityManager sharedManager] getStatus]]];
 }
 
--(void)onEntryCreate:(NSDictionary*)value {
-    NSString *str = [value objectForKey:@"json_str"];
-    NSNumber *idx = [value objectForKey:@"idx"];
+-(void)onEntryCreate:(Value*)value {
+    NSString *str = value.json_str;
+    NSNumber *idx = value.idx;
     if (idx == nil) return;
     Measurement *measurement = [self.measurements objectForKey:idx];
     if (str != nil && measurement != nil) {

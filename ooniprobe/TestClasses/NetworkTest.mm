@@ -126,7 +126,6 @@
 -(void)setMaxRuntime {
     if([self.mkNetworkTests count] > 0){
         WebConnectivity *wc = [self.mkNetworkTests objectAtIndex:0];
-        //TODO-2.0 handle max runtime in a better way
         NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
         wc.settings.options.max_runtime = max_runtime;
     }

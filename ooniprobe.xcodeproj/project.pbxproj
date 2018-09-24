@@ -33,6 +33,9 @@
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.mm */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
+		ED53841C2159757D0078C5C6 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841B2159757D0078C5C6 /* EventResult.m */; };
+		ED53841F215975A70078C5C6 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841E215975A70078C5C6 /* Value.m */; };
+		ED53842221597E950078C5C6 /* OoniRunViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED53842121597E950078C5C6 /* OoniRunViewController.mm */; };
 		ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55C0C8203BD52900738260 /* Header1MBViewController.m */; };
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
 		ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.mm */; };
@@ -106,7 +109,6 @@
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
 		EDF20736212173B9005B06D7 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20734212173B9005B06D7 /* Advanced.m */; };
-		EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDFE07391F37526A00960AF2 /* RunTestViewController.mm */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +167,12 @@
 		ED49509B1F951F1D00344E42 /* MessageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageUtility.h; path = Utility/MessageUtility.h; sourceTree = "<group>"; };
 		ED49509C1F951F1D00344E42 /* MessageUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MessageUtility.mm; path = Utility/MessageUtility.mm; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED53841A2159757D0078C5C6 /* EventResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResult.h; sourceTree = "<group>"; };
+		ED53841B2159757D0078C5C6 /* EventResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
+		ED53841D215975A70078C5C6 /* Value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Value.h; sourceTree = "<group>"; };
+		ED53841E215975A70078C5C6 /* Value.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Value.m; sourceTree = "<group>"; };
+		ED53842021597E950078C5C6 /* OoniRunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OoniRunViewController.h; sourceTree = "<group>"; };
+		ED53842121597E950078C5C6 /* OoniRunViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OoniRunViewController.mm; sourceTree = "<group>"; };
 		ED55C0C7203BD52900738260 /* Header1MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header1MBViewController.h; sourceTree = "<group>"; };
 		ED55C0C8203BD52900738260 /* Header1MBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Header1MBViewController.m; sourceTree = "<group>"; };
 		ED58CF741FEBB77600E3C415 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
@@ -297,8 +305,6 @@
 		EDF2073121217340005B06D7 /* JsonResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonResult.m; sourceTree = "<group>"; };
 		EDF20733212173B8005B06D7 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
 		EDF20734212173B9005B06D7 /* Advanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advanced.m; sourceTree = "<group>"; };
-		EDFE07381F37526A00960AF2 /* RunTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTestViewController.h; sourceTree = "<group>"; };
-		EDFE07391F37526A00960AF2 /* RunTestViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RunTestViewController.mm; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
 		FBB68CFBE135C2F6BDF61340 /* Pods-ooniprobe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.release.xcconfig"; sourceTree = "<group>"; };
@@ -385,8 +391,8 @@
 			children = (
 				ED1F33601EFD552F00B42FEC /* BrowserViewController.h */,
 				ED1F33611EFD552F00B42FEC /* BrowserViewController.m */,
-				EDFE07381F37526A00960AF2 /* RunTestViewController.h */,
-				EDFE07391F37526A00960AF2 /* RunTestViewController.mm */,
+				ED53842021597E950078C5C6 /* OoniRunViewController.h */,
+				ED53842121597E950078C5C6 /* OoniRunViewController.mm */,
 			);
 			path = OONIRun;
 			sourceTree = "<group>";
@@ -535,6 +541,10 @@
 				EDF20733212173B8005B06D7 /* Simple.m */,
 				EDF2072E2120EF29005B06D7 /* Advanced.h */,
 				EDF20734212173B9005B06D7 /* Advanced.m */,
+				ED53841A2159757D0078C5C6 /* EventResult.h */,
+				ED53841B2159757D0078C5C6 /* EventResult.m */,
+				ED53841D215975A70078C5C6 /* Value.h */,
+				ED53841E215975A70078C5C6 /* Value.m */,
 			);
 			name = JsonResult;
 			path = Model/JsonResult;
@@ -908,13 +918,13 @@
 				EDA9CC87209B534A0062507F /* FacebookMessenger.mm in Sources */,
 				ED3AEABE205A625100CFE360 /* Url.mm in Sources */,
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
+				ED53841C2159757D0078C5C6 /* EventResult.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				EDDB0B721FFF6C8B00EFD9C8 /* ICSwipeViewController.m in Sources */,
 				EDA9CC90209B53980062507F /* HttpHeaderFieldManipulation.mm in Sources */,
 				EDDB0B7E2004911300EFD9C8 /* WebsiteCategoryTableViewController.m in Sources */,
 				EDEA783321247F8B006F4A72 /* Network.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.mm in Sources */,
-				EDFE073A1F37526A00960AF2 /* RunTestViewController.mm in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
 				ED6F321E21333C9800438F1B /* Options.m in Sources */,
@@ -939,6 +949,7 @@
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding4ViewController.m in Sources */,
 				ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.mm in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
+				ED53841F215975A70078C5C6 /* Value.m in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
@@ -951,6 +962,7 @@
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				EDDB0B731FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.mm in Sources */,
+				ED53842221597E950078C5C6 /* OoniRunViewController.mm in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 				EDF2073221217340005B06D7 /* JsonResult.m in Sources */,
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,

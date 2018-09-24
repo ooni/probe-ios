@@ -50,6 +50,14 @@
     return [self.result_id getLogFile:self.test_name];
 }
 
+/*
+-(void)setRerun{
+    self.is_rerun = YES;
+    [TestUtility removeFile:[self getLogFile]];
+    [TestUtility removeFile:[self getReportFile]];
+}
+*/
+
 -(void)save{
     [self commit];
     /*

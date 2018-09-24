@@ -2,7 +2,7 @@
 #import "NotificationService.h"
 #import "BrowserViewController.h"
 #import "DictionaryUtility.h"
-#import "RunTestViewController.h"
+#import "OoniRunViewController.h"
 #import "MessageUtility.h"
 #import "Result.h"
 
@@ -183,7 +183,7 @@
 }
 
 //Handles http(s) links
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity  restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler{
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> *restorableObjects))restorationHandler{
     if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
         [self handleUrlScheme:userActivity.webpageURL];
     }
@@ -193,7 +193,7 @@
 -(void)handleUrlScheme:(NSURL*)url{
     dispatch_async(dispatch_get_main_queue(), ^{
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
-        RunTestViewController *rvc = (RunTestViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"oonirun"];
+        OoniRunViewController *rvc = (OoniRunViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"oonirun"];
         [rvc setUrl:url];
         if (self.window.rootViewController.view.window != nil)
             //only main view controller is visible
@@ -214,15 +214,6 @@
 // database delegates
 - (void)databaseError:(SRKError *)error {
     NSLog(@"DB error: %@", error.errorMessage);
-}
-
-//TODO-2.0 remove in release
--(void)logAll{
-    SRKQuery *query = [[Result query] orderByDescending:@"start_time"];
-    SRKResultSet *results = [query fetch];
-    for (Result *current in results){
-        NSLog(@"%@", current);
-    }
 }
 
 -(void)removeOldTests{

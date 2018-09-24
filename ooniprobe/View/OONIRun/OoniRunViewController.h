@@ -2,7 +2,7 @@
 #import "UIView+Toast.h"
 #import "RunButton.h"
 
-@interface RunTestViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface OoniRunViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *urls;
 }
 

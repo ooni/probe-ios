@@ -1,15 +1,15 @@
-#import "RunTestViewController.h"
+#import "OoniRunViewController.h"
 #import "DictionaryUtility.h"
 #import "TestUtility.h"
 #import "LocalizationUtility.h"
 #import "NetworkTest.h"
 #import "TestRunningViewController.h"
 
-@interface RunTestViewController ()
+@interface OoniRunViewController ()
 
 @end
 
-@implementation RunTestViewController
+@implementation OoniRunViewController
 @synthesize testName, testArguments, testDescription;
 @synthesize url;
 
