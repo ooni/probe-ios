@@ -32,6 +32,7 @@
 -(TestKeys*)testKeysObj;
 -(void)setTestKeysObj:(TestKeys *)testKeysObj;
 -(void)save;
+-(void)setReRun;
 -(void)deleteObject;
 
 @end

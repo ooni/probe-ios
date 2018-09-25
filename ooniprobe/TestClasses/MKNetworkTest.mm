@@ -163,7 +163,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     if (message == nil) {
         return;
     }
-    //TODO-DISCUSS manage the case the test is re run
     [self writeString:message toFile:[TestUtility getFileNamed:[self.result getLogFile:self.name]]];
 
     dispatch_async(dispatch_get_main_queue(), ^{

@@ -227,9 +227,7 @@
         [vc setResult:segueObj.result_id];
         if ([segueObj.result_id.test_group_name isEqualToString:@"websites"])
             [vc setUrls:[NSArray arrayWithObject:segueObj.url_id.url]];
-        //TODO-DISCUSS delete old log file
-        [segueObj setIs_rerun:YES];
-        [segueObj commit];
+        [segueObj setReRun];
     }
     else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"]){
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;

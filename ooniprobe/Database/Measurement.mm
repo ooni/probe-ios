@@ -67,6 +67,13 @@
      */
 }
 
+-(void)setReRun{
+    self.is_rerun = TRUE;
+    [TestUtility removeFile:[self getLogFile]];
+    [TestUtility removeFile:[self getReportFile]];
+    [self save];
+}
+
 -(void)deleteObject{
     [TestUtility removeFile:[self getLogFile]];
     [TestUtility removeFile:[self getReportFile]];
