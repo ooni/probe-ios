@@ -13,6 +13,10 @@
     return [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0 AND is_done = 1" parameters:@[self]] orderByDescending:@"Id"] fetch];
 }
 
+- (SRKResultSet*)allmeasurements {
+    return [[[[Measurement query] where:@"result_id = ?" parameters:@[self]] orderByDescending:@"Id"] fetch];
+}
+
 -(Measurement*)getMeasurement:(NSString*)name{
     SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND test_name = ? AND is_rerun = 0" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
     if ([measurements count] > 0)
@@ -112,7 +116,7 @@
 }
 
 -(void)deleteObject{
-    for (Measurement* measurement in self.measurements){
+    for (Measurement* measurement in self.allmeasurements){
         [measurement deleteObject];
     }
     [self.network_id remove];
