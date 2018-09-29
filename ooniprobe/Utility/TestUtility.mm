@@ -120,7 +120,7 @@
 }
 
 + (void)downloadUrls:(void (^)(NSArray *))completion {
-    //TODO-MK add country code https://github.com/measurement-kit/measurement-kit/issues/1656
+    //TODO automatical discovery https://github.com/ooni/orchestra/issues/49
     NSString *path = @"https://events.proteus.test.ooni.io/api/v1/urls?country_code=MX";
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];

@@ -42,7 +42,7 @@
     for (NSString *s in supported_tests) {
         supported_tests_list.push_back([s UTF8String]);
     }
-    //TODO-MK new api
+    //TODO-NOTIFICATION new api
     mk::ooni::orchestrate::Client client;
     client.logger->set_verbosity(MK_LOG_INFO);
     client.geoip_country_path = [geoip_country_path UTF8String];

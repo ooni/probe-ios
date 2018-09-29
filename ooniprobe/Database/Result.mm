@@ -69,12 +69,12 @@
 
 //https://stackoverflow.com/questions/7846495/how-to-get-file-size-properly-and-convert-it-to-mb-gb-in-cocoa
 - (NSString*)getFormattedDataUsageUp{
-    return [NSByteCountFormatter stringFromByteCount:self.data_usage_up
+    return [NSByteCountFormatter stringFromByteCount:self.data_usage_up*1024
                                           countStyle:NSByteCountFormatterCountStyleFile];
 }
     
 - (NSString*)getFormattedDataUsageDown{
-    return [NSByteCountFormatter stringFromByteCount:self.data_usage_down countStyle:NSByteCountFormatterCountStyleFile];
+    return [NSByteCountFormatter stringFromByteCount:self.data_usage_down*1024 countStyle:NSByteCountFormatterCountStyleFile];
 }
 
 -(NSString*)getAsn{

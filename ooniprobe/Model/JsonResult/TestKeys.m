@@ -195,12 +195,12 @@
 }
     
 - (float)getScaledValue:(float)value{
-    if (value < 100)
+    if (value < 1000)
     return value;
-    else if (value < 100000)
+    else if (value < 1000*1000)
     return value/1000;
     else
-    return value/1000000;
+    return value/1000*1000;
 }
     
 - (NSString*)setFractionalDigits:(float)value{
@@ -212,9 +212,9 @@
     
 - (NSString*)getUnit:(float)value{
     //We assume there is no Tbit/s (for now!)
-    if (value < 100)
+    if (value < 1000)
     return NSLocalizedString(@"TestResults.Kbps", nil);
-    else if (value < 100000)
+    else if (value < 1000*1000)
     return NSLocalizedString(@"TestResults.Mbps", nil);
     else
     return NSLocalizedString(@"TestResults.Gbps", nil);

@@ -38,7 +38,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSString *test_type = [test_types objectAtIndex:section];
-    return [[tests objectForKey:test_type] count];
+    NSDictionary *dic = [tests objectForKey:test_type];
+    return [dic count];
 }
 
 

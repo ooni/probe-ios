@@ -127,7 +127,7 @@
                                    [self testFilter:query];
                                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadHeader" object:nil];
                                }];
-    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.DoYouWantToDeleteResults", nil)
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.DoYouWantToDeleteAllTests", nil)
                            message:nil
                           okButton:okButton
                             inView:self];
