@@ -132,8 +132,10 @@
     NetworkMeasurement *current = [currentTests getTestWithName:testName];
     if ([urls count] > 0){
         current.inputs = urls;
+        [current setMax_runtime_enabled:NO];
     }
-    [current setMax_runtime_enabled:NO];
+    else
+        [current setMax_runtime_enabled:YES];
     [current run];
     [self dismissViewControllerAnimated:TRUE completion:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:nil];
