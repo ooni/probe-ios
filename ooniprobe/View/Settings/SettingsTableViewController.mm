@@ -232,6 +232,7 @@
                 break;
             }
             case UNAuthorizationStatusAuthorized:{
+                [self registeredForNotifications];
                 break;
             }
             default:
