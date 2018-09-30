@@ -23,6 +23,7 @@
         self.no_collector = [NSNumber numberWithInt:!upload_results];
         self.software_name = @"ooniprobe-ios";
         self.software_version = software_version;
+        self.randomize_input = [NSNumber numberWithInt:0];
     }
     return self;
 }
