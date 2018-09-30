@@ -52,12 +52,12 @@
 }
 
 -(NSString*)getLocalizedNetworkType{
-    if (self.network_id.network_name != nil) {
-        if ([self.network_id.network_name isEqualToString:@"wifi"])
+    if (self.network_id.network_type != nil) {
+        if ([self.network_id.network_type isEqualToString:@"wifi"])
             return NSLocalizedString(@"TestResults.Summary.Hero.WiFi", nil);
-        else if ([self.network_id.network_name isEqualToString:@"mobile"])
+        else if ([self.network_id.network_type isEqualToString:@"mobile"])
             return NSLocalizedString(@"TestResults.Summary.Hero.Mobile", nil);
-        else if ([self.network_id.network_name isEqualToString:@"no_internet"])
+        else if ([self.network_id.network_type isEqualToString:@"no_internet"])
             return NSLocalizedString(@"TestResults.Summary.Hero.NoInternet", nil);
     }
     return @"";

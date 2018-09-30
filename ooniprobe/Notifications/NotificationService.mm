@@ -42,7 +42,6 @@
     for (NSString *s in supported_tests) {
         supported_tests_list.push_back([s UTF8String]);
     }
-    //TODO-NOTIFICATION new api
     mk::ooni::orchestrate::Client client;
     client.logger->set_verbosity(MK_LOG_INFO);
     client.geoip_country_path = [geoip_country_path UTF8String];
@@ -53,7 +52,9 @@
     client.supported_tests = supported_tests_list;
     client.network_type = [network_type UTF8String];
     client.language = [language UTF8String];
+    //TODO add timezone
     
+    // TODO-2.2 when orchestrate
     // FIXME: this string is `nil` hence the crash when calling UTF8String
     //client.available_bandwidth = [available_bandwidth UTF8String];
     client.device_token = [device_token UTF8String];
