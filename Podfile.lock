@@ -1,8 +1,8 @@
 PODS:
-  - Crashlytics (3.10.1):
-    - Fabric (~> 1.7.5)
+  - Crashlytics (3.10.8):
+    - Fabric (~> 1.7.12)
   - DZNEmptyDataSet (1.8.1)
-  - Fabric (1.7.6)
+  - Fabric (1.7.12)
   - MBProgressHUD (1.1.0)
   - measurement_kit (0.8.3)
   - NTYCSVTable (0.3.1)
@@ -23,6 +23,17 @@ DEPENDENCIES:
   - Toast
   - UIBarButtonItem-Badge-Coding
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - DZNEmptyDataSet
+    - Fabric
+    - MBProgressHUD
+    - NTYCSVTable
+    - PBRevealViewController
+    - Toast
+    - UIBarButtonItem-Badge-Coding
+
 EXTERNAL SOURCES:
   measurement_kit:
     :git: https://github.com/measurement-kit/measurement-kit.git
@@ -34,9 +45,9 @@ CHECKOUT OPTIONS:
     :tag: v0.8.3
 
 SPEC CHECKSUMS:
-  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Crashlytics: 058dc1ba579f6c100bc60a6878703779bff383c4
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  Fabric: d7387db9a31aadff63b147a4b91d982c53afaa4f
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   measurement_kit: b26424a2dabda0c5de70033c0cc64f2a3d3bef0b
   NTYCSVTable: bad087d30f329f587c4557baa234719ac36c8448
@@ -46,4 +57,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3d00c9b2a5adef2e4aedb58a98e9fd02380a1197
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
