@@ -143,6 +143,10 @@
             [image setImage:[UIImage imageNamed:current.name]];
             title.textColor = color_ooni_blue;
         }
+        else if (current.anomaly == 1){
+            [image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_warning", current.name]]];
+            title.textColor = color_warning_orange;
+        }
         else {
             [image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_no", current.name]]];
             title.textColor = color_bad_red;
