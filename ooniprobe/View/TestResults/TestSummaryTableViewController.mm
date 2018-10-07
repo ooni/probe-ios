@@ -182,7 +182,10 @@
                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                   style:UIAlertActionStyleDefault
                                   handler:^(UIAlertAction * action) {
-                                      [self performSegueWithIdentifier:@"toTestRun" sender:self];
+                                      if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
+                                          [self performSegueWithIdentifier:@"toTestRun" sender:self];
+                                      else
+                                          [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.NoInternet" inView:self];
                                   }];
     [alert addAction:reRunButton];
     UIAlertAction* cancelButton = [UIAlertAction

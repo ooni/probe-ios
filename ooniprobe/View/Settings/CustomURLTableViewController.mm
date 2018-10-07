@@ -43,8 +43,12 @@
         }
     }
     if ([urlArray count] > 0) {
-        [self performSegueWithIdentifier:@"toTestRun" sender:self];
-        [self.navigationController popToRootViewControllerAnimated:NO];
+        if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable){
+            [self performSegueWithIdentifier:@"toTestRun" sender:self];
+            [self.navigationController popToRootViewControllerAnimated:NO];
+        }
+        else
+            [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.NoInternet" inView:self];
     }
     else
         [MessageUtility showToast:@"Settings.Websites.CustomURL.NoURLEntered" inView:self.view];
