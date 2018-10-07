@@ -37,7 +37,6 @@
 }
 
 - (void)reloadQuestion{
-    
     NSMutableAttributedString *questionTitle;
     NSMutableAttributedString *questionText;
     if (question_number == 1){
@@ -45,7 +44,7 @@
         questionText = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.PopQuiz.1.Question", nil)];
     }
     else if (question_number == 2){
-        questionTitle = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.PopQuiz.1.Title", nil)];
+        questionTitle = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.PopQuiz.2.Title", nil)];
         questionText = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.PopQuiz.2.Question", nil)];
     }
     else {
@@ -60,9 +59,10 @@
     [questionText addAttribute:NSFontAttributeName
                           value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                           range:NSMakeRange(0, questionText.length)];
-    
+    NSAttributedString *newLine = [[NSAttributedString alloc] initWithString:@"\n\n"];
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
     [attrStr appendAttributedString:questionTitle];
+    [attrStr appendAttributedString:newLine];
     [attrStr appendAttributedString:questionText];
     [self.textLabel setAttributedText:attrStr];
 }

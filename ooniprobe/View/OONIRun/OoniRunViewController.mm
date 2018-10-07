@@ -4,6 +4,7 @@
 #import "LocalizationUtility.h"
 #import "NetworkTest.h"
 #import "TestRunningViewController.h"
+#import "ReachabilityManager.h"
 
 @interface OoniRunViewController ()
 

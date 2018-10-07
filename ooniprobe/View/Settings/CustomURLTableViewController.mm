@@ -1,4 +1,5 @@
 #import "CustomURLTableViewController.h"
+#import "ReachabilityManager.h"
 
 @interface CustomURLTableViewController ()
 
