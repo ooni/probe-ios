@@ -13,12 +13,12 @@
     [self loadPage];
     if ([urlList count] == 1)
         [self.openMirrorButton setEnabled:NO];
-    [self.openMirrorButton setTitle:NSLocalizedString(@"OONIRun.TryMirror", nil)];
+    [self.openMirrorButton setTitle:NSLocalizedString(@"OONIBrowser.TryMirror", nil)];
 }
 
 -(IBAction)loadPage{
     NSString *url = [urlList objectAtIndex:urlIndex];
-    self.title = NSLocalizedString(@"OONIRun.Loading", nil);
+    self.title = NSLocalizedString(@"OONIBrowser.Loading", nil);
     NSURL *websiteUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", url]];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:websiteUrl];
     [self.webView loadRequest:urlRequest];
