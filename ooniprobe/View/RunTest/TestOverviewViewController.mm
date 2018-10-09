@@ -73,7 +73,7 @@
 
 -(IBAction)run:(id)sender{
     if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
-        [self performSegueWithIdentifier:@"toTestRun" sender:self];
+        [self performSegueWithIdentifier:@"toTestRun" sender:sender];
     else
         [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.NoInternet" inView:self];
 }

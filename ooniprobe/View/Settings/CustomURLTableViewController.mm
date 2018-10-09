@@ -45,7 +45,7 @@
     }
     if ([urlArray count] > 0) {
         if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable){
-            [self performSegueWithIdentifier:@"toTestRun" sender:self];
+            [self performSegueWithIdentifier:@"toTestRun" sender:sender];
             [self.navigationController popToRootViewControllerAnimated:NO];
         }
         else
