@@ -14,7 +14,7 @@
                where:@"result_id = ? AND is_rerun = 0 AND is_done = 1"
                parameters:@[self]]
                orderByDescending:@"is_anomaly"]
-               order:@"is_failed"]
+               orderByDescending:@"is_failed"]
                orderByDescending:@"Id"]
                fetch];
 }
