@@ -7,10 +7,6 @@
     if (self) {
         self.name = @"dash";
         self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
-        if (![SettingsUtility getSettingWithName:@"dash_server_auto"]){
-            self.settings.options.server = [[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server"];
-            self.settings.options.port = [[NSUserDefaults standardUserDefaults] objectForKey:@"dash_server_port"];
-        }
     }
     return self;
 }

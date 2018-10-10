@@ -37,10 +37,8 @@
 + (NSString*)getTypeForSetting:(NSString*)setting{
     if ([setting isEqualToString:@"website_categories"] || [setting isEqualToString:@"enabled_tests"] || [setting isEqualToString:@"custom_url"])
         return @"segue";
-    else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"] || [setting isEqualToString:@"ndt_server_port"] || [setting isEqualToString:@"dash_server_port"])
+    else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"])
         return @"int";
-    else if ([setting isEqualToString:@"ndt_server"] || [setting isEqualToString:@"dash_server"])
-        return @"string";
     return @"bool";
 }
 
@@ -133,21 +131,7 @@
     }
     else if ([testName isEqualToString:@"performance"]) {
         [settings addObject:@"run_ndt"];
-        if (includeAll && [self getSettingWithName:@"run_ndt"]){
-            [settings addObject:@"ndt_server_auto"];
-            if (![self getSettingWithName:@"ndt_server_auto"]){
-                [settings addObject:@"ndt_server"];
-                [settings addObject:@"ndt_server_port"];
-            }
-        }
         [settings addObject:@"run_dash"];
-        if (includeAll && [self getSettingWithName:@"run_dash"]){
-            [settings addObject:@"dash_server_auto"];
-            if (![self getSettingWithName:@"dash_server_auto"]){
-                [settings addObject:@"dash_server"];
-                [settings addObject:@"dash_server_port"];
-            }
-        }
     }
     return settings;
 }
