@@ -20,7 +20,7 @@
                     [self runTest];
                 }
                 else {
-                    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadUrls" inView:self];
+                    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadURLs" inView:self];
                     [self networkTestEnded];
                 }
             }];
