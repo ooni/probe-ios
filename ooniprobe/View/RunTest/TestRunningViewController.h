@@ -8,6 +8,7 @@
     float totalTests;
     LOTAnimationView *animation;
     NetworkTest *currentTest;
+    int totalRuntime;
 }
 
 

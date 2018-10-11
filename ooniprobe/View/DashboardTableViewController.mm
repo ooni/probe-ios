@@ -60,7 +60,7 @@
     [titleLabel setText:[LocalizationUtility getNameForTest:testName]];
     [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
     //TODO-TIME Estimated Time test
-    [estimateTime setText:@"2min"];
+    [estimateTime setText:[NSString stringWithFormat:@"%d sec", [TestUtility getTotalTimeForTest:testName]]];
     [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
     [testLogo setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [backgroundView setBackgroundColor:[TestUtility getColorForTest:testName]];

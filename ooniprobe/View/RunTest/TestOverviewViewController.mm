@@ -28,8 +28,8 @@
     [self.configureButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Configure", nil)] forState:UIControlStateNormal];
 
     //TODO-TIME Estimated Time and mb
-    [self.timeLabel setText:@"2min 10MB"];
-    
+    [self.timeLabel setText:[NSString stringWithFormat:@"%@ %d sec", [TestUtility getDataForTest:testName], [TestUtility getTotalTimeForTest:testName]]];
+
     [self reloadLastMeasurement];
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
     [self.testImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];

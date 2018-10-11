@@ -47,6 +47,10 @@
         else
             currentTest = [[IMNetworkTest alloc] init];
     }
+    totalRuntime = [TestUtility getTotalTimeForTest:testSuiteName];
+    //TODO-TIME
+    [self.timeLabel setText:[NSString stringWithFormat:@"%d sec remaining", totalRuntime]];
+    
     [self runTest];
     self.progressBar.layer.cornerRadius = 7.5;
     self.progressBar.layer.masksToBounds = YES;
@@ -55,8 +59,6 @@
     [self.logLabel setText:@""];
     [self.etaLabel setText:[NSString stringWithFormat:@"%@:", NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)]];
 
-    //TODO-TIME Estimated Time test
-    [self.timeLabel setText:[NSString stringWithFormat:@"0 seconds"]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
@@ -118,8 +120,15 @@
     float prevProgress = index/totalTests;
     float progress = ([prog floatValue]/totalTests)+prevProgress;
 
+    long eta = totalRuntime;
+    if (progress > 0) {
+        eta = lroundf(totalRuntime - progress * totalRuntime);
+    }
+
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.progressBar setProgress:progress animated:YES];
+        //TODO-TIME
+        [self.timeLabel setText:[NSString stringWithFormat:@"%ld sec remaining", eta]];
         [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
 
     });
