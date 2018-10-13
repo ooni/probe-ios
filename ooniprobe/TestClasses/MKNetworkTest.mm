@@ -124,10 +124,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                                //TODO set report_id null?
                                [self setUploaded:false idx:event.value.idx failure:event.value.failure];
                            }
-                           else if ([event.key isEqualToString:@"failure.measurement"]) {
-                               //TODO-MK idx missing https://github.com/measurement-kit/measurement-kit/issues/1657
-                               //[self setFailed:true idx:event.value.idx failure:event.value.failure];
-                           }
                            else if ([event.key isEqualToString:@"status.measurement_done"]) {
                                //probabilmente da usare per indicare misura finita
                                if (event.value.idx == nil) {
@@ -202,19 +198,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
         measurement.is_uploaded = value;
         if (failure != nil)
             measurement.upload_failure_msg = failure;
-        [measurement save];
-    }
-}
-
--(void)setFailed:(BOOL)value idx:(NSNumber*)idx failure:(NSString*)failure{
-    if (idx == nil) {
-        return;
-    }
-    Measurement *measurement = [self.measurements objectForKey:idx];
-    if (measurement != nil){
-        measurement.is_failed = value;
-        if (failure != nil)
-            measurement.failure_msg = failure;
         [measurement save];
     }
 }
