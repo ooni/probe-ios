@@ -5,6 +5,7 @@
 -(id) init {
     self = [super init];
     if (self) {
+        self.backgroundTask = UIBackgroundTaskInvalid;
         self.mkNetworkTests = [[NSMutableArray alloc] init];
         self.measurementIdx = 0;
     }
@@ -60,6 +61,10 @@
 }
 
 -(void)runTestSuite {
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
     for (MKNetworkTest *current in self.mkNetworkTests){
         [current runTest];
     }
@@ -74,21 +79,25 @@
     if ([self.mkNetworkTests count] == 0){
         NSLog(@"ALL test_ended");
         [self.result setIs_done:YES];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
-        if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
-            [self showNotification];
+        UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+        if (state == UIApplicationStateBackground || state == UIApplicationStateInactive){
+            if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
+                [self showNotification];
+        }
+        else
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
     }
+    [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+    self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
 - (void)showNotification {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [NSDate date];
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        localNotification.alertBody = [NSString stringWithFormat:@"%@ %@", [LocalizationUtility getNameForTest:self.result.test_group_name], NSLocalizedString(@"Notification.FinishedRunning", nil)];
-        [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
-        [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
-    });
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate date];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = [NSString stringWithFormat:@"%@ %@", [LocalizationUtility getNameForTest:self.result.test_group_name], NSLocalizedString(@"Notification.FinishedRunning", nil)];
+    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
 @end

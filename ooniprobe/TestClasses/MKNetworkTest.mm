@@ -279,10 +279,10 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
 
 -(void)testEnded{
     //NSLog(@"%@ testEnded", self.name);
+    [self.delegate testEnded:self];
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     //[self updateProgressBar:1];
-    [self.delegate testEnded:self];
 }
 
 @end

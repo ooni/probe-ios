@@ -10,6 +10,7 @@
 @property Result *result;
 @property NSMutableArray *mkNetworkTests;
 @property int measurementIdx;
+@property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 -(void)addTest:(NSString*)testName;
 -(void)testEnded:(MKNetworkTest*)test;
 -(void)runTestSuite;

@@ -174,7 +174,7 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    //TODO-2.1 start your long running bg task here
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
 }
 
 //Handles ooni:// links
