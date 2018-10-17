@@ -9,6 +9,7 @@
     LOTAnimationView *animation;
     NetworkTest *currentTest;
     int totalRuntime;
+    NSDateComponentsFormatter *formatter;
 }
 
 

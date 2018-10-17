@@ -47,9 +47,15 @@
         else
             currentTest = [[IMNetworkTest alloc] init];
     }
+    
+    formatter = [[NSDateComponentsFormatter alloc] init];
+    formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;
+    formatter.includesApproximationPhrase = NO;
+    formatter.includesTimeRemainingPhrase = NO;
+    formatter.allowedUnits = NSCalendarUnitSecond;
+
     totalRuntime = [TestUtility getTotalTimeForTest:testSuiteName];
-    //TODO-TIME Dashboard.Running.SecondsRemaining
-    [self.timeLabel setText:[NSString stringWithFormat:@"%d sec remaining", totalRuntime]];
+    [self.timeLabel setText:[formatter stringFromTimeInterval:totalRuntime]];
     
     [self runTest];
     self.progressBar.layer.cornerRadius = 7.5;
@@ -127,8 +133,7 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.progressBar setProgress:progress animated:YES];
-        //TODO-TIME Dashboard.Running.SecondsRemaining
-        [self.timeLabel setText:[NSString stringWithFormat:@"%ld sec remaining", eta]];
+        [self.timeLabel setText:[formatter stringFromTimeInterval:eta]];
         [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
 
     });
