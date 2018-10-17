@@ -6,9 +6,9 @@
 #define ANOMALY_ORANGE 1
 #define ANOMALY_RED 2
 
-#define PERFORMANCE_TIME 60
-#define MIDDLEBOXES_TIME 6
-#define INSTANTMESSAGING_TIME 7
+#define PERFORMANCE_TIME 90
+#define MIDDLEBOXES_TIME 15
+#define INSTANTMESSAGING_TIME 30
 
 @implementation TestUtility
 
@@ -174,47 +174,30 @@
         NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
         return [max_runtime intValue]+30;
     }
-    else {
-        long totalTests = [self numberOfTest:testName];
-        if (totalTests > 0){
-            SRKQuery *query = [[Result query] where:[NSString stringWithFormat:@"test_group_name = '%@'", testName]];
-            float runtime = [query sumOf:@"runtime"];
-            return runtime/totalTests;
-        }
-        else if ([testName isEqualToString:@"performance"]){
-            return PERFORMANCE_TIME;
-        }
-        else if ([testName isEqualToString:@"middle_boxes"]){
-            return MIDDLEBOXES_TIME;
-        }
-        else if ([testName isEqualToString:@"instant_messaging"]){
-            return INSTANTMESSAGING_TIME;
-        }
+    else if ([testName isEqualToString:@"performance"]){
+        return PERFORMANCE_TIME;
+    }
+    else if ([testName isEqualToString:@"middle_boxes"]){
+        return MIDDLEBOXES_TIME;
+    }
+    else if ([testName isEqualToString:@"instant_messaging"]){
+        return INSTANTMESSAGING_TIME;
     }
     return 0;
 }
 
 + (NSString*)getDataForTest:(NSString*)testName{
     if ([testName isEqualToString:@"performance"]){
-        return NSLocalizedString(@"Consumes data based on your network speed", nil);
+        return @"5 - 200 MB";
     }
-    else {
-        long totalTests = [self numberOfTest:testName];
-        if (totalTests > 0){
-            SRKQuery *query = [[Result query] where:[NSString stringWithFormat:@"test_group_name = '%@'", testName]];
-            double dataUsageDown = [query sumOf:@"data_usage_down"];
-            double dataUsageUp = [query sumOf:@"data_usage_up"];
-            return [NSString stringWithFormat:@"up %f down %f", dataUsageUp/totalTests, dataUsageDown/totalTests];
-        }
-        else if ([testName isEqualToString:@"websites"]){
-            return @"down 500 kb UP 500 kb";
-        }
-        else if ([testName isEqualToString:@"middle_boxes"]){
-            return @"down 9 kb UP 6 kb";
-        }
-        else if ([testName isEqualToString:@"instant_messaging"]){
-            return @"down 35 kb UP 20 kb";
-        }
+    else if ([testName isEqualToString:@"websites"]){
+        return @"~ 8 MB";
+    }
+    else if ([testName isEqualToString:@"middle_boxes"]){
+        return @"< 1 MB";
+    }
+    else if ([testName isEqualToString:@"instant_messaging"]){
+        return @"< 1 MB";
     }
     return nil;
 }

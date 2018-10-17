@@ -48,7 +48,7 @@
             currentTest = [[IMNetworkTest alloc] init];
     }
     totalRuntime = [TestUtility getTotalTimeForTest:testSuiteName];
-    //TODO-TIME
+    //TODO-TIME Dashboard.Running.SecondsRemaining
     [self.timeLabel setText:[NSString stringWithFormat:@"%d sec remaining", totalRuntime]];
     
     [self runTest];
@@ -127,7 +127,7 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.progressBar setProgress:progress animated:YES];
-        //TODO-TIME
+        //TODO-TIME Dashboard.Running.SecondsRemaining
         [self.timeLabel setText:[NSString stringWithFormat:@"%ld sec remaining", eta]];
         [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
 
