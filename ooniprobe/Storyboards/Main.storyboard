@@ -12,10 +12,12 @@
         <!--settings_nav-->
         <scene sceneID="E8F-GY-eJR">
             <objects>
-                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="settings_nav" id="mdj-nf-tvW" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="settings_nav" id="mdj-nf-tvW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="QWj-Wt-vUY"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cW5-Rc-Qfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-553" y="27"/>
+            <point key="canvasLocation" x="-586" y="580"/>
         </scene>
         <!--onboarding_init-->
         <scene sceneID="1s8-fs-2lb">
@@ -39,7 +41,7 @@
                         <segue destination="JPU-Cl-G6K" kind="presentation" identifier="showInformedConsent" id="fzz-lf-4hr"/>
                         <segue destination="KJb-zP-rO7" kind="relationship" relationship="viewControllers" id="0sG-Xv-Av9"/>
                         <segue destination="tu3-lf-zFx" kind="relationship" relationship="viewControllers" id="2Ip-yH-WYI"/>
-                        <segue destination="mdj-nf-tvW" kind="presentation" identifier="settings" id="ezm-vB-MfX"/>
+                        <segue destination="mdj-nf-tvW" kind="relationship" relationship="viewControllers" id="mGJ-sJ-VUR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xha-14-mqI" userLabel="First Responder" sceneMemberID="firstResponder"/>

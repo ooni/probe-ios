@@ -19,6 +19,10 @@
     UITabBarItem * tabItem1 = [self.tabBar.items objectAtIndex: 1];
     tabItem1.image = [UIImage imageNamed:@"tab_test_results"];
     tabItem1.title = NSLocalizedString(@"TestResults.Overview.Tab.Label", nil);
+
+    UITabBarItem * tabItem2 = [self.tabBar.items objectAtIndex: 2];
+    tabItem2.image = [UIImage imageNamed:@"tab_feed"];
+    tabItem2.title = NSLocalizedString(@"Settings.Title", nil);
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -37,7 +41,11 @@
 }
 
 - (void)openSettings{
-    [self performSegueWithIdentifier:@"settings" sender:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UINavigationController *navController = [[self viewControllers] objectAtIndex:2];
+        [navController popToRootViewControllerAnimated:NO];
+        [self setSelectedIndex:2];
+    });
 }
 
 -(void)goToResults{

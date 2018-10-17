@@ -146,20 +146,14 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="tab_dashboard" id="9cV-jL-NiY"/>
-                    <navigationItem key="navigationItem" title="Dashboard" id="rI8-TT-F8l">
-                        <barButtonItem key="rightBarButtonItem" image="settings_icon" id="rDV-5B-JEG">
-                            <connections>
-                                <segue destination="mdj-nf-tvW" kind="presentation" id="bjV-cE-1hN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Dashboard" id="rI8-TT-F8l"/>
                     <connections>
                         <segue destination="4q0-13-6dh" kind="presentation" identifier="toTestRun" id="wqI-w5-99i"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcU-8V-FpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="-311.82266009852219"/>
+            <point key="canvasLocation" x="995.65217391304361" y="-312.22826086956525"/>
         </scene>
         <!--settings-->
         <scene sceneID="ipR-az-yvP">
@@ -278,14 +272,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6B-l9-PO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3007" y="-311"/>
-        </scene>
-        <!--settings_nav-->
-        <scene sceneID="E8F-GY-eJR">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="settings_nav" id="mdj-nf-tvW" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cW5-Rc-Qfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="998" y="313"/>
         </scene>
         <!--Test Overview View Controller-->
         <scene sceneID="Tmg-aB-DX0">
@@ -426,6 +412,13 @@
                             <constraint firstItem="D5T-5k-VHD" firstAttribute="leading" secondItem="jNa-T2-1U0" secondAttribute="leading" id="yA9-j6-Cja"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gA7-u8-tAJ">
+                        <barButtonItem key="rightBarButtonItem" image="settings_icon" id="MCG-9c-nnG">
+                            <connections>
+                                <segue destination="yMA-vE-fiW" kind="show" identifier="toTestSettings" id="1La-oG-2mG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundView" destination="OFB-mp-BTr" id="q6v-hI-p5x"/>
                         <outlet property="configureButton" destination="1MC-ZK-PPc" id="ogb-ju-5hm"/>
@@ -468,7 +461,7 @@
         <image name="websites" width="78" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Get-FV-hMZ"/>
-        <segue reference="HUp-5Z-Q68"/>
+        <segue reference="wqI-w5-99i"/>
+        <segue reference="yaa-0s-SbM"/>
     </inferredMetricsTieBreakers>
 </document>

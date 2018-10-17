@@ -51,13 +51,9 @@
                             <outlet property="delegate" destination="niC-0T-rEj" id="3IB-zB-k2D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="JYG-oy-jaX">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="3Jd-oQ-hjz">
-                            <connections>
-                                <action selector="close:" destination="niC-0T-rEj" id="Xf5-rv-9or"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="Settings" image="tab_feed" id="Vnd-14-kj2"/>
+                    <navigationItem key="navigationItem" title="Settings" id="JYG-oy-jaX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="CKq-8U-kQl" kind="show" identifier="about_ooni" id="Vf0-s2-ZL5"/>
                         <segue destination="FL9-zG-Wm0" kind="show" identifier="toSettings" id="Jxa-99-yvo"/>
@@ -83,12 +79,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6y-X2-fwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="1713"/>
+            <point key="canvasLocation" x="-359" y="1711"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="2aT-tl-DdX">
             <objects>
-                <tableViewController storyboardIdentifier="settings" id="FL9-zG-Wm0" customClass="SettingsTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="settings" hidesBottomBarWhenPushed="YES" id="FL9-zG-Wm0" customClass="SettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="Dy1-hT-LWV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -284,7 +280,7 @@
         <!--About View Controller-->
         <scene sceneID="Iv3-iC-dd1">
             <objects>
-                <viewController id="CKq-8U-kQl" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="CKq-8U-kQl" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PZN-xe-v1u"/>
                         <viewControllerLayoutGuide type="bottom" id="HIX-ry-9k4"/>
@@ -427,5 +423,6 @@ measurement-kit: x.y.z</string>
     </scenes>
     <resources>
         <image name="ooni_logo" width="184" height="52"/>
+        <image name="tab_feed" width="18" height="21"/>
     </resources>
 </document>
