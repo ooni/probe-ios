@@ -21,7 +21,7 @@
     tabItem1.title = NSLocalizedString(@"TestResults.Overview.Tab.Label", nil);
 
     UITabBarItem * tabItem2 = [self.tabBar.items objectAtIndex: 2];
-    tabItem2.image = [UIImage imageNamed:@"tab_feed"];
+    tabItem2.image = [UIImage imageNamed:@"tab_settings"];
     tabItem2.title = NSLocalizedString(@"Settings.Title", nil);
 }
 
