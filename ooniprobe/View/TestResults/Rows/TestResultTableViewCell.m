@@ -1,5 +1,4 @@
 #import "TestResultTableViewCell.h"
-#import "GRMustache.h"
 
 @implementation TestResultTableViewCell
 
@@ -42,11 +41,11 @@
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:[UIImage imageNamed:@"cross"]];
         [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPlural:anomalousMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
+        [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:anomalousMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"globe"]];
         [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-        [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPlural:totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
+        [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
     else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
@@ -56,11 +55,11 @@
         [self.stackView3 setHidden:YES];
         [self.image1 setImage:[UIImage imageNamed:@"cross"]];
         [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPlural:anomalousMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
+        [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:anomalousMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"tick"]];
         [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-        [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPlural:okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
+        [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){

@@ -1,4 +1,5 @@
 #import "LocalizationUtility.h"
+#import "GRMustache.h"
 
 @implementation LocalizationUtility
 
@@ -70,7 +71,7 @@
     return settingName;
 }
 
-+(NSString*)getSingularPlural:(long)value :(NSString*)locString{
++(NSString*)getSingularPluralTemplate:(long)value :(NSString*)locString{
     NSString *string;
     if (value == 1){
         string = [NSString stringWithFormat:@"%@.Singular", locString];
@@ -80,4 +81,16 @@
     }
     return [GRMustacheTemplate renderObject:@{ @"Count": [NSString stringWithFormat:@"%ld", value] } fromString:NSLocalizedString(string, nil) error:NULL];
 }
+
++(NSString*)getSingularPlural:(long)value :(NSString*)locString{
+    NSString *string;
+    if (value == 1){
+        string = [NSString stringWithFormat:@"%@.Singular", locString];
+    }
+    else {
+        string = [NSString stringWithFormat:@"%@.Plural", locString];
+    }
+    return NSLocalizedString(string, nil);
+}
+
 @end
