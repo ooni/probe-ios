@@ -25,10 +25,16 @@
     }];
     
     [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Run", nil)] forState:UIControlStateNormal];
-    [self.configureButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Configure", nil)] forState:UIControlStateNormal];
+    if ([testName isEqualToString:@"websites"])
+        [self.websitesButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.ChooseWebsites", nil)] forState:UIControlStateNormal];
+    else
+        [self.websitesButton setHidden:YES];
 
-    //TODO-TIME Estimated Time and mb
-    [self.timeLabel setText:[NSString stringWithFormat:@"%@ %d sec", [TestUtility getDataForTest:testName], [TestUtility getTotalTimeForTest:testName]]];
+    formatter = [[NSDateComponentsFormatter alloc] init];
+    formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;
+    formatter.includesApproximationPhrase = NO;
+    formatter.includesTimeRemainingPhrase = NO;
+    formatter.allowedUnits = NSCalendarUnitSecond;
 
     [self reloadLastMeasurement];
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
@@ -45,13 +51,40 @@
 
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableAttributedString *estimatedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ ", NSLocalizedString(@"Dashboard.Overview.Estimated", nil)]];
+        [estimatedString addAttribute:NSFontAttributeName
+                                value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]
+                                range:NSMakeRange(0, estimatedString.length)];
+        
+        NSMutableAttributedString *timeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", [formatter stringFromTimeInterval:[TestUtility getTotalTimeForTest:testName]]]];
+        [timeString addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
+                           range:NSMakeRange(0, timeString.length)];
+        
+        NSMutableAttributedString *lastTestString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ ", NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)]];
+        [lastTestString addAttribute:NSFontAttributeName
+                                value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]
+                                range:NSMakeRange(0, lastTestString.length)];
+        
+        NSString *ago;
         SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"test_group_name = '%@'", testName]] orderByDescending:@"start_time"] fetch];
         if ([results count] > 0){
-            NSString *ago = [[[results objectAtIndex:0] start_time] timeAgoSinceNow];
-            [self.lastRunLabel setText:ago];
+            ago = [[[results objectAtIndex:0] start_time] timeAgoSinceNow];
         }
         else
-            [self.lastRunLabel setText:NSLocalizedString(@"Dashboard.Overview.LastRun.Never", nil)];
+            ago = NSLocalizedString(@"Dashboard.Overview.LastRun.Never", nil);
+
+        NSMutableAttributedString *agoString = [[NSMutableAttributedString alloc] initWithString:ago];
+        [agoString addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
+                           range:NSMakeRange(0, agoString.length)];
+        
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
+        [attrStr appendAttributedString:estimatedString];
+        [attrStr appendAttributedString:timeString];
+        [attrStr appendAttributedString:lastTestString];
+        [attrStr appendAttributedString:agoString];
+        [self.testDetailLabel setAttributedText:attrStr];
     });
 }
 

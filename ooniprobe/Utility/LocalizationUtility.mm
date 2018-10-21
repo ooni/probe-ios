@@ -78,6 +78,6 @@
     else {
         string = [NSString stringWithFormat:@"%@.Plural", locString];
     }
-    return NSLocalizedString(string, nil);
+    return [GRMustacheTemplate renderObject:@{ @"Count": [NSString stringWithFormat:@"%ld", value] } fromString:NSLocalizedString(string, nil) error:NULL];
 }
 @end
