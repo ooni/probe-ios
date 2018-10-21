@@ -1,6 +1,5 @@
 #import "SettingsUtility.h"
 #import "TestUtility.h"
-#import <measurement_kit/common.hpp>
 
 @implementation SettingsUtility
 

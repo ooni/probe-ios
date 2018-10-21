@@ -1,12 +1,13 @@
 #import "TestRunningViewController.h"
+#import "NetworkTest.h"
 
 @interface TestRunningViewController ()
-
+@property (nonatomic, strong) NetworkTest *currentTest;
 @end
 
 @implementation TestRunningViewController
-@synthesize urls, testSuiteName, testName, result;
 
+@synthesize urls, testSuiteName, testName, result, currentTest;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[TestUtility getColorForTest:testSuiteName]];

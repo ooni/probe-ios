@@ -53,17 +53,17 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableAttributedString *estimatedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ ", NSLocalizedString(@"Dashboard.Overview.Estimated", nil)]];
         [estimatedString addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]
+                                value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
                                 range:NSMakeRange(0, estimatedString.length)];
         
         NSMutableAttributedString *timeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", [formatter stringFromTimeInterval:[TestUtility getTotalTimeForTest:testName]]]];
         [timeString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
+                           value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]
                            range:NSMakeRange(0, timeString.length)];
         
         NSMutableAttributedString *lastTestString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ ", NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)]];
         [lastTestString addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]
+                                value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
                                 range:NSMakeRange(0, lastTestString.length)];
         
         NSString *ago;
@@ -76,7 +76,7 @@
 
         NSMutableAttributedString *agoString = [[NSMutableAttributedString alloc] initWithString:ago];
         [agoString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
+                           value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]
                            range:NSMakeRange(0, agoString.length)];
         
         NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];

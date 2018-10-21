@@ -2,7 +2,7 @@
 #import "DictionaryUtility.h"
 #import "TestUtility.h"
 #import "LocalizationUtility.h"
-#import "NetworkTest.h"
+#import "MessageUtility.h"
 #import "TestRunningViewController.h"
 #import "ReachabilityManager.h"
 
