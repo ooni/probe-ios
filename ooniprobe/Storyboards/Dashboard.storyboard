@@ -48,10 +48,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtR-Rs-i3G">
-                                                    <rect key="frame" x="19" y="128" width="230" height="61"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="61" id="8Q7-Mh-QAW"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="19" y="63.999999999999993" width="230" height="15.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -59,40 +56,23 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClV-fJ-FW5">
                                                     <rect key="frame" x="19" y="23" width="175" height="33"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="175" id="T3P-BZ-gG6"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="T3P-BZ-gG6"/>
                                                         <constraint firstAttribute="height" constant="33" id="uys-YB-qpw"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="21"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ 2 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yx1-Yu-xrK">
-                                                    <rect key="frame" x="287" y="157" width="49" height="38"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ 2 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yx1-Yu-xrK">
+                                                    <rect key="frame" x="267" y="157" width="77" height="38"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="49" id="49Z-cr-os3"/>
+                                                        <constraint firstAttribute="width" constant="77" id="49Z-cr-os3"/>
                                                         <constraint firstAttribute="height" constant="38" id="owR-oE-kiW"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOA-qA-u4B" customClass="ConfigureButton">
-                                                    <rect key="frame" x="19" y="58" width="90" height="28"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="28" id="HZu-WL-F47"/>
-                                                        <constraint firstAttribute="width" constant="90" id="sqi-aa-Xkr"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="14"/>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                                    <state key="normal" title="Configure">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="yMA-vE-fiW" kind="show" identifier="toTestSettings" id="yaa-0s-SbM"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HL8-tu-cDv" customClass="RunButton">
                                                     <rect key="frame" x="267" y="134" width="77" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,18 +93,17 @@
                                             <color key="backgroundColor" red="0.74509803921568629" green="0.019607843137254902" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="HL8-tu-cDv" secondAttribute="bottom" constant="39" id="2S7-vq-3gv"/>
+                                                <constraint firstItem="NtR-Rs-i3G" firstAttribute="top" secondItem="ClV-fJ-FW5" secondAttribute="bottom" constant="8" id="38J-pT-Eg1"/>
                                                 <constraint firstAttribute="trailing" secondItem="caW-18-OfO" secondAttribute="trailing" constant="8" id="8dP-19-qxc"/>
                                                 <constraint firstItem="HL8-tu-cDv" firstAttribute="leading" secondItem="NtR-Rs-i3G" secondAttribute="trailing" constant="18" id="9n0-bn-V9q"/>
                                                 <constraint firstItem="ClV-fJ-FW5" firstAttribute="leading" secondItem="kk7-LL-zcm" secondAttribute="leading" constant="19" id="ADV-Wm-A8I"/>
-                                                <constraint firstAttribute="bottom" secondItem="NtR-Rs-i3G" secondAttribute="bottom" constant="14" id="As9-Ow-IBa"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NtR-Rs-i3G" secondAttribute="bottom" constant="8" id="As9-Ow-IBa"/>
                                                 <constraint firstAttribute="trailing" secondItem="HL8-tu-cDv" secondAttribute="trailing" constant="30" id="Lkg-XD-eRt"/>
                                                 <constraint firstAttribute="bottom" secondItem="Yx1-Yu-xrK" secondAttribute="bottom" constant="8" id="MCi-WQ-Blv"/>
                                                 <constraint firstItem="NtR-Rs-i3G" firstAttribute="leading" secondItem="kk7-LL-zcm" secondAttribute="leading" constant="19" id="V72-gJ-67s"/>
-                                                <constraint firstItem="aOA-qA-u4B" firstAttribute="top" secondItem="kk7-LL-zcm" secondAttribute="top" constant="58" id="Wsy-X5-Yap"/>
-                                                <constraint firstAttribute="trailing" secondItem="Yx1-Yu-xrK" secondAttribute="trailing" constant="38" id="Ywa-np-JiH"/>
+                                                <constraint firstAttribute="trailing" secondItem="Yx1-Yu-xrK" secondAttribute="trailing" constant="30" id="Ywa-np-JiH"/>
                                                 <constraint firstItem="caW-18-OfO" firstAttribute="top" secondItem="kk7-LL-zcm" secondAttribute="top" constant="8" id="agc-7a-E6e"/>
                                                 <constraint firstItem="ClV-fJ-FW5" firstAttribute="top" secondItem="kk7-LL-zcm" secondAttribute="top" constant="23" id="ekM-3S-bMI"/>
-                                                <constraint firstItem="aOA-qA-u4B" firstAttribute="leading" secondItem="kk7-LL-zcm" secondAttribute="leading" constant="19" id="vhc-0X-7L5"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -462,6 +441,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wqI-w5-99i"/>
-        <segue reference="yaa-0s-SbM"/>
+        <segue reference="HUp-5Z-Q68"/>
     </inferredMetricsTieBreakers>
 </document>

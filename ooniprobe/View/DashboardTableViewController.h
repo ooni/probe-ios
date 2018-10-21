@@ -8,6 +8,7 @@
 
 @interface DashboardTableViewController : UITableViewController {
     NSArray *items;
+    NSDateComponentsFormatter *formatter;
 }
 
 @end

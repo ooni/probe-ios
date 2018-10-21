@@ -9,6 +9,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     items = [TestUtility getTestTypes];
+    formatter = [[NSDateComponentsFormatter alloc] init];
+    formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;
+    formatter.includesApproximationPhrase = NO;
+    formatter.includesTimeRemainingPhrase = NO;
+    formatter.allowedUnits = NSCalendarUnitSecond;
+    
     [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
 }
 
@@ -59,8 +65,7 @@
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
     [titleLabel setText:[LocalizationUtility getNameForTest:testName]];
     [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
-    //TODO-TIME Estimated Time test
-    [estimateTime setText:[NSString stringWithFormat:@"%d sec", [TestUtility getTotalTimeForTest:testName]]];
+    [estimateTime setText:[formatter stringFromTimeInterval:[TestUtility getTotalTimeForTest:testName]]];
     [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
     [testLogo setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [backgroundView setBackgroundColor:[TestUtility getColorForTest:testName]];
