@@ -35,7 +35,7 @@
 }
 
 + (NSString*)getTypeForSetting:(NSString*)setting{
-    if ([setting isEqualToString:@"website_categories"] || [setting isEqualToString:@"enabled_tests"] || [setting isEqualToString:@"custom_url"])
+    if ([setting isEqualToString:@"website_categories"] || [setting isEqualToString:@"enabled_tests"])
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"])
         return @"int";
@@ -101,6 +101,10 @@
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"categories_disabled"];
 }
 
++ (long)getNumberCategoriesEnabled{
+    return [[self getSitesCategories] count] - [[self getSitesCategoriesDisabled] count];
+}
+
 + (void)addRemoveSitesCategory:(NSString*)categoryName {
     NSMutableArray *categories_disabled = [[self getSitesCategoriesDisabled] mutableCopy];
     if ([categories_disabled containsObject:categoryName])
@@ -116,7 +120,6 @@
     if ([testName isEqualToString:@"websites"]) {
         if (includeAll) [settings addObject:@"website_categories"];
         if (includeAll) [settings addObject:@"max_runtime"];
-        if (includeAll) [settings addObject:@"custom_url"];
     }
     else if ([testName isEqualToString:@"instant_messaging"]) {
         [settings addObject:@"test_whatsapp"];

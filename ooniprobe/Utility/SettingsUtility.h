@@ -15,6 +15,7 @@
 
 + (NSArray*)getSitesCategoriesDisabled;
 + (void)addRemoveSitesCategory:(NSString*)categoryName;
++ (long)getNumberCategoriesEnabled;
 
 + (NSArray*)getSettingsForTest:(NSString*)testName :(BOOL)includeAll;
 

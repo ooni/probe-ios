@@ -1,4 +1,5 @@
 #import "SettingsTableViewController.h"
+#import "GRMustache.h"
 
 @interface SettingsTableViewController ()
 @end
@@ -82,7 +83,13 @@
         cell.accessoryView = switchview;
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"segue"]){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        if ([current isEqualToString:@"website_categories"]){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
+            NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"number": [NSString stringWithFormat:@"%ld", [SettingsUtility getNumberCategoriesEnabled]] } fromString:NSLocalizedString(@"Settings.AutomatedTesting.Categories.Subtitle", nil) error:NULL];
+            [cell.detailTextLabel setText:subtitle];
+        }
+        else
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
