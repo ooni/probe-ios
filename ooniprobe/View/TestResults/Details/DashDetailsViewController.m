@@ -1,5 +1,4 @@
 #import "DashDetailsViewController.h"
-#import "GRMustache.h"
 
 @interface DashDetailsViewController ()
 
@@ -10,7 +9,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     TestKeys *testKeys = [self.measurement testKeysObj];
-    NSString *rendering = [GRMustacheTemplate renderObject:@{ @"VideoQuality": [testKeys getVideoQuality:NO] } fromString:NSLocalizedString(@"TestResults.Details.Performance.Dash.VideoWithoutBuffering", nil) error:NULL];
+    NSString *rendering = NSLocalizedFormatString(@"TestResults.Details.Performance.Dash.VideoWithoutBuffering", [testKeys getVideoQuality:NO]);
     [self.titleLabel setText:[testKeys getVideoQuality:YES]];
     [self.subtitleLabel setText:rendering];
     

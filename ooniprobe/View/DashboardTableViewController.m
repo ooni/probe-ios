@@ -1,5 +1,4 @@
 #import "DashboardTableViewController.h"
-#import "GRMustache.h"
 
 @interface DashboardTableViewController ()
 
@@ -59,7 +58,7 @@
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
     [titleLabel setText:[LocalizationUtility getNameForTest:testName]];
     [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
-    NSString *time = [GRMustacheTemplate renderObject:@{ @"seconds": [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]] } fromString:NSLocalizedString(@"Dashboard.Card.Seconds", nil) error:NULL];
+    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]]);
     [estimateTime setText:time];
     [bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
 

@@ -1,5 +1,4 @@
 #import "SettingsTableViewController.h"
-#import "GRMustache.h"
 
 @interface SettingsTableViewController ()
 @end
@@ -85,7 +84,7 @@
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"segue"]){
         if ([current isEqualToString:@"website_categories"]){
             cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
-            NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"Count": [NSString stringWithFormat:@"%ld", [SettingsUtility getNumberCategoriesEnabled]] } fromString:NSLocalizedString(@"Settings.Websites.Categories.Description", nil) error:NULL];
+            NSString *subtitle = NSLocalizedFormatString(@"Settings.Websites.Categories.Description", [NSString stringWithFormat:@"%ld", [SettingsUtility getNumberCategoriesEnabled]]);
             [cell.detailTextLabel setText:subtitle];
         }
         else

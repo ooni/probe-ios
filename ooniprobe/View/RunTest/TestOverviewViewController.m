@@ -1,5 +1,4 @@
 #import "TestOverviewViewController.h"
-#import "GRMustache.h"
 
 @interface TestOverviewViewController ()
 
@@ -51,7 +50,7 @@
                                 value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
                                 range:NSMakeRange(0, estimatedString.length)];
         
-        NSString *time = [GRMustacheTemplate renderObject:@{ @"seconds": [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]] } fromString:NSLocalizedString(@"Dashboard.Card.Seconds", nil) error:NULL];
+        NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]]);
         NSMutableAttributedString *timeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", time]];
         [timeString addAttribute:NSFontAttributeName
                            value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]

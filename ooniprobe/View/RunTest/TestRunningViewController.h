@@ -7,7 +7,6 @@
     float totalTests;
     LOTAnimationView *animation;
     int totalRuntime;
-    NSDateComponentsFormatter *formatter;
 }
 
 

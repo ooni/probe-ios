@@ -1,5 +1,4 @@
 #import "InstantMessagingDetailsViewController.h"
-#import "GRMustache.h"
 
 @interface InstantMessagingDetailsViewController ()
 
@@ -46,7 +45,7 @@
         }
         else {
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Hero.Title", nil)];
-            NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"BlockingReason": [testKeys getTelegramBlocking] } fromString:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.1", nil) error:NULL];
+            NSString *subtitle = NSLocalizedFormatString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.1", [testKeys getTelegramBlocking]);
             [self.subtitleLabel setText:subtitle];
         }
         [self.detail1TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Title", nil)];
@@ -62,7 +61,7 @@
         }
         else {
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Hero.Title", nil)];
-            NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"BlockingReason": [testKeys getFacebookMessengerBlocking] } fromString:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph.1", nil) error:NULL];
+            NSString *subtitle = NSLocalizedFormatString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph.1", [testKeys getFacebookMessengerBlocking]);
             [self.subtitleLabel setText:subtitle];
         }
         [self.detail1TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.TCP.Label.Title", nil)];

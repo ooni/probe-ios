@@ -16,6 +16,7 @@
 #endif
 
 #define RELEASE_NAME @"-alpha.6"
+#define NSLocalizedFormatString(fmt, ...) [NSString stringWithFormat:NSLocalizedString(fmt, nil), __VA_ARGS__]
 
 #define color_base @"#0588cb"
 #define color_black @"#000000"

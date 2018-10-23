@@ -1,5 +1,4 @@
 #import "WebsitesDetailsViewController.h"
-#import "GRMustache.h"
 
 @interface WebsitesDetailsViewController ()
 
@@ -16,7 +15,7 @@
         [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
 
         [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Hero.Title", nil)];
-        NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"WebsiteURL": self.measurement.url_id.url } fromString:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Content.Paragraph.1", nil) error:NULL];
+        NSString *subtitle = NSLocalizedFormatString(@"TestResults.Details.Websites.Reachable.Content.Paragraph.1", self.measurement.url_id.url);
         [self.subtitleLabel setText:subtitle];
         [self.learnCircumventButton setHidden:YES];
     }
@@ -26,7 +25,7 @@
         [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_red7 alpha:1.0f]];
         [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Hero.Title", nil)];
-        NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"WebsiteURL": self.measurement.url_id.url, @"BlockingReason": [testKeys getWebsiteBlocking] } fromString:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph.1", nil) error:NULL];
+        NSString *subtitle = NSLocalizedFormatString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph.1", [testKeys getWebsiteBlocking]);
         [self.subtitleLabel setText:subtitle];
         [self.learnCircumventButton setHidden:NO];
     }
