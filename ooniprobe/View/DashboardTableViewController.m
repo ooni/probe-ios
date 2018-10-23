@@ -1,4 +1,5 @@
 #import "DashboardTableViewController.h"
+#import "GRMustache.h"
 
 @interface DashboardTableViewController ()
 
@@ -8,13 +9,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    items = [TestUtility getTestTypes];
-    formatter = [[NSDateComponentsFormatter alloc] init];
-    formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;
-    formatter.includesApproximationPhrase = NO;
-    formatter.includesTimeRemainingPhrase = NO;
-    formatter.allowedUnits = NSCalendarUnitSecond;
-    
+    items = [TestUtility getTestTypes];    
     [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
 }
 
@@ -64,7 +59,8 @@
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
     [titleLabel setText:[LocalizationUtility getNameForTest:testName]];
     [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
-    [estimateTime setText:[NSString stringWithFormat:@"~%@", [formatter stringFromTimeInterval:[TestUtility getTotalTimeForTest:testName]]]];
+    NSString *time = [GRMustacheTemplate renderObject:@{ @"seconds": [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]] } fromString:NSLocalizedString(@"Dashboard.Card.Seconds", nil) error:NULL];
+    [estimateTime setText:time];
     [bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
 
     [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];

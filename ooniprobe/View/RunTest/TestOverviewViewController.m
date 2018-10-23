@@ -1,4 +1,5 @@
 #import "TestOverviewViewController.h"
+#import "GRMustache.h"
 
 @interface TestOverviewViewController ()
 
@@ -30,12 +31,6 @@
     else
         [self.websitesButton setHidden:YES];
 
-    formatter = [[NSDateComponentsFormatter alloc] init];
-    formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;
-    formatter.includesApproximationPhrase = NO;
-    formatter.includesTimeRemainingPhrase = NO;
-    formatter.allowedUnits = NSCalendarUnitSecond;
-
     [self reloadLastMeasurement];
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
     [self.testImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
@@ -56,7 +51,8 @@
                                 value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
                                 range:NSMakeRange(0, estimatedString.length)];
         
-        NSMutableAttributedString *timeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", [formatter stringFromTimeInterval:[TestUtility getTotalTimeForTest:testName]]]];
+        NSString *time = [GRMustacheTemplate renderObject:@{ @"seconds": [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]] } fromString:NSLocalizedString(@"Dashboard.Card.Seconds", nil) error:NULL];
+        NSMutableAttributedString *timeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", time]];
         [timeString addAttribute:NSFontAttributeName
                            value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]
                            range:NSMakeRange(0, timeString.length)];

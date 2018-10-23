@@ -10,7 +10,6 @@
 
 @interface TestOverviewViewController : UIViewController {
     UIColor *defaultColor;
-    NSDateComponentsFormatter *formatter;
 }
 
 @property (nonatomic, strong) NSString *testName;
