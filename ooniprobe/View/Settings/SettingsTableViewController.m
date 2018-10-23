@@ -85,7 +85,7 @@
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"segue"]){
         if ([current isEqualToString:@"website_categories"]){
             cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
-            NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"Count": [NSString stringWithFormat:@"%ld", [SettingsUtility getNumberCategoriesEnabled]] } fromString:NSLocalizedString(@"Settings.AutomatedTesting.Categories.Subtitle", nil) error:NULL];
+            NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"Count": [NSString stringWithFormat:@"%ld", [SettingsUtility getNumberCategoriesEnabled]] } fromString:NSLocalizedString(@"Settings.Websites.Categories.Description", nil) error:NULL];
             [cell.detailTextLabel setText:subtitle];
         }
         else

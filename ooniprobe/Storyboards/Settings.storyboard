@@ -142,7 +142,6 @@
                     <navigationItem key="navigationItem" id="2v0-so-a7v"/>
                     <connections>
                         <segue destination="FSd-Zs-3Da" kind="show" identifier="website_categories" id="RGp-0d-dQf"/>
-                        <segue destination="9vw-NZ-b2F" kind="show" identifier="enabled_tests" id="XVG-wH-Bbk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-AJ-MWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,45 +194,6 @@
             </objects>
             <point key="canvasLocation" x="2104.8000000000002" y="2480.5097451274364"/>
         </scene>
-        <!--AutomaticTests-->
-        <scene sceneID="lQm-yW-VCA">
-            <objects>
-                <tableViewController storyboardIdentifier="automatic_tests" id="9vw-NZ-b2F" userLabel="AutomaticTests" customClass="AutomaticTestsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="rxS-UP-7C4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="RIJ-QZ-DGh" style="IBUITableViewCellStyleDefault" id="pJV-e4-tOK" customClass="SettingCell">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJV-e4-tOK" id="DUN-pV-xaD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RIJ-QZ-DGh">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="59.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
-                                            <color key="textColor" red="0.12549019610000001" green="0.1450980392" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9vw-NZ-b2F" id="Dg4-C4-eDe"/>
-                            <outlet property="delegate" destination="9vw-NZ-b2F" id="BZH-HK-nAb"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="AutomaticTests" id="XvQ-QR-AgR"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EHK-QH-cd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1129" y="2481"/>
-        </scene>
         <!--Custom URL Table View Controller-->
         <scene sceneID="HkJ-xv-T5T">
             <objects>
@@ -242,12 +202,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="2na-jD-p15">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="2na-jD-p15">
                             <rect key="frame" x="0.0" y="133.5" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDn-cB-IQV">
-                                    <rect key="frame" x="345" y="-11" width="22" height="22"/>
+                                    <rect key="frame" x="345" y="11" width="22" height="22"/>
                                     <connections>
                                         <action selector="addRow:" destination="QTB-Ru-Efu" eventType="touchUpInside" id="cZL-0Y-iDm"/>
                                     </connections>

@@ -19,9 +19,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    //self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Dashboard.Title", nil);
-    
+    [super viewWillAppear:animated];    
     UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooni_logo"]];
     navbarImageView.contentMode = UIViewContentModeScaleAspectFit;
     [navbarImageView.widthAnchor constraintEqualToConstant:135].active = YES;

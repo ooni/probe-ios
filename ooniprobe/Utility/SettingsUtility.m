@@ -15,12 +15,6 @@
         else
             return @[@"notifications_enabled"];
     }
-    else if ([categoryName isEqualToString:@"automated_testing"]) {
-        if ([self getSettingWithName:@"automated_testing_enabled"])
-            return @[@"automated_testing_enabled", @"enabled_tests", @"website_categories", @"monthly_mobile_allowance", @"monthly_wifi_allowance"];
-        else
-            return @[@"automated_testing_enabled"];
-    }
     else if ([categoryName isEqualToString:@"sharing"]) {
         //TODO-2.1 @"include_gps"
         return @[@"upload_results", @"include_asn", @"include_cc", @"include_ip"];
@@ -34,7 +28,7 @@
 }
 
 + (NSString*)getTypeForSetting:(NSString*)setting{
-    if ([setting isEqualToString:@"website_categories"] || [setting isEqualToString:@"enabled_tests"])
+    if ([setting isEqualToString:@"website_categories"])
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"])
         return @"int";

@@ -8,7 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Settings.AutomatedTesting.Categories.Title", nil);
+    self.title = NSLocalizedString(@"Settings.Websites.Categories.Title", nil);
     self.navigationController.navigationBar.topItem.title = @"";
     self.tableView.estimatedRowHeight = 44.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
