@@ -45,21 +45,13 @@
 
 + (NSString*)getLongDescriptionForTest:(NSString*)testName{
     if ([testName isEqualToString:@"websites"])
-        return [NSString stringWithFormat:@"%@\n%@",
-                NSLocalizedString(@"Dashboard.Websites.Overview.Paragraph.1", nil),
-                NSLocalizedString(@"Dashboard.Websites.Overview.Paragraph.2", nil)];
+        return NSLocalizedString(@"Dashboard.Websites.Overview.Paragraph", nil);
     else if ([testName isEqualToString:@"performance"])
-        return [NSString stringWithFormat:@"%@\n%@",
-                NSLocalizedString(@"Dashboard.Performance.Overview.Paragraph.1", nil),
-                NSLocalizedString(@"Dashboard.Performance.Overview.Paragraph.2", nil)];
+        return NSLocalizedString(@"Dashboard.Performance.Overview.Paragraph", nil);
     else if ([testName isEqualToString:@"middle_boxes"])
-        return [NSString stringWithFormat:@"%@\n%@",
-                NSLocalizedString(@"Dashboard.Middleboxes.Overview.Paragraph.1", nil),
-                NSLocalizedString(@"Dashboard.Middleboxes.Overview.Paragraph.2", nil)];
+        return NSLocalizedString(@"Dashboard.Middleboxes.Overview.Paragraph", nil);
     else if ([testName isEqualToString:@"instant_messaging"])
-        return [NSString stringWithFormat:@"%@\n%@",
-                NSLocalizedString(@"Dashboard.InstantMessaging.Overview.Paragraph.1", nil),
-                NSLocalizedString(@"Dashboard.InstantMessaging.Overview.Paragraph.2", nil)];
+        return NSLocalizedString(@"Dashboard.InstantMessaging.Overview.Paragraph", nil);
     return @"";
 }
 

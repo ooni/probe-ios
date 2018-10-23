@@ -55,6 +55,7 @@
     UILabel *estimateTime = (UILabel*)[cell viewWithTag:4];
     RunButton *runButton = (RunButton*)[cell viewWithTag:5];
     ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
+    UILabel *bottomLabel = (UILabel*)[cell viewWithTag:8];
 
     [runButton setTitleColor:[TestUtility getColorForTest:testName] forState:UIControlStateNormal];
     [runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
@@ -63,7 +64,9 @@
     UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
     [titleLabel setText:[LocalizationUtility getNameForTest:testName]];
     [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
-    [estimateTime setText:[formatter stringFromTimeInterval:[TestUtility getTotalTimeForTest:testName]]];
+    [estimateTime setText:[NSString stringWithFormat:@"~%@", [formatter stringFromTimeInterval:[TestUtility getTotalTimeForTest:testName]]]];
+    [bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
+
     [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
     [testLogo setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [backgroundView setBackgroundColor:[TestUtility getColorForTest:testName]];

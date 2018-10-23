@@ -68,7 +68,7 @@
         else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
             [self.label1Top setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Tested"]];
             [self.label2Top setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Blocked"]];
-            [self.label3Top setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]];
+            [self.label3Top setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.Websites.Hero.Reachable"]];
             [self.label1Central setText:[NSString stringWithFormat:@"%ld", result.totalMeasurements]];
             [self.label2Central setText:[NSString stringWithFormat:@"%ld", result.anomalousMeasurements]];
             [self.label3Central setText:[NSString stringWithFormat:@"%ld", result.okMeasurements]];

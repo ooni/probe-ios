@@ -46,4 +46,8 @@
     [self.textLabel setTextColor:[UIColor whiteColor]];
 }
 
+-(IBAction)learnMore:(id)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.io/about/risks/"]];
+}
+
 @end

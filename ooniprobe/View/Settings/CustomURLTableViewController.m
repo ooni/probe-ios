@@ -9,7 +9,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Settings.Websites.CustomURL", nil);
+    self.title = NSLocalizedString(@"Settings.Websites.CustomURL.Title", nil);
     self.navigationController.navigationBar.topItem.title = @"";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Settings.Websites.CustomURL.Run", nil) style:UIBarButtonItemStylePlain target:self action:@selector(run:)];
     rows = 1;
