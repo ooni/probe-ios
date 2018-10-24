@@ -93,7 +93,8 @@
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
-    
+
+//TODO this is unused to remove
 - (NSString*)getTelegramBlocking{
     if (self.telegram_http_blocking != nil && self.telegram_tcp_blocking != nil){
         BOOL httpBlocking = [self.telegram_http_blocking boolValue];
@@ -131,7 +132,8 @@
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
-    
+
+//TODO this is unused to remove
 - (NSString*)getFacebookMessengerBlocking{
     if (self.facebook_dns_blocking != nil && self.facebook_tcp_blocking != nil){
         BOOL dnsBlocking = [self.facebook_dns_blocking boolValue];
