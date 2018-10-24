@@ -87,6 +87,7 @@
 		EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */; };
 		EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
+		EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCD73D12180F014003B56D9 /* Header3ViewController.m */; };
 		EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD101BD1EE801F00044E390 /* NotificationService.mm */; };
 		EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.m */; };
 		EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */; };
@@ -262,6 +263,8 @@
 		EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = crossMark.json; sourceTree = "<group>"; };
 		EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = checkMark.json; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
+		EDCD73D02180F014003B56D9 /* Header3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header3ViewController.h; sourceTree = "<group>"; };
+		EDCD73D12180F014003B56D9 /* Header3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header3ViewController.m; sourceTree = "<group>"; };
 		EDD101BC1EE801F00044E390 /* NotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		EDD101BD1EE801F00044E390 /* NotificationService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationService.mm; sourceTree = "<group>"; };
 		EDDB0B4E1FFD320000EFD9C8 /* TestResultsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestResultsTableViewController.h; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 				ED55C0C8203BD52900738260 /* Header1MBViewController.m */,
 				EDB6F9BD202352DC00BDCB0B /* Header2ViewController.h */,
 				EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */,
+				EDCD73D02180F014003B56D9 /* Header3ViewController.h */,
+				EDCD73D12180F014003B56D9 /* Header3ViewController.m */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -945,6 +950,7 @@
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
 				ED3987CA2130EBB600FBA21E /* Settings.m in Sources */,
 				EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */,
+				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
 				ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
