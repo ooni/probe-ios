@@ -278,7 +278,7 @@
                                     <outlet property="delegate" destination="NsA-cf-UBX" id="SB7-1a-jmQ"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kp4-fW-j6p">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kp4-fW-j6p" customClass="RunButton">
                                 <rect key="frame" x="143.5" y="607" width="88" height="44"/>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -290,7 +290,6 @@
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="learnMore:" destination="CKq-8U-kQl" eventType="touchUpInside" id="kgs-ji-Q13"/>
                                     <action selector="run:" destination="NsA-cf-UBX" eventType="touchUpInside" id="nYd-bD-ZiM"/>
                                 </connections>
                             </button>

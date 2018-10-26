@@ -16,11 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_gray2 alpha:1.0f]];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
     [self handleUrlScheme];
 }
 
 -(void)reloadTest:(NSNotification *)notification{
+    urls = nil;
+    testName = nil;
+    testArguments = nil;
+    testDescription = nil;
+    [self.tableView setHidden:YES];
     NSDictionary *parameters = notification.userInfo;
     url = [parameters objectForKey:@"url"];
     [self handleUrlScheme];
@@ -88,10 +97,12 @@
 - (void)showUpdateScreen{
     [self.titleLabel setText:NSLocalizedString(@"OONIRun.OONIProbeOutOfDate", nil)];
     [self.subtitleLabel setText:NSLocalizedString(@"OONIRun.OONIProbeNewerVersion", nil)];
-    [self.runButton setHidden:NO];
     [self.runButton setTitle:NSLocalizedString(@"OONIRun.Update", nil) forState:UIControlStateNormal];
     [self.runButton addTarget:self
                        action:@selector(updateApp) forControlEvents:UIControlEventTouchUpInside];
+    //TODO missing icon
+    //[self.headerImage setImage:[UIImage imageNamed:self.testName]];
+    //[self.footerImage setImage:[UIImage imageNamed:self.testName]];
 }
 
 - (void)updateApp{
@@ -102,8 +113,13 @@
 - (void)showErrorScreen{
     [self.titleLabel setText:NSLocalizedString(@"OONIRun.InvalidParameter", nil)];
     [self.subtitleLabel setText:NSLocalizedString(@"OONIRun.InvalidParameter.Msg", nil)];
-    [self.runButton setHidden:NO];
-    [self.runButton setHidden:YES];
+    [self.runButton setTitle:NSLocalizedString(@"OONIRun.Close", nil)
+                    forState:UIControlStateNormal];
+    [self.runButton addTarget:self
+                       action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
+    //TODO missing icon
+    //[self.headerImage setImage:[UIImage imageNamed:self.testName]];
+    //[self.footerImage setImage:[UIImage imageNamed:self.testName]];
 }
 
 - (void)showTestScreen{
@@ -118,7 +134,9 @@
     [self.runButton addTarget:self
                        action:@selector(runTest) forControlEvents:UIControlEventTouchUpInside];
     
-    
+    [self.headerImage setImage:[UIImage imageNamed:[TestUtility getCategoryForTest:self.testName]]];
+    [self.footerImage setImage:[UIImage imageNamed:[TestUtility getCategoryForTest:self.testName]]];
+
     //reset the arrays: we may be called more than once for the same screen
     if ([testName isEqualToString:@"web_connectivity"]){
         urls = [testArguments objectForKey:@"urls"];
@@ -158,7 +176,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [NSString stringWithFormat:@"%ld %@", [urls count], NSLocalizedString(@"OONIRun.URLs", nil)];;
+    return NSLocalizedFormatString(@"OONIRun.URLs", [NSString stringWithFormat:@"%ld", [urls count]]);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -171,7 +189,7 @@
     header.backgroundView.backgroundColor = [UIColor clearColor];
     header.textLabel.font = [UIFont fontWithName:@"FiraSans-Regular" size:18];
     [header.textLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    header.textLabel.text = NSLocalizedString(@"urls", nil);
+    header.textLabel.text = NSLocalizedFormatString(@"OONIRun.URLs", [NSString stringWithFormat:@"%ld", [urls count]]);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

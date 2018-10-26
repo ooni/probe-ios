@@ -13,8 +13,6 @@
     self.navigationController.navigationBar.topItem.title = @"";
     
     [self.runButton setTitle:NSLocalizedString(@"Settings.Websites.CustomURL.Run", nil) forState:UIControlStateNormal];
-    self.runButton.layer.cornerRadius = 20;
-    self.runButton.layer.masksToBounds = YES;
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
