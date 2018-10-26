@@ -91,8 +91,7 @@
             [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         }
         else {
-            [status setImage:[UIImage imageNamed:@"cross"]];
-            [status setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+            [status setImage:[UIImage imageNamed:@"exclamation_point"]];
         }
     }
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
@@ -115,8 +114,7 @@
                 [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
             }
             else {
-                [status setImage:[UIImage imageNamed:@"cross"]];
-                [status setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+                [status setImage:[UIImage imageNamed:@"exclamation_point"]];
             }
         }
     }

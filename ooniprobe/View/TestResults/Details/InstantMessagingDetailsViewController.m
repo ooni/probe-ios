@@ -16,9 +16,8 @@
         [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
     }
     else {
-        [self.statusImage setImage:[UIImage imageNamed:@"cross"]];
-        [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_red7 alpha:1.0f]];
+        [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
+        [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
     }
     
     if ([self.measurement.test_name isEqualToString:@"whatsapp"]){
