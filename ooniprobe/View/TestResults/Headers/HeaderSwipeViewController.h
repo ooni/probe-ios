@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "Header1ViewController.h"
 #import "Header2ViewController.h"
+#import "Header3ViewController.h"
 #import "SettingsUtility.h"
 #import "Result.h"
 
@@ -13,6 +14,7 @@
 
 @property (nonatomic, retain) Header1ViewController *first;
 @property (nonatomic, retain) Header2ViewController *second;
+@property (nonatomic, retain) Header3ViewController *third;
 @property (nonatomic, strong) Result *result;
 
 @end
