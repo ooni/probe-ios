@@ -107,7 +107,10 @@
         [title setText:[NSString stringWithFormat:@"%@", current.url_id.url]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.url_id.category_code]]];
-        [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+        if (current.is_failed)
+            [icon setTintColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
+        else
+            [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
         if (!current.is_failed){
             if (!current.is_anomaly){
                 [status setImage:[UIImage imageNamed:@"tick"]];
