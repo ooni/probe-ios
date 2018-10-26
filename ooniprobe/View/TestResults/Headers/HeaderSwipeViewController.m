@@ -34,7 +34,7 @@
         _third = [sb instantiateViewControllerWithIdentifier:@"test_summary_header_3"];
         [_third setResult:result];
     }
-    return _second;
+    return _third;
 }
 
 - (void)viewDidLoad
