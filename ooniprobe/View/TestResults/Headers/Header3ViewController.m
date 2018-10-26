@@ -14,7 +14,6 @@
     [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
-    [self.websitesLabel setText:NSLocalizedString(@"Test.Websites.Fullname", nil)];
     [self reloadMeasurement];
 }
 
@@ -45,10 +44,11 @@
     [self.countryDetailLabel setText:country];
     
     if (![self.result.test_group_name isEqualToString:@"websites"]){
-        [self.websitesLabel setHidden:YES];
-        [self.websitesDetailLabel setHidden:YES];
+        [self.websitesLabel setText:@" "];
+        [self.websitesDetailLabel setText:@" "];
     }
-    else{
+    else {
+        [self.websitesLabel setText:NSLocalizedString(@"Test.Websites.Fullname", nil)];
         long totalMeasurements = [result totalMeasurements];
         [self.websitesDetailLabel setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
     }
