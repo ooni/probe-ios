@@ -28,6 +28,15 @@
     return _second;
 }
 
+- (UIViewController *)third {
+    if (!_third) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Result" bundle:nil];
+        _third = [sb instantiateViewControllerWithIdentifier:@"test_summary_header_3"];
+        [_third setResult:result];
+    }
+    return _second;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,7 +45,7 @@
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
     self.pageViewController.dataSource = self;
-    viewControllers = [[NSArray alloc] initWithObjects:self.first, self.second, nil];
+    viewControllers = [[NSArray alloc] initWithObjects:self.first, self.second, self.third, nil];
     
     [self.pageViewController setViewControllers:@[self.first]
                                       direction:UIPageViewControllerNavigationDirectionForward
