@@ -12,7 +12,6 @@
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
-		ED0A61FE200B075000235E70 /* CustomURLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0A61FD200B075000235E70 /* CustomURLTableViewController.m */; };
 		ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0A6200200B52C000235E70 /* OONIRun.storyboard */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */; };
@@ -72,6 +71,7 @@
 		EDA9CC9C209B53D50062507F /* Telegram.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC9B209B53D50062507F /* Telegram.mm */; };
 		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
 		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
+		EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB33B7C21838824002CEC34 /* CustomURLViewController.m */; };
 		EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
@@ -119,8 +119,6 @@
 		D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		D4A2F5E91A6C3244001B8460 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4A2F5EC1A6C3244001B8460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		ED0A61FC200B075000235E70 /* CustomURLTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomURLTableViewController.h; path = Settings/CustomURLTableViewController.h; sourceTree = "<group>"; };
-		ED0A61FD200B075000235E70 /* CustomURLTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CustomURLTableViewController.m; path = Settings/CustomURLTableViewController.m; sourceTree = "<group>"; };
 		ED0A6200200B52C000235E70 /* OONIRun.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = OONIRun.storyboard; path = Storyboards/OONIRun.storyboard; sourceTree = "<group>"; };
 		ED0D35BC1DD72824005C863F /* RunButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunButton.h; sourceTree = "<group>"; };
 		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunButton.m; sourceTree = "<group>"; };
@@ -241,6 +239,8 @@
 		EDB252A820FA4D4F00B4EDE4 /* Tampering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tampering.h; sourceTree = "<group>"; };
 		EDB252A920FA4D4F00B4EDE4 /* Tampering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tampering.m; sourceTree = "<group>"; };
 		EDB2B7F71E7C5B8F0008A414 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EDB33B7C21838824002CEC34 /* CustomURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomURLViewController.m; path = Settings/CustomURLViewController.m; sourceTree = "<group>"; };
+		EDB33B7D21838824002CEC34 /* CustomURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomURLViewController.h; path = Settings/CustomURLViewController.h; sourceTree = "<group>"; };
 		EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hexadecimal.h"; sourceTree = "<group>"; };
 		EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hexadecimal.m"; sourceTree = "<group>"; };
 		EDB6F9B72023526300BDCB0B /* HeaderSwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderSwipeViewController.h; sourceTree = "<group>"; };
@@ -644,8 +644,8 @@
 				EDDB0B5A1FFF330700EFD9C8 /* SettingsTableViewController.m */,
 				EDDB0B601FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.h */,
 				EDDB0B611FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m */,
-				ED0A61FC200B075000235E70 /* CustomURLTableViewController.h */,
-				ED0A61FD200B075000235E70 /* CustomURLTableViewController.m */,
+				EDB33B7D21838824002CEC34 /* CustomURLViewController.h */,
+				EDB33B7C21838824002CEC34 /* CustomURLViewController.m */,
 				ED3932C21E3114740064CD11 /* AboutViewController.h */,
 				ED3932C31E3114740064CD11 /* AboutViewController.mm */,
 			);
@@ -897,7 +897,6 @@
 				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */,
 				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
-				ED0A61FE200B075000235E70 /* CustomURLTableViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
 				EDA9CC87209B534A0062507F /* FacebookMessenger.mm in Sources */,
@@ -929,6 +928,7 @@
 				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
+				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
 				ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
 				ED53841F215975A70078C5C6 /* Value.m in Sources */,
