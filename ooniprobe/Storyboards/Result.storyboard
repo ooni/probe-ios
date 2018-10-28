@@ -227,6 +227,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0C-yd-93T">
+                                            <rect key="frame" x="170" y="0.0" width="1" height="79.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="1" id="bwg-bG-fbo"/>
+                                            </constraints>
+                                        </view>
                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aL7-nO-Fhs">
                                             <rect key="frame" x="12" y="9" width="18" height="18"/>
                                             <constraints>
@@ -256,7 +263,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="IFH-XT-fap">
-                                            <rect key="frame" x="220" y="9" width="97" height="59"/>
+                                            <rect key="frame" x="201" y="9" width="116" height="59"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nds-sH-4aI">
                                                     <rect key="frame" x="0.0" y="0.0" width="78" height="19"/>
@@ -322,15 +329,18 @@
                                         <constraint firstAttribute="trailing" secondItem="IFH-XT-fap" secondAttribute="trailing" constant="24" id="0An-k3-juV"/>
                                         <constraint firstItem="4QR-Qf-mSJ" firstAttribute="top" secondItem="Lso-kg-nwN" secondAttribute="bottom" constant="-7.1054273576010019e-15" id="0Fo-Hm-A7q"/>
                                         <constraint firstItem="Lso-kg-nwN" firstAttribute="leading" secondItem="7I9-y3-QAl" secondAttribute="leadingMargin" constant="-4" id="0NL-8d-xo3"/>
+                                        <constraint firstItem="B0C-yd-93T" firstAttribute="centerX" secondItem="7I9-y3-QAl" secondAttribute="centerX" id="6tT-e3-hyF"/>
+                                        <constraint firstItem="B0C-yd-93T" firstAttribute="top" secondItem="7I9-y3-QAl" secondAttribute="top" id="8iK-lb-sip"/>
                                         <constraint firstItem="4QR-Qf-mSJ" firstAttribute="bottom" secondItem="7I9-y3-QAl" secondAttribute="bottomMargin" constant="1" id="DPt-Yp-Q8g"/>
+                                        <constraint firstAttribute="bottom" secondItem="B0C-yd-93T" secondAttribute="bottom" id="EyQ-o0-aFH"/>
                                         <constraint firstItem="aL7-nO-Fhs" firstAttribute="top" secondItem="7I9-y3-QAl" secondAttribute="topMargin" constant="-2" id="HUS-3t-0Jt"/>
+                                        <constraint firstItem="IFH-XT-fap" firstAttribute="leading" relation="lessThanOrEqual" secondItem="B0C-yd-93T" secondAttribute="trailing" constant="30" id="MSC-3O-4Vj"/>
                                         <constraint firstItem="aL7-nO-Fhs" firstAttribute="leading" secondItem="7I9-y3-QAl" secondAttribute="leading" constant="12" id="QCr-bk-f3e"/>
                                         <constraint firstItem="IFH-XT-fap" firstAttribute="top" secondItem="7I9-y3-QAl" secondAttribute="top" constant="9" id="RQI-wQ-pPd"/>
                                         <constraint firstItem="ulw-BA-UD8" firstAttribute="leading" secondItem="aL7-nO-Fhs" secondAttribute="trailing" constant="4" id="Wed-sX-4FG"/>
                                         <constraint firstItem="4QR-Qf-mSJ" firstAttribute="leading" secondItem="7I9-y3-QAl" secondAttribute="leadingMargin" constant="-4" id="Y3o-WU-8lQ"/>
                                         <constraint firstItem="Lso-kg-nwN" firstAttribute="top" secondItem="ulw-BA-UD8" secondAttribute="bottom" constant="3" id="aNX-RU-Go7"/>
                                         <constraint firstItem="ulw-BA-UD8" firstAttribute="top" secondItem="7I9-y3-QAl" secondAttribute="top" constant="9" id="qOa-gR-97c"/>
-                                        <constraint firstItem="IFH-XT-fap" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lso-kg-nwN" secondAttribute="trailing" constant="8" id="uOf-FD-ahw"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -367,7 +377,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqe-Xy-6gx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786" y="1185"/>
+            <point key="canvasLocation" x="784.79999999999995" y="1184.257871064468"/>
         </scene>
         <!--Test Results-->
         <scene sceneID="Z4h-DE-Y5b">
@@ -2370,6 +2380,6 @@
         <image name="upload_nopad" width="11" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uP0-sL-zsM"/>
+        <segue reference="ehP-Hs-f5z"/>
     </inferredMetricsTieBreakers>
 </document>
