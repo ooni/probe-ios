@@ -210,7 +210,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
-    //TODO-NOTIFICATION when enable remote news notification send something to backend
+    //TODO-2.0 when enable remote news notification send something to backend
     //TODO-2.1 hide rows smooth
     [self reloadSettings];
 }

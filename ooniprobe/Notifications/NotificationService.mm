@@ -55,7 +55,7 @@
         client.supported_tests = supported_tests_list;
         client.network_type = [network_type UTF8String];
         client.language = [language UTF8String];
-        //TODO add timezone
+        //TODO-2.0-MK add timezone
         
         // TODO-2.2 when orchestrate
         // FIXME: this string is `nil` hence the crash when calling UTF8String

@@ -124,7 +124,7 @@
 }
 
 + (void)downloadUrls:(void (^)(NSArray *))completion {
-    //TODO automatical discovery https://github.com/ooni/orchestra/issues/49
+    //TODO-2.0-MK automatical discovery https://github.com/ooni/orchestra/issues/49
     NSString *path = @"https://orchestrate.ooni.io/api/v1/test-list/urls?country_code=MX";
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];

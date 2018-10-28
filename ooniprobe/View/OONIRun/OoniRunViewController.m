@@ -100,7 +100,7 @@
     [self.runButton setTitle:NSLocalizedString(@"OONIRun.Update", nil) forState:UIControlStateNormal];
     [self.runButton addTarget:self
                        action:@selector(updateApp) forControlEvents:UIControlEventTouchUpInside];
-    //TODO missing icon
+    //TODO-2.0 missing icon
     //[self.headerImage setImage:[UIImage imageNamed:self.testName]];
     //[self.footerImage setImage:[UIImage imageNamed:self.testName]];
 }
@@ -117,7 +117,7 @@
                     forState:UIControlStateNormal];
     [self.runButton addTarget:self
                        action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
-    //TODO missing icon
+    //TODO-2.0 missing icon
     //[self.headerImage setImage:[UIImage imageNamed:self.testName]];
     //[self.footerImage setImage:[UIImage imageNamed:self.testName]];
 }
