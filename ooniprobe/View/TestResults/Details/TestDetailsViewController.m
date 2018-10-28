@@ -13,19 +13,14 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.title = [LocalizationUtility getNameForTest:measurement.test_name];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(advancedScreens)];
 
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-    //[self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
     [self.dateLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
     [self.dateDetailLabel setText:localizedDateTime];
-
-    //self.rawDataButton.layer.cornerRadius = self.rawDataButton.bounds.size.height/2;
-    //self.rawDataButton.layer.masksToBounds = YES;
-    //[self.rawDataButton setTitle:NSLocalizedString(@"TestResults.Details.RawData", nil) forState:UIControlStateNormal];
-    //[self.viewLogButton setTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil) forState:UIControlStateNormal];
 
     NSString *network = [result getNetworkName];
     NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", network]];
@@ -58,6 +53,24 @@
     if (!parent) {
         [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
     }
+}
+
+- (void)advancedScreens{
+    UIAlertAction* rawDataButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [self rawData];
+                                   }];
+    UIAlertAction* logButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [self viewLogs];
+                                   }];
+    NSArray *buttons = [NSArray arrayWithObjects:rawDataButton, logButton, nil];
+    [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
+
 }
 
 - (IBAction)viewLogs{

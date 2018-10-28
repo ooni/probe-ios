@@ -180,10 +180,6 @@
 }
 
 -(void)showPopup{
-    UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:NSLocalizedString(@"Modal.ReRun.Title", nil)
-                                 message:NSLocalizedString(@"Modal.ReRun.Paragraph", nil)
-                                 preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* reRunButton = [UIAlertAction
                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                   style:UIAlertActionStyleDefault
@@ -193,13 +189,15 @@
                                       else
                                           [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.NoInternet" inView:self];
                                   }];
-    [alert addAction:reRunButton];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
                                    style:UIAlertActionStyleCancel
                                    handler:nil];
-    [alert addAction:cancelButton];
-    [self presentViewController:alert animated:YES completion:nil];
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ReRun.Title", nil)
+                           message:NSLocalizedString(@"Modal.ReRun.Paragraph", nil)
+                          okButton:reRunButton
+                      cancelButton:cancelButton
+                            inView:self];
 }
 
 -(void)goToDetails{

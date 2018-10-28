@@ -45,6 +45,25 @@
     });
 }
 
++ (void)alertWithTitle:(NSString *)title message:(NSString *)msg buttons:(NSArray*)buttons inView:(UIViewController *)view
+{
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:title
+                                 message:msg
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* cancelButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
+                                   style:UIAlertActionStyleCancel
+                                   handler:nil];
+    [alert addAction:cancelButton];
+    for (UIAlertAction* button in buttons)
+        [alert addAction:button];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view presentViewController:alert animated:YES completion:nil];
+    });
+}
+
+
 + (void)alertWithTitle:(NSString *)title message:(NSString *)msg okButton:(UIAlertAction*)okButton cancelButton:(UIAlertAction*)cancelButton inView:(UIViewController *)view
 {
     UIAlertController * alert = [UIAlertController

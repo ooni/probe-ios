@@ -4,6 +4,7 @@
 #import "TestUtility.h"
 #import "LogViewController.h"
 #import "RHMarkdownLabel.h"
+#import "MessageUtility.h"
 
 @interface TestDetailsViewController : UIViewController {
     NSString *segueType;
