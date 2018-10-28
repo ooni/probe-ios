@@ -5,6 +5,7 @@
 #import "OoniRunViewController.h"
 #import "MessageUtility.h"
 #import "Result.h"
+#import "TestRunningViewController.h"
 
 @interface AppDelegate ()
 
@@ -192,6 +193,14 @@
 }
 
 -(void)handleUrlScheme:(NSURL*)url{
+    if ([self.window.rootViewController.presentedViewController isKindOfClass:[TestRunningViewController class]])
+        [MessageUtility showToast:@"OONIRun.TestRunningError" inView:self.window.rootViewController.presentedViewController.view];
+    else {
+        [self showOONIRun:url];
+    }
+}
+
+-(void)showOONIRun:(NSURL*)url{
     dispatch_async(dispatch_get_main_queue(), ^{
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
         UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"oonirun_nav"];
