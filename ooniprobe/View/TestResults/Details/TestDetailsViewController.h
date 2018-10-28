@@ -3,6 +3,7 @@
 #import "Measurement.h"
 #import "TestUtility.h"
 #import "LogViewController.h"
+#import "RHMarkdownLabel.h"
 
 @interface TestDetailsViewController : UIViewController {
     NSString *segueType;
@@ -19,7 +20,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *countryDetailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *runtimeLabel;
 @property (nonatomic, strong) IBOutlet UILabel *runtimeDetailLabel;
-@property (nonatomic, strong) IBOutlet UIButton *viewLogButton;
-@property (nonatomic, strong) IBOutlet UIButton *rawDataButton;
+//@property (nonatomic, strong) IBOutlet UIButton *viewLogButton;
+//@property (nonatomic, strong) IBOutlet UIButton *rawDataButton;
 
 @end

@@ -15,17 +15,17 @@
     self.title = [LocalizationUtility getNameForTest:measurement.test_name];
 
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
+    //[self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
     [self.dateLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
     [self.dateDetailLabel setText:localizedDateTime];
 
-    self.rawDataButton.layer.cornerRadius = self.rawDataButton.bounds.size.height/2;
-    self.rawDataButton.layer.masksToBounds = YES;
-    [self.rawDataButton setTitle:NSLocalizedString(@"TestResults.Details.RawData", nil) forState:UIControlStateNormal];
-    [self.viewLogButton setTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil) forState:UIControlStateNormal];
+    //self.rawDataButton.layer.cornerRadius = self.rawDataButton.bounds.size.height/2;
+    //self.rawDataButton.layer.masksToBounds = YES;
+    //[self.rawDataButton setTitle:NSLocalizedString(@"TestResults.Details.RawData", nil) forState:UIControlStateNormal];
+    //[self.viewLogButton setTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil) forState:UIControlStateNormal];
 
     NSString *network = [result getNetworkName];
     NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", network]];
@@ -51,6 +51,13 @@
     [self.countryDetailLabel setText:country];
 
     [self.runtimeDetailLabel setText:[NSString stringWithFormat:@"%.02f sec", measurement.runtime]];
+}
+
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+    [super willMoveToParentViewController:parent];
+    if (!parent) {
+        [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
+    }
 }
 
 - (IBAction)viewLogs{

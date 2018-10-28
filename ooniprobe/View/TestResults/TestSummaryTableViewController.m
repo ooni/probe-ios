@@ -92,6 +92,7 @@
         }
         else {
             [status setImage:[UIImage imageNamed:@"exclamation_point"]];
+            [status setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         }
     }
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
@@ -100,8 +101,10 @@
             [status setImage:[UIImage imageNamed:@"tick"]];
             [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
         }
-        else
+        else {
             [status setImage:[UIImage imageNamed:@"exclamation_point"]];
+            [status setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        }
     }
     else if ([result.test_group_name isEqualToString:@"websites"]){
         [title setText:[NSString stringWithFormat:@"%@", current.url_id.url]];
@@ -118,6 +121,7 @@
             }
             else {
                 [status setImage:[UIImage imageNamed:@"exclamation_point"]];
+                [status setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
             }
         }
     }

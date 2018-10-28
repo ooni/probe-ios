@@ -35,7 +35,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udZ-ul-bbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="-1151"/>
+            <point key="canvasLocation" x="-922" y="-1153"/>
         </scene>
         <!--Onboarding1 View Controller-->
         <scene sceneID="fYy-eA-Ugj">
@@ -50,13 +50,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is OONI Probe?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E83-HA-9VG">
-                                <rect key="frame" x="20" y="219" width="374" height="41"/>
+                                <rect key="frame" x="20" y="332" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-gy-NKd">
-                                <rect key="frame" x="20" y="268" width="374" height="192"/>
+                                <rect key="frame" x="20" y="381" width="374" height="192"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192" id="pfL-Xw-Ocs"/>
                                 </constraints>
@@ -82,12 +82,10 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ooniprobe_shark" translatesAutoresizingMaskIntoConstraints="NO" id="wjo-4r-PfJ">
-                                <rect key="frame" x="101" y="83" width="212" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_1" translatesAutoresizingMaskIntoConstraints="NO" id="wjo-4r-PfJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="324"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="wjo-4r-PfJ" secondAttribute="height" multiplier="53:32" id="Iia-0V-0jN"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180.33000000000001" id="lZa-7h-kUq"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="298" id="zeN-s0-FAG"/>
+                                    <constraint firstAttribute="width" secondItem="wjo-4r-PfJ" secondAttribute="height" multiplier="23:18" id="EWS-fc-RQ1"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-DR-K1M">
@@ -106,17 +104,18 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.019607843137254902" green="0.53333333333333333" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.16862745098039217" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BVF-vN-9qu" firstAttribute="top" secondItem="xbu-DR-K1M" secondAttribute="bottom" constant="77" id="0Xs-bL-fj3"/>
+                            <constraint firstItem="wjo-4r-PfJ" firstAttribute="top" secondItem="gM5-Q3-Fo5" secondAttribute="top" id="8PA-0g-qT6"/>
                             <constraint firstItem="cpY-gy-NKd" firstAttribute="top" secondItem="E83-HA-9VG" secondAttribute="bottom" constant="8" id="LA7-Uw-Ugq"/>
                             <constraint firstItem="E83-HA-9VG" firstAttribute="trailing" secondItem="gM5-Q3-Fo5" secondAttribute="trailingMargin" id="UNZ-jD-VDB"/>
-                            <constraint firstItem="E83-HA-9VG" firstAttribute="top" secondItem="wjo-4r-PfJ" secondAttribute="bottom" constant="8" id="h7i-8c-2rP"/>
+                            <constraint firstItem="wjo-4r-PfJ" firstAttribute="trailing" secondItem="TI7-0x-9pi" secondAttribute="trailing" id="eJl-Lw-d20"/>
+                            <constraint firstItem="wjo-4r-PfJ" firstAttribute="leading" secondItem="TI7-0x-9pi" secondAttribute="leading" id="gOm-C3-Iqg"/>
                             <constraint firstItem="E83-HA-9VG" firstAttribute="leading" secondItem="gM5-Q3-Fo5" secondAttribute="leadingMargin" id="jsz-2s-ZfT"/>
-                            <constraint firstItem="wjo-4r-PfJ" firstAttribute="centerX" secondItem="gM5-Q3-Fo5" secondAttribute="centerX" id="oI5-fJ-VAa"/>
+                            <constraint firstItem="E83-HA-9VG" firstAttribute="top" secondItem="wjo-4r-PfJ" secondAttribute="bottom" constant="8" id="kAJ-eL-iN3"/>
                             <constraint firstItem="cpY-gy-NKd" firstAttribute="leading" secondItem="gM5-Q3-Fo5" secondAttribute="leadingMargin" id="rPe-Hp-VKA"/>
                             <constraint firstItem="cpY-gy-NKd" firstAttribute="trailing" secondItem="gM5-Q3-Fo5" secondAttribute="trailingMargin" id="tzu-P8-22k"/>
-                            <constraint firstItem="wjo-4r-PfJ" firstAttribute="top" secondItem="49e-7u-507" secondAttribute="bottom" constant="63" id="xoG-N6-iPm"/>
                             <constraint firstItem="xbu-DR-K1M" firstAttribute="centerX" secondItem="gM5-Q3-Fo5" secondAttribute="centerX" id="yZt-kk-UnZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TI7-0x-9pi"/>
@@ -126,12 +125,11 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <outlet property="nextButton" destination="xbu-DR-K1M" id="rux-ue-KOy"/>
                         <outlet property="textLabel" destination="cpY-gy-NKd" id="l2O-Tb-hCb"/>
                         <outlet property="titleLabel" destination="E83-HA-9VG" id="XwS-Jy-zNu"/>
-                        <outlet property="topConstraint" destination="xoG-N6-iPm" id="Dd9-2u-kdq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4A-KP-w7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="-1151"/>
+            <point key="canvasLocation" x="1099" y="-1153"/>
         </scene>
         <!--Onboarding2 View Controller-->
         <scene sceneID="E5t-8t-GFV">
@@ -146,13 +144,13 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Things to know" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-dw-gFn">
-                                <rect key="frame" x="20" y="219" width="374" height="41"/>
+                                <rect key="frame" x="20" y="302" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-qb-Qml">
-                                <rect key="frame" x="20" y="268" width="374" height="247"/>
+                                <rect key="frame" x="20" y="351" width="374" height="247"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="247" id="p6H-zv-Cty"/>
                                 </constraints>
@@ -167,13 +165,8 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="s0Z-yY-pz9">
-                                <rect key="frame" x="136.66666666666666" y="83" width="140.99999999999997" height="106"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="s0Z-yY-pz9" secondAttribute="height" multiplier="85:64" id="OGv-st-vSJ"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180" id="hSa-2t-mJg"/>
-                                    <constraint firstAttribute="width" constant="141" id="l64-XG-TQ2"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_2" translatesAutoresizingMaskIntoConstraints="NO" id="s0Z-yY-pz9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="294"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-lT-nrn">
                                 <rect key="frame" x="102" y="603" width="210" height="56"/>
@@ -205,18 +198,19 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.058823529411764705" green="0.24313725490196078" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="d3f-qb-Qml" firstAttribute="trailing" secondItem="MM1-JM-jnN" secondAttribute="trailingMargin" id="ASy-0L-xnu"/>
                             <constraint firstItem="gEM-O8-Zw1" firstAttribute="top" secondItem="ESv-lT-nrn" secondAttribute="bottom" constant="77" id="DA7-69-akn"/>
+                            <constraint firstItem="s0Z-yY-pz9" firstAttribute="top" secondItem="MM1-JM-jnN" secondAttribute="top" id="GPe-Ic-5Kd"/>
                             <constraint firstItem="2bZ-td-099" firstAttribute="top" secondItem="ESv-lT-nrn" secondAttribute="bottom" constant="8" id="Ggb-sf-TDO"/>
                             <constraint firstItem="d3f-qb-Qml" firstAttribute="top" secondItem="hvO-dw-gFn" secondAttribute="bottom" constant="8" id="JuB-vj-xVp"/>
                             <constraint firstItem="hvO-dw-gFn" firstAttribute="leading" secondItem="MM1-JM-jnN" secondAttribute="leadingMargin" id="PPU-QI-DUE"/>
                             <constraint firstItem="hvO-dw-gFn" firstAttribute="trailing" secondItem="MM1-JM-jnN" secondAttribute="trailingMargin" id="QOr-ve-s2p"/>
-                            <constraint firstItem="hvO-dw-gFn" firstAttribute="top" secondItem="s0Z-yY-pz9" secondAttribute="bottom" constant="30" id="Sqi-jz-XKw"/>
+                            <constraint firstItem="s0Z-yY-pz9" firstAttribute="trailing" secondItem="C66-6d-BvC" secondAttribute="trailing" id="RsR-D8-INS"/>
                             <constraint firstItem="ESv-lT-nrn" firstAttribute="centerX" secondItem="MM1-JM-jnN" secondAttribute="centerX" id="T6q-Fc-JSI"/>
-                            <constraint firstItem="s0Z-yY-pz9" firstAttribute="centerX" secondItem="MM1-JM-jnN" secondAttribute="centerX" id="W5k-iu-lsA"/>
-                            <constraint firstItem="s0Z-yY-pz9" firstAttribute="top" secondItem="bt5-u7-Qtb" secondAttribute="bottom" constant="63" id="imG-Id-0OV"/>
+                            <constraint firstItem="s0Z-yY-pz9" firstAttribute="leading" secondItem="C66-6d-BvC" secondAttribute="leading" id="WuI-EJ-Sag"/>
+                            <constraint firstItem="hvO-dw-gFn" firstAttribute="top" secondItem="s0Z-yY-pz9" secondAttribute="bottom" constant="8" id="ZFE-dz-Vge"/>
                             <constraint firstItem="2bZ-td-099" firstAttribute="centerX" secondItem="MM1-JM-jnN" secondAttribute="centerX" id="tY4-g9-Z29"/>
                             <constraint firstItem="d3f-qb-Qml" firstAttribute="leading" secondItem="MM1-JM-jnN" secondAttribute="leadingMargin" id="uw9-iM-Bt3"/>
                         </constraints>
@@ -229,13 +223,12 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <outlet property="nextButton" destination="ESv-lT-nrn" id="MEn-w4-M62"/>
                         <outlet property="textLabel" destination="d3f-qb-Qml" id="vAE-1d-vpW"/>
                         <outlet property="titleLabel" destination="hvO-dw-gFn" id="eS9-tX-zJT"/>
-                        <outlet property="topConstraint" destination="imG-Id-0OV" id="nRi-I3-v8p"/>
                         <segue destination="7O5-JB-Uds" kind="show" identifier="toOnboarding3" id="RRj-ie-chj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjF-ji-WHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533.3333333333335" y="-1151.9021739130435"/>
+            <point key="canvasLocation" x="2532" y="-1152.7736131934034"/>
         </scene>
         <!--Onboarding3 View Controller-->
         <scene sceneID="Gyd-tp-5Oz">
@@ -250,13 +243,13 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Settings" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ldx-vN-fF3">
-                                <rect key="frame" x="20" y="219" width="374" height="41"/>
+                                <rect key="frame" x="20" y="240" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hx8-bq-2PZ">
-                                <rect key="frame" x="20" y="269" width="374" height="261"/>
+                                <rect key="frame" x="20" y="290" width="374" height="261"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="261" id="eE7-Jq-CIl"/>
                                 </constraints>
@@ -307,13 +300,8 @@ We will not include:
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-ON-TYp">
-                                <rect key="frame" x="136.66666666666666" y="83" width="140.99999999999997" height="106"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="141" id="Tdj-o3-sxm"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180" id="v4g-R0-Dom"/>
-                                    <constraint firstAttribute="width" secondItem="2pt-ON-TYp" secondAttribute="height" multiplier="85:64" id="vvH-V0-KOq"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_3" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-ON-TYp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="232"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB1-sc-28S">
                                 <rect key="frame" x="102" y="603" width="210" height="56"/>
@@ -345,18 +333,19 @@ We will not include:
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.10196078431372549" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hx8-bq-2PZ" firstAttribute="top" secondItem="ldx-vN-fF3" secondAttribute="bottom" constant="9" id="6m9-JR-z82"/>
+                            <constraint firstItem="2pt-ON-TYp" firstAttribute="trailing" secondItem="tr5-G1-oNN" secondAttribute="trailing" id="FwN-yk-LYf"/>
                             <constraint firstItem="d3K-eH-7xm" firstAttribute="top" secondItem="sB1-sc-28S" secondAttribute="bottom" constant="77" id="G6H-sv-UWB"/>
-                            <constraint firstItem="ldx-vN-fF3" firstAttribute="top" secondItem="2pt-ON-TYp" secondAttribute="bottom" constant="30" id="HLg-aB-bOc"/>
+                            <constraint firstItem="ldx-vN-fF3" firstAttribute="top" secondItem="2pt-ON-TYp" secondAttribute="bottom" constant="8" id="GgZ-wl-JeL"/>
                             <constraint firstItem="eIj-ks-Nks" firstAttribute="top" secondItem="sB1-sc-28S" secondAttribute="bottom" constant="8" id="NVx-PR-Ygd"/>
+                            <constraint firstItem="2pt-ON-TYp" firstAttribute="top" secondItem="DEh-Zm-8aG" secondAttribute="top" id="NqT-6Z-RJx"/>
                             <constraint firstItem="eIj-ks-Nks" firstAttribute="centerX" secondItem="DEh-Zm-8aG" secondAttribute="centerX" id="Qee-LR-o3k"/>
                             <constraint firstItem="ldx-vN-fF3" firstAttribute="trailing" secondItem="DEh-Zm-8aG" secondAttribute="trailingMargin" id="Tew-rV-IMz"/>
-                            <constraint firstItem="2pt-ON-TYp" firstAttribute="top" secondItem="2n7-hW-eQd" secondAttribute="bottom" constant="63" id="Unp-wq-hP2"/>
+                            <constraint firstItem="2pt-ON-TYp" firstAttribute="leading" secondItem="tr5-G1-oNN" secondAttribute="leading" id="YRF-8I-WKJ"/>
                             <constraint firstItem="hx8-bq-2PZ" firstAttribute="trailing" secondItem="DEh-Zm-8aG" secondAttribute="trailingMargin" id="bLX-EI-xQm"/>
                             <constraint firstItem="ldx-vN-fF3" firstAttribute="leading" secondItem="DEh-Zm-8aG" secondAttribute="leadingMargin" id="gfX-d0-e8v"/>
-                            <constraint firstItem="2pt-ON-TYp" firstAttribute="centerX" secondItem="DEh-Zm-8aG" secondAttribute="centerX" id="nv4-q7-C0x"/>
                             <constraint firstItem="hx8-bq-2PZ" firstAttribute="leading" secondItem="DEh-Zm-8aG" secondAttribute="leadingMargin" id="sIT-eQ-iZX"/>
                             <constraint firstItem="sB1-sc-28S" firstAttribute="centerX" secondItem="DEh-Zm-8aG" secondAttribute="centerX" id="ssi-4v-vCo"/>
                         </constraints>
@@ -368,13 +357,12 @@ We will not include:
                         <outlet property="goButton" destination="sB1-sc-28S" id="u3V-Gc-nLM"/>
                         <outlet property="textLabel" destination="hx8-bq-2PZ" id="VPr-oC-708"/>
                         <outlet property="titleLabel" destination="ldx-vN-fF3" id="eWj-pS-Yu4"/>
-                        <outlet property="topConstraint" destination="Unp-wq-hP2" id="AAg-ob-IXO"/>
                         <outlet property="view" destination="DEh-Zm-8aG" id="3mS-5v-6KL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="job-ql-sgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3459" y="-1151"/>
+            <point key="canvasLocation" x="3456.8000000000002" y="-1151.8740629685158"/>
         </scene>
         <!--Pop Quiz View Controller-->
         <scene sceneID="EHE-eH-LNP">
@@ -646,7 +634,8 @@ Anyone monitoring your internet activity may be able to see that you are running
         </scene>
     </scenes>
     <resources>
-        <image name="folder_icon" width="105" height="79"/>
-        <image name="ooniprobe_shark" width="212" height="128"/>
+        <image name="onboarding_1" width="360" height="281.760009765625"/>
+        <image name="onboarding_2" width="360" height="294.239990234375"/>
+        <image name="onboarding_3" width="360.72000122070312" height="232.08000183105469"/>
     </resources>
 </document>

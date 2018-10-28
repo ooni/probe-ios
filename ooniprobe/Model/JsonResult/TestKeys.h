@@ -43,15 +43,11 @@
 //TELEGRAM
 - (NSString*)getTelegramEndpointStatus;
 - (NSString*)getTelegramWebStatus;
-//TODO this is unused to remove
-- (NSString*)getTelegramBlocking;
     
 //FACEBOOK
 - (NSString*)getFacebookMessengerDns;
 - (NSString*)getFacebookMessengerTcp;
-//TODO this is unused to remove
-- (NSString*)getFacebookMessengerBlocking;
-    
+
 //NDT
 - (NSString*)getUpload;
 - (NSString*)getUploadUnit;
