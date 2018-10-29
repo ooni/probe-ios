@@ -45,7 +45,6 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3f];
     [UIView setAnimationDelegate:self];
-    //TODO-2.0 test on iPad and small iPhone
     self.runButton.transform = CGAffineTransformMakeTranslation( 0, -kbSize.height-keyboardToolbar.bounds.size.height-20 );
     [UIView commitAnimations];
 }
