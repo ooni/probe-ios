@@ -9,8 +9,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
-
+/*
     //Constraint for iPhoneSE
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
@@ -21,6 +20,7 @@
             self.bottomConstraint.constant = 0.0f;
         }
     }
+ */
     self.nextButton.layer.cornerRadius = 30;
     self.nextButton.layer.masksToBounds = true;
     question_number = 1;
@@ -31,7 +31,7 @@
     [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.titleLabel setText:NSLocalizedString(@"Onboarding.ThingsToKnow.Title", nil)];
     
-    NSMutableAttributedString *thingsToKnow1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"• %@\n\n• %@\n\n• %@\n\n• %@", NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.1", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.2", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.3", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.4", nil)]];
+    NSMutableAttributedString *thingsToKnow1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"• %@\n\n• %@\n\n• %@", NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.1", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.2", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.3", nil)]];
     [thingsToKnow1 addAttribute:NSFontAttributeName
                                 value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                                 range:NSMakeRange(0, thingsToKnow1.length)];

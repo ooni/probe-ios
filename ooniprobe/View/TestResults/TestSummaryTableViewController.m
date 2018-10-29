@@ -88,7 +88,7 @@
         [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
         if (!current.is_anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
-            [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+            [status setTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         }
         else {
             [status setImage:[UIImage imageNamed:@"exclamation_point"]];
@@ -99,7 +99,7 @@
         [title setText:[LocalizationUtility getNameForTest:current.test_name]];
         if (!current.is_anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
-            [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+            [status setTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         }
         else {
             [status setImage:[UIImage imageNamed:@"exclamation_point"]];
@@ -117,7 +117,7 @@
         if (!current.is_failed){
             if (!current.is_anomaly){
                 [status setImage:[UIImage imageNamed:@"tick"]];
-                [status setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+                [status setTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
             }
             else {
                 [status setImage:[UIImage imageNamed:@"exclamation_point"]];

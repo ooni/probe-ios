@@ -8,8 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
-
+/*
     //Constraint for iPhoneSE
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
@@ -20,6 +19,7 @@
             self.bottomConstraint.constant = 0.0f;
         }
     }
+ */
     self.goButton.layer.cornerRadius = 30;
     self.goButton.layer.masksToBounds = true;
 
@@ -46,12 +46,7 @@
                                value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                                range:NSMakeRange(0, defaultSettings3.length)];
 
-    NSMutableAttributedString *weWillNotCollect = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", NSLocalizedString(@"Onboarding.DefaultSettings.Header.2", nil)]];
-    [weWillNotCollect addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                                range:NSMakeRange(0, weWillNotCollect.length)];
-
-    NSMutableAttributedString *defaultSettings4 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.4", nil)]];
+    NSMutableAttributedString *defaultSettings4 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Paragraph", nil)]];
     [defaultSettings4 addAttribute:NSFontAttributeName
                                value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                                range:NSMakeRange(0, defaultSettings4.length)];
@@ -61,7 +56,6 @@
     [attrStr appendAttributedString:defaultSettings1];
     [attrStr appendAttributedString:defaultSettings2];
     [attrStr appendAttributedString:defaultSettings3];
-    [attrStr appendAttributedString:weWillNotCollect];
     [attrStr appendAttributedString:defaultSettings4];
 
     [self.textLabel setAttributedText:attrStr];

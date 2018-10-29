@@ -77,7 +77,7 @@
         }
         else if ([result okMeasurements] == [result totalMeasurements]-[result failedMeasurements]){
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         }
         else {
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];

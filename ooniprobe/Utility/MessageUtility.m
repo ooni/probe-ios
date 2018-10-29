@@ -8,7 +8,7 @@
 + (void)showToast:(NSString*)msg inView:(UIView*)view
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [view makeToast:NSLocalizedString(msg, nil)];
+        [view makeToast:msg];
     });
 }
 
