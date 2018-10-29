@@ -97,7 +97,7 @@
 
 -(NSString*)getNetworkNameOrAsn{
     if (self.network_id.network_name != nil && [self.network_id.network_name length] > 0)
-        return self.network_id.network_name;
+        return [self getNetworkName];
     else return [self getAsn];
 }
 
