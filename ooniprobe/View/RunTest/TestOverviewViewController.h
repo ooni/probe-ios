@@ -15,11 +15,10 @@
 @property (nonatomic, strong) NSString *testName;
 
 @property (strong, nonatomic) IBOutlet UIImageView *testImage;
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *testNameLabel;
-@property (strong, nonatomic) IBOutlet ConfigureButton *configureButton;
+@property (strong, nonatomic) IBOutlet ConfigureButton *websitesButton;
 @property (strong, nonatomic) IBOutlet RunButton *runButton;
-@property (strong, nonatomic) IBOutlet UILabel *lastRunLabel;
+@property (strong, nonatomic) IBOutlet UILabel *testDetailLabel;
 @property (strong, nonatomic) IBOutlet RHMarkdownLabel *testDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 

@@ -5,6 +5,7 @@
 #import "OoniRunViewController.h"
 #import "MessageUtility.h"
 #import "Result.h"
+#import "TestRunningViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,7 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [SharkORM setDelegate:self];
-    //TODO change name before release
+    //TODO-2.0 change name before release
     [SharkORM openDatabaseNamed:@"OONISample5"];    
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultPreferences" ofType:@"plist"]]];
 
@@ -192,13 +193,24 @@
 }
 
 -(void)handleUrlScheme:(NSURL*)url{
+    if ([self.window.rootViewController.presentedViewController isKindOfClass:[TestRunningViewController class]])
+        [MessageUtility alertWithTitle:NSLocalizedString(@"OONIRun.TestRunningError", nil) message:nil inView:self.window.rootViewController.presentedViewController];
+        //[MessageUtility showToast:NSLocalizedString(@"OONIRun.TestRunningError", nil) inView:self.window.rootViewController.presentedViewController.view];
+    else {
+        [self showOONIRun:url];
+    }
+}
+
+-(void)showOONIRun:(NSURL*)url{
     dispatch_async(dispatch_get_main_queue(), ^{
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
-        OoniRunViewController *rvc = (OoniRunViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"oonirun"];
+        UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"oonirun_nav"];
+        OoniRunViewController *rvc = (OoniRunViewController*)[nvc.viewControllers objectAtIndex:0];
+        //OoniRunViewController *rvc = (OoniRunViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"oonirun"];
         [rvc setUrl:url];
         if (self.window.rootViewController.view.window != nil)
             //only main view controller is visible
-            [self.window.rootViewController presentViewController:rvc animated:YES completion:nil];
+            [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
         else {
             //main view controller is not in the window hierarchy, so overlay window was presented already, reloading parameters
             [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTest" object:nil userInfo:[NSDictionary dictionaryWithObject:url forKey:@"url"]];

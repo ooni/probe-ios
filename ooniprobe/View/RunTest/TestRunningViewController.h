@@ -1,15 +1,12 @@
 #import <UIKit/UIKit.h>
 #import <Lottie/Lottie.h>
 #import <QuartzCore/QuartzCore.h>
-#import "NetworkTest.h"
 #import "TestUtility.h"
 
 @interface TestRunningViewController : UIViewController {
     float totalTests;
     LOTAnimationView *animation;
-    NetworkTest *currentTest;
     int totalRuntime;
-    NSDateComponentsFormatter *formatter;
 }
 
 

@@ -22,7 +22,7 @@
                         forState:UIControlStateNormal];
     [self.learnMoreButton setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     
-    [self.textLabel setText:[NSString stringWithFormat:@"%@\n%@",NSLocalizedString(@"Settings.About.Content.Paragraph.1", nil),  NSLocalizedString(@"Settings.About.Content.Paragraph.2", nil)]];
+    [self.textLabel setText:NSLocalizedString(@"Settings.About.Content.Paragraph", nil)];
     [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     
     [self.ppButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Settings.About.Content.DataPolicy", nil)] forState:UIControlStateNormal];
@@ -34,13 +34,13 @@
 }
 
 
--(IBAction)learn_more:(id)sender{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/"]];
+-(IBAction)learnMore:(id)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.io/"]];
 }
 
 
--(IBAction)privacy_policy:(id)sender{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.torproject.org/about/data-policy/"]];
+-(IBAction)privacyPolicy:(id)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.io/about/data-policy/"]];
 }
 
 

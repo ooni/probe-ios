@@ -121,7 +121,6 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            }
                            else if ([event.key isEqualToString:@"failure.measurement_submission"]) {
                                //this is called in case of failure.report_create with a specific error
-                               //TODO set report_id null?
                                [self setUploaded:false idx:event.value.idx failure:event.value.failure];
                            }
                            else if ([event.key isEqualToString:@"status.measurement_done"]) {
@@ -196,6 +195,9 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     Measurement *measurement = [self.measurements objectForKey:idx];
     if (measurement != nil){
         measurement.is_uploaded = value;
+        //if is not uploaded reset report_ids
+        if (!value)
+            [measurement setReport_id:@""];
         if (failure != nil)
             measurement.upload_failure_msg = failure;
         [measurement save];

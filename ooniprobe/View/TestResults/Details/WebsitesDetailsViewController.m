@@ -1,5 +1,4 @@
 #import "WebsitesDetailsViewController.h"
-#import "GRMustache.h"
 
 @interface WebsitesDetailsViewController ()
 
@@ -9,26 +8,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.learnCircumventButton setTitle:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent", nil) forState:UIControlStateNormal];
+    [self.titleLabel setText:self.measurement.url_id.url];
+    [self.statusImage setTintColor:[UIColor whiteColor]];
     if (!super.measurement.is_anomaly){
-        [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
+        [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
-        [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
-
-        [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Hero.Title", nil)];
-        NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"WebsiteURL": self.measurement.url_id.url } fromString:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Content.Paragraph.1", nil) error:NULL];
-        [self.subtitleLabel setText:subtitle];
-        [self.learnCircumventButton setHidden:YES];
+        [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Hero.Title", nil)];
+        NSString *paragraph = NSLocalizedFormatString(@"TestResults.Details.Websites.Reachable.Content.Paragraph", self.measurement.url_id.url);
+        [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
+        [self.textLabel setMarkdown:paragraph];
+        [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
+            [[UIApplication sharedApplication] openURL:url];
+        }];
     }
     else {
         TestKeys *testKeys = [self.measurement testKeysObj];
-        [self.statusImage setImage:[UIImage imageNamed:@"cross"]];
-        [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_red7 alpha:1.0f]];
-        [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Hero.Title", nil)];
-        NSString *subtitle = [GRMustacheTemplate renderObject:@{ @"WebsiteURL": self.measurement.url_id.url, @"BlockingReason": [testKeys getWebsiteBlocking] } fromString:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph.1", nil) error:NULL];
-        [self.subtitleLabel setText:subtitle];
-        [self.learnCircumventButton setHidden:NO];
+        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
+        [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Hero.Title", nil)];
+        NSString *paragraph = NSLocalizedFormatString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph", self.measurement.url_id.url, [testKeys getWebsiteBlocking]);
+        [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
+        [self.textLabel setMarkdown:paragraph];
+        [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
+            [[UIApplication sharedApplication] openURL:url];
+        }];
     }
 }
 

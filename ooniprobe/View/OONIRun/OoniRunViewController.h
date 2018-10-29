@@ -8,6 +8,8 @@
 
 @property (nonatomic, retain) NSURL* url;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) IBOutlet UIImageView *headerImage;
+@property (nonatomic, retain) IBOutlet UIImageView *footerImage;
 @property (nonatomic, retain) IBOutlet UILabel *titleLabel;
 @property (nonatomic, retain) IBOutlet UILabel *subtitleLabel;
 @property (nonatomic, retain) IBOutlet UILabel *randomlistLabel;

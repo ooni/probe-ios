@@ -8,8 +8,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Settings.AutomatedTesting.Categories.Title", nil);
+    self.title = NSLocalizedString(@"Settings.Websites.Categories.Label", nil);
     self.navigationController.navigationBar.topItem.title = @"";
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -36,29 +38,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    UILabel *title = (UILabel*)[cell viewWithTag:1];
-    UILabel *detail = (UILabel*)[cell viewWithTag:2];
-
     NSString *current = [categories objectAtIndex:indexPath.row];
     NSString *categoryTitle = [NSString stringWithFormat:@"CategoryCode.%@.Name", current];
-    title.text = NSLocalizedString(categoryTitle, nil);
-    title.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    cell.textLabel.text = NSLocalizedString(categoryTitle, nil);
+    cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current]];
-    detail.textColor = [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
+    cell.detailTextLabel.textColor = [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
+    NSString *categoryDescription = [NSString stringWithFormat:@"CategoryCode.%@.Description", current];
+    cell.detailTextLabel.text = NSLocalizedString(categoryDescription, nil);
+    
+    UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
+    [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
+    if ([categories_disabled containsObject:current]) switchview.on = NO;
+    else switchview.on = YES;
+    cell.accessoryView = switchview;
 
-    if ([categories_disabled containsObject:current])
-        detail.text = NSLocalizedString(@"Settings.Disabled", nil);
-    else
-        detail.text = NSLocalizedString(@"Settings.Enabled", nil);
     return cell;
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toCategorySettings"]){
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        WebsiteCategoryTableViewController *vc = (WebsiteCategoryTableViewController * )segue.destinationViewController;
-        NSString *current = [categories objectAtIndex:indexPath.row];
-        [vc setCategory:current];
-    }
+-(IBAction)setSwitch:(UISwitch *)mySwitch{
+    UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSString *current = [categories objectAtIndex:indexPath.row];
+    [SettingsUtility addRemoveSitesCategory:current];
 }
+
 @end

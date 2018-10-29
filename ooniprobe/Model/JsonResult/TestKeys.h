@@ -43,13 +43,11 @@
 //TELEGRAM
 - (NSString*)getTelegramEndpointStatus;
 - (NSString*)getTelegramWebStatus;
-- (NSString*)getTelegramBlocking;
     
 //FACEBOOK
 - (NSString*)getFacebookMessengerDns;
 - (NSString*)getFacebookMessengerTcp;
-- (NSString*)getFacebookMessengerBlocking;
-    
+
 //NDT
 - (NSString*)getUpload;
 - (NSString*)getUploadUnit;

@@ -39,13 +39,13 @@
         long totalMeasurements = [result totalMeasurements];
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
-        [self.image1 setImage:[UIImage imageNamed:@"cross"]];
-        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.label1 setText:[NSString stringWithFormat:@"%ld %@", anomalousMeasurements, [LocalizationUtility getSingularPlural:anomalousMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
-        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+        [self.image1 setImage:[UIImage imageNamed:@"exclamation_point"]];
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:anomalousMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"globe"]];
         [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-        [self.label2 setText:[NSString stringWithFormat:@"%ld %@", totalMeasurements, [LocalizationUtility getSingularPlural:totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
+        [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
     else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
@@ -53,13 +53,13 @@
         long okMeasurements = [result okMeasurements];
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:YES];
-        [self.image1 setImage:[UIImage imageNamed:@"cross"]];
-        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
-        [self.label1 setText:[NSString stringWithFormat:@"%ld %@", anomalousMeasurements, [LocalizationUtility getSingularPlural:anomalousMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
-        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+        [self.image1 setImage:[UIImage imageNamed:@"exclamation_point"]];
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:anomalousMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.image2 setImage:[UIImage imageNamed:@"tick"]];
         [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-        [self.label2 setText:[NSString stringWithFormat:@"%ld %@", okMeasurements, [LocalizationUtility getSingularPlural:okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
+        [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     }
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
@@ -69,7 +69,7 @@
         [self.image1 setImage:nil];
         if (anomalousMeasurements > 0){
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
+            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         }
         else if ([result totalMeasurements] == 0){
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];
@@ -77,13 +77,13 @@
         }
         else if ([result okMeasurements] == [result totalMeasurements]-[result failedMeasurements]){
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_green7 alpha:1.0f]];
+            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         }
         else {
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];
             [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         }
-        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow8 alpha:1.0f]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
     }
     else if ([result.test_group_name isEqualToString:@"performance"]){
         Measurement *ndt = [result getMeasurement:@"ndt"];

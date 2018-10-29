@@ -94,20 +94,6 @@
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
     
-- (NSString*)getTelegramBlocking{
-    if (self.telegram_http_blocking != nil && self.telegram_tcp_blocking != nil){
-        BOOL httpBlocking = [self.telegram_http_blocking boolValue];
-        BOOL tcpBlocking = [self.telegram_tcp_blocking boolValue];
-        if (httpBlocking && tcpBlocking)
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.HTTPandTCPIP", nil);
-        else if (httpBlocking)
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.HTTPOnly", nil);
-        else if (tcpBlocking)
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph.TCPIPOnly", nil);
-    }
-    return NSLocalizedString(@"TestResults.NotAvailable", nil);
-}
-    
 #pragma mark FB
     
 - (NSString*)getFacebookMessengerDns {
@@ -131,21 +117,7 @@
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
-    
-- (NSString*)getFacebookMessengerBlocking{
-    if (self.facebook_dns_blocking != nil && self.facebook_tcp_blocking != nil){
-        BOOL dnsBlocking = [self.facebook_dns_blocking boolValue];
-        BOOL tcpBlocking = [self.facebook_tcp_blocking boolValue];
-        if (dnsBlocking && tcpBlocking)
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.DNSandTCPIP", nil);
-        else if (dnsBlocking)
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.DNSOnly", nil);
-        else if (tcpBlocking)
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.BlockingReason.TCPIPOnly", nil);
-    }
-    return NSLocalizedString(@"TestResults.NotAvailable", nil);
-}
-    
+
 #pragma mark NDT
     
 - (NSString*)getUpload{

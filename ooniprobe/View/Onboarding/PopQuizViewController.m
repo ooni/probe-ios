@@ -17,10 +17,10 @@
     
     [self.trueButton setTitleColor:[UIColor whiteColor]
                             forState:UIControlStateNormal];
-    [self.trueButton setBackgroundColor:[UIColor colorWithRGBHexString:color_teal5 alpha:1.0f]];
+    [self.trueButton setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
     [self.falseButton setTitleColor:[UIColor whiteColor]
                         forState:UIControlStateNormal];
-    [self.falseButton setBackgroundColor:[UIColor colorWithRGBHexString:color_red6 alpha:1.0f]];
+    [self.falseButton setBackgroundColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
 
     [self.closeView addTarget:self action:@selector(dismissPopup) forControlEvents:UIControlEventTouchUpInside];
     
@@ -93,11 +93,11 @@
     LOTAnimationView *animation;
     if (!answer){
         animation = [LOTAnimationView animationNamed:@"crossMark"];
-        [animation setBackgroundColor:[UIColor colorWithRGBHexString:color_red6 alpha:1.0f]];
+        [animation setBackgroundColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
     }
     else {
         animation = [LOTAnimationView animationNamed:@"checkMark"];
-        [animation setBackgroundColor:[UIColor colorWithRGBHexString:color_teal4 alpha:1.0f]];
+        [animation setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
     }
     animation.contentMode = UIViewContentModeScaleAspectFit;
     

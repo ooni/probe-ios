@@ -5,12 +5,10 @@
 @end
 
 @implementation Onboarding3ViewController
-@synthesize question_number;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
-
+/*
     //Constraint for iPhoneSE
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
@@ -21,43 +19,68 @@
             self.bottomConstraint.constant = 0.0f;
         }
     }
-    self.nextButton.layer.cornerRadius = 30;
-    self.nextButton.layer.masksToBounds = true;
-    question_number = 1;
-    
+ */
+    self.goButton.layer.cornerRadius = 30;
+    self.goButton.layer.masksToBounds = true;
+
     [self.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.titleLabel setText:NSLocalizedString(@"Onboarding.ThingsToKnow.Title", nil)];
-    
-    NSMutableAttributedString *thingsToKnow1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"• %@\n\n• %@\n\n• %@\n\n• %@", NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.1", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.2", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.3", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.4", nil)]];
-    [thingsToKnow1 addAttribute:NSFontAttributeName
+    [self.titleLabel setText:NSLocalizedString(@"Onboarding.DefaultSettings.Title", nil)];
+
+    NSMutableAttributedString *weWillCollect = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.DefaultSettings.Header.1", nil)];
+    [weWillCollect addAttribute:NSFontAttributeName
                                 value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                                range:NSMakeRange(0, thingsToKnow1.length)];
+                                range:NSMakeRange(0, weWillCollect.length)];
     
-    [self.textLabel setAttributedText:thingsToKnow1];
+    NSMutableAttributedString *defaultSettings1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.1", nil)]];
+    [defaultSettings1 addAttribute:NSFontAttributeName
+                                value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
+                                range:NSMakeRange(0, defaultSettings1.length)];
+    
+    NSMutableAttributedString *defaultSettings2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.2", nil)]];
+    [defaultSettings2 addAttribute:NSFontAttributeName
+                               value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
+                               range:NSMakeRange(0, defaultSettings2.length)];
+
+    NSMutableAttributedString *defaultSettings3 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.3", nil)]];
+    [defaultSettings3 addAttribute:NSFontAttributeName
+                               value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
+                               range:NSMakeRange(0, defaultSettings3.length)];
+
+    NSMutableAttributedString *defaultSettings4 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Paragraph", nil)]];
+    [defaultSettings4 addAttribute:NSFontAttributeName
+                               value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
+                               range:NSMakeRange(0, defaultSettings4.length)];
+
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
+    [attrStr appendAttributedString:weWillCollect];
+    [attrStr appendAttributedString:defaultSettings1];
+    [attrStr appendAttributedString:defaultSettings2];
+    [attrStr appendAttributedString:defaultSettings3];
+    [attrStr appendAttributedString:defaultSettings4];
+
+    [self.textLabel setAttributedText:attrStr];
     [self.textLabel setTextColor:[UIColor whiteColor]];
-    [self.nextButton setTitle:[NSLocalizedString(@"Onboarding.ThingsToKnow.Button", nil) uppercaseString] forState:UIControlStateNormal];
-    
-    [self.nextButton setTitleColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]
-                               forState:UIControlStateNormal];
-    [self.nextButton setBackgroundColor:[UIColor whiteColor]];
 
+    [self.changeButton setTitle:[NSLocalizedString(@"Onboarding.DefaultSettings.Button.Change", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.changeButton setTitleColor:[UIColor whiteColor]
+                          forState:UIControlStateNormal];
+    //[self.changeButton setBackgroundColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]];
+
+    [self.goButton setTitle:[NSLocalizedString(@"Onboarding.DefaultSettings.Button.Go", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.goButton setTitleColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]
+                          forState:UIControlStateNormal];
+    [self.goButton setBackgroundColor:[UIColor whiteColor]];
 }
 
--(void)setQuestion_number:(int)qn
-{
-    question_number = qn;
-    if (qn == 3){
-        [self.nextButton setHidden:YES];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"nextPage" object:nil];
-    }
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toPopQuiz"]){
-        PopQuizViewController *vc = (PopQuizViewController * )segue.destinationViewController;
-        [vc setQuestion_number:question_number];
-        [vc setDelegate:self];
-    }
+-(IBAction)configure:(id)sender{
+    UIButton *buttonPressed = (UIButton*)sender;
+    [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (buttonPressed == _changeButton){
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"openSettings" object:nil];
+        }
+    }];
 }
 
 @end

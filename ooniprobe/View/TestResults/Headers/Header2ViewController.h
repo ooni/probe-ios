@@ -7,10 +7,8 @@
 
 @property (nonatomic, strong) Result *result;
 @property (nonatomic, strong) IBOutlet UIView *headerView;
-@property (nonatomic, strong) IBOutlet UILabel *networkLabel;
-@property (nonatomic, strong) IBOutlet UILabel *networkDetailLabel;
-@property (nonatomic, strong) IBOutlet UILabel *countryLabel;
-@property (nonatomic, strong) IBOutlet UILabel *countryDetailLabel;
+@property (nonatomic, strong) IBOutlet UILabel *dateAndTimeLabel;
+@property (nonatomic, strong) IBOutlet UILabel *dateAndTimeDetailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dataUsageLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dataUsageUploadLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dataUsageDownloadLabel;
