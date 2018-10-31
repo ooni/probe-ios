@@ -24,7 +24,7 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     NSDictionary *evinfo = [NSJSONSerialization JSONObjectWithData:data
                                                            options:0 error:&error];
     if (error != nil) {
-        NSLog(@"Cannot parse serialized JSON event");
+        NSLog(@"Cannot parse serialized JSON event %@", [error localizedDescription]);
         return nil;
     }
     return evinfo;
