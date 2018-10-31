@@ -67,7 +67,8 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
                            // Extract an event from the task queue and unmarshal it.
                            NSDictionary *evinfo = wait_for_next_event(taskp);
                            if (evinfo == nil) {
-                               break;
+                               //TODO-2.0 break;
+                               continue;
                            }
                            NSLog(@"Got event: %@", evinfo);
                            InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];

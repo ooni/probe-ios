@@ -8,18 +8,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-/*
-    //Constraint for iPhoneSE
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-        CGSize result = [[UIScreen mainScreen] bounds].size;
-        if(result.height == 568)
-        {
-            self.topConstraint.constant = 8.0f;
-            self.bottomConstraint.constant = 0.0f;
-        }
-    }
- */
+
     self.goButton.layer.cornerRadius = 30;
     self.goButton.layer.masksToBounds = true;
 
@@ -61,10 +50,9 @@
     [self.textLabel setAttributedText:attrStr];
     [self.textLabel setTextColor:[UIColor whiteColor]];
 
-    [self.changeButton setTitle:[NSLocalizedString(@"Onboarding.DefaultSettings.Button.Change", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.changeButton setTitle:NSLocalizedString(@"Onboarding.DefaultSettings.Button.Change", nil)  forState:UIControlStateNormal];
     [self.changeButton setTitleColor:[UIColor whiteColor]
                           forState:UIControlStateNormal];
-    //[self.changeButton setBackgroundColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]];
 
     [self.goButton setTitle:[NSLocalizedString(@"Onboarding.DefaultSettings.Button.Go", nil) uppercaseString] forState:UIControlStateNormal];
     [self.goButton setTitleColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]

@@ -84,8 +84,7 @@
             if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
                 [self showNotification];
         }
-        else
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
     }
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
