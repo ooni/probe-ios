@@ -74,8 +74,8 @@
         }
         else if ([result totalMeasurements] == [result failedMeasurements]){
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+            [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         }
         else {
             [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];
