@@ -10,7 +10,7 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Settings.Websites.Categories.Label", nil);
     self.navigationController.navigationBar.topItem.title = @"";
-    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.estimatedRowHeight = 60.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 

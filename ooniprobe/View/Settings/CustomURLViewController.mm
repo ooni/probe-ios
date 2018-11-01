@@ -26,8 +26,11 @@
 
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
-    urls = [[NSMutableArray alloc] init];
-    [urls addObject:@"https://"];
+    delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (delegate.urlsList == nil){
+        delegate.urlsList = [[NSMutableArray alloc] init];
+        [delegate.urlsList addObject:@"https://"];
+    }
     UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                       target:nil action:nil];
@@ -64,13 +67,13 @@
 }
 
 -(IBAction)addRow:(id)sender{
-    [urls addObject:@"https://"];
+    [delegate.urlsList addObject:@"https://"];
     [self.tableView reloadData];
 }
 
 -(IBAction)run:(id)sender{
     urlArray = [[NSMutableArray alloc] init];
-    for (NSString *url in urls){
+    for (NSString *url in delegate.urlsList){
         if (![url isEqualToString:@"http://"] && ![url isEqualToString:@"https://"]){
             Url *currentUrl = [Url checkExistingUrl:url];
             [urlArray addObject:currentUrl.url];
@@ -80,6 +83,7 @@
         if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable){
             [self performSegueWithIdentifier:@"toTestRun" sender:sender];
             [self.navigationController popToRootViewControllerAnimated:NO];
+            delegate.urlsList = nil;
         }
         else
             [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.NoInternet" inView:self];
@@ -95,15 +99,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [urls count];
+    return [delegate.urlsList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     UITextField *textField = (UITextField*)[cell viewWithTag:1];
+    UIButton *deleteBtn = (UIButton*)[cell viewWithTag:2];
+    if ([delegate.urlsList count] > 1)
+        [deleteBtn setEnabled:YES];
+    else
+        [deleteBtn setEnabled:NO];
     textField.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     textField.inputAccessoryView = keyboardToolbar;
-    textField.text = [urls objectAtIndex:indexPath.row];
+    textField.text = [delegate.urlsList objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -111,7 +120,7 @@
     UIButton *button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)button.superview.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    [urls removeObjectAtIndex:indexPath.row];
+    [delegate.urlsList removeObjectAtIndex:indexPath.row];
     [self.tableView reloadData];
 }
 
@@ -123,7 +132,7 @@
 {
     UITableViewCell *cell = (UITableViewCell *)textField.superview.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    [urls setObject:[textField.text stringByReplacingCharactersInRange:range withString:string] atIndexedSubscript:indexPath.row];
+    [delegate.urlsList setObject:[textField.text stringByReplacingCharactersInRange:range withString:string] atIndexedSubscript:indexPath.row];
     return YES;
 }
 

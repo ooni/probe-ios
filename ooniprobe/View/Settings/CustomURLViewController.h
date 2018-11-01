@@ -2,10 +2,11 @@
 #import "TestRunningViewController.h"
 #import "MessageUtility.h"
 #import "RunButton.h"
+#import "AppDelegate.h"
 
 @interface CustomURLViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource> {
     UIToolbar *keyboardToolbar;
-    NSMutableArray *urls;
+    AppDelegate *delegate;
     NSMutableArray *urlArray;
 }
 

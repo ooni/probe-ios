@@ -194,8 +194,7 @@
 
 -(void)handleUrlScheme:(NSURL*)url{
     if ([self.window.rootViewController.presentedViewController isKindOfClass:[TestRunningViewController class]])
-        [MessageUtility alertWithTitle:NSLocalizedString(@"OONIRun.TestRunningError", nil) message:nil inView:self.window.rootViewController.presentedViewController];
-        //[MessageUtility showToast:NSLocalizedString(@"OONIRun.TestRunningError", nil) inView:self.window.rootViewController.presentedViewController.view];
+        [MessageUtility showToast:NSLocalizedString(@"OONIRun.TestRunningError", nil) inView:self.window.rootViewController.presentedViewController.view];
     else {
         [self showOONIRun:url];
     }

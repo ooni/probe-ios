@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +37,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWE-hu-NJr">
                                             <rect key="frame" x="16" y="0.0" width="324" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                             <color key="textColor" red="0.12549019607843137" green="0.14509803921568626" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -100,7 +100,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G5a-IB-OXU">
                                             <rect key="frame" x="16" y="0.0" width="343" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                             <color key="textColor" red="0.12549019610000001" green="0.1450980392" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -116,14 +116,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fmK-4S-M9p">
-                                            <rect key="frame" x="16" y="9" width="32" height="19.5"/>
+                                            <rect key="frame" x="16" y="9" width="34" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                             <color key="textColor" red="0.12549019610000001" green="0.1450980392" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mTG-wT-4hC">
-                                            <rect key="frame" x="16" y="31.5" width="46.5" height="16"/>
+                                            <rect key="frame" x="16" y="32.5" width="46.5" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="13"/>
                                             <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -165,9 +165,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W1J-9q-ery">
-                                            <rect key="frame" x="16" y="9" width="32" height="19.5"/>
+                                            <rect key="frame" x="16" y="8" width="34" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -238,23 +238,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIy-07-RBW">
-                                                    <rect key="frame" x="343" y="19" width="17" height="22"/>
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIy-07-RBW">
+                                                    <rect key="frame" x="343" y="15" width="22" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="4dF-fi-auj"/>
-                                                        <constraint firstAttribute="width" constant="17" id="yZb-ws-mlu"/>
+                                                        <constraint firstAttribute="height" constant="30" id="4dF-fi-auj"/>
+                                                        <constraint firstAttribute="width" constant="22" id="yZb-ws-mlu"/>
                                                     </constraints>
-                                                    <color key="tintColor" red="0.52549019607843139" green="0.55686274509803924" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="delete_forever"/>
+                                                    <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="22"/>
+                                                    <state key="normal" title="X">
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="deleteRow:" destination="NsA-cf-UBX" eventType="touchUpInside" id="gU2-Gq-fbA"/>
                                                     </connections>
                                                 </button>
-                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tr3-nz-7cu">
+                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tr3-nz-7cu">
                                                     <rect key="frame" x="15" y="15" width="320" height="30"/>
                                                     <color key="backgroundColor" red="0.94509803921568625" green="0.95294117647058818" blue="0.96078431372549022" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" textContentType="url"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="NsA-cf-UBX" id="nBO-be-4hN"/>
@@ -262,12 +264,12 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eIy-07-RBW" firstAttribute="trailing" secondItem="KC5-Bn-dUg" secondAttribute="trailingMargin" id="PJN-cp-Gai"/>
+                                                <constraint firstItem="eIy-07-RBW" firstAttribute="trailing" secondItem="KC5-Bn-dUg" secondAttribute="trailingMargin" constant="5" id="PJN-cp-Gai"/>
                                                 <constraint firstItem="eIy-07-RBW" firstAttribute="leading" secondItem="tr3-nz-7cu" secondAttribute="trailing" constant="8" id="e2v-K4-A7J"/>
                                                 <constraint firstItem="tr3-nz-7cu" firstAttribute="top" secondItem="KC5-Bn-dUg" secondAttribute="topMargin" constant="4" id="ft7-Kl-Yd6"/>
                                                 <constraint firstItem="tr3-nz-7cu" firstAttribute="leading" secondItem="KC5-Bn-dUg" secondAttribute="leadingMargin" id="mUD-bQ-cic"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="tr3-nz-7cu" secondAttribute="bottom" constant="4" id="mvi-mH-aFE"/>
-                                                <constraint firstItem="eIy-07-RBW" firstAttribute="top" secondItem="KC5-Bn-dUg" secondAttribute="topMargin" constant="8" id="pUS-8w-fVY"/>
+                                                <constraint firstItem="eIy-07-RBW" firstAttribute="top" secondItem="KC5-Bn-dUg" secondAttribute="topMargin" constant="4" id="pUS-8w-fVY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -285,7 +287,7 @@
                                     <constraint firstAttribute="height" constant="44" id="177-gP-bRa"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="UIy-sn-ExB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="21"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="21"/>
                                 <state key="normal" title="Run">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -334,7 +336,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-C4-Iuo" userLabel="contentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="440"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fJM-Cs-r96">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fJM-Cs-r96">
                                                 <rect key="frame" x="50" y="178" width="275" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="qyg-8n-nC5"/>
@@ -349,7 +351,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="l72-l7-50n"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="21"/>
+                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="21"/>
                                                 <state key="normal" title="Learn more">
                                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -362,7 +364,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="ciY-40-h6C"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                                 <state key="normal" title="Privacy policy">
                                                     <color key="titleColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -384,8 +386,8 @@
                                                             <constraint firstAttribute="width" constant="183" id="ykn-Fk-NpM"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVb-RD-nib">
-                                                        <rect key="frame" x="16" y="94" width="343" height="50"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVb-RD-nib">
+                                                        <rect key="frame" x="111" y="94" width="153.5" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="pf7-eC-NfI"/>
                                                         </constraints>
@@ -398,12 +400,11 @@ measurement-kit: x.y.z</string>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="KVb-RD-nib" firstAttribute="leading" secondItem="Q8W-mA-yKw" secondAttribute="leading" constant="16" id="8F1-fi-hLX"/>
+                                                    <constraint firstItem="glb-X4-13h" firstAttribute="centerX" secondItem="Q8W-mA-yKw" secondAttribute="centerX" id="4oE-Xi-1wJ"/>
                                                     <constraint firstItem="KVb-RD-nib" firstAttribute="top" secondItem="glb-X4-13h" secondAttribute="bottom" constant="8" id="O3s-pP-gZ3"/>
-                                                    <constraint firstItem="glb-X4-13h" firstAttribute="centerX" secondItem="KVb-RD-nib" secondAttribute="centerX" id="OwW-vN-yx6"/>
                                                     <constraint firstAttribute="height" constant="170" id="WLH-w0-GGY"/>
-                                                    <constraint firstAttribute="trailing" secondItem="KVb-RD-nib" secondAttribute="trailing" constant="16" id="XwN-uq-yzh"/>
                                                     <constraint firstAttribute="bottom" secondItem="KVb-RD-nib" secondAttribute="bottom" constant="26" id="eGx-D4-df2"/>
+                                                    <constraint firstItem="KVb-RD-nib" firstAttribute="centerX" secondItem="Q8W-mA-yKw" secondAttribute="centerX" id="ku5-rb-im4"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -461,7 +462,6 @@ measurement-kit: x.y.z</string>
         </scene>
     </scenes>
     <resources>
-        <image name="delete_forever" width="17" height="21"/>
         <image name="ooni_logo" width="184" height="52"/>
         <image name="tab_settings" width="23" height="23"/>
     </resources>
