@@ -1,6 +1,7 @@
 #import "TestUtility.h"
 #import "Url.h"
 #import "SettingsUtility.h"
+#import "MkGeoIPLookup.h"
 
 #define ANOMALY_GREEN 0
 #define ANOMALY_ORANGE 1
@@ -124,9 +125,13 @@
 }
 
 + (void)downloadUrls:(void (^)(NSArray *))completion {
-    //TODO-2.0-MK automatical discovery https://github.com/ooni/orchestra/issues/49
-    //NSString *path = @"https://orchestrate.ooni.io/api/v1/test-list/urls?country_code=MX";
-    NSString *path = @"https://orchestrate.ooni.io/api/v1/test-list/urls";
+    MkGeoIPLookupSettings *settings = [[MkGeoIPLookupSettings alloc] init];
+    [settings setTimeout:17];
+    MkGeoIPLookupResults *results = [settings perform];
+    NSString *cc = @"XX";
+    if ([results good])
+        cc = [results getProbeCC];
+    NSString *path = [NSString stringWithFormat:@"https://orchestrate.ooni.io/api/v1/test-list/urls?country_code=%@", cc];
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
         [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
