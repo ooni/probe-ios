@@ -54,7 +54,7 @@
     [self.changeButton setTitleColor:[UIColor whiteColor]
                           forState:UIControlStateNormal];
 
-    [self.goButton setTitle:[NSLocalizedString(@"Onboarding.DefaultSettings.Button.Go", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.goButton setTitle:NSLocalizedString(@"Onboarding.DefaultSettings.Button.Go", nil) forState:UIControlStateNormal];
     [self.goButton setTitleColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]
                           forState:UIControlStateNormal];
     [self.goButton setBackgroundColor:[UIColor whiteColor]];

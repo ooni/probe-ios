@@ -20,9 +20,6 @@
         [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
-        [self.detail1SubtitleLabel setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-        [self.detail2SubtitleLabel setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-        [self.detail3SubtitleLabel setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
     }
     
     if ([self.measurement.test_name isEqualToString:@"whatsapp"]){
@@ -36,8 +33,11 @@
         [self.detail2TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Title", nil)];
         [self.detail3TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Title", nil)];
         [self.detail1SubtitleLabel setText:[testKeys getWhatsappEndpointStatus]];
+        [self.detail1SubtitleLabel setTextColor:[testKeys getWhatsappEndpointStatusColor]];
         [self.detail2SubtitleLabel setText:[testKeys getWhatsappWebStatus]];
+        [self.detail2SubtitleLabel setTextColor:[testKeys getWhatsappWebStatusColor]];
         [self.detail3SubtitleLabel setText:[testKeys getWhatsappRegistrationStatus]];
+        [self.detail3SubtitleLabel setTextColor:[testKeys getWhatsappRegistrationStatusColor]];
     }
     else if ([self.measurement.test_name isEqualToString:@"telegram"]){
         [self.detail3TitleLabel setText:@" "];
@@ -51,7 +51,9 @@
         [self.detail1TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Title", nil)];
         [self.detail2TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Title", nil)];
         [self.detail1SubtitleLabel setText:[testKeys getTelegramEndpointStatus]];
+        [self.detail1SubtitleLabel setTextColor:[testKeys getTelegramEndpointStatusColor]];
         [self.detail2SubtitleLabel setText:[testKeys getTelegramWebStatus]];
+        [self.detail2SubtitleLabel setTextColor:[testKeys getTelegramWebStatusColor]];
     }
     else if ([self.measurement.test_name isEqualToString:@"facebook_messenger"]){
         [self.detail3TitleLabel setText:@" "];
@@ -65,9 +67,10 @@
         [self.detail1TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.TCP.Label.Title", nil)];
         [self.detail2TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.DNS.Label.Title", nil)];
         [self.detail1SubtitleLabel setText:[testKeys getFacebookMessengerTcp]];
+        [self.detail1SubtitleLabel setTextColor:[testKeys getFacebookMessengerTcpColor]];
         [self.detail2SubtitleLabel setText:[testKeys getFacebookMessengerDns]];
+        [self.detail2SubtitleLabel setTextColor:[testKeys getFacebookMessengerDnsColor]];
     }
-
 }
 
 @end

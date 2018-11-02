@@ -68,7 +68,40 @@
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
-    
+
+- (UIColor*)getWhatsappEndpointStatusColor {
+    if (self.whatsapp_endpoints_status != nil){
+        NSString* endpointStatus = self.whatsapp_endpoints_status;
+        if ([endpointStatus isEqualToString:@"blocked"])
+            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+        else
+            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    }
+    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+}
+
+- (UIColor*)getWhatsappWebStatusColor {
+    if (self.whatsapp_web_status != nil){
+        NSString* webStatus = self.whatsapp_web_status;
+        if ([webStatus isEqualToString:@"blocked"])
+            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+        else
+            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    }
+    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+}
+
+- (UIColor*)getWhatsappRegistrationStatusColor {
+    if (self.registration_server_status != nil){
+        NSString* registrationStatus = self.registration_server_status;
+        if ([registrationStatus isEqualToString:@"blocked"])
+            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+        else
+            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    }
+    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+}
+
 #pragma mark TELEGRAM
     
 - (NSString*)getTelegramEndpointStatus {
@@ -76,9 +109,9 @@
         BOOL httpBlocking = [self.telegram_http_blocking boolValue];
         BOOL tcpBlocking = [self.telegram_tcp_blocking boolValue];
         if (httpBlocking || tcpBlocking)
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Failed", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Failed", nil);
         else
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Okay", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -87,13 +120,36 @@
     if (self.telegram_web_status != nil){
         NSString* registrationStatus = self.telegram_web_status;
         if ([registrationStatus isEqualToString:@"blocked"])
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Failed", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Failed", nil);
         else
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Okay", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
-    
+
+- (UIColor*)getTelegramEndpointStatusColor {
+    if (self.telegram_http_blocking != nil && self.telegram_tcp_blocking != nil){
+        BOOL httpBlocking = [self.telegram_http_blocking boolValue];
+        BOOL tcpBlocking = [self.telegram_tcp_blocking boolValue];
+        if (httpBlocking || tcpBlocking)
+            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+        else
+            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    }
+    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+}
+
+- (UIColor*)getTelegramWebStatusColor {
+    if (self.telegram_web_status != nil){
+        NSString* registrationStatus = self.telegram_web_status;
+        if ([registrationStatus isEqualToString:@"blocked"])
+            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+        else
+            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    }
+    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+}
+
 #pragma mark FB
     
 - (NSString*)getFacebookMessengerDns {
@@ -116,6 +172,28 @@
         return NSLocalizedString(@"TestResults.Details.InstantMessaging.FacebookMessenger.TCP.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (UIColor*)getFacebookMessengerDnsColor {
+    if (self.facebook_dns_blocking){
+        BOOL dnsBlocking = [self.facebook_dns_blocking boolValue];
+        if (dnsBlocking)
+            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+        else
+            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    }
+    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+}
+
+- (UIColor*)getFacebookMessengerTcpColor {
+    if (self.facebook_tcp_blocking != nil){
+        BOOL tcpBlocking = [self.facebook_tcp_blocking boolValue];
+        if (tcpBlocking)
+            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+        else
+            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    }
+    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
 }
 
 #pragma mark NDT

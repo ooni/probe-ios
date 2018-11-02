@@ -107,9 +107,9 @@
     UITextField *textField = (UITextField*)[cell viewWithTag:1];
     UIButton *deleteBtn = (UIButton*)[cell viewWithTag:2];
     if ([delegate.urlsList count] > 1)
-        [deleteBtn setEnabled:YES];
+        [deleteBtn setHidden:NO];
     else
-        [deleteBtn setEnabled:NO];
+        [deleteBtn setHidden:YES];
     textField.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     textField.inputAccessoryView = keyboardToolbar;
     textField.text = [delegate.urlsList objectAtIndex:indexPath.row];

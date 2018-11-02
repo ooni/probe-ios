@@ -14,7 +14,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.title = [LocalizationUtility getNameForTest:measurement.test_name];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(advancedScreens)];
-
+    
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];

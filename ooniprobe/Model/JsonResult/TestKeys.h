@@ -39,14 +39,21 @@
 - (NSString*)getWhatsappEndpointStatus;
 - (NSString*)getWhatsappWebStatus;
 - (NSString*)getWhatsappRegistrationStatus;
-    
+- (UIColor*)getWhatsappEndpointStatusColor;
+- (UIColor*)getWhatsappWebStatusColor;
+- (UIColor*)getWhatsappRegistrationStatusColor;
+
 //TELEGRAM
 - (NSString*)getTelegramEndpointStatus;
 - (NSString*)getTelegramWebStatus;
-    
+- (UIColor*)getTelegramEndpointStatusColor;
+- (UIColor*)getTelegramWebStatusColor;
+
 //FACEBOOK
 - (NSString*)getFacebookMessengerDns;
 - (NSString*)getFacebookMessengerTcp;
+- (UIColor*)getFacebookMessengerDnsColor;
+- (UIColor*)getFacebookMessengerTcpColor;
 
 //NDT
 - (NSString*)getUpload;

@@ -21,7 +21,5 @@
 @property (nonatomic, strong) IBOutlet UILabel *countryDetailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *runtimeLabel;
 @property (nonatomic, strong) IBOutlet UILabel *runtimeDetailLabel;
-//@property (nonatomic, strong) IBOutlet UIButton *viewLogButton;
-//@property (nonatomic, strong) IBOutlet UIButton *rawDataButton;
 
 @end
