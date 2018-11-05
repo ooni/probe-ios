@@ -1313,8 +1313,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVT-RX-mee">
                                 <rect key="frame" x="0.0" y="130" width="375" height="473"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="url is accessible." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jQ-qf-OBG">
+                                        <rect key="frame" x="30" y="90.5" width="315" height="18"/>
+                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvg-U5-BZq">
-                                        <rect key="frame" x="0.0" y="108.5" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="138.5" width="375" height="140"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="sq7-Hi-i6y">
                                                 <rect key="frame" x="25" y="13" width="96" height="114"/>
@@ -1433,13 +1439,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="pvg-U5-BZq" firstAttribute="top" secondItem="7jQ-qf-OBG" secondAttribute="bottom" constant="30" id="DLe-SP-GWh"/>
                                     <constraint firstItem="faN-gr-xlg" firstAttribute="leading" secondItem="OVT-RX-mee" secondAttribute="leading" constant="30" id="IBb-au-Cso"/>
+                                    <constraint firstItem="7jQ-qf-OBG" firstAttribute="leading" secondItem="OVT-RX-mee" secondAttribute="leading" constant="30" id="Z2N-TC-08g"/>
                                     <constraint firstItem="faN-gr-xlg" firstAttribute="centerX" secondItem="OVT-RX-mee" secondAttribute="centerX" id="ar0-2w-IIE"/>
+                                    <constraint firstItem="7jQ-qf-OBG" firstAttribute="top" secondItem="faN-gr-xlg" secondAttribute="bottom" constant="12" id="bmp-Ud-0jR"/>
                                     <constraint firstItem="pvg-U5-BZq" firstAttribute="leading" secondItem="OVT-RX-mee" secondAttribute="leading" id="gRx-G2-rRh"/>
                                     <constraint firstAttribute="trailing" secondItem="pvg-U5-BZq" secondAttribute="trailing" id="pLr-rK-229"/>
+                                    <constraint firstAttribute="trailing" secondItem="7jQ-qf-OBG" secondAttribute="trailing" constant="30" id="qJl-Hc-Bqd"/>
                                     <constraint firstAttribute="trailing" secondItem="faN-gr-xlg" secondAttribute="trailing" constant="30" id="sZd-bL-Vj7"/>
                                     <constraint firstItem="faN-gr-xlg" firstAttribute="top" secondItem="OVT-RX-mee" secondAttribute="top" constant="30" id="ufO-p1-gWY"/>
-                                    <constraint firstItem="pvg-U5-BZq" firstAttribute="top" secondItem="faN-gr-xlg" secondAttribute="bottom" constant="30" id="xZ2-ZD-zXd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1471,6 +1480,7 @@
                         <outlet property="runtimeDetailLabel" destination="hK7-B8-yCJ" id="ay4-De-wff"/>
                         <outlet property="runtimeLabel" destination="i9Y-6r-DHa" id="K5R-0f-7Pr"/>
                         <outlet property="statusImage" destination="mMf-ON-PNf" id="GwG-jt-1yz"/>
+                        <outlet property="textLabel" destination="7jQ-qf-OBG" id="E5E-in-0NR"/>
                         <outlet property="titleLabel" destination="prI-YB-ZKo" id="0ao-eR-hec"/>
                         <segue destination="zYs-kh-5bZ" kind="show" identifier="toViewLog" id="ZUU-cg-RD1"/>
                     </connections>

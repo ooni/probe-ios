@@ -5,6 +5,7 @@
 
 @property (nonatomic, strong) IBOutlet UIImageView *statusImage;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *textLabel;
 
 @property (nonatomic, strong) IBOutlet UILabel *detail1TitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *detail1SubtitleLabel;
