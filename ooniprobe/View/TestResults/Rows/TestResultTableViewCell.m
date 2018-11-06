@@ -21,6 +21,7 @@
     
     [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", result.test_group_name]]];
     [self.testIcon setTintColor:[TestUtility getColorForTest:result.test_group_name]];
+    [self.testNameLabel setTextColor:[TestUtility getColorForTest:result.test_group_name]];
 
     self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.test_group_name];
     NSString *networkName = [result getNetworkNameOrAsn];

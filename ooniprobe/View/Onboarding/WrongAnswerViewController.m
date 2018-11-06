@@ -10,10 +10,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.goBackButton addTarget:self action:@selector(dismissAllPopups) forControlEvents:UIControlEventTouchUpInside];
-    [self.goBackButton setTitle:[NSLocalizedString(@"Onboarding.PopQuiz.Wrong.Button.Back", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.goBackButton setTitle:NSLocalizedString(@"Onboarding.PopQuiz.Wrong.Button.Back", nil)  forState:UIControlStateNormal];
 
     [self.continueButton addTarget:self action:@selector(nextAndDismissPopupWrongAnswer) forControlEvents:UIControlEventTouchUpInside];
-    [self.continueButton setTitle:[NSLocalizedString(@"Onboarding.PopQuiz.Wrong.Button.Continue", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.continueButton setTitle:NSLocalizedString(@"Onboarding.PopQuiz.Wrong.Button.Continue", nil) forState:UIControlStateNormal];
 
     [self.goBackButton setTitleColor:[UIColor whiteColor]
                           forState:UIControlStateNormal];

@@ -20,17 +20,17 @@
                                 value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                                 range:NSMakeRange(0, weWillCollect.length)];
     
-    NSMutableAttributedString *defaultSettings1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.1", nil)]];
+    NSMutableAttributedString *defaultSettings1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.1", nil)]];
     [defaultSettings1 addAttribute:NSFontAttributeName
                                 value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                                 range:NSMakeRange(0, defaultSettings1.length)];
     
-    NSMutableAttributedString *defaultSettings2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.2", nil)]];
+    NSMutableAttributedString *defaultSettings2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.2", nil)]];
     [defaultSettings2 addAttribute:NSFontAttributeName
                                value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                                range:NSMakeRange(0, defaultSettings2.length)];
 
-    NSMutableAttributedString *defaultSettings3 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.3", nil)]];
+    NSMutableAttributedString *defaultSettings3 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.3", nil)]];
     [defaultSettings3 addAttribute:NSFontAttributeName
                                value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
                                range:NSMakeRange(0, defaultSettings3.length)];

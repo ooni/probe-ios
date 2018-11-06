@@ -10,10 +10,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.trueButton addTarget:self action:@selector(answer:) forControlEvents:UIControlEventTouchUpInside];
-    [self.trueButton setTitle:[NSLocalizedString(@"Onboarding.PopQuiz.True", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.trueButton setTitle:NSLocalizedString(@"Onboarding.PopQuiz.True", nil) forState:UIControlStateNormal];
     
     [self.falseButton addTarget:self action:@selector(answer:) forControlEvents:UIControlEventTouchUpInside];
-    [self.falseButton setTitle:[NSLocalizedString(@"Onboarding.PopQuiz.False", nil) uppercaseString] forState:UIControlStateNormal];
+    [self.falseButton setTitle:NSLocalizedString(@"Onboarding.PopQuiz.False", nil) forState:UIControlStateNormal];
     
     [self.trueButton setTitleColor:[UIColor whiteColor]
                             forState:UIControlStateNormal];
