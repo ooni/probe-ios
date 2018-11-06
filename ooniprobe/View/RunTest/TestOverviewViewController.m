@@ -16,7 +16,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
 
     [self.testNameLabel setText:[LocalizationUtility getNameForTest:testName]];
-    
     NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testName];
     [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
     [self.testDescriptionLabel setMarkdown:testLongDesc];

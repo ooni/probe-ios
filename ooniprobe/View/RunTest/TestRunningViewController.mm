@@ -52,7 +52,8 @@
     totalRuntime = [TestUtility getTotalTimeForTest:testSuiteName];
     NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]]);
     [self.timeLabel setText:time];
-    
+    [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
+
     [self runTest];
     self.progressBar.layer.cornerRadius = 7.5;
     self.progressBar.layer.masksToBounds = YES;
@@ -89,10 +90,6 @@
 }
 -(void)addAnimation{
     animation = [LOTAnimationView animationNamed:testSuiteName];
-    //animation = [LOTAnimationView animationNamed:currentTest.result.test_group_name];
-    //[animation setBackgroundColor:[TestUtility getColorForTest:testSuiteName]];
-    //animation.frame = self.animationView.bounds;
-    //animation.center = self.animationView.center;
     animation.contentMode = UIViewContentModeScaleAspectFit;
     CGRect c = self.animationView.bounds;
     animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
