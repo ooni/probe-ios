@@ -22,7 +22,6 @@
     [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", result.test_group_name]]];
     [self.testIcon setTintColor:[TestUtility getColorForTest:result.test_group_name]];
     [self.testNameLabel setTextColor:[TestUtility getColorForTest:result.test_group_name]];
-
     self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.test_group_name];
     NSString *networkName = [result getNetworkNameOrAsn];
     
@@ -30,11 +29,20 @@
     [networkNameStr addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
                         range:NSMakeRange(0, networkNameStr.length)];
-    [self.testAsnLabel setAttributedText:networkNameStr];
+    NSMutableAttributedString *networkCountryText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)", [result getCountry]]];
+    [networkCountryText addAttribute:NSFontAttributeName
+                            value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
+                            range:NSMakeRange(0, networkCountryText.length)];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
+    [attrStr appendAttributedString:networkNameStr];
+    [attrStr appendAttributedString:networkCountryText];
+    [self.testAsnLabel setAttributedText:attrStr];
     
     //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     self.testTimeLabel.text = localizedDateTime;
+    [self.testTimeLabel setTextColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+
     if ([result.test_group_name isEqualToString:@"websites"]){
         long anomalousMeasurements = [result anomalousMeasurements];
         long totalMeasurements = [result totalMeasurements];

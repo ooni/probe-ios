@@ -14,16 +14,6 @@
     
     [self.runButton setTitle:NSLocalizedString(@"Settings.Websites.CustomURL.Run", nil) forState:UIControlStateNormal];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:)
-                                                 name:@"UIKeyboardWillShowNotification"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidHide:)
-                                                 name:@"UIKeyboardDidHideNotification"
-                                               object:nil];
-
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
     delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -39,27 +29,6 @@
                                       target:self.view action:@selector(endEditing:)];
     keyboardToolbar.items = @[flexBarButton, doneBarButton];
 
-}
-
-- (void) keyboardWillShow:(NSNotification *)note {
-    
-    CGSize kbSize = [[[note userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3f];
-    [UIView setAnimationDelegate:self];
-    self.runButton.transform = CGAffineTransformMakeTranslation( 0, -kbSize.height-keyboardToolbar.bounds.size.height-20 );
-    [UIView commitAnimations];
-}
-
-- (void) keyboardDidHide:(NSNotification *)note {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3f];
-    [UIView setAnimationDelegate:self];
-    
-    self.runButton.transform = CGAffineTransformIdentity;
-    
-    [UIView commitAnimations];
 }
 
 -(IBAction)close:(id)sender{
