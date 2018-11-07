@@ -17,13 +17,13 @@
 
         self.geoip_country_path = geoip_country;
         self.geoip_asn_path = geoip_asn;
-        self.save_real_probe_ip = [NSNumber numberWithInt:include_ip];
-        self.save_real_probe_asn = [NSNumber numberWithInt:include_asn];
-        self.save_real_probe_cc = [NSNumber numberWithInt:include_cc];
-        self.no_collector = [NSNumber numberWithInt:!upload_results];
+        self.save_real_probe_ip = [NSNumber numberWithBool:include_ip];
+        self.save_real_probe_asn = [NSNumber numberWithBool:include_asn];
+        self.save_real_probe_cc = [NSNumber numberWithBool:include_cc];
+        self.no_collector = [NSNumber numberWithBool:!upload_results];
         self.software_name = @"ooniprobe-ios";
         self.software_version = software_version;
-        self.randomize_input = [NSNumber numberWithInt:0];
+        self.randomize_input = [NSNumber numberWithBool:FALSE];
     }
     return self;
 }
