@@ -4,14 +4,15 @@
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
-    //TODO-2.1 reenable "automated_testing"
+    //TODO-2.1 reenable @"automated_testing"
     return @[@"notifications", @"sharing", @"advanced", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
     if ([categoryName isEqualToString:@"notifications"]) {
         if ([self getSettingWithName:@"notifications_enabled"])
-            return @[@"notifications_enabled", @"notifications_completion", @"notifications_news"];
+            //TODO-2.1 reenable @"notifications_news"
+            return @[@"notifications_enabled", @"notifications_completion"];
         else
             return @[@"notifications_enabled"];
     }

@@ -15,7 +15,7 @@
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
         [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Hero.Title", nil)];
-        NSString *paragraph = NSLocalizedFormatString(@"TestResults.Details.Websites.Reachable.Content.Paragraph", self.measurement.url_id.url);
+        NSString *paragraph = NSLocalizedFormatString(@"TestResults.Details.Websites.Reachable.Content.Paragraph", [NSString stringWithFormat:@"`%@`", self.measurement.url_id.url]);
         [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
         [self.textLabel setMarkdown:paragraph];
         [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
@@ -28,7 +28,7 @@
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
         [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Hero.Title", nil)];
-        NSString *paragraph = NSLocalizedFormatString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph", self.measurement.url_id.url, [testKeys getWebsiteBlocking]);
+        NSString *paragraph = NSLocalizedFormatString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph", [NSString stringWithFormat:@"`%@`", self.measurement.url_id.url], [testKeys getWebsiteBlocking]);
         [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
         [self.textLabel setMarkdown:paragraph];
         [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
