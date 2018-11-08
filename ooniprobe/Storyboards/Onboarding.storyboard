@@ -50,13 +50,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is OONI Probe?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E83-HA-9VG">
-                                <rect key="frame" x="20" y="332" width="374" height="41"/>
+                                <rect key="frame" x="20" y="270" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-gy-NKd">
-                                <rect key="frame" x="20" y="381" width="374" height="122.66666666666669"/>
+                                <rect key="frame" x="20" y="319" width="374" height="122.66666666666669"/>
                                 <string key="text">OONI Probe is free and open source software that enables you to examine internet censorship in your network.
 
 The data that you can collect through this app can serve as evidence of censorship events.</string>
@@ -65,9 +65,9 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_1" translatesAutoresizingMaskIntoConstraints="NO" id="wjo-4r-PfJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="324"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="262"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="wjo-4r-PfJ" secondAttribute="height" multiplier="23:18" id="EWS-fc-RQ1"/>
+                                    <constraint firstAttribute="width" secondItem="wjo-4r-PfJ" secondAttribute="height" multiplier="23:18" constant="79.222222222222229" id="EWS-fc-RQ1"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-DR-K1M">
@@ -136,13 +136,13 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Things to know" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-dw-gFn">
-                                <rect key="frame" x="20" y="346" width="374" height="41"/>
+                                <rect key="frame" x="20" y="286" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-qb-Qml">
-                                <rect key="frame" x="20" y="395" width="374" height="163.33333333333337"/>
+                                <rect key="frame" x="20" y="335" width="374" height="163.33333333333337"/>
                                 <string key="text">• OONI data is openly published and will include your network information.
 
 • Anyone monitoring your internet activity (e.g governments or ISP) will know that you are running OONI Probe.
@@ -153,9 +153,9 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_2" translatesAutoresizingMaskIntoConstraints="NO" id="s0Z-yY-pz9">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="338"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="278"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="s0Z-yY-pz9" secondAttribute="height" multiplier="207:169" id="Fj3-cE-u9O"/>
+                                    <constraint firstAttribute="width" secondItem="s0Z-yY-pz9" secondAttribute="height" multiplier="207:169" constant="73.491124260355036" id="Fj3-cE-u9O"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-lT-nrn">
@@ -265,6 +265,7 @@ We do our best not to publish your IP address or any other potentially personall
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_3" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-ON-TYp">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="266"/>
+                                <color key="backgroundColor" red="0.0" green="0.16862745098039217" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2pt-ON-TYp" secondAttribute="height" multiplier="207:133" id="KO9-qj-lhg"/>
                                 </constraints>
@@ -310,7 +311,7 @@ We do our best not to publish your IP address or any other potentially personall
                         <constraints>
                             <constraint firstItem="2pt-ON-TYp" firstAttribute="top" secondItem="DEh-Zm-8aG" secondAttribute="top" id="5LH-fB-fYY"/>
                             <constraint firstItem="hx8-bq-2PZ" firstAttribute="top" secondItem="ldx-vN-fF3" secondAttribute="bottom" constant="9" id="6m9-JR-z82"/>
-                            <constraint firstItem="d3K-eH-7xm" firstAttribute="top" secondItem="sB1-sc-28S" secondAttribute="bottom" constant="77" id="G6H-sv-UWB"/>
+                            <constraint firstItem="d3K-eH-7xm" firstAttribute="top" secondItem="JJU-ZD-DXx" secondAttribute="bottom" constant="8" id="D3g-9Z-MI5"/>
                             <constraint firstItem="eIj-ks-Nks" firstAttribute="top" secondItem="sB1-sc-28S" secondAttribute="bottom" constant="8" id="NVx-PR-Ygd"/>
                             <constraint firstItem="eIj-ks-Nks" firstAttribute="centerX" secondItem="DEh-Zm-8aG" secondAttribute="centerX" id="Qee-LR-o3k"/>
                             <constraint firstItem="JJU-ZD-DXx" firstAttribute="centerX" secondItem="DEh-Zm-8aG" secondAttribute="centerX" id="SnE-kd-gHT"/>
@@ -322,8 +323,8 @@ We do our best not to publish your IP address or any other potentially personall
                             <constraint firstItem="sB1-sc-28S" firstAttribute="centerX" secondItem="DEh-Zm-8aG" secondAttribute="centerX" id="ssi-4v-vCo"/>
                             <constraint firstItem="2pt-ON-TYp" firstAttribute="trailing" secondItem="tr5-G1-oNN" secondAttribute="trailing" id="ub7-TB-zjb"/>
                             <constraint firstItem="2pt-ON-TYp" firstAttribute="leading" secondItem="tr5-G1-oNN" secondAttribute="leading" id="vvu-im-kDf"/>
-                            <constraint firstItem="d3K-eH-7xm" firstAttribute="top" secondItem="JJU-ZD-DXx" secondAttribute="bottom" constant="8" id="wp5-w7-SB6"/>
                             <constraint firstItem="ldx-vN-fF3" firstAttribute="top" secondItem="2pt-ON-TYp" secondAttribute="bottom" constant="8" id="xKh-mh-bIs"/>
+                            <constraint firstItem="d3K-eH-7xm" firstAttribute="top" secondItem="sB1-sc-28S" secondAttribute="bottom" constant="77" id="zUY-gn-rat"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tr5-G1-oNN"/>
                     </view>
@@ -613,8 +614,8 @@ Anyone monitoring your internet activity may be able to see that you are running
         <image name="dots_1" width="135" height="16"/>
         <image name="dots_2" width="135" height="16"/>
         <image name="dots_3" width="135" height="16"/>
-        <image name="onboarding_1" width="360" height="281"/>
-        <image name="onboarding_2" width="360" height="281"/>
+        <image name="onboarding_1" width="360" height="228"/>
+        <image name="onboarding_2" width="360" height="242"/>
         <image name="onboarding_3" width="361" height="232"/>
     </resources>
 </document>
