@@ -66,9 +66,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
 
-    if ([SettingsUtility getSettingWithName:@"keep_screen_on"]){
-        [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-    }
+    //Keep screen on
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

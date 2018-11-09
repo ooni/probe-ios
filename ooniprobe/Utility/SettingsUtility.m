@@ -22,7 +22,7 @@
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO-2.1 @"use_domain_fronting"
-        return @[@"keep_screen_on", @"send_crash", @"debug_logs"];
+        return @[@"send_crash", @"debug_logs"];
     }
     else
         return nil;
