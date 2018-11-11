@@ -362,6 +362,7 @@
                                                 <rect key="frame" x="117" y="222" width="141" height="40"/>
                                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="141" id="TKn-ah-uJG"/>
                                                     <constraint firstAttribute="height" constant="40" id="l72-l7-50n"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="21"/>
@@ -375,6 +376,7 @@
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzK-wQ-7AH">
                                                 <rect key="frame" x="97" y="270" width="181" height="24"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="181" id="H9h-b4-qi6"/>
                                                     <constraint firstAttribute="height" constant="24" id="ciY-40-h6C"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
@@ -423,11 +425,11 @@ measurement-kit: x.y.z</string>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="Iza-Qi-7Xv" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="117" id="4Kw-WJ-ueF"/>
+                                            <constraint firstItem="Iza-Qi-7Xv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="20" id="4Kw-WJ-ueF"/>
                                             <constraint firstItem="fJM-Cs-r96" firstAttribute="leading" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="50" id="4pO-eI-vIW"/>
                                             <constraint firstItem="Q8W-mA-yKw" firstAttribute="top" secondItem="xfk-C4-Iuo" secondAttribute="top" id="9GF-vS-tVt"/>
-                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Iza-Qi-7Xv" secondAttribute="trailing" constant="118" id="BKM-HA-LTa"/>
-                                            <constraint firstItem="WzK-wQ-7AH" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="97" id="ChV-Ux-Z7H"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Iza-Qi-7Xv" secondAttribute="trailing" constant="8" id="BKM-HA-LTa"/>
+                                            <constraint firstItem="WzK-wQ-7AH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xfk-C4-Iuo" secondAttribute="leading" constant="20" id="ChV-Ux-Z7H"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="WzK-wQ-7AH" secondAttribute="trailing" constant="98" id="Hx0-LT-Dgb"/>
                                             <constraint firstItem="WzK-wQ-7AH" firstAttribute="top" secondItem="Iza-Qi-7Xv" secondAttribute="bottom" constant="8" id="IDe-bD-00F"/>
                                             <constraint firstAttribute="height" constant="440" id="JCQ-Ek-QGv"/>

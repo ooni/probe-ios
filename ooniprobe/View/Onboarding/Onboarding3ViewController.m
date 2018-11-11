@@ -15,39 +15,14 @@
     [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.titleLabel setText:NSLocalizedString(@"Onboarding.DefaultSettings.Title", nil)];
 
-    NSMutableAttributedString *weWillCollect = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Onboarding.DefaultSettings.Header.1", nil)];
-    [weWillCollect addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                                range:NSMakeRange(0, weWillCollect.length)];
-    
-    NSMutableAttributedString *defaultSettings1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.1", nil)]];
-    [defaultSettings1 addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                                range:NSMakeRange(0, defaultSettings1.length)];
-    
-    NSMutableAttributedString *defaultSettings2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.2", nil)]];
-    [defaultSettings2 addAttribute:NSFontAttributeName
-                               value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                               range:NSMakeRange(0, defaultSettings2.length)];
-
-    NSMutableAttributedString *defaultSettings3 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.3", nil)]];
-    [defaultSettings3 addAttribute:NSFontAttributeName
-                               value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                               range:NSMakeRange(0, defaultSettings3.length)];
-
-    NSMutableAttributedString *defaultSettings4 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n• %@", NSLocalizedString(@"Onboarding.DefaultSettings.Paragraph", nil)]];
-    [defaultSettings4 addAttribute:NSFontAttributeName
-                               value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
-                               range:NSMakeRange(0, defaultSettings4.length)];
-
-    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
-    [attrStr appendAttributedString:weWillCollect];
-    [attrStr appendAttributedString:defaultSettings1];
-    [attrStr appendAttributedString:defaultSettings2];
-    [attrStr appendAttributedString:defaultSettings3];
-    [attrStr appendAttributedString:defaultSettings4];
-
-    [self.textLabel setAttributedText:attrStr];
+    NSString *defaultSettings = [NSString stringWithFormat:@"**%@**\n• %@\n• %@\n• %@\n%@", NSLocalizedString(@"Onboarding.DefaultSettings.Header", nil), NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.1", nil), NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.2", nil),
+        NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.3", nil),
+        NSLocalizedString(@"Onboarding.DefaultSettings.Paragraph", nil)];
+    [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:17]];
+    [self.textLabel setMarkdown:defaultSettings];
+    [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
+        [[UIApplication sharedApplication] openURL:url];
+    }];
     [self.textLabel setTextColor:[UIColor whiteColor]];
 
     [self.changeButton setTitle:NSLocalizedString(@"Onboarding.DefaultSettings.Button.Change", nil)  forState:UIControlStateNormal];

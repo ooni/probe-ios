@@ -20,12 +20,9 @@
     [self.titleLabel setTextColor:[UIColor whiteColor]];
     [self.titleLabel setText:NSLocalizedString(@"Onboarding.ThingsToKnow.Title", nil)];
     
-    NSMutableAttributedString *thingsToKnow1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"• %@\n• %@\n• %@", NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.1", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.2", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.3", nil)]];
-    [thingsToKnow1 addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
-                                range:NSMakeRange(0, thingsToKnow1.length)];
+    NSString *thingsToKnow = [NSString stringWithFormat:@"• %@\n• %@\n• %@", NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.1", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.2", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.3", nil)];
     
-    [self.textLabel setAttributedText:thingsToKnow1];
+    [self.textLabel setText:thingsToKnow];
     [self.textLabel setTextColor:[UIColor whiteColor]];
     [self.nextButton setTitle:NSLocalizedString(@"Onboarding.ThingsToKnow.Button", nil) forState:UIControlStateNormal];
     [self.nextButton setTitleColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]
