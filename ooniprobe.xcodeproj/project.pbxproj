@@ -51,6 +51,10 @@
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6392042A92200C43E5C /* MKNetworkTest.mm */; };
 		ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B63C2042A92200C43E5C /* NetworkTest.mm */; };
+		ED90A90D2198AFEB00204B46 /* MKTask.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A8FE2198AFEB00204B46 /* MKTask.mm */; };
+		ED90A90E2198AFEB00204B46 /* MKOrchestra.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9002198AFEB00204B46 /* MKOrchestra.mm */; };
+		ED90A90F2198AFEB00204B46 /* MKGeoIPLookup.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9012198AFEB00204B46 /* MKGeoIPLookup.mm */; };
+		ED90A9162198AFEB00204B46 /* MKResources.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A90B2198AFEB00204B46 /* MKResources.m */; };
 		ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.m */; };
 		ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED997D0B207BCEE400C97B1F /* Strings.plist */; };
 		ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */; };
@@ -202,6 +206,15 @@
 		ED8569581EB146B500D435EB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED90A8FD2198AFEB00204B46 /* MKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKUtil.h; sourceTree = "<group>"; };
+		ED90A8FE2198AFEB00204B46 /* MKTask.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MKTask.mm; sourceTree = "<group>"; };
+		ED90A8FF2198AFEB00204B46 /* MKGeoIPLookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGeoIPLookup.h; sourceTree = "<group>"; };
+		ED90A9002198AFEB00204B46 /* MKOrchestra.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MKOrchestra.mm; sourceTree = "<group>"; };
+		ED90A9012198AFEB00204B46 /* MKGeoIPLookup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MKGeoIPLookup.mm; sourceTree = "<group>"; };
+		ED90A9022198AFEB00204B46 /* MKResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKResources.h; sourceTree = "<group>"; };
+		ED90A90A2198AFEB00204B46 /* MKTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTask.h; sourceTree = "<group>"; };
+		ED90A90B2198AFEB00204B46 /* MKResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKResources.m; sourceTree = "<group>"; };
+		ED90A90C2198AFEB00204B46 /* MKOrchestra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKOrchestra.h; sourceTree = "<group>"; };
 		ED997D08207BB7C400C97B1F /* LocalizationUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocalizationUtility.h; path = Utility/LocalizationUtility.h; sourceTree = "<group>"; };
 		ED997D09207BB7C400C97B1F /* LocalizationUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocalizationUtility.m; path = Utility/LocalizationUtility.m; sourceTree = "<group>"; };
 		ED997D0B207BCEE400C97B1F /* Strings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Strings.plist; sourceTree = "<group>"; };
@@ -469,6 +482,7 @@
 		ED58E8C71D0C625300C74F10 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ED90A8FC2198AFEB00204B46 /* mkall */,
 				ED0A6202200B533800235E70 /* Notifications */,
 				ED70D5001FE7F65700759463 /* GUI */,
 				ED49509B1F951F1D00344E42 /* MessageUtility.h */,
@@ -528,6 +542,23 @@
 				ED209669209791C40028BEA3 /* PaddingLabel.m */,
 			);
 			path = GUI;
+			sourceTree = "<group>";
+		};
+		ED90A8FC2198AFEB00204B46 /* mkall */ = {
+			isa = PBXGroup;
+			children = (
+				ED90A8FD2198AFEB00204B46 /* MKUtil.h */,
+				ED90A8FE2198AFEB00204B46 /* MKTask.mm */,
+				ED90A8FF2198AFEB00204B46 /* MKGeoIPLookup.h */,
+				ED90A9012198AFEB00204B46 /* MKGeoIPLookup.mm */,
+				ED90A9002198AFEB00204B46 /* MKOrchestra.mm */,
+				ED90A90C2198AFEB00204B46 /* MKOrchestra.h */,
+				ED90A90A2198AFEB00204B46 /* MKTask.h */,
+				ED90A9022198AFEB00204B46 /* MKResources.h */,
+				ED90A90B2198AFEB00204B46 /* MKResources.m */,
+			);
+			name = mkall;
+			path = Utility/mkall;
 			sourceTree = "<group>";
 		};
 		EDB252A120FA46DA00B4EDE4 /* JsonResult */ = {
@@ -916,6 +947,7 @@
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
 				ED53841C2159757D0078C5C6 /* EventResult.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
+				ED90A90E2198AFEB00204B46 /* MKOrchestra.mm in Sources */,
 				EDA9CC90209B53980062507F /* HttpHeaderFieldManipulation.mm in Sources */,
 				EDEA783321247F8B006F4A72 /* Network.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
@@ -944,6 +976,7 @@
 				ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
 				ED53841F215975A70078C5C6 /* Value.m in Sources */,
+				ED90A90D2198AFEB00204B46 /* MKTask.mm in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
@@ -953,6 +986,7 @@
 				EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */,
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
+				ED90A9162198AFEB00204B46 /* MKResources.m in Sources */,
 				ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
@@ -962,6 +996,7 @@
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
 				EDF20735212173B9005B06D7 /* Simple.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
+				ED90A90F2198AFEB00204B46 /* MKGeoIPLookup.mm in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

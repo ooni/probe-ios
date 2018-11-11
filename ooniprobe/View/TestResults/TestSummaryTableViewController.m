@@ -18,12 +18,11 @@
 
     [self reloadMeasurements];
     defaultColor = [TestUtility getColorForTest:result.test_group_name];
+    self.title = [LocalizationUtility getNameForTest:self.result.test_group_name];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-    self.title = localizedDateTime;
     [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
 }
 
