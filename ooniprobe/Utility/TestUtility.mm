@@ -1,7 +1,7 @@
 #import "TestUtility.h"
 #import "Url.h"
 #import "SettingsUtility.h"
-#import "MkGeoIPLookup.h"
+#import "MKGeoIPLookup.h"
 
 #define ANOMALY_GREEN 0
 #define ANOMALY_ORANGE 1
@@ -125,9 +125,9 @@
 }
 
 + (void)downloadUrls:(void (^)(NSArray *))completion {
-    MkGeoIPLookupSettings *settings = [[MkGeoIPLookupSettings alloc] init];
+    MKGeoIPLookupSettings *settings = [[MKGeoIPLookupSettings alloc] init];
     [settings setTimeout:17];
-    MkGeoIPLookupResults *results = [settings perform];
+    MKGeoIPLookupResults *results = [settings perform];
     NSString *cc = @"XX";
     if ([results good])
         cc = [results getProbeCC];
