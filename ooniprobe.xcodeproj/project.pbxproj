@@ -89,7 +89,6 @@
 		EDC77B26218A04C500326C8F /* country.mmdb in Resources */ = {isa = PBXBuildFile; fileRef = EDC77B23218A04C500326C8F /* country.mmdb */; };
 		EDC77B27218A04C500326C8F /* asn.mmdb in Resources */ = {isa = PBXBuildFile; fileRef = EDC77B24218A04C500326C8F /* asn.mmdb */; };
 		EDC77B28218A04C500326C8F /* ca-bundle.pem in Resources */ = {isa = PBXBuildFile; fileRef = EDC77B25218A04C500326C8F /* ca-bundle.pem */; };
-		EDC77B2B218A04D700326C8F /* MkGeoIPLookup.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDC77B2A218A04D700326C8F /* MkGeoIPLookup.mm */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCD73D12180F014003B56D9 /* Header3ViewController.m */; };
 		EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD101BD1EE801F00044E390 /* NotificationService.mm */; };
@@ -267,8 +266,6 @@
 		EDC77B23218A04C500326C8F /* country.mmdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = country.mmdb; sourceTree = "<group>"; };
 		EDC77B24218A04C500326C8F /* asn.mmdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = asn.mmdb; sourceTree = "<group>"; };
 		EDC77B25218A04C500326C8F /* ca-bundle.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ca-bundle.pem"; sourceTree = "<group>"; };
-		EDC77B29218A04D700326C8F /* MkGeoIPLookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MkGeoIPLookup.h; path = Utility/MkGeoIPLookup.h; sourceTree = "<group>"; };
-		EDC77B2A218A04D700326C8F /* MkGeoIPLookup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MkGeoIPLookup.mm; path = Utility/MkGeoIPLookup.mm; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDCD73D02180F014003B56D9 /* Header3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header3ViewController.h; sourceTree = "<group>"; };
 		EDCD73D12180F014003B56D9 /* Header3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header3ViewController.m; sourceTree = "<group>"; };
@@ -488,8 +485,6 @@
 				ED997D09207BB7C400C97B1F /* LocalizationUtility.m */,
 				EDA7645F2153090800C24688 /* NSDictionary+Safety.h */,
 				EDA7645E2153090800C24688 /* NSDictionary+Safety.m */,
-				EDC77B29218A04D700326C8F /* MkGeoIPLookup.h */,
-				EDC77B2A218A04D700326C8F /* MkGeoIPLookup.mm */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -967,7 +962,6 @@
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
 				EDF20735212173B9005B06D7 /* Simple.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
-				EDC77B2B218A04D700326C8F /* MkGeoIPLookup.mm in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

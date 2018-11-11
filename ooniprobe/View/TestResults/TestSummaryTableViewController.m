@@ -85,7 +85,10 @@
         [title setText:[LocalizationUtility getNameForTest:current.test_name]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", current.test_name]]];
-        [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+        if (current.is_failed)
+            [icon setTintColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
+        else
+            [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
         if (!current.is_anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
             [status setTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
