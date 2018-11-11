@@ -7,8 +7,6 @@
 + (void)registerUserNotification;
 - (void)updateClient;
 
-@property (strong, nonatomic) NSString *geoip_country_path;
-@property (strong, nonatomic) NSString *geoip_asn_path;
 @property (strong, nonatomic) NSString *platform;
 @property (strong, nonatomic) NSString *software_name;
 @property (strong, nonatomic) NSString *software_version;
