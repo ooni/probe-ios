@@ -55,6 +55,7 @@
 		ED90A90E2198AFEB00204B46 /* MKOrchestra.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9002198AFEB00204B46 /* MKOrchestra.mm */; };
 		ED90A90F2198AFEB00204B46 /* MKGeoIPLookup.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9012198AFEB00204B46 /* MKGeoIPLookup.mm */; };
 		ED90A9162198AFEB00204B46 /* MKResources.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A90B2198AFEB00204B46 /* MKResources.m */; };
+		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
 		ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.m */; };
 		ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED997D0B207BCEE400C97B1F /* Strings.plist */; };
 		ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */; };
@@ -215,6 +216,8 @@
 		ED90A90A2198AFEB00204B46 /* MKTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTask.h; sourceTree = "<group>"; };
 		ED90A90B2198AFEB00204B46 /* MKResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKResources.m; sourceTree = "<group>"; };
 		ED90A90C2198AFEB00204B46 /* MKOrchestra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKOrchestra.h; sourceTree = "<group>"; };
+		ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewCell.m; sourceTree = "<group>"; };
+		ED90A9182198B8AB00204B46 /* DashboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewCell.h; sourceTree = "<group>"; };
 		ED997D08207BB7C400C97B1F /* LocalizationUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocalizationUtility.h; path = Utility/LocalizationUtility.h; sourceTree = "<group>"; };
 		ED997D09207BB7C400C97B1F /* LocalizationUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocalizationUtility.m; path = Utility/LocalizationUtility.m; sourceTree = "<group>"; };
 		ED997D0B207BCEE400C97B1F /* Strings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Strings.plist; sourceTree = "<group>"; };
@@ -602,6 +605,8 @@
 		EDBBB2DC203D2ED400B84F6F /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				ED90A9182198B8AB00204B46 /* DashboardTableViewCell.h */,
+				ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */,
 				EDBBB2DD203D2EF200B84F6F /* TestResultTableViewCell.h */,
 				EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */,
 			);
@@ -925,6 +930,7 @@
 			files = (
 				EDA9CC96209B53B80062507F /* Dash.mm in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
+				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
 				EDF20736212173B9005B06D7 /* Advanced.m in Sources */,

@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="mfz-WO-8QM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="mfz-WO-8QM" customClass="DashboardTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="414" height="225"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mfz-WO-8QM" id="Qbs-Fm-brW">
@@ -127,6 +127,13 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bottomLabel" destination="Bk1-Vd-k6H" id="m8k-bs-ZaB"/>
+                                    <outlet property="cardbackgroundView" destination="kk7-LL-zcm" id="CCb-o2-WSB"/>
+                                    <outlet property="descLabel" destination="NtR-Rs-i3G" id="mw4-JS-Tgi"/>
+                                    <outlet property="estimateTime" destination="Yx1-Yu-xrK" id="9Gb-59-4Lu"/>
+                                    <outlet property="runButton" destination="HL8-tu-cDv" id="K3q-Qi-52x"/>
+                                    <outlet property="testLogo" destination="caW-18-OfO" id="h9U-N1-G8o"/>
+                                    <outlet property="titleLabel" destination="ClV-fJ-FW5" id="Ug4-0f-XYo"/>
                                     <segue destination="KQ9-fn-Vaa" kind="show" identifier="toTestOverview" id="lCb-v9-U0Q"/>
                                 </connections>
                             </tableViewCell>

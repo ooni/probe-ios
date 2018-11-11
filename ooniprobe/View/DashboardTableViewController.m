@@ -1,4 +1,5 @@
 #import "DashboardTableViewController.h"
+#import "DashboardTableViewCell.h"
 
 @interface DashboardTableViewController ()
 
@@ -40,34 +41,12 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    DashboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *testName = [items objectAtIndex:indexPath.row];
-    [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
-    UIView *backgroundView = (UIView*)[cell viewWithTag:1];
-    UILabel *titleLabel = (UILabel*)[cell viewWithTag:2];
-    UILabel *descLabel = (UILabel*)[cell viewWithTag:3];
-    UILabel *estimateTime = (UILabel*)[cell viewWithTag:4];
-    RunButton *runButton = (RunButton*)[cell viewWithTag:5];
-    ConfigureButton *configureButton = (ConfigureButton*)[cell viewWithTag:6];
-    UILabel *bottomLabel = (UILabel*)[cell viewWithTag:8];
-
-    [runButton setTitleColor:[TestUtility getColorForTest:testName] forState:UIControlStateNormal];
-    [runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
-    [configureButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Configure", nil)] forState:UIControlStateNormal];
-
-    UIImageView *testLogo = (UIImageView*)[cell viewWithTag:7];
-    [titleLabel setText:[LocalizationUtility getNameForTest:testName]];
-    [descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]]);
-    [estimateTime setText:time];
-    [bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
-
-    [testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
-    [testLogo setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-    [backgroundView setBackgroundColor:[TestUtility getColorForTest:testName]];
-    backgroundView.layer.cornerRadius = 15;
-    backgroundView.layer.masksToBounds = YES;
-
+    if (cell == nil) {
+        cell = [[DashboardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    [cell setTestName:testName];
     return cell;
 }
 
