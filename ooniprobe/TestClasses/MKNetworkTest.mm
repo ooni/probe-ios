@@ -61,14 +61,12 @@ static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
     }];
     dispatch_async(
                    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                       //NSLog(@"%@", [self.settings getSerializedSettings]);
                        mk_unique_task taskp{mk_nettest_start([[self.settings getSerializedSettings] UTF8String])};
                        while (!mk_task_is_done(taskp.get())) {
                            // Extract an event from the task queue and unmarshal it.
                            NSDictionary *evinfo = wait_for_next_event(taskp);
                            if (evinfo == nil) {
-                               //TODO-2.0 break;
-                               continue;
+                               break;
                            }
                            NSLog(@"Got event: %@", evinfo);
                            InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];

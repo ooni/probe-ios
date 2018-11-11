@@ -20,7 +20,7 @@
         [client setLanguage:[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode]];
         [client setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
         [client setPlatform:@"ios"];
-        //TODO2.1
+        //TODO-2.1
         //[client setProbeTimezone:[NSTimeZone localTimeZone].abbreviation];
         [client setRegistryURL:NOTIFICATION_SERVER];
         [client setSecretsFile:[self make_path]];
