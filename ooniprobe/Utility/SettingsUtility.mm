@@ -136,4 +136,16 @@
 + (BOOL)getSettingWithName:(NSString*)settingName{
     return [[[NSUserDefaults standardUserDefaults] objectForKey:settingName] boolValue];
 }
+
++ (NSString*)get_push_token{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"]){
+        return [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
+    }
+    return nil;
+}
+
++ (void)set_push_token:(NSString*)push_token{
+    [[NSUserDefaults standardUserDefaults] setObject:push_token forKey:@"push_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 @end

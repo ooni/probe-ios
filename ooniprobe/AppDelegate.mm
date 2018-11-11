@@ -6,6 +6,7 @@
 #import "MessageUtility.h"
 #import "Result.h"
 #import "TestRunningViewController.h"
+#import "SettingsUtility.h"
 
 @interface AppDelegate ()
 
@@ -66,8 +67,8 @@
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"token: %@",token);
 #ifdef RELEASE
-    [[NotificationService sharedNotificationService] setDevice_token:token];
-    [[NotificationService sharedNotificationService] updateClient];
+    [SettingsUtility set_device_token:token];
+    [NotificationService updateClient];
 #endif
 }
 

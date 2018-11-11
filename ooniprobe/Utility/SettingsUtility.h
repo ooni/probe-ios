@@ -21,4 +21,8 @@
 
 + (BOOL)getSettingWithName:(NSString*)settingName;
 
++ (NSString*)get_push_token;
+
++ (void)set_push_token:(NSString*)push_token;
+
 @end

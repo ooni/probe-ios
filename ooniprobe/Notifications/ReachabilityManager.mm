@@ -21,7 +21,6 @@
 
 - (id)init {
     self = [super init];
-    
     if (self) {
         // Initialize Reachability
         self.reachability = [Reachability reachabilityForInternetConnection];
@@ -37,8 +36,7 @@
 - (void)reachabilityDidChange:(NSNotification *)notification {
     NSString *networkType = [self getStatus];
     if (![networkType isEqualToString:@"no_internet"]){
-        [[NotificationService sharedNotificationService] setNetwork_type:networkType];
-        [[NotificationService sharedNotificationService] updateClient];
+        [NotificationService updateClient];
     }
 }
 
