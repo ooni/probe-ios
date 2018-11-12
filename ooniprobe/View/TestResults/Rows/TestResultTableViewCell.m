@@ -27,11 +27,11 @@
     
     NSMutableAttributedString *networkNameStr = [[NSMutableAttributedString alloc] initWithString:networkName];
     [networkNameStr addAttribute:NSFontAttributeName
-                        value:[UIFont fontWithName:@"FiraSans-SemiBold" size:17]
+                        value:[UIFont fontWithName:@"FiraSans-SemiBold" size:16]
                         range:NSMakeRange(0, networkNameStr.length)];
     NSMutableAttributedString *networkCountryText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)", [result getCountry]]];
     [networkCountryText addAttribute:NSFontAttributeName
-                            value:[UIFont fontWithName:@"FiraSans-Regular" size:17]
+                            value:[UIFont fontWithName:@"FiraSans-Regular" size:16]
                             range:NSMakeRange(0, networkCountryText.length)];
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
     [attrStr appendAttributedString:networkNameStr];

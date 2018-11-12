@@ -12,8 +12,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
     
     [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
-    [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
+    [self.networkLabel setText:[NSString stringWithFormat:@"%@\n", NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)]];
     [self reloadMeasurement];
 }
 
@@ -26,7 +26,9 @@
 }
 
 -(void)reloadMeasurement{
-    NSString *network = [result getNetworkNameOrAsn];
+    //TODO remove
+    //NSString *network = [result getNetworkNameOrAsn];
+    /*
     NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", network]];
     [networkText addAttribute:NSFontAttributeName
                         value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
@@ -39,18 +41,9 @@
     [attrStr appendAttributedString:networkText];
     [attrStr appendAttributedString:networkTypeText];
     [self.networkDetailLabel setAttributedText:attrStr];
-    
+    */
+    [self.networkDetailLabel setText:[NSString stringWithFormat:@"%@\n%@ (%@)", [result getNetworkName], [result getAsn], [result getLocalizedNetworkType]]];
     NSString *country = [result getCountry];
     [self.countryDetailLabel setText:country];
-    
-    if (![self.result.test_group_name isEqualToString:@"websites"]){
-        [self.websitesLabel setText:@" "];
-        [self.websitesDetailLabel setText:@" "];
-    }
-    else {
-        [self.websitesLabel setText:NSLocalizedString(@"Test.Websites.Fullname", nil)];
-        long totalMeasurements = [result totalMeasurements];
-        [self.websitesDetailLabel setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
-    }
 }
 @end

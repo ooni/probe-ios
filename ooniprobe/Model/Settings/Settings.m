@@ -33,7 +33,9 @@
         NSLog(@"Cannot convert serialized JSON to string");
         return nil;
     }
-    NSLog(@"%@", serializedSettings);
+    //TODO-2.1 fix this in mk
+    serializedSettings = [serializedSettings stringByReplacingOccurrencesOfString:@"ca_bundle_path" withString:@"net/ca_bundle_path"];
+    //NSLog(@"%@", serializedSettings);
     return serializedSettings;
 }
 

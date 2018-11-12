@@ -24,11 +24,9 @@
 		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
-		ED3987CA2130EBB600FBA21E /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3987C92130EBB600FBA21E /* Settings.m */; };
 		ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32E1D2337920061F266 /* GeoIP.dat */; };
 		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
 		ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */; };
-		ED3AEABE205A625100CFE360 /* Url.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3AEABD205A625100CFE360 /* Url.mm */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
@@ -45,9 +43,6 @@
 		ED6911D820BDC0130022DCFE /* websites.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D720BDC0130022DCFE /* websites.json */; };
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
-		ED6F321E21333C9800438F1B /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6F321D21333C9800438F1B /* Options.m */; };
-		ED70D5031FE8021400759463 /* Measurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5021FE8021400759463 /* Measurement.mm */; };
-		ED70D5061FE8022300759463 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70D5051FE8022300759463 /* Result.mm */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6392042A92200C43E5C /* MKNetworkTest.mm */; };
 		ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B63C2042A92200C43E5C /* NetworkTest.mm */; };
@@ -56,6 +51,12 @@
 		ED90A90F2198AFEB00204B46 /* MKGeoIPLookup.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9012198AFEB00204B46 /* MKGeoIPLookup.mm */; };
 		ED90A9162198AFEB00204B46 /* MKResources.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A90B2198AFEB00204B46 /* MKResources.m */; };
 		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
+		ED90A9282198DE5100204B46 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91B2198DE5000204B46 /* Network.m */; };
+		ED90A9292198DE5100204B46 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91C2198DE5000204B46 /* Result.mm */; };
+		ED90A92A2198DE5100204B46 /* Url.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91D2198DE5000204B46 /* Url.mm */; };
+		ED90A92B2198DE5100204B46 /* Measurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9222198DE5000204B46 /* Measurement.mm */; };
+		ED90A92C2198DE5100204B46 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9262198DE5000204B46 /* Settings.m */; };
+		ED90A92D2198DE5100204B46 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9272198DE5000204B46 /* Options.m */; };
 		ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.m */; };
 		ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED997D0B207BCEE400C97B1F /* Strings.plist */; };
 		ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */; };
@@ -109,7 +110,6 @@
 		EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding3ViewController.m */; };
 		EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */; };
 		EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B711FFF6C8B00EFD9C8 /* Onboarding1ViewController.m */; };
-		EDEA783321247F8B006F4A72 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEA783221247F8B006F4A72 /* Network.m */; };
 		EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */; };
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
@@ -149,15 +149,11 @@
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		ED3932C21E3114740064CD11 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		ED3932C31E3114740064CD11 /* AboutViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutViewController.mm; sourceTree = "<group>"; };
-		ED3987C82130EBB600FBA21E /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		ED3987C92130EBB600FBA21E /* Settings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		ED3A2C761E87E87900419270 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED3AB32E1D2337920061F266 /* GeoIP.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIP.dat; sourceTree = "<group>"; };
 		ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIPASNum.dat; sourceTree = "<group>"; };
 		ED3AE9EE20341C8600DAAF36 /* ResultsHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsHeaderViewController.h; sourceTree = "<group>"; };
 		ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsHeaderViewController.m; sourceTree = "<group>"; };
-		ED3AEABC205A625100CFE360 /* Url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Url.h; sourceTree = "<group>"; };
-		ED3AEABD205A625100CFE360 /* Url.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Url.mm; sourceTree = "<group>"; };
 		ED3B5F8C1F0BAC54007CE2AF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED3B5F8D1F0BC991007CE2AF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ED3B5F8E1F0BC997007CE2AF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -192,12 +188,6 @@
 		ED6911D720BDC0130022DCFE /* websites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = websites.json; sourceTree = "<group>"; };
 		ED6911D920BDC04D0022DCFE /* instant_messaging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = instant_messaging.json; sourceTree = "<group>"; };
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
-		ED6F321C21333C9800438F1B /* Options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
-		ED6F321D21333C9800438F1B /* Options.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Options.m; sourceTree = "<group>"; };
-		ED70D5011FE8021400759463 /* Measurement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
-		ED70D5021FE8021400759463 /* Measurement.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Measurement.mm; sourceTree = "<group>"; };
-		ED70D5041FE8022300759463 /* Result.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
-		ED70D5051FE8022300759463 /* Result.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Result.mm; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
 		ED78B6392042A92200C43E5C /* MKNetworkTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKNetworkTest.mm; path = TestClasses/MKNetworkTest.mm; sourceTree = "<group>"; };
@@ -218,6 +208,18 @@
 		ED90A90C2198AFEB00204B46 /* MKOrchestra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKOrchestra.h; sourceTree = "<group>"; };
 		ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewCell.m; sourceTree = "<group>"; };
 		ED90A9182198B8AB00204B46 /* DashboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewCell.h; sourceTree = "<group>"; };
+		ED90A91B2198DE5000204B46 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		ED90A91C2198DE5000204B46 /* Result.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Result.mm; sourceTree = "<group>"; };
+		ED90A91D2198DE5000204B46 /* Url.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Url.mm; sourceTree = "<group>"; };
+		ED90A91E2198DE5000204B46 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
+		ED90A91F2198DE5000204B46 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		ED90A9202198DE5000204B46 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
+		ED90A9212198DE5000204B46 /* Url.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Url.h; sourceTree = "<group>"; };
+		ED90A9222198DE5000204B46 /* Measurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Measurement.mm; sourceTree = "<group>"; };
+		ED90A9242198DE5000204B46 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		ED90A9252198DE5000204B46 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
+		ED90A9262198DE5000204B46 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		ED90A9272198DE5000204B46 /* Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Options.m; sourceTree = "<group>"; };
 		ED997D08207BB7C400C97B1F /* LocalizationUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocalizationUtility.h; path = Utility/LocalizationUtility.h; sourceTree = "<group>"; };
 		ED997D09207BB7C400C97B1F /* LocalizationUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocalizationUtility.m; path = Utility/LocalizationUtility.m; sourceTree = "<group>"; };
 		ED997D0B207BCEE400C97B1F /* Strings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Strings.plist; sourceTree = "<group>"; };
@@ -310,8 +312,6 @@
 		EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onboarding3ViewController.m; sourceTree = "<group>"; };
 		EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopQuizViewController.m; sourceTree = "<group>"; };
 		EDDB0B711FFF6C8B00EFD9C8 /* Onboarding1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onboarding1ViewController.m; sourceTree = "<group>"; };
-		EDEA783121247F8B006F4A72 /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
-		EDEA783221247F8B006F4A72 /* Network.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
 		EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = middle_boxes.json; sourceTree = "<group>"; };
 		EDF2072B2120EF12005B06D7 /* Simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		EDF2072E2120EF29005B06D7 /* Advanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Advanced.h; sourceTree = "<group>"; };
@@ -440,8 +440,8 @@
 		ED25280F1CEA34DA0073A29B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ED6F322021333CB700438F1B /* Database */,
-				ED6F321F21333C9D00438F1B /* Settings */,
+				ED90A91A2198DE5000204B46 /* Database */,
+				ED90A9232198DE5000204B46 /* Settings */,
 				EDB252A120FA46DA00B4EDE4 /* JsonResult */,
 			);
 			name = Model;
@@ -506,32 +506,6 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
-		ED6F321F21333C9D00438F1B /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				ED3987C82130EBB600FBA21E /* Settings.h */,
-				ED3987C92130EBB600FBA21E /* Settings.m */,
-				ED6F321C21333C9800438F1B /* Options.h */,
-				ED6F321D21333C9800438F1B /* Options.m */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		ED6F322021333CB700438F1B /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				ED70D5041FE8022300759463 /* Result.h */,
-				ED70D5051FE8022300759463 /* Result.mm */,
-				ED70D5011FE8021400759463 /* Measurement.h */,
-				ED70D5021FE8021400759463 /* Measurement.mm */,
-				ED3AEABC205A625100CFE360 /* Url.h */,
-				ED3AEABD205A625100CFE360 /* Url.mm */,
-				EDEA783121247F8B006F4A72 /* Network.h */,
-				EDEA783221247F8B006F4A72 /* Network.m */,
-			);
-			path = Database;
-			sourceTree = "<group>";
-		};
 		ED70D5001FE7F65700759463 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,6 +536,34 @@
 			);
 			name = mkall;
 			path = Utility/mkall;
+			sourceTree = "<group>";
+		};
+		ED90A91A2198DE5000204B46 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				ED90A91B2198DE5000204B46 /* Network.m */,
+				ED90A91C2198DE5000204B46 /* Result.mm */,
+				ED90A91D2198DE5000204B46 /* Url.mm */,
+				ED90A91E2198DE5000204B46 /* Result.h */,
+				ED90A91F2198DE5000204B46 /* Network.h */,
+				ED90A9202198DE5000204B46 /* Measurement.h */,
+				ED90A9212198DE5000204B46 /* Url.h */,
+				ED90A9222198DE5000204B46 /* Measurement.mm */,
+			);
+			name = Database;
+			path = Model/Database;
+			sourceTree = "<group>";
+		};
+		ED90A9232198DE5000204B46 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ED90A9242198DE5000204B46 /* Settings.h */,
+				ED90A9262198DE5000204B46 /* Settings.m */,
+				ED90A9252198DE5000204B46 /* Options.h */,
+				ED90A9272198DE5000204B46 /* Options.m */,
+			);
+			name = Settings;
+			path = Model/Settings;
 			sourceTree = "<group>";
 		};
 		EDB252A120FA46DA00B4EDE4 /* JsonResult */ = {
@@ -930,38 +932,39 @@
 			files = (
 				EDA9CC96209B53B80062507F /* Dash.mm in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
+				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
 				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
 				EDF20736212173B9005B06D7 /* Advanced.m in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
 				EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */,
+				ED90A9292198DE5100204B46 /* Result.mm in Sources */,
 				ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
 				ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */,
 				EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */,
 				EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
-				ED70D5061FE8022300759463 /* Result.mm in Sources */,
 				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */,
+				ED90A92A2198DE5100204B46 /* Url.mm in Sources */,
 				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
 				EDA9CC87209B534A0062507F /* FacebookMessenger.mm in Sources */,
-				ED3AEABE205A625100CFE360 /* Url.mm in Sources */,
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
+				ED90A92D2198DE5100204B46 /* Options.m in Sources */,
 				ED53841C2159757D0078C5C6 /* EventResult.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED90A90E2198AFEB00204B46 /* MKOrchestra.mm in Sources */,
 				EDA9CC90209B53980062507F /* HttpHeaderFieldManipulation.mm in Sources */,
-				EDEA783321247F8B006F4A72 /* Network.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
-				ED6F321E21333C9800438F1B /* Options.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
 				EDA9CC8A209B537C0062507F /* WebConnectivity.mm in Sources */,
+				ED90A92B2198DE5100204B46 /* Measurement.mm in Sources */,
 				EDA9CC9C209B53D50062507F /* Telegram.mm in Sources */,
 				ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
@@ -972,8 +975,8 @@
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
 				ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */,
 				ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */,
-				ED70D5031FE8021400759463 /* Measurement.mm in Sources */,
 				EDA9CC93209B53A70062507F /* NdtTest.mm in Sources */,
+				ED90A9282198DE5100204B46 /* Network.m in Sources */,
 				EDA9CC8D209B538A0062507F /* HttpInvalidRequestLine.mm in Sources */,
 				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
@@ -988,7 +991,6 @@
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
-				ED3987CA2130EBB600FBA21E /* Settings.m in Sources */,
 				EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */,
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,

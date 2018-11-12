@@ -20,12 +20,14 @@
 
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
-    [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
+    [self.networkLabel setText:[NSString stringWithFormat:@"%@\n", NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)]];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
     [self.dateLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
     [self.dateDetailLabel setText:localizedDateTime];
 
-    NSString *network = [result getNetworkName];
+    //TODO remove
+    //NSString *network = [result getNetworkName];
+    /*
     NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", network]];
     [networkText addAttribute:NSFontAttributeName
                     value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
@@ -44,7 +46,9 @@
     [attrStr appendAttributedString:networkTypeText];
     [attrStr appendAttributedString:asnName];
     [self.networkDetailLabel setAttributedText:attrStr];
-    
+    */
+    [self.networkDetailLabel setText:[NSString stringWithFormat:@"%@\n%@ (%@)", [result getNetworkName], [result getAsn], [result getLocalizedNetworkType]]];
+
     NSString *country = [result getCountry];
     [self.countryDetailLabel setText:country];
 

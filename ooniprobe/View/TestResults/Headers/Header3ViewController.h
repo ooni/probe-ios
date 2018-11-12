@@ -11,7 +11,5 @@
 @property (nonatomic, strong) IBOutlet UILabel *countryDetailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *networkLabel;
 @property (nonatomic, strong) IBOutlet UILabel *networkDetailLabel;
-@property (nonatomic, strong) IBOutlet UILabel *websitesLabel;
-@property (nonatomic, strong) IBOutlet UILabel *websitesDetailLabel;
 
 @end
