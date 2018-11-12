@@ -1,5 +1,3 @@
-// ooni icons http://www.flaticon.com/packs/font-awesome/
-
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
@@ -15,7 +13,7 @@
 #define NOTIFICATION_SERVER @"https://registry.proteus.ooni.io"
 #endif
 
-#define RELEASE_NAME @"-alpha.10"
+#define RELEASE_NAME @"-alpha.11"
 #define NSLocalizedFormatString(fmt, ...) [NSString stringWithFormat:NSLocalizedString(fmt, nil), __VA_ARGS__]
 
 #define color_base @"#0588cb"
