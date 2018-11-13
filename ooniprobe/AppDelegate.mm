@@ -67,7 +67,7 @@
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"token: %@",token);
 #ifdef RELEASE
-    [SettingsUtility set_device_token:token];
+    [SettingsUtility set_push_token:token];
     [NotificationService updateClient];
 #endif
 }
