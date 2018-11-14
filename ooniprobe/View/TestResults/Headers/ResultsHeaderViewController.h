@@ -26,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *dataUsageLabel;
 @property (strong, nonatomic) IBOutlet UILabel *upLabel;
 @property (strong, nonatomic) IBOutlet UILabel *downLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *upImage;
+@property (strong, nonatomic) IBOutlet UIImageView *downImage;
 @property (strong, nonatomic) IBOutlet MKDropdownMenu *dropdownMenu;
 
 @end

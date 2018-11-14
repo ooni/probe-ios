@@ -31,7 +31,7 @@
         }
         else {
             currentTest = [[WCNetworkTest alloc] initWithUrls:urls andResult:result];
-            totalRuntime = [urls count]*URL_DURATION+30;
+            totalRuntime = (int)[urls count]*URL_DURATION+30;
         }
     }
     else if ([testSuiteName isEqualToString:@"performance"]){

@@ -20,6 +20,8 @@
     [self.dataUsageLabel setText:NSLocalizedString(@"TestResults.Overview.Hero.DataUsage", nil)];
     filter = @"";
     [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+    [self.upImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.downImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQueryNoFilter) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"reloadHeader" object:nil];
