@@ -1,5 +1,6 @@
 #import "TestRunningViewController.h"
 #import "NetworkTest.h"
+#define URL_DURATION 5
 
 @interface TestRunningViewController ()
 @property (nonatomic, strong) NetworkTest *currentTest;
@@ -11,6 +12,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[TestUtility getColorForTest:testSuiteName]];
+    totalRuntime = [TestUtility getTotalTimeForTest:testSuiteName];
+
     if ([testSuiteName isEqualToString:@"websites"]){
         if (urls == nil){
             //Download urls and then alloc class
@@ -28,6 +31,7 @@
         }
         else {
             currentTest = [[WCNetworkTest alloc] initWithUrls:urls andResult:result];
+            totalRuntime = [urls count]*URL_DURATION+30;
         }
     }
     else if ([testSuiteName isEqualToString:@"performance"]){
@@ -49,7 +53,6 @@
             currentTest = [[IMNetworkTest alloc] init];
     }
 
-    totalRuntime = [TestUtility getTotalTimeForTest:testSuiteName];
     NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]]);
     [self.timeLabel setText:time];
     [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
