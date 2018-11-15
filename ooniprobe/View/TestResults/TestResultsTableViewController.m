@@ -120,7 +120,7 @@
 
 -(IBAction)removeAllTests:(id)sender{
     UIAlertAction* okButton = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                               actionWithTitle:NSLocalizedString(@"Modal.Delete", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
                                    for (Result *current in results){

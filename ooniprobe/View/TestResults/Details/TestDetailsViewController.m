@@ -24,29 +24,6 @@
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
     [self.dateLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
     [self.dateDetailLabel setText:localizedDateTime];
-
-    //TODO remove
-    //NSString *network = [result getNetworkName];
-    /*
-    NSMutableAttributedString *networkText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", network]];
-    [networkText addAttribute:NSFontAttributeName
-                    value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
-                    range:NSMakeRange(0, networkText.length)];
-    NSMutableAttributedString *networkTypeText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)", [result getLocalizedNetworkType]]];
-    [networkTypeText addAttribute:NSFontAttributeName
-                        value:[UIFont fontWithName:@"FiraSans-Regular" size:15]
-                        range:NSMakeRange(0, networkTypeText.length)];
-    NSMutableAttributedString *asnName = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" - %@", [result getAsn]]];
-    [asnName addAttribute:NSFontAttributeName
-                    value:[UIFont fontWithName:@"FiraSans-SemiBold" size:15]
-                    range:NSMakeRange(0, asnName.length)];
-
-    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
-    [attrStr appendAttributedString:networkText];
-    [attrStr appendAttributedString:networkTypeText];
-    [attrStr appendAttributedString:asnName];
-    [self.networkDetailLabel setAttributedText:attrStr];
-    */
     [self.networkDetailLabel setText:[NSString stringWithFormat:@"%@\n%@ (%@)", [result getNetworkName], [result getAsn], [result getLocalizedNetworkType]]];
 
     NSString *country = [result getCountry];

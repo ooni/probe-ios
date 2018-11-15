@@ -191,7 +191,7 @@
                                            [mySwitch setOn:TRUE];
                                        }];
         [MessageUtility alertWithTitle:NSLocalizedString(@"Settings.Sharing.IncludeCountryCode", nil)
-                               message:NSLocalizedString(@"Settings.Sharing.IncludeCountryCode.PopUp", nil)
+                            message:NSLocalizedString(@"Settings.Sharing.IncludeCountryCode.PopUp", nil)
                               okButton:okButton
                           cancelButton:cancelButton
                                 inView:self];

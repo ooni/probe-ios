@@ -170,7 +170,7 @@
     self = [super init];
     if (self) {
         [self initResult:result];
-        [self.result setTest_group_name:@"middle_boxes"];
+        [self.result setTest_group_name:@"instant_messaging"];
         [self addTest:test_name];
     }
     return self;
@@ -236,7 +236,7 @@
     self = [super init];
     if (self) {
         [self initResult:result];
-        [self.result setTest_group_name:@"middle_boxes"];
+        [self.result setTest_group_name:@"performance"];
         [self addTest:test_name];
     }
     return self;

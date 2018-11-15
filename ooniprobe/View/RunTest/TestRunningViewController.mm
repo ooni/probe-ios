@@ -53,7 +53,7 @@
             currentTest = [[IMNetworkTest alloc] init];
     }
 
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]]);
+    NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
     [self.timeLabel setText:time];
     [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
 

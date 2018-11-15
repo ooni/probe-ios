@@ -23,23 +23,6 @@
     [self.testIcon setTintColor:[TestUtility getColorForTest:result.test_group_name]];
     [self.testNameLabel setTextColor:[TestUtility getColorForTest:result.test_group_name]];
     self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.test_group_name];
-    
-    /* //TODO remove
-    NSString *networkName = [result getNetworkNameOrAsn];
-    NSMutableAttributedString *networkNameStr = [[NSMutableAttributedString alloc] initWithString:networkName];
-    [networkNameStr addAttribute:NSFontAttributeName
-                        value:[UIFont fontWithName:@"FiraSans-SemiBold" size:16]
-                        range:NSMakeRange(0, networkNameStr.length)];
-    NSMutableAttributedString *networkCountryText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)", [result getCountry]]];
-    [networkCountryText addAttribute:NSFontAttributeName
-                            value:[UIFont fontWithName:@"FiraSans-Regular" size:16]
-                            range:NSMakeRange(0, networkCountryText.length)];
-    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
-    [attrStr appendAttributedString:networkNameStr];
-    [attrStr appendAttributedString:networkCountryText];
-    [self.testAsnLabel setAttributedText:attrStr];
-    */
-    
     [self.testAsnLabel setText:[NSString stringWithFormat:@"%@ - %@", [result getAsn], [result getNetworkName]]];
 
     //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
