@@ -10,6 +10,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *countryLabel;
 @property (nonatomic, strong) IBOutlet UILabel *countryDetailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *networkLabel;
-@property (nonatomic, strong) IBOutlet UILabel *networkDetailLabel;
+@property (nonatomic, strong) IBOutlet UILabel *networkNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *networkAsnLabel;
 
 @end

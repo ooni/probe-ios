@@ -248,7 +248,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lso-kg-nwN">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lso-kg-nwN">
                                             <rect key="frame" x="12" y="30" width="150" height="19.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19.5" id="Ale-P4-hL3"/>
@@ -436,22 +436,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="BFd-TX-Uv9">
-                                        <rect key="frame" x="25" y="13.5" width="94" height="56.5"/>
+                                        <rect key="frame" x="25" y="12.5" width="96" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ub4-lr-NE4">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="17.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="96" height="18"/>
                                                 <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Usage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imn-Sj-IgG">
-                                                <rect key="frame" x="0.0" y="19.5" width="79" height="17.5"/>
+                                                <rect key="frame" x="0.0" y="20" width="76.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3k-FM-I2p">
-                                                <rect key="frame" x="0.0" y="39" width="56" height="17.5"/>
+                                                <rect key="frame" x="0.0" y="40" width="57.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -462,7 +462,7 @@
                                         <rect key="frame" x="170" y="13" width="180" height="57"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-Uc-VF3">
-                                                <rect key="frame" x="0.0" y="0.0" width="33.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30.5" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="fdi-X5-6mf"/>
                                                 </constraints>
@@ -471,7 +471,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2Gp-ZM-MNa">
-                                                <rect key="frame" x="0.0" y="20" width="113" height="18"/>
+                                                <rect key="frame" x="0.0" y="20" width="104" height="18"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload_nopad" translatesAutoresizingMaskIntoConstraints="NO" id="0dq-wl-U8e">
                                                         <rect key="frame" x="0.0" y="0.0" width="11" height="18"/>
@@ -481,17 +481,17 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evs-50-jde">
-                                                        <rect key="frame" x="13" y="0.0" width="44.5" height="18"/>
+                                                        <rect key="frame" x="13" y="0.0" width="39" height="18"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download_nopad" translatesAutoresizingMaskIntoConstraints="NO" id="B0Y-pE-50t">
-                                                        <rect key="frame" x="59.5" y="0.0" width="11" height="18"/>
+                                                        <rect key="frame" x="54" y="0.0" width="11" height="18"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbe-ez-QEz">
-                                                        <rect key="frame" x="72.5" y="0.0" width="40.5" height="18"/>
+                                                        <rect key="frame" x="67" y="0.0" width="37" height="18"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -499,7 +499,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7E-qY-WeQ">
-                                                <rect key="frame" x="0.0" y="40" width="37" height="17"/>
+                                                <rect key="frame" x="0.0" y="40" width="37.5" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="7L0-hg-f8T"/>
                                                 </constraints>
@@ -1044,7 +1044,7 @@
                                         <rect key="frame" x="0.0" y="78" width="375" height="140"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SOf-78-QXI">
-                                                <rect key="frame" x="25" y="13" width="96" height="114"/>
+                                                <rect key="frame" x="25" y="9" width="96" height="122"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTq-Lm-hzu">
                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="18"/>
@@ -1061,13 +1061,21 @@
                                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jer-GM-nNw">
-                                                        <rect key="frame" x="0.0" y="78" width="58" height="36"/>
-                                                        <string key="text">Network
- </string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fTg-1N-egC">
+                                                        <rect key="frame" x="0.0" y="78" width="58" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vy-v7-h74">
+                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHZ-FL-Zpm">
+                                                                <rect key="frame" x="0.0" y="26" width="4" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tyQ-zi-vbX">
@@ -1088,13 +1096,21 @@
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zns-cn-GT3">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="z61-1r-bi3">
                                                         <rect key="frame" x="0.0" y="78" width="99" height="36"/>
-                                                        <string key="text">Network name
-ASN</string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpP-CP-HC3">
+                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzu-G6-gSx">
+                                                                <rect key="frame" x="0.0" y="18" width="27.5" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -1147,8 +1163,9 @@ ASN</string>
                         <outlet property="dateDetailLabel" destination="RZP-gP-J7h" id="MgR-RQ-qhY"/>
                         <outlet property="dateLabel" destination="PTq-Lm-hzu" id="slX-R4-4NI"/>
                         <outlet property="headerView" destination="8Hu-Yg-uf8" id="cFm-9N-1AT"/>
-                        <outlet property="networkDetailLabel" destination="Zns-cn-GT3" id="OD1-w5-WiL"/>
-                        <outlet property="networkLabel" destination="jer-GM-nNw" id="pvf-h3-Tj5"/>
+                        <outlet property="networkAsnLabel" destination="Fzu-G6-gSx" id="AMT-ij-Qk8"/>
+                        <outlet property="networkLabel" destination="2Vy-v7-h74" id="cre-p2-YIn"/>
+                        <outlet property="networkNameLabel" destination="kpP-CP-HC3" id="MII-v6-KIe"/>
                         <outlet property="runtimeDetailLabel" destination="xmG-YZ-K3C" id="6jb-my-5iD"/>
                         <outlet property="runtimeLabel" destination="MLD-Y2-Oyt" id="qqd-dl-w6m"/>
                         <outlet property="statusImage" destination="an2-iP-as4" id="6PX-DD-WM8"/>
@@ -1186,14 +1203,23 @@ ASN</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z11-9z-LAN">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1XK-tQ-YYg">
                                                 <rect key="frame" x="0.0" y="20" width="58" height="36"/>
-                                                <string key="text">Network
- </string>
-                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z11-9z-LAN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="18"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqw-ZV-bN7">
+                                                        <rect key="frame" x="0.0" y="18" width="58" height="18"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="upd-o8-ir4">
@@ -1205,14 +1231,23 @@ ASN</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dJ-fF-N88">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YQt-Ya-cL4">
                                                 <rect key="frame" x="0.0" y="20" width="99" height="36"/>
-                                                <string key="text">Network name
-ASN</string>
-                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dJ-fF-N88">
+                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="18"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUU-UB-spq">
+                                                        <rect key="frame" x="0.0" y="18" width="99" height="18"/>
+                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -1238,8 +1273,9 @@ ASN</string>
                         <outlet property="countryDetailLabel" destination="dkC-Xu-H8o" id="Yie-N5-GJ6"/>
                         <outlet property="countryLabel" destination="riX-0f-zfE" id="T5o-yX-DM2"/>
                         <outlet property="headerView" destination="x7v-lQ-NjJ" id="XH4-6v-uYo"/>
-                        <outlet property="networkDetailLabel" destination="5dJ-fF-N88" id="aLr-Cc-srF"/>
+                        <outlet property="networkAsnLabel" destination="PUU-UB-spq" id="zJE-N3-16z"/>
                         <outlet property="networkLabel" destination="z11-9z-LAN" id="sxQ-Qe-V0f"/>
+                        <outlet property="networkNameLabel" destination="5dJ-fF-N88" id="xsE-lk-2ZR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Jq-x2-oOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1361,7 +1397,7 @@ ASN</string>
                                         <rect key="frame" x="0.0" y="138.5" width="375" height="140"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bAg-kp-K4E">
-                                                <rect key="frame" x="25" y="13" width="96" height="114"/>
+                                                <rect key="frame" x="25" y="9" width="96" height="122"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yti-DI-jjJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="18"/>
@@ -1378,13 +1414,21 @@ ASN</string>
                                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVO-Wi-ucw">
-                                                        <rect key="frame" x="0.0" y="78" width="58" height="36"/>
-                                                        <string key="text">Network
- </string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jmp-rv-9mm">
+                                                        <rect key="frame" x="0.0" y="78" width="58" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bA-pK-UTU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HK-U1-jj1">
+                                                                <rect key="frame" x="0.0" y="26" width="4" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PbW-8H-YrR">
@@ -1405,13 +1449,21 @@ ASN</string>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tJ-r3-jcf">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1S1-ex-1Pm">
                                                         <rect key="frame" x="0.0" y="78" width="99" height="36"/>
-                                                        <string key="text">Network name
-ASN</string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfr-oe-bJA">
+                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSx-Ae-e9e">
+                                                                <rect key="frame" x="0.0" y="18" width="27.5" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -1468,8 +1520,9 @@ ASN</string>
                         <outlet property="detail3SubtitleLabel" destination="kJT-tX-uBr" id="QPV-gt-egi"/>
                         <outlet property="detail3TitleLabel" destination="kyF-V3-6qU" id="06p-XZ-ZEl"/>
                         <outlet property="headerView" destination="z31-sG-VeY" id="7ZN-0F-qhH"/>
-                        <outlet property="networkDetailLabel" destination="8tJ-r3-jcf" id="jAY-sR-z6l"/>
-                        <outlet property="networkLabel" destination="LVO-Wi-ucw" id="18K-kz-QhO"/>
+                        <outlet property="networkAsnLabel" destination="nSx-Ae-e9e" id="F9e-1i-mIX"/>
+                        <outlet property="networkLabel" destination="5bA-pK-UTU" id="faX-wC-29q"/>
+                        <outlet property="networkNameLabel" destination="cfr-oe-bJA" id="Yxw-J3-rCK"/>
                         <outlet property="runtimeDetailLabel" destination="XRc-Qg-qLB" id="6cn-n6-ZAJ"/>
                         <outlet property="runtimeLabel" destination="Fcv-ze-kZP" id="ukd-cQ-6BN"/>
                         <outlet property="statusImage" destination="mMf-ON-PNf" id="GwG-jt-1yz"/>
@@ -1538,7 +1591,7 @@ ASN</string>
                                         <rect key="frame" x="0.0" y="78" width="375" height="140"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="H2t-eW-686">
-                                                <rect key="frame" x="25" y="13" width="96" height="114"/>
+                                                <rect key="frame" x="25" y="9" width="96" height="122"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="958-c9-BCT">
                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="18"/>
@@ -1555,13 +1608,21 @@ ASN</string>
                                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsX-1Q-mwU">
-                                                        <rect key="frame" x="0.0" y="78" width="58" height="36"/>
-                                                        <string key="text">Network
- </string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="klH-nY-wtQ">
+                                                        <rect key="frame" x="0.0" y="78" width="58" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4t-va-Kex">
+                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zn-dV-oMh">
+                                                                <rect key="frame" x="0.0" y="26" width="4" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HBz-iy-17m">
@@ -1582,13 +1643,21 @@ ASN</string>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lr0-LW-CCv">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hbt-aX-2Zu">
                                                         <rect key="frame" x="0.0" y="78" width="99" height="36"/>
-                                                        <string key="text">Network name
-ASN</string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28r-jJ-PN1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTs-20-xeg">
+                                                                <rect key="frame" x="0.0" y="18" width="27.5" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -1641,8 +1710,9 @@ ASN</string>
                         <outlet property="dateDetailLabel" destination="MtZ-wg-IVw" id="mQx-Fk-C8J"/>
                         <outlet property="dateLabel" destination="958-c9-BCT" id="nTw-T2-wcv"/>
                         <outlet property="headerView" destination="Yv2-13-mtU" id="Djg-dL-TGB"/>
-                        <outlet property="networkDetailLabel" destination="lr0-LW-CCv" id="7cy-6I-JXq"/>
-                        <outlet property="networkLabel" destination="QsX-1Q-mwU" id="ykz-pi-67i"/>
+                        <outlet property="networkAsnLabel" destination="hTs-20-xeg" id="nfW-tv-THt"/>
+                        <outlet property="networkLabel" destination="f4t-va-Kex" id="PJ8-Vz-ct5"/>
+                        <outlet property="networkNameLabel" destination="28r-jJ-PN1" id="iSX-iJ-RDs"/>
                         <outlet property="runtimeDetailLabel" destination="zuY-so-QnY" id="EDK-4m-Vne"/>
                         <outlet property="runtimeLabel" destination="lZl-Zn-zpX" id="J2d-Qj-UNJ"/>
                         <outlet property="statusImage" destination="pDv-eu-R1i" id="97X-jw-LE6"/>
@@ -1776,7 +1846,7 @@ ASN</string>
                                         <rect key="frame" x="0.0" y="111" width="375" height="140"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VNK-09-U2l">
-                                                <rect key="frame" x="25" y="13" width="96" height="114"/>
+                                                <rect key="frame" x="25" y="9" width="96" height="122"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6k-14-Lhb">
                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="18"/>
@@ -1793,13 +1863,21 @@ ASN</string>
                                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV7-K2-MlM">
-                                                        <rect key="frame" x="0.0" y="78" width="58" height="36"/>
-                                                        <string key="text">Network
- </string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tie-4h-bXl">
+                                                        <rect key="frame" x="0.0" y="78" width="58" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV7-K2-MlM">
+                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lJ-zZ-paB">
+                                                                <rect key="frame" x="0.0" y="26" width="4" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TND-Ox-30F">
@@ -1820,13 +1898,21 @@ ASN</string>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNY-hb-88a">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RO4-yp-gYG">
                                                         <rect key="frame" x="0.0" y="78" width="99" height="36"/>
-                                                        <string key="text">Network name
-ASN</string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNY-hb-88a">
+                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVo-wi-OMw">
+                                                                <rect key="frame" x="0.0" y="18" width="27.5" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -1893,8 +1979,10 @@ ASN</string>
                         <outlet property="delayUnitLabel" destination="QOA-MO-lnI" id="HKa-YR-1I9"/>
                         <outlet property="delayValueLabel" destination="bxq-iy-7hW" id="Ti0-yP-r9e"/>
                         <outlet property="headerView" destination="S4L-mK-iRH" id="34N-ZT-Ena"/>
+                        <outlet property="networkAsnLabel" destination="ZVo-wi-OMw" id="VzS-1j-MZr"/>
                         <outlet property="networkDetailLabel" destination="TNY-hb-88a" id="RQb-pR-IK4"/>
                         <outlet property="networkLabel" destination="ZV7-K2-MlM" id="hex-J5-eaL"/>
+                        <outlet property="networkNameLabel" destination="TNY-hb-88a" id="Xb3-VZ-1uI"/>
                         <outlet property="runtimeDetailLabel" destination="cCY-Wd-6cS" id="54T-2A-pD0"/>
                         <outlet property="runtimeLabel" destination="MS6-23-bwF" id="GsZ-7G-oyI"/>
                         <outlet property="subtitleLabel" destination="yIt-IG-WTw" id="0zI-tY-7py"/>
@@ -2258,7 +2346,7 @@ ASN</string>
                                         <rect key="frame" x="0.0" y="225" width="375" height="140"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mMl-k8-lD9">
-                                                <rect key="frame" x="25" y="13" width="96" height="114"/>
+                                                <rect key="frame" x="25" y="9" width="96" height="122"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHm-9b-opQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="18"/>
@@ -2275,13 +2363,21 @@ ASN</string>
                                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8t-BQ-YRE">
-                                                        <rect key="frame" x="0.0" y="78" width="58" height="36"/>
-                                                        <string key="text">Network
- </string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jlb-1q-NtM">
+                                                        <rect key="frame" x="0.0" y="78" width="58" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhA-hD-s0R">
+                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52R-sg-2Mr">
+                                                                <rect key="frame" x="0.0" y="26" width="4" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wxk-N3-UUx">
@@ -2302,13 +2398,21 @@ ASN</string>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7z-Hd-7jv">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="KWg-tG-icP">
                                                         <rect key="frame" x="0.0" y="78" width="99" height="36"/>
-                                                        <string key="text">Network name
-ASN</string>
-                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNS-GO-fS0">
+                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aS-Xr-6iX">
+                                                                <rect key="frame" x="0.0" y="18" width="27.5" height="18"/>
+                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -2371,8 +2475,9 @@ ASN</string>
                         <outlet property="maxpingValueLabel" destination="r1W-V4-lO8" id="dNb-Pv-bfV"/>
                         <outlet property="mssTitleLabel" destination="VL1-wV-N3m" id="8sO-Zt-de1"/>
                         <outlet property="mssValueLabel" destination="RCI-q9-wxX" id="k3O-Io-MYL"/>
-                        <outlet property="networkDetailLabel" destination="m7z-Hd-7jv" id="U7e-jS-qpi"/>
-                        <outlet property="networkLabel" destination="u8t-BQ-YRE" id="KAG-tI-FvQ"/>
+                        <outlet property="networkAsnLabel" destination="0aS-Xr-6iX" id="r0E-YK-3eR"/>
+                        <outlet property="networkLabel" destination="AhA-hD-s0R" id="HJ1-aw-ABC"/>
+                        <outlet property="networkNameLabel" destination="CNS-GO-fS0" id="fdl-4a-cEI"/>
                         <outlet property="outoforderTitleLabel" destination="fFs-vt-WIA" id="3iM-wN-eaJ"/>
                         <outlet property="outoforderValueLabel" destination="QQm-rB-kyD" id="yz9-Nk-Hi2"/>
                         <outlet property="packetlossTitleLabel" destination="f3G-Zo-dfx" id="RMO-ci-8um"/>
@@ -2408,6 +2513,6 @@ ASN</string>
         <image name="upload_nopad" width="11" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uP0-sL-zsM"/>
+        <segue reference="ehP-Hs-f5z"/>
     </inferredMetricsTieBreakers>
 </document>

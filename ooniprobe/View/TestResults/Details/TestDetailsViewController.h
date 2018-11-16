@@ -16,7 +16,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateDetailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *networkLabel;
-@property (nonatomic, strong) IBOutlet UILabel *networkDetailLabel;
+@property (nonatomic, strong) IBOutlet UILabel *networkNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *networkAsnLabel;
 @property (nonatomic, strong) IBOutlet UILabel *countryLabel;
 @property (nonatomic, strong) IBOutlet UILabel *countryDetailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *runtimeLabel;

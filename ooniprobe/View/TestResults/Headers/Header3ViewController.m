@@ -26,7 +26,8 @@
 }
 
 -(void)reloadMeasurement{
-    [self.networkDetailLabel setText:[NSString stringWithFormat:@"%@\n%@ (%@)", [result getNetworkName], [result getAsn], [result getLocalizedNetworkType]]];
+    [self.networkNameLabel setText:[result getNetworkName]];
+    [self.networkAsnLabel setText:[NSString stringWithFormat:@"%@ (%@)", [result getAsn], [result getLocalizedNetworkType]]];
     NSString *country = [result getCountry];
     [self.countryDetailLabel setText:country];
 }
