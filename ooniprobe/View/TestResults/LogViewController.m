@@ -38,6 +38,7 @@
                 [self.textView setText:content];
         }
     }
+    [self.textView setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     self.textView.scrollEnabled = false;
     [self.textView layoutIfNeeded];
     self.textView.scrollEnabled = true;

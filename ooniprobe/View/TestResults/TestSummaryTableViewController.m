@@ -77,7 +77,7 @@
     }
     else {
         [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-        [title setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+        [title setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         [status setImage:nil];
     }
     if ([result.test_group_name isEqualToString:@"instant_messaging"]){
@@ -155,21 +155,21 @@
             TestKeys *testKeys = [current testKeysObj];
             [stackView2 setHidden:NO];
             [detail1Image setImage:[UIImage imageNamed:@"upload"]];
-            [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+            [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
             [detail2Image setImage:[UIImage imageNamed:@"download"]];
-            [detail2Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+            [detail2Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
             [detail1Label setText:[NSString stringWithFormat:@"%@", [testKeys getUploadWithUnit]]];
-            [detail1Label setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+            [detail1Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
             [detail2Label setText:[NSString stringWithFormat:@"%@", [testKeys getDownloadWithUnit]]];
-            [detail2Label setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+            [detail2Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         }
         else if ([current.test_name isEqualToString:@"dash"]){
             TestKeys *testKeys = [current testKeysObj];
             [stackView2 setHidden:YES];
             [detail1Image setImage:[UIImage imageNamed:@"video_quality"]];
-            [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+            [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
             [detail1Label setText:[testKeys getVideoQuality:YES]];
-            [detail1Label setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+            [detail1Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         }
     }    
     return cell;

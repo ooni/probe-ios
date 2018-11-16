@@ -75,9 +75,9 @@
         if ([endpointStatus isEqualToString:@"blocked"])
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
-            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     }
-    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
 }
 
 - (UIColor*)getWhatsappWebStatusColor {
@@ -86,9 +86,9 @@
         if ([webStatus isEqualToString:@"blocked"])
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
-            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     }
-    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
 }
 
 - (UIColor*)getWhatsappRegistrationStatusColor {
@@ -97,9 +97,9 @@
         if ([registrationStatus isEqualToString:@"blocked"])
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
-            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     }
-    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
 }
 
 #pragma mark TELEGRAM
@@ -134,9 +134,9 @@
         if (httpBlocking || tcpBlocking)
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
-            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     }
-    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
 }
 
 - (UIColor*)getTelegramWebStatusColor {
@@ -145,9 +145,9 @@
         if ([registrationStatus isEqualToString:@"blocked"])
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
-            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     }
-    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
 }
 
 #pragma mark FB
@@ -180,9 +180,9 @@
         if (dnsBlocking)
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
-            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     }
-    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
 }
 
 - (UIColor*)getFacebookMessengerTcpColor {
@@ -191,9 +191,9 @@
         if (tcpBlocking)
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
-            return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     }
-    return [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
 }
 
 #pragma mark NDT

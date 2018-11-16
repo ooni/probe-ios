@@ -74,7 +74,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    [header.textLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [header.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [header.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
 }
 

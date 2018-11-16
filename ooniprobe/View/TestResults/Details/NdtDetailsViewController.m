@@ -42,27 +42,27 @@
     [self.timeoutsValueLabel setText:[testKeys getTimeouts]];
     
     //TODO-FUTURE add whites for first elements and refactor
-    [self.packetlossTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.packetlossValueLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.packetlossUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.packetlossTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.packetlossValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.packetlossUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     
-    [self.outoforderTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.outoforderValueLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.outoforderUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.outoforderTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.outoforderValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.outoforderUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     
-    [self.averagepingTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.averagepingValueLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.averagepingUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.averagepingTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.averagepingValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.averagepingUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     
-    [self.maxpingTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.maxpingValueLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.maxpingUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.maxpingTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.maxpingValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.maxpingUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     
-    [self.mssTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.mssValueLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.mssTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.mssValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     
-    [self.timeoutsTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
-    [self.timeoutsValueLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.timeoutsTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.timeoutsValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
 }
 
 @end

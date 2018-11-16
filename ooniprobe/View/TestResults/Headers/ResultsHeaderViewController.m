@@ -26,7 +26,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQueryNoFilter) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"reloadHeader" object:nil];
 
-    self.dropdownMenu.tintColor = [UIColor colorWithRGBHexString:color_black alpha:1.0f];
+    self.dropdownMenu.tintColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -78,7 +78,7 @@
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component{
     NSString *text = NSLocalizedString(@"TestResults.Overview.FilterTests", nil);
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
-                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
+                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
@@ -88,10 +88,10 @@
     NSDictionary *attributes;
     if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[TestUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
         attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-SemiBold" size:16],
-                       NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
+                       NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]};
     else
         attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
-                       NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_black alpha:1.0f]};
+                       NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]};
 
     if (row == 0)
         text = NSLocalizedString(@"TestResults.Overview.FilterTests.AllTests", nil);
