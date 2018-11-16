@@ -19,7 +19,7 @@
         NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.3", nil),
         NSLocalizedString(@"Onboarding.DefaultSettings.Paragraph", nil)];
     [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:17]];
-    [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [self.textLabel setMarkdown:defaultSettings];
     [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
