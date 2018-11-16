@@ -30,10 +30,9 @@
                 NSError *error;
                 NSData *jsonData = [content dataUsingEncoding:NSUTF8StringEncoding];
                 id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-                JSONSyntaxHighlight *jsh = [[JSONSyntaxHighlight alloc] initWithJSON:jsonObject];
-                NSAttributedString *s;
-                s = [jsh highlightJSON];
-                [self.textView setAttributedText:s];
+                NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&error];
+                NSString *prettyPrintedJson = [NSString stringWithUTF8String:[prettyJsonData bytes]];
+                [self.textView setText:prettyPrintedJson];
             }
             else
                 [self.textView setText:content];

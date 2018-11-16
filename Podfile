@@ -18,6 +18,5 @@ target 'ooniprobe' do
     pod 'MKDropdownMenu'
     pod 'RHMarkdownLabel'
     pod 'DateTools'
-    pod 'JSONSyntaxHighlight'
     pod 'OCMapper', '2.0'
 end
