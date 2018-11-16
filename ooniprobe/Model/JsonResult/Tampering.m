@@ -22,7 +22,7 @@
         }
         else {
             //currentValue is Boolean
-            Boolean value = (Boolean)currentValue;
+            BOOL value = [currentValue boolValue];
             self.value = value;
         }
     }
