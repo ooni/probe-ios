@@ -19,7 +19,7 @@
 - (long)okMeasurements;
 - (long)anomalousMeasurements;
 -(NSString*)getAsn;
--(NSString*)getNetworkName;
+-(NSString*)getNetworkName:(BOOL)shortened;
 -(NSString*)getNetworkNameOrAsn;
 -(NSString*)getCountry;
 -(NSString*)getFormattedDataUsageDown;
