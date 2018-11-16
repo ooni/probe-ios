@@ -89,12 +89,9 @@
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 
--(NSString*)getNetworkName:(BOOL)shortened{
-    if (self.network_id.network_name != nil && [self.network_id.network_name length] > 0){
-        if (shortened)
-            return [self.network_id.network_name substringToIndex:25];
+-(NSString*)getNetworkName{
+    if (self.network_id.network_name != nil && [self.network_id.network_name length] > 0)
         return self.network_id.network_name;
-    }
     return NSLocalizedString(@"TestResults.UnknownASN", nil);
 }
 

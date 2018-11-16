@@ -23,7 +23,7 @@
     [self.testIcon setTintColor:[TestUtility getColorForTest:result.test_group_name]];
     [self.testNameLabel setTextColor:[TestUtility getColorForTest:result.test_group_name]];
     self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.test_group_name];
-    [self.testAsnLabel setText:[NSString stringWithFormat:@"%@ - %@", [result getAsn], [result getNetworkName:YES]]];
+    [self.testAsnLabel setText:[NSString stringWithFormat:@"%@ - %@", [result getAsn], [result getNetworkName]]];
 
     //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
