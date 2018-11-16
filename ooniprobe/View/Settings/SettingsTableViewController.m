@@ -117,7 +117,7 @@
 - (UITextField*)createTextField:(NSString*)type :(NSString*)text{
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
     textField.delegate = self;
-    textField.backgroundColor = [UIColor whiteColor];
+    textField.backgroundColor = [UIColor colorWithRGBHexString:color_white alpha:1.0f];
     textField.font = [UIFont fontWithName:@"FiraSans-Regular" size:15.0f];
     textField.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     textField.autocorrectionType = UITextAutocorrectionTypeNo;

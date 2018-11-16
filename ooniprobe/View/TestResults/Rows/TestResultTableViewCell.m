@@ -14,6 +14,8 @@
 }
 
 -(void)setResult:(Result*)result{
+    [self.testAsnLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+
     if (!result.is_viewed)
         [self setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow0 alpha:1.0f]];
     else

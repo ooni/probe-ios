@@ -9,7 +9,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.titleLabel setText:self.measurement.url_id.url];
-    [self.statusImage setTintColor:[UIColor whiteColor]];
+    [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     if (!super.measurement.is_anomaly){
         [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
@@ -17,6 +17,7 @@
         [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Hero.Title", nil)];
         NSString *paragraph = NSLocalizedFormatString(@"TestResults.Details.Websites.Reachable.Content.Paragraph", [NSString stringWithFormat:@"`%@`", self.measurement.url_id.url]);
         [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
+        [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.textLabel setMarkdown:paragraph];
         [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
             [[UIApplication sharedApplication] openURL:url];
@@ -30,6 +31,7 @@
         [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Hero.Title", nil)];
         NSString *paragraph = NSLocalizedFormatString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph", [NSString stringWithFormat:@"`%@`", self.measurement.url_id.url], [testKeys getWebsiteBlocking]);
         [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
+        [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [self.textLabel setMarkdown:paragraph];
         [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
             [[UIApplication sharedApplication] openURL:url];

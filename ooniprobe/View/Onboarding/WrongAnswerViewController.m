@@ -15,12 +15,12 @@
     [self.continueButton addTarget:self action:@selector(nextAndDismissPopupWrongAnswer) forControlEvents:UIControlEventTouchUpInside];
     [self.continueButton setTitle:NSLocalizedString(@"Onboarding.PopQuiz.Wrong.Button.Continue", nil) forState:UIControlStateNormal];
 
-    [self.goBackButton setTitleColor:[UIColor whiteColor]
+    [self.goBackButton setTitleColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]
                           forState:UIControlStateNormal];
     [self.goBackButton setBackgroundColor:[UIColor colorWithRGBHexString:color_gray8 alpha:1.0f]];
     [self.continueButton setTitleColor:[UIColor colorWithRGBHexString:color_gray8 alpha:1.0f]
                            forState:UIControlStateNormal];
-    [self.continueButton setBackgroundColor:[UIColor whiteColor]];
+    [self.continueButton setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 
     [self.closeView addTarget:self action:@selector(dismissAllPopups) forControlEvents:UIControlEventTouchUpInside];
 
@@ -35,8 +35,8 @@
         [self.titleLabel setText:NSLocalizedString(@"Onboarding.PopQuiz.2.Wrong.Title", nil)];
         [self.textLabel setText:NSLocalizedString(@"Onboarding.PopQuiz.2.Wrong.Paragraph", nil)];
     }
-    [self.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.textLabel setTextColor:[UIColor whiteColor]];
+    [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 }
 
 -(void)nextAndDismissPopupWrongAnswer{

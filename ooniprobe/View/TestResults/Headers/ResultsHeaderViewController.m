@@ -106,7 +106,7 @@
     if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[TestUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
         return [UIColor colorWithRGBHexString:color_gray2 alpha:1.0f];
     else
-        return [UIColor whiteColor];
+        return [UIColor colorWithRGBHexString:color_white alpha:1.0f];
 }
 
 - (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
@@ -127,7 +127,7 @@
 
 -(void)addLine:(UIView*)view{
     UIView *lineView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, view.frame.size.height)];
-    [lineView setBackgroundColor:[UIColor whiteColor]];
+    [lineView setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [view addSubview:lineView];
 }
 

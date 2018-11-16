@@ -92,7 +92,7 @@
 
 -(void)addLine:(UIView*)view{
     UIView *lineView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, view.frame.size.height)];
-    [lineView setBackgroundColor:[UIColor whiteColor]];
+    [lineView setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [view addSubview:lineView];
 }
 

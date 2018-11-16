@@ -15,10 +15,10 @@
     [self.falseButton addTarget:self action:@selector(answer:) forControlEvents:UIControlEventTouchUpInside];
     [self.falseButton setTitle:NSLocalizedString(@"Onboarding.PopQuiz.False", nil) forState:UIControlStateNormal];
     
-    [self.trueButton setTitleColor:[UIColor whiteColor]
+    [self.trueButton setTitleColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]
                             forState:UIControlStateNormal];
     [self.trueButton setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
-    [self.falseButton setTitleColor:[UIColor whiteColor]
+    [self.falseButton setTitleColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]
                         forState:UIControlStateNormal];
     [self.falseButton setBackgroundColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
 
@@ -30,8 +30,8 @@
     [self.cointainerWindow setBackgroundColor:[UIColor colorWithRed:5.0/255.0 green:136.0/255.0 blue:203.0/255.0 alpha:1.0]];
     
     [self.titleLabel setText:NSLocalizedString(@"Onboarding.PopQuiz.Title", nil)];
-    [self.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.textLabel setTextColor:[UIColor whiteColor]];
+    [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 
     [self reloadQuestion];
 }

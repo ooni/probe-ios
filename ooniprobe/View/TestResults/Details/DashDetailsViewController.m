@@ -16,9 +16,15 @@
     [self.bitrateTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.Dash.MedianBitrate", nil)];
     [self.bitrateValueLabel setText:[testKeys getMedianBitrate]];
     [self.bitrateUnitLabel setText:[testKeys getMedianBitrateUnit]];
-    
+    [self.bitrateTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.bitrateValueLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.bitrateUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+
     [self.delayTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.Dash.PlayoutDelay", nil)];
     [self.delayValueLabel setText:[testKeys getPlayoutDelay]];
+    [self.delayTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.delayValueLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
+    [self.delayUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
 }
 
 

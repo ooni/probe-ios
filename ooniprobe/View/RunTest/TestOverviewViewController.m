@@ -18,6 +18,7 @@
     [self.testNameLabel setText:[LocalizationUtility getNameForTest:testName]];
     NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testName];
     [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
+    [self.testDescriptionLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
     [self.testDescriptionLabel setMarkdown:testLongDesc];
     [self.testDescriptionLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];

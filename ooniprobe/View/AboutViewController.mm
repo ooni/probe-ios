@@ -18,7 +18,7 @@
     [self.learnMoreButton setTitle:NSLocalizedString(@"Settings.About.Content.LearnMore", nil) forState:UIControlStateNormal];
     self.learnMoreButton.layer.cornerRadius = 20;
     self.learnMoreButton.layer.masksToBounds = YES;
-    [self.learnMoreButton setTitleColor:[UIColor whiteColor]
+    [self.learnMoreButton setTitleColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]
                         forState:UIControlStateNormal];
     [self.learnMoreButton setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     
@@ -30,7 +30,7 @@
                         forState:UIControlStateNormal];
     
     [self.versionLabel setText:[NSString stringWithFormat:@"OONI Probe: %@\nmeasurement-kit: %s", [VersionUtility get_software_version], mk_version()]];
-    [self.versionLabel setTextColor:[UIColor whiteColor]];
+    [self.versionLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 }
 
 

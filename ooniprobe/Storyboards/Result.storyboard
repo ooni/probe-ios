@@ -2462,6 +2462,7 @@
                     </view>
                     <connections>
                         <outlet property="averagepingTitleLabel" destination="g6x-Hb-YpV" id="Jky-C4-h8S"/>
+                        <outlet property="averagepingUnitLabel" destination="953-WT-qEo" id="WLd-xh-OXz"/>
                         <outlet property="averagepingValueLabel" destination="4qH-nf-5g6" id="hCz-c2-LKG"/>
                         <outlet property="countryDetailLabel" destination="fAf-fT-4Zl" id="XFR-Yk-W62"/>
                         <outlet property="countryLabel" destination="5Qc-hC-ODc" id="J45-Te-Wvn"/>
@@ -2472,6 +2473,7 @@
                         <outlet property="downloadValueLabel" destination="tGT-oz-Lju" id="Ime-js-ku0"/>
                         <outlet property="headerView" destination="WQy-vT-bIp" id="2HG-1c-xiD"/>
                         <outlet property="maxpingTitleLabel" destination="Ol6-5I-Shm" id="JYz-Lr-hKr"/>
+                        <outlet property="maxpingUnitLabel" destination="uf5-cG-B6a" id="Foi-xd-Uxx"/>
                         <outlet property="maxpingValueLabel" destination="r1W-V4-lO8" id="dNb-Pv-bfV"/>
                         <outlet property="mssTitleLabel" destination="VL1-wV-N3m" id="8sO-Zt-de1"/>
                         <outlet property="mssValueLabel" destination="RCI-q9-wxX" id="k3O-Io-MYL"/>
@@ -2479,10 +2481,13 @@
                         <outlet property="networkLabel" destination="AhA-hD-s0R" id="HJ1-aw-ABC"/>
                         <outlet property="networkNameLabel" destination="CNS-GO-fS0" id="fdl-4a-cEI"/>
                         <outlet property="outoforderTitleLabel" destination="fFs-vt-WIA" id="3iM-wN-eaJ"/>
+                        <outlet property="outoforderUnitLabel" destination="VgH-zF-w3D" id="aOF-j3-he9"/>
                         <outlet property="outoforderValueLabel" destination="QQm-rB-kyD" id="yz9-Nk-Hi2"/>
                         <outlet property="packetlossTitleLabel" destination="f3G-Zo-dfx" id="RMO-ci-8um"/>
+                        <outlet property="packetlossUnitLabel" destination="srN-wE-EhF" id="8qr-eW-sL4"/>
                         <outlet property="packetlossValueLabel" destination="CLa-T3-ftb" id="VTD-dV-yrN"/>
                         <outlet property="pingTitleLabel" destination="e4w-xY-xCD" id="kFk-UN-UsN"/>
+                        <outlet property="pingUnitLabel" destination="S6q-Xc-S78" id="dux-ZV-LOo"/>
                         <outlet property="pingValueLabel" destination="aOZ-Lv-9Dr" id="7MB-60-lhP"/>
                         <outlet property="runtimeDetailLabel" destination="DEy-p5-hHg" id="CVN-Eu-Ovo"/>
                         <outlet property="runtimeLabel" destination="2Xr-vr-5FX" id="REh-YG-O3b"/>
@@ -2513,6 +2518,6 @@
         <image name="upload_nopad" width="11" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ehP-Hs-f5z"/>
+        <segue reference="uP0-sL-zsM"/>
     </inferredMetricsTieBreakers>
 </document>

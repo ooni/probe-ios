@@ -76,7 +76,7 @@
         [status setImage:[UIImage imageNamed:@"reload"]];
     }
     else {
-        [cell setBackgroundColor:[UIColor whiteColor]];
+        [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
         [title setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         [status setImage:nil];
     }
@@ -159,13 +159,17 @@
             [detail2Image setImage:[UIImage imageNamed:@"download"]];
             [detail2Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
             [detail1Label setText:[NSString stringWithFormat:@"%@", [testKeys getUploadWithUnit]]];
+            [detail1Label setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
             [detail2Label setText:[NSString stringWithFormat:@"%@", [testKeys getDownloadWithUnit]]];
+            [detail2Label setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         }
         else if ([current.test_name isEqualToString:@"dash"]){
             TestKeys *testKeys = [current testKeysObj];
             [stackView2 setHidden:YES];
             [detail1Image setImage:[UIImage imageNamed:@"video_quality"]];
+            [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
             [detail1Label setText:[testKeys getVideoQuality:YES]];
+            [detail1Label setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
         }
     }    
     return cell;

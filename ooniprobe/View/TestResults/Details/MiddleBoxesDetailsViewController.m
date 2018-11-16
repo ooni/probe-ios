@@ -8,7 +8,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.statusImage setTintColor:[UIColor whiteColor]];
+    [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_black alpha:1.0f]];
 
     if (!super.measurement.is_anomaly){
         [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
