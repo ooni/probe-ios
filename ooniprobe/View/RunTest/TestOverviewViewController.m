@@ -45,21 +45,10 @@
 
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSMutableAttributedString *estimatedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ ", NSLocalizedString(@"Dashboard.Overview.Estimated", nil)]];
-        [estimatedString addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
-                                range:NSMakeRange(0, estimatedString.length)];
-        
+        [self.estimatedLabel setText:NSLocalizedString(@"Dashboard.Overview.Estimated", nil)];
         NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]]);
-        NSMutableAttributedString *timeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", time]];
-        [timeString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]
-                           range:NSMakeRange(0, timeString.length)];
-        
-        NSMutableAttributedString *lastTestString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ ", NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)]];
-        [lastTestString addAttribute:NSFontAttributeName
-                                value:[UIFont fontWithName:@"FiraSans-Regular" size:14]
-                                range:NSMakeRange(0, lastTestString.length)];
+        [self.estimatedDetailLabel setText:[NSString stringWithFormat:@"%@ %@", [TestUtility getDataForTest:testName], time]];
+        [self.lastrunLabel setText:NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)];
         
         NSString *ago;
         SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"test_group_name = '%@'", testName]] orderByDescending:@"start_time"] fetch];
@@ -68,18 +57,7 @@
         }
         else
             ago = NSLocalizedString(@"Dashboard.Overview.LastRun.Never", nil);
-
-        NSMutableAttributedString *agoString = [[NSMutableAttributedString alloc] initWithString:ago];
-        [agoString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:@"FiraSans-SemiBold" size:14]
-                           range:NSMakeRange(0, agoString.length)];
-        
-        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] init];
-        [attrStr appendAttributedString:estimatedString];
-        [attrStr appendAttributedString:timeString];
-        [attrStr appendAttributedString:lastTestString];
-        [attrStr appendAttributedString:agoString];
-        [self.testDetailLabel setAttributedText:attrStr];
+        [self.lastrunDetailLabel setText:ago];
     });
 }
 
