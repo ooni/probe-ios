@@ -16,7 +16,7 @@ fi
 cd ../translations
 ./update-translations.sh
 for dir in probe-mobile/*/;do
-    lang=$(basename ${dir} | tr 'zh_CN' 'zh-Hans' | tr 'zh_TW' 'zh-Hant')
+    lang=$(basename ${dir} | sed 's/zh_CN/zh-Hans/' | sed 's/zh_TW/zh-Hant/')
     dst_path="${TOPDIR}/ooniprobe/${lang}.lproj/"
     mkdir -p $dst_path
     cp ${dir}Localizable.strings $dst_path
