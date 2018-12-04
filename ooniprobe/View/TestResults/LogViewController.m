@@ -31,8 +31,11 @@
                 NSData *jsonData = [content dataUsingEncoding:NSUTF8StringEncoding];
                 id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
                 NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&error];
-                NSString *prettyPrintedJson = [NSString stringWithUTF8String:[prettyJsonData bytes]];
-                [self.textView setText:prettyPrintedJson];
+                //Don't convert data to string if there is an error
+                if (!error) {
+                    NSString *prettyPrintedJson = [NSString stringWithUTF8String:[prettyJsonData bytes]];
+                    [self.textView setText:prettyPrintedJson];
+                }
             }
             else
                 [self.textView setText:content];
