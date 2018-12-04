@@ -313,12 +313,12 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NqN-lv-rjI" firstAttribute="trailing" secondItem="5y2-q3-B1d" secondAttribute="trailing" id="4Lc-9s-1gi"/>
-                            <constraint firstItem="NqN-lv-rjI" firstAttribute="leading" secondItem="5y2-q3-B1d" secondAttribute="leading" id="61k-Jc-mtJ"/>
+                            <constraint firstItem="NqN-lv-rjI" firstAttribute="trailing" secondItem="HM4-lR-388" secondAttribute="trailing" id="4Lc-9s-1gi"/>
+                            <constraint firstItem="NqN-lv-rjI" firstAttribute="leading" secondItem="HM4-lR-388" secondAttribute="leading" id="61k-Jc-mtJ"/>
                             <constraint firstItem="NqN-lv-rjI" firstAttribute="top" secondItem="Nph-qu-YoC" secondAttribute="top" id="Jcy-zK-A6x"/>
-                            <constraint firstItem="NqN-lv-rjI" firstAttribute="bottom" secondItem="5y2-q3-B1d" secondAttribute="bottom" id="Rn1-6c-rRS"/>
+                            <constraint firstItem="NqN-lv-rjI" firstAttribute="bottom" secondItem="HM4-lR-388" secondAttribute="bottom" id="Rn1-6c-rRS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="5y2-q3-B1d"/>
+                        <viewLayoutGuide key="safeArea" id="HM4-lR-388"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -335,10 +335,6 @@
         <scene sceneID="Iv3-iC-dd1">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="CKq-8U-kQl" customClass="AboutViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PZN-xe-v1u"/>
-                        <viewControllerLayoutGuide type="bottom" id="HIX-ry-9k4"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DhG-za-ka8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -455,12 +451,12 @@ measurement-kit: x.y.z</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="3N7-0b-kY4" secondAttribute="trailing" id="FPu-ao-rZn"/>
-                            <constraint firstItem="HIX-ry-9k4" firstAttribute="top" secondItem="3N7-0b-kY4" secondAttribute="bottom" id="Ma8-Oi-BT9"/>
-                            <constraint firstItem="3N7-0b-kY4" firstAttribute="top" secondItem="PZN-xe-v1u" secondAttribute="bottom" id="VOQ-m5-SvS"/>
-                            <constraint firstItem="3N7-0b-kY4" firstAttribute="leading" secondItem="DhG-za-ka8" secondAttribute="leading" id="cwJ-OE-KhK"/>
+                            <constraint firstItem="eG8-yF-b1x" firstAttribute="trailing" secondItem="3N7-0b-kY4" secondAttribute="trailing" id="FPu-ao-rZn"/>
+                            <constraint firstItem="eG8-yF-b1x" firstAttribute="bottom" secondItem="3N7-0b-kY4" secondAttribute="bottom" id="Ma8-Oi-BT9"/>
+                            <constraint firstItem="3N7-0b-kY4" firstAttribute="top" secondItem="eG8-yF-b1x" secondAttribute="top" id="VOQ-m5-SvS"/>
+                            <constraint firstItem="3N7-0b-kY4" firstAttribute="leading" secondItem="eG8-yF-b1x" secondAttribute="leading" id="cwJ-OE-KhK"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fbM-Vh-umg"/>
+                        <viewLayoutGuide key="safeArea" id="eG8-yF-b1x"/>
                     </view>
                     <navigationItem key="navigationItem" id="4Q3-Vg-lNH"/>
                     <connections>
