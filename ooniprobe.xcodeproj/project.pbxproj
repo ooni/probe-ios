@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17E7EDB821BFEDD1001961C7 /* OONIProbeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDB721BFEDD1001961C7 /* OONIProbeUITests.swift */; };
+		17E7EDC021BFEE0C001961C7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */; };
 		C8F0F5BCD132FD1482C9804A /* libPods-ooniprobe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
@@ -117,8 +119,22 @@
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		17E7EDBA21BFEDD1001961C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4A2F5D11A6C3244001B8460 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4A2F5D81A6C3244001B8460;
+			remoteInfo = ooniprobe;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ooniprobe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17E7EDB521BFEDD1001961C7 /* OONIProbeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OONIProbeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17E7EDB721BFEDD1001961C7 /* OONIProbeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OONIProbeUITests.swift; sourceTree = "<group>"; };
+		17E7EDB921BFEDD1001961C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		B14D39522921C8CE117986F7 /* Pods-ooniprobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A2F5D91A6C3244001B8460 /* ooniprobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ooniprobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -324,6 +340,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		17E7EDB221BFEDD1001961C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4A2F5D61A6C3244001B8460 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,10 +359,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17E7EDB621BFEDD1001961C7 /* OONIProbeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */,
+				17E7EDB721BFEDD1001961C7 /* OONIProbeUITests.swift */,
+				17E7EDB921BFEDD1001961C7 /* Info.plist */,
+			);
+			path = OONIProbeUITests;
+			sourceTree = "<group>";
+		};
 		D4A2F5D01A6C3244001B8460 = {
 			isa = PBXGroup;
 			children = (
 				D4A2F5DB1A6C3244001B8460 /* ooniprobe */,
+				17E7EDB621BFEDD1001961C7 /* OONIProbeUITests */,
 				D4A2F5DA1A6C3244001B8460 /* Products */,
 				F7A9F2287FABB1ABA8598B6C /* Pods */,
 				F4F15431D4412F561191270F /* Frameworks */,
@@ -350,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				D4A2F5D91A6C3244001B8460 /* ooniprobe.app */,
+				17E7EDB521BFEDD1001961C7 /* OONIProbeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -756,6 +791,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		17E7EDB421BFEDD1001961C7 /* OONIProbeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17E7EDBE21BFEDD1001961C7 /* Build configuration list for PBXNativeTarget "OONIProbeUITests" */;
+			buildPhases = (
+				17E7EDB121BFEDD1001961C7 /* Sources */,
+				17E7EDB221BFEDD1001961C7 /* Frameworks */,
+				17E7EDB321BFEDD1001961C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				17E7EDBB21BFEDD1001961C7 /* PBXTargetDependency */,
+			);
+			name = OONIProbeUITests;
+			productName = OONIProbeUITests;
+			productReference = 17E7EDB521BFEDD1001961C7 /* OONIProbeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		D4A2F5D81A6C3244001B8460 /* ooniprobe */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4A2F5FC1A6C3244001B8460 /* Build configuration list for PBXNativeTarget "ooniprobe" */;
@@ -782,9 +835,16 @@
 		D4A2F5D11A6C3244001B8460 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = OONI;
 				TargetAttributes = {
+					17E7EDB421BFEDD1001961C7 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = MADPSAYN6T;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D4A2F5D81A6C3244001B8460;
+					};
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = MADPSAYN6T;
@@ -829,11 +889,19 @@
 			projectRoot = "";
 			targets = (
 				D4A2F5D81A6C3244001B8460 /* ooniprobe */,
+				17E7EDB421BFEDD1001961C7 /* OONIProbeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		17E7EDB321BFEDD1001961C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4A2F5D71A6C3244001B8460 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -926,6 +994,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		17E7EDB121BFEDD1001961C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17E7EDB821BFEDD1001961C7 /* OONIProbeUITests.swift in Sources */,
+				17E7EDC021BFEE0C001961C7 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4A2F5D51A6C3244001B8460 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1011,6 +1088,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		17E7EDBB21BFEDD1001961C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4A2F5D81A6C3244001B8460 /* ooniprobe */;
+			targetProxy = 17E7EDBA21BFEDD1001961C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
@@ -1043,6 +1128,67 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		17E7EDBC21BFEDD1001961C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MADPSAYN6T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OONIProbeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.OONIProbeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ooniprobe;
+			};
+			name = Debug;
+		};
+		17E7EDBD21BFEDD1001961C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MADPSAYN6T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OONIProbeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.OONIProbeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ooniprobe;
+			};
+			name = Release;
+		};
 		D4A2F5FA1A6C3244001B8460 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1237,6 +1383,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		17E7EDBE21BFEDD1001961C7 /* Build configuration list for PBXNativeTarget "OONIProbeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17E7EDBC21BFEDD1001961C7 /* Debug */,
+				17E7EDBD21BFEDD1001961C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D4A2F5D41A6C3244001B8460 /* Build configuration list for PBXProject "ooniprobe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
