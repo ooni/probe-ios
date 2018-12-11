@@ -1,7 +1,7 @@
 #import "Options.h"
 #import "SettingsUtility.h"
 #import "VersionUtility.h"
-#import "MKResources.h"
+#import <mkall/MKResources.h>
 
 @implementation Options
 
