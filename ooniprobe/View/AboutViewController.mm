@@ -1,5 +1,4 @@
 #import "AboutViewController.h"
-#import <measurement_kit/common.hpp>
 #import "VersionUtility.h"
 
 @interface AboutViewController ()

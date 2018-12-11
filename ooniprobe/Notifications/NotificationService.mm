@@ -1,5 +1,4 @@
 #import "NotificationService.h"
-#include <measurement_kit/common.hpp>
 #import "VersionUtility.h"
 #import "TestUtility.h"
 #import <mkall/MKOrchestra.h>
