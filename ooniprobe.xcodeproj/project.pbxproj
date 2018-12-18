@@ -101,7 +101,6 @@
 		EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding3ViewController.m */; };
 		EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */; };
 		EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B711FFF6C8B00EFD9C8 /* Onboarding1ViewController.m */; };
-		EDE0E37821BFC8F400B19B0F /* mkall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE0E37721BFC8F300B19B0F /* mkall.framework */; };
 		EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */; };
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
@@ -290,7 +289,6 @@
 		EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onboarding3ViewController.m; sourceTree = "<group>"; };
 		EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopQuizViewController.m; sourceTree = "<group>"; };
 		EDDB0B711FFF6C8B00EFD9C8 /* Onboarding1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onboarding1ViewController.m; sourceTree = "<group>"; };
-		EDE0E37721BFC8F300B19B0F /* mkall.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mkall.framework; path = ooniprobe/mkall.framework; sourceTree = "<group>"; };
 		EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = middle_boxes.json; sourceTree = "<group>"; };
 		EDF2072B2120EF12005B06D7 /* Simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		EDF2072E2120EF29005B06D7 /* Advanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Advanced.h; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDE0E37821BFC8F400B19B0F /* mkall.framework in Frameworks */,
 				ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */,
 				C8F0F5BCD132FD1482C9804A /* libPods-ooniprobe.a in Frameworks */,
 			);
@@ -695,7 +692,6 @@
 		F4F15431D4412F561191270F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EDE0E37721BFC8F300B19B0F /* mkall.framework */,
 				ED3582311FE948580078CCEE /* libsqlite3.tbd */,
 				01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */,
 			);
