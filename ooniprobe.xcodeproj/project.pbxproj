@@ -720,6 +720,7 @@
 				D4A2F5D71A6C3244001B8460 /* Resources */,
 				EDA66B691E3A23AF00DD22AC /* ShellScript */,
 				0DB68370272A8F1E523AA5E2 /* [CP] Copy Pods Resources */,
+				C7C791B40366EF11FC28561A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -857,6 +858,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7C791B40366EF11FC28561A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh",
+				"${PODS_ROOT}/mkall/mkall.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mkall.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EDA66B691E3A23AF00DD22AC /* ShellScript */ = {
