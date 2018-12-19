@@ -24,6 +24,7 @@
         self.software_name = @"ooniprobe-ios";
         self.software_version = software_version;
         self.randomize_input = [NSNumber numberWithBool:FALSE];
+        self.no_file_report  = [NSNumber numberWithBool:TRUE];
     }
     return self;
 }
