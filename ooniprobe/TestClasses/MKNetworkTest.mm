@@ -4,7 +4,31 @@
 #import "ReachabilityManager.h"
 #import "NSDictionary+Safety.h"
 #import "EventResult.h"
-#import <mkall/MKTask.h>
+
+static NSDictionary *wait_for_next_event(mk_unique_task &taskp) {
+    mk_unique_event eventp{mk_task_wait_for_next_event(taskp.get())};
+    if (!eventp) {
+        NSLog(@"Cannot extract event");
+        return nil;
+    }
+    const char *s = mk_event_serialize(eventp.get());
+    if (s == nullptr) {
+        NSLog(@"Cannot serialize event");
+        return nil;
+    }
+    // Here it's important to specify freeWhenDone because we control
+    // the lifecycle of the data object using `eventp`.
+    NSData *data = [NSData dataWithBytesNoCopy:(void *)s length:strlen(s)
+                                  freeWhenDone:NO];
+    NSError *error = nil;
+    NSDictionary *evinfo = [NSJSONSerialization JSONObjectWithData:data
+                                                           options:0 error:&error];
+    if (error != nil) {
+        NSLog(@"Cannot parse serialized JSON event %@", [error localizedDescription]);
+        return nil;
+    }
+    return evinfo;
+}
 
 @implementation MKNetworkTest
 
@@ -37,10 +61,10 @@
     }];
     dispatch_async(
                    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                       MKTask *task = [MKTask startNettest:[self.settings getSettingsDictionary]];
-                       while (![task isDone]){
+                       mk_unique_task taskp{mk_nettest_start([[self.settings getSerializedSettings] UTF8String])};
+                       while (!mk_task_is_done(taskp.get())) {
                            // Extract an event from the task queue and unmarshal it.
-                           NSDictionary *evinfo = [task waitForNextEvent];
+                           NSDictionary *evinfo = wait_for_next_event(taskp);
                            if (evinfo == nil) {
                                break;
                            }
