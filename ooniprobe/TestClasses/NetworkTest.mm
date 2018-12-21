@@ -15,11 +15,8 @@
 -(void)initResult:(Result*)result{
     if (result != nil)
         self.result = result;
-    else {
+    else
         self.result = [Result new];
-        //The Result object needs to be saved to have an Id, needed for log
-        [self.result save];
-    }
 }
 
 -(void)addTest:(NSString*)testName{

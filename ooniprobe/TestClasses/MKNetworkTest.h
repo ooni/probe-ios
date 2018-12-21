@@ -1,5 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#include <measurement_kit/ffi.h>
+
 #import "SettingsUtility.h"
 #import "Measurement.h"
 #import "Result.h"

@@ -11,5 +11,5 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) Options *options;
 
--(NSDictionary*)getSettingsDictionary;
+-(NSString*)getSerializedSettings;
 @end
