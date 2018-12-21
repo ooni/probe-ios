@@ -42,7 +42,7 @@
 
 + (NSString*)getVerbosity {
     if ([self getSettingWithName:@"debug_logs"])
-        return @"DEBUG";
+        return @"DEBUG2";
     return @"INFO";
 }
 
