@@ -7,10 +7,6 @@
 #define ANOMALY_ORANGE 1
 #define ANOMALY_RED 2
 
-#define PERFORMANCE_TIME 90
-#define MIDDLEBOXES_TIME 15
-#define INSTANTMESSAGING_TIME 30
-
 @implementation TestUtility
 
 
@@ -173,23 +169,6 @@
     {
         NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
     }
-}
-
-+ (int)getTotalTimeForTest:(NSString*)testName{
-    if ([testName isEqualToString:@"websites"]){
-        NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-        return [max_runtime intValue]+30;
-    }
-    else if ([testName isEqualToString:@"performance"]){
-        return PERFORMANCE_TIME;
-    }
-    else if ([testName isEqualToString:@"middle_boxes"]){
-        return MIDDLEBOXES_TIME;
-    }
-    else if ([testName isEqualToString:@"instant_messaging"]){
-        return INSTANTMESSAGING_TIME;
-    }
-    return 0;
 }
 
 + (NSString*)getDataForTest:(NSString*)testName{

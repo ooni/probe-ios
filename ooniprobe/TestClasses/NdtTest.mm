@@ -40,4 +40,8 @@
     }
 }
 
+-(int)getRuntime{
+    return 45;
+}
+
 @end

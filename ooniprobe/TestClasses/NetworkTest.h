@@ -14,6 +14,7 @@
 -(void)addTest:(NSString*)testName;
 -(void)testEnded:(MKNetworkTest*)test;
 -(void)runTestSuite;
+-(void)getRuntime;
 @end
 
 @interface WCNetworkTest : NetworkTest

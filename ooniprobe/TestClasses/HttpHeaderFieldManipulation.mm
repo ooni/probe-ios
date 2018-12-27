@@ -37,4 +37,8 @@
     [super onEntry:json obj:measurement];
 }
 
+-(int)getRuntime{
+    return 5;
+}
+
 @end

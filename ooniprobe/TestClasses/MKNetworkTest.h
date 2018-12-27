@@ -27,4 +27,5 @@
 -(Measurement*)createMeasurementObject;
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement;
 -(void)runTest;
+-(int)getRuntime;
 @end

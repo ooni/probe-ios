@@ -102,6 +102,13 @@
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
+-(int)getRuntime{
+    int runtime = 0;
+    for (MKNetworkTest *current in self.mkNetworkTests){
+        runtime+=[current getRuntime];
+    }
+}
+
 @end
 
 @implementation WCNetworkTest : NetworkTest

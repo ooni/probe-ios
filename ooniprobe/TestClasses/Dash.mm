@@ -24,4 +24,8 @@
     [super onEntry:json obj:measurement];
 }
 
+-(int)getRuntime{
+    return 45;
+}
+
 @end
