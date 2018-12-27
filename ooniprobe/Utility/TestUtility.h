@@ -6,7 +6,6 @@
 
 @interface TestUtility : NSObject
 
-+ (void)showNotification:(NSString*)name;
 + (NSString*)getFileNamed:(NSString*)name;
 + (NSDictionary*)getTests;
 + (NSArray*)getTestTypes;
