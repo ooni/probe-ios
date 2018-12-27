@@ -1,6 +1,6 @@
 #import "NdtTest.h"
 
-@implementation NdtTest : MKNetworkTest
+@implementation NdtTest : AbstractTest
 
 -(id) init {
     self = [super init];

@@ -1,6 +1,6 @@
 #import "Telegram.h"
 
-@implementation Telegram : MKNetworkTest
+@implementation Telegram : AbstractTest
 
 -(id) init {
     self = [super init];

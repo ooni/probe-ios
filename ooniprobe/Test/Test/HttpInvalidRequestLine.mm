@@ -1,6 +1,6 @@
 #import "HttpInvalidRequestLine.h"
 
-@implementation HttpInvalidRequestLine : MKNetworkTest
+@implementation HttpInvalidRequestLine : AbstractTest
 
 -(id) init {
     self = [super init];

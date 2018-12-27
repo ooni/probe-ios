@@ -1,4 +1,4 @@
-#import "MKNetworkTest.h"
+#import "AbstractTest.h"
 
 #import "VersionUtility.h"
 #import "ReachabilityManager.h"
@@ -6,7 +6,7 @@
 #import "EventResult.h"
 #import <mkall/MKTask.h>
 
-@implementation MKNetworkTest
+@implementation AbstractTest
 
 -(id) init {
     self = [super init];
@@ -260,6 +260,10 @@
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     //[self updateProgressBar:1];
+}
+
+-(int)getRuntime{
+    return 0;
 }
 
 @end

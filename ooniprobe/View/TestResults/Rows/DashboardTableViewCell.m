@@ -45,7 +45,8 @@
     
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testName]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", [TestUtility getTotalTimeForTest:testName]]);
+    //TODO GET TIME
+    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", 5]);
     [self.estimateTime setText:time];
     [self.bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
     

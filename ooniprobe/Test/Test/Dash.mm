@@ -1,6 +1,6 @@
 #import "Dash.h"
 
-@implementation Dash : MKNetworkTest
+@implementation Dash : AbstractTest
 
 -(id) init {
     self = [super init];

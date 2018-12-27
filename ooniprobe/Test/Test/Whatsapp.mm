@@ -1,6 +1,6 @@
 #import "Whatsapp.h"
 
-@implementation Whatsapp : MKNetworkTest
+@implementation Whatsapp : AbstractTest
 
 -(id) init {
     self = [super init];

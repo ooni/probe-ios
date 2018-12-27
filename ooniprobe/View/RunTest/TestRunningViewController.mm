@@ -1,9 +1,8 @@
 #import "TestRunningViewController.h"
-#import "NetworkTest.h"
-#define URL_DURATION 5
+#import "Suite.h"
 
 @interface TestRunningViewController ()
-@property (nonatomic, strong) NetworkTest *currentTest;
+@property (nonatomic, strong) AbstractSuite *currentTest;
 @end
 
 @implementation TestRunningViewController
@@ -12,16 +11,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[TestUtility getColorForTest:testSuiteName]];
-    totalRuntime = [TestUtility getTotalTimeForTest:testSuiteName];
 
     if ([testSuiteName isEqualToString:@"websites"]){
         if (urls == nil){
             //Download urls and then alloc class
             [TestUtility downloadUrls:^(NSArray *urls) {
                 if (urls != nil && [urls count] > 0){
-                    currentTest = [[WCNetworkTest alloc] initWithUrls:urls andResult:result];
-                    [(WCNetworkTest*)currentTest setMaxRuntime];
-                    [self runTest];
+                    currentTest = [[WebsitesSuite alloc] initWithUrls:urls andResult:result];
+                    [(WebsitesSuite*)currentTest setMaxRuntime];
+                    //[self runTest];
                 }
                 else {
                     [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadURLs" inView:self];
@@ -30,28 +28,29 @@
             }];
         }
         else {
-            currentTest = [[WCNetworkTest alloc] initWithUrls:urls andResult:result];
-            totalRuntime = (int)[urls count]*URL_DURATION+30;
+            currentTest = [[WebsitesSuite alloc] initWithUrls:urls andResult:result];
         }
     }
     else if ([testSuiteName isEqualToString:@"performance"]){
         if (testName != nil)
-            currentTest = [[SPNetworkTest alloc] initWithTest:testName andResult:result];
+            currentTest = [[PerformanceSuite alloc] initWithTest:testName andResult:result];
         else
-            currentTest = [[SPNetworkTest alloc] init];
+            currentTest = [[PerformanceSuite alloc] init];
     }
     else if ([testSuiteName isEqualToString:@"middle_boxes"]){
         if (testName != nil)
-            currentTest = [[MBNetworkTest alloc] initWithTest:testName andResult:result];
+            currentTest = [[MiddleBoxesSuite alloc] initWithTest:testName andResult:result];
         else
-            currentTest = [[MBNetworkTest alloc] init];
+            currentTest = [[MiddleBoxesSuite alloc] init];
     }
     else if ([testSuiteName isEqualToString:@"instant_messaging"]){
         if (testName != nil)
-            currentTest = [[IMNetworkTest alloc] initWithTest:testName andResult:result];
+            currentTest = [[InstantMessagingSuite alloc] initWithTest:testName andResult:result];
         else
-            currentTest = [[IMNetworkTest alloc] init];
+            currentTest = [[InstantMessagingSuite alloc] init];
     }
+
+    totalRuntime = [currentTest getRuntime];
 
     NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
     [self.timeLabel setText:time];
@@ -86,7 +85,7 @@
 
 -(void)runTest{
     if (currentTest != nil){
-        totalTests = [currentTest.mkNetworkTests count];
+        totalTests = [currentTest.testList count];
         [currentTest runTestSuite];
     }
 }

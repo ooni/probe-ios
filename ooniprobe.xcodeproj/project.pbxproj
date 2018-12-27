@@ -21,6 +21,20 @@
 		ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1EC170204E9B61000DEB9F /* LogViewController.m */; };
 		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED209669209791C40028BEA3 /* PaddingLabel.m */; };
+		ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm */; };
+		ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065A21D4867B00E9B9EE /* WebConnectivity.mm */; };
+		ED2E066E21D4867B00E9B9EE /* AbstractTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065B21D4867B00E9B9EE /* AbstractTest.mm */; };
+		ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065C21D4867B00E9B9EE /* HttpInvalidRequestLine.mm */; };
+		ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065F21D4867B00E9B9EE /* Whatsapp.mm */; };
+		ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066321D4867B00E9B9EE /* NdtTest.mm */; };
+		ED2E067221D4867B00E9B9EE /* Dash.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066421D4867B00E9B9EE /* Dash.mm */; };
+		ED2E067321D4867B00E9B9EE /* Telegram.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066521D4867B00E9B9EE /* Telegram.mm */; };
+		ED2E067421D4867B00E9B9EE /* FacebookMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066621D4867B00E9B9EE /* FacebookMessenger.mm */; };
+		ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066B21D4867B00E9B9EE /* AbstractSuite.mm */; };
+		ED2E067821D487D600E9B9EE /* InstantMessagingSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067721D487D600E9B9EE /* InstantMessagingSuite.mm */; };
+		ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */; };
+		ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */; };
+		ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */; };
 		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
@@ -42,8 +56,6 @@
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
-		ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6392042A92200C43E5C /* MKNetworkTest.mm */; };
-		ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B63C2042A92200C43E5C /* NetworkTest.mm */; };
 		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
 		ED90A9282198DE5100204B46 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91B2198DE5000204B46 /* Network.m */; };
 		ED90A9292198DE5100204B46 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91C2198DE5000204B46 /* Result.mm */; };
@@ -61,14 +73,6 @@
 		EDA17B05208A37BF00D46D0F /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B04208A37BF00D46D0F /* Dashboard.storyboard */; };
 		EDA17B07208A389F00D46D0F /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B06208A389F00D46D0F /* Result.storyboard */; };
 		EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA7645E2153090800C24688 /* NSDictionary+Safety.m */; };
-		EDA9CC87209B534A0062507F /* FacebookMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC86209B534A0062507F /* FacebookMessenger.mm */; };
-		EDA9CC8A209B537C0062507F /* WebConnectivity.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC89209B537C0062507F /* WebConnectivity.mm */; };
-		EDA9CC8D209B538A0062507F /* HttpInvalidRequestLine.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC8C209B538A0062507F /* HttpInvalidRequestLine.mm */; };
-		EDA9CC90209B53980062507F /* HttpHeaderFieldManipulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC8F209B53980062507F /* HttpHeaderFieldManipulation.mm */; };
-		EDA9CC93209B53A70062507F /* NdtTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC92209B53A70062507F /* NdtTest.mm */; };
-		EDA9CC96209B53B80062507F /* Dash.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC95209B53B80062507F /* Dash.mm */; };
-		EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC98209B53C70062507F /* Whatsapp.mm */; };
-		EDA9CC9C209B53D50062507F /* Telegram.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDA9CC9B209B53D50062507F /* Telegram.mm */; };
 		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
 		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB33B7C21838824002CEC34 /* CustomURLViewController.m */; };
@@ -123,7 +127,6 @@
 		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunButton.m; sourceTree = "<group>"; };
 		ED0D8D6E20186742003DDF23 /* TestOverviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOverviewViewController.h; sourceTree = "<group>"; };
 		ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOverviewViewController.m; sourceTree = "<group>"; };
-		ED163CDF209B63060052FB46 /* MKNetworkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKNetworkTests.h; path = TestClasses/MKNetworkTests.h; sourceTree = "<group>"; };
 		ED163CE0209C7B880052FB46 /* Airports.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Airports.plist; sourceTree = "<group>"; };
 		ED1CC7FD20158D630041089A /* ConfigureButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigureButton.h; sourceTree = "<group>"; };
 		ED1CC7FE20158D630041089A /* ConfigureButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigureButton.m; sourceTree = "<group>"; };
@@ -135,6 +138,36 @@
 		ED1F33611EFD552F00B42FEC /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
 		ED209668209791C40028BEA3 /* PaddingLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaddingLabel.h; sourceTree = "<group>"; };
 		ED209669209791C40028BEA3 /* PaddingLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaddingLabel.m; sourceTree = "<group>"; };
+		ED2E065621D4867B00E9B9EE /* HttpInvalidRequestLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpInvalidRequestLine.h; sourceTree = "<group>"; };
+		ED2E065721D4867B00E9B9EE /* AbstractTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractTest.h; sourceTree = "<group>"; };
+		ED2E065821D4867B00E9B9EE /* WebConnectivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebConnectivity.h; sourceTree = "<group>"; };
+		ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HttpHeaderFieldManipulation.mm; sourceTree = "<group>"; };
+		ED2E065A21D4867B00E9B9EE /* WebConnectivity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebConnectivity.mm; sourceTree = "<group>"; };
+		ED2E065B21D4867B00E9B9EE /* AbstractTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AbstractTest.mm; sourceTree = "<group>"; };
+		ED2E065C21D4867B00E9B9EE /* HttpInvalidRequestLine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HttpInvalidRequestLine.mm; sourceTree = "<group>"; };
+		ED2E065D21D4867B00E9B9EE /* NdtTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NdtTest.h; sourceTree = "<group>"; };
+		ED2E065E21D4867B00E9B9EE /* Whatsapp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Whatsapp.h; sourceTree = "<group>"; };
+		ED2E065F21D4867B00E9B9EE /* Whatsapp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Whatsapp.mm; sourceTree = "<group>"; };
+		ED2E066021D4867B00E9B9EE /* FacebookMessenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookMessenger.h; sourceTree = "<group>"; };
+		ED2E066121D4867B00E9B9EE /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
+		ED2E066221D4867B00E9B9EE /* HttpHeaderFieldManipulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHeaderFieldManipulation.h; sourceTree = "<group>"; };
+		ED2E066321D4867B00E9B9EE /* NdtTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NdtTest.mm; sourceTree = "<group>"; };
+		ED2E066421D4867B00E9B9EE /* Dash.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Dash.mm; sourceTree = "<group>"; };
+		ED2E066521D4867B00E9B9EE /* Telegram.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Telegram.mm; sourceTree = "<group>"; };
+		ED2E066621D4867B00E9B9EE /* FacebookMessenger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FacebookMessenger.mm; sourceTree = "<group>"; };
+		ED2E066721D4867B00E9B9EE /* Telegram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telegram.h; sourceTree = "<group>"; };
+		ED2E066821D4867B00E9B9EE /* Dash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dash.h; sourceTree = "<group>"; };
+		ED2E066A21D4867B00E9B9EE /* AbstractSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractSuite.h; sourceTree = "<group>"; };
+		ED2E066B21D4867B00E9B9EE /* AbstractSuite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AbstractSuite.mm; sourceTree = "<group>"; };
+		ED2E067621D487D600E9B9EE /* InstantMessagingSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstantMessagingSuite.h; sourceTree = "<group>"; };
+		ED2E067721D487D600E9B9EE /* InstantMessagingSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = InstantMessagingSuite.mm; sourceTree = "<group>"; };
+		ED2E067921D487DD00E9B9EE /* MiddleBoxesSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiddleBoxesSuite.h; sourceTree = "<group>"; };
+		ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MiddleBoxesSuite.mm; sourceTree = "<group>"; };
+		ED2E067C21D487EA00E9B9EE /* PerformanceSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceSuite.h; sourceTree = "<group>"; };
+		ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PerformanceSuite.mm; sourceTree = "<group>"; };
+		ED2E067F21D487F500E9B9EE /* WebsitesSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebsitesSuite.h; sourceTree = "<group>"; };
+		ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebsitesSuite.mm; sourceTree = "<group>"; };
+		ED2E068221D489E000E9B9EE /* Suite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Suite.h; sourceTree = "<group>"; };
 		ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
 		ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewController.m; sourceTree = "<group>"; };
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -179,10 +212,6 @@
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
-		ED78B6392042A92200C43E5C /* MKNetworkTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKNetworkTest.mm; path = TestClasses/MKNetworkTest.mm; sourceTree = "<group>"; };
-		ED78B63A2042A92200C43E5C /* NetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkTest.h; path = TestClasses/NetworkTest.h; sourceTree = "<group>"; };
-		ED78B63B2042A92200C43E5C /* MKNetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKNetworkTest.h; path = TestClasses/MKNetworkTest.h; sourceTree = "<group>"; };
-		ED78B63C2042A92200C43E5C /* NetworkTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkTest.mm; path = TestClasses/NetworkTest.mm; sourceTree = "<group>"; };
 		ED8569581EB146B500D435EB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -218,22 +247,6 @@
 		EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EDA7645E2153090800C24688 /* NSDictionary+Safety.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Safety.m"; path = "Utility/NSDictionary+Safety.m"; sourceTree = "<group>"; };
 		EDA7645F2153090800C24688 /* NSDictionary+Safety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safety.h"; path = "Utility/NSDictionary+Safety.h"; sourceTree = "<group>"; };
-		EDA9CC85209B534A0062507F /* FacebookMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FacebookMessenger.h; path = TestClasses/FacebookMessenger.h; sourceTree = "<group>"; };
-		EDA9CC86209B534A0062507F /* FacebookMessenger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FacebookMessenger.mm; path = TestClasses/FacebookMessenger.mm; sourceTree = "<group>"; };
-		EDA9CC88209B537C0062507F /* WebConnectivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebConnectivity.h; path = TestClasses/WebConnectivity.h; sourceTree = "<group>"; };
-		EDA9CC89209B537C0062507F /* WebConnectivity.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = WebConnectivity.mm; path = TestClasses/WebConnectivity.mm; sourceTree = "<group>"; };
-		EDA9CC8B209B538A0062507F /* HttpInvalidRequestLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HttpInvalidRequestLine.h; path = TestClasses/HttpInvalidRequestLine.h; sourceTree = "<group>"; };
-		EDA9CC8C209B538A0062507F /* HttpInvalidRequestLine.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = HttpInvalidRequestLine.mm; path = TestClasses/HttpInvalidRequestLine.mm; sourceTree = "<group>"; };
-		EDA9CC8E209B53980062507F /* HttpHeaderFieldManipulation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HttpHeaderFieldManipulation.h; path = TestClasses/HttpHeaderFieldManipulation.h; sourceTree = "<group>"; };
-		EDA9CC8F209B53980062507F /* HttpHeaderFieldManipulation.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = HttpHeaderFieldManipulation.mm; path = TestClasses/HttpHeaderFieldManipulation.mm; sourceTree = "<group>"; };
-		EDA9CC91209B53A70062507F /* NdtTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NdtTest.h; path = TestClasses/NdtTest.h; sourceTree = "<group>"; };
-		EDA9CC92209B53A70062507F /* NdtTest.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NdtTest.mm; path = TestClasses/NdtTest.mm; sourceTree = "<group>"; };
-		EDA9CC94209B53B80062507F /* Dash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Dash.h; path = TestClasses/Dash.h; sourceTree = "<group>"; };
-		EDA9CC95209B53B80062507F /* Dash.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Dash.mm; path = TestClasses/Dash.mm; sourceTree = "<group>"; };
-		EDA9CC97209B53C70062507F /* Whatsapp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Whatsapp.h; path = TestClasses/Whatsapp.h; sourceTree = "<group>"; };
-		EDA9CC98209B53C70062507F /* Whatsapp.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Whatsapp.mm; path = TestClasses/Whatsapp.mm; sourceTree = "<group>"; };
-		EDA9CC9A209B53D50062507F /* Telegram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Telegram.h; path = TestClasses/Telegram.h; sourceTree = "<group>"; };
-		EDA9CC9B209B53D50062507F /* Telegram.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Telegram.mm; path = TestClasses/Telegram.mm; sourceTree = "<group>"; };
 		EDB252A220FA46DA00B4EDE4 /* TestKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestKeys.h; sourceTree = "<group>"; };
 		EDB252A320FA46DA00B4EDE4 /* JsonResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonResult.h; sourceTree = "<group>"; };
 		EDB252A520FA46DA00B4EDE4 /* TestKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestKeys.m; sourceTree = "<group>"; };
@@ -338,7 +351,6 @@
 				ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */,
 				ED58E8C71D0C625300C74F10 /* Utility */,
 				ED25281F1CEA353A0073A29B /* View */,
-				EDD8EECE202D7956008439B1 /* TestClasses */,
 				ED25280F1CEA34DA0073A29B /* Model */,
 				D4A2F62D1A6C33F7001B8460 /* Resources */,
 				D4A2F5E01A6C3244001B8460 /* AppDelegate.h */,
@@ -429,10 +441,65 @@
 				EDDB0B5E1FFF3A5A00EFD9C8 /* TabsViewController.h */,
 				EDDB0B5D1FFF3A5A00EFD9C8 /* TabsViewController.m */,
 				ED0A61FF200B52A300235E70 /* OONIRun */,
+				ED2E065421D4867B00E9B9EE /* Test */,
 				EDDB0B561FFF32B900EFD9C8 /* Settings */,
 				EDDB0B631FFF6C8B00EFD9C8 /* Onboarding */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		ED2E065421D4867B00E9B9EE /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				ED2E066921D4867B00E9B9EE /* Suite */,
+				ED2E065521D4867B00E9B9EE /* Test */,
+			);
+			name = Test;
+			path = ooniprobe/Test;
+			sourceTree = SOURCE_ROOT;
+		};
+		ED2E065521D4867B00E9B9EE /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				ED2E066121D4867B00E9B9EE /* Tests.h */,
+				ED2E065721D4867B00E9B9EE /* AbstractTest.h */,
+				ED2E065B21D4867B00E9B9EE /* AbstractTest.mm */,
+				ED2E065821D4867B00E9B9EE /* WebConnectivity.h */,
+				ED2E065A21D4867B00E9B9EE /* WebConnectivity.mm */,
+				ED2E065E21D4867B00E9B9EE /* Whatsapp.h */,
+				ED2E065F21D4867B00E9B9EE /* Whatsapp.mm */,
+				ED2E066721D4867B00E9B9EE /* Telegram.h */,
+				ED2E066521D4867B00E9B9EE /* Telegram.mm */,
+				ED2E066021D4867B00E9B9EE /* FacebookMessenger.h */,
+				ED2E066621D4867B00E9B9EE /* FacebookMessenger.mm */,
+				ED2E065621D4867B00E9B9EE /* HttpInvalidRequestLine.h */,
+				ED2E065C21D4867B00E9B9EE /* HttpInvalidRequestLine.mm */,
+				ED2E066221D4867B00E9B9EE /* HttpHeaderFieldManipulation.h */,
+				ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm */,
+				ED2E065D21D4867B00E9B9EE /* NdtTest.h */,
+				ED2E066321D4867B00E9B9EE /* NdtTest.mm */,
+				ED2E066821D4867B00E9B9EE /* Dash.h */,
+				ED2E066421D4867B00E9B9EE /* Dash.mm */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		ED2E066921D4867B00E9B9EE /* Suite */ = {
+			isa = PBXGroup;
+			children = (
+				ED2E068221D489E000E9B9EE /* Suite.h */,
+				ED2E066A21D4867B00E9B9EE /* AbstractSuite.h */,
+				ED2E066B21D4867B00E9B9EE /* AbstractSuite.mm */,
+				ED2E067F21D487F500E9B9EE /* WebsitesSuite.h */,
+				ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */,
+				ED2E067621D487D600E9B9EE /* InstantMessagingSuite.h */,
+				ED2E067721D487D600E9B9EE /* InstantMessagingSuite.mm */,
+				ED2E067921D487DD00E9B9EE /* MiddleBoxesSuite.h */,
+				ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */,
+				ED2E067C21D487EA00E9B9EE /* PerformanceSuite.h */,
+				ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */,
+			);
+			path = Suite;
 			sourceTree = "<group>";
 		};
 		ED3AE9ED20341C5600DAAF36 /* Headers */ = {
@@ -606,34 +673,6 @@
 				ED6911DA20BDC04D0022DCFE /* performance.json */,
 			);
 			path = anim;
-			sourceTree = "<group>";
-		};
-		EDD8EECE202D7956008439B1 /* TestClasses */ = {
-			isa = PBXGroup;
-			children = (
-				ED78B63A2042A92200C43E5C /* NetworkTest.h */,
-				ED78B63C2042A92200C43E5C /* NetworkTest.mm */,
-				ED78B63B2042A92200C43E5C /* MKNetworkTest.h */,
-				ED78B6392042A92200C43E5C /* MKNetworkTest.mm */,
-				ED163CDF209B63060052FB46 /* MKNetworkTests.h */,
-				EDA9CC88209B537C0062507F /* WebConnectivity.h */,
-				EDA9CC89209B537C0062507F /* WebConnectivity.mm */,
-				EDA9CC8B209B538A0062507F /* HttpInvalidRequestLine.h */,
-				EDA9CC8C209B538A0062507F /* HttpInvalidRequestLine.mm */,
-				EDA9CC8E209B53980062507F /* HttpHeaderFieldManipulation.h */,
-				EDA9CC8F209B53980062507F /* HttpHeaderFieldManipulation.mm */,
-				EDA9CC91209B53A70062507F /* NdtTest.h */,
-				EDA9CC92209B53A70062507F /* NdtTest.mm */,
-				EDA9CC94209B53B80062507F /* Dash.h */,
-				EDA9CC95209B53B80062507F /* Dash.mm */,
-				EDA9CC97209B53C70062507F /* Whatsapp.h */,
-				EDA9CC98209B53C70062507F /* Whatsapp.mm */,
-				EDA9CC9A209B53D50062507F /* Telegram.h */,
-				EDA9CC9B209B53D50062507F /* Telegram.mm */,
-				EDA9CC85209B534A0062507F /* FacebookMessenger.h */,
-				EDA9CC86209B534A0062507F /* FacebookMessenger.mm */,
-			);
-			name = TestClasses;
 			sourceTree = "<group>";
 		};
 		EDDB0B561FFF32B900EFD9C8 /* Settings */ = {
@@ -898,13 +937,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDA9CC96209B53B80062507F /* Dash.mm in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
 				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
 				EDF20736212173B9005B06D7 /* Advanced.m in Sources */,
+				ED2E067221D4867B00E9B9EE /* Dash.mm in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
 				EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */,
 				ED90A9292198DE5100204B46 /* Result.mm in Sources */,
@@ -913,6 +952,7 @@
 				ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */,
 				EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */,
 				EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */,
+				ED2E066E21D4867B00E9B9EE /* AbstractTest.mm in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */,
 				ED90A92A2198DE5100204B46 /* Url.mm in Sources */,
@@ -920,55 +960,58 @@
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
-				EDA9CC87209B534A0062507F /* FacebookMessenger.mm in Sources */,
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
 				ED90A92D2198DE5100204B46 /* Options.m in Sources */,
 				ED53841C2159757D0078C5C6 /* EventResult.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
-				EDA9CC90209B53980062507F /* HttpHeaderFieldManipulation.mm in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
-				EDA9CC8A209B537C0062507F /* WebConnectivity.mm in Sources */,
 				ED90A92B2198DE5100204B46 /* Measurement.mm in Sources */,
-				EDA9CC9C209B53D50062507F /* Telegram.mm in Sources */,
-				ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
 				EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
+				ED2E067821D487D600E9B9EE /* InstantMessagingSuite.mm in Sources */,
+				ED2E067421D4867B00E9B9EE /* FacebookMessenger.mm in Sources */,
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
 				ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */,
 				ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */,
-				EDA9CC93209B53A70062507F /* NdtTest.mm in Sources */,
 				ED90A9282198DE5100204B46 /* Network.m in Sources */,
-				EDA9CC8D209B538A0062507F /* HttpInvalidRequestLine.mm in Sources */,
 				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
+				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
 				ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */,
+				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
 				ED53841F215975A70078C5C6 /* Value.m in Sources */,
+				ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm in Sources */,
+				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */,
+				ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */,
+				ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
+				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.mm in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
-				EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */,
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
-				ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
+				ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
 				ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */,
+				ED2E067321D4867B00E9B9EE /* Telegram.mm in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 				EDF2073221217340005B06D7 /* JsonResult.m in Sources */,
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
 				EDF20735212173B9005B06D7 /* Simple.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
+				ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,13 +8,13 @@
 #import "JsonResult.h"
 #import "Settings.h"
 
-@class MKNetworkTest;
+@class AbstractTest;
 
 @protocol MKNetworkTestDelegate <NSObject>
--(void)testEnded:(MKNetworkTest*)test;
+-(void)testEnded:(AbstractTest*)test;
 @end
 
-@interface MKNetworkTest : NSObject
+@interface AbstractTest : NSObject
 
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property NSString *name;

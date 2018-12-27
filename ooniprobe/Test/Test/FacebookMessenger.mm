@@ -1,6 +1,6 @@
 #import "FacebookMessenger.h"
 
-@implementation FacebookMessenger : MKNetworkTest
+@implementation FacebookMessenger : AbstractTest
 
 -(id) init {
     self = [super init];

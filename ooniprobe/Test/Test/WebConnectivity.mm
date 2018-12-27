@@ -1,6 +1,6 @@
 #import "WebConnectivity.h"
 
-@implementation WebConnectivity : MKNetworkTest
+@implementation WebConnectivity : AbstractTest
 
 -(id) init {
     self = [super init];

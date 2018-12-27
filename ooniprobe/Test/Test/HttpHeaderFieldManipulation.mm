@@ -1,6 +1,6 @@
 #import "HttpHeaderFieldManipulation.h"
 
-@implementation HttpHeaderFieldManipulation : MKNetworkTest
+@implementation HttpHeaderFieldManipulation : AbstractTest
 
 -(id) init {
     self = [super init];
