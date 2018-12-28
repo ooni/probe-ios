@@ -5,30 +5,20 @@
 -(id) init {
     self = [super init];
     if (self) {
-        [self initResult:nil];
-        [self.result setTest_group_name:@"middle_boxes"];
-        if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"]){
-            [self addTest:@"http_invalid_request_line"];
-        }
-        if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"]){
-            [self addTest:@"http_header_field_manipulation"];
-        }
+        self.dataUsage = @"< 1 MB";
+        self.name = @"middle_boxes";
     }
     return self;
 }
 
--(id) initWithTest:(NSString*)test_name andResult:(Result*)result{
-    self = [super init];
-    if (self) {
-        [self initResult:result];
-        [self.result setTest_group_name:@"middle_boxes"];
-        [self addTest:test_name];
+- (NSArray*)getTestList {
+    if (self.testList == nil){
+        self.testList = [[NSMutableArray alloc] init];
+        if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"])
+            [self.testList addObject:[[HttpInvalidRequestLine alloc] init]];
+        if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"])
+            [self.testList addObject:[[HttpHeaderFieldManipulation alloc] init]];
     }
-    return self;
+    return super.getTestList;
 }
-
--(void)runTestSuite {
-    [super runTestSuite];
-}
-
 @end

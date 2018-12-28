@@ -1,4 +1,4 @@
-#import "AbstractSuite.h"
+#import "Suite.h"
 
 @implementation AbstractSuite
 
@@ -6,69 +6,37 @@
     self = [super init];
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
-        self.testList = [[NSMutableArray alloc] init];
+        self.measurementIdx = 0;
+        self.testList = nil;
+    }
+    return self;
+}
+
+-(id)initSuite:(NSString*)testSuite{
+    if ([testSuite isEqualToString:@"websites"])
+        self = [[WebsitesSuite alloc] init];
+    else if ([testSuite isEqualToString:@"performance"])
+        self = [[PerformanceSuite alloc] init];
+    else if ([testSuite isEqualToString:@"middle_boxes"])
+        self = [[MiddleBoxesSuite alloc] init];
+    else if ([testSuite isEqualToString:@"instant_messaging"])
+        self = [[InstantMessagingSuite alloc] init];
+    if (self) {
+        self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurementIdx = 0;
     }
     return self;
 }
 
--(void)initResult:(Result*)result{
-    if (result != nil)
-        self.result = result;
-    else {
-        self.result = [Result new];
-        //The Result object needs to be saved to have an Id, needed for log
-        [self.result save];
-    }
-}
-
--(void)addTest:(NSString*)testName{
-    if ([testName isEqualToString:@"whatsapp"]){
-        Whatsapp *whatsapp = [[Whatsapp alloc] init];
-        [self initCommon:whatsapp];
-    }
-    else if ([testName isEqualToString:@"telegram"]){
-        Telegram *telegram = [[Telegram alloc] init];
-        [self initCommon:telegram];
-    }
-    else if ([testName isEqualToString:@"facebook_messenger"]){
-        FacebookMessenger *facebookMessenger = [[FacebookMessenger alloc] init];
-        [self initCommon:facebookMessenger];
-    }
-    else if ([testName isEqualToString:@"web_connectivity"]){
-        WebConnectivity *webConnectivity = [[WebConnectivity alloc] init];
-        [self initCommon:webConnectivity];
-    }
-    else if ([testName isEqualToString:@"http_invalid_request_line"]){
-        HttpInvalidRequestLine *httpInvalidRequestLine = [[HttpInvalidRequestLine alloc] init];
-        [self initCommon:httpInvalidRequestLine];
-    }
-    else if ([testName isEqualToString:@"http_header_field_manipulation"]){
-        HttpHeaderFieldManipulation *httpHeaderFieldManipulation = [[HttpHeaderFieldManipulation alloc] init];
-        [self initCommon:httpHeaderFieldManipulation];
-    }
-    else if ([testName isEqualToString:@"ndt"]){
-        NdtTest *ndtTest = [[NdtTest alloc] init];
-        [self initCommon:ndtTest];
-    }
-    else if ([testName isEqualToString:@"dash"]){
-        Dash *dash = [[Dash alloc] init];
-        [self initCommon:dash];
-    }
-}
-
--(void)initCommon:(AbstractTest*)test{
-    [test setDelegate:self];
-    [test setResult:self.result];
-    [self.testList addObject:test];
-}
-
 -(void)runTestSuite {
+    [self initResult];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
-    for (AbstractTest *current in self.testList){
+    for (AbstractTest *current in [self getTestList]){
+        [current setDelegate:self];
+        [current setResult:self.result];
         [current runTest];
     }
 }
@@ -102,9 +70,23 @@
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
+//TODO add function to null this list and recreate it (for settings)
+-(NSArray*)getTestList {
+    return self.testList;
+}
+
+-(void)initResult {
+    if (self.result == nil){
+        self.result = [Result new];
+        [self.result setTest_group_name:self.name];
+        //The Result object needs to be saved to have an Id, needed for log
+        [self.result save];
+    }
+}
+
 -(int)getRuntime{
     int runtime = 0;
-    for (AbstractTest *current in self.testList){
+    for (AbstractTest *current in [self getTestList]){
         runtime+=[current getRuntime];
     }
     return runtime;

@@ -149,6 +149,7 @@
         }
     }
 }
+//TODO     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"settingsReloaded" object:nil];
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {

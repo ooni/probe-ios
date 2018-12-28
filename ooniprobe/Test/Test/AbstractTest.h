@@ -23,9 +23,10 @@
 @property (nonatomic, strong) NSMutableDictionary *measurements;
 @property id<MKNetworkTestDelegate> delegate;
 @property Settings *settings;
-
+-(id)initTest:(NSString*)testName;
 -(Measurement*)createMeasurementObject;
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement;
 -(void)runTest;
 -(int)getRuntime;
+-(void)testEnded;
 @end

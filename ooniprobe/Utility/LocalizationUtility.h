@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LocalizationUtility : NSObject
-
+//TODO deprecate class?
 + (NSString*)getNameForTest:(NSString*)testName;
 + (NSString*)getMKNameForTest:(NSString*)testName;
 + (NSString*)getDescriptionForTest:(NSString*)testName;

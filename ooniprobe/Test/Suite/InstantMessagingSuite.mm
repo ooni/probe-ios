@@ -4,34 +4,24 @@
 -(id) init {
     self = [super init];
     if (self) {
-        [super initResult:nil];
-        [self.result setTest_group_name:@"instant_messaging"];
-        if ([SettingsUtility getSettingWithName:@"test_whatsapp"]){
-            [self addTest:@"whatsapp"];
-        }
-        if ([SettingsUtility getSettingWithName:@"test_telegram"]){
-            [self addTest:@"telegram"];
-        }
-        if ([SettingsUtility getSettingWithName:@"test_facebook_messenger"]){
-            [self addTest:@"facebook_messenger"];
-        }
-        [self.result save];
+        self.dataUsage = @"< 1 MB";
+        self.name = @"instant_messaging";
     }
     return self;
 }
 
--(id) initWithTest:(NSString*)test_name andResult:(Result*)result{
-    self = [super init];
-    if (self) {
-        [super initResult:result];
-        [self.result setTest_group_name:@"instant_messaging"];
-        [self addTest:test_name];
-    }
-    return self;
-}
 
--(void)runTestSuite {
-    [super runTestSuite];
+- (NSArray*)getTestList {
+    if (self.testList == nil){
+        self.testList = [[NSMutableArray alloc] init];
+        if ([SettingsUtility getSettingWithName:@"test_whatsapp"])
+            [self.testList addObject:[[Whatsapp alloc] init]];
+        if ([SettingsUtility getSettingWithName:@"test_telegram"])
+            [self.testList addObject:[[Telegram alloc] init]];
+        if ([SettingsUtility getSettingWithName:@"test_facebook_messenger"])
+            [self.testList addObject:[[FacebookMessenger alloc] init]];
+    }
+    return super.getTestList;
 }
 
 @end

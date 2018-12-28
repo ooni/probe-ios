@@ -216,11 +216,11 @@
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
-        [vc setTestSuiteName:testSuiteName];
+        AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
+        [testSuite setTestList:[NSMutableArray arrayWithObject:[[AbstractTest alloc] initTest:testName]]];
         if ([testSuiteName isEqualToString:@"websites"])
-            [vc setUrls:urls];
-        else
-            [vc setTestName:testName];
+            [(WebsitesSuite*)testSuite setUrls:urls];
+        [vc setTestSuite:testSuite];
         [vc setPresenting:YES];
     }
 }

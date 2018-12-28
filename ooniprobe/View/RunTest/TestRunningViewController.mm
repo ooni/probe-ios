@@ -2,23 +2,24 @@
 #import "Suite.h"
 
 @interface TestRunningViewController ()
-@property (nonatomic, strong) AbstractSuite *currentTest;
 @end
 
 @implementation TestRunningViewController
 
-@synthesize urls, testSuiteName, testName, result, currentTest;
+@synthesize testSuite;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[TestUtility getColorForTest:testSuiteName]];
+    [self.view setBackgroundColor:[TestUtility getColorForTest:testSuite.name]];
 
-    if ([testSuiteName isEqualToString:@"websites"]){
+    /*
+    if ([testSuite.name isEqualToString:@"websites"]){
         if (urls == nil){
             //Download urls and then alloc class
             [TestUtility downloadUrls:^(NSArray *urls) {
                 if (urls != nil && [urls count] > 0){
-                    currentTest = [[WebsitesSuite alloc] initWithUrls:urls andResult:result];
-                    [(WebsitesSuite*)currentTest setMaxRuntime];
+                    [test setResult:result];
+                    [(WebsitesSuite*)test setUrls:urls];
+                    [(WebsitesSuite*)test setMaxRuntime];
                     //[self runTest];
                 }
                 else {
@@ -28,30 +29,34 @@
             }];
         }
         else {
-            currentTest = [[WebsitesSuite alloc] initWithUrls:urls andResult:result];
+            //URLs and result already defined
+            [test setResult:result];
+            [(WebsitesSuite*)test setUrls:urls];
+            [(WebsitesSuite*)test setMaxRuntime];
         }
     }
-    else if ([testSuiteName isEqualToString:@"performance"]){
+    else if ([testSuite.name isEqualToString:@"performance"]){
+        //TODO quando chiamo sta schermata da oonirun o rerun, il test deve avere gia una testlist singola
         if (testName != nil)
             currentTest = [[PerformanceSuite alloc] initWithTest:testName andResult:result];
         else
             currentTest = [[PerformanceSuite alloc] init];
     }
-    else if ([testSuiteName isEqualToString:@"middle_boxes"]){
+    else if ([testSuite.name isEqualToString:@"middle_boxes"]){
         if (testName != nil)
             currentTest = [[MiddleBoxesSuite alloc] initWithTest:testName andResult:result];
         else
             currentTest = [[MiddleBoxesSuite alloc] init];
     }
-    else if ([testSuiteName isEqualToString:@"instant_messaging"]){
+    else if ([testSuite.name isEqualToString:@"instant_messaging"]){
         if (testName != nil)
             currentTest = [[InstantMessagingSuite alloc] initWithTest:testName andResult:result];
         else
             currentTest = [[InstantMessagingSuite alloc] init];
     }
-
-    totalRuntime = [currentTest getRuntime];
-
+     */
+    
+    totalRuntime = [testSuite getRuntime];
     NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
     [self.timeLabel setText:time];
     [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
@@ -67,6 +72,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError) name:@"showError" object:nil];
 
     //Keep screen on
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
@@ -84,13 +90,14 @@
 }
 
 -(void)runTest{
-    if (currentTest != nil){
-        totalTests = [currentTest.testList count];
-        [currentTest runTestSuite];
+    if (testSuite != nil){
+        totalTests = [testSuite.testList count];
+        [testSuite runTestSuite];
     }
 }
+
 -(void)addAnimation{
-    animation = [LOTAnimationView animationNamed:testSuiteName];
+    animation = [LOTAnimationView animationNamed:testSuite.name];
     animation.contentMode = UIViewContentModeScaleAspectFit;
     CGRect c = self.animationView.bounds;
     animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
@@ -116,10 +123,11 @@
     NSDictionary *userInfo = notification.userInfo;
     NSString *name = [userInfo objectForKey:@"name"];
     NSNumber *prog = [userInfo objectForKey:@"prog"];
-    int index = currentTest.measurementIdx;
+    //TODO this doesn't take in consideration different test runtimes, only the total
+    //But still fixes https://github.com/ooni/probe/issues/805
+    int index = testSuite.measurementIdx;
     float prevProgress = index/totalTests;
     float progress = ([prog floatValue]/totalTests)+prevProgress;
-
     long eta = totalRuntime;
     if (progress > 0) {
         eta = lroundf(totalRuntime - progress * totalRuntime);
@@ -150,6 +158,10 @@
         }
     });
 
+}
+
+-(void)showError{
+    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadURLs" inView:self];
 }
 
 @end

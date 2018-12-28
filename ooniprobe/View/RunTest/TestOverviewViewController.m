@@ -5,7 +5,7 @@
 @end
 
 @implementation TestOverviewViewController
-@synthesize testName;
+@synthesize testSuite;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -15,8 +15,8 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
 
-    [self.testNameLabel setText:[LocalizationUtility getNameForTest:testName]];
-    NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testName];
+    [self.testNameLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
+    NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testSuite.name];
     [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
     [self.testDescriptionLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.testDescriptionLabel setMarkdown:testLongDesc];
@@ -25,15 +25,15 @@
     }];
     
     [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Run", nil)] forState:UIControlStateNormal];
-    if ([testName isEqualToString:@"websites"])
+    if ([testSuite.name isEqualToString:@"websites"])
         [self.websitesButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.ChooseWebsites", nil)] forState:UIControlStateNormal];
     else
         [self.websitesButton setHidden:YES];
 
     [self reloadLastMeasurement];
-    [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
+    [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]]];
     [self.testImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-    defaultColor = [TestUtility getColorForTest:testName];
+    defaultColor = [TestUtility getColorForTest:testSuite.name];
     [self.runButton setTitleColor:defaultColor forState:UIControlStateNormal];
     [self.backgroundView setBackgroundColor:defaultColor];
 }
@@ -45,14 +45,13 @@
 
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
-        //TODO GET TIME
         [self.estimatedLabel setText:NSLocalizedString(@"Dashboard.Overview.Estimated", nil)];
-        NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", 5]);
-        [self.estimatedDetailLabel setText:[NSString stringWithFormat:@"%@ %@", [TestUtility getDataForTest:testName], time]];
+        NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", [testSuite getRuntime]]);
+        [self.estimatedDetailLabel setText:[NSString stringWithFormat:@"%@ %@", testSuite.dataUsage, time]];
         [self.lastrunLabel setText:NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)];
         
         NSString *ago;
-        SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"test_group_name = '%@'", testName]] orderByDescending:@"start_time"] fetch];
+        SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"test_group_name = '%@'", testSuite.name]] orderByDescending:@"start_time"] fetch];
         if ([results count] > 0){
             ago = [[[results objectAtIndex:0] start_time] timeAgoSinceNow];
         }
@@ -89,11 +88,11 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setTestSuiteName:testName];
+        [vc setTestSuite:testSuite];
     }
     else if ([[segue identifier] isEqualToString:@"toTestSettings"]){
         SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
-        [vc setTestName:testName];
+        [vc setTestName:testSuite.name];
     }
 
 }

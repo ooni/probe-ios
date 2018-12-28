@@ -6,30 +6,20 @@
 -(id) init {
     self = [super init];
     if (self) {
-        [self initResult:nil];
-        [self.result setTest_group_name:@"performance"];
-        if ([SettingsUtility getSettingWithName:@"run_ndt"]){
-            [self addTest:@"ndt"];
-        }
-        if ([SettingsUtility getSettingWithName:@"run_dash"]){
-            [self addTest:@"dash"];
-        }
+        self.dataUsage = @"5 - 200 MB";
+        self.name = @"performance";
     }
     return self;
 }
 
--(id) initWithTest:(NSString*)test_name andResult:(Result*)result{
-    self = [super init];
-    if (self) {
-        [self initResult:result];
-        [self.result setTest_group_name:@"performance"];
-        [self addTest:test_name];
+- (NSArray*)getTestList {
+    if (self.testList == nil){
+        self.testList = [[NSMutableArray alloc] init];
+        if ([SettingsUtility getSettingWithName:@"run_ndt"])
+            [self.testList addObject:[[NdtTest alloc] init]];
+        if ([SettingsUtility getSettingWithName:@"run_dash"])
+            [self.testList addObject:[[Dash alloc] init]];
     }
-    return self;
+    return super.getTestList;
 }
-
--(void)runTestSuite {
-    [super runTestSuite];
-}
-
 @end

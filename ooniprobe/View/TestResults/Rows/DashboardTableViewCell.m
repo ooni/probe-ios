@@ -37,22 +37,21 @@
     }
 }
 
--(void)setTestName:(NSString*)testName{
+-(void)setTestSuite:(AbstractSuite*)testSuite{
     [self setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
     
-    [self.runButton setTitleColor:[TestUtility getColorForTest:testName] forState:UIControlStateNormal];
+    [self.runButton setTitleColor:[TestUtility getColorForTest:testSuite.name] forState:UIControlStateNormal];
     [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
     
-    [self.titleLabel setText:[LocalizationUtility getNameForTest:testName]];
-    [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testName]];
-    //TODO GET TIME
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", 5]);
+    [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
+    [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
+    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", [testSuite getRuntime]]);
     [self.estimateTime setText:time];
     [self.bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
     
-    [self.testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testName]]];
+    [self.testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]]];
     [self.testLogo setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-    [self.cardbackgroundView setBackgroundColor:[TestUtility getColorForTest:testName]];
+    [self.cardbackgroundView setBackgroundColor:[TestUtility getColorForTest:testSuite.name]];
     self.cardbackgroundView.layer.cornerRadius = 15;
     self.cardbackgroundView.layer.masksToBounds = YES;
 }

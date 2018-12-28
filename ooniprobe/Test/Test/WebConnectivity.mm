@@ -1,4 +1,5 @@
 #import "WebConnectivity.h"
+#import "MessageUtility.h"
 
 @implementation WebConnectivity : AbstractTest
 
@@ -12,7 +13,22 @@
 }
 
 -(void) runTest {
-    [super runTest];
+    if (self.settings.inputs == nil){
+        //Download urls and then alloc class
+        [TestUtility downloadUrls:^(NSArray *urls) {
+            if (urls != nil && [urls count] > 0){
+                [self setUrls:urls];
+                [self setDefaultMaxRuntime];
+                [super runTest];
+            }
+            else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
+                [super testEnded];
+            }
+        }];
+    }
+    else
+        [super runTest];
 }
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
@@ -21,7 +37,6 @@
      false => not blocked
      string (dns, tcp-ip, http-failure, http-diff) => anomalous
      */
-    //id element = testKeys.blocking;
     if (json.test_keys.blocking == NULL)
         [measurement setIs_failed:true];
     else
@@ -39,6 +54,15 @@
         NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
         return 30 + [max_runtime intValue];
     }
+}
+
+-(void)setUrls:(NSArray*)inputs{
+    self.settings.inputs = inputs;
+}
+
+-(void)setDefaultMaxRuntime {
+    NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
+    self.settings.options.max_runtime = max_runtime;
 }
 
 @end

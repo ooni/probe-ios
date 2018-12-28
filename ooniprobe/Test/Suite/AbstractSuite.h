@@ -7,13 +7,18 @@
 #import "Url.h"
 
 @interface AbstractSuite : NSObject <MKNetworkTestDelegate>
+@property NSString *name;
+
+@property NSString *dataUsage;
+
 @property Result *result;
 @property NSMutableArray *testList;
 @property int measurementIdx;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
--(void)initResult:(Result*)result;
--(void)addTest:(NSString*)testName;
+-(id)initSuite:(NSString*)testSuite;
 -(void)testEnded:(AbstractTest*)test;
 -(void)runTestSuite;
+-(NSArray*)getTestList;
+-(void)initResult;
 -(int)getRuntime;
 @end
