@@ -35,11 +35,6 @@
         self = [[NdtTest alloc] init];
     else if ([testName isEqualToString:@"dash"])
         self = [[Dash alloc] init];
-    if (self) {
-        self.backgroundTask = UIBackgroundTaskInvalid;
-        self.measurements = [[NSMutableDictionary alloc] init];
-        self.settings = [Settings new];
-    }
     return self;
 }
 

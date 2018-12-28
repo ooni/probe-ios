@@ -21,10 +21,6 @@
         self = [[MiddleBoxesSuite alloc] init];
     else if ([testSuite isEqualToString:@"instant_messaging"])
         self = [[InstantMessagingSuite alloc] init];
-    if (self) {
-        self.backgroundTask = UIBackgroundTaskInvalid;
-        self.measurementIdx = 0;
-    }
     return self;
 }
 

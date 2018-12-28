@@ -23,11 +23,11 @@
 }
 
 //Used by dropdown
-//TODO improve
 + (NSArray*)getTestTypes{
     return @[@"websites", @"instant_messaging", @"performance", @"middle_boxes"];
 }
 
+//used by ooni run
 + (NSString*)getCategoryForTest:(NSString*)testName{
     NSDictionary *tests = [self getTests];
     NSArray *keys = [tests allKeys];
@@ -40,6 +40,7 @@
     return nil;
 }
 
+//Used by notification service
 + (NSArray*)getTestsArray{
     NSMutableArray *returnArr = [[NSMutableArray alloc] init];
     NSDictionary *tests = [self getTests];
