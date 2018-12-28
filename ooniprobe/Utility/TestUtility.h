@@ -6,7 +6,6 @@
 
 @interface TestUtility : NSObject
 
-//TODO deprecate color, category
 + (NSString*)getFileNamed:(NSString*)name;
 + (NSDictionary*)getTests;
 + (NSArray*)getTestTypes;
@@ -16,5 +15,4 @@
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (void)downloadUrls:(void (^)(NSArray *))completion;
 + (void)removeFile:(NSString*)fileName;
-//+ (NSString*)getDataForTest:(NSString*)testName;
 @end

@@ -77,7 +77,7 @@
     NSDictionary *userInfo = notification.userInfo;
     NSString *name = [userInfo objectForKey:@"name"];
     NSNumber *prog = [userInfo objectForKey:@"prog"];
-    //TODO this doesn't take in consideration different test runtimes, only the total
+    //TODO-2.1 this doesn't take in consideration different test runtimes, only the total
     //But still fixes https://github.com/ooni/probe/issues/805
     int index = testSuite.measurementIdx;
     float prevProgress = index/totalTests;

@@ -80,7 +80,7 @@
 
 + (void)notificationAlertinView:(UIViewController *)view
 {
-    //TODO-2.1 add Modal.EnableGPS and Modal.EnableNotifications.News and Modal.EnableNotifications.AutomatedTesting
+    //TODO-GPS-NEWS add Modal.EnableGPS and Modal.EnableNotifications.News and Modal.EnableNotifications.AutomatedTesting
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:nil message:NSLocalizedString(@"Modal.EnableNotifications.Any", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
