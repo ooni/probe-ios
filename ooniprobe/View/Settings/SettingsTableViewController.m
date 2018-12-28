@@ -4,7 +4,7 @@
 @end
 
 @implementation SettingsTableViewController
-@synthesize category, testName;
+@synthesize category, testSuite;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -15,8 +15,8 @@
 
     if (category != nil)
         self.title = [LocalizationUtility getNameForSetting:category];
-    else if (testName != nil)
-        self.title = [LocalizationUtility getNameForTest:testName];
+    else if (testSuite != nil)
+        self.title = [LocalizationUtility getNameForTest:testSuite.name];
     self.navigationController.navigationBar.topItem.title = @"";
 
     keyboardToolbar = [[UIToolbar alloc] init];
@@ -35,11 +35,19 @@
 -(void)reloadSettings {
     if (category != nil)
         items = [SettingsUtility getSettingsForCategory:category];
-    else if (testName != nil)
-        items = [SettingsUtility getSettingsForTest:testName :YES];
+    else if (testSuite != nil)
+        items = [SettingsUtility getSettingsForTest:testSuite.name :YES];
     [self.tableView reloadData];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if (testSuite != nil){
+        testSuite.testList = nil;
+        [testSuite getTestList];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"settingsChanged" object:nil];
+    }
+}
 
 #pragma mark - Table view data source
 
@@ -149,7 +157,6 @@
         }
     }
 }
-//TODO     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"settingsReloaded" object:nil];
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -253,10 +260,10 @@
 }
 
 -(BOOL)canSetSwitch{
-    if (testName != nil){
-        NSArray *items = [SettingsUtility getSettingsForTest:testName :NO];
+    if (testSuite != nil){
+        NSArray *items = [SettingsUtility getSettingsForTest:testSuite.name :NO];
         NSUInteger numberOfTests = [items count];
-        if ([testName isEqualToString:@"performance"] || [testName isEqualToString:@"middle_boxes"] || [testName isEqualToString:@"instant_messaging"]){
+        if ([testSuite.name isEqualToString:@"performance"] || [testSuite.name isEqualToString:@"middle_boxes"] || [testSuite.name isEqualToString:@"instant_messaging"]){
             for (NSString *current in items){
                 if (![[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])
                     numberOfTests--;
@@ -279,6 +286,5 @@
     [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 @end

@@ -10,52 +10,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[TestUtility getColorForTest:testSuite.name]];
-
-    /*
-    if ([testSuite.name isEqualToString:@"websites"]){
-        if (urls == nil){
-            //Download urls and then alloc class
-            [TestUtility downloadUrls:^(NSArray *urls) {
-                if (urls != nil && [urls count] > 0){
-                    [test setResult:result];
-                    [(WebsitesSuite*)test setUrls:urls];
-                    [(WebsitesSuite*)test setMaxRuntime];
-                    //[self runTest];
-                }
-                else {
-                    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadURLs" inView:self];
-                    [self networkTestEnded];
-                }
-            }];
-        }
-        else {
-            //URLs and result already defined
-            [test setResult:result];
-            [(WebsitesSuite*)test setUrls:urls];
-            [(WebsitesSuite*)test setMaxRuntime];
-        }
-    }
-    else if ([testSuite.name isEqualToString:@"performance"]){
-        //TODO quando chiamo sta schermata da oonirun o rerun, il test deve avere gia una testlist singola
-        if (testName != nil)
-            currentTest = [[PerformanceSuite alloc] initWithTest:testName andResult:result];
-        else
-            currentTest = [[PerformanceSuite alloc] init];
-    }
-    else if ([testSuite.name isEqualToString:@"middle_boxes"]){
-        if (testName != nil)
-            currentTest = [[MiddleBoxesSuite alloc] initWithTest:testName andResult:result];
-        else
-            currentTest = [[MiddleBoxesSuite alloc] init];
-    }
-    else if ([testSuite.name isEqualToString:@"instant_messaging"]){
-        if (testName != nil)
-            currentTest = [[InstantMessagingSuite alloc] initWithTest:testName andResult:result];
-        else
-            currentTest = [[InstantMessagingSuite alloc] init];
-    }
-     */
-    
     totalRuntime = [testSuite getRuntime];
     NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
     [self.timeLabel setText:time];

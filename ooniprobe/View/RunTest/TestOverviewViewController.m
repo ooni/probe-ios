@@ -12,8 +12,8 @@
     self.navigationController.navigationBar.topItem.title = @"";
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"settingsChanged" object:nil];
 
     [self.testNameLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testSuite.name];
@@ -92,9 +92,8 @@
     }
     else if ([[segue identifier] isEqualToString:@"toTestSettings"]){
         SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
-        [vc setTestName:testSuite.name];
+        [vc setTestSuite:testSuite];
     }
-
 }
 
 

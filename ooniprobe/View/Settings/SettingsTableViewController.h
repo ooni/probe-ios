@@ -4,6 +4,7 @@
 #import "MessageUtility.h"
 #import "TestUtility.h"
 #import <UserNotifications/UserNotifications.h>
+#import "Suite.h"
 
 @interface SettingsTableViewController : UITableViewController <UITextFieldDelegate, UIAlertViewDelegate> {
     NSArray *items;
@@ -12,6 +13,6 @@
 }
 
 @property (nonatomic, strong) NSString *category;
-@property (nonatomic, strong) NSString *testName;
+@property (nonatomic, strong) AbstractSuite *testSuite;
 
 @end

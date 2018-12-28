@@ -10,7 +10,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTests) name:@"settingsReloaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTests) name:@"settingsChanged" object:nil];
     [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
     [self loadTests];
 }
@@ -22,6 +22,10 @@
     [navbarImageView.widthAnchor constraintEqualToConstant:135].active = YES;
     [navbarImageView.heightAnchor constraintEqualToConstant:24].active = YES;
     self.navigationController.navigationBar.topItem.titleView = navbarImageView;
+}
+
+-(void)reloadTests{
+    [self.tableView reloadData];
 }
 
 -(void)loadTests{
