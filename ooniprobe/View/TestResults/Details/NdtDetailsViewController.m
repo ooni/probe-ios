@@ -41,6 +41,7 @@
     [self.timeoutsTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Timeouts", nil)];
     [self.timeoutsValueLabel setText:[testKeys getTimeouts]];
     
+    
     //TODO-2.1  add whites for first elements and refactor
     [self.packetlossTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.packetlossValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
