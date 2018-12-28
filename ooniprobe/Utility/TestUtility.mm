@@ -24,7 +24,7 @@
 
 //Used by dropdown
 + (NSArray*)getTestTypes{
-    return @[@"websites", @"instant_messaging", @"performance", @"middle_boxes"];
+    return [[self getTests] allKeys];
 }
 
 //used by ooni run
@@ -53,19 +53,7 @@
 }
 
 + (UIColor*)getColorForTest:(NSString*)testName{
-    if ([testName isEqualToString:@"websites"]){
-        return [UIColor colorWithRGBHexString:color_indigo6 alpha:1.0f];
-    }
-    else if ([testName isEqualToString:@"performance"]){
-        return [UIColor colorWithRGBHexString:color_fuchsia6 alpha:1.0f];
-    }
-    else if ([testName isEqualToString:@"middle_boxes"]){
-        return [UIColor colorWithRGBHexString:color_violet8 alpha:1.0f];
-    }
-    else if ([testName isEqualToString:@"instant_messaging"]){
-        return [UIColor colorWithRGBHexString:color_cyan6 alpha:1.0f];
-    }
-    return [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
+    return [self getColorForTest:testName alpha:1.0f];
 }
 
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha{
@@ -133,22 +121,6 @@
     {
         NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
     }
-}
-
-+ (NSString*)getDataForTest:(NSString*)testName{
-    if ([testName isEqualToString:@"performance"]){
-        return @"5 - 200 MB";
-    }
-    else if ([testName isEqualToString:@"websites"]){
-        return @"~ 8 MB";
-    }
-    else if ([testName isEqualToString:@"middle_boxes"]){
-        return @"< 1 MB";
-    }
-    else if ([testName isEqualToString:@"instant_messaging"]){
-        return @"< 1 MB";
-    }
-    return nil;
 }
 
 + (long)numberOfTest:(NSString*)testName{

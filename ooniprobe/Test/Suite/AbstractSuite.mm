@@ -38,13 +38,11 @@
 }
 
 -(void)testEnded:(AbstractTest*)test{
-    NSLog(@"CALLBACK test_ended %@", test.name);
     [self.testList removeObject:test];
     [self.result save];
     self.measurementIdx++;
     //if last test
     if ([self.testList count] == 0){
-        NSLog(@"ALL test_ended");
         [self.result setIs_done:YES];
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
         if (state == UIApplicationStateBackground || state == UIApplicationStateInactive){
@@ -66,7 +64,6 @@
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
-//TODO add function to null this list and recreate it (for settings)
 -(NSArray*)getTestList {
     return self.testList;
 }
