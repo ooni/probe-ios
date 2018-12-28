@@ -37,7 +37,10 @@
         items = [SettingsUtility getSettingsForCategory:category];
     else if (testSuite != nil)
         items = [SettingsUtility getSettingsForTest:testSuite.name :YES];
-    [self.tableView reloadData];
+    //hide rows smooth
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    });
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -178,7 +181,7 @@
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *current = [items objectAtIndex:indexPath.row];
-    //TODO-2.1 handle automated_testing_enabled
+    //TODO ORCHESTRA handle automated_testing_enabled
     if ([current isEqualToString:@"notifications_enabled"] && mySwitch.on){
         [self handleNotificationChanges];
         [mySwitch setOn:FALSE];
@@ -218,8 +221,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
-    //TODO-2.2 when enable remote news notification send something to backend
-    //TODO-2.1 hide rows smooth
+    //TODO NEWS when enable remote news notification send something to backend
     [self reloadSettings];
 }
 
