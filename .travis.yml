@@ -7,3 +7,4 @@ before_install:
   - pod install
 script:
   - xcodebuild -workspace ooniprobe.xcworkspace/ -scheme ooniprobe CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
+  - xcodebuild test -workspace ooniprobe.xcworkspace/ -scheme OONIProbeUITests CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'
