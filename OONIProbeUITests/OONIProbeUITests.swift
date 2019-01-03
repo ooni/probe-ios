@@ -20,9 +20,6 @@ class OONIProbeUITests: XCTestCase {
         if let simulatorSharedDir = ProcessInfo().environment["SIMULATOR_SHARED_RESOURCES_DIRECTORY"] {
             let appID = UIDevice.current.identifierForVendor!.uuidString
 
-            //7E5DBB2A-6BE3-4102-995E-5A2280445854/Documents/OONIProbe.db
-            
-            // running on the simulator. We'll write to ~/Library/Caches
             let simulatorHomeDirURL = URL(fileURLWithPath: simulatorSharedDir)
             let containerDir = simulatorHomeDirURL.appendingPathComponent("Containers/Data/Application")
             
@@ -75,10 +72,49 @@ class OONIProbeUITests: XCTestCase {
     func testDashboard() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
 
-        let tabBarsQuery = XCUIApplication().tabBars
+        let tabBarsQuery = app.tabBars
         tabBarsQuery.buttons["Dashboard"].tap()
         snapshot("01Dashboard")
-    }
 
+        tabBarsQuery.buttons["Test Results"].tap()
+        snapshot("02TestResults")
+
+        tabBarsQuery.buttons["Settings"].tap()
+        snapshot("03Settings")
+        
+        tabBarsQuery.buttons["Dashboard"].tap()
+        let tablesQuery = app.tables
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Websites"]/*[[".cells.staticTexts[\"Websites\"]",".staticTexts[\"Websites\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.buttons["Choose websites"].tap()
+        tablesQuery.cells.children(matching: .textField).element.tap()
+        
+        let oKey = app/*@START_MENU_TOKEN@*/.keys["o"]/*[[".keyboards.keys[\"o\"]",".keys[\"o\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        oKey.tap()
+        oKey.tap()
+        oKey.tap()
+        
+        let nKey = app/*@START_MENU_TOKEN@*/.keys["n"]/*[[".keyboards.keys[\"n\"]",".keys[\"n\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        nKey.tap()
+        nKey.tap()
+        
+        let iKey = app/*@START_MENU_TOKEN@*/.keys["i"]/*[[".keyboards.keys[\"i\"]",".keys[\"i\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        iKey.tap()
+        iKey.tap()
+        
+        let key = app/*@START_MENU_TOKEN@*/.keys["."]/*[[".keyboards.keys[\".\"]",".keys[\".\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key.tap()
+        key.tap()
+        iKey.tap()
+        iKey.tap()
+        oKey.tap()
+        oKey.tap()
+        tablesQuery.children(matching: .other).element.children(matching: .button).element.tap()
+        tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
+
+        snapshot("04ChooseWebsite")
+
+    }
+    
 }
