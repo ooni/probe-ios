@@ -1,13 +1,4 @@
 language: objective-c
-osx_image: xcode10
-install:
-    - brew update
-    - brew upgrade gpg
-    - gpg --keyserver keyserver.ubuntu.com --recv-keys 738877AA6C829F26A431C5F480B691277733D95B
-    - sudo gem install cocoapods
-    - pod repo update 2>&1 >/dev/null
-    - pod install --verbose
-    - sudo gem install xcpretty
-    - set -o pipefail && xcodebuild -workspace ooniprobe.xcworkspace/
-        -scheme ooniprobe CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-          | xcpretty
+osx_image: xcode10.1
+xcode_project: ooniprobe.xcodeproj
+xcode_scheme: ooniprobe
