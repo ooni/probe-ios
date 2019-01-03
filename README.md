@@ -106,3 +106,40 @@ If a string is not translated it will print the source for the text.
 
 * Have fun!
 
+## Fastlane
+
+We use fastlane for creating automatically app screenshots in the various
+languages we support.
+
+You first need to have some depedencies installed. On macOS:
+
+To install fastlane:
+
+```
+# Using RubyGems
+sudo gem install fastlane -NV
+
+# Alternatively using Homebrew
+brew cask install fastlane
+```
+
+Then:
+
+```
+brew install libpng jpeg imagemagick
+
+```
+
+You will then be able to automate screenshot creation with:
+
+```
+fastlane snapshot
+```
+
+To put them inside of phones, do:
+```
+fastlane frameit
+```
+
+Learn more on the fastlane docs:
+https://docs.fastlane.tools/getting-started/ios/screenshots

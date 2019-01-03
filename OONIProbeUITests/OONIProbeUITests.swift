@@ -1,7 +1,6 @@
 //
 //  OONIProbeUITests.swift
 //  OONIProbeUITests
-//
 //  Created by Arturo Filastò on 11/12/2018.
 //  Copyright © 2018 OONI. All rights reserved.
 //
@@ -28,10 +27,10 @@ class OONIProbeUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testDashboard() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+
         let tabBarsQuery = XCUIApplication().tabBars
         tabBarsQuery.buttons["Dashboard"].tap()
         snapshot("01Dashboard")
