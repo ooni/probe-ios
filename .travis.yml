@@ -1,5 +1,9 @@
 language: objective-c
 osx_image: xcode10
+podfile: Podfile
+before_install:
+  - bundle install
+  - pod repo update
+  - pod install
 script:
-  - sudo gem install xcpretty
   - xcodebuild -workspace ooniprobe.xcworkspace/ -scheme ooniprobe CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
