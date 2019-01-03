@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9.4 # the current travis default
+osx_image: xcode10 # the current travis default is 9.4
 podfile: Podfile
 before_install:
   - bundle install
