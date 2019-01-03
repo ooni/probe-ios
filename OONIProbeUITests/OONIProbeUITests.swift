@@ -40,17 +40,20 @@ class OONIProbeUITests: XCTestCase {
             XCTAssertTrue(targetAppDir != containerDir, "Could not find targetAppDir")
 
             let prefPath = targetAppDir.appendingPathComponent("Library/Preferences/org.openobservatory.ooniprobe.plist")
-            let dbPath = targetAppDir.appendingPathComponent("Documents/OONIProbe.db")
             try? FileManager.default.removeItem(at: prefPath)
             try! FileManager.default.copyItem(
                 atPath: fixturesDir.appendingPathComponent("org.openobservatory.ooniprobe.plist").path,
-                toPath: targetAppDir.appendingPathComponent("Library/Preferences/org.openobservatory.ooniprobe.plist").path
+                toPath: prefPath.path
             )
-            try? FileManager.default.removeItem(at: dbPath)
-            try! FileManager.default.copyItem(
-                atPath: fixturesDir.appendingPathComponent("OONIProbe.db").path,
-                toPath: targetAppDir.appendingPathComponent("Documents/OONIProbe.db").path
-            )
+            for dbName in ["OONIProbe.db", "OONIProbe.db-wal", "OONIProbe.db-shm"] {
+                let dbPath = targetAppDir.appendingPathComponent("Documents/\(dbName)")
+                print("Deleting \(dbPath.path)")
+                try? FileManager.default.removeItem(at: dbPath)
+                try! FileManager.default.copyItem(
+                    atPath: fixturesDir.appendingPathComponent(dbName).path,
+                    toPath: dbPath.path
+                )
+            }
             print("repo Root \(repoRoot)\n")
             print("targetAppDir \(targetAppDir.path)\n")
             print("sharedFolderURL \(containerDir.path)\n")
@@ -93,23 +96,18 @@ class OONIProbeUITests: XCTestCase {
         let oKey = app/*@START_MENU_TOKEN@*/.keys["o"]/*[[".keyboards.keys[\"o\"]",".keys[\"o\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         oKey.tap()
         oKey.tap()
-        oKey.tap()
         
         let nKey = app/*@START_MENU_TOKEN@*/.keys["n"]/*[[".keyboards.keys[\"n\"]",".keys[\"n\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        nKey.tap()
         nKey.tap()
         
         let iKey = app/*@START_MENU_TOKEN@*/.keys["i"]/*[[".keyboards.keys[\"i\"]",".keys[\"i\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         iKey.tap()
-        iKey.tap()
         
         let key = app/*@START_MENU_TOKEN@*/.keys["."]/*[[".keyboards.keys[\".\"]",".keys[\".\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         key.tap()
-        key.tap()
-        iKey.tap()
         iKey.tap()
         oKey.tap()
-        oKey.tap()
+
         tablesQuery.children(matching: .other).element.children(matching: .button).element.tap()
         tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
 
