@@ -133,12 +133,7 @@ brew install libpng jpeg imagemagick
 You will then be able to automate screenshot creation with:
 
 ```
-fastlane snapshot
-```
-
-To put them inside of phones, do:
-```
-fastlane frameit
+fastlane screenshots
 ```
 
 Learn more on the fastlane docs:
