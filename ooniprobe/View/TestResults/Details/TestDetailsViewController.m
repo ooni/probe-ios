@@ -23,6 +23,7 @@
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.networkLabel setText:[NSString stringWithFormat:@"%@\n", NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)]];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
+    [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
     [self.dateLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
     [self.dateDetailLabel setText:localizedDateTime];
     [self.networkNameLabel setText:[result getNetworkName]];
