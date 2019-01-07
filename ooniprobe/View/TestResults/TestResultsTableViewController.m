@@ -7,6 +7,11 @@
 @implementation TestResultsTableViewController
 @synthesize results;
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.title = NSLocalizedString(@"TestResults.Overview.Title", nil);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
@@ -16,11 +21,6 @@
     self.tableView.tableFooterView = [UIView new];
     self.tableView.estimatedRowHeight = 80.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"TestResults.Overview.Title", nil);
 }
 
 -(void)testFilter:(SRKQuery*)newQuery{
