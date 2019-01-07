@@ -88,15 +88,15 @@ class OONIProbeUITests: XCTestCase {
         tabBarsQuery.buttons["Test Results"].tap()
         let thepiratebayStaticText = tablesQuery.staticTexts["http://thepiratebay.org"]
 
-        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"39 tested")/*[[".cells.containing(.staticText, identifier:\"1 blocked\")",".cells.containing(.staticText, identifier:\"Websites\")",".cells.containing(.staticText, identifier:\"12\/12\/18, 1:23 AM\")",".cells.containing(.image, identifier:\"websites\")",".cells.containing(.staticText, identifier:\"39 tested\")"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.image, identifier:"websites")/*[[".cells.containing(.staticText, identifier:\"1 blocked\")",".cells.containing(.staticText, identifier:\"Websites\")",".cells.containing(.staticText, identifier:\"12\/12\/18, 1:23 AM\")",".cells.containing(.image, identifier:\"websites\")",".cells.containing(.staticText, identifier:\"39 tested\")"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         thepiratebayStaticText.tap()
         snapshot("03WebsiteBlocked")
         app.navigationBars["Web Connectivity Test"].buttons["Back"].tap()
         app.navigationBars["TestSummaryTableView"].buttons["Back"].tap()
 
         tabBarsQuery.buttons["Test Results"].tap()
-        tablesQuery.cells.containing(.staticText, identifier:"44.9 Mbps").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["NDT Speed Test"]/*[[".cells.staticTexts[\"NDT Speed Test\"]",".staticTexts[\"NDT Speed Test\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery.cells.containing(.image, identifier:"performance").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
+        tablesQuery.staticTexts["NDT Speed Test"].tap()
         app.navigationBars["NDT Speed Test"].buttons["Back"].tap()
         app.navigationBars["TestSummaryTableView"].buttons["Back"].tap()
         
