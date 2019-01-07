@@ -45,15 +45,13 @@ class OONIProbeUITests: XCTestCase {
                 atPath: fixturesDir.appendingPathComponent("org.openobservatory.ooniprobe.plist").path,
                 toPath: prefPath.path
             )
-            for dbName in ["OONIProbe.db", "OONIProbe.db-wal", "OONIProbe.db-shm"] {
-                let dbPath = targetAppDir.appendingPathComponent("Documents/\(dbName)")
-                print("Deleting \(dbPath.path)")
-                try? FileManager.default.removeItem(at: dbPath)
-                try! FileManager.default.copyItem(
-                    atPath: fixturesDir.appendingPathComponent(dbName).path,
-                    toPath: dbPath.path
-                )
-            }
+            let dbPath = targetAppDir.appendingPathComponent("Documents/OONIProbe.db")
+            print("Deleting \(dbPath.path)")
+            try? FileManager.default.removeItem(at: dbPath)
+            try! FileManager.default.copyItem(
+                atPath: fixturesDir.appendingPathComponent("OONIProbe.db").path,
+                toPath: dbPath.path
+            )
             print("repo Root \(repoRoot)\n")
             print("targetAppDir \(targetAppDir.path)\n")
             print("sharedFolderURL \(containerDir.path)\n")
@@ -72,23 +70,30 @@ class OONIProbeUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testDashboard() {
+    func testScreenshots() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let app = XCUIApplication()
 
         let tabBarsQuery = app.tabBars
+        let tablesQuery = app.tables
+
         tabBarsQuery.buttons["Dashboard"].tap()
         snapshot("01Dashboard")
 
         tabBarsQuery.buttons["Test Results"].tap()
         snapshot("02TestResults")
 
-        tabBarsQuery.buttons["Settings"].tap()
-        snapshot("03Settings")
-        
+        tabBarsQuery.buttons["Test Results"].tap()
+        let thepiratebayStaticText = tablesQuery.staticTexts["http://thepiratebay.org"]
+
+        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"39 tested")/*[[".cells.containing(.staticText, identifier:\"1 blocked\")",".cells.containing(.staticText, identifier:\"Websites\")",".cells.containing(.staticText, identifier:\"12\/12\/18, 1:23 AM\")",".cells.containing(.image, identifier:\"websites\")",".cells.containing(.staticText, identifier:\"39 tested\")"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
+        thepiratebayStaticText.tap()
+        snapshot("03WebsiteBlocked")
+        app.navigationBars["Web Connectivity Test"].buttons["Back"].tap()
+        app.navigationBars["TestSummaryTableView"].buttons["Back"].tap()
+
         tabBarsQuery.buttons["Dashboard"].tap()
-        let tablesQuery = app.tables
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Websites"]/*[[".cells.staticTexts[\"Websites\"]",".staticTexts[\"Websites\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.buttons["Choose websites"].tap()
         tablesQuery.cells.children(matching: .textField).element.tap()
