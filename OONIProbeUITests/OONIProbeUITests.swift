@@ -25,6 +25,9 @@ class OONIProbeUITests: XCTestCase {
             
             let appDirs = try! FileManager.default.contentsOfDirectory(atPath: containerDir.path)
 
+            // ATTENTION BIG CAVEAT!
+            // Currently for the logic below to work you need to have installed (and run) OONI Probe at least once inside of the simulator for the target device. Once that is done it will work OK, but it won't work until then.
+            // When in doubt try rerunning the tests and they should work.
             // XXX maybe a better way to do this is:
             // https://developer.apple.com/documentation/foundation/filemanager/1412643-containerurl
             var targetAppDir = containerDir
