@@ -104,11 +104,11 @@ class OONIProbeUITests: XCTestCase {
         tabBarsQuery.buttons["Test Results"].tap()
         tablesQuery.cells.containing(.image, identifier:"performance").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         tablesQuery.staticTexts["NDT Speed Test"].tap()
+        snapshot("04SpeedTest")
+
         // We make the assumption the first button in the navigationbar hierarchy is the back button
         app.navigationBars["NDT Speed Test"].buttons.element(boundBy: 0).tap()
-        app.navigationBars["TestSummaryTableView"].buttons.element(boundBy: 0).tap()
-        
-        snapshot("04SpeedTest")
+        app.navigationBars["TestSummaryTableView"].buttons.element(boundBy: 0).tap()        
 
         tabBarsQuery.buttons["Dashboard"].tap()
         tablesQuery.cells.element(boundBy: 0).tap()
