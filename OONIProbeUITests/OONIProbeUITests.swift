@@ -36,7 +36,7 @@ class OONIProbeUITests: XCTestCase {
                     break
                 }
             }
-            
+            print("targetAppDir", targetAppDir)
             XCTAssertTrue(targetAppDir != containerDir, "Could not find targetAppDir")
 
             let prefPath = targetAppDir.appendingPathComponent("Library/Preferences/org.openobservatory.ooniprobe.plist")
@@ -48,6 +48,9 @@ class OONIProbeUITests: XCTestCase {
             let dbPath = targetAppDir.appendingPathComponent("Documents/OONIProbe.db")
             print("Deleting \(dbPath.path)")
             try? FileManager.default.removeItem(at: dbPath)
+            try? FileManager.default.removeItem(at: targetAppDir.appendingPathComponent("Documents/OONIProbe.db-wal"))
+            try? FileManager.default.removeItem(at: targetAppDir.appendingPathComponent("Documents/OONIProbe.db-shm"))
+
             try! FileManager.default.copyItem(
                 atPath: fixturesDir.appendingPathComponent("OONIProbe.db").path,
                 toPath: dbPath.path
