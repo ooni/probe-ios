@@ -21,7 +21,6 @@
     //TODO-FUTURE move footer in an external component in the storyboard
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:measurement.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
-    [self.networkLabel setText:[NSString stringWithFormat:@"%@\n", NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)]];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
     [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
     [self.dateLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
