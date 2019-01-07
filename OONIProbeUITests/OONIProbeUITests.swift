@@ -69,7 +69,8 @@ class OONIProbeUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
+    
     func testScreenshots() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -92,6 +93,14 @@ class OONIProbeUITests: XCTestCase {
         snapshot("03WebsiteBlocked")
         app.navigationBars["Web Connectivity Test"].buttons["Back"].tap()
         app.navigationBars["TestSummaryTableView"].buttons["Back"].tap()
+
+        tabBarsQuery.buttons["Test Results"].tap()
+        tablesQuery.cells.containing(.staticText, identifier:"44.9 Mbps").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["NDT Speed Test"]/*[[".cells.staticTexts[\"NDT Speed Test\"]",".staticTexts[\"NDT Speed Test\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.navigationBars["NDT Speed Test"].buttons["Back"].tap()
+        app.navigationBars["TestSummaryTableView"].buttons["Back"].tap()
+        
+        snapshot("04SpeedTest")
 
         tabBarsQuery.buttons["Dashboard"].tap()
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Websites"]/*[[".cells.staticTexts[\"Websites\"]",".staticTexts[\"Websites\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
@@ -116,7 +125,7 @@ class OONIProbeUITests: XCTestCase {
         tablesQuery.children(matching: .other).element.children(matching: .button).element.tap()
         tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
 
-        snapshot("04ChooseWebsite")
+        snapshot("05ChooseWebsite")
 
     }
     
