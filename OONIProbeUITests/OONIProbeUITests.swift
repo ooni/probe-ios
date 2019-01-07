@@ -60,6 +60,9 @@ class OONIProbeUITests: XCTestCase {
         
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         let app = XCUIApplication()
+        app.launchArguments += ["-AppleLanguages", "(de)"]
+        app.launchArguments += ["-AppleLocale", "de_DE"]
+
         setupSnapshot(app)
         app.launch()
 
@@ -91,20 +94,22 @@ class OONIProbeUITests: XCTestCase {
         tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.image, identifier:"websites")/*[[".cells.containing(.staticText, identifier:\"1 blocked\")",".cells.containing(.staticText, identifier:\"Websites\")",".cells.containing(.staticText, identifier:\"12\/12\/18, 1:23 AM\")",".cells.containing(.image, identifier:\"websites\")",".cells.containing(.staticText, identifier:\"39 tested\")"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         thepiratebayStaticText.tap()
         snapshot("03WebsiteBlocked")
-        app.navigationBars["Web Connectivity Test"].buttons["Back"].tap()
-        app.navigationBars["TestSummaryTableView"].buttons["Back"].tap()
+        // We make the assumption the first button in the navigationbar hierarchy is the back button
+        app.navigationBars["Web Connectivity Test"].buttons.element(boundBy: 0).tap()
+        app.navigationBars["TestSummaryTableView"].buttons.element(boundBy: 0).tap()
 
         tabBarsQuery.buttons["Test Results"].tap()
         tablesQuery.cells.containing(.image, identifier:"performance").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         tablesQuery.staticTexts["NDT Speed Test"].tap()
-        app.navigationBars["NDT Speed Test"].buttons["Back"].tap()
-        app.navigationBars["TestSummaryTableView"].buttons["Back"].tap()
+        // We make the assumption the first button in the navigationbar hierarchy is the back button
+        app.navigationBars["NDT Speed Test"].buttons.element(boundBy: 0).tap()
+        app.navigationBars["TestSummaryTableView"].buttons.element(boundBy: 0).tap()
         
         snapshot("04SpeedTest")
 
         tabBarsQuery.buttons["Dashboard"].tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Websites"]/*[[".cells.staticTexts[\"Websites\"]",".staticTexts[\"Websites\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.buttons["Choose websites"].tap()
+        tablesQuery.cells.element(boundBy: 0).tap()
+        app.buttons["ConfigureButton"].tap()
         tablesQuery.cells.children(matching: .textField).element.tap()
         
         let oKey = app/*@START_MENU_TOKEN@*/.keys["o"]/*[[".keyboards.keys[\"o\"]",".keys[\"o\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/

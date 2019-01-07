@@ -1156,7 +1156,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ooniprobe;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7s armv7 i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -1332,7 +1332,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm64 armv7s i386 x84_64";
+				VALID_ARCHS = "armv7s armv7 i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -1378,7 +1378,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm64 armv7s i386 x84_64";
+				VALID_ARCHS = "armv7s armv7";
 			};
 			name = Release;
 		};
