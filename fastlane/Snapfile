@@ -11,23 +11,28 @@
 #   "Apple TV 1080p"
 # ])
 
+# XXX do we want more devices?
 devices([
     "iPhone 8",
     "iPhone X"
 ])
 
-languages(["en"])
-
 # XXX we should generate this from ooni/translations
-# languages([
-#     "en",
-#     "de",
-#     "it",
-#     "el",
-#     "fa",
-#     "es",
-#     "fr"
-# ])
+languages([
+    "en",
+    "ar",
+    "de",
+    "el",
+    "es",
+    "fa",
+    "fr",
+    "hi",
+    "it",
+    "ja",
+    "ru",
+    "zh_CN",
+    "zh_TW"
+])
 
 # The name of the scheme which contains the UI Tests
 # scheme("SchemeName")
