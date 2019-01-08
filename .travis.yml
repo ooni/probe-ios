@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9.4 # the current travis default
+osx_image: xcode10.1 # the current travis default is 9.4
 podfile: Podfile
 before_install:
   - bundle install
@@ -7,3 +7,4 @@ before_install:
   - pod install
 script:
   - xcodebuild -workspace ooniprobe.xcworkspace/ -scheme ooniprobe CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
+  - xcodebuild clean test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator -scheme OONIProbeUITests -destination 'name=iPhone SE' CODE_SIGNING_REQUIRED=NO | xcpretty

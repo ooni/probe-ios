@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4A2F5D81A6C3244001B8460"
-               BuildableName = "ooniprobe.app"
-               BlueprintName = "ooniprobe"
+               BlueprintIdentifier = "17E7EDB421BFEDD1001961C7"
+               BuildableName = "OONIProbeUITests.xctest"
+               BlueprintName = "OONIProbeUITests"
                ReferencedContainer = "container:ooniprobe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,22 +32,13 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "175BE8D021BFD54D006A8031"
+               BlueprintIdentifier = "17E7EDB421BFEDD1001961C7"
                BuildableName = "OONIProbeUITests.xctest"
                BlueprintName = "OONIProbeUITests"
                ReferencedContainer = "container:ooniprobe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4A2F5D81A6C3244001B8460"
-            BuildableName = "ooniprobe.app"
-            BlueprintName = "ooniprobe"
-            ReferencedContainer = "container:ooniprobe.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -61,16 +52,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4A2F5D81A6C3244001B8460"
-            BuildableName = "ooniprobe.app"
-            BlueprintName = "ooniprobe"
+            BlueprintIdentifier = "17E7EDB421BFEDD1001961C7"
+            BuildableName = "OONIProbeUITests.xctest"
+            BlueprintName = "OONIProbeUITests"
             ReferencedContainer = "container:ooniprobe.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,16 +70,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4A2F5D81A6C3244001B8460"
-            BuildableName = "ooniprobe.app"
-            BlueprintName = "ooniprobe"
+            BlueprintIdentifier = "17E7EDB421BFEDD1001961C7"
+            BuildableName = "OONIProbeUITests.xctest"
+            BlueprintName = "OONIProbeUITests"
             ReferencedContainer = "container:ooniprobe.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
