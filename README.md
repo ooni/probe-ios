@@ -1,4 +1,4 @@
-# OONI Probe iOS [![Slack Channel](https://slack.openobservatory.org/badge.svg)](https://slack.openobservatory.org/) [![Build Status](http://img.shields.io/travis/ooni/probe-ios.svg)](https://travis-ci.org/ooni/probe-ios)
+# OONI Probe iOS [![Build Status](http://img.shields.io/travis/ooni/probe-ios.svg)](https://travis-ci.org/ooni/probe-ios) [![Slack Channel](https://slack.openobservatory.org/badge.svg)](https://slack.openobservatory.org/) 
 
 [![OONI Probe](assets/OONIProbeLogo.png)](https://ooni.io)
 
