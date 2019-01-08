@@ -1,15 +1,15 @@
 # OONI Probe iOS [![Slack Channel](https://slack.openobservatory.org/badge.svg)](https://slack.openobservatory.org/) [![Build Status](http://img.shields.io/travis/ooni/probe-ios.svg)](https://travis-ci.org/ooni/probe-ios)
 
-![OONI Probe](images/OONIProbeLogo.png)
+[![OONI Probe](assets/OONIProbeLogo.png)](https://ooni.io)
 
 <div align="left">
 
 <a href='https://play.google.com/store/apps/details?id=org.openobservatory.ooniprobe'>
-<img alt='Get it on Google Play' src='images/play-store-badge.png' height="50px"/>
+<img alt='Get it on Google Play' src='assets/play-store-badge.png' height="50px"/>
 </a>
 
 <a href="https://itunes.apple.com/us/app/ooni-probe/id1199566366">
-<img src="images/app-store-badge.png" height="50px" />
+<img src="assets/app-store-badge.png" height="50px" />
 </a>
 
 </div>
