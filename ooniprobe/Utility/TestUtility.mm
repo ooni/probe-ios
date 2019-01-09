@@ -1,7 +1,7 @@
 #import "TestUtility.h"
 #import "Url.h"
 #import "SettingsUtility.h"
-#import "MKGeoIPLookup.h"
+#import <mkall/MKGeoIPLookup.h>
 
 #define ANOMALY_GREEN 0
 #define ANOMALY_ORANGE 1

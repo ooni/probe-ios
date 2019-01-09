@@ -26,8 +26,6 @@
 		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
-		ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32E1D2337920061F266 /* GeoIP.dat */; };
-		ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */; };
 		ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.m */; };
@@ -48,10 +46,6 @@
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED78B63D2042A92200C43E5C /* MKNetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B6392042A92200C43E5C /* MKNetworkTest.mm */; };
 		ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED78B63C2042A92200C43E5C /* NetworkTest.mm */; };
-		ED90A90D2198AFEB00204B46 /* MKTask.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A8FE2198AFEB00204B46 /* MKTask.mm */; };
-		ED90A90E2198AFEB00204B46 /* MKOrchestra.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9002198AFEB00204B46 /* MKOrchestra.mm */; };
-		ED90A90F2198AFEB00204B46 /* MKGeoIPLookup.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9012198AFEB00204B46 /* MKGeoIPLookup.mm */; };
-		ED90A9162198AFEB00204B46 /* MKResources.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A90B2198AFEB00204B46 /* MKResources.m */; };
 		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
 		ED90A9282198DE5100204B46 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91B2198DE5000204B46 /* Network.m */; };
 		ED90A9292198DE5100204B46 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91C2198DE5000204B46 /* Result.mm */; };
@@ -94,9 +88,6 @@
 		EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */; };
 		EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */; };
 		EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */; };
-		EDC77B26218A04C500326C8F /* country.mmdb in Resources */ = {isa = PBXBuildFile; fileRef = EDC77B23218A04C500326C8F /* country.mmdb */; };
-		EDC77B27218A04C500326C8F /* asn.mmdb in Resources */ = {isa = PBXBuildFile; fileRef = EDC77B24218A04C500326C8F /* asn.mmdb */; };
-		EDC77B28218A04C500326C8F /* ca-bundle.pem in Resources */ = {isa = PBXBuildFile; fileRef = EDC77B25218A04C500326C8F /* ca-bundle.pem */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCD73D12180F014003B56D9 /* Header3ViewController.m */; };
 		EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD101BD1EE801F00044E390 /* NotificationService.mm */; };
@@ -166,8 +157,6 @@
 		ED3932C21E3114740064CD11 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		ED3932C31E3114740064CD11 /* AboutViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutViewController.mm; sourceTree = "<group>"; };
 		ED3A2C761E87E87900419270 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ED3AB32E1D2337920061F266 /* GeoIP.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIP.dat; sourceTree = "<group>"; };
-		ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeoIPASNum.dat; sourceTree = "<group>"; };
 		ED3AE9EE20341C8600DAAF36 /* ResultsHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsHeaderViewController.h; sourceTree = "<group>"; };
 		ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsHeaderViewController.m; sourceTree = "<group>"; };
 		ED3B5F8C1F0BAC54007CE2AF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -214,15 +203,6 @@
 		ED78B63C2042A92200C43E5C /* NetworkTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NetworkTest.mm; path = TestClasses/NetworkTest.mm; sourceTree = "<group>"; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ED90A8FD2198AFEB00204B46 /* MKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKUtil.h; sourceTree = "<group>"; };
-		ED90A8FE2198AFEB00204B46 /* MKTask.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MKTask.mm; sourceTree = "<group>"; };
-		ED90A8FF2198AFEB00204B46 /* MKGeoIPLookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGeoIPLookup.h; sourceTree = "<group>"; };
-		ED90A9002198AFEB00204B46 /* MKOrchestra.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MKOrchestra.mm; sourceTree = "<group>"; };
-		ED90A9012198AFEB00204B46 /* MKGeoIPLookup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MKGeoIPLookup.mm; sourceTree = "<group>"; };
-		ED90A9022198AFEB00204B46 /* MKResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKResources.h; sourceTree = "<group>"; };
-		ED90A90A2198AFEB00204B46 /* MKTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTask.h; sourceTree = "<group>"; };
-		ED90A90B2198AFEB00204B46 /* MKResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKResources.m; sourceTree = "<group>"; };
-		ED90A90C2198AFEB00204B46 /* MKOrchestra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKOrchestra.h; sourceTree = "<group>"; };
 		ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewCell.m; sourceTree = "<group>"; };
 		ED90A9182198B8AB00204B46 /* DashboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewCell.h; sourceTree = "<group>"; };
 		ED90A91B2198DE5000204B46 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
@@ -300,9 +280,6 @@
 		EDBFB1FB21E43A300045F748 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = crossMark.json; sourceTree = "<group>"; };
 		EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = checkMark.json; sourceTree = "<group>"; };
-		EDC77B23218A04C500326C8F /* country.mmdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = country.mmdb; sourceTree = "<group>"; };
-		EDC77B24218A04C500326C8F /* asn.mmdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = asn.mmdb; sourceTree = "<group>"; };
-		EDC77B25218A04C500326C8F /* ca-bundle.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ca-bundle.pem"; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDCD73D02180F014003B56D9 /* Header3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header3ViewController.h; sourceTree = "<group>"; };
 		EDCD73D12180F014003B56D9 /* Header3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header3ViewController.m; sourceTree = "<group>"; };
@@ -431,11 +408,6 @@
 			children = (
 				EDC2C9EA1FD9939A00FF01D3 /* anim */,
 				EDBCB0871FD5B06C00FA4838 /* fonts */,
-				ED3AB32E1D2337920061F266 /* GeoIP.dat */,
-				ED3AB32F1D2337920061F266 /* GeoIPASNum.dat */,
-				EDC77B24218A04C500326C8F /* asn.mmdb */,
-				EDC77B25218A04C500326C8F /* ca-bundle.pem */,
-				EDC77B23218A04C500326C8F /* country.mmdb */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -523,7 +495,6 @@
 		ED58E8C71D0C625300C74F10 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				ED90A8FC2198AFEB00204B46 /* mkall */,
 				ED0A6202200B533800235E70 /* Notifications */,
 				ED70D5001FE7F65700759463 /* GUI */,
 				ED49509B1F951F1D00344E42 /* MessageUtility.h */,
@@ -557,23 +528,6 @@
 				ED209669209791C40028BEA3 /* PaddingLabel.m */,
 			);
 			path = GUI;
-			sourceTree = "<group>";
-		};
-		ED90A8FC2198AFEB00204B46 /* mkall */ = {
-			isa = PBXGroup;
-			children = (
-				ED90A8FD2198AFEB00204B46 /* MKUtil.h */,
-				ED90A8FE2198AFEB00204B46 /* MKTask.mm */,
-				ED90A8FF2198AFEB00204B46 /* MKGeoIPLookup.h */,
-				ED90A9012198AFEB00204B46 /* MKGeoIPLookup.mm */,
-				ED90A90C2198AFEB00204B46 /* MKOrchestra.h */,
-				ED90A9002198AFEB00204B46 /* MKOrchestra.mm */,
-				ED90A90A2198AFEB00204B46 /* MKTask.h */,
-				ED90A9022198AFEB00204B46 /* MKResources.h */,
-				ED90A90B2198AFEB00204B46 /* MKResources.m */,
-			);
-			name = mkall;
-			path = Utility/mkall;
 			sourceTree = "<group>";
 		};
 		ED90A91A2198DE5000204B46 /* Database */ = {
@@ -822,6 +776,7 @@
 				D4A2F5D71A6C3244001B8460 /* Resources */,
 				EDA66B691E3A23AF00DD22AC /* ShellScript */,
 				0DB68370272A8F1E523AA5E2 /* [CP] Copy Pods Resources */,
+				A9776EC81DBB83BB5C788DE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -916,7 +871,6 @@
 				EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */,
 				EDC2C9E01FD8061400FF01D3 /* FiraSans-LightItalic.otf in Resources */,
 				ED6911D820BDC0130022DCFE /* websites.json in Resources */,
-				EDC77B28218A04C500326C8F /* ca-bundle.pem in Resources */,
 				ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */,
 				EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */,
 				ED163CE1209C7B880052FB46 /* Airports.plist in Resources */,
@@ -927,17 +881,13 @@
 				EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */,
 				EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */,
 				EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */,
-				EDC77B26218A04C500326C8F /* country.mmdb in Resources */,
-				ED3AB3311D2337920061F266 /* GeoIP.dat in Resources */,
 				ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */,
 				EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */,
 				EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */,
-				EDC77B27218A04C500326C8F /* asn.mmdb in Resources */,
 				ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
 				EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */,
-				ED3AB3321D2337920061F266 /* GeoIPASNum.dat in Resources */,
 				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
 				ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */,
@@ -982,6 +932,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9776EC81DBB83BB5C788DE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh",
+				"${PODS_ROOT}/mkall/mkall.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mkall.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EDA66B691E3A23AF00DD22AC /* ShellScript */ = {
@@ -1040,7 +1012,6 @@
 				ED90A92D2198DE5100204B46 /* Options.m in Sources */,
 				ED53841C2159757D0078C5C6 /* EventResult.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
-				ED90A90E2198AFEB00204B46 /* MKOrchestra.mm in Sources */,
 				EDA9CC90209B53980062507F /* HttpHeaderFieldManipulation.mm in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
@@ -1068,7 +1039,6 @@
 				ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
 				ED53841F215975A70078C5C6 /* Value.m in Sources */,
-				ED90A90D2198AFEB00204B46 /* MKTask.mm in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
@@ -1077,7 +1047,6 @@
 				EDA9CC99209B53C70062507F /* Whatsapp.mm in Sources */,
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
-				ED90A9162198AFEB00204B46 /* MKResources.m in Sources */,
 				ED78B63E2042A92200C43E5C /* NetworkTest.mm in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
@@ -1087,7 +1056,6 @@
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
 				EDF20735212173B9005B06D7 /* Simple.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
-				ED90A90F2198AFEB00204B46 /* MKGeoIPLookup.mm in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
