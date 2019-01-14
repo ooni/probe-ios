@@ -1,58 +1,16 @@
 #import "TestRunningViewController.h"
-#import "NetworkTest.h"
-#define URL_DURATION 5
+#import "Suite.h"
 
 @interface TestRunningViewController ()
-@property (nonatomic, strong) NetworkTest *currentTest;
 @end
 
 @implementation TestRunningViewController
 
-@synthesize urls, testSuiteName, testName, result, currentTest;
+@synthesize testSuite;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[TestUtility getColorForTest:testSuiteName]];
-    totalRuntime = [TestUtility getTotalTimeForTest:testSuiteName];
-
-    if ([testSuiteName isEqualToString:@"websites"]){
-        if (urls == nil){
-            //Download urls and then alloc class
-            [TestUtility downloadUrls:^(NSArray *urls) {
-                if (urls != nil && [urls count] > 0){
-                    currentTest = [[WCNetworkTest alloc] initWithUrls:urls andResult:result];
-                    [(WCNetworkTest*)currentTest setMaxRuntime];
-                    [self runTest];
-                }
-                else {
-                    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadURLs" inView:self];
-                    [self networkTestEnded];
-                }
-            }];
-        }
-        else {
-            currentTest = [[WCNetworkTest alloc] initWithUrls:urls andResult:result];
-            totalRuntime = (int)[urls count]*URL_DURATION+30;
-        }
-    }
-    else if ([testSuiteName isEqualToString:@"performance"]){
-        if (testName != nil)
-            currentTest = [[SPNetworkTest alloc] initWithTest:testName andResult:result];
-        else
-            currentTest = [[SPNetworkTest alloc] init];
-    }
-    else if ([testSuiteName isEqualToString:@"middle_boxes"]){
-        if (testName != nil)
-            currentTest = [[MBNetworkTest alloc] initWithTest:testName andResult:result];
-        else
-            currentTest = [[MBNetworkTest alloc] init];
-    }
-    else if ([testSuiteName isEqualToString:@"instant_messaging"]){
-        if (testName != nil)
-            currentTest = [[IMNetworkTest alloc] initWithTest:testName andResult:result];
-        else
-            currentTest = [[IMNetworkTest alloc] init];
-    }
-
+    [self.view setBackgroundColor:[TestUtility getColorForTest:testSuite.name]];
+    totalRuntime = [testSuite getRuntime];
     NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
     [self.timeLabel setText:time];
     [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
@@ -68,6 +26,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError) name:@"showError" object:nil];
 
     //Keep screen on
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
@@ -85,13 +44,14 @@
 }
 
 -(void)runTest{
-    if (currentTest != nil){
-        totalTests = [currentTest.mkNetworkTests count];
-        [currentTest runTestSuite];
+    if (testSuite != nil){
+        totalTests = [testSuite.testList count];
+        [testSuite runTestSuite];
     }
 }
+
 -(void)addAnimation{
-    animation = [LOTAnimationView animationNamed:testSuiteName];
+    animation = [LOTAnimationView animationNamed:testSuite.name];
     animation.contentMode = UIViewContentModeScaleAspectFit;
     CGRect c = self.animationView.bounds;
     animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
@@ -117,10 +77,11 @@
     NSDictionary *userInfo = notification.userInfo;
     NSString *name = [userInfo objectForKey:@"name"];
     NSNumber *prog = [userInfo objectForKey:@"prog"];
-    int index = currentTest.measurementIdx;
+    //TODO-2.1 this doesn't take in consideration different test runtimes, only the total
+    //But still fixes https://github.com/ooni/probe/issues/805
+    int index = testSuite.measurementIdx;
     float prevProgress = index/totalTests;
     float progress = ([prog floatValue]/totalTests)+prevProgress;
-
     long eta = totalRuntime;
     if (progress > 0) {
         eta = lroundf(totalRuntime - progress * totalRuntime);
@@ -151,6 +112,10 @@
         }
     });
 
+}
+
+-(void)showError{
+    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadURLs" inView:self];
 }
 
 @end

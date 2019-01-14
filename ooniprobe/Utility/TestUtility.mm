@@ -3,34 +3,13 @@
 #import "SettingsUtility.h"
 #import <mkall/MKGeoIPLookup.h>
 
-#define ANOMALY_GREEN 0
-#define ANOMALY_ORANGE 1
-#define ANOMALY_RED 2
-
-#define PERFORMANCE_TIME 90
-#define MIDDLEBOXES_TIME 15
-#define INSTANTMESSAGING_TIME 30
-
 @implementation TestUtility
-
-
-+ (void)showNotification:(NSString*)name {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [NSDate date];
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        localNotification.alertBody = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Notification.FinishedRunning", nil), [LocalizationUtility getNameForTest:name]];
-        [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
-        [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
-    });
-}
 
 -(NSString*) getDate {
     NSDateFormatter *dateformatter=[[NSDateFormatter alloc]init];
     [dateformatter setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
     return [dateformatter stringFromDate:[NSDate date]];
 }
-
 
 + (NSString*)getFileNamed:(NSString*)name{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -39,36 +18,16 @@
     return fileName;
 }
 
--(int)checkAnomaly:(NSDictionary*)test_keys{
-    /*
-     null => anomal = 1,
-     false => anomaly = 0,
-     stringa (dns, tcp-ip, http-failure, http-diff) => anomaly = 2
-     
-     Return values:
-     0 == OK,
-     1 == orange,
-     2 == red
-     */
-    id element = [test_keys objectForKey:@"blocking"];
-    int anomaly = ANOMALY_GREEN;
-    if ([test_keys objectForKey:@"blocking"] == [NSNull null]) {
-        anomaly = ANOMALY_ORANGE;
-    }
-    else if (([element isKindOfClass:[NSString class]])) {
-        anomaly = ANOMALY_RED;
-    }
-    return anomaly;
-}
-
 + (NSDictionary*)getTests{
     return @{@"websites": @[@"web_connectivity"], @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"], @"performance": @[@"ndt", @"dash"], @"middle_boxes": @[@"http_invalid_request_line", @"http_header_field_manipulation"]};
 }
 
+//Used by dropdown
 + (NSArray*)getTestTypes{
-    return @[@"websites", @"instant_messaging", @"performance", @"middle_boxes"];
+    return [[self getTests] allKeys];
 }
 
+//used by ooni run
 + (NSString*)getCategoryForTest:(NSString*)testName{
     NSDictionary *tests = [self getTests];
     NSArray *keys = [tests allKeys];
@@ -81,6 +40,7 @@
     return nil;
 }
 
+//Used by notification service
 + (NSArray*)getTestsArray{
     NSMutableArray *returnArr = [[NSMutableArray alloc] init];
     NSDictionary *tests = [self getTests];
@@ -93,19 +53,7 @@
 }
 
 + (UIColor*)getColorForTest:(NSString*)testName{
-    if ([testName isEqualToString:@"websites"]){
-        return [UIColor colorWithRGBHexString:color_indigo6 alpha:1.0f];
-    }
-    else if ([testName isEqualToString:@"performance"]){
-        return [UIColor colorWithRGBHexString:color_fuchsia6 alpha:1.0f];
-    }
-    else if ([testName isEqualToString:@"middle_boxes"]){
-        return [UIColor colorWithRGBHexString:color_violet8 alpha:1.0f];
-    }
-    else if ([testName isEqualToString:@"instant_messaging"]){
-        return [UIColor colorWithRGBHexString:color_cyan6 alpha:1.0f];
-    }
-    return [UIColor colorWithRGBHexString:color_blue5 alpha:1.0f];
+    return [self getColorForTest:testName alpha:1.0f];
 }
 
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha{
@@ -173,39 +121,6 @@
     {
         NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
     }
-}
-
-+ (int)getTotalTimeForTest:(NSString*)testName{
-    if ([testName isEqualToString:@"websites"]){
-        NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-        return [max_runtime intValue]+30;
-    }
-    else if ([testName isEqualToString:@"performance"]){
-        return PERFORMANCE_TIME;
-    }
-    else if ([testName isEqualToString:@"middle_boxes"]){
-        return MIDDLEBOXES_TIME;
-    }
-    else if ([testName isEqualToString:@"instant_messaging"]){
-        return INSTANTMESSAGING_TIME;
-    }
-    return 0;
-}
-
-+ (NSString*)getDataForTest:(NSString*)testName{
-    if ([testName isEqualToString:@"performance"]){
-        return @"5 - 200 MB";
-    }
-    else if ([testName isEqualToString:@"websites"]){
-        return @"~ 8 MB";
-    }
-    else if ([testName isEqualToString:@"middle_boxes"]){
-        return @"< 1 MB";
-    }
-    else if ([testName isEqualToString:@"instant_messaging"]){
-        return @"< 1 MB";
-    }
-    return nil;
 }
 
 + (long)numberOfTest:(NSString*)testName{

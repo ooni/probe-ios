@@ -1,0 +1,88 @@
+#import "Suite.h"
+
+@implementation AbstractSuite
+
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.backgroundTask = UIBackgroundTaskInvalid;
+        self.measurementIdx = 0;
+        self.testList = nil;
+    }
+    return self;
+}
+
+-(id)initSuite:(NSString*)testSuite{
+    if ([testSuite isEqualToString:@"websites"])
+        self = [[WebsitesSuite alloc] init];
+    else if ([testSuite isEqualToString:@"performance"])
+        self = [[PerformanceSuite alloc] init];
+    else if ([testSuite isEqualToString:@"middle_boxes"])
+        self = [[MiddleBoxesSuite alloc] init];
+    else if ([testSuite isEqualToString:@"instant_messaging"])
+        self = [[InstantMessagingSuite alloc] init];
+    return self;
+}
+
+-(void)runTestSuite {
+    [self initResult];
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    for (AbstractTest *current in [self getTestList]){
+        [current setDelegate:self];
+        [current setResult:self.result];
+        [current runTest];
+    }
+}
+
+-(void)testEnded:(AbstractTest*)test{
+    [self.testList removeObject:test];
+    [self.result save];
+    self.measurementIdx++;
+    //if last test
+    if ([self.testList count] == 0){
+        [self.result setIs_done:YES];
+        UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+        if (state == UIApplicationStateBackground || state == UIApplicationStateInactive){
+            if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
+                [self showNotification];
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
+    }
+    [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+    self.backgroundTask = UIBackgroundTaskInvalid;
+}
+
+- (void)showNotification {
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate date];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = [NSString stringWithFormat:@"%@ %@", [LocalizationUtility getNameForTest:self.result.test_group_name], NSLocalizedString(@"Notification.FinishedRunning", nil)];
+    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+}
+
+-(NSArray*)getTestList {
+    return self.testList;
+}
+
+-(void)initResult {
+    if (self.result == nil){
+        self.result = [Result new];
+        [self.result setTest_group_name:self.name];
+        //The Result object needs to be saved to have an Id, needed for log
+        [self.result save];
+    }
+}
+
+-(int)getRuntime{
+    int runtime = 0;
+    for (AbstractTest *current in [self getTestList]){
+        runtime+=[current getRuntime];
+    }
+    return runtime;
+}
+
+@end

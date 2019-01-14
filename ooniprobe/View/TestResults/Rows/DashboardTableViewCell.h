@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "TestUtility.h"
 #import "RunButton.h"
+#import "Suite.h"
 
 @interface DashboardTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIView *cardbackgroundView;
@@ -11,5 +12,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *bottomLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *testLogo;
 
--(void)setTestName:(NSString*)testName;
+-(void)setTestSuite:(AbstractSuite*)testSuite;
 @end

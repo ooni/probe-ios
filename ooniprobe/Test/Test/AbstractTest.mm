@@ -1,4 +1,4 @@
-#import "MKNetworkTest.h"
+#import "Tests.h"
 
 #import "VersionUtility.h"
 #import "ReachabilityManager.h"
@@ -6,7 +6,7 @@
 #import "EventResult.h"
 #import <mkall/MKTask.h>
 
-@implementation MKNetworkTest
+@implementation AbstractTest
 
 -(id) init {
     self = [super init];
@@ -15,6 +15,26 @@
         self.measurements = [[NSMutableDictionary alloc] init];
         self.settings = [Settings new];
     }
+    return self;
+}
+
+-(id)initTest:(NSString*)testName{
+    if ([testName isEqualToString:@"web_connectivity"])
+        self = [[WebConnectivity alloc] init];
+    else if ([testName isEqualToString:@"whatsapp"])
+        self = [[Whatsapp alloc] init];
+    else if ([testName isEqualToString:@"telegram"])
+        self = [[Telegram alloc] init];
+    else if ([testName isEqualToString:@"facebook_messenger"])
+        self = [[FacebookMessenger alloc] init];
+    else if ([testName isEqualToString:@"http_invalid_request_line"])
+        self = [[HttpInvalidRequestLine alloc] init];
+    else if ([testName isEqualToString:@"http_header_field_manipulation"])
+        self = [[HttpHeaderFieldManipulation alloc] init];
+    else if ([testName isEqualToString:@"ndt"])
+        self = [[NdtTest alloc] init];
+    else if ([testName isEqualToString:@"dash"])
+        self = [[Dash alloc] init];
     return self;
 }
 
@@ -262,6 +282,10 @@
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
     self.backgroundTask = UIBackgroundTaskInvalid;
     //[self updateProgressBar:1];
+}
+
+-(int)getRuntime{
+    return 0;
 }
 
 @end

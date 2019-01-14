@@ -1,6 +1,6 @@
 #import "HttpInvalidRequestLine.h"
 
-@implementation HttpInvalidRequestLine : MKNetworkTest
+@implementation HttpInvalidRequestLine : AbstractTest
 
 -(id) init {
     self = [super init];
@@ -28,5 +28,8 @@
     [super onEntry:json obj:measurement];
 }
 
+-(int)getRuntime{
+    return 10;
+}
 
 @end

@@ -235,12 +235,14 @@
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
-        [vc setTestSuiteName:segueObj.result_id.test_group_name];
-        [vc setTestName:segueObj.test_name];
-        [vc setResult:segueObj.result_id];
-        if ([segueObj.result_id.test_group_name isEqualToString:@"websites"])
-            [vc setUrls:[NSArray arrayWithObject:segueObj.url_id.url]];
+        NSString *testSuiteName = segueObj.result_id.test_group_name;
+        AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
+        [testSuite setTestList:[NSMutableArray arrayWithObject:[[AbstractTest alloc] initTest:segueObj.test_name]]];
+        [testSuite setResult:segueObj.result_id];
+        if ([testSuiteName isEqualToString:@"websites"])
+            [(WebsitesSuite*)testSuite setUrls:[NSArray arrayWithObject:segueObj.url_id.url]];
         [segueObj setReRun];
+        [vc setTestSuite:testSuite];
     }
     else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"]){
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;
