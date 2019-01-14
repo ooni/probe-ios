@@ -6,9 +6,13 @@
 
 @implementation SettingsCategoriesTableViewController
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.title = NSLocalizedString(@"Settings.Title", nil);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Settings.Title", nil);
     categories = [SettingsUtility getSettingsCategories];
 }
 

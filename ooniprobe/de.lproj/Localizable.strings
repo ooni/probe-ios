@@ -40,7 +40,7 @@
 "Dashboard.Running.EstimatedTimeLeft" = "Voraussichtliche Restzeit:";
 "Dashboard.Running.Seconds" = "%@ Sekunden";
 "Dashboard.Running.PreparingTest" = "Bereite Test vor";
-"Dashboard.Card.Subtitle" = "Tippe auf die Karte, um mehr zu erfahren";
+"Dashboard.Card.Subtitle" = "Tippe auf die Schaltfläche, um mehr zu erfahren";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Teste die Blockierung von Webseiten";
 "Dashboard.Websites.Overview.Paragraph" = "Überprüfe mit Hilfe des [Web-Connectivity-Tests](https://ooni.io/nettest/web-connectivity/) von OONI, ob Webseiten blockiert werden\n\nJedes Mal, wenn du „Ausführen“ auswählst, testest du verschiedene Webseiten von Citizen Labs' [globalen](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) und [länderspezifischen](https://github.com/citizenlab/test-lists/tree/master/lists) Testlisten.\n\nUm Webseiten deiner Wahl zu testen, tippe auf die \"Webseiten\"-Schaltfläche oder wähle Kategorien von Webseiten üausführenber die Einstellungen dieser Karte.\n\nDieser Test misst, ob Webseiten durch DNS-Manipulation, TCP/IP-Blockierung oder einen transparenten HTTP-Proxy blockiert werden.\n\nDeine Ergebnisse werden auf dem [OONI Explorer](https://explorer.ooni.io/world/) und der [OONI API](https://api.ooni.io/) veröffentlicht.";
@@ -118,7 +118,7 @@
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Zugänglich";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ ist zugänglich.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Wahrscheinlich blockiert";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ ist wahrscheinlich blockiert wegen %@.\n\nHinweis: Falsch positive können auftreten. Erfahre [hier](https://ooni.io/nettest/web-connectivity/) mehr dazu.";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ ist wahrscheinlich blockiert wegen %@.\n\nHinweis: Falsch positive Ergebnisse können auftreten. Erfahre [hier](https://ooni.io/nettest/web-connectivity/) mehr dazu.";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "Zensurumgehung";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "**DNS-Manipulation**";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP" = "**TCP/IP basiertes Blocken**";
@@ -235,10 +235,10 @@
 "Settings.Notifications.OnTestCompletion" = "Benachrichtigung nach Abschluss des Tests";
 "Settings.Notifications.OnNews" = "Neuigkeiten";
 "Settings.AutomatedTesting.Label" = "Regelmäßige Testerinnerung";
-"Settings.AutomatedTesting.Enabled" = "&Aktiv";
+"Settings.AutomatedTesting.Enabled" = "Aktiv";
 "Settings.AutomatedTesting.EnabledTests" = "Aktivierte Tests";
 "Settings.AutomatedTesting.Categories.Label" = "Kategorien";
-"Settings.AutomatedTesting.Categories.Title" = "Zu testende Website Kategorien";
+"Settings.AutomatedTesting.Categories.Title" = "Zu testende Webseiten-Kategorien";
 "Settings.AutomatedTesting.Categories.Subtitle" = "%@ aktivierte Kategorien";
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Monatliches mobiles Datenvolumen";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Monatliches WLAN Datenvolumen";
@@ -255,7 +255,7 @@
 "Settings.Advanced.DebugLogs" = "Fehlerprotokolle";
 "Settings.Advanced.UseDomainFronting" = "Immer Domain Fronting benutzen";
 "Settings.Websites.MaxRuntime" = "Testdauer";
-"Settings.Websites.Categories.Label" = "Zu testende Website Kategorien";
+"Settings.Websites.Categories.Label" = "Zu testende Webseiten-Kategorien";
 "Settings.Websites.Categories.Description" = "%@ aktivierte Kategorien";
 "Settings.Websites.CustomURL.Title" = "Wähle Webseiten zum testen aus";
 "Settings.Websites.CustomURL.URL" = "URL";
@@ -287,7 +287,7 @@
 "OONIRun.Run" = "Ausführen";
 "OONIRun.OONIProbeOutOfDate" = "Veraltet";
 "OONIRun.OONIProbeNewerVersion" = "Du brauchst eine neuere Version von OONI Probe um diesen Test auszuführen.";
-"OONIRun.Update" = "Speichern";
+"OONIRun.Update" = "Update";
 "OONIRun.Close" = "Schließen";
 "OONIRun.InvalidParameter" = "Ungültiger Parameter";
 "OONIRun.InvalidParameter.Msg" = "Der OONI Run-Link ist entweder fehlerhaft oder deine App ist veraltet.";
@@ -321,7 +321,7 @@
 "CategoryCode.ECON.Name" = "Wirtschaft";
 "CategoryCode.GOVT.Name" = "Regierung";
 "CategoryCode.COMM.Name" = "E-Commerce";
-"CategoryCode.CTRL.Name" = "Inhaltskontrolle";
+"CategoryCode.CTRL.Name" = "Kontroll-Inhalte";
 "CategoryCode.IGO.Name" = "Zwischenstaatliche Organisationen";
 "CategoryCode.MISC.Name" = "Sonstige Inhalte";
 "CategoryCode.ALDR.Description" = "Gebrauch und Verkauf von Drogen und Alkohol";

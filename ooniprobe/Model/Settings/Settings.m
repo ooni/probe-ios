@@ -1,6 +1,7 @@
 #import "Settings.h"
 #import "ReachabilityManager.h"
 #import "SettingsUtility.h"
+#import "InCodeMappingProvider.h"
 
 @implementation Settings
 
@@ -15,30 +16,11 @@
     return self;
 }
 
-
-// Serialize settings to JSON.
-- (NSString*)getSerializedSettings {
-    NSString *serializedSettings = nil;
-    NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:[self dictionary]
-                                                   options:0 error:&error];
-    if (error != nil) {
-        NSLog(@"Cannot serialize settings to JSON");
-        return nil;
-    }
-    // Using initWithData because data is not terminated by zero.
-    serializedSettings = [[NSString alloc] initWithData:data
-                                                encoding:NSUTF8StringEncoding];
-    if (serializedSettings == nil) {
-        NSLog(@"Cannot convert serialized JSON to string");
-        return nil;
-    }
-    //TODO-2.1 fix this in mk
-    serializedSettings = [serializedSettings stringByReplacingOccurrencesOfString:@"ca_bundle_path" withString:@"net/ca_bundle_path"];
-    //NSLog(@"%@", serializedSettings);
-    return serializedSettings;
+-(NSDictionary*)getSettingsDictionary{
+    InCodeMappingProvider *inCodeMappingProvider = [InCodeMappingProvider new];
+    [inCodeMappingProvider mapFromPropertyKey:@"ca_bundle_path" toDictionaryKey:@"net/ca_bundle_path" forClass:[Options class]];
+    [[ObjectMapper sharedInstance] setMappingProvider:inCodeMappingProvider];
+    return [self dictionary];
 }
-
-
 
 @end

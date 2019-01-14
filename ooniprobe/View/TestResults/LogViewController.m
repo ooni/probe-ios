@@ -30,7 +30,9 @@
                 NSError *error;
                 NSData *jsonData = [content dataUsingEncoding:NSUTF8StringEncoding];
                 id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+                if (error != nil) return;
                 NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&error];
+                if (error != nil) return;
                 NSString *prettyPrintedJson = [NSString stringWithUTF8String:[prettyJsonData bytes]];
                 [self.textView setText:prettyPrintedJson];
             }
