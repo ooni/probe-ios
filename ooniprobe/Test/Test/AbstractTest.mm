@@ -191,8 +191,10 @@
     if (measurement != nil){
         measurement.is_uploaded = value;
         //if is not uploaded reset report_ids
-        if (!value)
+        if (!value){
             [measurement setReport_id:@""];
+            measurement.is_upload_failed = true;
+        }
         if (failure != nil)
             measurement.upload_failure_msg = failure;
         [measurement save];

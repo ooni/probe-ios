@@ -18,7 +18,6 @@
     UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(advancedScreens)];
     //assign button to navigationbar
     self.navigationItem.rightBarButtonItem = moreButton;
-
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {

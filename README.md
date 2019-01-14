@@ -1,12 +1,27 @@
-[![ooniprobe iOS](assets/title.png)](https://ooni.torproject.org/)
+# OONI Probe iOS [![Build Status](http://img.shields.io/travis/ooni/probe-ios.svg)](https://travis-ci.org/ooni/probe-ios) [![Slack Channel](https://slack.openobservatory.org/badge.svg)](https://slack.openobservatory.org/)
 
-[![Slack Channel](https://slack.openobservatory.org/badge.svg)](https://slack.openobservatory.org/)
+OONI Probe is free and open source software designed to measure internet
+censorship and other forms of network interference.
 
-This is the iOS version of [ooniprobe](https://ooni.torproject.org/).
+[![OONI Probe](assets/OONIProbeLogo.png)](https://ooni.io)
 
-Download it on the [App Store](https://itunes.apple.com/us/app/id1199566366).
+<div align="left">
 
-[![](assets/app-store-badge.png)](https://itunes.apple.com/us/app/id1199566366)
+<a href='https://play.google.com/store/apps/details?id=org.openobservatory.ooniprobe'>
+<img alt='Get it on Google Play' src='assets/play-store-badge.png' height="50px"/>
+</a>
+
+<a href="https://itunes.apple.com/us/app/ooni-probe/id1199566366">
+<img src="assets/app-store-badge.png" height="50px" />
+</a>
+
+</div>
+
+[Click here to report a bug](https://github.com/ooni/probe-ios/issues/new)
+
+Other supported platforms: [Android](https://github.com/ooni/probe-android), [Desktop](https://github.com/ooni/probe-desktop), [CLI](https://github.com/ooni/probe-cli)
+
+## Developer information
 
 If you are interested in building the app yourself, read on.
 
@@ -63,3 +78,36 @@ To manage translations check out our [translation repo](https://github.com/ooni/
 * Open a pull request
 
 * Have fun!
+
+## Fastlane
+
+We use fastlane for creating automatically app screenshots in the various
+languages we support.
+
+You first need to have some depedencies installed. On macOS:
+
+To install fastlane:
+
+```
+# Using RubyGems
+sudo gem install fastlane -NV
+
+# Alternatively using Homebrew
+brew cask install fastlane
+```
+
+Then:
+
+```
+brew install libpng jpeg imagemagick
+
+```
+
+You will then be able to automate screenshot creation with:
+
+```
+fastlane screenshots
+```
+
+Learn more on the fastlane docs:
+https://docs.fastlane.tools/getting-started/ios/screenshots

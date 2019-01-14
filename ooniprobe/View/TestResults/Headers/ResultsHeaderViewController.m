@@ -52,8 +52,9 @@
         double dataUsageDown = [query sumOf:@"data_usage_down"];
         double dataUsageUp = [query sumOf:@"data_usage_up"];
         
-        [self.upLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageUp countStyle:NSByteCountFormatterCountStyleFile]];
-        [self.downLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageDown countStyle:NSByteCountFormatterCountStyleFile]];
+        [self.upLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageUp*1024 countStyle:NSByteCountFormatterCountStyleFile]];
+        [self.downLabel setText:[NSByteCountFormatter stringFromByteCount:dataUsageDown*1024 countStyle:NSByteCountFormatterCountStyleFile]];
+
         [self.numberTestsLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[query count]]];
         [self.numberNetworksLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[[[[Network query] where:[NSString stringWithFormat:@"asn != 'null'"]] distinct:@"asn"] count]]];
     });
