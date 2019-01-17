@@ -38,7 +38,7 @@
         [arr addObject:current];
         if (key == nil){
             //log object
-            [CrashlyticsKit recordError:[NSError errorWithDomain:@"key_nill" code:0 userInfo:[current dictionary]]];
+            [CrashlyticsKit recordError:[NSError errorWithDomain:@"key_nil" code:0 userInfo:[current dictionary]]];
         }
         else
             [dic setObject:arr forKey:key];
