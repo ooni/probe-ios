@@ -20,6 +20,10 @@
         NSLocalizedString(@"Onboarding.DefaultSettings.Paragraph", nil)];
     [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:17]];
     [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    NSMutableDictionary* linkAttrs = [NSMutableDictionary dictionaryWithDictionary:self.textLabel.linkAttributes];
+    [linkAttrs setObject:(__bridge id)[UIColor colorWithRGBHexString:color_white alpha:1.0f].CGColor forKey:(NSString*)kCTForegroundColorAttributeName];
+    [linkAttrs setObject:[NSNumber numberWithBool:YES] forKey:(NSString*)kCTUnderlineStyleAttributeName];
+    self.textLabel.linkAttributes = linkAttrs;
     [self.textLabel setMarkdown:defaultSettings];
     [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
