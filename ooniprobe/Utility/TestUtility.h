@@ -6,7 +6,6 @@
 
 @interface TestUtility : NSObject
 
-+ (void)showNotification:(NSString*)name;
 + (NSString*)getFileNamed:(NSString*)name;
 + (NSDictionary*)getTests;
 + (NSArray*)getTestTypes;
@@ -16,6 +15,4 @@
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (void)downloadUrls:(void (^)(NSArray *))completion;
 + (void)removeFile:(NSString*)fileName;
-+ (int)getTotalTimeForTest:(NSString*)testName;
-+ (NSString*)getDataForTest:(NSString*)testName;
 @end

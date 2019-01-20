@@ -1,6 +1,6 @@
 #import "FacebookMessenger.h"
 
-@implementation FacebookMessenger : MKNetworkTest
+@implementation FacebookMessenger : AbstractTest
 
 -(id) init {
     self = [super init];
@@ -26,6 +26,10 @@
     else
         measurement.is_anomaly = [json.test_keys.facebook_tcp_blocking boolValue] || [json.test_keys.facebook_dns_blocking boolValue];
     [super onEntry:json obj:measurement];
+}
+
+-(int)getRuntime{
+    return 10;
 }
 
 @end

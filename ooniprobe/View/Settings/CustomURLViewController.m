@@ -135,8 +135,9 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setTestSuiteName:@"websites"];
-        [vc setUrls:urlArray];
+        WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
+        [testSuite setUrls:urlArray];
+        [vc setTestSuite:testSuite];
     }
 }
 @end

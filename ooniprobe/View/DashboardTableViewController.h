@@ -7,7 +7,7 @@
 #import "ReachabilityManager.h"
 
 @interface DashboardTableViewController : UITableViewController {
-    NSArray *items;
+    NSMutableArray *items;
 }
 
 @end

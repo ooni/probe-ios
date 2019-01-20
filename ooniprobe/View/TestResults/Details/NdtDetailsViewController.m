@@ -41,7 +41,21 @@
     [self.timeoutsTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Timeouts", nil)];
     [self.timeoutsValueLabel setText:[testKeys getTimeouts]];
     
-    //TODO-FUTURE add whites for first elements and refactor
+    [self.downloadTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.downloadValueLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.downloadUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    
+    [self.uploadTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.uploadValueLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.uploadUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    
+    [self.pingTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.pingValueLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.pingUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    
+    [self.serverTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.serverValueLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+
     [self.packetlossTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.packetlossValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.packetlossUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];

@@ -8,13 +8,13 @@
 #import "JsonResult.h"
 #import "Settings.h"
 
-@class MKNetworkTest;
+@class AbstractTest;
 
 @protocol MKNetworkTestDelegate <NSObject>
--(void)testEnded:(MKNetworkTest*)test;
+-(void)testEnded:(AbstractTest*)test;
 @end
 
-@interface MKNetworkTest : NSObject
+@interface AbstractTest : NSObject
 
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property NSString *name;
@@ -23,8 +23,10 @@
 @property (nonatomic, strong) NSMutableDictionary *measurements;
 @property id<MKNetworkTestDelegate> delegate;
 @property Settings *settings;
-
+-(id)initTest:(NSString*)testName;
 -(Measurement*)createMeasurementObject;
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement;
 -(void)runTest;
+-(int)getRuntime;
+-(void)testEnded;
 @end
