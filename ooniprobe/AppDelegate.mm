@@ -31,7 +31,9 @@
     #endif
 
     application.statusBarStyle = UIStatusBarStyleLightContent;
-    
+
+    [NotificationService updateClient];
+
     //TODO ORCHESTRA Probably don't need it anymore when implementing backgound notifications
     //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo
     //https://stackoverflow.com/questions/38969229/what-is-uiapplicationlaunchoptionsremotenotificationkey-used-for

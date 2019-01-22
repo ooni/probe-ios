@@ -141,7 +141,7 @@
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"]){
         return [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
     }
-    return nil;
+    return @"";
 }
 
 + (void)set_push_token:(NSString*)push_token{

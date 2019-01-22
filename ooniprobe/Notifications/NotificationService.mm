@@ -11,7 +11,6 @@
     {
         // thread-safe code
         NSString *device_token = [SettingsUtility get_push_token];
-        if (device_token == nil) return;
         MKOrchestraClient *client = [[MKOrchestraClient alloc] init];
         //TODO ORCHESTRA when orchestrate
         //[client setAvailableBandwidth:@"10110111"];
@@ -19,7 +18,7 @@
         [client setLanguage:[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode]];
         [client setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
         [client setPlatform:@"ios"];
-        //TODO TIMEZONE
+        //TODO ORCHESTRA - TIMEZONE
         //[client setProbeTimezone:[NSTimeZone localTimeZone].abbreviation];
         [client setRegistryURL:NOTIFICATION_SERVER];
         [client setSecretsFile:[self make_path]];
