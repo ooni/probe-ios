@@ -6,6 +6,8 @@
 #import "EventResult.h"
 #import <mkall/MKTask.h>
 
+#import <Crashlytics/Crashlytics.h>
+
 @implementation AbstractTest
 
 -(id) init {
@@ -139,7 +141,11 @@
                            }
                            else if ([event.key isEqualToString:@"failure.startup"]) {
                                //What to do? Run next test
-                           } else {
+                           }
+                           else if ([event.key isEqualToString:@"bug.json_dump"]) {
+                               [CrashlyticsKit recordError:[NSError errorWithDomain:@"json_dump" code:0 userInfo:[event.value dictionary]]];
+                           }
+                           else {
                                NSLog(@"unused event: %@", evinfo);
                            }
                        }
