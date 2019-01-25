@@ -34,13 +34,8 @@
 
     [NotificationService updateClient];
     
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"font_size_sent"]){
-        [Answers logCustomEventWithName:@"accessibility"
-                       customAttributes:@{@"font_size": application.preferredContentSizeCategory}];
-        [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"font_size_sent"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-
-    }
+    [Answers logCustomEventWithName:@"accessibility"
+                   customAttributes:@{@"font_size": application.preferredContentSizeCategory}];
 
     //TODO ORCHESTRA Probably don't need it anymore when implementing backgound notifications
     //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo
