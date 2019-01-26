@@ -2,6 +2,7 @@
 #import <Lottie/Lottie.h>
 #import <QuartzCore/QuartzCore.h>
 #import "TestUtility.h"
+#import "Suite.h"
 
 @interface TestRunningViewController : UIViewController {
     float totalTests;
@@ -10,10 +11,8 @@
 }
 
 
-@property (nonatomic, strong) NSString *testSuiteName;
-@property (nonatomic, strong) NSString *testName;
-@property (nonatomic, strong) NSArray *urls;
-@property (nonatomic, strong) Result *result;
+@property (nonatomic, strong) AbstractSuite *testSuite;
+//@property (nonatomic, strong) Result *result;
 
 @property (strong, nonatomic) IBOutlet UILabel *runningTestsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *testNameLabel;

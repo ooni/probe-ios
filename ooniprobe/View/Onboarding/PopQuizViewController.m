@@ -100,18 +100,20 @@
         [animation setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
     }
     animation.contentMode = UIViewContentModeScaleAspectFit;
-    
     [self.cointainerWindow addSubview:animation];
     CGRect c = self.cointainerWindow.bounds;
     animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
     [self.view setNeedsLayout];
-    
     [animation playWithCompletion:^(BOOL animationFinished) {
-        [animation removeFromSuperview];
         if (!answer)
             [self performSegueWithIdentifier:@"toWrongAnswer" sender:self];
         else
             [self nextQuestion];
+        double delayInSeconds = 0.3;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [animation removeFromSuperview];
+        });
     }];
 }
 

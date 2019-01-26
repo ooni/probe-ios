@@ -1,6 +1,6 @@
 #import "Whatsapp.h"
 
-@implementation Whatsapp : MKNetworkTest
+@implementation Whatsapp : AbstractTest
 
 -(id) init {
     self = [super init];
@@ -28,6 +28,10 @@
     else
         measurement.is_anomaly = [json.test_keys.whatsapp_endpoints_status isEqualToString:@"blocked"] || [json.test_keys.whatsapp_web_status isEqualToString:@"blocked"] || [json.test_keys.registration_server_status isEqualToString:@"blocked"];
     [super onEntry:json obj:measurement];
+}
+
+-(int)getRuntime{
+    return 10;
 }
 
 @end

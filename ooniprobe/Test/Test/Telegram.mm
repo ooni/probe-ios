@@ -1,6 +1,6 @@
 #import "Telegram.h"
 
-@implementation Telegram : MKNetworkTest
+@implementation Telegram : AbstractTest
 
 -(id) init {
     self = [super init];
@@ -28,5 +28,8 @@
     [super onEntry:json obj:measurement];
 }
 
+-(int)getRuntime{
+    return 10;
+}
 
 @end

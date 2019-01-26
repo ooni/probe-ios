@@ -1,6 +1,6 @@
 #import "HttpHeaderFieldManipulation.h"
 
-@implementation HttpHeaderFieldManipulation : MKNetworkTest
+@implementation HttpHeaderFieldManipulation : AbstractTest
 
 -(id) init {
     self = [super init];
@@ -35,6 +35,10 @@
     else
         measurement.is_anomaly = json.test_keys.tampering.value;    
     [super onEntry:json obj:measurement];
+}
+
+-(int)getRuntime{
+    return 5;
 }
 
 @end

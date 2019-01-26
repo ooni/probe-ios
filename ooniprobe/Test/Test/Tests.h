@@ -1,3 +1,4 @@
+#import "AbstractTest.h"
 #import "WebConnectivity.h"
 #import "HttpInvalidRequestLine.h"
 #import "HttpHeaderFieldManipulation.h"

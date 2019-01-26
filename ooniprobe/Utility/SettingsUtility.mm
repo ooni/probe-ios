@@ -4,24 +4,24 @@
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
-    //TODO-2.1 reenable @"automated_testing"
+    //TODO ORCHESTRA reenable @"automated_testing"
     return @[@"notifications", @"sharing", @"advanced", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
     if ([categoryName isEqualToString:@"notifications"]) {
         if ([self getSettingWithName:@"notifications_enabled"])
-            //TODO-2.1 reenable @"notifications_news"
+            //TODO NEWS reenable @"notifications_news"
             return @[@"notifications_enabled", @"notifications_completion"];
         else
             return @[@"notifications_enabled"];
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
-        //TODO-2.1 @"include_gps"
+        //TODO GPS @"include_gps"
         return @[@"upload_results", @"include_asn", @"include_cc", @"include_ip"];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
-        //TODO-2.1 @"use_domain_fronting"
+        //TODO DOMAIN FRONTING @"use_domain_fronting"
         return @[@"send_crash", @"debug_logs"];
     }
     else
@@ -141,7 +141,7 @@
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"]){
         return [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
     }
-    return nil;
+    return @"";
 }
 
 + (void)set_push_token:(NSString*)push_token{

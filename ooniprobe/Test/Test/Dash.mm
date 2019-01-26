@@ -1,6 +1,6 @@
 #import "Dash.h"
 
-@implementation Dash : MKNetworkTest
+@implementation Dash : AbstractTest
 
 -(id) init {
     self = [super init];
@@ -22,6 +22,10 @@
      */
     measurement.is_failed = json.test_keys.failure == NULL ? false : true;
     [super onEntry:json obj:measurement];
+}
+
+-(int)getRuntime{
+    return 45;
 }
 
 @end

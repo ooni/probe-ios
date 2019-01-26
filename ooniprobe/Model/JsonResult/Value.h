@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSNumber *uploaded_kb;
 @property (nonatomic, strong) NSString *input;
 @property (nonatomic, strong) NSString *failure;
+@property (nonatomic, strong) NSString *orig_key;
 
 @end

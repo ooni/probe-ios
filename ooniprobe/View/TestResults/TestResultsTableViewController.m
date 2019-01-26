@@ -1,4 +1,5 @@
 #import "TestResultsTableViewController.h"
+#import <Crashlytics/Crashlytics.h>
 
 @interface TestResultsTableViewController ()
 
@@ -35,7 +36,12 @@
         if ([dic objectForKey:key])
             arr = [[dic objectForKey:key] mutableCopy];
         [arr addObject:current];
-        [dic setObject:arr forKey:key];
+        if (key == nil){
+            //log object
+            [CrashlyticsKit recordError:[NSError errorWithDomain:@"key_nil" code:0 userInfo:[current dictionary]]];
+        }
+        else
+            [dic setObject:arr forKey:key];
     }
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO selector:@selector(localizedStandardCompare:)];
     keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];

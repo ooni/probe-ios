@@ -11,15 +11,14 @@
     {
         // thread-safe code
         NSString *device_token = [SettingsUtility get_push_token];
-        if (device_token == nil) return;
         MKOrchestraClient *client = [[MKOrchestraClient alloc] init];
-        //TODO-2.2 when orchestrate
+        //TODO ORCHESTRA when orchestrate
         //[client setAvailableBandwidth:@"10110111"];
         [client setDeviceToken:device_token];
         [client setLanguage:[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode]];
         [client setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
         [client setPlatform:@"ios"];
-        //TODO-2.1
+        //TODO ORCHESTRA - TIMEZONE
         //[client setProbeTimezone:[NSTimeZone localTimeZone].abbreviation];
         [client setRegistryURL:NOTIFICATION_SERVER];
         [client setSecretsFile:[self make_path]];

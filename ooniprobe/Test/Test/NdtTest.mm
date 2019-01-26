@@ -1,6 +1,6 @@
 #import "NdtTest.h"
 
-@implementation NdtTest : MKNetworkTest
+@implementation NdtTest : AbstractTest
 
 -(id) init {
     self = [super init];
@@ -38,6 +38,10 @@
                 json.test_keys.server_country = [dict objectForKey:[server_name substringToIndex:3]];
         }
     }
+}
+
+-(int)getRuntime{
+    return 45;
 }
 
 @end

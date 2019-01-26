@@ -1,5 +1,6 @@
 #import "DashboardTableViewController.h"
 #import "DashboardTableViewCell.h"
+#import "Suite.h"
 
 @interface DashboardTableViewController ()
 
@@ -9,17 +10,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    items = [TestUtility getTestTypes];    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTests) name:@"settingsChanged" object:nil];
     [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
+    [self loadTests];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];    
+    [super viewWillAppear:animated];
     UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooni_logo"]];
     navbarImageView.contentMode = UIViewContentModeScaleAspectFit;
     [navbarImageView.widthAnchor constraintEqualToConstant:135].active = YES;
     [navbarImageView.heightAnchor constraintEqualToConstant:24].active = YES;
     self.navigationController.navigationBar.topItem.titleView = navbarImageView;
+}
+
+-(void)reloadTests{
+    [self.tableView reloadData];
+}
+
+-(void)loadTests{
+    items = [[NSMutableArray alloc] init];
+    [items addObject:[[WebsitesSuite alloc] init]];
+    [items addObject:[[InstantMessagingSuite alloc] init]];
+    [items addObject:[[MiddleBoxesSuite alloc] init]];
+    [items addObject:[[PerformanceSuite alloc] init]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -42,11 +56,11 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DashboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    NSString *testName = [items objectAtIndex:indexPath.row];
+    AbstractSuite *test = [items objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[DashboardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
-    [cell setTestName:testName];
+    [cell setTestSuite:test];
     return cell;
 }
 
@@ -62,25 +76,18 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toTestSettings"]){
-        UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
-        NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
-        SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
-        NSString *testName = [items objectAtIndex:indexPath.row];
-        [vc setTestName:testName];
-    }
-    else if ([[segue identifier] isEqualToString:@"toTestRun"]){
+    if ([[segue identifier] isEqualToString:@"toTestRun"]){
         UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        NSString *testSuiteName = [items objectAtIndex:indexPath.row];
-        [vc setTestSuiteName:testSuiteName];
+        AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
+        [vc setTestSuite:testSuite];
     }
     else if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         TestOverviewViewController *vc = (TestOverviewViewController * )segue.destinationViewController;
-        NSString *testName = [items objectAtIndex:indexPath.row];
-        [vc setTestName:testName];
+        AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
+        [vc setTestSuite:testSuite];
     }    
 }
 
