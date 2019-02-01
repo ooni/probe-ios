@@ -1,3 +1,25 @@
+# OONI Probe iOS 2.0.1 [2019-01-26]
+
+Changelog:
+  - Fixes https://github.com/ooni/probe-ios/issues/210
+  - Fixes https://github.com/ooni/probe-ios/issues/208
+  - Logging json object in fabric to get mk crash insight
+  - Logging user accessibility font size
+
+---
+measurement-kit version: mkall 0.3.9
+
+# OONI Probe iOS 2.0.0+58 [2019-01-14]
+
+New features:
+
+* This new version includes a major UI overhaul.
+* An overview screen for all test results
+* Enhanced website testing: you can test a website of your choice, pick categories of sites to test and test country-sp$
+* Data usage tracking on a test by test basis
+--
+measurement-kit version: mkall 0.3.9
+
 # ooniprobe-ios 1.2.3 [2017-10-07]
 
 * Fix the crash on start on 32 bit devices
