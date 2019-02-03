@@ -37,6 +37,7 @@
     cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
     cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     cell.imageView.image = [UIImage imageNamed:current];
+    [cell.imageView setTintColor:[UIColor colorWithRGBHexString:color_base alpha:1.0f]];
     return cell;
 }
 
@@ -46,9 +47,34 @@
     if ([current isEqualToString:@"about_ooni"]){
         [self performSegueWithIdentifier:current sender:self];
     }
+    else if ([current isEqualToString:@"send_email"]){
+        [self sendEmail];
+    }
     else
         [self performSegueWithIdentifier:@"toSettings" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)sendEmail{
+    if ([MFMailComposeViewController canSendMail]){
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        [mailer setSubject:[NSString stringWithFormat:@"%@ iOS", NSLocalizedString(@"key_subject_email", nil)]];
+        NSArray *toRecipients = [NSArray arrayWithObjects:@"contact@openobservatory.org", nil];
+        [mailer setToRecipients:toRecipients];
+        //NSString *emailBody =NSLocalizedString(@"key_body_mail", nil);
+        //[mailer setMessageBody:emailBody isHTML:YES];
+        //[[mailer navigationBar] setBackgroundColor:[UIColor colorWithRed:92.0/255.0 green:176.0/255.0 blue:52.0/255.0 alpha:1.0]];
+        NSString *device = [NSString stringWithFormat:@"app_version %@ device_model %@ os_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].hardwareSimpleDescription, [UIDevice currentDevice].systemVersion];
+        [mailer setMessageBody:device isHTML:YES];
+        [[mailer navigationBar] setTranslucent:NO];
+        [[mailer navigationBar] setTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+        [[mailer navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor colorWithRGBHexString:color_white alpha:1.0f], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
+        [self presentViewController:mailer animated:YES completion:nil];
+    }
+    else {
+        [MessageUtility alertWithTitle:@"Modal.Error" message:@"Settings.SendEmail.Error.NoAccount" inView:self];
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
