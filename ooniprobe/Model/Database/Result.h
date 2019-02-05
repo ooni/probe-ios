@@ -26,6 +26,7 @@
 -(NSString*)getFormattedDataUsageUp;
 -(NSString*)getLocalizedNetworkType;
 -(void)addRuntime:(float)value;
+-(NSString*)getLocalizedStartTime;
 -(void)save;
 -(Measurement*)getMeasurement:(NSString*)name;
 -(SRKResultSet*)measurements;

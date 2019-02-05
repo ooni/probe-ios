@@ -111,6 +111,14 @@
     return [NSString stringWithFormat:@"%@-%@.log", self.Id, test_name];
 }
 
+-(NSString*)getLocalizedStartTime{
+    //TODO we might need a copy for this
+    if (self.start_time == nil)
+        return NSLocalizedString(@"TestResults.UnknownASN", nil);
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:self.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    return localizedDateTime;
+}
+
 -(void)save{
     [self commit];
     /*

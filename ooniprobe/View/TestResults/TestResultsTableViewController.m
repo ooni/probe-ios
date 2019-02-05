@@ -33,15 +33,15 @@
     for (Result *current in results){
         NSMutableArray *arr = [[NSMutableArray alloc] init];
         NSString *key = [df stringFromDate:current.start_time];
+        if (key == nil){
+            //setting the key to neutral date and log object
+            key = @"0000-00";
+            [CrashlyticsKit recordError:[NSError errorWithDomain:@"key_nil" code:0 userInfo:[current dictionary]]];
+        }
         if ([dic objectForKey:key])
             arr = [[dic objectForKey:key] mutableCopy];
         [arr addObject:current];
-        if (key == nil){
-            //log object
-            [CrashlyticsKit recordError:[NSError errorWithDomain:@"key_nil" code:0 userInfo:[current dictionary]]];
-        }
-        else
-            [dic setObject:arr forKey:key];
+        [dic setObject:arr forKey:key];
     }
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO selector:@selector(localizedStandardCompare:)];
     keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];
@@ -70,6 +70,8 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *month = [keys objectAtIndex:section];
+    if ([month isEqualToString:@"0000-00"])
+        return [NSLocalizedString(@"TestResults.UnknownASN", nil) uppercaseString];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"yyyy-MM";
     NSDate *convertedDate = [df dateFromString:month];
