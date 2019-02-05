@@ -13,12 +13,10 @@
     [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
 
     if (!super.measurement.is_anomaly){
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
     }
     else {
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
     }
@@ -77,6 +75,16 @@
         [self.detail1SubtitleLabel setTextColor:[testKeys getFacebookMessengerTcpColor]];
         [self.detail2SubtitleLabel setText:[testKeys getFacebookMessengerDns]];
         [self.detail2SubtitleLabel setTextColor:[testKeys getFacebookMessengerDnsColor]];
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (!super.measurement.is_anomaly){
+        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
+    }
+    else {
+        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
     }
 }
 
