@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" misplaced="YES" id="p1y-MG-wVi">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                            <rect key="frame" x="0.0" y="-64" width="375" height="110"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
                                 <segue destination="Kkv-Qg-tmm" kind="embed" identifier="header" id="2TK-Ze-JVH"/>
@@ -211,7 +211,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" misplaced="YES" id="3GP-dh-xEn">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+                            <rect key="frame" x="0.0" y="-64" width="375" height="133"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
                                 <segue destination="F4M-4W-aFh" kind="embed" identifier="header" id="82w-j1-w2v"/>
@@ -459,13 +459,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="FYY-29-ZOk">
-                                        <rect key="frame" x="170" y="13" width="180" height="57"/>
+                                        <rect key="frame" x="170" y="12.5" width="180" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-Uc-VF3">
                                                 <rect key="frame" x="0.0" y="0.0" width="30.5" height="18"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="18" id="fdi-X5-6mf"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -499,10 +496,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7E-qY-WeQ">
-                                                <rect key="frame" x="0.0" y="40" width="37.5" height="17"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="17" id="7L0-hg-f8T"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="40" width="37.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -513,10 +507,14 @@
                                 <color key="backgroundColor" red="0.75294117650000003" green="0.019607843140000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="FYY-29-ZOk" firstAttribute="leading" secondItem="4eg-dg-arS" secondAttribute="leading" constant="170" id="1sI-qg-I2l"/>
+                                    <constraint firstAttribute="bottom" secondItem="FYY-29-ZOk" secondAttribute="bottom" constant="12.5" id="F9t-1I-b1T"/>
                                     <constraint firstItem="FYY-29-ZOk" firstAttribute="centerY" secondItem="4eg-dg-arS" secondAttribute="centerY" id="IMI-p4-KTu"/>
                                     <constraint firstAttribute="height" constant="83" id="Quy-iF-Ta8"/>
+                                    <constraint firstItem="FYY-29-ZOk" firstAttribute="top" secondItem="4eg-dg-arS" secondAttribute="top" constant="12.5" id="V6Y-5x-LCr"/>
                                     <constraint firstItem="BFd-TX-Uv9" firstAttribute="leading" secondItem="4eg-dg-arS" secondAttribute="leading" constant="25" id="VHx-RU-1Xz"/>
                                     <constraint firstAttribute="trailing" secondItem="FYY-29-ZOk" secondAttribute="trailing" constant="25" id="aDz-4v-S8s"/>
+                                    <constraint firstAttribute="bottom" secondItem="BFd-TX-Uv9" secondAttribute="bottom" constant="12.5" id="brC-oR-ImE"/>
+                                    <constraint firstItem="BFd-TX-Uv9" firstAttribute="top" secondItem="4eg-dg-arS" secondAttribute="top" constant="12.5" id="pYn-3E-xX5"/>
                                     <constraint firstItem="BFd-TX-Uv9" firstAttribute="centerY" secondItem="4eg-dg-arS" secondAttribute="centerY" id="xlH-sU-y1d"/>
                                 </constraints>
                             </view>
@@ -1299,10 +1297,14 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="upd-o8-ir4" secondAttribute="trailing" constant="25" id="2bg-y8-A5U"/>
                                     <constraint firstItem="upd-o8-ir4" firstAttribute="leading" secondItem="x7v-lQ-NjJ" secondAttribute="leading" constant="170" id="7RR-jC-CDm"/>
+                                    <constraint firstItem="Plk-Jd-biQ" firstAttribute="top" secondItem="x7v-lQ-NjJ" secondAttribute="top" constant="13.5" id="9Uh-RE-w5b"/>
+                                    <constraint firstItem="upd-o8-ir4" firstAttribute="top" secondItem="x7v-lQ-NjJ" secondAttribute="top" constant="13.5" id="BfG-uw-2ZK"/>
                                     <constraint firstAttribute="height" constant="83" id="CmU-ON-2Jw"/>
                                     <constraint firstItem="upd-o8-ir4" firstAttribute="centerY" secondItem="x7v-lQ-NjJ" secondAttribute="centerY" id="VTP-hf-4uz"/>
+                                    <constraint firstAttribute="bottom" secondItem="upd-o8-ir4" secondAttribute="bottom" constant="13.5" id="ZR0-Gx-BPK"/>
                                     <constraint firstItem="Plk-Jd-biQ" firstAttribute="centerY" secondItem="x7v-lQ-NjJ" secondAttribute="centerY" id="gWI-Am-rfH"/>
                                     <constraint firstItem="Plk-Jd-biQ" firstAttribute="leading" secondItem="x7v-lQ-NjJ" secondAttribute="leading" constant="25" id="j0x-n9-TeH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Plk-Jd-biQ" secondAttribute="bottom" constant="13.5" id="nCW-LA-Qx4"/>
                                 </constraints>
                             </view>
                         </subviews>
