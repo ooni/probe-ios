@@ -1,3 +1,13 @@
+# OONI Probe iOS 2.0.2 [2019-02-06]
+
+Changelog:
+  - Updated mkall to 0.3.10
+  - Fixes https://github.com/ooni/probe-ios/issues/219
+  - Various UI small fixes
+
+---
+measurement-kit version: mkall 0.3.10
+
 # OONI Probe iOS 2.0.1 [2019-01-26]
 
 Changelog:
