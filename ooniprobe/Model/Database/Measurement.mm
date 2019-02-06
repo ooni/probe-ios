@@ -51,9 +51,6 @@
 }
 
 -(NSString*)getLocalizedStartTime{
-    //TODO we might need a copy for this
-    if (self.start_time == nil)
-        return NSLocalizedString(@"TestResults.UnknownASN", nil);
     //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:self.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     return localizedDateTime;
