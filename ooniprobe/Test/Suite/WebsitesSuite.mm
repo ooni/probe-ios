@@ -27,8 +27,7 @@
 }
 
 - (NSArray*)getTestList {
-    if (self.testList == nil){
-        self.testList = [[NSMutableArray alloc] init];
+    if ([self.testList count] == 0){
         [self.testList addObject:[[WebConnectivity alloc] init]];
     }
     return super.getTestList;

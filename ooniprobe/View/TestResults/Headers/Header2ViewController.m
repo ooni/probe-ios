@@ -29,10 +29,7 @@
 -(void)reloadMeasurement{
     [self.dataUsageUploadLabel setText:[result getFormattedDataUsageUp]];
     [self.dataUsageDownloadLabel setText:[result getFormattedDataUsageDown]];
-    
     [self.runtimeDetailLabel setText:[NSString stringWithFormat:@"%.02f sec", result.runtime]];
-    
-    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:result.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-    [self.dateAndTimeDetailLabel setText:localizedDateTime];
+    [self.dateAndTimeDetailLabel setText:[result getLocalizedStartTime]];
 }
 @end

@@ -50,6 +50,12 @@
     return [self.result_id getLogFile:self.test_name];
 }
 
+-(NSString*)getLocalizedStartTime{
+    //from https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/InternationalizingLocaleData/InternationalizingLocaleData.html
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:self.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    return localizedDateTime;
+}
+
 -(void)save{
     [self commit];
     /*

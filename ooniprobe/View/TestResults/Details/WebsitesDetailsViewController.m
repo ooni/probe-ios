@@ -11,7 +11,6 @@
     [self.titleLabel setText:self.measurement.url_id.url];
     [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     if (!super.measurement.is_anomaly){
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
         [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.Reachable.Hero.Title", nil)];
@@ -25,7 +24,6 @@
     }
     else {
         TestKeys *testKeys = [self.measurement testKeysObj];
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
         [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Websites.LikelyBlocked.Hero.Title", nil)];
@@ -39,7 +37,14 @@
     }
 }
 
-- (IBAction)learnCircumvent{
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (!super.measurement.is_anomaly){
+        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
+    }
+    else {
+        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+    }
 }
 
 @end

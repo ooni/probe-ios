@@ -33,15 +33,17 @@
     for (Result *current in results){
         NSMutableArray *arr = [[NSMutableArray alloc] init];
         NSString *key = [df stringFromDate:current.start_time];
-        if ([dic objectForKey:key])
-            arr = [[dic objectForKey:key] mutableCopy];
-        [arr addObject:current];
         if (key == nil){
-            //log object
+            //reporting error to fabric and delete test
             [CrashlyticsKit recordError:[NSError errorWithDomain:@"key_nil" code:0 userInfo:[current dictionary]]];
+            [current deleteObject];
         }
-        else
+        else {
+            if ([dic objectForKey:key])
+                arr = [[dic objectForKey:key] mutableCopy];
+            [arr addObject:current];
             [dic setObject:arr forKey:key];
+        }
     }
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO selector:@selector(localizedStandardCompare:)];
     keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];

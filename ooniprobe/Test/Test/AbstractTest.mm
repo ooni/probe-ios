@@ -275,8 +275,12 @@
 }
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
-    [self.result setStart_time:json.test_start_time];
-    [measurement setStart_time:json.test_start_time];
+    if (json.test_start_time != nil){
+        [self.result setStart_time:json.test_start_time];
+    }
+    if (json.measurement_start_time != nil){
+        [measurement setStart_time:json.measurement_start_time];
+    }
     [measurement setRuntime:[json.test_runtime floatValue]];
     [self.result addRuntime:[json.test_runtime floatValue]];
     [measurement setTestKeysObj:json.test_keys];

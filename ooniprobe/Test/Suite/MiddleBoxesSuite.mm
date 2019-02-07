@@ -12,8 +12,7 @@
 }
 
 - (NSArray*)getTestList {
-    if (self.testList == nil){
-        self.testList = [[NSMutableArray alloc] init];
+    if ([self.testList count] == 0){
         if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"])
             [self.testList addObject:[[HttpInvalidRequestLine alloc] init]];
         if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"])
