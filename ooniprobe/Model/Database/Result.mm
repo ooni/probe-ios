@@ -111,6 +111,11 @@
     return [NSString stringWithFormat:@"%@-%@.log", self.Id, test_name];
 }
 
+-(NSString*)getLocalizedStartTime{
+    NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:self.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    return localizedDateTime;
+}
+
 -(void)save{
     [self commit];
     /*

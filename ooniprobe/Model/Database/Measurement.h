@@ -31,6 +31,7 @@
 -(NSString*)getLogFile;
 -(TestKeys*)testKeysObj;
 -(void)setTestKeysObj:(TestKeys *)testKeysObj;
+-(NSString*)getLocalizedStartTime;
 -(void)save;
 -(void)setReRun;
 -(void)deleteObject;

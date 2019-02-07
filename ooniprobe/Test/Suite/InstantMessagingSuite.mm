@@ -12,8 +12,7 @@
 
 
 - (NSArray*)getTestList {
-    if (self.testList == nil){
-        self.testList = [[NSMutableArray alloc] init];
+    if ([self.testList count] == 0){
         if ([SettingsUtility getSettingWithName:@"test_whatsapp"])
             [self.testList addObject:[[Whatsapp alloc] init]];
         if ([SettingsUtility getSettingWithName:@"test_telegram"])

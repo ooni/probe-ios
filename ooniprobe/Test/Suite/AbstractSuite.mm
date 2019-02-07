@@ -7,7 +7,7 @@
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurementIdx = 0;
-        self.testList = nil;
+        self.testList = [[NSMutableArray alloc] init];
     }
     return self;
 }

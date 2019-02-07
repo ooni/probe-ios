@@ -13,8 +13,7 @@
 }
 
 - (NSArray*)getTestList {
-    if (self.testList == nil){
-        self.testList = [[NSMutableArray alloc] init];
+    if ([self.testList count] == 0){
         if ([SettingsUtility getSettingWithName:@"run_ndt"])
             [self.testList addObject:[[NdtTest alloc] init]];
         if ([SettingsUtility getSettingWithName:@"run_dash"])
