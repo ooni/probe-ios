@@ -63,13 +63,10 @@
         [mailer setSubject:[NSString stringWithFormat:@"[bug-report] OONI Probe iOS %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"]]];
         NSArray *toRecipients = [NSArray arrayWithObjects:@"contact@openobservatory.org", nil];
         [mailer setToRecipients:toRecipients];
-        //NSString *emailBody =NSLocalizedString(@"key_body_mail", nil);
-        //[mailer setMessageBody:emailBody isHTML:YES];
-        //[[mailer navigationBar] setBackgroundColor:[UIColor colorWithRed:92.0/255.0 green:176.0/255.0 blue:52.0/255.0 alpha:1.0]];
-        NSString *device = [NSString stringWithFormat:@"app_version %@ device_model %@ os_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].modelName, [UIDevice currentDevice].systemVersion];
+        NSString *device = [NSString stringWithFormat:@"</br></br></br>app_version %@</br>device_model %@</br>os_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].modelName, [UIDevice currentDevice].systemVersion];
         [mailer setMessageBody:device isHTML:YES];
         [[mailer navigationBar] setTranslucent:NO];
-        [[mailer navigationBar] setTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+        [[mailer navigationBar] setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
         [[mailer navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor colorWithRGBHexString:color_white alpha:1.0f], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
         [self presentViewController:mailer animated:YES completion:nil];
     }
@@ -77,6 +74,10 @@
         [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
                                message:NSLocalizedString(@"Settings.SendEmail.Error", nil) inView:self];
     }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
