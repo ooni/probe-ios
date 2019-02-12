@@ -56,10 +56,12 @@
             self.urlsList = nil;
         }
         else
-            [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.NoInternet" inView:self];
+            [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                                   message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
     }
     else
-        [MessageUtility showToast:@"Settings.Websites.CustomURL.NoURLEntered" inView:self.view];
+        [MessageUtility showToast:NSLocalizedString(@"Settings.Websites.CustomURL.NoURLEntered", nil)
+                           inView:self.view];
 }
 
 -(BOOL)hasUrl{

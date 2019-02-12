@@ -115,7 +115,8 @@
 }
 
 -(void)showError{
-    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadURLs" inView:self];
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                           message:NSLocalizedString(@"Modal.Error.CantDownloadURLs", nil) inView:self];
 }
 
 @end
