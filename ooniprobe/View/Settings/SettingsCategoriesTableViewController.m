@@ -1,4 +1,5 @@
 #import "SettingsCategoriesTableViewController.h"
+#import "UIDevice-Hardware.h"
 
 @interface SettingsCategoriesTableViewController ()
 
@@ -59,13 +60,13 @@
     if ([MFMailComposeViewController canSendMail]){
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
-        [mailer setSubject:[NSString stringWithFormat:@"%@ iOS", NSLocalizedString(@"key_subject_email", nil)]];
+        [mailer setSubject:[NSString stringWithFormat:@"[bug-report] OONI Probe iOS %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"]]];
         NSArray *toRecipients = [NSArray arrayWithObjects:@"contact@openobservatory.org", nil];
         [mailer setToRecipients:toRecipients];
         //NSString *emailBody =NSLocalizedString(@"key_body_mail", nil);
         //[mailer setMessageBody:emailBody isHTML:YES];
         //[[mailer navigationBar] setBackgroundColor:[UIColor colorWithRed:92.0/255.0 green:176.0/255.0 blue:52.0/255.0 alpha:1.0]];
-        NSString *device = [NSString stringWithFormat:@"app_version %@ device_model %@ os_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].hardwareSimpleDescription, [UIDevice currentDevice].systemVersion];
+        NSString *device = [NSString stringWithFormat:@"app_version %@ device_model %@ os_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].modelName, [UIDevice currentDevice].systemVersion];
         [mailer setMessageBody:device isHTML:YES];
         [[mailer navigationBar] setTranslucent:NO];
         [[mailer navigationBar] setTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
@@ -73,7 +74,8 @@
         [self presentViewController:mailer animated:YES completion:nil];
     }
     else {
-        [MessageUtility alertWithTitle:@"Modal.Error" message:@"Settings.SendEmail.Error.NoAccount" inView:self];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                               message:NSLocalizedString(@"Settings.SendEmail.Error", nil) inView:self];
     }
 }
 
