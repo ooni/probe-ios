@@ -193,7 +193,7 @@
                                       if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
                                           [self performSegueWithIdentifier:@"toTestRun" sender:self];
                                       else
-                                          [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.NoInternet" inView:self];
+                                          [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil) message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
                                   }];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
