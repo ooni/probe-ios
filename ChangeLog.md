@@ -1,3 +1,12 @@
+# OONI Probe iOS 2.0.2 [2019-02-16]
+
+Changelog:
+  - Fixed some untranslated labels
+  - Fix to the remaining seconds being a negative value
+
+---
+measurement-kit version: mkall 0.3.10
+
 # OONI Probe iOS 2.0.2 [2019-02-06]
 
 Changelog:
