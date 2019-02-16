@@ -6,7 +6,6 @@
     self = [super init];
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
-        self.measurementIdx = 0;
         self.testList = [[NSMutableArray alloc] init];
     }
     return self;
@@ -25,7 +24,8 @@
 }
 
 -(void)runTestSuite {
-    [self initResult];
+    self.measurementIdx = 0;
+    [self newResult];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
@@ -68,13 +68,11 @@
     return self.testList;
 }
 
--(void)initResult {
-    if (self.result == nil){
-        self.result = [Result new];
-        [self.result setTest_group_name:self.name];
-        //The Result object needs to be saved to have an Id, needed for log
-        [self.result save];
-    }
+-(void)newResult {
+    self.result = [Result new];
+    [self.result setTest_group_name:self.name];
+    //The Result object needs to be saved to have an Id, needed for log
+    [self.result save];
 }
 
 -(int)getRuntime{
