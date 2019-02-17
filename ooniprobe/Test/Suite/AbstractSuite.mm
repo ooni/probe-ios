@@ -43,6 +43,8 @@
     //if last test
     if ([self.testList count] == 0){
         [self.result setIs_done:YES];
+        [self.result save];
+        //Resetting class values
         self.result = nil;
         self.measurementIdx = 0;
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
