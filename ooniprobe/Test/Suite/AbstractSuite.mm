@@ -24,7 +24,6 @@
 }
 
 -(void)runTestSuite {
-    self.measurementIdx = 0;
     [self newResult];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
@@ -45,6 +44,7 @@
     if ([self.testList count] == 0){
         [self.result setIs_done:YES];
         self.result = nil;
+        self.measurementIdx = 0;
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
         if (state == UIApplicationStateBackground || state == UIApplicationStateInactive){
             if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
