@@ -24,7 +24,6 @@
 }
 
 -(void)runTestSuite {
-    self.measurementIdx = 0;
     [self newResult];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
@@ -44,6 +43,10 @@
     //if last test
     if ([self.testList count] == 0){
         [self.result setIs_done:YES];
+        [self.result save];
+        //Resetting class values
+        self.result = nil;
+        self.measurementIdx = 0;
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
         if (state == UIApplicationStateBackground || state == UIApplicationStateInactive){
             if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
@@ -69,10 +72,13 @@
 }
 
 -(void)newResult {
-    self.result = [Result new];
-    [self.result setTest_group_name:self.name];
-    //The Result object needs to be saved to have an Id, needed for log
-    [self.result save];
+    //For rerun measurement result is set by the view controller
+    if (self.result == nil){
+        self.result = [Result new];
+        [self.result setTest_group_name:self.name];
+        //The Result object needs to be saved to have an Id, needed for log
+        [self.result save];
+    }
 }
 
 -(int)getRuntime{

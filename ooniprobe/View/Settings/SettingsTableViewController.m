@@ -46,7 +46,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     if (testSuite != nil){
-        testSuite.testList = nil;
+        [testSuite.testList removeAllObjects];
         [testSuite getTestList];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"settingsChanged" object:nil];
     }
