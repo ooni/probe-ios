@@ -1,4 +1,11 @@
-# OONI Probe iOS 2.0.2 [2019-02-16]
+# OONI Probe iOS 2.0.4 [2019-02-22]
+
+Changelog:
+  - Fixed the "0 seconds" bug when saving test settings
+  - Improved re-running failed tests
+  - Translation update
+
+# OONI Probe iOS 2.0.3 [2019-02-16]
 
 Changelog:
   - Fixed some untranslated labels
