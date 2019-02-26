@@ -61,10 +61,10 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
         [mailer setSubject:[NSString stringWithFormat:@"[bug-report] OONI Probe iOS %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"]]];
-        NSArray *toRecipients = [NSArray arrayWithObjects:@"contact@openobservatory.org", nil];
+        NSArray *toRecipients = [NSArray arrayWithObjects:@"bugs@openobservatory.org", nil];
         [mailer setToRecipients:toRecipients];
-        NSString *device = [NSString stringWithFormat:@"</br></br></br>app_version %@</br>device_model %@</br>os_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].modelName, [UIDevice currentDevice].systemVersion];
-        [mailer setMessageBody:device isHTML:YES];
+        NSString *device = [NSString stringWithFormat:@"\n\n\napp_version %@\ndevice_model %@\nos_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].modelName, [UIDevice currentDevice].systemVersion];
+        [mailer setMessageBody:device isHTML:NO];
         [[mailer navigationBar] setTranslucent:NO];
         [[mailer navigationBar] setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
         [[mailer navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor colorWithRGBHexString:color_white alpha:1.0f], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
