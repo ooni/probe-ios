@@ -112,11 +112,19 @@
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
 		EDF20736212173B9005B06D7 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20734212173B9005B06D7 /* Advanced.m */; };
+		EDF23EEE2225258100B97520 /* OONIProbeUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF23EED2225258100B97520 /* OONIProbeUnitTests.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		17E7EDBA21BFEDD1001961C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4A2F5D11A6C3244001B8460 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4A2F5D81A6C3244001B8460;
+			remoteInfo = ooniprobe;
+		};
+		EDF23EF02225258100B97520 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D4A2F5D11A6C3244001B8460 /* Project object */;
 			proxyType = 1;
@@ -330,6 +338,9 @@
 		EDF2073121217340005B06D7 /* JsonResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonResult.m; sourceTree = "<group>"; };
 		EDF20733212173B8005B06D7 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
 		EDF20734212173B9005B06D7 /* Advanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advanced.m; sourceTree = "<group>"; };
+		EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OONIProbeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF23EED2225258100B97520 /* OONIProbeUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OONIProbeUnitTests.m; sourceTree = "<group>"; };
+		EDF23EEF2225258100B97520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
 		FBB68CFBE135C2F6BDF61340 /* Pods-ooniprobe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.release.xcconfig"; sourceTree = "<group>"; };
@@ -352,6 +363,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDF23EE82225258100B97520 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -370,6 +388,7 @@
 			children = (
 				D4A2F5DB1A6C3244001B8460 /* ooniprobe */,
 				17E7EDB621BFEDD1001961C7 /* OONIProbeUITests */,
+				EDF23EEC2225258100B97520 /* OONIProbeUnitTests */,
 				D4A2F5DA1A6C3244001B8460 /* Products */,
 				F7A9F2287FABB1ABA8598B6C /* Pods */,
 				F4F15431D4412F561191270F /* Frameworks */,
@@ -381,6 +400,7 @@
 			children = (
 				D4A2F5D91A6C3244001B8460 /* ooniprobe.app */,
 				17E7EDB521BFEDD1001961C7 /* OONIProbeUITests.xctest */,
+				EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -779,6 +799,15 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		EDF23EEC2225258100B97520 /* OONIProbeUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF23EED2225258100B97520 /* OONIProbeUnitTests.m */,
+				EDF23EEF2225258100B97520 /* Info.plist */,
+			);
+			path = OONIProbeUnitTests;
+			sourceTree = "<group>";
+		};
 		F4F15431D4412F561191270F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -839,6 +868,24 @@
 			productReference = D4A2F5D91A6C3244001B8460 /* ooniprobe.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EDF23EEA2225258100B97520 /* OONIProbeUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF23EF42225258100B97520 /* Build configuration list for PBXNativeTarget "OONIProbeUnitTests" */;
+			buildPhases = (
+				EDF23EE72225258100B97520 /* Sources */,
+				EDF23EE82225258100B97520 /* Frameworks */,
+				EDF23EE92225258100B97520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDF23EF12225258100B97520 /* PBXTargetDependency */,
+			);
+			name = OONIProbeUnitTests;
+			productName = OONIProbeUnitTests;
+			productReference = EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -870,6 +917,12 @@
 								enabled = 1;
 							};
 						};
+					};
+					EDF23EEA2225258100B97520 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = MADPSAYN6T;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D4A2F5D81A6C3244001B8460;
 					};
 				};
 			};
@@ -903,6 +956,7 @@
 			targets = (
 				D4A2F5D81A6C3244001B8460 /* ooniprobe */,
 				17E7EDB421BFEDD1001961C7 /* OONIProbeUITests */,
+				EDF23EEA2225258100B97520 /* OONIProbeUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -944,6 +998,13 @@
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
 				ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF23EE92225258100B97520 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,6 +1178,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDF23EE72225258100B97520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF23EEE2225258100B97520 /* OONIProbeUnitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1124,6 +1193,11 @@
 			isa = PBXTargetDependency;
 			target = D4A2F5D81A6C3244001B8460 /* ooniprobe */;
 			targetProxy = 17E7EDBA21BFEDD1001961C7 /* PBXContainerItemProxy */;
+		};
+		EDF23EF12225258100B97520 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4A2F5D81A6C3244001B8460 /* ooniprobe */;
+			targetProxy = EDF23EF02225258100B97520 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1416,6 +1490,64 @@
 			};
 			name = Release;
 		};
+		EDF23EF22225258100B97520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MADPSAYN6T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OONIProbeUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.OONIProbeUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
+			};
+			name = Debug;
+		};
+		EDF23EF32225258100B97520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MADPSAYN6T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OONIProbeUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.OONIProbeUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1442,6 +1574,15 @@
 			buildConfigurations = (
 				D4A2F5FD1A6C3244001B8460 /* Debug */,
 				D4A2F5FE1A6C3244001B8460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF23EF42225258100B97520 /* Build configuration list for PBXNativeTarget "OONIProbeUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF23EF22225258100B97520 /* Debug */,
+				EDF23EF32225258100B97520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
