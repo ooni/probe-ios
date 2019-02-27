@@ -25,6 +25,10 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     [[UINavigationBar appearance] setTranslucent:FALSE];
 
+    InCodeMappingProvider *inCodeMappingProvider = [InCodeMappingProvider new];
+    [inCodeMappingProvider mapFromPropertyKey:@"ca_bundle_path" toDictionaryKey:@"net/ca_bundle_path" forClass:[Options class]];
+    [[ObjectMapper sharedInstance] setMappingProvider:inCodeMappingProvider];
+
     #ifdef RELEASE
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];

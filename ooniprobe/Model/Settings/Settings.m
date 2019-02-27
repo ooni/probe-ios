@@ -17,9 +17,6 @@
 }
 
 -(NSDictionary*)getSettingsDictionary{
-    InCodeMappingProvider *inCodeMappingProvider = [InCodeMappingProvider new];
-    [inCodeMappingProvider mapFromPropertyKey:@"ca_bundle_path" toDictionaryKey:@"net/ca_bundle_path" forClass:[Options class]];
-    [[ObjectMapper sharedInstance] setMappingProvider:inCodeMappingProvider];
     return [self dictionary];
 }
 
