@@ -95,20 +95,20 @@
         Measurement *dash = [result getMeasurement:@"dash"];
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:NO];
-        [self.image1 setImage:[UIImage imageNamed:@"upload"]];
+        [self.image1 setImage:[UIImage imageNamed:@"download"]];
         [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.image2 setImage:[UIImage imageNamed:@"upload"]];
+        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         if (ndt){
-            [self.label1 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getUploadWithUnit]]];
-            [self.label2 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getDownloadWithUnit]]];
+            [self.label1 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getDownloadWithUnit]]];
+            [self.label2 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getUploadWithUnit]]];
         }
         else {
             [self.label1 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
             [self.label2 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
         }
-        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        [self.image2 setImage:[UIImage imageNamed:@"download"]];
-        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         [self.image3 setImage:[UIImage imageNamed:@"video_quality"]];
         if (dash){
             [self.label3 setText:[[result getMeasurement:@"dash"].testKeysObj getVideoQuality:NO]];

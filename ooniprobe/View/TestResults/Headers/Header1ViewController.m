@@ -38,8 +38,8 @@
         }
         [self.label1Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Video", nil)];
         [self.label1Bottom setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Video.Quality", nil)];
-        [self.label2Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Upload", nil)];
-        [self.label3Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Download", nil)];
+        [self.label2Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Download", nil)];
+        [self.label3Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Upload", nil)];
         [self.label4Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Ping", nil)];
         [self.label4Bottom setText:NSLocalizedString(@"TestResults.ms", nil)];
     }
@@ -80,10 +80,10 @@
             TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
             TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
             [self.label1Central setText:[testKeysDash getVideoQuality:NO]];
-            [self.label2Central setText:[testKeysNdt getUpload]];
-            [self.label2Bottom setText:[testKeysNdt getUploadUnit]];
-            [self.label3Central setText:[testKeysNdt getDownload]];
-            [self.label3Bottom setText:[testKeysNdt getDownloadUnit]];
+            [self.label2Central setText:[testKeysNdt getDownload]];
+            [self.label2Bottom setText:[testKeysNdt getDownloadUnit]];
+            [self.label3Central setText:[testKeysNdt getUpload]];
+            [self.label3Bottom setText:[testKeysNdt getUploadUnit]];
             [self.label4Central setText:[testKeysNdt getPing]];
         }
     });
