@@ -154,13 +154,13 @@
         if ([current.test_name isEqualToString:@"ndt"]){
             TestKeys *testKeys = [current testKeysObj];
             [stackView2 setHidden:NO];
-            [detail1Image setImage:[UIImage imageNamed:@"upload"]];
+            [detail1Image setImage:[UIImage imageNamed:@"download"]];
             [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [detail2Image setImage:[UIImage imageNamed:@"download"]];
+            [detail2Image setImage:[UIImage imageNamed:@"upload"]];
             [detail2Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [detail1Label setText:[NSString stringWithFormat:@"%@", [testKeys getUploadWithUnit]]];
+            [detail1Label setText:[NSString stringWithFormat:@"%@", [testKeys getDownloadWithUnit]]];
             [detail1Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [detail2Label setText:[NSString stringWithFormat:@"%@", [testKeys getDownloadWithUnit]]];
+            [detail2Label setText:[NSString stringWithFormat:@"%@", [testKeys getUploadWithUnit]]];
             [detail2Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         }
         else if ([current.test_name isEqualToString:@"dash"]){
