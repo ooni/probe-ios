@@ -202,7 +202,7 @@
 "Modal.OldTestsDetected" = "Τα παλιά αποτελέσματα θα διαγραφούν. Μην ανησυχείς, μπορείς να τα βρεις στο OONI Explorer και στο OONI API.";
 "Modal.DoYouWantToDeleteAllTests" = "Θέλεις να διαγράψεις όλα τα αποτελέσματα των δοκιμών σου;";
 "Modal.DoYouWantToDeleteThisTest" = "Θέλεις να διαγράψεις αυτή τη δοκιμή;";
-"Modal.CantDeactivate" = "Δεν είναι δυνατή η απενεργοποίηση";
+"Modal.CantDeactivate" = "Can't disable";
 "Modal.OnlyDigits" = "Παρακαλώ γράψε μόνο ψηφία σε αυτό το πεδίο.";
 "Modal.ReRun.Title" = "Επανεκτέλεση δοκιμής";
 "Modal.ReRun.Paragraph" = "Αυτή η δοκιμή απέτυχε. Επανεκτέλεση δοκιμής;";
@@ -276,6 +276,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Αυτόματη επιλογή διακομιστή DASH ";
 "Settings.Performance.DashServerAddress" = "Διακομιστή DASH";
 "Settings.Performance.DashServerPort" = "Θύρα διακομιστή DASH";
+"Settings.SendEmail.Label" = "Send email to support";
+"Settings.SendEmail.Error" = "No email clients configured on your device";
 "Notification.FinishedRunning" = "Οι δοκιμές εκτελέστηκαν";
 "OONIBrowser.TryMirror" = "Δοκίμασε mirror";
 "OONIBrowser.Loading" = "Φορτώνεται...";
@@ -292,7 +294,7 @@
 "OONIRun.InvalidParameter" = "Μη έγκυρη παράμετρος";
 "OONIRun.InvalidParameter.Msg" = "Ο σύνδεσμος του OONI Run έχει παραμορφωθεί ή η εφαρμογή σου δεν είναι ενημερωμένη.";
 "OONIRun.RandomSamplingOfURLs" = "Θα δοκιμάσεις ένα τυχαίο δείγμα ιστοσελιδών.";
-"OONIRun.TestRunningError" = "Παρακαλώ περίμενε να τελειώσει η δοκιμή πριν ανοίξεις το OONI Run.";
+"OONIRun.TestRunningError" = "Please wait for the test to finish running before tapping on an OONI Run link.";
 "CategoryCode.ALDR.Name" = "Ναρκωτικά & Αλκοόλ";
 "CategoryCode.REL.Name" = "Θρησκεία";
 "CategoryCode.PORN.Name" = "Πορνογραφία";
@@ -309,7 +311,7 @@
 "CategoryCode.ANON.Name" = "Εργαλεία Παράκαμψης Λογοκρισίας";
 "CategoryCode.DATE.Name" = "Προσωπικές Γνωριμίες μέσω Διαδικτύου";
 "CategoryCode.GRP.Name" = "Κοινωνική Δικτύωση";
-"CategoryCode.LGBT.Name" = "ΛΟΑΤ (LGBT)";
+"CategoryCode.LGBT.Name" = "LGBTQ+";
 "CategoryCode.FILE.Name" = "Κοινή Χρήση Αρχείων";
 "CategoryCode.HACK.Name" = "Εργαλεία Hacking";
 "CategoryCode.COMT.Name" = "Εργαλεία Επικοινωνίας";
@@ -340,7 +342,7 @@
 "CategoryCode.ANON.Description" = "Εργαλεία για την παράκαμψη της λογοκρισίας, την κρυπτογράφηση και την ανωνυμία στο διαδίκτυο";
 "CategoryCode.DATE.Description" = "Ιστοσελίδες για προσωπικές γνωριμίες και σχέσεις";
 "CategoryCode.GRP.Description" = "Πλατφόρμες κοινωνικής δικτύωσης";
-"CategoryCode.LGBT.Description" = "Θέματα σχετικά με τις ΛΟΑΤ (LGBTQI) (Λεσβίες, Ομοφυλόφιλοι, Αμφιφυλόφιλοι, Τρανς) κοινότητες";
+"CategoryCode.LGBT.Description" = "LGBTQ+ communities discussing related issues (excluding pornography)";
 "CategoryCode.FILE.Description" = "Κοινή χρήση αρχείων, συμπεριλαμβανομένης της αποθήκευσης αρχείων στο cloud, torrents και P2P";
 "CategoryCode.HACK.Description" = "Εργαλεία ασφάλειας υπολογιστών και ανάλογες ειδήσεις";
 "CategoryCode.COMT.Description" = "Ατομικά και ομαδικά εργαλεία επικοινωνίας, όπως VoIP, μηνύματα και webmail";

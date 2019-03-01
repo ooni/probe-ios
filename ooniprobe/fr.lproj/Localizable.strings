@@ -118,7 +118,7 @@
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accessible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ est accessible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablement bloqué";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ est probablement bloqué au moyen de %@.\n\nNote : De faux positifs peuvent se produire. Apprenez-en davantage [ici] (https://ooni.io/nettest/web-connectivity/).";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ est probablement bloqué au moyen de %@.\n\nNote : De faux positifs peuvent se produire. Apprenez-en davantage [ici](https://ooni.io/nettest/web-connectivity/).";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "Contournement de la censure";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "**Manipulation DNS**";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP" = "**Blocage basé sur le TCP/IP**";
@@ -202,7 +202,7 @@
 "Modal.OldTestsDetected" = "Les anciens résultats seront supprimés. Ne vous inquiétez pas, vous pouvez toujours les trouver dans l’Explorateur et dans l’API de l’OONI.";
 "Modal.DoYouWantToDeleteAllTests" = "Voulez-vous supprimer tous les résultats de test ?";
 "Modal.DoYouWantToDeleteThisTest" = "Voulez-vous supprimer ce test ?";
-"Modal.CantDeactivate" = "Impossible de désactiver";
+"Modal.CantDeactivate" = "Impossible de désactiver cette option";
 "Modal.OnlyDigits" = "Veuillez ne saisir que des chiffres dans ce champ.";
 "Modal.ReRun.Title" = "Relancer le test";
 "Modal.ReRun.Paragraph" = "Ce test a échoué. Relancer le test ?";
@@ -276,6 +276,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Sélection automatique du serveur DASH";
 "Settings.Performance.DashServerAddress" = "Serveur DASH";
 "Settings.Performance.DashServerPort" = "Port du serveur DASH";
+"Settings.SendEmail.Label" = "Envoyer un courriel à l’assistance";
+"Settings.SendEmail.Error" = "Aucun client de courriel n’est configuré sur votre appareil";
 "Notification.FinishedRunning" = "Le test est terminé.";
 "OONIBrowser.TryMirror" = "Essayer un miroir";
 "OONIBrowser.Loading" = "Chargement…";
@@ -292,7 +294,7 @@
 "OONIRun.InvalidParameter" = "Un paramètre est invalide";
 "OONIRun.InvalidParameter.Msg" = "Soit le lien OONI Run est mal formé soit votre appli n’est pas à jour.";
 "OONIRun.RandomSamplingOfURLs" = "Vous testerez un échantillon aléatoire de sites Web.";
-"OONIRun.TestRunningError" = "Veuillez attendre la fin du test avant d’ouvrir OONI Run.";
+"OONIRun.TestRunningError" = "Veuillez attendre la fin du test avant d’ouvrir un lien OONI Run.";
 "CategoryCode.ALDR.Name" = "Drogues et alcool";
 "CategoryCode.REL.Name" = "Religion";
 "CategoryCode.PORN.Name" = "Pornographie";
@@ -340,7 +342,7 @@
 "CategoryCode.ANON.Description" = "Anonymisation, contournement de la censure et chiffrement";
 "CategoryCode.DATE.Description" = "Sites de rencontre en ligne";
 "CategoryCode.GRP.Description" = "Outils et plateformes de réseautage social en ligne";
-"CategoryCode.LGBT.Description" = "Communautés reliées à la cause LGBTQ+ qui discutent de questions connexes (sans pornographie)";
+"CategoryCode.LGBT.Description" = "Communautés reliées à la cause LGBTQ+, qui discutent de questions connexes (sans pornographie)";
 "CategoryCode.FILE.Description" = "Partage de fichiers, dont le stockage nuagique de fichiers, les torrents et le pair à pair";
 "CategoryCode.HACK.Description" = "Outils de sécurité informatique et nouvelles connexes";
 "CategoryCode.COMT.Description" = "Outils de communication individuelle et de groupe, dont la voix sur IP, les messageries et le courriel Web";
