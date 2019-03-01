@@ -79,12 +79,27 @@
         else if ([result.test_group_name isEqualToString:@"performance"]){
             TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
             TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
-            [self.label1Central setText:[testKeysDash getVideoQuality:NO]];
-            [self.label2Central setText:[testKeysNdt getDownload]];
-            [self.label2Bottom setText:[testKeysNdt getDownloadUnit]];
-            [self.label3Central setText:[testKeysNdt getUpload]];
-            [self.label3Bottom setText:[testKeysNdt getUploadUnit]];
-            [self.label4Central setText:[testKeysNdt getPing]];
+            //Testkeys ndt and dash can be nil in case a test is not ran
+            if (testKeysNdt != nil){
+                [self.label2Central setText:[testKeysNdt getDownload]];
+                [self.label2Bottom setText:[testKeysNdt getDownloadUnit]];
+                [self.label3Central setText:[testKeysNdt getUpload]];
+                [self.label3Bottom setText:[testKeysNdt getUploadUnit]];
+                [self.label4Central setText:[testKeysNdt getPing]];
+            }
+            else {
+                [self.label2Central setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
+                [self.label2Bottom setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
+                [self.label3Central setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
+                [self.label3Bottom setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
+                [self.label4Central setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
+            }
+            if (testKeysDash != nil){
+                [self.label1Central setText:[testKeysDash getVideoQuality:NO]];
+            }
+            else {
+                [self.label1Central setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
+            }
         }
     });
 }
