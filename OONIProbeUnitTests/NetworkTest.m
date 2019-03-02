@@ -38,8 +38,12 @@
      n.asn = ASN;
      Assert.assertEquals(Network.getAsn(c, n), ASN);
      */
-    Network.getAsn
-    XCTAssert(Network.getAsn(c, null), NSLocalizedString(@"TestResults.UnknownASN", nil));
+    Network *network = [Network new];
+    XCTAssert([[network getAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
+    network.asn = @"";
+    XCTAssert([[network getAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
+    network.asn = @"ASN";
+    XCTAssert([[network getAsn] isEqualToString:@"ASN"]);
 }
 
 - (void)name {

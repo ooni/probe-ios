@@ -14,6 +14,7 @@
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
+		EB73683A521F90D387C6C063 /* libPods-OONIProbeUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */; };
 		ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0A6200200B52C000235E70 /* OONIRun.storyboard */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */; };
@@ -140,7 +141,10 @@
 		17E7EDB721BFEDD1001961C7 /* OONIProbeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OONIProbeUITests.swift; sourceTree = "<group>"; };
 		17E7EDB921BFEDD1001961C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OONIProbeUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98FEAB61B0AD74E566951F69 /* Pods-OONIProbeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		B14D39522921C8CE117986F7 /* Pods-ooniprobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.debug.xcconfig"; sourceTree = "<group>"; };
+		B3AF575E180FF33021FBC6A7 /* Pods-OONIProbeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A2F5D91A6C3244001B8460 /* ooniprobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ooniprobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2F5DE1A6C3244001B8460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -369,6 +373,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB73683A521F90D387C6C063 /* libPods-OONIProbeUnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,6 +821,7 @@
 			children = (
 				ED3582311FE948580078CCEE /* libsqlite3.tbd */,
 				01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */,
+				2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -825,6 +831,8 @@
 			children = (
 				B14D39522921C8CE117986F7 /* Pods-ooniprobe.debug.xcconfig */,
 				FBB68CFBE135C2F6BDF61340 /* Pods-ooniprobe.release.xcconfig */,
+				B3AF575E180FF33021FBC6A7 /* Pods-OONIProbeUnitTests.debug.xcconfig */,
+				98FEAB61B0AD74E566951F69 /* Pods-OONIProbeUnitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -875,6 +883,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDF23EF42225258100B97520 /* Build configuration list for PBXNativeTarget "OONIProbeUnitTests" */;
 			buildPhases = (
+				911113021556D4D91C10FB3E /* [CP] Check Pods Manifest.lock */,
 				EDF23EE72225258100B97520 /* Sources */,
 				EDF23EE82225258100B97520 /* Frameworks */,
 				EDF23EE92225258100B97520 /* Resources */,
@@ -1048,6 +1057,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		911113021556D4D91C10FB3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OONIProbeUnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A9776EC81DBB83BB5C788DE7 /* [CP] Embed Pods Frameworks */ = {
@@ -1496,6 +1527,7 @@
 		};
 		EDF23EF22225258100B97520 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3AF575E180FF33021FBC6A7 /* Pods-OONIProbeUnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1525,6 +1557,7 @@
 		};
 		EDF23EF32225258100B97520 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98FEAB61B0AD74E566951F69 /* Pods-OONIProbeUnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
