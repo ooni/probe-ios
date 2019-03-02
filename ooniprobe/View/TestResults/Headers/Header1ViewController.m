@@ -79,31 +79,24 @@
         else if ([result.test_group_name isEqualToString:@"performance"]){
             TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
             TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
-            //Testkeys ndt and dash can be nil in case a test is not ran
-            if (testKeysNdt != nil){
-                [self.label2Central setText:[testKeysNdt getDownload]];
-                [self.label2Bottom setText:[testKeysNdt getDownloadUnit]];
-                [self.label3Central setText:[testKeysNdt getUpload]];
-                [self.label3Bottom setText:[testKeysNdt getUploadUnit]];
-                [self.label4Central setText:[testKeysNdt getPing]];
-            }
-            else {
-                [self.label2Central setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
-                [self.label2Bottom setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
-                [self.label3Central setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
-                [self.label3Bottom setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
-                [self.label4Central setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
-            }
-            if (testKeysDash != nil){
-                [self.label1Central setText:[testKeysDash getVideoQuality:NO]];
-            }
-            else {
-                [self.label1Central setText:NSLocalizedString(@"TestResults.NotAvailable", nil)];
-            }
+            [self setText:[testKeysNdt getDownload] forLabel:self.label2Central inStackView:self.view2];
+            [self setText:[testKeysNdt getDownloadUnit] forLabel:self.label2Bottom inStackView:self.view2];
+            [self setText:[testKeysNdt getUpload] forLabel:self.label3Central inStackView:self.view3];
+            [self setText:[testKeysNdt getUploadUnit] forLabel:self.label3Bottom inStackView:self.view3];
+            [self setText:[testKeysNdt getPing] forLabel:self.label4Central inStackView:self.view4];
+
+            [self setText:[testKeysDash getVideoQuality:NO] forLabel:self.label1Central inStackView:self.view1];
         }
     });
 }
 
+-(void)setText:(NSString*)text forLabel:(UILabel*)label inStackView:(UIStackView*)stackView{
+    if (text == nil)
+        text = NSLocalizedString(@"TestResults.NotAvailable", nil);
+    [label setText:text];
+    if ([text isEqualToString:NSLocalizedString(@"TestResults.NotAvailable", nil)])
+        [stackView setAlpha:0.5f];
+}
 
 -(void)addLine:(UIView*)view{
     UIView *lineView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, view.frame.size.height)];
