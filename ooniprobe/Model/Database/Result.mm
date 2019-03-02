@@ -84,27 +84,27 @@
 }
 
 -(NSString*)getAsn{
-    if (self.network_id.asn != nil && [self.network_id.asn length] > 0)
-        return self.network_id.asn;
-    return NSLocalizedString(@"TestResults.UnknownASN", nil);
+    if (self.network_id == nil)
+        return NSLocalizedString(@"TestResults.UnknownASN", nil);
+    return [self.network_id getAsn];
 }
 
 -(NSString*)getNetworkName{
-    if (self.network_id.network_name != nil && [self.network_id.network_name length] > 0)
-        return self.network_id.network_name;
-    return NSLocalizedString(@"TestResults.UnknownASN", nil);
+    if (self.network_id == nil)
+        return NSLocalizedString(@"TestResults.UnknownASN", nil);
+    return [self.network_id getNetworkName];
 }
 
 -(NSString*)getNetworkNameOrAsn{
-    if (self.network_id.network_name != nil && [self.network_id.network_name length] > 0)
-        return [self getNetworkName];
-    else return [self getAsn];
+    if (self.network_id == nil)
+        return NSLocalizedString(@"TestResults.UnknownASN", nil);
+    return [self.network_id getNetworkNameOrAsn];
 }
 
 -(NSString*)getCountry{
-    if (self.network_id.country_code != nil && [self.network_id.country_code length] > 0)
-        return self.network_id.country_code;
-    return NSLocalizedString(@"TestResults.UnknownASN", nil);
+    if (self.network_id == nil)
+        return NSLocalizedString(@"TestResults.UnknownASN", nil);
+    return [self.network_id getCountry];
 }
 
 -(NSString*)getLogFile:(NSString*)test_name{
