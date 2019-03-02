@@ -19,9 +19,11 @@
 @end
 
 @implementation NetworkTest
+Network *network;
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    network = [Network new];
 }
 
 - (void)tearDown {
@@ -29,16 +31,6 @@
 }
 
 - (void)asn {
-    /*
-     Assert.assertEquals(Network.getAsn(c, null), c.getString(R.string.TestResults_UnknownASN));
-     Assert.assertEquals(Network.getAsn(c, new Network()), c.getString(R.string.TestResults_UnknownASN));
-     Network n = new Network();
-     n.asn = "";
-     Assert.assertEquals(Network.getAsn(c, n), c.getString(R.string.TestResults_UnknownASN));
-     n.asn = ASN;
-     Assert.assertEquals(Network.getAsn(c, n), ASN);
-     */
-    Network *network = [Network new];
     XCTAssert([[network getAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
     network.asn = @"";
     XCTAssert([[network getAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
@@ -47,28 +39,32 @@
 }
 
 - (void)name {
-    /*
-     Assert.assertEquals(Network.getName(c, null), c.getString(R.string.TestResults_UnknownASN));
-     Assert.assertEquals(Network.getName(c, new Network()), c.getString(R.string.TestResults_UnknownASN));
-     Network n = new Network();
-     n.network_name = BLANK;
-     Assert.assertEquals(Network.getName(c, n), c.getString(R.string.TestResults_UnknownASN));
-     n.network_name = NETWORK_NAME;
-     Assert.assertEquals(Network.getName(c, n), NETWORK_NAME);
-     */
+    XCTAssert([[network getNetworkName] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
+    network.network_name = @"";
+    XCTAssert([[network getNetworkName] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
+    network.network_name = @"NETWORK_NAME";
+    XCTAssert([[network getAsn] isEqualToString:@"NETWORK_NAME"]);
+}
+
+-(void)nameOrAsn{
+    XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
+    network.network_name = @"";
+    XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
+    network.asn = @"";
+    XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
+    network.asn = @"ASN";
+    XCTAssert([[network getNetworkNameOrAsn] isEqualToString:@"NETWORK_NAME"]);
+    network.network_name = @"NETWORK_NAME";
+    XCTAssert([[network getNetworkNameOrAsn] isEqualToString:@"NETWORK_NAME"]);
 }
 
 - (void)country {
-    /*
-     Assert.assertEquals(Network.getCountry(c, null), c.getString(R.string.TestResults_UnknownASN));
-     Assert.assertEquals(Network.getCountry(c, new Network()), c.getString(R.string.TestResults_UnknownASN));
-     Network n = new Network();
-     n.country_code = BLANK;
-     Assert.assertEquals(Network.getCountry(c, n), c.getString(R.string.TestResults_UnknownASN));
-     n.country_code = COUNTRY_CODE;
-     Assert.assertEquals(Network.getCountry(c, n), COUNTRY_CODE);
+    XCTAssert([[network getCountry] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
+    network.country_code = @"";
+    XCTAssert([[network getCountry] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
+    network.country_code = @"COUNTRY_CODE";
+    XCTAssert([[network getCountry] isEqualToString:@"COUNTRY_CODE"]);
 
-     */
 }
 
 @end
