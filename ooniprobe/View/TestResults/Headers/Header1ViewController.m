@@ -95,7 +95,7 @@
         text = NSLocalizedString(@"TestResults.NotAvailable", nil);
     [label setText:text];
     if ([text isEqualToString:NSLocalizedString(@"TestResults.NotAvailable", nil)])
-        [stackView setAlpha:0.5f];
+        [stackView setAlpha:0.3f];
 }
 
 -(void)addLine:(UIView*)view{
