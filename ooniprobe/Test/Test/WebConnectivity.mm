@@ -13,7 +13,7 @@
 
 -(void) runTest {
     [super prepareRun];
-    if (self.settings.inputs == nil){
+    if (self.inputs == nil){
         //Download urls and then alloc class
         [TestUtility downloadUrls:^(NSArray *urls) {
             if (urls != nil && [urls count] > 0){
@@ -27,8 +27,10 @@
             }
         }];
     }
-    else
+    else {
+        [self setUrls:self.inputs];
         [super runTest];
+    }
 }
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{

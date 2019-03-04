@@ -222,7 +222,7 @@
         [test setAnnotation:YES];
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         if ([testSuiteName isEqualToString:@"websites"])
-            [(WebsitesSuite*)testSuite setUrls:urls];
+            [(WebConnectivity*)test setInputs:urls];
         [vc setTestSuite:testSuite];
         [vc setPresenting:YES];
     }
