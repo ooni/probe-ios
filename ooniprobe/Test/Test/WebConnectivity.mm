@@ -7,12 +7,12 @@
     self = [super init];
     if (self) {
         self.name = @"web_connectivity";
-        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
     }
     return self;
 }
 
 -(void) runTest {
+    [super prepareRun];
     if (self.settings.inputs == nil){
         //Download urls and then alloc class
         [TestUtility downloadUrls:^(NSArray *urls) {
