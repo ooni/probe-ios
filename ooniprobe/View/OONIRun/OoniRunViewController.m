@@ -143,10 +143,13 @@
 
     //reset the arrays: we may be called more than once for the same screen
     if ([testName isEqualToString:@"web_connectivity"]){
-        urls = [testArguments objectForKey:@"urls"];
-        if ([urls count] > 0){
-            for (NSString *url in urls){
-                [Url checkExistingUrl:url];
+        urls = [[NSMutableArray alloc] init];
+        if ([[testArguments objectForKey:@"urls"] count] > 0){
+            for (NSString *url in [testArguments objectForKey:@"urls"]){
+                if ([url length] < 2083){
+                    [Url checkExistingUrl:url];
+                    [urls addObject:url];
+                }
             }
             self.tableView.estimatedRowHeight = 44.0;
             self.tableView.rowHeight = UITableViewAutomaticDimension;

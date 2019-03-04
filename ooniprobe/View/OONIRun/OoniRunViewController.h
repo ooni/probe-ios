@@ -3,7 +3,7 @@
 #import "RunButton.h"
 
 @interface OoniRunViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    NSArray *urls;
+    NSMutableArray *urls;
 }
 
 @property (nonatomic, retain) NSURL* url;

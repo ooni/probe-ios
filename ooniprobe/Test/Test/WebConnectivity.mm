@@ -60,6 +60,7 @@
 
 -(void)setUrls:(NSArray*)inputs{
     self.settings.inputs = inputs;
+    self.inputs = nil;
 }
 
 -(void)setDefaultMaxRuntime {
