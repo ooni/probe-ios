@@ -77,6 +77,7 @@
             [self.label3Bottom setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
         }
         else if ([result.test_group_name isEqualToString:@"performance"]){
+            //TODO fix right line to become alpha
             TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
             TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
             [self setText:[testKeysNdt getDownload] forLabel:self.label2Central inStackView:self.view2];
@@ -84,7 +85,6 @@
             [self setText:[testKeysNdt getUpload] forLabel:self.label3Central inStackView:self.view3];
             [self setText:[testKeysNdt getUploadUnit] forLabel:self.label3Bottom inStackView:self.view3];
             [self setText:[testKeysNdt getPing] forLabel:self.label4Central inStackView:self.view4];
-
             [self setText:[testKeysDash getVideoQuality:NO] forLabel:self.label1Central inStackView:self.view1];
         }
     });
