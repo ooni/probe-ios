@@ -9,10 +9,10 @@
 #import <XCTest/XCTest.h>
 #import "Network.h"
 
-#define BLANK = @"";
-#define ASN = @"asn";
-#define NETWORK_NAME = @"network_name";
-#define COUNTRY_CODE = @"country_code";
+#define BLANK @""
+#define ASN @"asn"
+#define NETWORK_NAME @"network_name"
+#define COUNTRY_CODE @"country_code"
 
 @interface NetworkTest : XCTestCase
 
@@ -30,7 +30,7 @@ Network *network;
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-- (void)asn {
+- (void)testAsn {
     XCTAssert([[network getAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
     network.asn = BLANK;
     XCTAssert([[network getAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
@@ -38,7 +38,7 @@ Network *network;
     XCTAssert([[network getAsn] isEqualToString:ASN]);
 }
 
-- (void)name {
+- (void)testNetworkName {
     XCTAssert([[network getNetworkName] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
     network.network_name = BLANK;
     XCTAssert([[network getNetworkName] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
@@ -46,7 +46,7 @@ Network *network;
     XCTAssert([[network getAsn] isEqualToString:NETWORK_NAME]);
 }
 
--(void)nameOrAsn{
+-(void)testNameOrAsn{
     XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
     network.network_name = BLANK;
     XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
@@ -58,7 +58,7 @@ Network *network;
     XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NETWORK_NAME]);
 }
 
-- (void)country {
+- (void)testCountry {
     XCTAssert([[network getCountry] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
     network.country_code = BLANK;
     XCTAssert([[network getCountry] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
