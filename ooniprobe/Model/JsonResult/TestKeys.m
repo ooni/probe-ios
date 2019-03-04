@@ -40,9 +40,9 @@
     if (self.whatsapp_endpoints_status != nil){
         NSString* endpointStatus = self.whatsapp_endpoints_status;
         if ([endpointStatus isEqualToString:BLOCKED])
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Failed", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Failed", nil);
         else
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Okay", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -51,9 +51,9 @@
     if (self.whatsapp_web_status != nil){
         NSString* webStatus = self.whatsapp_web_status;
         if ([webStatus isEqualToString:BLOCKED])
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Failed", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Failed", nil);
         else
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Okay", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -62,9 +62,9 @@
     if (self.registration_server_status != nil){
         NSString* registrationStatus = self.registration_server_status;
         if ([registrationStatus isEqualToString:BLOCKED])
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed", nil);
         else
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
