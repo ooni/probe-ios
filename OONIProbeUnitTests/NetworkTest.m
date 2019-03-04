@@ -32,38 +32,38 @@ Network *network;
 
 - (void)asn {
     XCTAssert([[network getAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
-    network.asn = @"";
+    network.asn = BLANK;
     XCTAssert([[network getAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
-    network.asn = @"ASN";
-    XCTAssert([[network getAsn] isEqualToString:@"ASN"]);
+    network.asn = ASN;
+    XCTAssert([[network getAsn] isEqualToString:ASN]);
 }
 
 - (void)name {
     XCTAssert([[network getNetworkName] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
-    network.network_name = @"";
+    network.network_name = BLANK;
     XCTAssert([[network getNetworkName] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
-    network.network_name = @"NETWORK_NAME";
-    XCTAssert([[network getAsn] isEqualToString:@"NETWORK_NAME"]);
+    network.network_name = NETWORK_NAME;
+    XCTAssert([[network getAsn] isEqualToString:NETWORK_NAME]);
 }
 
 -(void)nameOrAsn{
     XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
-    network.network_name = @"";
+    network.network_name = BLANK;
     XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
-    network.asn = @"";
+    network.asn = BLANK;
     XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
     network.asn = @"ASN";
-    XCTAssert([[network getNetworkNameOrAsn] isEqualToString:@"NETWORK_NAME"]);
-    network.network_name = @"NETWORK_NAME";
-    XCTAssert([[network getNetworkNameOrAsn] isEqualToString:@"NETWORK_NAME"]);
+    XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NETWORK_NAME]);
+    network.network_name = NETWORK_NAME;
+    XCTAssert([[network getNetworkNameOrAsn] isEqualToString:NETWORK_NAME]);
 }
 
 - (void)country {
     XCTAssert([[network getCountry] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
-    network.country_code = @"";
+    network.country_code = BLANK;
     XCTAssert([[network getCountry] isEqualToString:NSLocalizedString(@"TestResults.UnknownASN", nil)]);
-    network.country_code = @"COUNTRY_CODE";
-    XCTAssert([[network getCountry] isEqualToString:@"COUNTRY_CODE"]);
+    network.country_code = COUNTRY_CODE;
+    XCTAssert([[network getCountry] isEqualToString:COUNTRY_CODE]);
 
 }
 

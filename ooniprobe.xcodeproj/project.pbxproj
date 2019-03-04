@@ -38,6 +38,7 @@
 		ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */; };
 		ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */; };
 		ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */; };
+		ED315ABD222CBDB100BBFD24 /* TestKeysTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED315ABC222CBDB100BBFD24 /* TestKeysTest.m */; };
 		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
@@ -198,6 +199,7 @@
 		ED2E067F21D487F500E9B9EE /* WebsitesSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebsitesSuite.h; sourceTree = "<group>"; };
 		ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebsitesSuite.mm; sourceTree = "<group>"; };
 		ED2E068221D489E000E9B9EE /* Suite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Suite.h; sourceTree = "<group>"; };
+		ED315ABC222CBDB100BBFD24 /* TestKeysTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TestKeysTest.m; path = "/Users/lorenzo/Dropbox/Projects/ooniprobe/probe-ios/OONIProbeUnitTests/TestKeysTest.m"; sourceTree = "<absolute>"; };
 		ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
 		ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewController.m; sourceTree = "<group>"; };
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -811,6 +813,7 @@
 			children = (
 				EDF23EED2225258100B97520 /* OONIProbeUnitTests.m */,
 				EDF23EEF2225258100B97520 /* Info.plist */,
+				ED315ABC222CBDB100BBFD24 /* TestKeysTest.m */,
 				EDF23EF82228CC6000B97520 /* NetworkTest.m */,
 			);
 			path = OONIProbeUnitTests;
@@ -1217,6 +1220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */,
+				ED315ABD222CBDB100BBFD24 /* TestKeysTest.m in Sources */,
 				EDF23EEE2225258100B97520 /* OONIProbeUnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
