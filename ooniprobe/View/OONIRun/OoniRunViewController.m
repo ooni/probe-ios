@@ -218,7 +218,9 @@
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
         AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
-        [testSuite setTestList:[NSMutableArray arrayWithObject:[[AbstractTest alloc] initTest:testName]]];
+        AbstractTest *test = [[AbstractTest alloc] initTest:testName];
+        [test setAnnotation:YES];
+        [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         if ([testSuiteName isEqualToString:@"websites"])
             [(WebsitesSuite*)testSuite setUrls:urls];
         [vc setTestSuite:testSuite];
