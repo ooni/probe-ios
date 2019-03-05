@@ -131,6 +131,7 @@
         [title setText:[LocalizationUtility getNameForTest:current.test_name]];
         UIImageView *detail1Image = (UIImageView*)[cell viewWithTag:5];
         UILabel *detail1Label = (UILabel*)[cell viewWithTag:6];
+        UIStackView *stackView1 = (UIStackView*)[cell viewWithTag:9];
         UIStackView *stackView2 = (UIStackView*)[cell viewWithTag:4];
         UIImageView *detail2Image = (UIImageView*)[cell viewWithTag:7];
         UILabel *detail2Label = (UILabel*)[cell viewWithTag:8];
@@ -152,24 +153,24 @@
                 [status setImage:nil];
         }
         if ([current.test_name isEqualToString:@"ndt"]){
-            TestKeys *testKeys = [current testKeysObj];
+            TestKeys *testKeysNdt = [current testKeysObj];
             [stackView2 setHidden:NO];
             [detail1Image setImage:[UIImage imageNamed:@"download"]];
             [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
             [detail2Image setImage:[UIImage imageNamed:@"upload"]];
             [detail2Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [detail1Label setText:[NSString stringWithFormat:@"%@", [testKeys getDownloadWithUnit]]];
             [detail1Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [detail2Label setText:[NSString stringWithFormat:@"%@", [testKeys getUploadWithUnit]]];
             [detail2Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+            [self setText:[testKeysNdt getDownloadWithUnit] forLabel:detail1Label inStackView:stackView1];
+            [self setText:[testKeysNdt getUploadWithUnit] forLabel:detail2Label inStackView:stackView2];
         }
         else if ([current.test_name isEqualToString:@"dash"]){
-            TestKeys *testKeys = [current testKeysObj];
+            TestKeys *testKeysDash = [current testKeysObj];
             [stackView2 setHidden:YES];
             [detail1Image setImage:[UIImage imageNamed:@"video_quality"]];
             [detail1Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [detail1Label setText:[testKeys getVideoQuality:YES]];
             [detail1Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+            [self setText:[testKeysDash getVideoQuality:YES] forLabel:detail1Label inStackView:stackView1];
         }
     }    
     return cell;
@@ -183,6 +184,15 @@
     else
         [self goToDetails];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)setText:(NSString*)text forLabel:(UILabel*)label inStackView:(UIStackView*)stackView{
+    if (text == nil)
+        text = NSLocalizedString(@"TestResults.NotAvailable", nil);
+    [label setText:text];
+    if ([text isEqualToString:NSLocalizedString(@"TestResults.NotAvailable", nil)]){
+        [stackView setAlpha:0.3f];
+    }
 }
 
 -(void)showPopup{

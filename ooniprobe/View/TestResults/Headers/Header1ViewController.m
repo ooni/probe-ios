@@ -77,7 +77,6 @@
             [self.label3Bottom setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
         }
         else if ([result.test_group_name isEqualToString:@"performance"]){
-            //TODO fix right line to become alpha
             TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
             TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
             [self setText:[testKeysNdt getDownload] forLabel:self.label2Central inStackView:self.view2];
@@ -94,8 +93,28 @@
     if (text == nil)
         text = NSLocalizedString(@"TestResults.NotAvailable", nil);
     [label setText:text];
-    if ([text isEqualToString:NSLocalizedString(@"TestResults.NotAvailable", nil)])
-        [stackView setAlpha:0.3f];
+    if ([text isEqualToString:NSLocalizedString(@"TestResults.NotAvailable", nil)]){
+        if (stackView == self.view1){
+            [self.label1Top setAlpha:0.3f];
+            [self.label1Central setAlpha:0.3f];
+            [self.label1Bottom setAlpha:0.3f];
+        }
+        else if (stackView == self.view2){
+            [self.label2Top setAlpha:0.3f];
+            [self.label2Central setAlpha:0.3f];
+            [self.label2Bottom setAlpha:0.3f];
+        }
+        else if (stackView == self.view3){
+            [self.label3Top setAlpha:0.3f];
+            [self.label3Central setAlpha:0.3f];
+            [self.label3Bottom setAlpha:0.3f];
+        }
+        else if (stackView == self.view4){
+            [self.label4Top setAlpha:0.3f];
+            [self.label4Central setAlpha:0.3f];
+            [self.label4Bottom setAlpha:0.3f];
+        }
+    }
 }
 
 -(void)addLine:(UIView*)view{
