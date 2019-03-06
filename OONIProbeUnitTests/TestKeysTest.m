@@ -111,26 +111,26 @@ TestKeys *testKeys;
     testKeys.simple.upload = [NSNumber numberWithDouble:1000*1000];
     XCTAssert([[testKeys getUploadUnit] isEqualToString:NSLocalizedString(@"TestResults.Gbps", nil)]);
 }
-/*
+
 - (void)testDownload {
     XCTAssert([[testKeys getDownload] isEqualToString:NOT_AVAILABLE]);
     testKeys.simple = [Simple new];
     XCTAssert([[testKeys getDownload] isEqualToString:NOT_AVAILABLE]);
-    testKeys.simple.download = 0d;
-    XCTAssert([[testKeys getDownload] isEqualToString:NSLocalizedString(@""0.00"", nil)]);
-    testKeys.simple.download = 10d;
-    XCTAssert([[testKeys getDownload] isEqualToString:NSLocalizedString(@""10.0"", nil)]);
+    testKeys.simple.download = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getDownload] isEqualToString:@"0.00"]);
+    testKeys.simple.download = [NSNumber numberWithDouble:10];
+    XCTAssert([[testKeys getDownload] isEqualToString:@"10.0"]);
 }
 
 - (void)testDownloadUnit {
     XCTAssert([[testKeys getDownloadUnit] isEqualToString:NOT_AVAILABLE]);
     testKeys.simple = [Simple new];
     XCTAssert([[testKeys getDownloadUnit] isEqualToString:NOT_AVAILABLE]);
-    testKeys.simple.download = 0d;
+    testKeys.simple.download = [NSNumber numberWithDouble:0];
     XCTAssert([[testKeys getDownloadUnit] isEqualToString:NSLocalizedString(@"TestResults.Kbps", nil)]);
-    testKeys.simple.download = 1000d;
+    testKeys.simple.download = [NSNumber numberWithDouble:1000];
     XCTAssert([[testKeys getDownloadUnit] isEqualToString:NSLocalizedString(@"TestResults.Mbps", nil)]);
-    testKeys.simple.download = 1000d * 1000d;
+    testKeys.simple.download = [NSNumber numberWithDouble:1000*1000];
     XCTAssert([[testKeys getDownloadUnit] isEqualToString:NSLocalizedString(@"TestResults.Gbps", nil)]);
 }
 
@@ -138,111 +138,112 @@ TestKeys *testKeys;
     XCTAssert([[testKeys getPing] isEqualToString:NOT_AVAILABLE]);
     testKeys.simple = [Simple new];
     XCTAssert([[testKeys getPing] isEqualToString:NOT_AVAILABLE]);
-    testKeys.simple.ping = 0d;
-    XCTAssert([[testKeys getPing] isEqualToString:NSLocalizedString(@""0.0"", nil)]);
+    testKeys.simple.ping = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getPing] isEqualToString:@"0.0"]);
 }
 
 - (void)testServer {
     XCTAssert([[testKeys getServer] isEqualToString:NOT_AVAILABLE]);
     testKeys.server_name = BLANK;
-    testKeys.server_country = null;
+    testKeys.server_country = nil;
     XCTAssert([[testKeys getServer] isEqualToString:NOT_AVAILABLE]);
-    testKeys.server_name = null;
+    testKeys.server_name = nil;
     testKeys.server_country = BLANK;
     XCTAssert([[testKeys getServer] isEqualToString:NOT_AVAILABLE]);
     testKeys.server_name = BLANK;
     testKeys.server_country = BLANK;
-    XCTAssert([[testKeys getServer] isEqualToString:NSLocalizedString(@"BLANK + " - " + BLANK", nil)]);
+    NSString *serverStr = [NSString stringWithFormat:@"%@ - %@", BLANK, BLANK];
+    XCTAssert([[testKeys getServer] isEqualToString:serverStr]);
 }
 
 - (void)testPacketLoss {
     XCTAssert([[testKeys getPacketLoss] isEqualToString:NOT_AVAILABLE]);
     testKeys.advanced = [Advanced new];
     XCTAssert([[testKeys getPacketLoss] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.packet_loss = 0d;
-    XCTAssert([[testKeys getPacketLoss] isEqualToString:NSLocalizedString(@""0.000"", nil)]);
-    testKeys.advanced.packet_loss = 1d;
-    XCTAssert([[testKeys getPacketLoss] isEqualToString:NSLocalizedString(@""100.000"", nil)]);
+    testKeys.advanced.packet_loss = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getPacketLoss] isEqualToString:@"0.000"]);
+    testKeys.advanced.packet_loss = [NSNumber numberWithDouble:1];
+    XCTAssert([[testKeys getPacketLoss] isEqualToString:@"100.000"]);
 }
 
 - (void)testOutOfOrder {
     XCTAssert([[testKeys getOutOfOrder] isEqualToString:NOT_AVAILABLE]);
     testKeys.advanced = [Advanced new];
     XCTAssert([[testKeys getOutOfOrder] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.out_of_order = 0d;
-    XCTAssert([[testKeys getOutOfOrder] isEqualToString:NSLocalizedString(@""0.0"", nil)]);
-    testKeys.advanced.out_of_order = 1d;
-    XCTAssert([[testKeys getOutOfOrder] isEqualToString:NSLocalizedString(@""100.0"", nil)]);
+    testKeys.advanced.out_of_order = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getOutOfOrder] isEqualToString:@"0.0"]);
+    testKeys.advanced.out_of_order = [NSNumber numberWithDouble:1];
+    XCTAssert([[testKeys getOutOfOrder] isEqualToString:@"100.0"]);
 }
 
 - (void)testAveragePing {
     XCTAssert([[testKeys getAveragePing] isEqualToString:NOT_AVAILABLE]);
     testKeys.advanced = [Advanced new];
     XCTAssert([[testKeys getAveragePing] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.avg_rtt = 0d;
-    XCTAssert([[testKeys getAveragePing] isEqualToString:NSLocalizedString(@""0.0"", nil)]);
+    testKeys.advanced.avg_rtt = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getAveragePing] isEqualToString:@"0.0"]);
 }
 
 - (void)testMaxPing {
     XCTAssert([[testKeys getMaxPing] isEqualToString:NOT_AVAILABLE]);
     testKeys.advanced = [Advanced new];
     XCTAssert([[testKeys getMaxPing] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.max_rtt = 0d;
-    XCTAssert([[testKeys getMaxPing] isEqualToString:NSLocalizedString(@""0.0"", nil)]);
+    testKeys.advanced.max_rtt = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getMaxPing] isEqualToString:@"0.0"]);
 }
 
 - (void)testMss {
     XCTAssert([[testKeys getMSS] isEqualToString:NOT_AVAILABLE]);
     testKeys.advanced = [Advanced new];
     XCTAssert([[testKeys getMSS] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.mss = 0d;
-    XCTAssert([[testKeys getMSS] isEqualToString:NSLocalizedString(@""0"", nil)]);
+    testKeys.advanced.mss = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getMSS] isEqualToString:@"0"]);
 }
 
 - (void)testTimeouts {
     XCTAssert([[testKeys getTimeouts] isEqualToString:NOT_AVAILABLE]);
     testKeys.advanced = [Advanced new];
     XCTAssert([[testKeys getTimeouts] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.timeouts = 0d;
-    XCTAssert([[testKeys getTimeouts] isEqualToString:NSLocalizedString(@""0"", nil)]);
+    testKeys.advanced.timeouts = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getTimeouts] isEqualToString:@"0"]);
 }
 
 - (void)testMedianBitrate {
     XCTAssert([[testKeys getMedianBitrate] isEqualToString:NOT_AVAILABLE]);
     testKeys.simple = [Simple new];
     XCTAssert([[testKeys getMedianBitrate] isEqualToString:NOT_AVAILABLE]);
-    testKeys.simple.median_bitrate = 0d;
-    XCTAssert([[testKeys getMedianBitrate] isEqualToString:NSLocalizedString(@""0.00"", nil)]);
-    testKeys.simple.median_bitrate = 10d;
-    XCTAssert([[testKeys getMedianBitrate] isEqualToString:NSLocalizedString(@""10.0"", nil)]);
+    testKeys.simple.median_bitrate = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getMedianBitrate] isEqualToString:@"0.00"]);
+    testKeys.simple.median_bitrate = [NSNumber numberWithDouble:10];
+    XCTAssert([[testKeys getMedianBitrate] isEqualToString:@"10.0"]);
 }
 
 - (void)testMedianBitrateUnit {
     XCTAssert([[testKeys getMedianBitrateUnit] isEqualToString:NOT_AVAILABLE]);
     testKeys.simple = [Simple new];
     XCTAssert([[testKeys getMedianBitrateUnit] isEqualToString:NOT_AVAILABLE]);
-    testKeys.simple.median_bitrate = 0d;
+    testKeys.simple.median_bitrate = [NSNumber numberWithDouble:0];
     XCTAssert([[testKeys getMedianBitrateUnit] isEqualToString:NSLocalizedString(@"TestResults.Kbps", nil)]);
-    testKeys.simple.median_bitrate = 1000d;
+    testKeys.simple.median_bitrate = [NSNumber numberWithDouble:1000];
     XCTAssert([[testKeys getMedianBitrateUnit] isEqualToString:NSLocalizedString(@"TestResults.Mbps", nil)]);
-    testKeys.simple.median_bitrate = 1000d * 1000d;
+    testKeys.simple.median_bitrate = [NSNumber numberWithDouble:1000*1000];
     XCTAssert([[testKeys getMedianBitrateUnit] isEqualToString:NSLocalizedString(@"TestResults.Gbps", nil)]);
 }
 
 - (void)testVideoQuality {
-    XCTAssert([[testKeys getVideoQuality([NSNumber numberWithBool:false])] isEqualToString:NOT_AVAILABLE]);
+    XCTAssert([[testKeys getVideoQuality:false] isEqualToString:NOT_AVAILABLE]);
     testKeys.simple = [Simple new];
-    XCTAssert([[testKeys getVideoQuality([NSNumber numberWithBool:false])] isEqualToString:NOT_AVAILABLE]);
-    testKeys.simple.median_bitrate = 0d;
-    XCTAssert([[testKeys getVideoQuality([NSNumber numberWithBool:false])] isEqualToString:NSLocalizedString(@"r240p", nil)]);
+    XCTAssert([[testKeys getVideoQuality:false] isEqualToString:NOT_AVAILABLE]);
+    testKeys.simple.median_bitrate = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getVideoQuality:false] isEqualToString:@"240p"]);
 }
 
 - (void)testPlayoutDelay {
     XCTAssert([[testKeys getPlayoutDelay] isEqualToString:NOT_AVAILABLE]);
     testKeys.simple = [Simple new];
     XCTAssert([[testKeys getPlayoutDelay] isEqualToString:NOT_AVAILABLE]);
-    testKeys.simple.min_playout_delay = 0d;
-    XCTAssert([[testKeys getPlayoutDelay] isEqualToString:NSLocalizedString(@""0.00"", nil)]);
+    testKeys.simple.min_playout_delay = [NSNumber numberWithDouble:0];
+    XCTAssert([[testKeys getPlayoutDelay] isEqualToString:@"0.00"]);
 }
-*/
+
 @end
