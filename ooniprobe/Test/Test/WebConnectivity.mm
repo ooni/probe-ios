@@ -13,7 +13,7 @@
 
 -(void) runTest {
     [super prepareRun];
-    if (self.inputs == nil){
+    if (self.inputs == nil || [self.inputs count] == 0){
         //Download urls and then alloc class
         [TestUtility downloadUrls:^(NSArray *urls) {
             if (urls != nil && [urls count] > 0){

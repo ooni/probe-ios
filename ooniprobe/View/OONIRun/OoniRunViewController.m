@@ -224,7 +224,7 @@
         AbstractTest *test = [[AbstractTest alloc] initTest:testName];
         [test setAnnotation:YES];
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
-        if ([testSuiteName isEqualToString:@"websites"])
+        if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
         [vc setTestSuite:testSuite];
         [vc setPresenting:YES];
