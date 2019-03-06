@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -239,6 +239,15 @@ OONI Probe test on your network.</string>
                                     <outlet property="delegate" destination="atl-WQ-R9D" id="mlz-4t-6Na"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will test a random sample of websites. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yj-nA-oCv">
+                                <rect key="frame" x="16" y="145" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="fXn-1G-Cs7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qt9-cl-ASu" customClass="RunButton">
                                 <rect key="frame" x="142" y="550" width="91" height="37"/>
                                 <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -253,15 +262,18 @@ OONI Probe test on your network.</string>
                         </subviews>
                         <color key="backgroundColor" red="0.9137254901960784" green="0.92549019607843142" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="y9p-fO-ZKS" firstAttribute="trailing" secondItem="6Yj-nA-oCv" secondAttribute="trailing" constant="16" id="2sC-NQ-rSH"/>
                             <constraint firstAttribute="trailing" secondItem="toz-rR-lWq" secondAttribute="trailing" constant="-54" id="AVx-0H-whV"/>
                             <constraint firstItem="y9p-fO-ZKS" firstAttribute="bottom" secondItem="Qt9-cl-ASu" secondAttribute="bottom" constant="16" id="CDv-0C-OHm"/>
                             <constraint firstItem="2In-hx-cN5" firstAttribute="top" secondItem="RP0-OP-B83" secondAttribute="bottom" id="Elj-qp-0oS"/>
                             <constraint firstItem="Qt9-cl-ASu" firstAttribute="centerX" secondItem="Y7q-gJ-mjK" secondAttribute="centerX" id="L48-zf-n6Q"/>
                             <constraint firstItem="2In-hx-cN5" firstAttribute="trailing" secondItem="y9p-fO-ZKS" secondAttribute="trailing" id="Qyw-8h-Flp"/>
+                            <constraint firstItem="6Yj-nA-oCv" firstAttribute="top" secondItem="RP0-OP-B83" secondAttribute="bottom" constant="8" id="RWv-Mo-Y6J"/>
                             <constraint firstItem="y9p-fO-ZKS" firstAttribute="bottom" secondItem="2In-hx-cN5" secondAttribute="bottom" id="RZe-Nc-qxq"/>
                             <constraint firstItem="RP0-OP-B83" firstAttribute="leading" secondItem="y9p-fO-ZKS" secondAttribute="leading" id="X1N-iC-uSM"/>
                             <constraint firstAttribute="bottom" secondItem="toz-rR-lWq" secondAttribute="bottom" constant="61" id="f1m-Dc-kdj"/>
                             <constraint firstItem="RP0-OP-B83" firstAttribute="trailing" secondItem="y9p-fO-ZKS" secondAttribute="trailing" id="lM9-2f-2av"/>
+                            <constraint firstItem="6Yj-nA-oCv" firstAttribute="leading" secondItem="y9p-fO-ZKS" secondAttribute="leading" constant="16" id="lrC-EX-oPH"/>
                             <constraint firstItem="2In-hx-cN5" firstAttribute="leading" secondItem="y9p-fO-ZKS" secondAttribute="leading" id="riQ-tw-9YA"/>
                             <constraint firstItem="RP0-OP-B83" firstAttribute="top" secondItem="Y7q-gJ-mjK" secondAttribute="top" id="w45-CM-rpe"/>
                         </constraints>
@@ -278,6 +290,7 @@ OONI Probe test on your network.</string>
                     <connections>
                         <outlet property="footerImage" destination="toz-rR-lWq" id="mRy-OI-LTM"/>
                         <outlet property="headerImage" destination="yOP-EP-D7Q" id="iFy-Bb-2C9"/>
+                        <outlet property="randomlistLabel" destination="6Yj-nA-oCv" id="PQ6-as-RkF"/>
                         <outlet property="runButton" destination="Qt9-cl-ASu" id="Cni-sk-meV"/>
                         <outlet property="subtitleLabel" destination="mMr-nn-dZK" id="jjO-fo-G20"/>
                         <outlet property="tableView" destination="2In-hx-cN5" id="NCZ-lO-lko"/>

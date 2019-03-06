@@ -25,6 +25,7 @@
     [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray2 alpha:1.0f]];
     [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.subtitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.randomlistLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
     [self handleUrlScheme];
@@ -144,22 +145,23 @@
     //reset the arrays: we may be called more than once for the same screen
     if ([testName isEqualToString:@"web_connectivity"]){
         urls = [[NSMutableArray alloc] init];
+        //First validate urls
         if ([[testArguments objectForKey:@"urls"] count] > 0){
-            for (NSString *url in [testArguments objectForKey:@"urls"]){
-                if ([url length] < 2083){
-                    [Url checkExistingUrl:url];
-                    [urls addObject:url];
-                }
-            }
+            [self validateURLs];
+        }
+        //then load view
+        if ([urls count] > 0){
             self.tableView.estimatedRowHeight = 44.0;
             self.tableView.rowHeight = UITableViewAutomaticDimension;
             [self.tableView setHidden:NO];
+            [self.randomlistLabel setHidden:YES];
             //reloading the view with new parameters.
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
             });
         }
         else {
+            [self.tableView setHidden:YES];
             [self.randomlistLabel setText:NSLocalizedString(@"OONIRun.RandomSamplingOfURLs", nil)];
             [self.randomlistLabel setHidden:NO];
         }
@@ -167,6 +169,15 @@
     else {
         [self.tableView setHidden:YES];
         [self.randomlistLabel setHidden:YES];
+    }
+}
+
+-(void)validateURLs{
+    for (NSString *url in [testArguments objectForKey:@"urls"]){
+        if ([url length] < 2083){
+            [Url checkExistingUrl:url];
+            [urls addObject:url];
+        }
     }
 }
 
