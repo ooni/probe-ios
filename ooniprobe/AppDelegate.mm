@@ -24,8 +24,6 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     [[UINavigationBar appearance] setTranslucent:FALSE];
-
-    [self setMappingProvider];
     
     #ifdef RELEASE
     CrashlyticsKit.delegate = self;
@@ -73,16 +71,6 @@
     [SettingsUtility set_push_token:token];
     [NotificationService updateClient];
 #endif
-}
-
--(void)setMappingProvider{
-    if ([ObjectMapper sharedInstance].mappingProvider == nil){
-        InCodeMappingProvider *inCodeMappingProvider = [InCodeMappingProvider new];
-        [inCodeMappingProvider mapFromPropertyKey:@"ca_bundle_path" toDictionaryKey:@"net/ca_bundle_path" forClass:[Options class]];
-        [[ObjectMapper sharedInstance] setMappingProvider:inCodeMappingProvider];
-        NSLog(@"mappingProvider setting %@", [ObjectMapper sharedInstance].mappingProvider);
-    }
-    NSLog(@"mappingProvider is set %@", [ObjectMapper sharedInstance].mappingProvider);
 }
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
@@ -173,7 +161,6 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    [self setMappingProvider];
     if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"notifications_enabled"];
 }

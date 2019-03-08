@@ -17,7 +17,11 @@
 }
 
 -(NSDictionary*)getSettingsDictionary{
-    return [self dictionary];
+    ObjectMapper *mapper = [[ObjectMapper alloc] init];
+    InCodeMappingProvider *inCodeMappingProvider = [InCodeMappingProvider new];
+    [inCodeMappingProvider mapFromPropertyKey:@"ca_bundle_path" toDictionaryKey:@"net/ca_bundle_path" forClass:[Options class]];
+    [mapper setMappingProvider:inCodeMappingProvider];
+    return [mapper dictionaryFromObject:self];
 }
 
 @end
