@@ -1,5 +1,6 @@
 #import "TestSummaryTableViewController.h"
 #import "ReachabilityManager.h"
+#import "Tests.h"
 
 @interface TestSummaryTableViewController ()
 
@@ -237,10 +238,11 @@
         TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
         NSString *testSuiteName = segueObj.result_id.test_group_name;
         AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
-        [testSuite setTestList:[NSMutableArray arrayWithObject:[[AbstractTest alloc] initTest:segueObj.test_name]]];
+        AbstractTest *test = [[AbstractTest alloc] initTest:segueObj.test_name];
+        [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         [testSuite setResult:segueObj.result_id];
         if ([testSuiteName isEqualToString:@"websites"])
-            [(WebsitesSuite*)testSuite setUrls:[NSArray arrayWithObject:segueObj.url_id.url]];
+            [(WebConnectivity*)test setInputs:[NSArray arrayWithObject:segueObj.url_id.url]];
         [segueObj setReRun];
         [vc setTestSuite:testSuite];
     }

@@ -7,13 +7,13 @@
     self = [super init];
     if (self) {
         self.name = @"web_connectivity";
-        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
     }
     return self;
 }
 
 -(void) runTest {
-    if (self.settings.inputs == nil){
+    [super prepareRun];
+    if (self.inputs == nil || [self.inputs count] == 0){
         //Download urls and then alloc class
         [TestUtility downloadUrls:^(NSArray *urls) {
             if (urls != nil && [urls count] > 0){
@@ -27,8 +27,10 @@
             }
         }];
     }
-    else
+    else {
+        [self setUrls:self.inputs];
         [super runTest];
+    }
 }
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
@@ -58,6 +60,7 @@
 
 -(void)setUrls:(NSArray*)inputs{
     self.settings.inputs = inputs;
+    self.inputs = nil;
 }
 
 -(void)setDefaultMaxRuntime {
