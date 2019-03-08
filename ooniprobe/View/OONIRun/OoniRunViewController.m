@@ -146,8 +146,11 @@
     if ([testName isEqualToString:@"web_connectivity"]){
         urls = [[NSMutableArray alloc] init];
         //First validate urls
-        if ([[testArguments objectForKey:@"urls"] count] > 0){
-            [self validateURLs];
+        if ([testArguments isKindOfClass:[NSDictionary class]]){
+        id urlsObj = [testArguments objectForKey:@"urls"];
+            if ([urlsObj isKindOfClass:[NSArray class]] && [(NSArray*)urlsObj count] > 0){
+                [self validateURLs];
+            }
         }
         //then load view
         if ([urls count] > 0){
