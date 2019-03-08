@@ -38,8 +38,8 @@
         }
         [self.label1Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Video", nil)];
         [self.label1Bottom setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Video.Quality", nil)];
-        [self.label2Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Upload", nil)];
-        [self.label3Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Download", nil)];
+        [self.label2Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Download", nil)];
+        [self.label3Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Upload", nil)];
         [self.label4Top setText:NSLocalizedString(@"TestResults.Summary.Performance.Hero.Ping", nil)];
         [self.label4Bottom setText:NSLocalizedString(@"TestResults.ms", nil)];
     }
@@ -79,16 +79,43 @@
         else if ([result.test_group_name isEqualToString:@"performance"]){
             TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
             TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
-            [self.label1Central setText:[testKeysDash getVideoQuality:NO]];
-            [self.label2Central setText:[testKeysNdt getUpload]];
-            [self.label2Bottom setText:[testKeysNdt getUploadUnit]];
-            [self.label3Central setText:[testKeysNdt getDownload]];
-            [self.label3Bottom setText:[testKeysNdt getDownloadUnit]];
-            [self.label4Central setText:[testKeysNdt getPing]];
+            [self setText:[testKeysNdt getDownload] forLabel:self.label2Central inStackView:self.view2];
+            [self setText:[testKeysNdt getDownloadUnit] forLabel:self.label2Bottom inStackView:self.view2];
+            [self setText:[testKeysNdt getUpload] forLabel:self.label3Central inStackView:self.view3];
+            [self setText:[testKeysNdt getUploadUnit] forLabel:self.label3Bottom inStackView:self.view3];
+            [self setText:[testKeysNdt getPing] forLabel:self.label4Central inStackView:self.view4];
+            [self setText:[testKeysDash getVideoQuality:NO] forLabel:self.label1Central inStackView:self.view1];
         }
     });
 }
 
+-(void)setText:(NSString*)text forLabel:(UILabel*)label inStackView:(UIStackView*)stackView{
+    if (text == nil)
+        text = NSLocalizedString(@"TestResults.NotAvailable", nil);
+    [label setText:text];
+    if ([text isEqualToString:NSLocalizedString(@"TestResults.NotAvailable", nil)]){
+        if (stackView == self.view1){
+            [self.label1Top setAlpha:0.3f];
+            [self.label1Central setAlpha:0.3f];
+            [self.label1Bottom setAlpha:0.3f];
+        }
+        else if (stackView == self.view2){
+            [self.label2Top setAlpha:0.3f];
+            [self.label2Central setAlpha:0.3f];
+            [self.label2Bottom setAlpha:0.3f];
+        }
+        else if (stackView == self.view3){
+            [self.label3Top setAlpha:0.3f];
+            [self.label3Central setAlpha:0.3f];
+            [self.label3Bottom setAlpha:0.3f];
+        }
+        else if (stackView == self.view4){
+            [self.label4Top setAlpha:0.3f];
+            [self.label4Central setAlpha:0.3f];
+            [self.label4Bottom setAlpha:0.3f];
+        }
+    }
+}
 
 -(void)addLine:(UIView*)view{
     UIView *lineView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, view.frame.size.height)];
