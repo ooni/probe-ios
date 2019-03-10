@@ -211,7 +211,7 @@
     
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.CantDeactivate", nil) message:nil inView:self];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.EnableAtLeastOneTest", nil) message:nil inView:self];
         return;
     }
     
