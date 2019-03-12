@@ -211,7 +211,9 @@
     
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.EnableAtLeastOneTest", nil) message:nil inView:self];
+        [MessageUtility alertWithTitle:nil
+                               message:NSLocalizedString(@"Modal.EnableAtLeastOneTest", nil)
+                                inView:self];
         return;
     }
     

@@ -82,8 +82,8 @@
                                    handler:^(UIAlertAction * action) {
                                        [self.navigationController popViewControllerAnimated:YES];
                                    }];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.CustomURL.NotSaved", nil)
-                               message:nil
+        [MessageUtility alertWithTitle:nil
+                               message:NSLocalizedString(@"Modal.CustomURL.NotSaved", nil)
                               okButton:okButton
                                 inView:self];
 
