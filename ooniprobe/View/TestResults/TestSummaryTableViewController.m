@@ -49,6 +49,11 @@
 
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    return 52;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -74,7 +79,7 @@
     if (current.is_failed){
         [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
         [title setTextColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
-        [status setImage:[UIImage imageNamed:@"reload"]];
+        [status setImage:[UIImage imageNamed:@"help"]];
     }
     else {
         [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
@@ -179,11 +184,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     segueObj = [self.measurements objectAtIndex:indexPath.row];
-    if (segueObj.is_failed){
-        [self showPopup];
-    }
-    else
-        [self goToDetails];
+    [self goToDetails];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -196,6 +197,7 @@
     }
 }
 
+//TODO-RERUN keep or move?
 -(void)showPopup{
     UIAlertAction* reRunButton = [UIAlertAction
                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
@@ -218,7 +220,9 @@
 }
 
 -(void)goToDetails{
-    if ([segueObj.test_name isEqualToString:@"ndt"])
+    if (segueObj.is_failed)
+        [self performSegueWithIdentifier:@"toFailedTestDetails" sender:self];
+    else if ([segueObj.test_name isEqualToString:@"ndt"])
         [self performSegueWithIdentifier:@"toNdtTestDetails" sender:self];
     else if ([segueObj.test_name isEqualToString:@"dash"])
         [self performSegueWithIdentifier:@"toDashTestDetails" sender:self];
@@ -244,6 +248,7 @@
         HeaderSwipeViewController *vc = (HeaderSwipeViewController *)segue.destinationViewController;
         [vc setResult:result];
     }
+    //TODO-RERUN keep or move?
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
         NSString *testSuiteName = segueObj.result_id.test_group_name;
@@ -256,7 +261,7 @@
         [segueObj setReRun];
         [vc setTestSuite:testSuite];
     }
-    else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"]){
+    else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"] || [[segue identifier] isEqualToString:@"toFailedTestDetails"]){
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;
         [vc setResult:result];
         [vc setMeasurement:segueObj];
