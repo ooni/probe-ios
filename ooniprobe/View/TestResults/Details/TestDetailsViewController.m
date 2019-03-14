@@ -23,7 +23,7 @@
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
     if (!parent) {
-        [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
+            [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
     }
 }
 
