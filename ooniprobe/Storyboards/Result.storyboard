@@ -54,14 +54,10 @@
                                             <rect key="frame" x="304" y="11" width="29" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="29" id="0LP-wW-0hU"/>
-                                                <constraint firstAttribute="height" constant="29" id="uPs-CK-ype"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvK-Ha-FEz">
                                             <rect key="frame" x="45" y="11" width="251" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="pbE-L6-kUB"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -91,15 +87,11 @@
                                         <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AC6-jp-MyM">
                                             <rect key="frame" x="304" y="11" width="29" height="29"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="29" id="Ief-Uq-mb9"/>
                                                 <constraint firstAttribute="width" constant="29" id="duG-Wy-q3F"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fE-vG-Fdl">
                                             <rect key="frame" x="8" y="11" width="288" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="AdV-5z-rxE"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -108,7 +100,9 @@
                                     <constraints>
                                         <constraint firstItem="AC6-jp-MyM" firstAttribute="leading" secondItem="6fE-vG-Fdl" secondAttribute="trailing" constant="8" id="1ey-5b-FUq"/>
                                         <constraint firstAttribute="bottom" secondItem="6fE-vG-Fdl" secondAttribute="bottom" constant="10.5" id="200-db-TIr"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AC6-jp-MyM" secondAttribute="bottom" constant="1" id="3yM-vk-naG"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="AC6-jp-MyM" secondAttribute="bottom" constant="1" id="NYL-th-xLB"/>
+                                        <constraint firstItem="AC6-jp-MyM" firstAttribute="top" secondItem="dQ6-RW-LDb" secondAttribute="topMargin" id="PaG-EE-Hkv"/>
                                         <constraint firstItem="6fE-vG-Fdl" firstAttribute="top" secondItem="dQ6-RW-LDb" secondAttribute="top" constant="11" id="eYN-Nu-XWv"/>
                                         <constraint firstItem="6fE-vG-Fdl" firstAttribute="leading" secondItem="dQ6-RW-LDb" secondAttribute="leading" constant="8" id="uw3-y6-jZl"/>
                                         <constraint firstItem="AC6-jp-MyM" firstAttribute="trailing" secondItem="dQ6-RW-LDb" secondAttribute="trailingMargin" id="vVm-Pj-hTK"/>
@@ -173,12 +167,12 @@
                                             <rect key="frame" x="304" y="11" width="29" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="29" id="8Vq-Vh-Bz3"/>
-                                                <constraint firstAttribute="height" constant="29" id="U91-04-dc6"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="fmA-0v-Ydr" firstAttribute="top" secondItem="VJL-Lz-h0L" secondAttribute="top" constant="6" id="90I-6J-7qW"/>
+                                        <constraint firstItem="jHh-Cb-BQk" firstAttribute="top" secondItem="VJL-Lz-h0L" secondAttribute="topMargin" id="FRQ-wx-B5x"/>
                                         <constraint firstAttribute="bottom" secondItem="Ny1-IK-xLx" secondAttribute="bottom" constant="10.5" id="PMz-CO-gxe"/>
                                         <constraint firstAttribute="bottom" secondItem="fmA-0v-Ydr" secondAttribute="bottom" constant="6.6699999999999999" id="UNw-5R-Nxg"/>
                                         <constraint firstItem="fmA-0v-Ydr" firstAttribute="leading" secondItem="Ny1-IK-xLx" secondAttribute="trailing" constant="8" id="aJY-bA-vIm"/>
