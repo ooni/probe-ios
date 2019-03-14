@@ -35,7 +35,7 @@
 "Dashboard.Overview.Run" = "Ejecutar";
 "Dashboard.Overview.LatestTest" = "Prueba anterior:";
 "Dashboard.Overview.Estimated" = "Estimado:";
-"Dashboard.Overview.ChooseWebsites" = "Elije sitios web";
+"Dashboard.Overview.ChooseWebsites" = "Elige sitios web";
 "Dashboard.Running.Running" = "Ejecutando:";
 "Dashboard.Running.EstimatedTimeLeft" = "Tiempo restante estimado:";
 "Dashboard.Running.Seconds" = "%@ segundos";
@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "WiFi";
 "TestResults.Summary.Hero.Mobile" = "Datos móviles";
 "TestResults.Summary.Hero.NoInternet" = "No hay Internet";
+"TestResults.Summary.Failed" = "Falló";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Probado";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Probados";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Bloqueado";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "Ver registro";
 "TestResults.Details.RawData" = "Datos";
 "TestResults.Details.CopyToClipboard" = "Copiar al portapapeles";
+"TestResults.Details.Failed.Title" = "Falló";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "Prueba de nuevo";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accesible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ es accesible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablemente bloqueado";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "Esta pantalla está bloqueada mientras esté corriendo una prueba.";
 "Modal.ResultsNotUploaded.Title" = "Resultados no se subieron";
 "Modal.ResultsNotUploaded.Paragraph" = "Algunos de los resultados de tus pruebas no han sido subidos a los servidores OONI. Si te gustaría contribuir al conjunto de datos de OONI, por favor súbelos.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "Cancelar";
 "Modal.ResultsNotUploaded.Button.Upload" = "Subir";
 "Modal.EnableNotifications.AutomatedTesting" = "Habilita permisos de notificación para ejecutar pruebas automáticamente.";
 "Modal.EnableNotifications.News" = "Habilita permisos de notificación para recibir actualizaciones de noticias.";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "Los viejos resultados serán borrados. No te preocupes, siempre puedes encontrarlos en el Explorador OONI y en la API OONI.";
 "Modal.DoYouWantToDeleteAllTests" = "¿Deseas eliminar todos los resultados de las pruebas?";
 "Modal.DoYouWantToDeleteThisTest" = "¿Deseas eliminar esta prueba?";
-"Modal.EnableAtLeastOneTest" = "Can't disable";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "Por favor inserte sólo dígitos en este campo.";
 "Modal.ReRun.Title" = "Volver a ejecutar prueba";
 "Modal.ReRun.Paragraph" = "Esta prueba ha fallado. ¿Volver a ejecutarla?";
 "Modal.CustomURL.NotSaved" = "Tus URLs no serán guardadas cuando dejes esta pantalla. ¿Estás seguro de que quieres dejarla?";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "Habilitar";
+"Modal.ManualUpload.Disable" = "No, gracias!";
 "Toast.CopiedToClipboard" = "Se copió al portapapeles";
 "Snackbar.ResultsNotUploaded.Text" = "No subido";
 "Snackbar.ResultsNotUploaded.Upload" = "Subir";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Cuota mensual de datos móviles";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Cuota mensual de WiFi";
 "Settings.Sharing.Label" = "Compartir";
-"Settings.Sharing.UploadResults" = "Publicar resultados";
+"Settings.Sharing.UploadResults" = "Publicar resultados automáticamente";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "Incluir información de red";
 "Settings.Sharing.GPS" = "Incluir geolocalización aproximada";
 "Settings.Sharing.IncludeIP" = "Incluir mi dirección IP";
@@ -257,7 +265,7 @@
 "Settings.Websites.MaxRuntime" = "Duración de la prueba";
 "Settings.Websites.Categories.Label" = "Categorías de sitios web a probar";
 "Settings.Websites.Categories.Description" = "%@ categorías habilitadas";
-"Settings.Websites.CustomURL.Title" = "Elije sitios web a probar";
+"Settings.Websites.CustomURL.Title" = "Elige sitios web a probar";
 "Settings.Websites.CustomURL.URL" = "URL";
 "Settings.Websites.CustomURL.NoURLEntered" = "No se han introducido URLs";
 "Settings.Websites.CustomURL.Run" = "Ejecutar";
@@ -294,7 +302,7 @@
 "OONIRun.InvalidParameter" = "Parámetro inválido";
 "OONIRun.InvalidParameter.Msg" = "El enlace OONI Run está malformado o bien tu aplicación está desactualizada.";
 "OONIRun.RandomSamplingOfURLs" = "Probarás una muestra aleatoria de sitios web.";
-"OONIRun.TestRunningError" = "Please wait for the test to finish running before tapping on an OONI Run link.";
+"OONIRun.TestRunningError" = "Por favor espera hasta que la prueba termine su ejecución antes de clicar en un enlace OONI Run.";
 "CategoryCode.ALDR.Name" = "Drogas y alcohol";
 "CategoryCode.REL.Name" = "Religión";
 "CategoryCode.PORN.Name" = "Pornografía";

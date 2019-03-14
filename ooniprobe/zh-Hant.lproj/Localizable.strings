@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "WiFi";
 "TestResults.Summary.Hero.Mobile" = "行動數據";
 "TestResults.Summary.Hero.NoInternet" = "無網際網路";
+"TestResults.Summary.Failed" = "失敗";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "已測試過";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "已測試過";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "被封鎖的";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "檢視記錄";
 "TestResults.Details.RawData" = "數據";
 "TestResults.Details.CopyToClipboard" = "複製到剪貼簿";
+"TestResults.Details.Failed.Title" = "失敗";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "Try Again";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "可訪問的";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ 可訪問";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "很可能被屏蔽";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "執行測試時畫面會鎖住靜止";
 "Modal.ResultsNotUploaded.Title" = "結果未上傳";
 "Modal.ResultsNotUploaded.Paragraph" = "部份的測試結果尚未上傳到 ONNI 伺服器，若願意提交 OONI  數據組，請上傳之。";
-"Modal.ResultsNotUploaded.Button.Cancel" = "取消";
 "Modal.ResultsNotUploaded.Button.Upload" = "上傳";
 "Modal.EnableNotifications.AutomatedTesting" = "啟用通知授權以便自動執行測試。";
 "Modal.EnableNotifications.News" = "啟用通知授權以便接收新聞更新。";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "舊的結果會被刪除，但別擔心，仍然可在 OONI Explorer 和 OONI API 找到這些資料。";
 "Modal.DoYouWantToDeleteAllTests" = "你要刪除所有過去的測試結果嗎？";
 "Modal.DoYouWantToDeleteThisTest" = "你要刪除這次的測試嗎？";
-"Modal.EnableAtLeastOneTest" = "Can't disable";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "本欄位只能填入數字";
 "Modal.ReRun.Title" = "重新執行測試";
 "Modal.ReRun.Paragraph" = "本次測試失敗，重新執執測試？";
 "Modal.CustomURL.NotSaved" = "關閉此畫面後不會儲存 URL 記錄，確定要離開此畫面嗎？  ";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "啟用";
+"Modal.ManualUpload.Disable" = "不用，謝謝";
 "Toast.CopiedToClipboard" = "已複製到剪貼簿";
 "Snackbar.ResultsNotUploaded.Text" = "未上傳的";
 "Snackbar.ResultsNotUploaded.Upload" = "上傳";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "每月行動數據補貼";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "每月 WIFI 補貼";
 "Settings.Sharing.Label" = "分享";
-"Settings.Sharing.UploadResults" = "發佈結果";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "包括網路資訊";
 "Settings.Sharing.GPS" = "包含大概旳地理位置";
 "Settings.Sharing.IncludeIP" = "包含我的 IP 位置";

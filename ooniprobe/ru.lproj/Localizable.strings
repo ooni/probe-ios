@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "Wi-fi";
 "TestResults.Summary.Hero.Mobile" = "Мобильные данные";
 "TestResults.Summary.Hero.NoInternet" = "Нет связи с интернетом";
+"TestResults.Summary.Failed" = "Ошибка";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Протестировано";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Протестировано";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Блокировано";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "Посмотреть лог";
 "TestResults.Details.RawData" = "Данные";
 "TestResults.Details.CopyToClipboard" = "Скопировать в буфер обмена";
+"TestResults.Details.Failed.Title" = "Ошибка";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "Попробовать снова";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Доступно";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "Сайт %@ доступен.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Похоже, заблокировано";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "На время теста этот экран заблокирован.";
 "Modal.ResultsNotUploaded.Title" = "Результаты не загружены";
 "Modal.ResultsNotUploaded.Paragraph" = "Некоторые из ваших результатов теста не были загружены на серверы OONI. Если вы хотите помочь проекту OONI с исследовательскими данными, пожалуйста, загрузите результаты на сервер.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "Отмена";
 "Modal.ResultsNotUploaded.Button.Upload" = "Загрузить";
 "Modal.EnableNotifications.AutomatedTesting" = "Разрешить уведомления для автоматических тестов.";
 "Modal.EnableNotifications.News" = "Разрешить новостные уведомления.";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "Старые результаты будут удалены. Не беспокойтесь, вы всегда сможете найти их в OONI Explorer и OONI API.";
 "Modal.DoYouWantToDeleteAllTests" = "Удалить все результаты теста?";
 "Modal.DoYouWantToDeleteThisTest" = "Хотите удалить этот тест?";
-"Modal.EnableAtLeastOneTest" = "Can't disable";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "В этом поле только цифры, пожалуйста.";
 "Modal.ReRun.Title" = "Повторить тест";
 "Modal.ReRun.Paragraph" = "Тест неудачен. Повторить?";
 "Modal.CustomURL.NotSaved" = "Если вы закроете этот экран, адреса не сохранятся. Хотите выйти?";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "Включить";
+"Modal.ManualUpload.Disable" = "Нет, спасибо";
 "Toast.CopiedToClipboard" = "Скопировано в буфер обмена";
 "Snackbar.ResultsNotUploaded.Text" = "Не загружено";
 "Snackbar.ResultsNotUploaded.Upload" = "Загрузить";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Monthly mobile allowance";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Monthly WiFi allowance";
 "Settings.Sharing.Label" = "Обмен";
-"Settings.Sharing.UploadResults" = "Публиковать результаты";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "Включать сетевые данные";
 "Settings.Sharing.GPS" = "Включать примерное местонахождение";
 "Settings.Sharing.IncludeIP" = "Включать мой IP-адрес";

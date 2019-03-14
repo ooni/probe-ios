@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "Wi-Fi";
 "TestResults.Summary.Hero.Mobile" = "Données mobiles";
 "TestResults.Summary.Hero.NoInternet" = "Pas d’Internet";
+"TestResults.Summary.Failed" = "Échec";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Testé";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Testés";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Bloqué";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "Visualiser le journal";
 "TestResults.Details.RawData" = "Données";
 "TestResults.Details.CopyToClipboard" = "Copier dans le presse-papiers";
+"TestResults.Details.Failed.Title" = "Échec";
+"TestResults.Details.Failed.Paragraph" = "Vous pouvez essayer de relancer ce test";
+"TestResults.Details.Failed.TryAgain" = "Ressayer";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accessible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ est accessible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablement bloqué";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "Cet écran est verrouillé pendant qu’un test est en cours.";
 "Modal.ResultsNotUploaded.Title" = "Les résultats n’ont pas été téléversés";
 "Modal.ResultsNotUploaded.Paragraph" = "Certains de vos résultats de test n’ont pas été téléversés vers les serveurs de l’OONI. Si vous souhaitez contribuer à l’ensemble de données de l’OONI, veuillez les téléverser.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "Annuler";
 "Modal.ResultsNotUploaded.Button.Upload" = "Téléversement";
 "Modal.EnableNotifications.AutomatedTesting" = "Autoriser les notifications pour lancer des tests automatiquement.";
 "Modal.EnableNotifications.News" = "Autoriser les notifications pour recevoir des nouvelles.";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "Les anciens résultats seront supprimés. Ne vous inquiétez pas, vous pouvez toujours les trouver dans l’Explorateur et dans l’API de l’OONI.";
 "Modal.DoYouWantToDeleteAllTests" = "Voulez-vous supprimer tous les résultats de test ?";
 "Modal.DoYouWantToDeleteThisTest" = "Voulez-vous supprimer ce test ?";
-"Modal.EnableAtLeastOneTest" = "Impossible de désactiver cette option";
+"Modal.EnableAtLeastOneTest" = "Veuillez activer au moins un test";
 "Modal.OnlyDigits" = "Veuillez ne saisir que des chiffres dans ce champ.";
 "Modal.ReRun.Title" = "Relancer le test";
 "Modal.ReRun.Paragraph" = "Ce test a échoué. Relancer le test ?";
 "Modal.CustomURL.NotSaved" = "Vos URL ne seront pas enregistrées si vous quittez cet écran. Voulez-vous vraiment le quitter ?";
+"Modal.ManualUpload.Title" = "Activer le téléversement manuel ?";
+"Modal.ManualUpload.Paragraph" = "Ce paramètre vous permet de retéléverser manuellement les mesures non publiées.";
+"Modal.ManualUpload.Enable" = "Activer";
+"Modal.ManualUpload.Disable" = "Non, merci";
 "Toast.CopiedToClipboard" = "A été copié dans le presse-papiers";
 "Snackbar.ResultsNotUploaded.Text" = "N’a pas été téléversé";
 "Snackbar.ResultsNotUploaded.Upload" = "Téléversement";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Quota mobile mensuel";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Quota Wi-Fi mensuel";
 "Settings.Sharing.Label" = "Partage";
-"Settings.Sharing.UploadResults" = "Publier les résultats";
+"Settings.Sharing.UploadResults" = "Publication automatique des résultats";
+"Settings.Sharing.UploadResultsManually" = "Téléversement manuel des résultats";
 "Settings.Sharing.IncludeNetwork" = "Inclure les renseignements sur le réseau";
 "Settings.Sharing.GPS" = "Inclure la position géographique approximative";
 "Settings.Sharing.IncludeIP" = "Inclure mon adresse IP";

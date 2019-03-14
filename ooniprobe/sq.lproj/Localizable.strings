@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "WiFi";
 "TestResults.Summary.Hero.Mobile" = "Të dhëna celulare";
 "TestResults.Summary.Hero.NoInternet" = "S'ka internet";
+"TestResults.Summary.Failed" = "Dështoi";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Testuar";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Testuar";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Bllokuar";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "Shiko detajet";
 "TestResults.Details.RawData" = "Të dhëna";
 "TestResults.Details.CopyToClipboard" = "Kopjo";
+"TestResults.Details.Failed.Title" = "Dështoi";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "Riprovoni";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Aksesueshëm";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ është i aksesueshëm";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Mundësisht i bllokuar";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "Ky ekran është i kyçur ndërkohë që po kryhet testimi.";
 "Modal.ResultsNotUploaded.Title" = "Rezultatet nuk u ngarkuan";
 "Modal.ResultsNotUploaded.Paragraph" = "Disa nga testimet e tua nuk janë të ngarkuara tek serverat e OONI. Nëse dëshiron të kontribuosh tek baza e të dhënave te OONI, ju lutem ngarkojini ato.\n";
-"Modal.ResultsNotUploaded.Button.Cancel" = "Anulo";
 "Modal.ResultsNotUploaded.Button.Upload" = "Ngarkoni";
 "Modal.EnableNotifications.AutomatedTesting" = "Aktivizo të drejtat e njoftimeve që të kryesh testime automatikisht.";
 "Modal.EnableNotifications.News" = "Aktivizo të drejtat e njoftimeve që të marrësh lajme të reja.";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "Rezultatet e vjetra do te fshihen. Pa merak, gjithmonë mund t'i gjesh ato tek OONI Explorer dhe tek OONI API.";
 "Modal.DoYouWantToDeleteAllTests" = "Doni që të fshihen të gjitha rezultatet e testimeve?";
 "Modal.DoYouWantToDeleteThisTest" = "Doni të fshini këtë testim?";
-"Modal.EnableAtLeastOneTest" = "Can't disable";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "Ju lutem vendosni vetëm shifra në këtë fushë.";
 "Modal.ReRun.Title" = "Kryej testimin përsëri";
 "Modal.ReRun.Paragraph" = "Ky testim dështoi. Doni t'a kryeni përsëri?";
 "Modal.CustomURL.NotSaved" = "URL-të nuk do ruhen pasi të largoheni nga ky ekran. Jeni të sigurt që doni të largoheni nga ky ekran?";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "Aktivizoje";
+"Modal.ManualUpload.Disable" = "No, thanks";
 "Toast.CopiedToClipboard" = "U kopjua";
 "Snackbar.ResultsNotUploaded.Text" = "Nuk është ngarkuar";
 "Snackbar.ResultsNotUploaded.Upload" = "Ngarkoni";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Lejim mujor në celular";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Lejim mujor WiFi";
 "Settings.Sharing.Label" = "Ndajë";
-"Settings.Sharing.UploadResults" = "Publiko rezultatet";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "Përfshi informacion të rrjetit";
 "Settings.Sharing.GPS" = "Përfshi gjelokacionin me përafërsi";
 "Settings.Sharing.IncludeIP" = "Përfshi adresën time IP";

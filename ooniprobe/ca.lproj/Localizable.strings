@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "Wi-Fi";
 "TestResults.Summary.Hero.Mobile" = "Dades mòbils";
 "TestResults.Summary.Hero.NoInternet" = "Sense Internet";
+"TestResults.Summary.Failed" = "Ha fallat";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Provat";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Provats";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Blocat";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "Mostra els registre";
 "TestResults.Details.RawData" = "Dades";
 "TestResults.Details.CopyToClipboard" = "Copia al porta-retalls";
+"TestResults.Details.Failed.Title" = "Ha fallat";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "Torna-ho a provar";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accessible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ és accessible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablement bloquejat";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "Aquesta pantalla està bloquejada mentre s'està executant una prova.";
 "Modal.ResultsNotUploaded.Title" = "Els resultats no s'han pujat";
 "Modal.ResultsNotUploaded.Paragraph" = "Alguns dels resultats de les vostres proves no s'han pujat als servidors d'OONI. Si desitgeu contribuir al conjunt de dades d'OONI, pugueu-los.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "Cancel·la";
 "Modal.ResultsNotUploaded.Button.Upload" = "Pujada";
 "Modal.EnableNotifications.AutomatedTesting" = "Activeu els permisos de notificació per executar les proves automàticament.";
 "Modal.EnableNotifications.News" = "Activeu els permisos de notificació per rebre actualitzacions de notícies.";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "Els resultats anteriors s'eliminaran. No us preocupeu, sempre podeu trobar-los en l'OONI Explorer i en l'API d'OONI.";
 "Modal.DoYouWantToDeleteAllTests" = "Voleu eliminar tots els resultats de la prova?";
 "Modal.DoYouWantToDeleteThisTest" = "Voleu eliminar aquesta prova?";
-"Modal.EnableAtLeastOneTest" = "Can't disable";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "Introduïu només dígits en aquest camp.";
 "Modal.ReRun.Title" = "Torna a executar la prova";
 "Modal.ReRun.Paragraph" = "Aquesta prova ha fallat. Voleu tornar a executar la prova?";
 "Modal.CustomURL.NotSaved" = "Les vostres URL no es desaran quan surti d'aquesta pantalla. Esteu segur de voler sortir d'aquesta pantalla?";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "Habilitar";
+"Modal.ManualUpload.Disable" = "No, thanks";
 "Toast.CopiedToClipboard" = "Copiat al porta-retalls";
 "Snackbar.ResultsNotUploaded.Text" = "No s'ha pujat";
 "Snackbar.ResultsNotUploaded.Upload" = "Pujada";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Quota mensual de dades mòbils";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Quota mensual de Wi-Fi";
 "Settings.Sharing.Label" = "Comparteix";
-"Settings.Sharing.UploadResults" = "Publica els resultats";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "Inclou informació de la xarxa";
 "Settings.Sharing.GPS" = "Inclou geolocalització aproximada";
 "Settings.Sharing.IncludeIP" = "Inclou la meva adreça IP";

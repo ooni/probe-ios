@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "وايفاي";
 "TestResults.Summary.Hero.Mobile" = "بيانات الخلوي";
 "TestResults.Summary.Hero.NoInternet" = "لا إنترنت";
+"TestResults.Summary.Failed" = "لا يعمل";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "تمّ اختبارها";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "تمّ اختبارها";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "محظور";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "عرض السجل";
 "TestResults.Details.RawData" = "بيانات";
 "TestResults.Details.CopyToClipboard" = "نسخ إلى الحافظة";
+"TestResults.Details.Failed.Title" = "لا يعمل";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "الرجاء المحاولة مجددًا";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "مُتاح";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ مُتاح.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "محجوب على الأرجح";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "هذه الواجهة مغلقة لحين الإنتهاء من الاختبار.";
 "Modal.ResultsNotUploaded.Title" = "النتائج لم يتمّ رفعها";
 "Modal.ResultsNotUploaded.Paragraph" = "بعض نتائج الاختبارات الخاصة بك لم يتمّ رفعها إلى خوادم OONI. من فضلك قم برفعها اذا كنت ترغب بالمساهمة في تجميع بيانات OONI.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "إلغاء";
 "Modal.ResultsNotUploaded.Button.Upload" = "رفع";
 "Modal.EnableNotifications.AutomatedTesting" = "قم بإعطاء تصريح التنبيهات لإجراء الاختبارات اوتوماتيكيًا.";
 "Modal.EnableNotifications.News" = "قم بإعطاء تصريح التنبيهات للحصول على آخر الأخبار.";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "النتائج القديمة سيتم حذفها. لا تقلق بإمكانك العثور عليها في أي وقت في متصفح OONI و في OONI API.";
 "Modal.DoYouWantToDeleteAllTests" = "هل تريد حذف جميع نتائج الإختبارات؟";
 "Modal.DoYouWantToDeleteThisTest" = "هل تريد حذف هذا الإختبار؟";
-"Modal.EnableAtLeastOneTest" = "Can't disable";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "يرجى إدخال الأرقام فقط في هذا الحقل.";
 "Modal.ReRun.Title" = "إعادة إجراء الاختبار";
 "Modal.ReRun.Paragraph" = "لقد فشل هذا الإختبار. هل تريد إعادة إجراء الاختبار؟";
 "Modal.CustomURL.NotSaved" = "المواقع لن تسجل اذا تركت هذه الواجهة. هل تريد ترك الواجهة؟";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "تمكين";
+"Modal.ManualUpload.Disable" = "No, thanks";
 "Toast.CopiedToClipboard" = "تم النسخ إلى الحافظة";
 "Snackbar.ResultsNotUploaded.Text" = "لم يتمّ الرفع";
 "Snackbar.ResultsNotUploaded.Upload" = "رفع";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "حجم الاستخدام لشبكة الخلوي المسموح به شهريًا";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "حجم الاستخدام لشبكة WiFi المسموح به شهريًا";
 "Settings.Sharing.Label" = "المشاركة";
-"Settings.Sharing.UploadResults" = "نشر النتائج";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "إدراج معلومات الشبكة";
 "Settings.Sharing.GPS" = "إدراج الموقع الجغرافي التقريبي";
 "Settings.Sharing.IncludeIP" = "إدراج عنوان الIP";

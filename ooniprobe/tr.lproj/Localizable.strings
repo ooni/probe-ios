@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "WiFi";
 "TestResults.Summary.Hero.Mobile" = "Mobil Veri";
 "TestResults.Summary.Hero.NoInternet" = "İnternet Yok";
+"TestResults.Summary.Failed" = "Tamamlanamadı";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Sınanmış";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Sınanmış";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Engellenmiş";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "Günlüğü görüntüle";
 "TestResults.Details.RawData" = "Veri";
 "TestResults.Details.CopyToClipboard" = "Panoya kopyala";
+"TestResults.Details.Failed.Title" = "Tamamlanamadı";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "Tekrar deneyin";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Erişilebilir";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ erişilebilir.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Engellenmiş olabilir";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "Bu ekran sınama sırasında kilitlidir.";
 "Modal.ResultsNotUploaded.Title" = "Sonuçlar yüklenmemiş";
 "Modal.ResultsNotUploaded.Paragraph" = "Bazı sınama sonuçları OONI sunucularına yüklenmemiş. OONU veri kümesine katkıda bulunmak isterseniz bu sonuçları yükleyin.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "İptal";
 "Modal.ResultsNotUploaded.Button.Upload" = "Yükle";
 "Modal.EnableNotifications.AutomatedTesting" = "Sınamaların otomatik yapılması için bildirim izinleri verilsin.";
 "Modal.EnableNotifications.News" = "Yeni güncellemelere dair haber alınması için bildirim izinleri verilsin.";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "Eski sonuçlar silinecek. Endişelenmeyin bu sonuçları her zaman OONI Explorer ve OONI API üzerinde bulabilirsiniz.";
 "Modal.DoYouWantToDeleteAllTests" = "Tüm sınama sonuçlarını silmek ister misiniz?";
 "Modal.DoYouWantToDeleteThisTest" = "Bu sınamayı silmek ister misiniz?";
-"Modal.EnableAtLeastOneTest" = "Can't disable";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "Lütfen bu alana sadece sayı girin.";
 "Modal.ReRun.Title" = "Sınamayı yinele";
 "Modal.ReRun.Paragraph" = "Bu sınama tamamlanamadı. Yeniden sınamak ister misiniz?";
 "Modal.CustomURL.NotSaved" = "Bu sayfadan ayrıldığınızda adresleriniz kaydedilmez. Bu sayfadan ayrılmak istediğinize emin misiniz?";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "Etkinleştir";
+"Modal.ManualUpload.Disable" = "No, thanks";
 "Toast.CopiedToClipboard" = "Panoya kopyalandı";
 "Snackbar.ResultsNotUploaded.Text" = "Yüklenmemiş";
 "Snackbar.ResultsNotUploaded.Upload" = "Yükle";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Aylık mobil veri izni";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Aylık WiFi veri izni";
 "Settings.Sharing.Label" = "Paylaşım";
-"Settings.Sharing.UploadResults" = "Sonuçları Yayınla";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "Ağ Bilgileri Katılsın";
 "Settings.Sharing.GPS" = "Yaklaşık coğrafi konum katılsın";
 "Settings.Sharing.IncludeIP" = "IP adresim katılsın";

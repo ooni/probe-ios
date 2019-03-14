@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "WiFi";
 "TestResults.Summary.Hero.Mobile" = "Δεδομένα κινητού";
 "TestResults.Summary.Hero.NoInternet" = "Έλλειψη Διαδικτύου";
+"TestResults.Summary.Failed" = "Απέτυχε";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Δοκιμασμένη";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Δοκιμασμένες";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Μπλοκαρισμένη";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "Προβολή αρχείου καταγραφής";
 "TestResults.Details.RawData" = "Δεδομένα";
 "TestResults.Details.CopyToClipboard" = "Αντιγραφή στο πρόχειρο";
+"TestResults.Details.Failed.Title" = "Απέτυχε";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "Try Again";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Προσβάσιμη";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "Η ιστοσελίδα %@ είναι προσβάσιμη.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Πιθανή λογοκρισία";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "Αυτή η οθόνη είναι κλειδωμένη όσο εκτελείται κάποια δοκιμή.";
 "Modal.ResultsNotUploaded.Title" = "Τα αποτελέσματα δεν ανέβηκαν";
 "Modal.ResultsNotUploaded.Paragraph" = "Μερικά από τα αποτελέσματά σου δεν έχουν ανέβει στους διακομιστές του OONI. Αν θέλεις να συνεισφέρεις στη βάση δεδομένων του OONI, παρακαλούμε να τα ανεβάσεις.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "Άκυρο";
 "Modal.ResultsNotUploaded.Button.Upload" = "Ανέβασμα";
 "Modal.EnableNotifications.AutomatedTesting" = "Ενεργοποίησε την άδεια ειδοποιήσεων για την αυτόματη εκτέλεση δοκιμών.";
 "Modal.EnableNotifications.News" = "Ενεργοποίησε την άδεια ειδοποιήσεων για να λαμβάνεις ενημερώσεις.";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "Τα παλιά αποτελέσματα θα διαγραφούν. Μην ανησυχείς, μπορείς να τα βρεις στο OONI Explorer και στο OONI API.";
 "Modal.DoYouWantToDeleteAllTests" = "Θέλεις να διαγράψεις όλα τα αποτελέσματα των δοκιμών σου;";
 "Modal.DoYouWantToDeleteThisTest" = "Θέλεις να διαγράψεις αυτή τη δοκιμή;";
-"Modal.EnableAtLeastOneTest" = "Can't disable";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "Παρακαλώ γράψε μόνο ψηφία σε αυτό το πεδίο.";
 "Modal.ReRun.Title" = "Επανεκτέλεση δοκιμής";
 "Modal.ReRun.Paragraph" = "Αυτή η δοκιμή απέτυχε. Επανεκτέλεση δοκιμής;";
 "Modal.CustomURL.NotSaved" = "Οι ιστοσελίδες σου δε θα αποθηκευτούν όταν φύγεις από αυτήν την οθόνη. Είσαι σίγουρος/η ότι θέλεις να φύγεις από αυτήν την οθόνη;";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "Ενεργοποίηση";
+"Modal.ManualUpload.Disable" = "No, thanks";
 "Toast.CopiedToClipboard" = "Αντιγράφηκε στο πρόχειρο";
 "Snackbar.ResultsNotUploaded.Text" = "Δεν ανέβηκαν";
 "Snackbar.ResultsNotUploaded.Upload" = "Ανέβασμα";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Μηνιαίο όγκος χρήσης δεδομένων κινητής τηλεφωνίας";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Μηνιαίο όγκος χρήσης δεδομένων WiFi";
 "Settings.Sharing.Label" = "Κοινή χρήση";
-"Settings.Sharing.UploadResults" = "Δημοσίευση αποτελεσμάτων";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "Δημοσίευση πληροφοριών δικτύου";
 "Settings.Sharing.GPS" = "Δημοσίευση της κατά προσέγγιση γεωγραφικής θέσης";
 "Settings.Sharing.IncludeIP" = "Δημοσίευση της διεύθυνσης IP μου";

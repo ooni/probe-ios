@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "वाईफ़ाई";
 "TestResults.Summary.Hero.Mobile" = "मोबाइल डेटा";
 "TestResults.Summary.Hero.NoInternet" = "कोई इंटरनेट नहीं";
+"TestResults.Summary.Failed" = "विफ़ल";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "परीक्षण";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "परीक्षण";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "अवरुद्ध";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "लॉग देखें";
 "TestResults.Details.RawData" = "डेटा";
 "TestResults.Details.CopyToClipboard" = "क्लिपबोर्ड पर कॉपी करें";
+"TestResults.Details.Failed.Title" = "विफ़ल";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "पुनः प्रयास करें";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "सुलभ";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ सुलभ है";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "शायद अवरुद्ध";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "एक परीक्षण चल रहा है, जबकि यह स्क्रीन लॉक है।";
 "Modal.ResultsNotUploaded.Title" = "परिणाम अपलोड नहीं किए गए";
 "Modal.ResultsNotUploaded.Paragraph" = "आपके कुछ परीक्षा परिणाम OONI सर्वर पर अपलोड नहीं किए गए हैं। यदि आप OONI के डेटासेट में योगदान करना चाहते हैं, तो कृपया उन्हें अपलोड करें।";
-"Modal.ResultsNotUploaded.Button.Cancel" = "रद्द करें ";
 "Modal.ResultsNotUploaded.Button.Upload" = "अपलोड करें";
 "Modal.EnableNotifications.AutomatedTesting" = "स्वचालित रूप से परीक्षण चलाने के लिए अधिसूचना अनुमतियां सक्षम करें।";
 "Modal.EnableNotifications.News" = "समाचार अद्यतन प्राप्त करने के लिए अधिसूचना अनुमति सक्षम करें।";
@@ -202,11 +205,15 @@
 "Modal.OldTestsDetected" = "पुराने परिणाम हटा दिए जाएंगे। चिंता न करें, आप उन्हें हमेशा OONI एक्सप्लोरर और OONI API में पा सकते हैं।";
 "Modal.DoYouWantToDeleteAllTests" = "क्या आप सभी परीक्षण परिणामों को हटाना चाहते हैं?";
 "Modal.DoYouWantToDeleteThisTest" = "क्या आप इस परीक्षा को मिटाना चाहते हैं?";
-"Modal.EnableAtLeastOneTest" = "Can't disable";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "कृपया इस क्षेत्र में केवल अंक डालें।";
 "Modal.ReRun.Title" = "परीक्षण फिर से चलाएं";
 "Modal.ReRun.Paragraph" = "यह परीक्षण विफल रहा है। परीक्षण फिर से चलाएं?";
 "Modal.CustomURL.NotSaved" = "जब आप यह स्क्रीन छोड़ते हैं तो आपके URL सहेजे नहीं जाएंगे। क्या आप वाकई इस स्क्रीन को छोड़ना चाहते हैं?";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "सक्षम करें";
+"Modal.ManualUpload.Disable" = "No, thanks";
 "Toast.CopiedToClipboard" = "क्लिपबोर्ड में नकल";
 "Snackbar.ResultsNotUploaded.Text" = "अपलोड नहीं किया गया";
 "Snackbar.ResultsNotUploaded.Upload" = "अपलोड करें";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "मासिक मोबाइल भत्ता";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "मासिक वाईफाई भत्ता";
 "Settings.Sharing.Label" = "सहभाजन";
-"Settings.Sharing.UploadResults" = "परिणाम प्रकाशित करें";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "नेटवर्क जानकारी शामिल करें";
 "Settings.Sharing.GPS" = "अनुमानित भू-स्थान शामिल करें";
 "Settings.Sharing.IncludeIP" = "मेरा आईपी पता शामिल करें";

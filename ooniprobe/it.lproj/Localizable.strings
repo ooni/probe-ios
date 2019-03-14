@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "WiFi";
 "TestResults.Summary.Hero.Mobile" = "Traffico Dati Mobile";
 "TestResults.Summary.Hero.NoInternet" = "Internet assente";
+"TestResults.Summary.Failed" = "Fallito";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Testato";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Testati";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Bloccato";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "Vedi log";
 "TestResults.Details.RawData" = "Dati";
 "TestResults.Details.CopyToClipboard" = "Copia sugli Appunti";
+"TestResults.Details.Failed.Title" = "Fallito";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "Riprova";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accessibile";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ è accessibile";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probabilmente bloccato";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "Lo scherma è bloccato quando un test è in corso.";
 "Modal.ResultsNotUploaded.Title" = "Risultati non caricati";
 "Modal.ResultsNotUploaded.Paragraph" = "Alcuni risultati dei tuoi test non sono stati caricati sui server di OONI. Se vuoi contribuire alla banca dati di OONI, per favore caricali.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "Annulla";
 "Modal.ResultsNotUploaded.Button.Upload" = "Carica";
 "Modal.EnableNotifications.AutomatedTesting" = "Attiva i permessi di notifica per eseguire i test automaticamente.";
 "Modal.EnableNotifications.News" = "Attiva i permessi di notifica per ricevere notizie.";
@@ -207,6 +210,10 @@
 "Modal.ReRun.Title" = "Ri-esegui il test";
 "Modal.ReRun.Paragraph" = "Questo test è fallito. Vuoi ri-eseguire il test?";
 "Modal.CustomURL.NotSaved" = "Gli URL non saranno salvati quando lasci questa pagina. Sei sicuro di voler lasciare questa pagina?";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "Abilità";
+"Modal.ManualUpload.Disable" = "No, thanks";
 "Toast.CopiedToClipboard" = "Copiato negli Appunti";
 "Snackbar.ResultsNotUploaded.Text" = "Non caricati";
 "Snackbar.ResultsNotUploaded.Upload" = "Carica";
@@ -243,7 +250,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Massimale traffico dati mobile mensile";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Massimale traffico dati WiFi mensile";
 "Settings.Sharing.Label" = "Condivisione";
-"Settings.Sharing.UploadResults" = "Pubblica risultati";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "Includi informazioni sulla rete";
 "Settings.Sharing.GPS" = "Includi geo-localizzazione approssimativa";
 "Settings.Sharing.IncludeIP" = "Includi il mio indirizzo IP";
