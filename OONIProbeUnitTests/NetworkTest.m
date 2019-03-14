@@ -1,11 +1,3 @@
-//
-//  NetworkTest.m
-//  OONIProbeUnitTests
-//
-//  Created by Lorenzo Primiterra on 01/03/2019.
-//  Copyright © 2019 OONI. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
 #import "Network.h"
 

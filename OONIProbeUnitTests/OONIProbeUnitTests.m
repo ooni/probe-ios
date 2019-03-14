@@ -1,11 +1,3 @@
-//
-//  OONIProbeUnitTests.m
-//  OONIProbeUnitTests
-//
-//  Created by Lorenzo Primiterra on 26/02/2019.
-//  Copyright © 2019 OONI. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
 
 @interface OONIProbeUnitTests : XCTestCase

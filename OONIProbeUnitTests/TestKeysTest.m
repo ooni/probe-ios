@@ -1,10 +1,3 @@
-//
-//  TestKeysTest.m
-//  
-//
-//  Created by Lorenzo Primiterra on 04/03/2019.
-//
-
 #import <XCTest/XCTest.h>
 #import "TestKeys.h"
 #define BLANK @""
