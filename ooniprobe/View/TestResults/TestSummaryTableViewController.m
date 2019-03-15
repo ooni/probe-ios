@@ -79,7 +79,7 @@
     if (current.is_failed){
         [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
         [title setTextColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
-        [status setImage:[UIImage imageNamed:@"help"]];
+        [status setImage:[UIImage imageNamed:@"error"]];
     }
     else {
         [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
@@ -90,9 +90,9 @@
         [title setText:[LocalizationUtility getNameForTest:current.test_name]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", current.test_name]]];
-        if (current.is_failed)
-            [icon setTintColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
-        else
+        //if (current.is_failed)
+        //    [icon setTintColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
+        //else
             [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
         if (!current.is_anomaly){
             [status setImage:[UIImage imageNamed:@"tick"]];
@@ -118,9 +118,9 @@
         [title setText:[NSString stringWithFormat:@"%@", current.url_id.url]];
         UIImageView *icon = (UIImageView*)[cell viewWithTag:2];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current.url_id.category_code]]];
-        if (current.is_failed)
-            [icon setTintColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
-        else
+        //if (current.is_failed)
+        //    [icon setTintColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
+        //else
             [icon setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
         if (!current.is_failed){
             if (!current.is_anomaly){
