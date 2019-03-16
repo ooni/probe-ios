@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "WiFi";
 "TestResults.Summary.Hero.Mobile" = "行動數據";
 "TestResults.Summary.Hero.NoInternet" = "無網際網路";
+"TestResults.Summary.Failed" = "失敗";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "已測試過";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "已測試過";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "被封鎖的";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "檢視記錄";
 "TestResults.Details.RawData" = "數據";
 "TestResults.Details.CopyToClipboard" = "複製到剪貼簿";
+"TestResults.Details.Failed.Title" = "失敗";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "Try Again";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "可訪問的";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ 可訪問";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "很可能被屏蔽";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "執行測試時畫面會鎖住靜止";
 "Modal.ResultsNotUploaded.Title" = "結果未上傳";
 "Modal.ResultsNotUploaded.Paragraph" = "部份的測試結果尚未上傳到 ONNI 伺服器，若願意提交 OONI  數據組，請上傳之。";
-"Modal.ResultsNotUploaded.Button.Cancel" = "取消";
 "Modal.ResultsNotUploaded.Button.Upload" = "上傳";
 "Modal.EnableNotifications.AutomatedTesting" = "啟用通知授權以便自動執行測試。";
 "Modal.EnableNotifications.News" = "啟用通知授權以便接收新聞更新。";
@@ -201,11 +204,15 @@
 "Modal.EnableGPS" = "為改進測試的準確度，需要啟用 GPS 授權。OONI 僅收集大略的 GPS 定位資訊。";
 "Modal.DoYouWantToDeleteAllTests" = "你要刪除所有過去的測試結果嗎？";
 "Modal.DoYouWantToDeleteThisTest" = "你要刪除這次的測試嗎？";
-"Modal.CantDeactivate" = "無法停用";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "本欄位只能填入數字";
 "Modal.ReRun.Title" = "重新執行測試";
 "Modal.ReRun.Paragraph" = "本次測試失敗，重新執執測試？";
 "Modal.CustomURL.NotSaved" = "關閉此畫面後不會儲存 URL 記錄，確定要離開此畫面嗎？  ";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "啟用";
+"Modal.ManualUpload.Disable" = "不用，謝謝";
 "Toast.CopiedToClipboard" = "已複製到剪貼簿";
 "Snackbar.ResultsNotUploaded.Text" = "未上傳的";
 "Snackbar.ResultsNotUploaded.Upload" = "上傳";
@@ -242,7 +249,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "每月行動數據補貼";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "每月 WIFI 補貼";
 "Settings.Sharing.Label" = "分享";
-"Settings.Sharing.UploadResults" = "發佈結果";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "包括網路資訊";
 "Settings.Sharing.GPS" = "包含大概旳地理位置";
 "Settings.Sharing.IncludeIP" = "包含我的 IP 位置";
@@ -275,6 +283,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "自動的 DASH 伺服器選取";
 "Settings.Performance.DashServerAddress" = "DASH 伺服器";
 "Settings.Performance.DashServerPort" = "DASH 伺服器端口";
+"Settings.SendEmail.Label" = "Send email to support";
+"Settings.SendEmail.Error" = "No email clients configured on your device";
 "Notification.FinishedRunning" = "已完成的執行";
 "OONIBrowser.TryMirror" = "試試鏡像站";
 "OONIBrowser.Loading" = "載入中…";
@@ -291,7 +301,7 @@
 "OONIRun.InvalidParameter" = "無效的參數";
 "OONIRun.InvalidParameter.Msg" = "OONI 執行的連結異常或是使用的應用程式太老舊。";
 "OONIRun.RandomSamplingOfURLs" = "將隨機測試一組網站樣本";
-"OONIRun.TestRunningError" = "請等待測試結束執行再啟動 OONI 執行。";
+"OONIRun.TestRunningError" = "Please wait for the test to finish running before tapping on an OONI Run link.";
 "CategoryCode.ALDR.Name" = "藥物 & 酒精";
 "CategoryCode.REL.Name" = "宗教";
 "CategoryCode.PORN.Name" = "色情";
@@ -308,7 +318,7 @@
 "CategoryCode.ANON.Name" = "規避工具";
 "CategoryCode.DATE.Name" = "線上約會";
 "CategoryCode.GRP.Name" = "社交網路";
-"CategoryCode.LGBT.Name" = "LGBT 同志";
+"CategoryCode.LGBT.Name" = "LGBTQ+";
 "CategoryCode.FILE.Name" = "檔案分享";
 "CategoryCode.HACK.Name" = "駭侵工具";
 "CategoryCode.COMT.Name" = "通訊工具";
@@ -339,7 +349,7 @@
 "CategoryCode.ANON.Description" = "匿名化，審查規避和加密";
 "CategoryCode.DATE.Description" = "線上約會網站";
 "CategoryCode.GRP.Description" = "線上社交網路工具與平台";
-"CategoryCode.LGBT.Description" = "同志 LGBTQI 社群所討論的相關議題（不包含色情）";
+"CategoryCode.LGBT.Description" = "LGBTQ+ communities discussing related issues (excluding pornography)";
 "CategoryCode.FILE.Description" = "檔案分享包括雲端檔案儲存, BT 與點對點分享";
 "CategoryCode.HACK.Description" = "電腦安全工具與新聞";
 "CategoryCode.COMT.Description" = "個人或群組通訊工具，包含網路電話 VOIP, 通訊軟體和網頁郵件";

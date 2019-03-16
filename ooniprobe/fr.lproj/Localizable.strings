@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "Wi-Fi";
 "TestResults.Summary.Hero.Mobile" = "Données mobiles";
 "TestResults.Summary.Hero.NoInternet" = "Pas d’Internet";
+"TestResults.Summary.Failed" = "Échec";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Testé";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Testés";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Bloqué";
@@ -115,10 +116,13 @@
 "TestResults.Details.ViewLog" = "Visualiser le journal";
 "TestResults.Details.RawData" = "Données";
 "TestResults.Details.CopyToClipboard" = "Copier dans le presse-papiers";
+"TestResults.Details.Failed.Title" = "Échec";
+"TestResults.Details.Failed.Paragraph" = "Vous pouvez essayer de relancer ce test";
+"TestResults.Details.Failed.TryAgain" = "Ressayer";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accessible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ est accessible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablement bloqué";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ est probablement bloqué au moyen de %@.\n\nNote : De faux positifs peuvent se produire. Apprenez-en davantage [ici] (https://ooni.io/nettest/web-connectivity/).";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ est probablement bloqué au moyen de %@.\n\nNote : De faux positifs peuvent se produire. Apprenez-en davantage [ici](https://ooni.io/nettest/web-connectivity/).";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "Contournement de la censure";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "**Manipulation DNS**";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP" = "**Blocage basé sur le TCP/IP**";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "Cet écran est verrouillé pendant qu’un test est en cours.";
 "Modal.ResultsNotUploaded.Title" = "Les résultats n’ont pas été téléversés";
 "Modal.ResultsNotUploaded.Paragraph" = "Certains de vos résultats de test n’ont pas été téléversés vers les serveurs de l’OONI. Si vous souhaitez contribuer à l’ensemble de données de l’OONI, veuillez les téléverser.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "Annuler";
 "Modal.ResultsNotUploaded.Button.Upload" = "Téléversement";
 "Modal.EnableNotifications.AutomatedTesting" = "Autoriser les notifications pour lancer des tests automatiquement.";
 "Modal.EnableNotifications.News" = "Autoriser les notifications pour recevoir des nouvelles.";
@@ -201,11 +204,15 @@
 "Modal.EnableGPS" = "Pour améliorer la précision des tests, nous avons besoin des autorisations Position. OONI ne recueillera qu’une position GPS approximative.";
 "Modal.DoYouWantToDeleteAllTests" = "Voulez-vous supprimer tous les résultats de test ?";
 "Modal.DoYouWantToDeleteThisTest" = "Voulez-vous supprimer ce test ?";
-"Modal.CantDeactivate" = "Impossible de désactiver";
+"Modal.EnableAtLeastOneTest" = "Veuillez activer au moins un test";
 "Modal.OnlyDigits" = "Veuillez ne saisir que des chiffres dans ce champ.";
 "Modal.ReRun.Title" = "Relancer le test";
 "Modal.ReRun.Paragraph" = "Ce test a échoué. Relancer le test ?";
 "Modal.CustomURL.NotSaved" = "Vos URL ne seront pas enregistrées si vous quittez cet écran. Voulez-vous vraiment le quitter ?";
+"Modal.ManualUpload.Title" = "Activer le téléversement manuel ?";
+"Modal.ManualUpload.Paragraph" = "Ce paramètre vous permet de retéléverser manuellement les mesures non publiées.";
+"Modal.ManualUpload.Enable" = "Activer";
+"Modal.ManualUpload.Disable" = "Non, merci";
 "Toast.CopiedToClipboard" = "A été copié dans le presse-papiers";
 "Snackbar.ResultsNotUploaded.Text" = "N’a pas été téléversé";
 "Snackbar.ResultsNotUploaded.Upload" = "Téléversement";
@@ -242,7 +249,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Quota mobile mensuel";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Quota Wi-Fi mensuel";
 "Settings.Sharing.Label" = "Partage";
-"Settings.Sharing.UploadResults" = "Publier les résultats";
+"Settings.Sharing.UploadResults" = "Publication automatique des résultats";
+"Settings.Sharing.UploadResultsManually" = "Téléversement manuel des résultats";
 "Settings.Sharing.IncludeNetwork" = "Inclure les renseignements sur le réseau";
 "Settings.Sharing.GPS" = "Inclure la position géographique approximative";
 "Settings.Sharing.IncludeIP" = "Inclure mon adresse IP";
@@ -275,6 +283,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Sélection automatique du serveur DASH";
 "Settings.Performance.DashServerAddress" = "Serveur DASH";
 "Settings.Performance.DashServerPort" = "Port du serveur DASH";
+"Settings.SendEmail.Label" = "Envoyer un courriel à l’assistance";
+"Settings.SendEmail.Error" = "Aucun client de courriel n’est configuré sur votre appareil";
 "Notification.FinishedRunning" = "Le test est terminé.";
 "OONIBrowser.TryMirror" = "Essayer un miroir";
 "OONIBrowser.Loading" = "Chargement…";
@@ -291,7 +301,7 @@
 "OONIRun.InvalidParameter" = "Un paramètre est invalide";
 "OONIRun.InvalidParameter.Msg" = "Soit le lien OONI Run est mal formé soit votre appli n’est pas à jour.";
 "OONIRun.RandomSamplingOfURLs" = "Vous testerez un échantillon aléatoire de sites Web.";
-"OONIRun.TestRunningError" = "Veuillez attendre la fin du test avant d’ouvrir OONI Run.";
+"OONIRun.TestRunningError" = "Veuillez attendre la fin du test avant d’ouvrir un lien OONI Run.";
 "CategoryCode.ALDR.Name" = "Drogues et alcool";
 "CategoryCode.REL.Name" = "Religion";
 "CategoryCode.PORN.Name" = "Pornographie";
@@ -339,7 +349,7 @@
 "CategoryCode.ANON.Description" = "Anonymisation, contournement de la censure et chiffrement";
 "CategoryCode.DATE.Description" = "Sites de rencontre en ligne";
 "CategoryCode.GRP.Description" = "Outils et plateformes de réseautage social en ligne";
-"CategoryCode.LGBT.Description" = "Communautés reliées à la cause LGBTQ+ qui discutent de questions connexes (sans pornographie)";
+"CategoryCode.LGBT.Description" = "Communautés reliées à la cause LGBTQ+, qui discutent de questions connexes (sans pornographie)";
 "CategoryCode.FILE.Description" = "Partage de fichiers, dont le stockage nuagique de fichiers, les torrents et le pair à pair";
 "CategoryCode.HACK.Description" = "Outils de sécurité informatique et nouvelles connexes";
 "CategoryCode.COMT.Description" = "Outils de communication individuelle et de groupe, dont la voix sur IP, les messageries et le courriel Web";

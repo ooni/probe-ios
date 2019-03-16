@@ -6,12 +6,12 @@
     self = [super init];
     if (self) {
         self.name = @"dash";
-        self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
     }
     return self;
 }
 
 -(void) runTest {
+    [super prepareRun];
     [super runTest];
 }
 

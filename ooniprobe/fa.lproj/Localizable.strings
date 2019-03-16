@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "وای فای";
 "TestResults.Summary.Hero.Mobile" = "داده موبایل";
 "TestResults.Summary.Hero.NoInternet" = "بدون اینترنت";
+"TestResults.Summary.Failed" = "ناموفق";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "تست شده";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "تست شده";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "بسته شده";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "نمایش لاگ";
 "TestResults.Details.RawData" = "داده‌‌ها";
 "TestResults.Details.CopyToClipboard" = "به حافظه کوتاه مدت کپی کن";
+"TestResults.Details.Failed.Title" = "ناموفق";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "دوباره سعی کنید";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "در دسترس";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ در دسترس است.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "احتمالا مسدود";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "این صفحه در زمان اجرای تست قفل است.";
 "Modal.ResultsNotUploaded.Title" = "نتایج بارگذاری نشده‌اند";
 "Modal.ResultsNotUploaded.Paragraph" = "بعضی از نتایج تست‌ها به سرورهای OONI  بارگذاری نشده‌اند. اگر مایل به مشارکت در مجموع داده‌‌های OONI هستید، لطفا آن‌ها را بارگذاری کنید.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "لغو";
 "Modal.ResultsNotUploaded.Button.Upload" = "آپلود";
 "Modal.EnableNotifications.AutomatedTesting" = "اجازه‌ی اعلان را فعال کنید تا تست‌ها به صورت خودکار اجرا شوند.";
 "Modal.EnableNotifications.News" = "اجازه‌ی اعلان را فعال کنید تا اخبار بروز رسانی را دریافت کنید.";
@@ -201,11 +204,15 @@
 "Modal.EnableGPS" = "برای بهبود دقت تست‌ها نیاز به اجازه‌ی GPS داریم. OONi تنها اطلاعات تقریبی مکان GPS شما را جمع‌آوری می‌کند.";
 "Modal.DoYouWantToDeleteAllTests" = "آیا مایلید که تمام آزمایش‌های قبلی را پاک کنید؟";
 "Modal.DoYouWantToDeleteThisTest" = "آیا می‌خواهید این تست را حذف کنید؟";
-"Modal.CantDeactivate" = "امکان غیرفعالسازی وجود نداشت";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "لطفا تنها از اعداد در فیلد استفاده کنید";
 "Modal.ReRun.Title" = "اجرای دوباره تست";
 "Modal.ReRun.Paragraph" = "این تست ناموفق بود. آیا دوباره اجرا شود؟";
 "Modal.CustomURL.NotSaved" = "آدرس‌های شما با ترک این صفحه، ذخیره نخواهند شد. آیا مطمئنید که می‌خواهید این صفحه را ترک کنید؟";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "فعال کن";
+"Modal.ManualUpload.Disable" = "No, thanks";
 "Toast.CopiedToClipboard" = "به حافظه کوتاه مدت کپی شد";
 "Snackbar.ResultsNotUploaded.Text" = "بارگذاری نشدند";
 "Snackbar.ResultsNotUploaded.Upload" = "آپلود";
@@ -242,7 +249,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "خرج ماهانه‌ی موبایل";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "خرج  ماهانه‌ی WiFi";
 "Settings.Sharing.Label" = "به اشتراک گذاری";
-"Settings.Sharing.UploadResults" = "انتشار نتایج";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "شامل اطلاعات شبکه باشد";
 "Settings.Sharing.GPS" = "شامل موقعیت جغرافیایی تقریبی باشد";
 "Settings.Sharing.IncludeIP" = "شامل آدرس IP من باشد";
@@ -275,6 +283,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "انتخاب خودکار سرور DASH";
 "Settings.Performance.DashServerAddress" = "سرور DASH";
 "Settings.Performance.DashServerPort" = "درگاه سرور DASH";
+"Settings.SendEmail.Label" = "Send email to support";
+"Settings.SendEmail.Error" = "No email clients configured on your device";
 "Notification.FinishedRunning" = "اجرا به پایان رسید";
 "OONIBrowser.TryMirror" = "سرورهای آینه را امتحان کنید";
 "OONIBrowser.Loading" = "در حال بارگذاری...";
@@ -291,7 +301,7 @@
 "OONIRun.InvalidParameter" = "پارامتر نامعتبر است";
 "OONIRun.InvalidParameter.Msg" = "لینک اجرای OONI یا ناقص است و یا نرم افزار شما قدیمی است.";
 "OONIRun.RandomSamplingOfURLs" = "شما نمونه‌ای تصادفی از وبسایت‌ها را تست خواهید کرد.";
-"OONIRun.TestRunningError" = "لطفا قبل از اجرای OONI صبر کنید تا اجرای تست پایان یابد.";
+"OONIRun.TestRunningError" = "Please wait for the test to finish running before tapping on an OONI Run link.";
 "CategoryCode.ALDR.Name" = "الکل و مواد مخدر";
 "CategoryCode.REL.Name" = "دین";
 "CategoryCode.PORN.Name" = "پورنوگرافی";
@@ -308,7 +318,7 @@
 "CategoryCode.ANON.Name" = "ابزارهای دور زدن";
 "CategoryCode.DATE.Name" = "دوستیابی آنلاین";
 "CategoryCode.GRP.Name" = "شبکه اجتماعی";
-"CategoryCode.LGBT.Name" = "دگرباشی";
+"CategoryCode.LGBT.Name" = "LGBTQ+";
 "CategoryCode.FILE.Name" = "اشتراک فایل";
 "CategoryCode.HACK.Name" = "ابزارهای هک";
 "CategoryCode.COMT.Name" = "ابزارهای ارتباطی";
@@ -339,7 +349,7 @@
 "CategoryCode.ANON.Description" = "گمنام‌سازی، دور زدن سانسور و رمزگذاری";
 "CategoryCode.DATE.Description" = "سایت‌‌های دوستیابی آنلاین";
 "CategoryCode.GRP.Description" = "ابزارها و پلتفرم‌های شبکه‌های اجتماعی آنلاین";
-"CategoryCode.LGBT.Description" = "مسائل مربوط به جامعه‌ی دگرباشی (به غیر از پورنوگرافی)";
+"CategoryCode.LGBT.Description" = "LGBTQ+ communities discussing related issues (excluding pornography)";
 "CategoryCode.FILE.Description" = "اشتراک فایل شامل ذخیره‌‌ی ابری فایل، تورنت و P2P";
 "CategoryCode.HACK.Description" = "ابزارها و اخبار امنیت رایانه";
 "CategoryCode.COMT.Description" = "ابزارهای ارتباط فردی و جمعی شامل VoIP، پیام‌رسانی و ایمیل";

@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "WiFi";
 "TestResults.Summary.Hero.Mobile" = "移动数据";
 "TestResults.Summary.Hero.NoInternet" = "无网络连接";
+"TestResults.Summary.Failed" = "失败";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "已测试";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "已测试";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "已被阻止";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "查看日志";
 "TestResults.Details.RawData" = "数据";
 "TestResults.Details.CopyToClipboard" = "复制到剪贴板";
+"TestResults.Details.Failed.Title" = "失败";
+"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.TryAgain" = "重试";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "可访问";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ 可以访问。";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "可能被封锁";
@@ -193,7 +197,6 @@
 "Modal.Error.CantCloseScreen" = "有测试运行时，此屏幕将被锁定。";
 "Modal.ResultsNotUploaded.Title" = "结果未上传";
 "Modal.ResultsNotUploaded.Paragraph" = "您的部分测试结果尚未上传到 OONI 服务器。如果您想为 OONI 数据集做出贡献，请上传它们。";
-"Modal.ResultsNotUploaded.Button.Cancel" = "取消";
 "Modal.ResultsNotUploaded.Button.Upload" = "上传";
 "Modal.EnableNotifications.AutomatedTesting" = "启用通知权限以自动运行测试。";
 "Modal.EnableNotifications.News" = "启用通知权限以接收资讯更新。";
@@ -201,11 +204,15 @@
 "Modal.EnableGPS" = "为提高测试的准确性，我们需要 GPS 权限。 OONI 只会收集大致的 GPS 位置。";
 "Modal.DoYouWantToDeleteAllTests" = "您要删除所有测试结果吗？";
 "Modal.DoYouWantToDeleteThisTest" = "确认删除此测试？";
-"Modal.CantDeactivate" = "无法停用";
+"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
 "Modal.OnlyDigits" = "此栏中仅支持数字。";
 "Modal.ReRun.Title" = "重新运行测试";
 "Modal.ReRun.Paragraph" = "此测试已失败。重新运行此测试？";
 "Modal.CustomURL.NotSaved" = "离开此屏幕将不会保存您的网址（URL）。确定离开吗。";
+"Modal.ManualUpload.Title" = "Enable Manual Upload?";
+"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Enable" = "开启";
+"Modal.ManualUpload.Disable" = "No, thanks";
 "Toast.CopiedToClipboard" = "已复制到剪贴板";
 "Snackbar.ResultsNotUploaded.Text" = "未上传";
 "Snackbar.ResultsNotUploaded.Upload" = "上传";
@@ -242,7 +249,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "每月移动流量";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "每月 WiFi 流量";
 "Settings.Sharing.Label" = "分享";
-"Settings.Sharing.UploadResults" = "发布结果";
+"Settings.Sharing.UploadResults" = "Automatically Publish Results";
+"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
 "Settings.Sharing.IncludeNetwork" = "包括网络信息";
 "Settings.Sharing.GPS" = "包括非精准的地理位置";
 "Settings.Sharing.IncludeIP" = "包含我的 IP 地址";
@@ -275,6 +283,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "自动选择 DASH 服务器";
 "Settings.Performance.DashServerAddress" = "DASH 服务器";
 "Settings.Performance.DashServerPort" = "DASH 服务器端口";
+"Settings.SendEmail.Label" = "Send email to support";
+"Settings.SendEmail.Error" = "No email clients configured on your device";
 "Notification.FinishedRunning" = "运行完成";
 "OONIBrowser.TryMirror" = "试试镜像站";
 "OONIBrowser.Loading" = "载入中....";
@@ -291,7 +301,7 @@
 "OONIRun.InvalidParameter" = "无效的参数";
 "OONIRun.InvalidParameter.Msg" = "OONI 运行链接的格式有误，或者您的应用已过时。";
 "OONIRun.RandomSamplingOfURLs" = "您将测试一组随机的网站样本。";
-"OONIRun.TestRunningError" = "打开 OONI Run 前，请等待测试完成。";
+"OONIRun.TestRunningError" = "Please wait for the test to finish running before tapping on an OONI Run link.";
 "CategoryCode.ALDR.Name" = "药物和酒精";
 "CategoryCode.REL.Name" = "宗教";
 "CategoryCode.PORN.Name" = "色情";
@@ -308,7 +318,7 @@
 "CategoryCode.ANON.Name" = "反审查工具";
 "CategoryCode.DATE.Name" = "在线约会";
 "CategoryCode.GRP.Name" = "社交网络";
-"CategoryCode.LGBT.Name" = "LGBT";
+"CategoryCode.LGBT.Name" = "LGBTQ+";
 "CategoryCode.FILE.Name" = "文件分享";
 "CategoryCode.HACK.Name" = "黑客工具";
 "CategoryCode.COMT.Name" = "通信工具";
@@ -339,7 +349,7 @@
 "CategoryCode.ANON.Description" = "匿名化、审查规避和加密";
 "CategoryCode.DATE.Description" = "在线约会网站";
 "CategoryCode.GRP.Description" = "在线社交网络之工具与平台";
-"CategoryCode.LGBT.Description" = "LGBTQI 相关社区讨论相关问题（不含色情内容）";
+"CategoryCode.LGBT.Description" = "LGBTQ+ communities discussing related issues (excluding pornography)";
 "CategoryCode.FILE.Description" = "文件分享，包括基于云服务的文件存储、BT 种子以及 P2P";
 "CategoryCode.HACK.Description" = "计算机安全工具和资讯";
 "CategoryCode.COMT.Description" = "个人或群组的通信工具，包括 VoIP、消息和网络邮件";

@@ -82,8 +82,8 @@
                                    handler:^(UIAlertAction * action) {
                                        [self.navigationController popViewControllerAnimated:YES];
                                    }];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.CustomURL.NotSaved", nil)
-                               message:nil
+        [MessageUtility alertWithTitle:nil
+                               message:NSLocalizedString(@"Modal.CustomURL.NotSaved", nil)
                               okButton:okButton
                                 inView:self];
 
@@ -138,7 +138,9 @@
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
-        [testSuite setUrls:urlArray];
+        WebConnectivity *test = [[WebConnectivity alloc] init];
+        [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
+        [test setInputs:urlArray];
         [vc setTestSuite:testSuite];
     }
 }

@@ -28,6 +28,9 @@
     [self.testAsnLabel setText:[NSString stringWithFormat:@"%@ - %@", [result getAsn], [result getNetworkName]]];
     self.testTimeLabel.text = [result getLocalizedStartTime];
     [self.testTimeLabel setTextColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+    [self.stackView1 setAlpha:1.0f];
+    [self.stackView2 setAlpha:1.0f];
+    [self.stackView3 setAlpha:1.0f];
 
     if ([result.test_group_name isEqualToString:@"websites"]){
         long anomalousMeasurements = [result anomalousMeasurements];
@@ -95,28 +98,42 @@
         Measurement *dash = [result getMeasurement:@"dash"];
         [self.stackView2 setHidden:NO];
         [self.stackView3 setHidden:NO];
-        [self.image1 setImage:[UIImage imageNamed:@"upload"]];
+        [self.image1 setImage:[UIImage imageNamed:@"download"]];
         [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.image2 setImage:[UIImage imageNamed:@"upload"]];
+        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         if (ndt){
-            [self.label1 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getUploadWithUnit]]];
-            [self.label2 setText:[NSString stringWithFormat:@"%@", [[result getMeasurement:@"ndt"].testKeysObj getDownloadWithUnit]]];
+            TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
+            [self setText:[testKeysNdt getDownloadWithUnit] forLabel:self.label1 inStackView:self.stackView1];
+            [self setText:[testKeysNdt getUploadWithUnit] forLabel:self.label2 inStackView:self.stackView2];
         }
         else {
             [self.label1 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
+            [self.stackView1 setAlpha:0.3f];
             [self.label2 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
+            [self.stackView2 setAlpha:0.3f];
         }
-        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        [self.image2 setImage:[UIImage imageNamed:@"download"]];
-        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         [self.image3 setImage:[UIImage imageNamed:@"video_quality"]];
         if (dash){
-            [self.label3 setText:[[result getMeasurement:@"dash"].testKeysObj getVideoQuality:NO]];
+            TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
+            [self setText:[testKeysDash getVideoQuality:NO] forLabel:self.label3 inStackView:self.stackView3];
         }
         else {
             [self.label3 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
+            [self.stackView3 setAlpha:0.3f];
         }
         [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    }
+}
+
+-(void)setText:(NSString*)text forLabel:(UILabel*)label inStackView:(UIStackView*)stackView{
+    if (text == nil)
+        text = NSLocalizedString(@"TestResults.NotAvailable", nil);
+    [label setText:text];
+    if ([text isEqualToString:NSLocalizedString(@"TestResults.NotAvailable", nil)]){
+        [stackView setAlpha:0.3f];
     }
 }
 
