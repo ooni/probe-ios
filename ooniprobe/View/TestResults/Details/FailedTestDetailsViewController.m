@@ -12,7 +12,7 @@
     [super viewDidLoad];
     [self.titleLabel setText:self.measurement.url_id.url];
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow5 alpha:1.0f]];
-    //[self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow5 alpha:1.0f]];
     [self.statusImage setImage:[UIImage imageNamed:@"error"]];
     [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
