@@ -197,28 +197,6 @@
     }
 }
 
-//TODO-RERUN keep or move?
--(void)showPopup{
-    UIAlertAction* reRunButton = [UIAlertAction
-                                  actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
-                                  style:UIAlertActionStyleDefault
-                                  handler:^(UIAlertAction * action) {
-                                      if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
-                                          [self performSegueWithIdentifier:@"toTestRun" sender:self];
-                                      else
-                                          [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil) message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
-                                  }];
-    UIAlertAction* cancelButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
-                                   style:UIAlertActionStyleCancel
-                                   handler:nil];
-    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ReRun.Title", nil)
-                           message:NSLocalizedString(@"Modal.ReRun.Paragraph", nil)
-                          okButton:reRunButton
-                      cancelButton:cancelButton
-                            inView:self];
-}
-
 -(void)goToDetails{
     if (segueObj.is_failed)
         [self performSegueWithIdentifier:@"toFailedTestDetails" sender:self];
@@ -247,19 +225,6 @@
     if ([[segue identifier] isEqualToString:@"header"]){
         HeaderSwipeViewController *vc = (HeaderSwipeViewController *)segue.destinationViewController;
         [vc setResult:result];
-    }
-    //TODO-RERUN keep or move?
-    else if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
-        NSString *testSuiteName = segueObj.result_id.test_group_name;
-        AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
-        AbstractTest *test = [[AbstractTest alloc] initTest:segueObj.test_name];
-        [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
-        [testSuite setResult:segueObj.result_id];
-        if ([testSuiteName isEqualToString:@"websites"])
-            [(WebConnectivity*)test setInputs:[NSArray arrayWithObject:segueObj.url_id.url]];
-        [segueObj setReRun];
-        [vc setTestSuite:testSuite];
     }
     else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"] || [[segue identifier] isEqualToString:@"toFailedTestDetails"]){
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;

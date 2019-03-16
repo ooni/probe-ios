@@ -1,5 +1,7 @@
 #import "TestDetailsViewController.h"
 #import "TestDetailsFooterViewController.h"
+#import "Tests.h"
+#import "TestRunningViewController.h"
 
 @interface TestDetailsViewController ()
 
@@ -68,7 +70,18 @@
         [vc setResult:result];
         [vc setMeasurement:measurement];
     }
-
+    else if ([[segue identifier] isEqualToString:@"toTestRun"]){
+        TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
+        NSString *testSuiteName = self.measurement.result_id.test_group_name;
+        AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
+        AbstractTest *test = [[AbstractTest alloc] initTest:self.measurement.test_name];
+        [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
+        [testSuite setResult:self.measurement.result_id];
+        if ([testSuiteName isEqualToString:@"websites"])
+            [(WebConnectivity*)test setInputs:[NSArray arrayWithObject:self.measurement.url_id.url]];
+        [self.measurement setReRun];
+        [vc setTestSuite:testSuite];
+    }
 }
 
 

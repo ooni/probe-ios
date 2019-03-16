@@ -2269,7 +2269,7 @@
                                             <constraint firstAttribute="height" constant="140" id="TzS-TF-WZ6"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="qgX-Lr-1kK"/>
+                                            <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="KaA-PI-t2J"/>
                                         </connections>
                                     </containerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7D-de-Uai">
@@ -2278,6 +2278,9 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="bKu-7j-j6f"/>
                                         </constraints>
                                         <state key="normal" title="Try Again"/>
+                                        <connections>
+                                            <action selector="reRun" destination="3RT-Xy-GYH" eventType="touchUpInside" id="8ea-zK-zY9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2310,11 +2313,12 @@
                         <outlet property="titleLabel" destination="BCD-YA-1t0" id="Fi7-R4-1pS"/>
                         <outlet property="tryAgainButton" destination="F7D-de-Uai" id="Vrq-XY-qQN"/>
                         <segue destination="zYs-kh-5bZ" kind="show" identifier="toViewLog" id="V8O-mv-mgp"/>
+                        <segue destination="iAS-yN-kea" kind="presentation" identifier="toTestRun" id="lZw-ES-A2m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8p-Ea-08P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3756" y="-723"/>
+            <point key="canvasLocation" x="3756" y="-748"/>
         </scene>
     </scenes>
     <resources>
@@ -2329,7 +2333,8 @@
         <image name="upload_nopad" width="11" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="lZw-ES-A2m"/>
         <segue reference="V8O-mv-mgp"/>
-        <segue reference="qgX-Lr-1kK"/>
+        <segue reference="KaA-PI-t2J"/>
     </inferredMetricsTieBreakers>
 </document>

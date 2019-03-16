@@ -1,5 +1,6 @@
 #import "FailedTestDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ReachabilityManager.h"
 
 @interface FailedTestDetailsViewController ()
 
@@ -25,5 +26,11 @@
     self.tryAgainButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
+-(IBAction)reRun{
+    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
+        [self performSegueWithIdentifier:@"toTestRun" sender:self];
+    else
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil) message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
+}
 
 @end
