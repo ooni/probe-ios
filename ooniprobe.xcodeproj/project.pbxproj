@@ -39,6 +39,7 @@
 		ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */; };
 		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
+		ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED365216223A40480093180B /* FailedTestDetailsViewController.m */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
 		ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
@@ -188,6 +189,8 @@
 		ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
 		ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewController.m; sourceTree = "<group>"; };
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		ED365215223A40480093180B /* FailedTestDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FailedTestDetailsViewController.h; sourceTree = "<group>"; };
+		ED365216223A40480093180B /* FailedTestDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FailedTestDetailsViewController.m; sourceTree = "<group>"; };
 		ED3932C21E3114740064CD11 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		ED3932C31E3114740064CD11 /* AboutViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutViewController.mm; sourceTree = "<group>"; };
 		ED3A2C761E87E87900419270 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -775,6 +778,8 @@
 				EDA17AFD208A310300D46D0F /* DashDetailsViewController.m */,
 				EDA17AFF208A312C00D46D0F /* NdtDetailsViewController.h */,
 				EDA17B00208A312C00D46D0F /* NdtDetailsViewController.m */,
+				ED365215223A40480093180B /* FailedTestDetailsViewController.h */,
+				ED365216223A40480093180B /* FailedTestDetailsViewController.m */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -1037,6 +1042,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
 				EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */,
