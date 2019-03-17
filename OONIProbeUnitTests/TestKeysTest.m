@@ -239,4 +239,16 @@ TestKeys *testKeys;
     XCTAssert([[testKeys getPlayoutDelay] isEqualToString:@"0.00"]);
 }
 
+- (void)testTampering {
+    XCTAssert(testKeys.tampering == nil);
+    testKeys.tampering = [Tampering new];
+    XCTAssert(testKeys.tampering.value == false);
+    testKeys.tampering = [[Tampering alloc] initWithValue:[NSNumber numberWithBool:true]];
+    XCTAssert(testKeys.tampering.value == true);
+    testKeys.tampering = [[Tampering alloc] initWithValue:nil];
+    XCTAssert(testKeys.tampering.value == false);
+    testKeys.tampering = [[Tampering alloc] initWithValue:[NSNull null]];
+    XCTAssert(testKeys.tampering.value == false);
+}
+
 @end
