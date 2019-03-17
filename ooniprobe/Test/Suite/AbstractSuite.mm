@@ -6,7 +6,6 @@
     self = [super init];
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
-        self.measurementIdx = 0;
         self.testList = [[NSMutableArray alloc] init];
     }
     return self;
@@ -25,7 +24,7 @@
 }
 
 -(void)runTestSuite {
-    [self initResult];
+    [self newResult];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
@@ -44,6 +43,10 @@
     //if last test
     if ([self.testList count] == 0){
         [self.result setIs_done:YES];
+        [self.result save];
+        //Resetting class values
+        self.result = nil;
+        self.measurementIdx = 0;
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
         if (state == UIApplicationStateBackground || state == UIApplicationStateInactive){
             if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
@@ -68,7 +71,8 @@
     return self.testList;
 }
 
--(void)initResult {
+-(void)newResult {
+    //For rerun measurement result is set by the view controller
     if (self.result == nil){
         self.result = [Result new];
         [self.result setTest_group_name:self.name];

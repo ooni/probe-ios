@@ -26,7 +26,7 @@
     [[UINavigationBar appearance] setTranslucent:FALSE];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 
-    #ifdef RELEASE
+  #ifdef RELEASE
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
     #endif
@@ -41,25 +41,6 @@
     NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if(notification) {
         [self handleNotification:notification :application];
-    }
-
-    //If old test are detected, tell the user we are deleting them, no cancel button
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"tests"]){
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Modal.OldTestsDetected", nil)
-                                     message:nil
-                                     preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* okButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction * action) {
-                                       [self removeOldTests];
-                                       [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"new_tests"];
-                                       [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"tests"];
-                                   }];
-        [alert addAction:okButton];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-        });
     }
     return YES;
 }
@@ -228,20 +209,6 @@
 // database delegates
 - (void)databaseError:(SRKError *)error {
     NSLog(@"DB error: %@", error.errorMessage);
-}
-
--(void)removeOldTests{
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *documentDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSArray *paths = [fileManager contentsOfDirectoryAtPath:documentDirPath error:nil];
-    for (NSString *path in paths) {
-        if ([path containsString:@".json"] || [path containsString:@".log"]) {
-            // path is directory
-            NSError *error;
-            NSString *filePath = [documentDirPath stringByAppendingPathComponent:path];
-            [fileManager removeItemAtPath:filePath error:&error];
-        }
-    }
 }
 
 @end

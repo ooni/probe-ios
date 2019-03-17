@@ -18,6 +18,6 @@
 -(void)testEnded:(AbstractTest*)test;
 -(void)runTestSuite;
 -(NSArray*)getTestList;
--(void)initResult;
+-(void)newResult;
 -(int)getRuntime;
 @end

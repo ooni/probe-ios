@@ -15,7 +15,6 @@
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurements = [[NSMutableDictionary alloc] init];
-        self.settings = [Settings new];
     }
     return self;
 }
@@ -52,14 +51,22 @@
     return measurement;
 }
 
+-(void)prepareRun{
+    self.settings = [Settings new];
+    self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
+}
+
 -(void)runTest{
+    if(self.annotation)
+        [self.settings.annotations setObject:@"ooni-run" forKey:@"origin"];
+    NSDictionary *settings = [self.settings getSettingsDictionary];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     dispatch_async(
                    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                       MKTask *task = [MKTask startNettest:[self.settings getSettingsDictionary]];
+                       MKTask *task = [MKTask startNettest:settings];
                        while (![task isDone]){
                            // Extract an event from the task queue and unmarshal it.
                            NSDictionary *evinfo = [task waitForNextEvent];

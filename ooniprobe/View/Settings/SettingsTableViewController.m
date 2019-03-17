@@ -46,7 +46,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     if (testSuite != nil){
-        testSuite.testList = nil;
+        [testSuite.testList removeAllObjects];
         [testSuite getTestList];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"settingsChanged" object:nil];
     }
@@ -211,7 +211,9 @@
     
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.CantDeactivate", nil) message:nil inView:self];
+        [MessageUtility alertWithTitle:nil
+                               message:NSLocalizedString(@"Modal.EnableAtLeastOneTest", nil)
+                                inView:self];
         return;
     }
     

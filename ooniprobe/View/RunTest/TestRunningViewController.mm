@@ -10,9 +10,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[TestUtility getColorForTest:testSuite.name]];
-    totalRuntime = [testSuite getRuntime];
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
-    [self.timeLabel setText:time];
+    [self.timeLabel setText:nil];
     [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
 
     [self runTest];
@@ -47,7 +45,14 @@
     if (testSuite != nil){
         totalTests = [testSuite.testList count];
         [testSuite runTestSuite];
+        [self setRuntime];
     }
+}
+
+-(void)setRuntime{
+    totalRuntime = [testSuite getRuntime];
+    NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
+    [self.timeLabel setText:time];
 }
 
 -(void)addAnimation{
@@ -115,7 +120,8 @@
 }
 
 -(void)showError{
-    [MessageUtility alertWithTitle:@"Modal.Error" message:@"Modal.Error.CantDownloadURLs" inView:self];
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                           message:NSLocalizedString(@"Modal.Error.CantDownloadURLs", nil) inView:self];
 }
 
 @end
