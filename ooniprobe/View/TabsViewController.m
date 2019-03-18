@@ -24,6 +24,7 @@
                                         actionWithTitle:NSLocalizedString(@"Modal.ManualUpload.Enable", nil)
                                         style:UIAlertActionStyleDefault
                                         handler:^(UIAlertAction * action) {
+                                            [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:MANUAL_UPLOAD_POPUP];
                                             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"upload_results_manually"];
                                             [[NSUserDefaults standardUserDefaults] synchronize];
                                         }];
@@ -31,6 +32,7 @@
                                     actionWithTitle:NSLocalizedString(@"Modal.ManualUpload.Disable", nil)
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
+                                        [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:MANUAL_UPLOAD_POPUP];
                                         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"upload_results_manually"];
                                         [[NSUserDefaults standardUserDefaults] synchronize];
                                     }];
