@@ -2,6 +2,7 @@
 #import "TestDetailsFooterViewController.h"
 #import "Tests.h"
 #import "TestRunningViewController.h"
+#import "UploadFooterViewController.h"
 
 @interface TestDetailsViewController ()
 
@@ -59,6 +60,14 @@
 
 #pragma mark - Navigation
 
+-(bool)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if ([identifier isEqualToString:@"footer_upload"]){
+        if (![SettingsUtility getSettingWithName:@"upload_results_manually"] || self.measurement.is_uploaded)
+        return NO;
+    }
+    return YES;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toViewLog"]){
         LogViewController *vc = (LogViewController *)segue.destinationViewController;
@@ -81,6 +90,12 @@
             [(WebConnectivity*)test setInputs:[NSArray arrayWithObject:self.measurement.url_id.url]];
         [self.measurement setReRun];
         [vc setTestSuite:testSuite];
+    }
+    else if ([[segue identifier] isEqualToString:@"footer_upload"]){
+        UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;
+        [vc setResult:result];
+        [vc setMeasurement:measurement];
+        [vc setUpload_all:false];
     }
 }
 
