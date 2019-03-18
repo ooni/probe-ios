@@ -1,4 +1,5 @@
 #import "TabsViewController.h"
+#import "MessageUtility.h"
 
 @interface TabsViewController ()
 
@@ -15,8 +16,25 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"first_run"]){
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:ONBOARDING_KEY]){
         [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
+    }
+    else if (![[NSUserDefaults standardUserDefaults] objectForKey:MANUAL_UPLOAD_POPUP]){
+        UIAlertAction* enableButton = [UIAlertAction
+                                        actionWithTitle:NSLocalizedString(@"Modal.ManualUpload.Enable", nil)
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {
+                                            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"upload_results_manually"];
+                                            [[NSUserDefaults standardUserDefaults] synchronize];
+                                        }];
+        UIAlertAction* disableButton = [UIAlertAction
+                                    actionWithTitle:NSLocalizedString(@"Modal.ManualUpload.Disable", nil)
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"upload_results_manually"];
+                                        [[NSUserDefaults standardUserDefaults] synchronize];
+                                    }];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ManualUpload.Title", nil) message:NSLocalizedString(@"Modal.ManualUpload.Paragraph", nil) okButton:enableButton cancelButton:disableButton inView:self];
     }
 }
 
