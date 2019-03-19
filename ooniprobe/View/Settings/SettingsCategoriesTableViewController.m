@@ -1,5 +1,5 @@
 #import "SettingsCategoriesTableViewController.h"
-#import "UIDevice-Hardware.h"
+#import "UIDevice-DeviceInfo.h"
 
 @interface SettingsCategoriesTableViewController ()
 

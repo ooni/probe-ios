@@ -1,13 +1,7 @@
 #include <sys/sysctl.h>
-#import "UIDevice-Hardware.h"
+#import "UIDevice-DeviceInfo.h"
 
-@interface UIDevice (Hardward)
-
-- (NSString *)modelNameForModelIdentifier:(NSString *)modelIdentifier;
-
-@end
-
-@implementation UIDevice (Hardware)
+@implementation UIDevice (DeviceInfo)
 
 - (NSString *)getSysInfoByName:(char *)typeSpecifier
 {
