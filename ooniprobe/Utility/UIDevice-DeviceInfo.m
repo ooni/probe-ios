@@ -9,6 +9,13 @@
     sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
 
     char *answer = malloc(size);
+    if (answer == NULL) {
+        NSException* myException = [NSException
+                                    exceptionWithName:@"MallocError"
+                                    reason:@"Malloc Error"
+                                    userInfo:nil];
+        @throw myException;
+    }
     sysctlbyname(typeSpecifier, answer, &size, NULL, 0);
 
     NSString *results = [NSString stringWithCString:answer encoding: NSUTF8StringEncoding];
