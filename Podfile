@@ -14,5 +14,4 @@ target 'ooniprobe' do
     pod 'RHMarkdownLabel'
     pod 'DateTools'
     pod 'OCMapper', '2.0'
-    pod 'UIDevice-Hardware'
 end

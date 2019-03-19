@@ -63,7 +63,7 @@
         [mailer setSubject:[NSString stringWithFormat:@"[bug-report] OONI Probe iOS %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"]]];
         NSArray *toRecipients = [NSArray arrayWithObjects:@"bugs@openobservatory.org", nil];
         [mailer setToRecipients:toRecipients];
-        NSString *device = [NSString stringWithFormat:@"\n\n\napp_version %@\ndevice_model %@\nos_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].modelName, [UIDevice currentDevice].systemVersion];
+        NSString *device = [NSString stringWithFormat:@"\n\n\napp_version %@\ndevice_model %@\nos_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].modelIdentifier, [UIDevice currentDevice].systemVersion];
         [mailer setMessageBody:device isHTML:NO];
         [[mailer navigationBar] setTranslucent:NO];
         [[mailer navigationBar] setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];

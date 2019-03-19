@@ -75,6 +75,7 @@
 		EDA17B05208A37BF00D46D0F /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B04208A37BF00D46D0F /* Dashboard.storyboard */; };
 		EDA17B07208A389F00D46D0F /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B06208A389F00D46D0F /* Result.storyboard */; };
 		EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA7645E2153090800C24688 /* NSDictionary+Safety.m */; };
+		EDA9F21B22414E0E003D40E8 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA9F21A22414E0E003D40E8 /* UIDevice-Hardware.m */; };
 		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
 		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB33B7C21838824002CEC34 /* CustomURLViewController.m */; };
@@ -266,6 +267,8 @@
 		EDA6CC2D21DF6AC100545377 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDA7645E2153090800C24688 /* NSDictionary+Safety.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Safety.m"; path = "Utility/NSDictionary+Safety.m"; sourceTree = "<group>"; };
 		EDA7645F2153090800C24688 /* NSDictionary+Safety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safety.h"; path = "Utility/NSDictionary+Safety.h"; sourceTree = "<group>"; };
+		EDA9F21922414E0E003D40E8 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice-Hardware.h"; path = "Utility/UIDevice-Hardware.h"; sourceTree = "<group>"; };
+		EDA9F21A22414E0E003D40E8 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-Hardware.m"; path = "Utility/UIDevice-Hardware.m"; sourceTree = "<group>"; };
 		EDB252A220FA46DA00B4EDE4 /* TestKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestKeys.h; sourceTree = "<group>"; };
 		EDB252A320FA46DA00B4EDE4 /* JsonResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonResult.h; sourceTree = "<group>"; };
 		EDB252A520FA46DA00B4EDE4 /* TestKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestKeys.m; sourceTree = "<group>"; };
@@ -581,6 +584,8 @@
 				ED997D09207BB7C400C97B1F /* LocalizationUtility.m */,
 				EDA7645F2153090800C24688 /* NSDictionary+Safety.h */,
 				EDA7645E2153090800C24688 /* NSDictionary+Safety.m */,
+				EDA9F21922414E0E003D40E8 /* UIDevice-Hardware.h */,
+				EDA9F21A22414E0E003D40E8 /* UIDevice-Hardware.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1056,6 +1061,7 @@
 				ED2E066E21D4867B00E9B9EE /* AbstractTest.mm in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */,
+				EDA9F21B22414E0E003D40E8 /* UIDevice-Hardware.m in Sources */,
 				ED90A92A2198DE5100204B46 /* Url.mm in Sources */,
 				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
