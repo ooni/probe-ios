@@ -26,10 +26,10 @@
     [[UINavigationBar appearance] setTranslucent:FALSE];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 
-  #ifdef RELEASE
+#ifdef RELEASE
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
-    #endif
+#endif
 
     application.statusBarStyle = UIStatusBarStyleLightContent;
 
