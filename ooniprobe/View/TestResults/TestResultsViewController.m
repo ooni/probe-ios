@@ -1,12 +1,12 @@
-#import "TestResultsTableViewController.h"
+#import "TestResultsViewController.h"
 #import <Crashlytics/Crashlytics.h>
 #import "UploadFooterViewController.h"
 
-@interface TestResultsTableViewController ()
+@interface TestResultsViewController ()
 
 @end
 
-@implementation TestResultsTableViewController
+@implementation TestResultsViewController
 @synthesize results;
 
 - (void)awakeFromNib{
@@ -23,13 +23,6 @@
     self.tableView.tableFooterView = [UIView new];
     self.tableView.estimatedRowHeight = 80.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    //UploadFooterViewController *vc = [UploadFooterViewController new];
-    //[self.tableView setTableFooterView:vc.view];
-    /*
-    UIView *footerView  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
-    footerView.backgroundColor = [UIColor greenColor];
-    self.tableView.tableFooterView = footerView;
-     */
 }
 
 -(void)testFilter:(SRKQuery*)newQuery{
@@ -57,22 +50,22 @@
     keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];
     resultsDic = dic;
     dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self isEverymeasurementUploaded]){
+            self.tableFooterConstraint.constant = -45;
+            [self.tableView setNeedsUpdateConstraints];
+        }
+        else {
+            self.tableFooterConstraint.constant = 0;
+            [self.tableView setNeedsUpdateConstraints];
+        }
+        //[self performSegueWithIdentifier:@"footer_upload" sender:self];
+        //TODO reload footer on setting change. reload footer on new test
+        //TODO set constraints of table view to 0 o -45
         [self.tableView reloadData];
     });
 }
 
 #pragma mark - Table view data source
-
-/*
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    if(section == [keys count]){
-        UIView *footerView  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
-        footerView.backgroundColor = [UIColor greenColor];
-        return footerView;
-    }
-    return nil;
-}
-*/
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
@@ -162,7 +155,26 @@
                             inView:self];
 }
 
+- (BOOL)isEverymeasurementUploaded{
+    //TODO check this algo
+    for (Result *result in results){
+        for (Measurement *measurement in result.measurements){
+            if (!measurement.is_failed && !measurement.is_uploaded)
+                return false;
+        }
+    }
+    return true;
+}
+
 #pragma mark - Navigation
+
+-(bool)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if ([identifier isEqualToString:@"footer_upload"]){
+        //if (![SettingsUtility getSettingWithName:@"upload_results_manually"] || [self isEverymeasurementUploaded])
+            return YES;
+    }
+    return YES;
+}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){
@@ -181,7 +193,9 @@
     }
     else if ([[segue identifier] isEqualToString:@"footer_upload"]){
         UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;
-        //[self.tableView setTableFooterView:vc.view];
+        //[vc setResult:result];
+        //[vc setMeasurement:measurement];
+        [vc setUpload_all:true];
     }
 }
 

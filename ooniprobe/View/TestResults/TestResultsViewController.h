@@ -7,12 +7,14 @@
 #import "TestSummaryTableViewController.h"
 #import "TestResultTableViewCell.h"
 
-@interface TestResultsTableViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate> {
+@interface TestResultsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate> {
     NSArray *keys;
     NSDictionary *resultsDic;
     SRKQuery *query;
 }
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableFooterConstraint;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) SRKResultSet* results;
 
 @end
