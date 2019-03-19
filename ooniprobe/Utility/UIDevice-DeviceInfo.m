@@ -3,11 +3,19 @@
 
 @implementation UIDevice (DeviceInfo)
 
-- (NSString *)getSysInfoByName:(char *)typeSpecifier
+- (NSString *)getSysInfoByName:(const char *)typeSpecifier
 {
-    size_t size;
-    sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
+    size_t size = 0;
+    int retsize = sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
 
+    if (retsize = 0 || size == 0){
+        NSException* myException = [NSException
+                                    exceptionWithName:@"??"
+                                    reason:@"??"
+                                    userInfo:nil];
+        @throw myException;
+    }
+    
     char *answer = malloc(size);
     if (answer == NULL) {
         NSException* myException = [NSException
