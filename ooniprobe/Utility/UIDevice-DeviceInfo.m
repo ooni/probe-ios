@@ -8,7 +8,7 @@
     size_t size = 0;
     int retsize = sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
 
-    if (retsize = 0 || size == 0){
+    if (retsize == 0 || size == 0){
         NSException* myException = [NSException
                                     exceptionWithName:@"??"
                                     reason:@"??"
