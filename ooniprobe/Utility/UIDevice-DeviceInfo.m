@@ -10,12 +10,12 @@
 
     if (retsize == 0 || size == 0){
         NSException* myException = [NSException
-                                    exceptionWithName:@"??"
-                                    reason:@"??"
+                                    exceptionWithName:@"ParseError"
+                                    reason:@"Parse Error"
                                     userInfo:nil];
         @throw myException;
     }
-    
+
     char *answer = malloc(size);
     if (answer == NULL) {
         NSException* myException = [NSException
