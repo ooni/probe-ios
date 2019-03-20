@@ -4,7 +4,7 @@
 #import "Result.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "ResultsHeaderViewController.h"
-#import "TestSummaryTableViewController.h"
+#import "TestSummaryViewController.h"
 #import "TestResultTableViewCell.h"
 
 @interface TestResultsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate> {
