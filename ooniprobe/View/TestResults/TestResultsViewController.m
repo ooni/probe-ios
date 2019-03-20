@@ -50,7 +50,7 @@
     keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];
     resultsDic = dic;
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self isEverymeasurementUploaded]){
+        if ([TestUtility isEveryResultUploaded:results]){
             self.tableFooterConstraint.constant = -45;
             [self.tableView setNeedsUpdateConstraints];
         }
@@ -155,26 +155,7 @@
                             inView:self];
 }
 
-- (BOOL)isEverymeasurementUploaded{
-    //TODO check this algo
-    for (Result *result in results){
-        for (Measurement *measurement in result.measurements){
-            if (!measurement.is_failed && !measurement.is_uploaded)
-                return false;
-        }
-    }
-    return true;
-}
-
 #pragma mark - Navigation
-
--(bool)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    if ([identifier isEqualToString:@"footer_upload"]){
-        //if (![SettingsUtility getSettingWithName:@"upload_results_manually"] || [self isEverymeasurementUploaded])
-            return YES;
-    }
-    return YES;
-}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){

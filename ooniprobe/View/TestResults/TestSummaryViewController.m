@@ -44,7 +44,7 @@
 -(void)reloadMeasurements{
     self.measurements = result.measurements;
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self isEverymeasurementUploaded]){
+        if ([TestUtility isEveryMeasurementUploaded:result]){
             self.tableFooterConstraint.constant = -45;
             [self.tableView setNeedsUpdateConstraints];
         }
@@ -85,6 +85,13 @@
     
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UIImageView *status = (UIImageView*)[cell viewWithTag:3];
+    UIImageView *notUploadedImage = (UIImageView*)[cell viewWithTag:10];
+    [notUploadedImage setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+    if (current.is_uploaded)
+        [notUploadedImage setHidden:YES];
+    else
+        [notUploadedImage setHidden:NO];
+    
     if (current.is_failed){
         [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
         [title setTextColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
@@ -229,15 +236,6 @@
     if (scrollView.contentOffset.y<=0) {
         scrollView.contentOffset = CGPointZero;
     }
-}
-
-- (BOOL)isEverymeasurementUploaded{
-    //TODO check this algo
-    for (Measurement *measurement in result.measurements){
-        if (!measurement.is_failed && !measurement.is_uploaded)
-            return false;
-    }
-    return true;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

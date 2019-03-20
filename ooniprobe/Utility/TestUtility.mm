@@ -127,4 +127,21 @@
     return [[[Result query] where:@"test_group_name = ?" parameters:@[testName]] count];
 }
 
++ (BOOL)isEveryMeasurementUploaded:(Result*)result{
+    //TODO check this algo
+    for (Measurement *measurement in result.measurements){
+        if (!measurement.is_failed && !measurement.is_uploaded)
+            return false;
+    }
+    return true;
+}
+
++ (BOOL)isEveryResultUploaded:(SRKResultSet*)results{
+    for (Result *result in results){
+        if (![self isEveryMeasurementUploaded:result])
+            return false;
+    }
+    return true;
+}
+
 @end

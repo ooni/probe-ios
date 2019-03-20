@@ -60,6 +60,7 @@
 
 #pragma mark - Navigation
 
+//TODO handle the reload after upload
 -(bool)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     if ([identifier isEqualToString:@"footer_upload"]){
         if (![SettingsUtility getSettingWithName:@"upload_results_manually"] || self.measurement.is_uploaded)
