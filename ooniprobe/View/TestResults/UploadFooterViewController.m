@@ -43,6 +43,11 @@
 
 -(IBAction)uploadResult:(id)sender{
     //TODO call relative mk function.
+    /*
+     if (result == nil && measurement == nil && upload_all) upload ALL
+     if (result != nil && measurement == nil && upload_all) upload all measurements of that result
+     if (result != nil && measurement != nil && !upload_all) upload that measurement
+     */
     [MessageUtility showToast:@"TODO" inView:self.view];
 }
 

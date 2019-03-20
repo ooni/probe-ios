@@ -251,7 +251,6 @@
     else if ([[segue identifier] isEqualToString:@"footer_upload"]){
         UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;
         [vc setResult:result];
-        //[vc setMeasurement:measurement];
         [vc setUpload_all:true];
     }
 }
