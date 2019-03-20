@@ -117,7 +117,7 @@
 "TestResults.Details.RawData" = "بيانات";
 "TestResults.Details.CopyToClipboard" = "نسخ إلى الحافظة";
 "TestResults.Details.Failed.Title" = "لا يعمل";
-"TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
+"TestResults.Details.Failed.Paragraph" = "باستطاعتك إجراء هذا الاختبار من جديد ";
 "TestResults.Details.Failed.TryAgain" = "الرجاء المحاولة مجددًا";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "مُتاح";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ مُتاح.";
@@ -204,15 +204,15 @@
 "Modal.EnableGPS" = "التطبيق بجاجة إلى تصريح GPS لتحسين دقة الاختبارات. سيقوم OONI بالحصول على موقع GPS التقريبي الخاص بك.";
 "Modal.DoYouWantToDeleteAllTests" = "هل تريد حذف جميع نتائج الإختبارات؟";
 "Modal.DoYouWantToDeleteThisTest" = "هل تريد حذف هذا الإختبار؟";
-"Modal.EnableAtLeastOneTest" = "Please enable at least one test";
+"Modal.EnableAtLeastOneTest" = "يرجى تشغيل اختبار واحد على الأقل ";
 "Modal.OnlyDigits" = "يرجى إدخال الأرقام فقط في هذا الحقل.";
 "Modal.ReRun.Title" = "إعادة إجراء الاختبار";
 "Modal.ReRun.Paragraph" = "لقد فشل هذا الإختبار. هل تريد إعادة إجراء الاختبار؟";
 "Modal.CustomURL.NotSaved" = "المواقع لن تسجل اذا تركت هذه الواجهة. هل تريد ترك الواجهة؟";
-"Modal.ManualUpload.Title" = "Enable Manual Upload?";
-"Modal.ManualUpload.Paragraph" = "This setting allows you to manually re-upload unpublished measurements.";
+"Modal.ManualUpload.Title" = "تفعيل الرّفع اليدوي؟ ";
+"Modal.ManualUpload.Paragraph" = "هذا الإعداد يمكّنكم من رفع المقاييس الغير منشورة يدويّاً ";
 "Modal.ManualUpload.Enable" = "تمكين";
-"Modal.ManualUpload.Disable" = "No, thanks";
+"Modal.ManualUpload.Disable" = "لا، شكراً";
 "Toast.CopiedToClipboard" = "تم النسخ إلى الحافظة";
 "Snackbar.ResultsNotUploaded.Text" = "لم يتمّ الرفع";
 "Snackbar.ResultsNotUploaded.Upload" = "رفع";
@@ -249,8 +249,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "حجم الاستخدام لشبكة الخلوي المسموح به شهريًا";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "حجم الاستخدام لشبكة WiFi المسموح به شهريًا";
 "Settings.Sharing.Label" = "المشاركة";
-"Settings.Sharing.UploadResults" = "Automatically Publish Results";
-"Settings.Sharing.UploadResultsManually" = "Manual Result Upload";
+"Settings.Sharing.UploadResults" = "نشر النتائج أوتوماتيكيّاً ";
+"Settings.Sharing.UploadResultsManually" = "رفع النتائج يدويّاً ";
 "Settings.Sharing.IncludeNetwork" = "إدراج معلومات الشبكة";
 "Settings.Sharing.GPS" = "إدراج الموقع الجغرافي التقريبي";
 "Settings.Sharing.IncludeIP" = "إدراج عنوان الIP";
@@ -283,8 +283,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "إختيار خادم DASH اوتوماتيكيًا";
 "Settings.Performance.DashServerAddress" = "خادم DASH";
 "Settings.Performance.DashServerPort" = "منفذ خادم DASH";
-"Settings.SendEmail.Label" = "Send email to support";
-"Settings.SendEmail.Error" = "No email clients configured on your device";
+"Settings.SendEmail.Label" = "إرسال إيميل لفريق الدعم ";
+"Settings.SendEmail.Error" = "لم يتم إعداد عملاء إيميل على جهازك";
 "Notification.FinishedRunning" = "انتهى التشغيل";
 "OONIBrowser.TryMirror" = "تجربة خادم بديل";
 "OONIBrowser.Loading" = "جاري التحميل...";
@@ -301,7 +301,7 @@
 "OONIRun.InvalidParameter" = "مُعطى خاطئ";
 "OONIRun.InvalidParameter.Msg" = "رابط تشغيل OONI غير صحيح أو لديك اصدار قديم من التطبيق.";
 "OONIRun.RandomSamplingOfURLs" = "ستقوم بإختبار عينة عشوائية من المواقع.";
-"OONIRun.TestRunningError" = "Please wait for the test to finish running before tapping on an OONI Run link.";
+"OONIRun.TestRunningError" = "يرجى الانتظار حتى يتم إنهاء الاختبار قبل الضغط على رابط تشغيل OONI ";
 "CategoryCode.ALDR.Name" = "المخدرات والكحول";
 "CategoryCode.REL.Name" = "الدين";
 "CategoryCode.PORN.Name" = "المواد الإباحية";
@@ -318,7 +318,7 @@
 "CategoryCode.ANON.Name" = "أدوات تجاوز الحجب";
 "CategoryCode.DATE.Name" = "المواعدة على النت";
 "CategoryCode.GRP.Name" = "التواصل الاجتماعي";
-"CategoryCode.LGBT.Name" = "LGBTQ+";
+"CategoryCode.LGBT.Name" = "م.م.م.م.ك+";
 "CategoryCode.FILE.Name" = "مشاركة الملفّات";
 "CategoryCode.HACK.Name" = "أدوات اختراق";
 "CategoryCode.COMT.Name" = "أدوات اتصال";
@@ -349,7 +349,7 @@
 "CategoryCode.ANON.Description" = "أدوات مجهوليّة، تجاوز رقابة وتعمية ";
 "CategoryCode.DATE.Description" = "مواقع المواعدة على النت";
 "CategoryCode.GRP.Description" = "منصّات ووسائل التشابك الاجتماعي على النت";
-"CategoryCode.LGBT.Description" = "LGBTQ+ communities discussing related issues (excluding pornography)";
+"CategoryCode.LGBT.Description" = "مجتماعات م.م.م.م.ك+ تناقش في قضايا ذات صلة (باستثناء الإباحيّة) ";
 "CategoryCode.FILE.Description" = "مشاركة الملفّات بما في ذلك نظم التخزين السحابي، والتورنت، ومشاركة النّد-للنّد";
 "CategoryCode.HACK.Description" = "أخبار وأدوات أمن الحاسوب";
 "CategoryCode.COMT.Description" = "أدوات اتصال فردي وجماعي مثل الاتصال عبر الانترنت، الدردشة وبريد الويب";
