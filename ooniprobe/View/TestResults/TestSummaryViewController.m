@@ -1,6 +1,7 @@
 #import "TestSummaryViewController.h"
 #import "ReachabilityManager.h"
 #import "Tests.h"
+#import "UploadFooterViewController.h"
 
 @interface TestSummaryViewController ()
 
@@ -43,6 +44,14 @@
 -(void)reloadMeasurements{
     self.measurements = result.measurements;
     dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self isEverymeasurementUploaded]){
+            self.tableFooterConstraint.constant = -45;
+            [self.tableView setNeedsUpdateConstraints];
+        }
+        else {
+            self.tableFooterConstraint.constant = 0;
+            [self.tableView setNeedsUpdateConstraints];
+        }
         [self.tableView reloadData];
     });
 }
@@ -222,6 +231,15 @@
     }
 }
 
+- (BOOL)isEverymeasurementUploaded{
+    //TODO check this algo
+    for (Measurement *measurement in result.measurements){
+        if (!measurement.is_failed && !measurement.is_uploaded)
+            return false;
+    }
+    return true;
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){
         HeaderSwipeViewController *vc = (HeaderSwipeViewController *)segue.destinationViewController;
@@ -231,6 +249,12 @@
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;
         [vc setResult:result];
         [vc setMeasurement:segueObj];
+    }
+    else if ([[segue identifier] isEqualToString:@"footer_upload"]){
+        UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;
+        [vc setResult:result];
+        //[vc setMeasurement:measurement];
+        [vc setUpload_all:true];
     }
 }
 
