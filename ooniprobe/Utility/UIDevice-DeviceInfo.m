@@ -6,25 +6,14 @@
 - (NSString *)getSysInfoByName:(const char *)typeSpecifier
 {
     size_t size = 0;
-    int retsize = sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
-
-    if (retsize == 0 || size == 0){
-        NSException* myException = [NSException
-                                    exceptionWithName:@"ParseError"
-                                    reason:@"Parse Error"
-                                    userInfo:nil];
-        @throw myException;
-    }
+    int ret = sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
+    if (ret == 0 || size == 0) abort();
 
     char *answer = malloc(size);
-    if (answer == NULL) {
-        NSException* myException = [NSException
-                                    exceptionWithName:@"MallocError"
-                                    reason:@"Malloc Error"
-                                    userInfo:nil];
-        @throw myException;
-    }
-    sysctlbyname(typeSpecifier, answer, &size, NULL, 0);
+    if (answer == NULL) abort();
+    
+    int ret2 = sysctlbyname(typeSpecifier, answer, &size, NULL, 0);
+    if (ret2 == 0) abort();
 
     NSString *results = [NSString stringWithCString:answer encoding: NSUTF8StringEncoding];
 
