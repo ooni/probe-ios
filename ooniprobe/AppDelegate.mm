@@ -24,11 +24,12 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     [[UINavigationBar appearance] setTranslucent:FALSE];
-    
-    #ifdef RELEASE
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+
+#ifdef RELEASE
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
-    #endif
+#endif
 
     application.statusBarStyle = UIStatusBarStyleLightContent;
 
