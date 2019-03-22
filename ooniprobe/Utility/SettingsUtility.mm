@@ -5,7 +5,7 @@
 
 + (NSArray*)getSettingsCategories{
     //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"notifications", @"sharing", @"advanced", @"about_ooni"];
+    return @[@"notifications", @"sharing", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
