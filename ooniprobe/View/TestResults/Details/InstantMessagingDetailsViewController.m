@@ -49,7 +49,7 @@
         }
         else {
             [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Hero.Title", nil)];
-            [self.textLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Reachable.LikelyBlocked.Paragraph", nil)];
+            [self.textLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.LikelyBlocked.Content.Paragraph", nil)];
         }
         [self.detail1TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.Application.Label.Title", nil)];
         [self.detail2TitleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Title", nil)];
