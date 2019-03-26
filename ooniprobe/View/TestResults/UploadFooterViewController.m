@@ -28,12 +28,22 @@
 
 }
 
--(IBAction)help:(id)sender{
+-(IBAction)upload{
+    if (_upload_all){
+        [self showModalHelp];
+    }
+    else {
+        [self showModalHelp];
+    }
+}
+
+-(void)uploadResult{
+    //TODO should we add a don't ask again button?
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.ResultsNotUploaded.Button.Upload", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-                                   [self uploadResult:sender];
+                                   [self uploadResult];
                                }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ResultsNotUploaded.Title", nil)
                            message:NSLocalizedString(@"Modal.ResultsNotUploaded.Paragraph", nil)
@@ -41,7 +51,7 @@
                             inView:self];
 }
 
--(IBAction)uploadResult:(id)sender{
+-(void)uploadResult{
     //TODO call relative mk function.
     /*
      if (result == nil && measurement == nil && upload_all) upload ALL

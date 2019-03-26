@@ -92,7 +92,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZU-ZE-ROO">
-                                                    <rect key="frame" x="11" y="52" width="125" height="17"/>
+                                                    <rect key="frame" x="11" y="51.5" width="124.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="12"/>
                                                     <color key="textColor" red="0.28627450980000002" green="0.31372549020000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -2509,15 +2509,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKw-tW-cd6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="not_uploaded" translatesAutoresizingMaskIntoConstraints="NO" id="r03-gj-Aoy">
-                                        <rect key="frame" x="20" y="14" width="23" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="23" id="hDQ-5H-5lu"/>
-                                            <constraint firstAttribute="height" constant="17" id="svG-Ba-VSH"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some not uploaded" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED5-OR-lnb">
-                                        <rect key="frame" x="51" y="14" width="125" height="17"/>
+                                        <rect key="frame" x="20" y="14" width="125" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="tkp-MQ-syY"/>
                                         </constraints>
@@ -2525,19 +2518,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2K-Ov-lkP">
-                                        <rect key="frame" x="333" y="11.5" width="22" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="uVL-PQ-vKT"/>
-                                            <constraint firstAttribute="height" constant="22" id="xvM-Lc-DtE"/>
-                                        </constraints>
-                                        <state key="normal" image="help"/>
-                                        <connections>
-                                            <action selector="help:" destination="TnM-wN-c5T" eventType="touchUpInside" id="CWL-uN-ui3"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAc-uQ-ytw">
-                                        <rect key="frame" x="239" y="10" width="86" height="25"/>
+                                        <rect key="frame" x="269" y="10" width="86" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Ykl-FF-urD"/>
                                         </constraints>
@@ -2547,22 +2529,18 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="uploadResult:" destination="TnM-wN-c5T" eventType="touchUpInside" id="Hm5-t4-JX9"/>
+                                            <action selector="upload" destination="TnM-wN-c5T" eventType="touchUpInside" id="QyZ-Pi-Zar"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.52549019607843139" green="0.55686274509803924" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="ED5-OR-lnb" firstAttribute="leading" secondItem="r03-gj-Aoy" secondAttribute="trailing" constant="8" id="Aa2-iX-OqR"/>
                                     <constraint firstItem="RAc-uQ-ytw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ED5-OR-lnb" secondAttribute="trailing" constant="8" id="BbX-T8-6Pq"/>
-                                    <constraint firstItem="w2K-Ov-lkP" firstAttribute="leading" secondItem="RAc-uQ-ytw" secondAttribute="trailing" constant="8" id="Ciz-qe-GI2"/>
-                                    <constraint firstItem="w2K-Ov-lkP" firstAttribute="centerY" secondItem="SKw-tW-cd6" secondAttribute="centerY" id="FiL-v0-sbe"/>
+                                    <constraint firstAttribute="trailing" secondItem="RAc-uQ-ytw" secondAttribute="trailing" constant="20" id="Kdl-4q-0ff"/>
                                     <constraint firstItem="RAc-uQ-ytw" firstAttribute="centerY" secondItem="SKw-tW-cd6" secondAttribute="centerY" id="ND0-Ut-t4W"/>
                                     <constraint firstItem="ED5-OR-lnb" firstAttribute="centerY" secondItem="SKw-tW-cd6" secondAttribute="centerY" id="ZUZ-2k-AY6"/>
                                     <constraint firstAttribute="height" constant="45" id="pmA-Er-p3J"/>
-                                    <constraint firstItem="r03-gj-Aoy" firstAttribute="centerY" secondItem="SKw-tW-cd6" secondAttribute="centerY" id="tbi-XD-nf9"/>
-                                    <constraint firstItem="r03-gj-Aoy" firstAttribute="leading" secondItem="SKw-tW-cd6" secondAttribute="leading" constant="20" id="yff-96-OWD"/>
-                                    <constraint firstAttribute="trailing" secondItem="w2K-Ov-lkP" secondAttribute="trailing" constant="20" id="ykm-y2-pbi"/>
+                                    <constraint firstItem="ED5-OR-lnb" firstAttribute="leading" secondItem="SKw-tW-cd6" secondAttribute="leading" constant="20" id="s5C-TE-L5W"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -2588,7 +2566,6 @@
         <image name="download" width="19" height="19"/>
         <image name="download_nopad" width="11" height="12"/>
         <image name="globe" width="19" height="19"/>
-        <image name="help" width="22" height="22"/>
         <image name="middle_boxes" width="78" height="78"/>
         <image name="not_uploaded" width="23" height="18"/>
         <image name="ooni_bw" width="82" height="82"/>
