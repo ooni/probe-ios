@@ -14,24 +14,24 @@
 # XXX do we want more devices?
 devices([
     "iPhone 8 Plus",
+    "iPhone XS Max",
     "iPad Pro (12.9-inch)"
 ])
 
 # XXX we should generate this from ooni/translations
 languages([
-    "en",
-    "ar",
-    "de",
-    "el",
-    "es",
-    "fa",
-    "fr",
+#    "en-US",
+    "ca",
+#    "de-DE",
+#    "el",
+#    "es-ES",
+#    "fr-FR",
     "hi",
     "it",
     "ja",
     "ru",
-    "zh_CN",
-    "zh_TW"
+    "zh-Hans",
+    "zh-Hant"
 ])
 
 # The name of the scheme which contains the UI Tests
