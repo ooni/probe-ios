@@ -18,6 +18,7 @@ Network *network;
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    [[[Network query] fetch] remove];
     network = [Network new];
 }
 
@@ -61,22 +62,11 @@ Network *network;
     XCTAssert([[network getCountry] isEqualToString:COUNTRY_CODE]);
 }
 
-- (void)testNetworkCreation {
-    //Create and verify
-    Network * newNetwork = [Network checkExistingNetworkWithAsn:ASN networkName:NETWORK_NAME ip:IP_ADDRESS cc:COUNTRY_CODE networkType:NETWORK_TYPE];
-    XCTAssert([[newNetwork getCountry] isEqualToString:COUNTRY_CODE]);
-    XCTAssert([[newNetwork getNetworkName] isEqualToString:NETWORK_NAME]);
-    XCTAssert([[newNetwork getAsn] isEqualToString:ASN]);
-}
-
-- (void)testNetworkUpdate {
+- (void)testNetworkCreationAndUpdate {
     //Create and update and verify
     Network * newNetwork = [Network checkExistingNetworkWithAsn:BLANK networkName:BLANK ip:IP_ADDRESS cc:BLANK networkType:NETWORK_TYPE];
     XCTAssert([[newNetwork getCountry] isEqualToString:UNKNOWN]);
     newNetwork.country_code = COUNTRY_CODE;
-    //TODO test retrivial from db
-    //[newNetwork save];
-    //newNetwork = [Network checkExistingNetworkWithAsn:BLANK networkName:BLANK ip:IP_ADDRESS cc:COUNTRY_CODE networkType:NETWORK_TYPE];
     XCTAssert([[newNetwork getCountry] isEqualToString:COUNTRY_CODE]);
 
     XCTAssert([[newNetwork getNetworkName] isEqualToString:UNKNOWN]);
@@ -86,6 +76,28 @@ Network *network;
     XCTAssert([[newNetwork getAsn] isEqualToString:UNKNOWN]);
     newNetwork.asn = ASN;
     XCTAssert([[newNetwork getAsn] isEqualToString:ASN]);
+    
+    SRKQuery *query = [[Network query] where:@"network_name = ? AND asn = ? AND ip = ? AND country_code = ? AND network_type = ?" parameters:@[BLANK, BLANK, IP_ADDRESS, BLANK, NETWORK_TYPE]];
+    XCTAssert([query count] == 1);
+
+    SRKQuery *query2 = [[Network query] where:@"network_name = ? AND asn = ? AND ip = ? AND country_code = ? AND network_type = ?" parameters:@[NETWORK_NAME, ASN, IP_ADDRESS, COUNTRY_CODE, NETWORK_TYPE]];
+    XCTAssert([query2 count] == 0);
+    
+    //Saving the network object with modified params
+    [newNetwork commit];
+    
+    SRKQuery *query3 = [[Network query] where:@"network_name = ? AND asn = ? AND ip = ? AND country_code = ? AND network_type = ?" parameters:@[NETWORK_NAME, ASN, IP_ADDRESS, COUNTRY_CODE, NETWORK_TYPE]];
+    XCTAssert([query3 count] == 1);
 }
+
+/* TODO
+ - (void)testNetworkDuplication {
+ //Create and verify
+ Network * newNetwork = [Network checkExistingNetworkWithAsn:ASN networkName:NETWORK_NAME ip:IP_ADDRESS cc:COUNTRY_CODE networkType:NETWORK_TYPE];
+ XCTAssert([[newNetwork getCountry] isEqualToString:COUNTRY_CODE]);
+ XCTAssert([[newNetwork getNetworkName] isEqualToString:NETWORK_NAME]);
+ XCTAssert([[newNetwork getAsn] isEqualToString:ASN]);
+ }
+ */
 
 @end
