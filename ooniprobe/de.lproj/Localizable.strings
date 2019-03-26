@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Ländercode (z. B. DE für Deutschland)";
 "Onboarding.DefaultSettings.Bullet.2" = "Netzwerkinformationen (einschließlich der Autonomous System Number, ASN)";
 "Onboarding.DefaultSettings.Bullet.3" = "Zeit & Datum des Tests";
-"Onboarding.DefaultSettings.Paragraph" = "Wir geben unser Bestes, deine IP-Adresse oder andere möglicherweise personenbezogene Daten nicht zu veröffentlichen.\n\nWeitere Informationen findest du in [OONI's Datenrichtlinie] (https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "Wir geben unser Bestes, deine IP-Adresse oder andere möglicherweise personenbezogene Daten nicht zu veröffentlichen.\n\nWeitere Informationen findest du in [OONI's Datenrichtlinie](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "Auf geht's";
 "Onboarding.DefaultSettings.Button.Change" = "Defaults ändern";
 "Dashboard.Tab.Label" = "Übersicht";
@@ -45,7 +45,7 @@
 "Dashboard.Websites.Card.Description" = "Teste die Blockierung von Webseiten";
 "Dashboard.Websites.Overview.Paragraph" = "Überprüfe mit Hilfe des [Web-Connectivity-Tests](https://ooni.io/nettest/web-connectivity/) von OONI, ob Webseiten blockiert werden\n\nJedes Mal, wenn du „Ausführen“ auswählst, testest du verschiedene Webseiten von Citizen Labs' [globalen](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) und [länderspezifischen](https://github.com/citizenlab/test-lists/tree/master/lists) Testlisten.\n\nUm Webseiten deiner Wahl zu testen, tippe auf die \"Webseiten\"-Schaltfläche oder wähle Kategorien von Webseiten üausführenber die Einstellungen dieser Karte.\n\nDieser Test misst, ob Webseiten durch DNS-Manipulation, TCP/IP-Blockierung oder einen transparenten HTTP-Proxy blockiert werden.\n\nDeine Ergebnisse werden auf dem [OONI Explorer](https://explorer.ooni.io/world/) und der [OONI API](https://api.ooni.io/) veröffentlicht.";
 "Dashboard.Performance.Card.Description" = "Teste die Geschwindigkeit und Performance deines Netzwerks";
-"Dashboard.Performance.Overview.Paragraph" = "Messe die Geschwindigkeit und Leistung deines Netzwerks mit dem [NDT] (https://ooni.io/nettest/ndt/) Test.\n\nMesse Video-Streaming Perfomance mit dem [DASH] (https://ooni.io/nettest/dash/) Test.\n\nDiese Tests verbrauchen Datenvolumen basierend auf deiner Netzwerkgeschwindigkeit.\n\nDeine Ergebnisse werden auf dem [OONI Explorer] (https://explorer.ooni.io/world/) und der [OONI API] (https://api.ooni.io/) veröffentlicht.\n\nHaftungsausschluss: Diese Tests basieren auf Servern von Drittanbietern. Wir können daher nicht garantieren, dass deine IP-Adresse nicht erfasst wird.";
+"Dashboard.Performance.Overview.Paragraph" = "Messe die Geschwindigkeit und Leistung deines Netzwerks mit dem [NDT](https://ooni.io/nettest/ndt/) Test.\n\nMesse Video-Streaming Perfomance mit dem [DASH](https://ooni.io/nettest/dash/) Test.\n\nDiese Tests verbrauchen Datenvolumen basierend auf deiner Netzwerkgeschwindigkeit.\n\nDeine Ergebnisse werden auf dem [OONI Explorer](https://explorer.ooni.io/world/) und der [OONI API](https://api.ooni.io/) veröffentlicht.\n\nHaftungsausschluss: Diese Tests basieren auf Servern von Drittanbietern. Wir können daher nicht garantieren, dass deine IP-Adresse nicht erfasst wird.";
 "Dashboard.Middleboxes.Card.Description" = "Entdecke Middleboxen in deinem Netzwerk";
 "Dashboard.Middleboxes.Overview.Paragraph" = "Internetanbieter nutzen oft Netwerkgeräte (Middleboxen) für verschiedene Anwendungen (z. B. Caching). Manchmal werden diese aber auch für Internetzensur und/oder Überwachung eingesetzt.\n\nDu kannst Middleboxes in deinem Netzwerk mit OONIs [HTTP Invalid Request Line](https://ooni.io/nettest/http-invalid-request-line/) und [HTTP Header Field Manipulation](https://ooni.io/nettest/http-header-field-manipulation/) Tests finden.\n\nDeine Ergebnisse werden auf [OONI Explorer](https://explorer.ooni.io/world/) und [OONI API](https://api.ooni.io/) veröffentlicht.";
 "Dashboard.InstantMessaging.Card.Description" = "Teste das Blockieren von Instant Messaging-Apps";
@@ -87,6 +87,7 @@
 "TestResults.Summary.Hero.WiFi" = "WLAN";
 "TestResults.Summary.Hero.Mobile" = "Mobile Daten";
 "TestResults.Summary.Hero.NoInternet" = "Kein Internet";
+"TestResults.Summary.Failed" = "Fehlgeschlagen";
 "TestResults.Summary.Websites.Hero.Tested.Singular" = "Getestet";
 "TestResults.Summary.Websites.Hero.Tested.Plural" = "Getestet";
 "TestResults.Summary.Websites.Hero.Blocked.Singular" = "Gesperrt";
@@ -115,6 +116,9 @@
 "TestResults.Details.ViewLog" = "Log ansehen";
 "TestResults.Details.RawData" = "Daten";
 "TestResults.Details.CopyToClipboard" = "In die Zwischenablage kopieren";
+"TestResults.Details.Failed.Title" = "Fehlgeschlagen";
+"TestResults.Details.Failed.Paragraph" = "Du kannst versuchen, diesen Test erneut auszuführen";
+"TestResults.Details.Failed.TryAgain" = "Noch einmal versuchen";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Zugänglich";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ ist zugänglich.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Wahrscheinlich blockiert";
@@ -177,7 +181,7 @@
 "TestResults.Details.Performance.NDT.MaxPing" = "Max Ping";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Timeouts";
-"TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Du kannst ohne Pufferung bis zu {Video Quality} streamen.";
+"TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Du kannst ohne Pufferung bis zu %@ streamen.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Mittlere Bitrate";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Abspiel-Verzögerung";
 "Feed.Tab.Label" = "Feed";
@@ -193,20 +197,22 @@
 "Modal.Error.CantCloseScreen" = "Dieser Bildschirm ist gesperrt, während ein Test ausgeführt wird.";
 "Modal.ResultsNotUploaded.Title" = "Ergebnisse nicht hochgeladen";
 "Modal.ResultsNotUploaded.Paragraph" = "Manche deiner Testergebnisse wurden nicht auf OONI-Server hochgeladen. Wenn du zu OONIs Datensatz beitragen möchtest, lade sie bitte hoch.";
-"Modal.ResultsNotUploaded.Button.Cancel" = "Abbrechen";
 "Modal.ResultsNotUploaded.Button.Upload" = "Hochladen";
 "Modal.EnableNotifications.AutomatedTesting" = "Erlaube Benachrichtigungen um diese Tests automatisch auszuführen.";
 "Modal.EnableNotifications.News" = "Erlaube Benachrichtigungen um Neuigkeiten automatisch zu erhalten.";
 "Modal.EnableNotifications.Any" = "Erlaube Benachrichtigungen um Push-Benachrichtigungen zu erhalten.";
 "Modal.EnableGPS" = "Um die Genauigkeit von Tests zu verbessern brauchen wir Berechtigung für GPS. OONI wird nur eine ungefähre Position aufnehmen.";
-"Modal.OldTestsDetected" = "Alte Ergebnisse werden gelöscht. Keine Sorge, du kannst diese jederzeit im OONI Explorer und der OONI API finden.";
 "Modal.DoYouWantToDeleteAllTests" = "Möchtest du alle Testergebnisse löschen?";
 "Modal.DoYouWantToDeleteThisTest" = "Möchtest du diesen Test löschen?";
-"Modal.CantDeactivate" = "Kann nicht deaktiviert werden";
+"Modal.EnableAtLeastOneTest" = "Bitte aktiviere mindestens einen Test";
 "Modal.OnlyDigits" = "Bitte gib nur Ziffern in dieses Feld ein.";
 "Modal.ReRun.Title" = "Wiederhole Test";
 "Modal.ReRun.Paragraph" = "Dieser Test ist fehlgeschlagen. Erneut ausführen?";
 "Modal.CustomURL.NotSaved" = "Deine URLs werden nicht gespeichert, wenn du diesen Bildschirm verlässt. Möchtest du diesen Bildschirm wirklich verlassen?";
+"Modal.ManualUpload.Title" = "Manuellen Upload aktivieren?";
+"Modal.ManualUpload.Paragraph" = "Mit dieser Einstellung kannst du unveröffentlichte Messungen manuell erneut hochladen.";
+"Modal.ManualUpload.Enable" = "Aktivieren";
+"Modal.ManualUpload.Disable" = "Nein, danke";
 "Toast.CopiedToClipboard" = "In die Zwischenablage kopiert";
 "Snackbar.ResultsNotUploaded.Text" = "Nicht hochgeladen";
 "Snackbar.ResultsNotUploaded.Upload" = "Hochladen";
@@ -243,7 +249,8 @@
 "Settings.AutomatedTesting.MonthlyMobileAllowance" = "Monatliches mobiles Datenvolumen";
 "Settings.AutomatedTesting.MonthlyWiFiAllowance" = "Monatliches WLAN Datenvolumen";
 "Settings.Sharing.Label" = "Beteiligung";
-"Settings.Sharing.UploadResults" = "Ergebnisse veröffentlichen";
+"Settings.Sharing.UploadResults" = "Ergebnisse automatisch veröffentlichen";
+"Settings.Sharing.UploadResultsManually" = "Manueller Ergebnis-Upload";
 "Settings.Sharing.IncludeNetwork" = "Netzwerkinformationen einbeziehen";
 "Settings.Sharing.GPS" = "Ungefähren Standort einbeziehen";
 "Settings.Sharing.IncludeIP" = "IP-Addresse einbeziehen";
@@ -276,6 +283,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Automatische DASH Serverauswahl";
 "Settings.Performance.DashServerAddress" = "DASH-Server";
 "Settings.Performance.DashServerPort" = "DASH-Serverport";
+"Settings.SendEmail.Label" = "E-Mail an den Support senden";
+"Settings.SendEmail.Error" = "Auf Ihrem Gerät sind keine E-Mail-Clients konfiguriert";
 "Notification.FinishedRunning" = "Vollständig ausgeführt";
 "OONIBrowser.TryMirror" = "Versuche Mirror";
 "OONIBrowser.Loading" = "Lade...";
@@ -292,7 +301,7 @@
 "OONIRun.InvalidParameter" = "Ungültiger Parameter";
 "OONIRun.InvalidParameter.Msg" = "Der OONI Run-Link ist entweder fehlerhaft oder deine App ist veraltet.";
 "OONIRun.RandomSamplingOfURLs" = "Du wirst eine zufällige Auswahl von Webseiten testen.";
-"OONIRun.TestRunningError" = "Bitte warte, bis der Test abgeschlossen ist, bevor du OONI Run öffnest.\n";
+"OONIRun.TestRunningError" = "Bitte warten Sie, bis der Test beendet ist, bevor Sie auf einen OONI Run-Link tippen.";
 "CategoryCode.ALDR.Name" = "Drogen & Alkohol";
 "CategoryCode.REL.Name" = "Religion";
 "CategoryCode.PORN.Name" = "Pornografie";
@@ -309,7 +318,7 @@
 "CategoryCode.ANON.Name" = "Umgehungswerkzeuge";
 "CategoryCode.DATE.Name" = "Online-Dating";
 "CategoryCode.GRP.Name" = "Soziale Netzwerke";
-"CategoryCode.LGBT.Name" = "LGBT";
+"CategoryCode.LGBT.Name" = "LGBTQ+";
 "CategoryCode.FILE.Name" = "Datenaustausch";
 "CategoryCode.HACK.Name" = "Hacking-Werkzeuge";
 "CategoryCode.COMT.Name" = "Kommunikations-Werkzeuge";
@@ -340,7 +349,7 @@
 "CategoryCode.ANON.Description" = "Anonymisierung, Zensurumgehung und Verschlüsselung";
 "CategoryCode.DATE.Description" = "Online-Dating-Seiten";
 "CategoryCode.GRP.Description" = "Online-Tools für soziale Netzwerke und Plattformen";
-"CategoryCode.LGBT.Description" = "Gemeinschaften um LGBTQI, welche thematisch verwandte Themen (außer Pornografie) diskutieren";
+"CategoryCode.LGBT.Description" = "LGBTQ+ Communities, die verwandte Themen diskutieren (außer Pornografie).";
 "CategoryCode.FILE.Description" = "Datentausch inklusive Cloud-basierter Dateispeicherung, Torrents und P2P";
 "CategoryCode.HACK.Description" = "Tools und Neuigkeiten im Bezug auf Computersicherheit ";
 "CategoryCode.COMT.Description" = "Kommunikationswerkzeuge für Einzelpersonen und Gruppen, inklusive VoIP, Messaging und Webmail";
