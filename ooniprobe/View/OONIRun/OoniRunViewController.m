@@ -69,8 +69,6 @@
                 [self setTestName:[parameters objectForKey:@"tn"]];
                 if ([parameters objectForKey:@"ta"])
                     [self setTestArguments:[parameters objectForKey:@"ta"]];
-                if ([parameters objectForKey:@"td"])
-                    [self setTestDescription:[parameters objectForKey:@"td"]];
                 [self showTestScreen];
             }
             else {
