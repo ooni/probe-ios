@@ -78,7 +78,7 @@
     MKGeoIPLookupResults *results = [settings perform];
     NSString *cc = @"XX";
     if ([results good])
-        cc = [results getProbeCC];
+        cc = [results probeCC];
     NSString *path = [NSString stringWithFormat:@"https://orchestrate.ooni.io/api/v1/test-list/urls?country_code=%@", cc];
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
