@@ -33,11 +33,11 @@
         [self showModalHelp];
     }
     else {
-        [self showModalHelp];
+        [self uploadResult];
     }
 }
 
--(void)uploadResult{
+-(void)showModalHelp{
     //TODO should we add a don't ask again button?
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.ResultsNotUploaded.Button.Upload", nil)

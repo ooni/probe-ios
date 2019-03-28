@@ -8,7 +8,7 @@ target 'ooniprobe' do
     pod 'Crashlytics'
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
-    pod 'lottie-ios'
+    pod 'lottie-ios', '2.5.3'
     pod 'SharkORM'
     pod 'MKDropdownMenu'
     pod 'RHMarkdownLabel'
