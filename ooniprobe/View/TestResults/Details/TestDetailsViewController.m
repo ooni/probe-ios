@@ -17,10 +17,12 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.title = [LocalizationUtility getNameForTest:measurement.test_name];
-    
+    self.scrollView.alwaysBounceVertical = NO;
+
     UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(advancedScreens)];
     //assign button to navigationbar
     self.navigationItem.rightBarButtonItem = moreButton;
+    [self reloadFooter];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
@@ -67,6 +69,19 @@
         return NO;
     }
     return YES;
+}
+
+-(void)reloadFooter{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.measurement.is_uploaded){
+            self.scrollViewFooterConstraint.constant = -45;
+            [self.scrollView setNeedsUpdateConstraints];
+        }
+        else {
+            self.scrollViewFooterConstraint.constant = 0;
+            [self.scrollView setNeedsUpdateConstraints];
+        }
+    });
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
