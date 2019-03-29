@@ -60,7 +60,7 @@
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *current = [categories objectAtIndex:indexPath.row];
-    [SettingsUtility addRemoveSitesCategory:current];
+    categories_disabled = [SettingsUtility addRemoveSitesCategory:current];
 }
 
 @end
