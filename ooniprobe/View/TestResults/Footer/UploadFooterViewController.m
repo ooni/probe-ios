@@ -2,6 +2,8 @@
 #import "MessageUtility.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SettingsUtility.h"
+#import <mkall/MKCollector.h>
+#import "TestUtility.h"
 
 @interface UploadFooterViewController ()
 
@@ -25,7 +27,7 @@
     self.uploadButton.layer.masksToBounds = YES;
     self.uploadButton.layer.borderWidth = 1.0f;
     self.uploadButton.layer.borderColor = [UIColor whiteColor].CGColor;
-
+    
 }
 
 -(IBAction)upload{
@@ -53,12 +55,32 @@
 
 -(void)uploadResult{
     //TODO call relative mk function.
-    /*
-     if (result == nil && measurement == nil && upload_all) upload ALL
-     if (result != nil && measurement == nil && upload_all) upload all measurements of that result
-     if (result != nil && measurement != nil && !upload_all) upload that measurement
-     */
-    [MessageUtility showToast:@"TODO" inView:self.view];
+    if (result == nil && measurement == nil && upload_all) {
+        //upload ALL
+    }
+    else if (result != nil && measurement == nil && upload_all) {
+        //upload all measurements of that result
+    }
+    else if (result != nil && measurement != nil && !upload_all) {
+        //upload this measurement
+        [self uploadMeasurement:self.measurement];
+    }
+}
+
+-(void)uploadMeasurement:(Measurement*)measurement{
+    NSString *content = [TestUtility getFileContent:[measurement getReportFile]];
+    MKCollectorResubmitSettings *settings = [[MKCollectorResubmitSettings alloc] init];
+    [settings setSerializedMeasurement:content];
+    MKCollectorResubmitResults *results = [settings perform];
+    if ([results good]){
+        NSLog(@"good: %d", [results good]);
+        NSLog(@"updatedMeasurement: %@", [results updatedSerializedMeasurement]);
+        NSLog(@"logs: %@", [results logs]);
+    }
+}
+
+- (void)uploadFinished{
+    //TODO reload every table/screen
 }
 
 @end
