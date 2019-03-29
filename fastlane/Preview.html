@@ -1,0 +1,2423 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>deliver - OONI Probe
+</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <style>
+          .app-name {
+              font-size: 42px;
+              font-family: 'Helvetica Neue', HelveticaNeue, Helvetica Neue;
+              font-weight: 300;
+              margin-top: 22px;
+              margin-left: 25px;
+              margin-right: 25px;
+          }
+
+          .app-subtitle {
+              font-size: 26px;
+              font-family: 'Helvetica Neue', HelveticaNeue, Helvetica Neue;
+              font-weight: 300;
+              margin-left: 25px;
+              margin-right: 25px;
+          }
+
+          .app-urls {
+              margin-left: 25px;
+              font-size: 14px;
+              margin-top: 4px;
+              margin-right: 25px;
+          }
+
+          body {
+              font-family: 'Helvetica Neue', HelveticaNeue;
+          }
+
+          hr {
+            margin-top: 40px;
+            margin-bottom: 40px;
+          }
+
+          .app-url-descr {
+              height:22px;
+              display: inline-block;
+              font-weight: 500;
+          }
+
+          .app-url {
+              color: #0056ba;
+              font-weight: 300;
+              margin-right: 10px;
+          }
+
+          .app-keyword {
+              margin-left: 25px;
+              margin-right: 25px;
+              margin-top: 22px;
+          }
+
+          .cat-headline {
+              font-weight: 700;
+              margin-bottom: 5px;
+          }
+
+
+
+          .app-description {
+              margin-left: 25px;
+              margin-right: 25px;
+              margin-top: 22px;
+          }
+
+          .app-description-text {
+              font-weight: 300;
+          }
+
+          .app-changelog {
+              margin-left: 25px;
+              margin-right: 25px;
+              margin-top: 22px;
+              font-weight: 300;
+          }
+
+          .app-screenshots {
+              margin-left: 15px;
+              margin-right: 15px;
+              margin-top: 22px;
+          }
+
+          .app-keyword-list {
+              font-weight: 300;
+          }
+
+          .app-changelog-list {
+              list-style-type: square;
+              
+              font-weight: 300;
+          }
+
+          ul {
+              margin-top: 6px;
+          }
+
+          .app-screenshot-row {
+              width: 100%;
+              margin-top: 10px;
+              margin-bottom: 10px;
+          }
+
+          .app-screenshot {
+              width: calc(20% - 30px);
+              margin-left: 10px;
+              margin-right: 10px;
+          }
+
+          #app-screenshots .cat-headline {
+              margin-left: 10px;
+              margin-right: 10px;
+          }
+          .app-icons {
+            overflow: hidden;
+          }
+          .app-icons img {
+            width: 150px;
+          }
+          .app-icons .app-icon {
+              float: left;
+              margin-right: 20px;
+          }
+
+          .app-minor-information {
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 22px;
+          }
+
+          .app-minor-information-key {
+            font-weight: 700;
+          }
+        </style>
+    </head>
+    
+    <body>
+      <div class="app-icons">
+        
+        
+        <div class="app-icon">
+          Large App Icon:<br>
+          <img src="metadata/app_icon.jpg">
+        </div>
+        
+        
+      </div>
+      
+        
+          <div class="app-name">
+            ca: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  Mesura la censura d'Internet
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>xarxa</li>
+                
+                  <li>prova de velocitat</li>
+                
+                  <li>mesurament</li>
+                
+                  <li>xarxa</li>
+                
+                  <li>wifi</li>
+                
+                  <li>xarxes</li>
+                
+                  <li>escaneja</li>
+                
+                  <li>ample de banda</li>
+                
+                  <li>banc</li>
+                
+                  <li>dns</li>
+                
+                  <li>mòbil</li>
+                
+                  <li>eina</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Els llocs web i les aplicacions de xarxes socials estan blocades? La vostra xarxa és inusualment lenta? Executeu OONI Probe per esbrinar-ho!<br /><br />Amb aquesta aplicació, examinareu el blocatge de llocs web i aplicacions de missatgeria instantània, mesurarà la velocitat i el rendiment de la vostra xarxa i verificarà si en la vostra xarxa hi ha sistemes que podrien ser responsables de la censura i la vigilància.<br /><br />OONI Probe és desenvolupat per l'Open Observatory of Network Interference (OONI), un projecte de programari gratuït (sota el Projecte Tor) que apunta a descobrir la censura d'Internet a tot el món.<br /><br />Des de 2012, la comunitat global d'OONI ha recopilat milions de mesuraments de xarxes de més de 200 països, el que llança llum sobre múltiples casos d'interferència a la xarxa.<br /><br />▶ Recull evidències de censura d'Internet.<br />Podeu verificar si i com es bloquen els llocs web i les aplicacions de missatgeria instantània. Les dades de mesurament de la xarxa que recopilarà poden servir com a evidència de la censura d'Internet.<br /><br />▶ Detecta sistemes responsables de censura i vigilància<br />Les proves d'OONI Probe també estan dissenyades per descobrir la presència de sistemes («middleboxes») que podrien ser responsables de la censura i la vigilància.<br /><br />▶ Mesura la velocitat i el rendiment de la vostra xarxa<br />Pot mesurar la velocitat i el rendiment de la vostra xarxa executant la implementació d'OONI de la prova de diagnòstic de xarxa (NDT). També pot mesurar el rendiment de la transmissió de vídeo amb la prova de transmissió dinàmica adaptativa a través d'HTTP (DASH).<br /><br />▶ Informació oberta<br />OONI publica dades de mesurament de xarxes perquè la informació oberta permet a tercers verificar les troballes d'OONI, realitzar estudis independents i respondre altres preguntes d'investigació. La publicació oberta d'informació d'OONI també ajuda a augmentar la transparència de la censura d'Internet a tot el món. Podeu explorar i baixar dades d'OONI aquí: https://ooni.io/data/<br /><br />▶ Programari lliure<br />Totes les proves d'OONI Probe (incloses les nostres implementacions NDT i DASH) es basen en programari de codi obert i gratuït. Podeu trobar projectes de programari OONI a GitHub: https://github.com/ooni. Sentiu curiositat per saber com funcionen les proves d'OONI? Més informació: https://ooni.io/nettest/<br /><br />Per rebre actualitzacions d'OONI-vers, Seguiu-nos a Twitter: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              Recull evidències de censura a internet. Mesura la velocitat i el rendiment de la vostra xarxa.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            de-DE: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  Messe Internet Zensur
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>netzwerk</li>
+                
+                  <li>geschwindigkeitstest</li>
+                
+                  <li>messung</li>
+                
+                  <li>netz</li>
+                
+                  <li>wlan</li>
+                
+                  <li>vernetzung</li>
+                
+                  <li>scan</li>
+                
+                  <li>bandbreite</li>
+                
+                  <li>bench</li>
+                
+                  <li>dns</li>
+                
+                  <li>forschung</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Sind Webseiten oder Social-Media-Apps gesperrt? Ist dein Netzwerk ungewöhnlich langsam? Nutze OONI Probe, um es herauszufinden!<br /><br />Mit dieser App kannst du Sperrungen von Webseiten und Instant-Messaging-Apps untersuchen, die Geschwindigkeit und die Performance deines Netzwerks testen und prüfen, welche Systeme für Zensur und Überwachung in deinem Netzwerk verantwortlich sein können.<br /><br />OONI Probe wird vom Open Observatory of Network Interference (OONI) entwickelt, ein Freies Softwareprojekt (unter dem Tor Project), das sich als Ziel setzt, Internetzensur weltweit aufzudecken. <br /><br />Seit 2012 hat OONIs globale Gemeinschaft Millionen von Netzwerk-Messungen aus mehr als 200 Ländern gesammelt und somit Licht auf eine Vielzahl von Fällen der Internetzensur und Traffic-Manipulation geworfen.<br /><br />▶ Sammle Anzeichen auf Internetzensur<br />Du kannst überprüfen, ob und wie Webseiten und Instant Messaging-Apps blockiert werden. Die von dir erfassten Netzwerkmessdaten können als Beweis für Internetzensur dienen.<br /><br />▶ Entdecke für Zensur und Überwachung verantwortliche Systeme.<br />OONI Probe Tests wurden auch entworfen, um die Anwesenheit von für Zensur und Überwachung verantwortlichen Systemen (middleboxes) zu entdecken. <br /><br />▶ Miss die Geschwindigkeit und Performance deines Netzwerks<br />Du kannst die Geschwindigkeit und Leistung deines Netzwerks messen, indem du OONIs Implementierung des Network Diagnostic Test (NDT) ausführst. Mit dem Dynamic Adaptive Streaming over HTTP (DASH) Test kannst du die Performance von Video-Streaming messen.<br /><br />▶ Open Data<br />OONI veröffentlicht Netzwerkmessdaten, da dies Dritten ermöglicht, die Ergebnisse von OONI zu überprüfen, unabhängige Studien durchzuführen und andere Forschungsfragen zu beantworten. Durch die offene Veröffentlichung von OONI-Daten wird auch die Transparenz von Internet Zensur auf der ganzen Welt erhöht. Du kannst die OONI-Daten hier erkunden und herunterladen: https://ooni.io/data/<br /><br />▶ Freie Software<br />Alle OONI Probe Tests (einschließlich unserer NDT- und DASH-Implementierungen) basieren auf Freier- und Open-Source-Software. Die OONI Softwareprojekte findest du auf GitHub: https://github.com/ooni. Neugierig, wie OONI Probe-Tests funktionieren? Erfahre mehr: https://ooni.io/nettest/<br /><br />Um Updates aus dem OONI-Verse zu erhalten, folge uns auf Twitter: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              Sammle Anzeichen auf Internetzensur. Miss die Geschwindigkeit und Performance deines Netzwerks.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for de-DE"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20X-01Dashboard.png" title="Screenshot #0 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20X-02TestResults.png" title="Screenshot #1 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for de-DE"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone XS Max</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20XS%20Max-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20XS%20Max-01Dashboard.png" title="Screenshot #0 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20XS%20Max-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20XS%20Max-02TestResults.png" title="Screenshot #1 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20XS%20Max-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20XS%20Max-03WebsiteBlocked.png" title="Screenshot #2 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20XS%20Max-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20XS%20Max-04SpeedTest.png" title="Screenshot #3 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPhone%20XS%20Max-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPhone%20XS%20Max-05ChooseWebsite.png" title="Screenshot #4 for de-DE"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/de-DE/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for de-DE"></a>
+              
+                <a href="./fastlane/screenshots/de-DE/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/de-DE/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for de-DE"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            el: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  Εξετάστε τη Λογοκρισία στο Δια
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>δίκτυο</li>
+                
+                  <li>ταχύτητα</li>
+                
+                  <li>μέτρηση</li>
+                
+                  <li>δίκτυο</li>
+                
+                  <li>ασύρματο</li>
+                
+                  <li>δικτύωση</li>
+                
+                  <li>εύρεση</li>
+                
+                  <li>εύρος ζώνης</li>
+                
+                  <li>dns</li>
+                
+                  <li>κινητό</li>
+                
+                  <li>ooni</li>
+                
+                  <li>έρευνα</li>
+                
+                  <li>εργαλείο</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Έχουν μπλοκαριστεί ιστοσελίδες και chat εφαρμογές; Είναι ασυνήθιστα αργό το Διαδίκτυο; Τρέξε το OONI Probe για να μάθεις!<br /><br />Με αυτήν την εφαρμογή, θα ελέγξεις το μπλοκάρισμα ιστοσελιδών και chat εφαρμογών, θα μετρήσεις την ταχύτητα και την απόδοση του δικτύου σου, και θα ελέγξεις αν υπάρχουν συστήματα που ίσως ευθύνονται για λογοκρισία και επιτήρηση στο δίκτυό σου.<br /><br />Το OONI Probe αναπτύχθηκε από το OONI (Open Observatory of Network Interference), ένα έργο ελεύθερου λογισμικού (του οργανισμού The Tor Project) που αποσκοπεί στην αποκάλυψη της λογοκρισίας στο Διαδίκτυο, σε όλο τον κόσμο.<br /><br />Από το 2012, η ​​παγκόσμια κοινότητα του OONI έχει συγκεντρώσει εκατομμύρια μετρήσεις δικτύου από περισσότερες από 200 χώρες, ρίχνοντας φως σε πολλές περιπτώσεις παρεμβολών στο Διαδίκτυο.<br /><br />▶ Σύλλεξε αποδεικτικά στοιχεία για τη λογοκρισία στο Διαδίκτυο<br />Μπορείς να ελέγξεις εάν και πώς έχουν μπλοκαριστεί ιστοσελίδες και εφαρμογές συνομιλιών. Τα δεδομένα μέτρησης του δικτύου που θα συλλέξεις μπορούν να χρησιμεύσουν ως αποδεικτικά λογοκρισίας στο Διαδίκτυο.<br /><br />▶ Εντόπισε συστήματα υπεύθυνα για λογοκρισία και επιτήρηση στο Διαδίκτυο<br />Οι δοκιμές του OONI Probe έχουν επίσης σχεδιαστεί για να αποκαλύπτουν την παρουσία συστημάτων (middleboxes) που θα μπορούσαν να ευθύνονται για τη λογοκρισία και την επιτήρηση στο Διαδίκτυο.<br /><br />▶ Μέτρησε την ταχύτητα και την απόδοση του δικτύου σου<br />Μπορείς να μετρήσεις την ταχύτητα και την απόδοση του δικτύου σου τρέχοντας τη δοκιμή NDT, που συμπεριλαμβάνεται στο OONI Probe. Μπορείς επίσης να μετρήσεις την απόδοση ροής βίντεο με τη δοκιμή DASH (Dynamic Adaptive Streaming over HTTP).<br /><br />▶ Ανοιχτά δεδομένα<br />To OONI δημοσιεύει δεδομένα μέτρησης δικτύων, επειδή τα ανοιχτά δεδομένα επιτρέπουν την ανεξάρτητη επαλήθευση ευρυμάτων και τη διεξαγωγή ανεξάρτητων ερευνών. Επίσης, η ανοικτή δημοσίευση των δεδομένων συμβάλλει στην αύξηση της διαφάνειας για τη λογοκρισίας στο Διαδίκτυο σε όλο τον κόσμο. Μπορείς να βεις τα δεδομένα του OONI εδώ: https://ooni.io/data/<br /><br />▶ Ελεύθερο λογισμικό<br />Όλες οι δοκιμές του OONI Probe (συμπεριλαμβανομένων των δοκιμών NDT και DASH) βασίζονται σε λογισμικό ελεύθερου και ανοικτού κώδικα. Μπορείς να βρεις το λογισμικό του OONI στο GitHub: https://github.com/ooni. Αν θες να μάθεις πώς λειτουργούν οι δοκιμές του OONI Probe, μάθε περισσότερα εδώ: https://ooni.io/nettest/<br /><br />Για ενημερώσεις από την OONI κοινότητα, παρακολούθησέ μας στο Twitter: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              Σύλλεξε αποδεικτικά στοιχεία για τη λογοκρισία στο Διαδίκτυο. Μέτρησε την ταχύτητα και την απόδοση του δικτύου σου.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/el/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for el"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/el/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20X-01Dashboard.png" title="Screenshot #0 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20X-02TestResults.png" title="Screenshot #1 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for el"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone XS Max</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/el/iPhone%20XS%20Max-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20XS%20Max-01Dashboard.png" title="Screenshot #0 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%20XS%20Max-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20XS%20Max-02TestResults.png" title="Screenshot #1 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%20XS%20Max-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20XS%20Max-03WebsiteBlocked.png" title="Screenshot #2 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%20XS%20Max-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20XS%20Max-04SpeedTest.png" title="Screenshot #3 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPhone%20XS%20Max-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPhone%20XS%20Max-05ChooseWebsite.png" title="Screenshot #4 for el"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/el/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for el"></a>
+              
+                <a href="./fastlane/screenshots/el/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/el/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for el"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            en-US: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  Measure Internet Censorship
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>network</li>
+                
+                  <li>speedtest</li>
+                
+                  <li>measurement</li>
+                
+                  <li>net</li>
+                
+                  <li>wifi</li>
+                
+                  <li>networking</li>
+                
+                  <li>scan</li>
+                
+                  <li>bandwidth</li>
+                
+                  <li>bench</li>
+                
+                  <li>dns</li>
+                
+                  <li>mobile</li>
+                
+                  <li>ooni</li>
+                
+                  <li>research</li>
+                
+                  <li>tool</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Are websites and social media apps blocked? Is your network unusually slow? Run OONI Probe to find out!<br /><br />With this app, you will examine the blocking of websites and instant messaging apps, measure your network's speed and performance, and check whether systems that could be responsible for censorship and surveillance are in your network.<br /><br />OONI Probe is developed by the Open Observatory of Network Interference (OONI), a free software project (under The Tor Project) that aims to uncover internet censorship around the world.<br /><br />Since 2012, OONI’s global community has collected millions of network measurements from more than 200 countries, shedding light on multiple cases of network interference.<br /><br />▶ Collect evidence of internet censorship<br />You can check whether and how websites and instant messaging apps are blocked. The network measurement data you will collect may serve as evidence of internet censorship.<br /><br />▶ Detect systems responsible for censorship and surveillance<br />OONI Probe tests are also designed to uncover the presence of systems (middleboxes) that could be responsible for censorship and surveillance.<br /><br />▶ Measure the speed and performance of your network<br />You can measure the speed and performance of your network by running OONI's implementation of the Network Diagnostic Test (NDT). You can also measure video streaming performance with the Dynamic Adaptive Streaming over HTTP (DASH) test.<br /><br />▶ Open data<br />OONI publishes network measurement data because open data allows third parties to verify OONI findings, conduct independent studies, and answer other research questions. Openly publishing OONI data also helps increase transparency of internet censorship around the world. You can explore and download OONI data here: https://ooni.io/data/<br /><br />▶ Free software<br />All OONI Probe tests (including our NDT and DASH implementations), are based on free and open source software. You can find OONI software projects on GitHub: https://github.com/ooni. Curious to learn how OONI Probe tests work? Learn more: https://ooni.io/nettest/<br /><br />To receive updates from the OONI-verse, follow us on Twitter: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              Collect evidence of internet censorship. Measure the speed and performance of your network.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for en-US"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20X-01Dashboard.png" title="Screenshot #0 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20X-02TestResults.png" title="Screenshot #1 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for en-US"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone XS Max</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20XS%20Max-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20XS%20Max-01Dashboard.png" title="Screenshot #0 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20XS%20Max-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20XS%20Max-02TestResults.png" title="Screenshot #1 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20XS%20Max-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20XS%20Max-03WebsiteBlocked.png" title="Screenshot #2 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20XS%20Max-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20XS%20Max-04SpeedTest.png" title="Screenshot #3 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPhone%20XS%20Max-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPhone%20XS%20Max-05ChooseWebsite.png" title="Screenshot #4 for en-US"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/en-US/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for en-US"></a>
+              
+                <a href="./fastlane/screenshots/en-US/iPad%20Pro%20(12.9-inch)-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/en-US/iPad%20Pro%20(12.9-inch)-05ChooseWebsite.png" title="Screenshot #4 for en-US"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            es-ES: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  Mide la censura Internet
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>red</li>
+                
+                  <li>test</li>
+                
+                  <li>velocidad</li>
+                
+                  <li>medición</li>
+                
+                  <li>red</li>
+                
+                  <li>wifi</li>
+                
+                  <li>conexión</li>
+                
+                  <li>escaneado</li>
+                
+                  <li>ancho</li>
+                
+                  <li>banda</li>
+                
+                  <li>prueba</li>
+                
+                  <li>dns</li>
+                
+                  <li>móvil</li>
+                
+                  <li>ooni</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  ¿Los sitios web y aplicaciones de redes sociales están siendo bloqueados? ¿Tu red es inusualmente lenta? ¡Corre OONI Probe para saberlo!<br /><br />Con esta aplicación, examinarás si existe bloqueo de sitios web o aplicaciones de mensajería instantánea, medirás la velocidad y rendimiento de tu red, y comprobarás si hay sistemas que puedan realizar censura o vigilancia presentes en tu red.<br /><br />OONI Probe es desarrollada por el Observatorio Abierto de Interferencia de Red (OONI), un proyecto de software libre (bajo el Proyecto Tor) que apunta a descubrir la censura de Internet por todo el mundo.<br /><br />Desde 2012, la comunidad global de OONI ha recopilado millones de mediciones de red de más de 200 países, exponiendo múltiples casos de interferencia de red.<br /><br />▶ Recopila evidencia de censura en Internet<br />Puedes comprobar si están siendo bloqueados ciertos sitios web y aplicaciones de mensajería instantánea y conocer como lo hacen. Los datos de mediciones de red que recopiles pueden servir como evidencia de censura de Internet.<br /><br />▶ Detecta sistemas responsables de censura y vigilancia<br />Las pruebas de OONI Probe también están diseñadas para descubrir la presencia de sistemas (middleboxes) que pueden ser utilizados para llevar a cabo censura y vigilancia.<br /><br />▶ Mide la velocidad y rendimiento de tu red<br />Puedes medir la velocidad y rendimiento de tu red corriendo la implementación de OONI de la prueba de diagnóstico de red (NDT). También puedes medir el rendimiento del streaming de vídeo con la prueba streaming por adaptación dinámica sobre HTTP (DASH).<br /><br />▶ Datos abiertos<br />OONI publica datos de mediciones de red porque al colocar los datos en el dominio público permite que terceros verifiquen los hallazgos de OONI, conduzcan estudios independientes, y contesten otras preguntas de investigación. La publicación abierta de datos de OONI también ayuda a aumentar la transparencia acerca de la censura de Internet alrededor del mundo. Puedes explorar y descargar datos de OONI desde aquí: https://ooni.io/data/<br /><br />▶ Software libre<br />Todas las pruebas de OONI Probe (incluyendo nuestras implementaciones de NDT  y DASH), están basadas en software libre y de código abierto. Puedes encontrar proyectos de software de OONI en GitHub: https://github.com/ooni. ¿Sientes curiosidad acerca de cómo funcionan las pruebas de OONI Probe? Conoce más en: https://ooni.io/nettest/<br /><br />Para recibir actualizaciones del OONI-verso, síguenos en Twitter: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              Recopila evidencia de censura en Internet. Mide la velocidad y rendimiento de tu red.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for es-ES"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20X-01Dashboard.png" title="Screenshot #0 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20X-02TestResults.png" title="Screenshot #1 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for es-ES"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone XS Max</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20XS%20Max-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20XS%20Max-01Dashboard.png" title="Screenshot #0 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20XS%20Max-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20XS%20Max-02TestResults.png" title="Screenshot #1 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20XS%20Max-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20XS%20Max-03WebsiteBlocked.png" title="Screenshot #2 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20XS%20Max-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20XS%20Max-04SpeedTest.png" title="Screenshot #3 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPhone%20XS%20Max-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPhone%20XS%20Max-05ChooseWebsite.png" title="Screenshot #4 for es-ES"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/es-ES/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for es-ES"></a>
+              
+                <a href="./fastlane/screenshots/es-ES/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/es-ES/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for es-ES"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            fr-FR: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  Mesurer la censure d'Internet
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>réseau</li>
+                
+                  <li>mesure</li>
+                
+                  <li>net</li>
+                
+                  <li>wi-fi</li>
+                
+                  <li>wifi</li>
+                
+                  <li>réseautage</li>
+                
+                  <li>analyser</li>
+                
+                  <li>balayer</li>
+                
+                  <li>test</li>
+                
+                  <li>dns</li>
+                
+                  <li>mobile</li>
+                
+                  <li>recherche</li>
+                
+                  <li>outil</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Les sites Web et les applis de médias sociaux sont-ils bloqués ? Votre réseau est-il anormalement lent ? Lancez OONI Probe pour le savoir !<br /><br />Avec cette appli, vous examinerez le blocage des sites Web et des applis de messagerie instantanée, mesurerez la vitesse et les performances de votre réseau, et vérifierez la présence sur votre réseau de systèmes qui pourraient être la source de censure ou de surveillance.<br /><br />OONI Probe est développé par l’observatoire ouvert des interférences réseau (« Open Observatory of Network Interference » OONI), un projet de logiciel libre (dans le cadre du Projet Tor) qui vise à mettre au grand jour la censure d’Internet dans le monde entier.<br /><br />Depuis 2012, la communauté internationale de l’OONI a recueilli des millions de mesures du réseau provenant de plus de 200 pays, révélant plusieurs cas d’interférences réseau.<br /><br />▶ Recueillir des preuves de censure d’Internet<br />Vous pouvez vérifier si et comment les sites Web et les applis de messagerie instantanée sont bloqués. Les données de mesure du réseau que vous recueillerez pourront servir de preuve de censure d’Internet.<br /><br />▶ Détecter la présence de systèmes de censure ou de surveillance<br />Les tests d’OONI Probe sont également conçus pour détecter la présence de systèmes (des boîtiers intermédiaires) qui pourraient être la cause de censure et de surveillance.<br /><br />▶ Mesurer la vitesse et les performances de votre réseau<br />Vous pouvez mesurer la vitesse et les performances de votre réseau en exécutant l’application par OONI du test diagnostic du réseau (NDT). Vous pouvez également mesurer les performances de la diffusion en continu de vidéos avec le test de diffusion dynamique adaptative par HTTP (DASH).<br /><br />▶ Données ouvertes<br />L’OONI publie les données de mesure du réseau, car les données ouvertes permettent à des tiers de vérifier les résultats de l’OONI, d’entreprendre des recherches indépendantes, et de répondre à d’autres questions de recherche. La publication ouverte des données de l’OONI contribue également à accroître la transparence quant à la censure d’Internet dans le monde entier. Vous pouvez explorer et télécharger les données de l’OONI ici : https://ooni.io/data/<br /><br />▶ Logiciel libre<br />Tous les tests d’OONI Probe (y compris nos applications de NDT et de DASH) s’appuient sur des logiciels libres et à code source ouvert. Vous trouverez les projets de logiciels de l’OONI sur GitHub : https://github.com/ooni. Êtes-vous curieux de savoir comment fonctionnent les tests OONI Probe ? Apprenez-en davantage : https://ooni.io/nettest/<br /><br />Pour recevoir des mises à jour de l’OONI-vers, suivez-nous sur Twitter : https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              Recueillez des preuves de censure d’Internet. Mesurez la vitesse et les performances de votre réseau.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for fr-FR"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20X-01Dashboard.png" title="Screenshot #0 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20X-02TestResults.png" title="Screenshot #1 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for fr-FR"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone XS Max</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20XS%20Max-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20XS%20Max-01Dashboard.png" title="Screenshot #0 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20XS%20Max-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20XS%20Max-02TestResults.png" title="Screenshot #1 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20XS%20Max-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20XS%20Max-03WebsiteBlocked.png" title="Screenshot #2 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20XS%20Max-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20XS%20Max-04SpeedTest.png" title="Screenshot #3 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPhone%20XS%20Max-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPhone%20XS%20Max-05ChooseWebsite.png" title="Screenshot #4 for fr-FR"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/fr-FR/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for fr-FR"></a>
+              
+                <a href="./fastlane/screenshots/fr-FR/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/fr-FR/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for fr-FR"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            hi: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  इंटरनेट सेंसरशिप को मापें
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>नेटवर्क</li>
+                
+                  <li>स्पीडटेस्ट</li>
+                
+                  <li>मापन</li>
+                
+                  <li>नेट</li>
+                
+                  <li>वाईफाई</li>
+                
+                  <li>नेटवर्किंग</li>
+                
+                  <li>स्कैन</li>
+                
+                  <li>बैंडविड्थ</li>
+                
+                  <li>बेंच</li>
+                
+                  <li>डीएनएस</li>
+                
+                  <li>मोबाइल</li>
+                
+                  <li>रिसर्च</li>
+                
+                  <li>टूल</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  क्या वेबसाइट और सोशल मीडिया ऐप ब्लॉक किए गए हैं? क्या आपका नेटवर्क असामान्य रूप से धीमा है? पता लगाने के लिए OONI जांच चलाएं!<br /><br />इस एप्लिकेशन के साथ, आप वेबसाइटों को अवरुद्ध करने और त्वरित मैसेजिंग ऐप की जांच करेंगे, अपने नेटवर्क की गति और प्रदर्शन को मापेंगे, और जांच करेंगे कि क्या सिस्टम जो सेंसरशिप और निगरानी के लिए जिम्मेदार हो सकते हैं, आपके नेटवर्क में हैं।<br /><br />OONI Probe नेटवर्क ऑब्ज़र्वेटरी ऑफ़ ओपेन ऑब्ज़र्वेटरी (OONI) द्वारा विकसित की गई है, जो एक मुफ्त सॉफ्टवेयर प्रोजेक्ट (Tor Project के तहत) है जिसका उद्देश्य दुनिया भर में इंटरनेट सेंसरशिप को उजागर करना है।<br /><br />2012 से, OONI के वैश्विक समुदाय ने नेटवर्क हस्तक्षेप के कई मामलों पर प्रकाश डालते हुए, 200 से अधिक देशों से लाखों नेटवर्क माप एकत्र किए हैं।<br /><br />▶ इंटरनेट सेंसरशिप के सबूत इकट्ठा करें<br />आप जाँच सकते हैं कि क्या और कैसे वेबसाइट और इंस्टेंट मैसेजिंग ऐप अवरुद्ध हैं। आपके द्वारा एकत्र किया जाने वाला नेटवर्क माप डेटा इंटरनेट सेंसरशिप के सबूत के रूप में काम कर सकता है।<br /><br />▶ सेंसरशिप और निगरानी के लिए जिम्मेदार सिस्टम का पता लगाएं<br />OONI Probe परीक्षण सिस्टम (मिडिलबॉक्स) की उपस्थिति को उजागर करने के लिए डिज़ाइन किए गए हैं जो सेंसरशिप और निगरानी के लिए जिम्मेदार हो सकते हैं।<br /><br />▶ आपके नेटवर्क की गति और प्रदर्शन को मापना<br />आप OONI के नेटवर्क डायग्नोस्टिक टेस्ट (NDT) के कार्यान्वयन को चलाकर अपने नेटवर्क की गति और प्रदर्शन को माप सकते हैं। आप HTTP (DASH) परीक्षण पर डायनामिक एडैप्टिव स्ट्रीमिंग के साथ वीडियो स्ट्रीमिंग प्रदर्शन भी माप सकते हैं।<br /><br />▶ मुक्त डेटा<br />OONI नेटवर्क माप डेटा प्रकाशित करता है क्योंकि खुला डेटा तीसरे पक्ष को OONI निष्कर्षों को सत्यापित करने, स्वतंत्र अध्ययन करने और अन्य शोध प्रश्नों का उत्तर देने की अनुमति देता है। खुले तौर पर OONI डेटा प्रकाशित करने से दुनिया भर में इंटरनेट सेंसरशिप की पारदर्शिता बढ़ाने में मदद मिलती है। आप यहां OONI डेटा को देख और डाउनलोड कर सकते हैं: https://ooni.io/data/<br /><br />▶ मुफ्त सॉफ्टवेयर<br />सभी OONI Probe (हमारे NDT और DASH कार्यान्वयन सहित), स्वतंत्र और मुक्त स्रोत सॉफ़्टवेयर पर आधारित हैं। आप OONI सॉफ्टवेयर प्रोजेक्ट GitHub: https://github.com/ooni पर प्राप्त कर सकते हैं। जानने के लिए उत्सुक कि OONI जांच कैसे काम करती है? और जानें: https://ooni.io/nettest/<br /><br />OONI-कविता से अपडेट प्राप्त करने के लिए, हमें ट्विटर पर अनुसरण करें: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              इंटरनेट सेंसरशिप के सबूत एकत्रित करें अपने नेटवर्क की गति और प्रदर्शन को मापें।<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/hi/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for hi"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/hi/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%20X-01Dashboard.png" title="Screenshot #0 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%20X-02TestResults.png" title="Screenshot #1 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for hi"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/hi/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for hi"></a>
+              
+                <a href="./fastlane/screenshots/hi/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/hi/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for hi"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            it: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  Misura la Censura Internet
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>network</li>
+                
+                  <li>rete</li>
+                
+                  <li>speedtest</li>
+                
+                  <li>misura</li>
+                
+                  <li>net</li>
+                
+                  <li>ooni</li>
+                
+                  <li>wifi</li>
+                
+                  <li>ricerca</li>
+                
+                  <li>mobile</li>
+                
+                  <li>bench</li>
+                
+                  <li>dns</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Sono bloccati siti web e app social? La tua rete è stranamente lenta? Scoprilo con OONI Probe!<br /><br />Con questa app, potrai esaminare il blocco di siti web, app di messaggistica, misurare le prestazioni e la velocità della tua rete. Potrai inoltre, determinare la presenza di dispositivi di rete che potrebbero essere responsabili di censura e sorveglianza sulla tua rete.<br /><br />OONI Probe è sviluppato dall'Osservatorio Aperto delle Interferenze di Rete (OONI), un progetto di software libero (parte del Tor Project) che ha come obiettivo quello di monitorare la censura internet in tutto il mondo.<br /><br />Dal 2012, la community globale di OONI ha raccolto milioni di misure di rete da più di 200 paesi nel mondo, facendo luce su molti casi di interferenza di rete.<br /><br />▶ Raccogli prove di censura internet<br />Puoi verificare se e come i siti web e le app di messaggistica sono bloccati. The misure di rete da te raccolte posso essere usate come prove di censura internet.<br /><br />▶ Rileva dispositivi che implementano la censura e la sorveglianza<br />I test di OONI Probe sono progettati per scoprire la presenza di dispositivi (middlebox) che potrebbero implementare censura e sorveglianza.<br /><br />▶ Misura la velocità e le prestazioni della tua rete<br />Puoi misurare la velocità e le prestazioni della tua rete eseguendo la implementazione di OONI del Network Diagnostic Test (NDT). Puoi anche misurare le prestazioni dello streaming video attraverso il test Dynamic Adaptive Streaming over HTTP (DASH).<br /><br />▶ Open data<br />OONI pubblica le misure di rete come open data. Questo permette a chiunque di validare i nostri risultati, condurre studi indipendenti e di rispondere ad altre domande di ricerca. Il fatto che OONI pubblica i dati apertamente aiuta ad aumentare la trasparenza della censura internet in tutto il monto. Puoi esplorare e scaricare i dati di OONI qui: https://ooni.io/data/<br /><br />▶ Software libero<br />Tutti i test di OONI Probe (inclusi NDT e DASH), sono basati su software libero. Puoi trovare i progetti software di OONI su GitHub: https://github.com/ooni. Vuoi sapere di più su come funzionano i test di OONI Probe? Visita: https://ooni.io/nettest/<br /><br />Per ricevere aggiornamenti dall'OONI-verso, seguiteci su Twitter: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              Raccogli prove di censura internet. Misura la velocità e le prestazioni della tua rete.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/it/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for it"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/it/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%20X-01Dashboard.png" title="Screenshot #0 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%20X-02TestResults.png" title="Screenshot #1 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for it"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/it/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for it"></a>
+              
+                <a href="./fastlane/screenshots/it/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/it/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for it"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            ja: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  インターネットの検閲、速度を測定します
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>ネットワーク</li>
+                
+                  <li>スピードテスト</li>
+                
+                  <li>測定</li>
+                
+                  <li>ネット</li>
+                
+                  <li>wifi</li>
+                
+                  <li>ネットワーク</li>
+                
+                  <li>スキャン</li>
+                
+                  <li>帯域幅</li>
+                
+                  <li>ベンチ</li>
+                
+                  <li>dns</li>
+                
+                  <li>モバイル</li>
+                
+                  <li>ooni</li>
+                
+                  <li>研究</li>
+                
+                  <li>ツール</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Are websites and social media apps blocked? Is your network unusually slow? Run OONI Probe to find out!<br /><br />With this app, you will examine the blocking of websites and instant messaging apps, measure your network's speed and performance, and check whether systems that could be responsible for censorship and surveillance are in your network.<br /><br />OONI Probe is developed by the Open Observatory of Network Interference (OONI), a free software project (under The Tor Project) that aims to uncover internet censorship around the world.<br /><br />Since 2012, OONI’s global community has collected millions of network measurements from more than 200 countries, shedding light on multiple cases of network interference.<br /><br />▶ Collect evidence of internet censorship<br />You can check whether and how websites and instant messaging apps are blocked. The network measurement data you will collect may serve as evidence of internet censorship.<br /><br />▶ Detect systems responsible for censorship and surveillance<br />OONI Probe tests are also designed to uncover the presence of systems (middleboxes) that could be responsible for censorship and surveillance.<br /><br />▶ Measure the speed and performance of your network<br />You can measure the speed and performance of your network by running OONI's implementation of the Network Diagnostic Test (NDT). You can also measure video streaming performance with the Dynamic Adaptive Streaming over HTTP (DASH) test.<br /><br />▶ Open data<br />OONI publishes network measurement data because open data allows third parties to verify OONI findings, conduct independent studies, and answer other research questions. Openly publishing OONI data also helps increase transparency of internet censorship around the world. You can explore and download OONI data here: https://ooni.io/data/<br /><br />▶ Free software<br />All OONI Probe tests (including our NDT and DASH implementations), are based on free and open source software. You can find OONI software projects on GitHub: https://github.com/ooni. Curious to learn how OONI Probe tests work? Learn more: https://ooni.io/nettest/<br /><br />To receive updates from the OONI-verse, follow us on Twitter: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              インターネット検閲の証拠を収集します。 ネットワークの速度とパフォーマンスを測定します。<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/ja/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for ja"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/ja/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%20X-01Dashboard.png" title="Screenshot #0 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%20X-02TestResults.png" title="Screenshot #1 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for ja"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/ja/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for ja"></a>
+              
+                <a href="./fastlane/screenshots/ja/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/ja/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for ja"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            pt-BR: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  Medir a Censura na Internet
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>network</li>
+                
+                  <li>rede</li>
+                
+                  <li>teste de velocidade</li>
+                
+                  <li>medição</li>
+                
+                  <li>net</li>
+                
+                  <li>wi-fi</li>
+                
+                  <li>networking</li>
+                
+                  <li>escanear</li>
+                
+                  <li>largura de banda</li>
+                
+                  <li>bench</li>
+                
+                  <li>dns</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Os sites e aplicativos de mídia social estão bloqueados? Sua rede está demasiadamente lenta? Execute o OONI Probe para descobrir!<br /><br />Com este app, você examinará o bloqueio de sites e aplicativos de mensagens instantâneas, avaliará a velocidade e a performance da sua rede e verificará se há nela algum sistema responsável pela censura e pela vigilância.<br /><br />OONI Probe é desenvolvido pelo Observatório Aberto de Interferência de Rede (OONI), um projeto de software livre (ligado ao Projeto Tor) que visa a descobrir a censura na Internet em todo o mundo.<br /><br />Desde 2012, a comunidade global da OONI coletou milhões de medições de rede de mais de 200 países, esclarecendo vários casos de interferência de rede.<br /><br />▶ Coletar evidências de censura na internet<br />Você pode verificar se e como os sites e aplicativos de mensagens instantâneas estão bloqueados. Os dados de medição da rede que você coletará podem servir como evidência de censura na Internet.<br /><br />▶ Detectar sistemas responsáveis pela censura e vigilância<br />Os testes OONI Probe também são projetados para revelar a presença de sistemas (middleboxes) que poderiam ser responsáveis pela censura e vigilância.<br /><br />▶ Meça a velocidade e o desempenho da sua rede<br />Você pode medir a velocidade e o desempenho da sua rede executando a implementação do Teste de Diagnóstico de Rede (NDT) da OONI. Você também pode medir o desempenho da transmissão de vídeo com o teste Network Dynamic Adaptive Streaming em HTTP (DASH).<br /><br />▶ Dados abertos<br />A OONI publica dados de medição de rede porque os dados abertos permitem que outras pessoas verifiquem as descobertas da OONI, conduzam estudos independentes e respondam a outras questões de pesquisa. A publicação aberta de dados OONI também ajuda a aumentar a transparência sobre a censura na Internet em todo o mundo. Você pode pesquisar e baixar os dados do OONI aqui: https://ooni.io/data/<br /><br />▶ Software Livre<br />Todos os testes do OONI Probe (incluindo nossas implementações de NDT e DASH) são baseados em software livre e de código aberto. Você pode encontrar os projetos de software OONI no GitHub: https://github.com/ooni. Você quer saber como funcionam os testes OONI Probe? Para saber mais: https://ooni.io/nettest/<br /><br />Para receber atualizações do OONI-verse, siga-nos no Twitter: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              Colete evidências de censura na internet. Meça a velocidade e a performance da sua rede.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            ru: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  Измеряй Интернет-цензуру
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>сеть</li>
+                
+                  <li>измерения</li>
+                
+                  <li>сканирование</li>
+                
+                  <li>ДНС</li>
+                
+                  <li>DNS</li>
+                
+                  <li>мобильные устройства</li>
+                
+                  <li>исследования</li>
+                
+                  <li>приложение</li>
+                
+                  <li>инструмент</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Are websites and social media apps blocked? Is your network unusually slow? Run OONI Probe to find out!<br /><br />With this app, you will examine the blocking of websites and instant messaging apps, measure your network's speed and performance, and check whether systems that could be responsible for censorship and surveillance are in your network.<br /><br />OONI Probe is developed by the Open Observatory of Network Interference (OONI), a free software project (under The Tor Project) that aims to uncover internet censorship around the world.<br /><br />Since 2012, OONI’s global community has collected millions of network measurements from more than 200 countries, shedding light on multiple cases of network interference.<br /><br />▶ Collect evidence of internet censorship<br />You can check whether and how websites and instant messaging apps are blocked. The network measurement data you will collect may serve as evidence of internet censorship.<br /><br />▶ Detect systems responsible for censorship and surveillance<br />OONI Probe tests are also designed to uncover the presence of systems (middleboxes) that could be responsible for censorship and surveillance.<br /><br />▶ Measure the speed and performance of your network<br />You can measure the speed and performance of your network by running OONI's implementation of the Network Diagnostic Test (NDT). You can also measure video streaming performance with the Dynamic Adaptive Streaming over HTTP (DASH) test.<br /><br />▶ Open data<br />OONI publishes network measurement data because open data allows third parties to verify OONI findings, conduct independent studies, and answer other research questions. Openly publishing OONI data also helps increase transparency of internet censorship around the world. You can explore and download OONI data here: https://ooni.io/data/<br /><br />▶ Free software<br />All OONI Probe tests (including our NDT and DASH implementations), are based on free and open source software. You can find OONI software projects on GitHub: https://github.com/ooni. Curious to learn how OONI Probe tests work? Learn more: https://ooni.io/nettest/<br /><br />To receive updates from the OONI-verse, follow us on Twitter: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              Collect evidence of internet censorship. Measure the speed and performance of your network.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/ru/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for ru"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/ru/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%20X-01Dashboard.png" title="Screenshot #0 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%20X-02TestResults.png" title="Screenshot #1 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for ru"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/ru/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for ru"></a>
+              
+                <a href="./fastlane/screenshots/ru/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/ru/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for ru"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            tr: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  İnternet Sansürünü Ölçün
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>ağ</li>
+                
+                  <li>hız testi</li>
+                
+                  <li>ölçüm</li>
+                
+                  <li>internet</li>
+                
+                  <li>kablosuz ağ</li>
+                
+                  <li>tarama</li>
+                
+                  <li>bant genişliği</li>
+                
+                  <li>değerlendirme</li>
+                
+                  <li>dns</li>
+                
+                  <li>mobil</li>
+                
+                  <li>ooni</li>
+                
+                  <li>araştırma</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  Web siteleri ve sosyal ağ uygulamaları engelleniyor mu? Ağınız genel olarak yavaş mı? Sorunları bulmak için OONI Probe uygulamasını çalıştırın!<br /><br />Bu uygulama ile web sitelerinin ve anlık ileti uygulamalarının engellenip engellenmediğini anlayabilir, ağınızın hızını ve performansını ölçebilir, ağınızda sansür ve izleme amacıyla kullanılan sistemler olup olmadığını denetleyebilirsiniz.<br /><br />OONI Probe, dünyadaki İnternet sansürünü ortaya çıkarmak için Open Observatory of Network Interference (OONI) tarafından geliştirilmiş bir özgür yazılım projesidir (Tor Projesi altında).<br /><br />Küresel OONI topluluğu 2012 yılından beri 200 üzerinde ülkedeki milyonlarca ağ ile ilgili ölçüm sonucunu toplayarak ağ müdahalelerini açığa çıkarmıştır.<br /><br />▶ İnternet sansürü ile ilgili kanıt toplayın<br />Web siteleri ve anlık ileti uygulamalarının engellenip engellenmediğini denetleyebilirsiniz. Toplayacağınız ağ ölçümü verileri İnternet sansürünün kanıtı olarak kullanılabilir.<br /><br />▶ Sansür ve izleme için kullanılan sistemleri belirleyin<br />OONI Probe sınamaları, ayrıca sansür ve izleme için kullanılan sistemlerin (ara kutular) varlığını ortaya çıkarmak için tasarlanmıştır.<br /><br />▶ Ağınızın hızını ve performansını ölçün<br />OONI Ağ Tanılama Sınaması (NDT) özelliğini kullanarak ağınızın hız ve performansını ölçebilirsiniz. Ayrıca HTTP üzerinden Hareketli Uyumlu Akış (DASH) sınamasını kullanarak görüntü akışı performansını da ölçebilirsiniz.<br /><br />▶ Açık veri<br />Açık veriler üçüncü tarafların OONI bulgularını doğrulamasını, bağımsız çalışmalar yürütmesini ve diğer araştırma sorularını yanıtlamasını sağladığından ağ ölçümü verileri OONI tarafından yayınlanır. OONI verilerinin açık olarak yayınlanması dünya üzerindeki İnternet sansürü uygulamalarının daha net görülebilmesini sağlar. OONI verilerini şuradan görüp indirebilirsiniz: https://ooni.io/data/<br /><br />▶ Özgür yazılım<br />Tüm OONI Probe sınamaları (NDT ve DASH özellikleri dahil), özgür ve açık kaynaklı yazılımlar olarak geliştirilmiştir. OONI yazılım projelerini GitHub üzerinde bulabilirsiniz: https://github.com/ooni. OONI Probe sınamalarının nasıl çalıştığını merak ediyorsanız ayrıntılı bilgi almak için şu adrese bakabilirsiniz: https://ooni.io/nettest/<br /><br />OONI-verse güncellemelerini almak isterseniz bizi Twitter üzerinden takip edebilirsiniz: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              İnternet sansürünün kanıtlarını toplayın. Ağınızın hız ve performansını ölçün.<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            zh-Hans: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  评量互联网审查 & , 网速
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>网路、速度测试、计量、网、wifi、网路、扫描、宽带、标准、dns、移动、ooni、研究、工具</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  网站和社交媒体应用被屏蔽了吗？您的网络是不是慢得不同寻常？运行 OONI 来测试一下吧。<br /><br />有了这个应用，您将可以检验对于网站和即时消息应用的封锁，测量您的网络连接速度和性能，检查您的网络中是否存在负责审查和监视的系统。<br /><br />OONI Probe 由 Open Observatory of Network Interference (OONI) 开发，是一个致力于揭露世界范围内互联网审查现象的免费软件项目（依附于 Tor 项目）。<br /><br />自 2012 年以来，OONI 全球社区已经从超过 200 个国家和地区收集了数百万的网络测量数据，揭示了多起网络干预事件。<br /><br />▶ 收集互联网审查的证据<br />您可以检测网站和即时消息应用是否以及如何被屏蔽。您收集的网络测量数据可能会作为存在互联网审查的证据。<br /><br />▶ 检测用于审查与监控的系统<br />OONI Probe 测试还被设计用来揭发可能用于审查和监控的系统（中间系统）。<br /><br />▶ 测量您的网络速度与性能<br />您可以通过运行 OONI 的网络诊断测试（NDT）来测量您的网络连接速度和性能。您还可以使用基于 HTTP 的动态自适应流媒体（DASH）测试来测量在线视频点播性能。<br /><br />▶ 开放数据<br />OONI 发布网络测量数据因为开放数据允许第三方机构验证 OONI 的发现、开展独立研究和回答其它研究问题。开放地发布 OONI 数据还可以帮助增加全世界互联网审查的透明性。您可以在这里浏览和下载 OONI 数据：https://ooni.io/data/<br /><br />▶ 自由软件<br />所有 OONI Probe 网络诊断（包括 NDT 和 DASH 实现）都基于自由开源软件。您可以在 GitHub 上找到 OONI 软件项目：https://github.com/ooni 。想知道 OONI Probe 测试是如何工作的吗？详情请看：https://ooni.io/nettest/<br /><br />关注我们的推特以获取 OONI 的最近更新: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              收集互联网审查的证据。测量您的网络速度与性能。<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for zh-Hans"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%20X-01Dashboard.png" title="Screenshot #0 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%20X-02TestResults.png" title="Screenshot #1 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for zh-Hans"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for zh-Hans"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hans/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hans/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for zh-Hans"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+        
+          <div class="app-name">
+            zh-Hant: OONI Probe
+
+          </div>
+        
+
+        
+          <div class="app-subtitle">
+            Subtitle:  評量網際網路審查 & , 網速
+
+          </div>
+        
+
+        <div class="app-urls">
+          
+          
+            
+            
+              <div class="app-url-descr">
+                support_url: <a target="_blank" class="app-url" href="https://github.com/thetorproject/ooniprobe-ios/issues
+">https://github.com/thetorproject/ooniprobe-ios/issues
+</a>
+              </div>
+            
+          
+            
+            
+              <div class="app-url-descr">
+                marketing_url: <a target="_blank" class="app-url" href="https://ooni.torproject.org/
+">https://ooni.torproject.org/
+</a>
+              </div>
+            
+          
+        </div>
+        
+        
+          <div class="app-keyword">
+              <div class="cat-headline">Keywords</div>
+              <ul class="app-keyword-list">
+                
+                  <li>網路、速度測試、計量、網、wifi、網路、掃描、寬帶、標准、dns、移動、ooni、研究、工具</li>
+                
+              </ul>
+          </div>
+        
+        
+        
+          <div class="app-description">
+               <div class="cat-headline">Description</div>
+               <div class="app-description-text">
+                  網站和社交媒體應用軟體遭到封鎖？網路速度過慢？交給 OONI Probe 來找出原因吧！ <br /><br />透過本應用，可以檢查網站和即時通訊軟體被封鎖的狀況，評量網路速度與效能，以及檢查所使用的網路系統是否正進行在審查與監控。<br /><br />OONI Probe 是由 Open Observatory of Network Interference (OONI) 所開發，它是Tor 計畫底下的一個自由軟體專案，旨在向世界揭示網際網路的審查狀況<br /><br />自2012年，OONI 已自全球 200 多個國家收集了百萬筆網路測量結果，篩出多個網際網路審查與干擾的實例。<br /><br />▶ 收集網際網路審查的證據<br />可用於檢查網站和即時通訊服務是否被屏蔽封鎖，測量的數據可以收集起來作為網路審查的證據。<br /><br />▶ 偵測執行審查與監控的系統<br />OONI Probe 測試用於揭示網路審查與監控系統(例如middleboxes)的存在。<br /><br />▶ 評量網路的速度與表現<br /> OONI 的網路診斷測試 (NDT)，可用於評量網路流速與表現。而 HTTP的動態自適應流 (DASH) 測試則可用來評估影片串流表現。<br /><br />▶ 開放資料<br />OONI 發布所收集到的網路測量資料，讓開放資料由第三方來驗證 OONI 的發現、進行獨立研究或是回答其它研究問題。開放 ONNI 資料也能協助提高全球網際網路審查制度的透明度。所有的資料都公布在：https://ooni.io/data/<br /><br />▶ 自由軟體<br />所有 OONI Probe 測試 (包含執行 NDT 和 DASH )，都是使用開源自由的軟體。OONI 專案軟體代碼庫在 GitHub: https://github.com/ooni. 有興趣多了解 OONI Probe 測試的操作？請參考 ： https://ooni.io/nettest/<br /><br />欲取得 OONI-verse 近況，請關注我們的推特: https://twitter.com/OpenObservatory<br />
+               </div>
+          </div>
+        
+        
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Changelog</div>
+              The OONI team is excited to release a new and improved version of the OONI Probe mobile apps! <br /><br />This new version includes a major UI overhaul.<br /><br />Some highlights include:<br /><br />▶ An overview screen for all test results<br />▶ Enhanced website testing: You can test the websites of your choice, pick categories of sites to test and test country-specific lists<br />▶ Data usage tracking on a test by test basis<br /><br />We’ll continue to make improvements on an ongoing basis and would love to hear from you.<br /><br />We hope you like the new apps!<br />
+          </div>
+        
+
+        
+          <div class="app-changelog">
+              <div class="cat-headline">Promotional Text</div>
+              收集網路審查的證據。評量網路流量與網速表現。<br />
+          </div>
+        
+        
+        <div class="app-screenshots">
+          <div class="cat-headline">Screenshots</div>
+
+          
+            
+            
+
+            
+              
+              
+              <h4>iPhone 6 Plus</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%208%20Plus-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%208%20Plus-01Dashboard.png" title="Screenshot #0 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%208%20Plus-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%208%20Plus-02TestResults.png" title="Screenshot #1 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%208%20Plus-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%208%20Plus-03WebsiteBlocked.png" title="Screenshot #2 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%208%20Plus-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%208%20Plus-04SpeedTest.png" title="Screenshot #3 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%208%20Plus-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%208%20Plus-05ChooseWebsite.png" title="Screenshot #4 for zh-Hant"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPhone X</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%20X-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%20X-01Dashboard.png" title="Screenshot #0 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%20X-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%20X-02TestResults.png" title="Screenshot #1 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%20X-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%20X-03WebsiteBlocked.png" title="Screenshot #2 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%20X-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%20X-04SpeedTest.png" title="Screenshot #3 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPhone%20X-05ChooseWebsite.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPhone%20X-05ChooseWebsite.png" title="Screenshot #4 for zh-Hant"></a>
+              
+              </div>
+            
+              
+              
+              <h4>iPad Pro</h4>
+              <div class="app-screenshot-row">
+
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPad%20Pro%20(12.9-inch)-01Dashboard.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPad%20Pro%20(12.9-inch)-01Dashboard.png" title="Screenshot #0 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPad%20Pro%20(12.9-inch)-02TestResults.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPad%20Pro%20(12.9-inch)-02TestResults.png" title="Screenshot #1 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPad%20Pro%20(12.9-inch)-03WebsiteBlocked.png" title="Screenshot #2 for zh-Hant"></a>
+              
+                <a href="./fastlane/screenshots/zh-Hant/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" target="_blank"><img class="app-screenshot" src="screenshots/zh-Hant/iPad%20Pro%20(12.9-inch)-04SpeedTest.png" title="Screenshot #3 for zh-Hant"></a>
+              
+              </div>
+            
+          
+          </div>
+        
+        <hr />
+      
+      
+        <div class="app-minor-information">
+          <div class="cat-headline">Trade Representative Contact Information</div>
+          <dl class="app-minor-information">
+            
+                <dt class="app-minor-information-key">
+                  Trade name
+                </dt>
+                <dd class="app-minor-information-text">
+                  The Tor Project, Inc<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  First name
+                </dt>
+                <dd class="app-minor-information-text">
+                  <br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Last name
+                </dt>
+                <dd class="app-minor-information-text">
+                  <br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Address line1
+                </dt>
+                <dd class="app-minor-information-text">
+                  7 Temple St # A<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Address line2
+                </dt>
+                <dd class="app-minor-information-text">
+                  <br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Address line3
+                </dt>
+                <dd class="app-minor-information-text">
+                  <br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  City name
+                </dt>
+                <dd class="app-minor-information-text">
+                  Cambridge<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  State
+                </dt>
+                <dd class="app-minor-information-text">
+                  Massachusetts<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Country
+                </dt>
+                <dd class="app-minor-information-text">
+                  United States<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Postal code
+                </dt>
+                <dd class="app-minor-information-text">
+                  02139<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Phone number
+                </dt>
+                <dd class="app-minor-information-text">
+                  <br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Email address
+                </dt>
+                <dd class="app-minor-information-text">
+                  <br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Is displayed on app store
+                </dt>
+                <dd class="app-minor-information-text">
+                  false<br />
+                </dd>
+            
+          </dl>
+        </div>
+        <hr />
+      
+
+      
+        <div class="app-minor-information">
+          <div class="cat-headline">Review Information</div>
+          <dl class="app-minor-information">
+            
+                <dt class="app-minor-information-key">
+                  First name
+                </dt>
+                <dd class="app-minor-information-text">
+                  Arturo<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Last name
+                </dt>
+                <dd class="app-minor-information-text">
+                  Filasto<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Phone number
+                </dt>
+                <dd class="app-minor-information-text">
+                  +393387076857<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Email address
+                </dt>
+                <dd class="app-minor-information-text">
+                  art@torproject.org<br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Demo user
+                </dt>
+                <dd class="app-minor-information-text">
+                  <br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Demo password
+                </dt>
+                <dd class="app-minor-information-text">
+                  <br />
+                </dd>
+            
+                <dt class="app-minor-information-key">
+                  Notes
+                </dt>
+                <dd class="app-minor-information-text">
+                  Please contact me for any question or concerns regarding the app.<br />
+                </dd>
+            
+          </dl>
+        </div>
+      
+    </body>
+</html>
