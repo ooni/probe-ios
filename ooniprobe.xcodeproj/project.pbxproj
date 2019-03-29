@@ -18,6 +18,7 @@
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */; };
 		ED12BA2D224E0AB6004949E4 /* Tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED12BA2C224E0AB6004949E4 /* Tests.plist */; };
+		ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */; };
 		ED163CE1209C7B880052FB46 /* Airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED163CE0209C7B880052FB46 /* Airports.plist */; };
 		ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC7FE20158D630041089A /* ConfigureButton.m */; };
 		ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.mm */; };
@@ -149,6 +150,8 @@
 		ED0D8D6E20186742003DDF23 /* TestOverviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOverviewViewController.h; sourceTree = "<group>"; };
 		ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOverviewViewController.m; sourceTree = "<group>"; };
 		ED12BA2C224E0AB6004949E4 /* Tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
+		ED12BA2E224E5BDD004949E4 /* TestSummaryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewCell.h; sourceTree = "<group>"; };
+		ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewCell.m; sourceTree = "<group>"; };
 		ED163CE0209C7B880052FB46 /* Airports.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Airports.plist; sourceTree = "<group>"; };
 		ED1CC7FD20158D630041089A /* ConfigureButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigureButton.h; sourceTree = "<group>"; };
 		ED1CC7FE20158D630041089A /* ConfigureButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigureButton.m; sourceTree = "<group>"; };
@@ -688,6 +691,8 @@
 				ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */,
 				EDBBB2DD203D2EF200B84F6F /* TestResultTableViewCell.h */,
 				EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */,
+				ED12BA2E224E5BDD004949E4 /* TestSummaryTableViewCell.h */,
+				ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -1128,6 +1133,7 @@
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
+				ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */,
 				ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */,
 				ED2E067321D4867B00E9B9EE /* Telegram.mm in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
