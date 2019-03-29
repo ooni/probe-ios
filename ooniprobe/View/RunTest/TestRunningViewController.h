@@ -12,8 +12,6 @@
 
 
 @property (nonatomic, strong) AbstractSuite *testSuite;
-//@property (nonatomic, strong) Result *result;
-
 @property (strong, nonatomic) IBOutlet UILabel *runningTestsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *testNameLabel;
 @property (strong, nonatomic) IBOutlet UIView *animationView;

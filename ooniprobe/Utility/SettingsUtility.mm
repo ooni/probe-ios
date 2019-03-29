@@ -18,7 +18,7 @@
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
         //TODO GPS @"include_gps"
-        return @[@"upload_results", @"include_asn", @"include_cc", @"include_ip"];
+        return @[@"upload_results", @"upload_results_manually", @"include_asn", @"include_cc", @"include_ip"];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"

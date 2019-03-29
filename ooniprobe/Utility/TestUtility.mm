@@ -78,7 +78,7 @@
     MKGeoIPLookupResults *results = [settings perform];
     NSString *cc = @"XX";
     if ([results good])
-        cc = [results getProbeCC];
+        cc = [results probeCC];
     NSString *path = [NSString stringWithFormat:@"https://orchestrate.ooni.io/api/v1/test-list/urls?country_code=%@", cc];
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
@@ -125,6 +125,31 @@
 
 + (long)numberOfTest:(NSString*)testName{
     return [[[Result query] where:@"test_group_name = ?" parameters:@[testName]] count];
+}
+
++ (BOOL)isEveryMeasurementUploaded:(Result*)result{
+    //TODO check this algo
+    for (Measurement *measurement in result.measurements){
+        if (!measurement.is_failed && !measurement.is_uploaded)
+            return false;
+    }
+    return true;
+}
+
++ (BOOL)isEveryResultUploaded:(SRKResultSet*)results{
+    for (Result *result in results){
+        if (![self isEveryMeasurementUploaded:result])
+            return false;
+    }
+    return true;
+}
+
++ (NSString*)getFileContent:(NSString*)fileName{
+    NSString *filePath = [TestUtility getFileNamed:fileName];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if([fileManager fileExistsAtPath:filePath])
+        return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+    return nil;
 }
 
 @end

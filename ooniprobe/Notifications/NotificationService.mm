@@ -11,7 +11,7 @@
     {
         // thread-safe code
         NSString *device_token = [SettingsUtility get_push_token];
-        MKOrchestraClient *client = [[MKOrchestraClient alloc] init];
+        MKOrchestraSettings *client = [[MKOrchestraSettings alloc] init];
         //TODO ORCHESTRA when orchestrate
         //[client setAvailableBandwidth:@"10110111"];
         [client setDeviceToken:device_token];

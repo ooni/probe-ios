@@ -42,7 +42,8 @@
 
 -(IBAction)configure:(id)sender{
     UIButton *buttonPressed = (UIButton*)sender;
-    [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:@"first_run"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:ONBOARDING_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:MANUAL_UPLOAD_POPUP];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:^{
         if (buttonPressed == _changeButton){

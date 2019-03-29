@@ -1,12 +1,13 @@
-#import "TestSummaryTableViewController.h"
+#import "TestSummaryViewController.h"
 #import "ReachabilityManager.h"
 #import "Tests.h"
+#import "UploadFooterViewController.h"
 
-@interface TestSummaryTableViewController ()
+@interface TestSummaryViewController ()
 
 @end
 
-@implementation TestSummaryTableViewController
+@implementation TestSummaryViewController
 @synthesize result;
 
 - (void)viewDidLoad {
@@ -43,6 +44,14 @@
 -(void)reloadMeasurements{
     self.measurements = result.measurements;
     dispatch_async(dispatch_get_main_queue(), ^{
+        if ([TestUtility isEveryMeasurementUploaded:result]){
+            self.tableFooterConstraint.constant = -45;
+            [self.tableView setNeedsUpdateConstraints];
+        }
+        else {
+            self.tableFooterConstraint.constant = 0;
+            [self.tableView setNeedsUpdateConstraints];
+        }
         [self.tableView reloadData];
     });
 }
@@ -76,6 +85,13 @@
     
     UILabel *title = (UILabel*)[cell viewWithTag:1];
     UIImageView *status = (UIImageView*)[cell viewWithTag:3];
+    UIImageView *notUploadedImage = (UIImageView*)[cell viewWithTag:10];
+    [notUploadedImage setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+    if (current.is_uploaded)
+        [notUploadedImage setHidden:YES];
+    else
+        [notUploadedImage setHidden:NO];
+    
     if (current.is_failed){
         [cell setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
         [title setTextColor:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]];
@@ -231,6 +247,11 @@
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;
         [vc setResult:result];
         [vc setMeasurement:segueObj];
+    }
+    else if ([[segue identifier] isEqualToString:@"footer_upload"]){
+        UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;
+        [vc setResult:result];
+        [vc setUpload_all:true];
     }
 }
 
