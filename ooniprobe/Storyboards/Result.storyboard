@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -553,11 +553,11 @@
                         <viewControllerLayoutGuide type="bottom" id="XTh-ys-d2s"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="972-f8-WhY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msl-82-v0z">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="140"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XVb-h7-gsi">
                                         <rect key="frame" x="25" y="13" width="96" height="114"/>
@@ -644,12 +644,29 @@
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XVb-h7-gsi" secondAttribute="bottom" constant="8" id="xIT-2F-4C1"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ON-Nb-Fko">
+                                <rect key="frame" x="30" y="0.0" width="131" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="8" id="Jke-px-08B"/>
+                                    <constraint firstAttribute="height" constant="30" id="vbb-vy-qcd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="Methodology"/>
+                                <connections>
+                                    <action selector="openMethodology:" destination="kpi-Hz-icC" eventType="touchUpInside" id="uAU-f8-NvP"/>
+                                    <action selector="reRun" destination="3RT-Xy-GYH" eventType="touchUpInside" id="jEt-Pg-YbR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="msl-82-v0z" firstAttribute="leading" secondItem="972-f8-WhY" secondAttribute="leading" id="KbI-qU-2P6"/>
+                            <constraint firstItem="6ON-Nb-Fko" firstAttribute="leading" secondItem="972-f8-WhY" secondAttribute="leading" constant="30" id="SP0-f8-APQ"/>
+                            <constraint firstItem="6ON-Nb-Fko" firstAttribute="top" secondItem="ViL-sK-CM4" secondAttribute="bottom" id="UNa-mj-VeT"/>
                             <constraint firstAttribute="trailing" secondItem="msl-82-v0z" secondAttribute="trailing" id="buc-Ns-lHI"/>
-                            <constraint firstItem="msl-82-v0z" firstAttribute="top" secondItem="972-f8-WhY" secondAttribute="top" id="wSy-XP-PYN"/>
+                            <constraint firstItem="msl-82-v0z" firstAttribute="top" secondItem="6ON-Nb-Fko" secondAttribute="bottom" constant="20" id="oSo-0s-jpY"/>
+                            <constraint firstItem="XTh-ys-d2s" firstAttribute="top" secondItem="msl-82-v0z" secondAttribute="bottom" id="zDx-wN-xcT"/>
                         </constraints>
                     </view>
                     <connections>
@@ -657,6 +674,7 @@
                         <outlet property="countryLabel" destination="J85-z0-Pes" id="247-wq-kYw"/>
                         <outlet property="dateDetailLabel" destination="6hi-UE-WhI" id="R8S-UY-ArD"/>
                         <outlet property="dateLabel" destination="MCV-JV-bAh" id="LbG-J1-eyM"/>
+                        <outlet property="methodologyButton" destination="6ON-Nb-Fko" id="3b8-V3-7Uh"/>
                         <outlet property="networkAsnLabel" destination="eg7-23-bFs" id="s6x-0i-27h"/>
                         <outlet property="networkLabel" destination="RWN-jo-OGO" id="3VE-39-Ec3"/>
                         <outlet property="networkNameLabel" destination="tMN-Jf-qPX" id="4m8-ok-T1y"/>
@@ -1180,9 +1198,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVP-hr-xld">
-                                        <rect key="frame" x="0.0" y="78" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="78" width="375" height="190"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="140" id="bPg-VT-akG"/>
+                                            <constraint firstAttribute="height" constant="190" id="bPg-VT-akG"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="s2g-vJ-G8a"/>
@@ -1384,9 +1402,9 @@
                                 <rect key="frame" x="0.0" y="130" width="375" height="473"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRR-eQ-M7N">
-                                        <rect key="frame" x="0.0" y="138.5" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="138.5" width="375" height="190"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="140" id="hwl-ac-Pex"/>
+                                            <constraint firstAttribute="height" constant="190" id="hwl-ac-Pex"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="W8b-mn-owz"/>
@@ -1549,9 +1567,9 @@
                                 <rect key="frame" x="0.0" y="130" width="375" height="473"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHl-pg-lKX">
-                                        <rect key="frame" x="0.0" y="78" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="78" width="375" height="190"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="140" id="XqE-xN-wfw"/>
+                                            <constraint firstAttribute="height" constant="190" id="XqE-xN-wfw"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="kLm-87-EDM"/>
@@ -1655,9 +1673,9 @@
                                 <rect key="frame" x="0.0" y="130" width="375" height="473"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTJ-5W-rPQ">
-                                        <rect key="frame" x="0.0" y="111" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="111" width="375" height="190"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="140" id="kXt-V5-rqI"/>
+                                            <constraint firstAttribute="height" constant="190" id="kXt-V5-rqI"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="J9y-Mo-lFQ"/>
@@ -1948,9 +1966,9 @@
                                 <rect key="frame" x="0.0" y="130" width="375" height="473"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIh-Ta-JOz">
-                                        <rect key="frame" x="0.0" y="225" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="225" width="375" height="190"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="140" id="fen-96-hbY"/>
+                                            <constraint firstAttribute="height" constant="190" id="fen-96-hbY"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="W2G-dT-8gJ"/>
@@ -2264,20 +2282,21 @@
                                 <rect key="frame" x="0.0" y="130" width="375" height="473"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMm-N5-llI">
-                                        <rect key="frame" x="0.0" y="90" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="90" width="375" height="190"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="140" id="TzS-TF-WZ6"/>
+                                            <constraint firstAttribute="height" constant="190" id="TzS-TF-WZ6"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="KaA-PI-t2J"/>
                                         </connections>
                                     </containerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7D-de-Uai">
-                                        <rect key="frame" x="140.5" y="30" width="94" height="30"/>
+                                        <rect key="frame" x="137.5" y="30" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="0kG-6T-gLE"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="8" id="bKu-7j-j6f"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         <state key="normal" title="Try Again"/>
                                         <connections>
@@ -2336,7 +2355,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lZw-ES-A2m"/>
-        <segue reference="V8O-mv-mgp"/>
-        <segue reference="KaA-PI-t2J"/>
+        <segue reference="uP0-sL-zsM"/>
+        <segue reference="W2G-dT-8gJ"/>
     </inferredMetricsTieBreakers>
 </document>
