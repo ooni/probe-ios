@@ -144,4 +144,12 @@
     return true;
 }
 
++ (NSString*)getFileContent:(NSString*)fileName{
+    NSString *filePath = [TestUtility getFileNamed:fileName];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if([fileManager fileExistsAtPath:filePath])
+        return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+    return nil;
+}
+
 @end

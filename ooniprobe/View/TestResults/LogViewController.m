@@ -22,10 +22,8 @@
             fileName = [self.measurement getLogFile];
         else if ([self.type isEqualToString:@"json"])
             fileName = [self.measurement getReportFile];
-        NSString *filePath = [TestUtility getFileNamed:fileName];
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        if([fileManager fileExistsAtPath:filePath]) {
-            NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+        NSString *content = [TestUtility getFileContent:fileName];
+        if (content != nil) {
             if ([self.type isEqualToString:@"json"]){
                 NSError *error;
                 NSData *jsonData = [content dataUsingEncoding:NSUTF8StringEncoding];
