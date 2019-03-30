@@ -20,7 +20,6 @@
 @property BOOL is_rerun;
 @property NSString *report_id;
 @property Url *url_id;
-@property long measurement_id;
 @property BOOL is_anomaly;
 @property NSString *test_keys;
 @property Result *result_id;
