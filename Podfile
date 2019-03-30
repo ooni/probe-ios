@@ -9,7 +9,7 @@ target 'ooniprobe' do
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
     pod 'lottie-ios'
-    pod 'SharkORM'
+#    pod 'SharkORM'
     pod 'MKDropdownMenu'
     pod 'RHMarkdownLabel'
     pod 'DateTools'
