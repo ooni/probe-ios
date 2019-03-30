@@ -17,7 +17,8 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.title = [LocalizationUtility getNameForTest:measurement.test_name];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurement) name:@"uploadFinished" object:nil];
+
     UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(advancedScreens)];
     //assign button to navigationbar
     self.navigationItem.rightBarButtonItem = moreButton;
@@ -29,6 +30,21 @@
             [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
     }
 }
+
+//TODO-UPLOAD connect to constraints (after merge branch)
+/*-(void)reloadMeasurement{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!self.measurement.is_uploaded){
+            self.footerConstraint.constant = -45;
+            [self.view setNeedsUpdateConstraints];
+        }
+        else {
+            self.footerConstraint.constant = 0;
+            [self.view setNeedsUpdateConstraints];
+        }
+    });
+}
+*/
 
 - (void)advancedScreens{
     UIAlertAction* rawDataButton = [UIAlertAction
@@ -60,7 +76,7 @@
 
 #pragma mark - Navigation
 
-//TODO handle the reload after upload
+//TODO-UPLOAD maybe remove (after merge branch)
 -(bool)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     if ([identifier isEqualToString:@"footer_upload"]){
         if (![SettingsUtility getSettingWithName:@"upload_results_manually"] || self.measurement.is_uploaded)

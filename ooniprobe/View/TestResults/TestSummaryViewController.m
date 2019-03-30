@@ -17,6 +17,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.tableView.tableFooterView = [UIView new];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"uploadFinished" object:nil];
 
     [self reloadMeasurements];
     defaultColor = [TestUtility getColorForTest:result.test_group_name];
@@ -44,7 +45,7 @@
 -(void)reloadMeasurements{
     self.measurements = result.measurements;
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([TestUtility isEveryMeasurementUploaded:result]){
+        if ([result isEveryMeasurementUploaded]){
             self.tableFooterConstraint.constant = -45;
             [self.tableView setNeedsUpdateConstraints];
         }

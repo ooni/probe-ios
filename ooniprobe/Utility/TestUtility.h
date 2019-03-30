@@ -15,7 +15,6 @@
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (void)downloadUrls:(void (^)(NSArray *))completion;
 + (void)removeFile:(NSString*)fileName;
-+ (BOOL)isEveryMeasurementUploaded:(Result*)result;
-+ (BOOL)isEveryResultUploaded:(SRKResultSet*)results;
 + (NSString*)getFileContent:(NSString*)fileName;
++ (void)writeString:(NSString*)str toFile:(NSString*)fileName;
 @end
