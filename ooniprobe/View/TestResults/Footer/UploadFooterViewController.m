@@ -28,7 +28,6 @@
     self.uploadButton.layer.masksToBounds = YES;
     self.uploadButton.layer.borderWidth = 1.0f;
     self.uploadButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    
 }
 
 -(IBAction)upload{
@@ -89,6 +88,7 @@
 }
 
 -(void)uploadMeasurements:(SRKResultSet *)notUploaded{
+    if ([notUploaded count] == 0) return;
     float progress = 0.0f;
     float measurementValue = 1.0/[notUploaded count];
     int done = 1;
