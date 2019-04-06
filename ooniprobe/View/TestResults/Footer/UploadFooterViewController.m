@@ -40,7 +40,6 @@
 }
 
 -(void)showModalHelp{
-    //TODO-UPLOAD add a third don't ask again button
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.ResultsNotUploaded.Button.Upload", nil)
                                style:UIAlertActionStyleDefault
