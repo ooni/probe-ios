@@ -2,6 +2,9 @@
 #import "MessageUtility.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SettingsUtility.h"
+#import <mkall/MKCollector.h>
+#import "TestUtility.h"
+#import "MBProgressHUD.h"
 
 @interface UploadFooterViewController ()
 
@@ -25,7 +28,6 @@
     self.uploadButton.layer.masksToBounds = YES;
     self.uploadButton.layer.borderWidth = 1.0f;
     self.uploadButton.layer.borderColor = [UIColor whiteColor].CGColor;
-
 }
 
 -(IBAction)upload{
@@ -38,7 +40,7 @@
 }
 
 -(void)showModalHelp{
-    //TODO should we add a don't ask again button?
+    //TODO-UPLOAD add a third don't ask again button
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.ResultsNotUploaded.Button.Upload", nil)
                                style:UIAlertActionStyleDefault
@@ -52,13 +54,72 @@
 }
 
 -(void)uploadResult{
-    //TODO call relative mk function.
-    /*
-     if (result == nil && measurement == nil && upload_all) upload ALL
-     if (result != nil && measurement == nil && upload_all) upload all measurements of that result
-     if (result != nil && measurement != nil && !upload_all) upload that measurement
-     */
-    [MessageUtility showToast:@"TODO" inView:self.view];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = NSLocalizedString(@"Loading...", nil);
+    
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        [self doUploadWithProgress];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [hud hideAnimated:YES];
+        });
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
+    });
+}
+
+- (void)doUploadWithProgress {
+    if (self.result == nil && self.measurement == nil && self.upload_all) {
+        //upload ALL
+        SRKResultSet *notUploaded = [Measurement notUploadedMeasurements];
+        [self uploadMeasurements:notUploaded];
+    }
+    else if (self.result != nil && self.measurement == nil && self.upload_all) {
+        //upload all measurements of that result
+        SRKResultSet *notUploaded = [self.result notUploadedMeasurements];
+        [self uploadMeasurements:notUploaded];
+    }
+    else if (self.result != nil && self.measurement != nil && !self.upload_all) {
+        //upload this measurement
+        [self uploadSingleMeasurement:self.measurement];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD HUDForView:self.navigationController.view].progress = 1;
+        });
+    }
+}
+
+-(void)uploadMeasurements:(SRKResultSet *)notUploaded{
+    if ([notUploaded count] == 0) return;
+    float progress = 0.0f;
+    float measurementValue = 1.0/[notUploaded count];
+    int done = 1;
+    for (Measurement *currentMeasurement in notUploaded){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD HUDForView:self.navigationController.view].label.text = [NSString stringWithFormat:@"Loading %d/%ld ...", done, [notUploaded count]];
+        });
+        [self uploadSingleMeasurement:currentMeasurement];
+        progress += measurementValue;
+        done++;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
+        });
+    }
+}
+
+-(void)uploadSingleMeasurement:(Measurement*)measurement{
+    NSString *content = [TestUtility getFileContent:[measurement getReportFile]];
+    MKCollectorResubmitSettings *settings = [[MKCollectorResubmitSettings alloc] init];
+    [settings setSerializedMeasurement:content];
+    MKCollectorResubmitResults *results = [settings perform];
+    if ([results good]){
+        //save updated file
+        [TestUtility writeString:[results updatedSerializedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
+        //NSLog(@"updatedMeasurement: %@", [results updatedSerializedMeasurement]);
+        //NSLog(@"logs: %@", [results logs]);
+        measurement.is_uploaded = true;
+        measurement.is_upload_failed = false;
+        [measurement setReport_id:@"FAKE_REPORT_ID"];
+        [measurement save];
+    }
 }
 
 @end

@@ -50,7 +50,7 @@
     keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];
     resultsDic = dic;
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([TestUtility isEveryResultUploaded:results]){
+        if ([Result isEveryResultUploaded:results]){
             self.tableFooterConstraint.constant = -45;
             [self.tableView setNeedsUpdateConstraints];
         }
@@ -58,9 +58,6 @@
             self.tableFooterConstraint.constant = 0;
             [self.tableView setNeedsUpdateConstraints];
         }
-        //[self performSegueWithIdentifier:@"footer_upload" sender:self];
-        //TODO reload footer on setting change. reload footer on new test
-        //TODO set constraints of table view to 0 o -45
         [self.tableView reloadData];
     });
 }

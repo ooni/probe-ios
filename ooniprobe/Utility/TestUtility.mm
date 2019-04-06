@@ -123,27 +123,6 @@
     }
 }
 
-+ (long)numberOfTest:(NSString*)testName{
-    return [[[Result query] where:@"test_group_name = ?" parameters:@[testName]] count];
-}
-
-+ (BOOL)isEveryMeasurementUploaded:(Result*)result{
-    //TODO check this algo
-    for (Measurement *measurement in result.measurements){
-        if (!measurement.is_failed && !measurement.is_uploaded)
-            return false;
-    }
-    return true;
-}
-
-+ (BOOL)isEveryResultUploaded:(SRKResultSet*)results{
-    for (Result *result in results){
-        if (![self isEveryMeasurementUploaded:result])
-            return false;
-    }
-    return true;
-}
-
 + (NSString*)getFileContent:(NSString*)fileName{
     NSString *filePath = [TestUtility getFileNamed:fileName];
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -152,4 +131,16 @@
     return nil;
 }
 
++ (void)writeString:(NSString*)str toFile:(NSString*)fileName{
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileName];
+    if (fileHandle){
+        [fileHandle seekToEndOfFile];
+        [fileHandle writeData:[[NSString stringWithFormat:@"\n%@", str] dataUsingEncoding:NSUTF8StringEncoding]];
+        [fileHandle closeFile];
+    }
+    else {
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+        [data writeToFile:fileName atomically:YES];
+    }
+}
 @end

@@ -17,7 +17,7 @@
     [self.testAsnLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.notUploadedImage setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
 
-    if ([TestUtility isEveryMeasurementUploaded:result])
+    if ([result isEveryMeasurementUploaded])
         [self.notUploadedImage setHidden:YES];
     else
         [self.notUploadedImage setHidden:NO];
