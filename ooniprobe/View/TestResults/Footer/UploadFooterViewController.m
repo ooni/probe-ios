@@ -116,6 +116,7 @@
         //NSLog(@"logs: %@", [results logs]);
         measurement.is_uploaded = true;
         measurement.is_upload_failed = false;
+        //TODO Dont merge with this
         [measurement setReport_id:@"FAKE_REPORT_ID"];
         [measurement save];
     }

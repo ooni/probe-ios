@@ -58,19 +58,19 @@
 }
 
 - (SRKResultSet*)notUploadedMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_failed = 0 AND is_uploaded = 0" parameters:@[self]];
+    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)" parameters:@[self]];
     return [query fetch];
 }
 
 - (BOOL)isEveryMeasurementUploaded{
-    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_failed = 0 AND is_uploaded = 0" parameters:@[self]];
+    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)" parameters:@[self]];
     if ([query count] == 0)
         return true;
     return false;
 }
 
 + (BOOL)isEveryResultUploaded:(SRKResultSet*)results{
-    SRKQuery *query = [[Measurement query] where:@"is_failed = 0 AND is_uploaded = 0"];
+    SRKQuery *query = [[Measurement query] where:@"is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)"];
     if ([query count] == 0)
         return true;
     return false;
