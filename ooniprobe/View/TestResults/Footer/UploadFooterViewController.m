@@ -55,7 +55,7 @@
 -(void)uploadResult{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.mode = MBProgressHUDModeAnnularDeterminate;
-    hud.label.text = NSLocalizedString(@"Loading...", nil);
+    hud.label.text = NSLocalizedString(@"Modal.ResultsNotUploaded.Uploading", nil);
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         [self doUploadWithProgress];
@@ -93,7 +93,7 @@
     int done = 1;
     for (Measurement *currentMeasurement in notUploaded){
         dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD HUDForView:self.navigationController.view].label.text = [NSString stringWithFormat:@"Loading %d/%ld ...", done, [notUploaded count]];
+            [MBProgressHUD HUDForView:self.navigationController.view].label.text = NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading", [NSString stringWithFormat:@"%d/%ld", done, [notUploaded count]]);
         });
         [self uploadSingleMeasurement:currentMeasurement];
         progress += measurementValue;
