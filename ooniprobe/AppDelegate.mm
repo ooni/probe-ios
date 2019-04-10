@@ -207,7 +207,8 @@
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
         UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"oonirun_nav"];
         OoniRunViewController *rvc = (OoniRunViewController*)[nvc.viewControllers objectAtIndex:0];
-        [rvc setUrl:url];
+        NSString *fixedURL = [url.absoluteString stringByReplacingOccurrencesOfString:@"+" withString:@"%20"];
+        [rvc setUrl:[NSURL URLWithString:fixedURL]];
         if (self.window.rootViewController.view.window != nil)
             //only main view controller is visible
             [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
