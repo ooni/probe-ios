@@ -13,22 +13,25 @@
 
 # XXX do we want more devices?
 devices([
-    "iPhone 8 Plus",
-    "iPhone XS Max",
-    "iPad Pro (12.9-inch)"
+#    "iPhone Xs Max",
+#    "iPhone 8 Plus",
+    "iPad Pro (12.9-inch)",
+#    "iPad Pro (12.9-inch) (2nd generation)"
 ])
 
 # XXX we should generate this from ooni/translations
 languages([
-#    "en-US",
+    "en",
+    "ar",
     "ca",
-#    "de-DE",
-#    "el",
-#    "es-ES",
-#    "fr-FR",
+    "de",
+    "el",
+    "es",
+    "fr",
     "hi",
     "it",
     "ja",
+    "pt-BR"
     "ru",
     "zh-Hans",
     "zh-Hant"
