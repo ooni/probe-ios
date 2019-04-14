@@ -2,6 +2,7 @@
 #import "Tampering.h"
 #import "Simple.h"
 #import "Advanced.h"
+#define BLOCKED @"blocked"
 
 @interface TestKeys : NSObject
 @property (nonatomic, strong) NSString *blocking;
