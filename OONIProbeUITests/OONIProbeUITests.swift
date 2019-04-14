@@ -86,7 +86,6 @@ class OONIProbeUITests: XCTestCase {
 
         let dashboardButton = tabBarsQuery.buttons.element(boundBy: 0)
         let resultsButton = tabBarsQuery.buttons.element(boundBy: 1)
-
         
         dashboardButton.tap()
         snapshot("01Dashboard")
@@ -98,6 +97,7 @@ class OONIProbeUITests: XCTestCase {
         tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.image, identifier:"websites")/*[[".cells.containing(.staticText, identifier:\"1 blocked\")",".cells.containing(.staticText, identifier:\"Websites\")",".cells.containing(.staticText, identifier:\"12\/12\/18, 1:23 AM\")",".cells.containing(.image, identifier:\"websites\")",".cells.containing(.staticText, identifier:\"39 tested\")"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         thepiratebayStaticText.tap()
         snapshot("03WebsiteBlocked")
+        
         // We make the assumption the first button in the navigationbar hierarchy is the back button
         app.navigationBars.buttons.element(boundBy: 0).tap()
         app.navigationBars.buttons.element(boundBy: 0).tap()
@@ -133,7 +133,6 @@ class OONIProbeUITests: XCTestCase {
 
         tablesQuery.children(matching: .other).element.children(matching: .button).element.tap()
         tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
-
         snapshot("05ChooseWebsite")
     }
 }
