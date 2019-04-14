@@ -115,6 +115,7 @@ class OONIProbeUITests: XCTestCase {
 
         dashboardButton.tap()
         tablesQuery.cells.element(boundBy: 0).tap()
+        //Configure button doesn't exist anymore
         app.buttons["ConfigureButton"].tap()
         tablesQuery.cells.children(matching: .textField).element.tap()
         
