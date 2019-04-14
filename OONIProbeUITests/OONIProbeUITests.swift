@@ -94,9 +94,7 @@ class OONIProbeUITests: XCTestCase {
         resultsButton.tap()
         snapshot("02TestResults")
         
-        tabBarsQuery.buttons[localizedString(key: "TestResults.Overview.Title")].tap()
         let thepiratebayStaticText = tablesQuery.staticTexts["http://thepiratebay.org"]
-
         tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.image, identifier:"websites")/*[[".cells.containing(.staticText, identifier:\"1 blocked\")",".cells.containing(.staticText, identifier:\"Websites\")",".cells.containing(.staticText, identifier:\"12\/12\/18, 1:23 AM\")",".cells.containing(.image, identifier:\"websites\")",".cells.containing(.staticText, identifier:\"39 tested\")"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         thepiratebayStaticText.tap()
         snapshot("03WebsiteBlocked")
@@ -115,7 +113,6 @@ class OONIProbeUITests: XCTestCase {
 
         dashboardButton.tap()
         tablesQuery.cells.element(boundBy: 0).tap()
-        //Configure button doesn't exist anymore
         app.buttons["ConfigureButton"].tap()
         tablesQuery.cells.children(matching: .textField).element.tap()
         
@@ -138,13 +135,5 @@ class OONIProbeUITests: XCTestCase {
         tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
 
         snapshot("05ChooseWebsite")
-
     }
-    
-    func localizedString(key:String) -> String {
-        let localizationBundle = Bundle(path: Bundle(for: OONIProbeUITests.self).path(forResource: deviceLanguage, ofType: "lproj")!)
-        let result = NSLocalizedString(key, bundle:localizationBundle!, comment: "")
-        return result
-    }
-
 }
