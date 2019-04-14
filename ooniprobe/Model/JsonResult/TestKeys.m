@@ -39,10 +39,10 @@
 - (NSString*)getWhatsappEndpointStatus {
     if (self.whatsapp_endpoints_status != nil){
         NSString* endpointStatus = self.whatsapp_endpoints_status;
-        if ([endpointStatus isEqualToString:@"blocked"])
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Failed", nil);
+        if ([endpointStatus isEqualToString:BLOCKED])
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Failed", nil);
         else
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Okay", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Application.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -50,10 +50,10 @@
 - (NSString*)getWhatsappWebStatus {
     if (self.whatsapp_web_status != nil){
         NSString* webStatus = self.whatsapp_web_status;
-        if ([webStatus isEqualToString:@"blocked"])
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Failed", nil);
+        if ([webStatus isEqualToString:BLOCKED])
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Failed", nil);
         else
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Okay", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.WebApp.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -61,10 +61,10 @@
 - (NSString*)getWhatsappRegistrationStatus {
     if (self.registration_server_status != nil){
         NSString* registrationStatus = self.registration_server_status;
-        if ([registrationStatus isEqualToString:@"blocked"])
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed", nil);
+        if ([registrationStatus isEqualToString:BLOCKED])
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed", nil);
         else
-        return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay", nil);
+            return NSLocalizedString(@"TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay", nil);
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -72,7 +72,7 @@
 - (UIColor*)getWhatsappEndpointStatusColor {
     if (self.whatsapp_endpoints_status != nil){
         NSString* endpointStatus = self.whatsapp_endpoints_status;
-        if ([endpointStatus isEqualToString:@"blocked"])
+        if ([endpointStatus isEqualToString:BLOCKED])
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
             return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
@@ -83,7 +83,7 @@
 - (UIColor*)getWhatsappWebStatusColor {
     if (self.whatsapp_web_status != nil){
         NSString* webStatus = self.whatsapp_web_status;
-        if ([webStatus isEqualToString:@"blocked"])
+        if ([webStatus isEqualToString:BLOCKED])
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
             return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
@@ -94,7 +94,7 @@
 - (UIColor*)getWhatsappRegistrationStatusColor {
     if (self.registration_server_status != nil){
         NSString* registrationStatus = self.registration_server_status;
-        if ([registrationStatus isEqualToString:@"blocked"])
+        if ([registrationStatus isEqualToString:BLOCKED])
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
             return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
@@ -119,7 +119,7 @@
 - (NSString*)getTelegramWebStatus {
     if (self.telegram_web_status != nil){
         NSString* registrationStatus = self.telegram_web_status;
-        if ([registrationStatus isEqualToString:@"blocked"])
+        if ([registrationStatus isEqualToString:BLOCKED])
             return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Failed", nil);
         else
             return NSLocalizedString(@"TestResults.Details.InstantMessaging.Telegram.WebApp.Label.Okay", nil);
@@ -142,7 +142,7 @@
 - (UIColor*)getTelegramWebStatusColor {
     if (self.telegram_web_status != nil){
         NSString* registrationStatus = self.telegram_web_status;
-        if ([registrationStatus isEqualToString:@"blocked"])
+        if ([registrationStatus isEqualToString:BLOCKED])
             return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
         else
             return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];

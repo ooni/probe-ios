@@ -31,4 +31,27 @@
     return YES;
 }
 
+-(NSString*)getAsn{
+    if (self.asn != nil && [self.asn length] > 0)
+        return self.asn;
+    return NSLocalizedString(@"TestResults.UnknownASN", nil);
+}
+
+-(NSString*)getNetworkName{
+    if (self.network_name != nil && [self.network_name length] > 0)
+        return self.network_name;
+    return NSLocalizedString(@"TestResults.UnknownASN", nil);
+}
+
+-(NSString*)getNetworkNameOrAsn{
+    if (self.network_name != nil && [self.network_name length] > 0)
+        return [self getNetworkName];
+    else return [self getAsn];
+}
+
+-(NSString*)getCountry{
+    if (self.country_code != nil && [self.country_code length] > 0)
+        return self.country_code;
+    return NSLocalizedString(@"TestResults.UnknownASN", nil);
+}
 @end
