@@ -19,12 +19,13 @@
 
     [self reloadMeasurements];
     defaultColor = [TestUtility getColorForTest:result.test_group_name];
-    self.title = [LocalizationUtility getNameForTest:self.result.test_group_name];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
+    self.title = @"";
+    self.title = [LocalizationUtility getNameForTest:self.result.test_group_name];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
