@@ -28,7 +28,10 @@
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                       target:self.view action:@selector(endEditing:)];
     keyboardToolbar.items = @[flexBarButton, doneBarButton];
+}
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self reloadSettings];
 }
 

@@ -99,7 +99,7 @@
     return [[self getSitesCategories] count] - [[self getSitesCategoriesDisabled] count];
 }
 
-+ (void)addRemoveSitesCategory:(NSString*)categoryName {
++ (NSArray*)addRemoveSitesCategory:(NSString*)categoryName {
     NSMutableArray *categories_disabled = [[self getSitesCategoriesDisabled] mutableCopy];
     if ([categories_disabled containsObject:categoryName])
         [categories_disabled removeObject:categoryName];
@@ -107,6 +107,7 @@
         [categories_disabled addObject:categoryName];
     [[NSUserDefaults standardUserDefaults] setObject:categories_disabled forKey:@"categories_disabled"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    return categories_disabled;
 }
 
 + (NSArray*)getSettingsForTest:(NSString*)testName :(BOOL)includeAll{
