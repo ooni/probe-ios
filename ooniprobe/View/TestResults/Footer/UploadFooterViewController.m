@@ -55,7 +55,6 @@
 -(void)uploadResult{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.mode = MBProgressHUDModeAnnularDeterminate;
-    hud.label.text = NSLocalizedString(@"Modal.ResultsNotUploaded.Uploading", nil);
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         [self doUploadWithProgress];
@@ -79,6 +78,9 @@
     }
     else if (self.result != nil && self.measurement != nil && !self.upload_all) {
         //upload this measurement
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD HUDForView:self.navigationController.view].label.text = NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading", @"");
+        });
         [self uploadSingleMeasurement:self.measurement];
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD HUDForView:self.navigationController.view].progress = 1;
@@ -112,12 +114,9 @@
     if ([results good]){
         //save updated file
         [TestUtility writeString:[results updatedSerializedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
-        //NSLog(@"updatedMeasurement: %@", [results updatedSerializedMeasurement]);
-        //NSLog(@"logs: %@", [results logs]);
         measurement.is_uploaded = true;
         measurement.is_upload_failed = false;
-        //TODO Dont merge with this
-        [measurement setReport_id:@"FAKE_REPORT_ID"];
+        [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
 }
