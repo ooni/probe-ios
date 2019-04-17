@@ -57,6 +57,27 @@
     return [query count];
 }
 
+- (SRKQuery*)notUploadedQuery{
+    return [[Measurement query] where:[NSString stringWithFormat:@"result_id = ? AND %@", NOT_UPLOADED_QUERY] parameters:@[self]];
+}
+
+- (SRKResultSet*)notUploadedMeasurements {
+    return [[self notUploadedQuery] fetch];
+}
+
+- (BOOL)isEveryMeasurementUploaded{
+    if ([[self notUploadedQuery] count] == 0)
+        return true;
+    return false;
+}
+
++ (BOOL)isEveryResultUploaded:(SRKResultSet*)results{
+    SRKQuery *query = [[Measurement query] where:NOT_UPLOADED_QUERY];
+    if ([query count] == 0)
+        return true;
+    return false;
+}
+
 -(NSString*)getLocalizedNetworkType{
     if (self.network_id.network_type != nil) {
         if ([self.network_id.network_type isEqualToString:@"wifi"])
