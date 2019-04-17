@@ -53,12 +53,12 @@
 }
 
 - (long)anomalousMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_rerun = 0 AND is_done = 1 AND is_failed = 0 AND is_anomaly = 1" parameters:@[self]];
+    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result_id = ? AND %@", NOT_UPLOADED] parameters:@[self]];
     return [query count];
 }
 
 - (SRKResultSet*)notUploadedMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)" parameters:@[self]];
+    SRKQuery *query = [[Measurement query] where:[NSString stringWithFormat:@"result_id = ? AND %@", NOT_UPLOADED] parameters:@[self]];
     return [query fetch];
 }
 
@@ -70,7 +70,7 @@
 }
 
 + (BOOL)isEveryResultUploaded:(SRKResultSet*)results{
-    SRKQuery *query = [[Measurement query] where:@"is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)"];
+    SRKQuery *query = [[Measurement query] where:NOT_UPLOADED];
     if ([query count] == 0)
         return true;
     return false;
