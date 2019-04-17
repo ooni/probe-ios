@@ -7,20 +7,19 @@
 @end
 
 @implementation ResultTest
-Result *result;
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    // TODO(lorenzoPrimi): we need to be able to use a specific DB for tests
     [[[Result query] fetch] remove];
-    result = [Result new];
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
--(Measurement*)addMeasurement {
-    measurement = [Measurement new];
+-(Measurement*)addMeasurement:(Result*)result {
+    Measurement *measurement = [Measurement new];
     measurement.result_id = result;
     [measurement save];
     return measurement;
@@ -28,18 +27,21 @@ Result *result;
 
 - (void)testNoMeasurements {
     //No measurement, isEveryMeasurementUploaded true
+    Result *result = [Result new];
     XCTAssert([result isEveryMeasurementUploaded]);
 }
 
 - (void)testNotUploaded {
     //One measurement, isEveryMeasurementUploaded false
-    Measurement *measurement = [self addMeasurement];
+    Result *result = [Result new];
+    Measurement *measurement = [self addMeasurement:result];
     XCTAssert(![result isEveryMeasurementUploaded]);
 }
 
 - (void)testUploaded {
     //Measurement uploaded but report_id null, isEveryMeasurementUploaded false
-    Measurement *measurement = [self addMeasurement];
+    Result *result = [Result new];
+    Measurement *measurement = [self addMeasurement:result];
     measurement.is_uploaded = true;
     [measurement save];
     XCTAssert(![result isEveryMeasurementUploaded]);
@@ -47,7 +49,8 @@ Result *result;
 
 - (void)testUploadedAndReport {
     //Measurement uploaded and with report_id, isEveryMeasurementUploaded true
-    Measurement *measurement = [self addMeasurement];
+    Result *result = [Result new];
+    Measurement *measurement = [self addMeasurement:result];
     measurement.is_uploaded = true;
     measurement.report_id = REPORT_ID;
     [measurement save];
@@ -56,7 +59,8 @@ Result *result;
 
 - (void)testFailed {
     //Measurement failed, isEveryMeasurementUploaded true
-    Measurement *measurement = [self addMeasurement];
+    Result *result = [Result new];
+    Measurement *measurement = [self addMeasurement:result];
     measurement.is_failed = true;
     [measurement save];
     XCTAssert([result isEveryMeasurementUploaded]);
