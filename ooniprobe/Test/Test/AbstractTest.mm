@@ -66,7 +66,7 @@
     }];
     dispatch_async(
                    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                       MKTask *task = [MKTask startNettest:settings];
+                       MKTask *task = [MKTask start:settings];
                        while (![task isDone]){
                            // Extract an event from the task queue and unmarshal it.
                            NSDictionary *evinfo = [task waitForNextEvent];
