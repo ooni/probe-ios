@@ -1,10 +1,3 @@
-//
-//  OONIProbeUITests.swift
-//  OONIProbeUITests
-//  Created by Arturo Filastò on 11/12/2018.
-//  Copyright © 2018 OONI. All rights reserved.
-//
-
 import XCTest
 
 class OONIProbeUITests: XCTestCase {

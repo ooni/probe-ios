@@ -15,3 +15,7 @@ target 'ooniprobe' do
     pod 'DateTools'
     pod 'OCMapper', '2.0'
 end
+target 'OONIProbeUnitTests' do
+    pod 'SharkORM'
+end
+

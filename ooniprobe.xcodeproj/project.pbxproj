@@ -14,6 +14,7 @@
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
+		EB73683A521F90D387C6C063 /* libPods-OONIProbeUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */; };
 		ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0A6200200B52C000235E70 /* OONIRun.storyboard */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */; };
@@ -42,6 +43,7 @@
 		ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED365216223A40480093180B /* FailedTestDetailsViewController.m */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
 		ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */; };
+		ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
@@ -115,11 +117,19 @@
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
 		EDF20736212173B9005B06D7 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20734212173B9005B06D7 /* Advanced.m */; };
+		EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF23EF82228CC6000B97520 /* NetworkTest.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		17E7EDBA21BFEDD1001961C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4A2F5D11A6C3244001B8460 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4A2F5D81A6C3244001B8460;
+			remoteInfo = ooniprobe;
+		};
+		EDF23EF02225258100B97520 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D4A2F5D11A6C3244001B8460 /* Project object */;
 			proxyType = 1;
@@ -134,7 +144,10 @@
 		17E7EDB721BFEDD1001961C7 /* OONIProbeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OONIProbeUITests.swift; sourceTree = "<group>"; };
 		17E7EDB921BFEDD1001961C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OONIProbeUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98FEAB61B0AD74E566951F69 /* Pods-OONIProbeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		B14D39522921C8CE117986F7 /* Pods-ooniprobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.debug.xcconfig"; sourceTree = "<group>"; };
+		B3AF575E180FF33021FBC6A7 /* Pods-OONIProbeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A2F5D91A6C3244001B8460 /* ooniprobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ooniprobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2F5DE1A6C3244001B8460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -199,6 +212,7 @@
 		ED3AE9EE20341C8600DAAF36 /* ResultsHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsHeaderViewController.h; sourceTree = "<group>"; };
 		ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsHeaderViewController.m; sourceTree = "<group>"; };
 		ED3B5F8C1F0BAC54007CE2AF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestKeysTest.m; sourceTree = "<group>"; };
 		ED41D8B62089E9C500543191 /* WebsitesDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebsitesDetailsViewController.h; sourceTree = "<group>"; };
 		ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebsitesDetailsViewController.m; sourceTree = "<group>"; };
 		ED459A291E5E0EB900EAE084 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -338,6 +352,9 @@
 		EDF2073121217340005B06D7 /* JsonResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonResult.m; sourceTree = "<group>"; };
 		EDF20733212173B8005B06D7 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
 		EDF20734212173B9005B06D7 /* Advanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advanced.m; sourceTree = "<group>"; };
+		EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OONIProbeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF23EEF2225258100B97520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF23EF82228CC6000B97520 /* NetworkTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTest.m; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
 		FBB68CFBE135C2F6BDF61340 /* Pods-ooniprobe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.release.xcconfig"; sourceTree = "<group>"; };
@@ -361,6 +378,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDF23EE82225258100B97520 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB73683A521F90D387C6C063 /* libPods-OONIProbeUnitTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -379,6 +404,7 @@
 			children = (
 				D4A2F5DB1A6C3244001B8460 /* ooniprobe */,
 				17E7EDB621BFEDD1001961C7 /* OONIProbeUITests */,
+				EDF23EEC2225258100B97520 /* OONIProbeUnitTests */,
 				D4A2F5DA1A6C3244001B8460 /* Products */,
 				F7A9F2287FABB1ABA8598B6C /* Pods */,
 				F4F15431D4412F561191270F /* Frameworks */,
@@ -390,6 +416,7 @@
 			children = (
 				D4A2F5D91A6C3244001B8460 /* ooniprobe.app */,
 				17E7EDB521BFEDD1001961C7 /* OONIProbeUITests.xctest */,
+				EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -620,8 +647,8 @@
 				ED90A9222198DE5000204B46 /* Measurement.mm */,
 				ED90A91F2198DE5000204B46 /* Network.h */,
 				ED90A91B2198DE5000204B46 /* Network.m */,
-				ED90A91D2198DE5000204B46 /* Url.mm */,
 				ED90A9212198DE5000204B46 /* Url.h */,
+				ED90A91D2198DE5000204B46 /* Url.mm */,
 			);
 			name = Database;
 			path = Model/Database;
@@ -792,12 +819,23 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		EDF23EEC2225258100B97520 /* OONIProbeUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF23EEF2225258100B97520 /* Info.plist */,
+				EDF23EF82228CC6000B97520 /* NetworkTest.m */,
+				ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */,
+			);
+			path = OONIProbeUnitTests;
+			sourceTree = "<group>";
+		};
 		F4F15431D4412F561191270F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				EDEB20BE224F86D40058E911 /* SharkORM.framework */,
 				ED3582311FE948580078CCEE /* libsqlite3.tbd */,
 				01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */,
+				2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -807,6 +845,8 @@
 			children = (
 				B14D39522921C8CE117986F7 /* Pods-ooniprobe.debug.xcconfig */,
 				FBB68CFBE135C2F6BDF61340 /* Pods-ooniprobe.release.xcconfig */,
+				B3AF575E180FF33021FBC6A7 /* Pods-OONIProbeUnitTests.debug.xcconfig */,
+				98FEAB61B0AD74E566951F69 /* Pods-OONIProbeUnitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -840,9 +880,9 @@
 				D4A2F5D51A6C3244001B8460 /* Sources */,
 				D4A2F5D61A6C3244001B8460 /* Frameworks */,
 				D4A2F5D71A6C3244001B8460 /* Resources */,
-				EDA66B691E3A23AF00DD22AC /* ShellScript */,
 				0DB68370272A8F1E523AA5E2 /* [CP] Copy Pods Resources */,
 				A9776EC81DBB83BB5C788DE7 /* [CP] Embed Pods Frameworks */,
+				EDA66B691E3A23AF00DD22AC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -852,6 +892,25 @@
 			productName = NetProbe;
 			productReference = D4A2F5D91A6C3244001B8460 /* ooniprobe.app */;
 			productType = "com.apple.product-type.application";
+		};
+		EDF23EEA2225258100B97520 /* OONIProbeUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF23EF42225258100B97520 /* Build configuration list for PBXNativeTarget "OONIProbeUnitTests" */;
+			buildPhases = (
+				911113021556D4D91C10FB3E /* [CP] Check Pods Manifest.lock */,
+				EDF23EE72225258100B97520 /* Sources */,
+				EDF23EE82225258100B97520 /* Frameworks */,
+				EDF23EE92225258100B97520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDF23EF12225258100B97520 /* PBXTargetDependency */,
+			);
+			name = OONIProbeUnitTests;
+			productName = OONIProbeUnitTests;
+			productReference = EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -884,6 +943,12 @@
 								enabled = 1;
 							};
 						};
+					};
+					EDF23EEA2225258100B97520 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = MADPSAYN6T;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D4A2F5D81A6C3244001B8460;
 					};
 				};
 			};
@@ -918,6 +983,7 @@
 			targets = (
 				D4A2F5D81A6C3244001B8460 /* ooniprobe */,
 				17E7EDB421BFEDD1001961C7 /* OONIProbeUITests */,
+				EDF23EEA2225258100B97520 /* OONIProbeUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -962,6 +1028,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDF23EE92225258100B97520 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -999,6 +1072,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		911113021556D4D91C10FB3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OONIProbeUnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A9776EC81DBB83BB5C788DE7 /* [CP] Embed Pods Frameworks */ = {
@@ -1134,6 +1229,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDF23EE72225258100B97520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */,
+				ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1141,6 +1245,11 @@
 			isa = PBXTargetDependency;
 			target = D4A2F5D81A6C3244001B8460 /* ooniprobe */;
 			targetProxy = 17E7EDBA21BFEDD1001961C7 /* PBXContainerItemProxy */;
+		};
+		EDF23EF12225258100B97520 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4A2F5D81A6C3244001B8460 /* ooniprobe */;
+			targetProxy = EDF23EF02225258100B97520 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1439,6 +1548,66 @@
 			};
 			name = Release;
 		};
+		EDF23EF22225258100B97520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3AF575E180FF33021FBC6A7 /* Pods-OONIProbeUnitTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MADPSAYN6T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OONIProbeUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.OONIProbeUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
+			};
+			name = Debug;
+		};
+		EDF23EF32225258100B97520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98FEAB61B0AD74E566951F69 /* Pods-OONIProbeUnitTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MADPSAYN6T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OONIProbeUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.OONIProbeUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1465,6 +1634,15 @@
 			buildConfigurations = (
 				D4A2F5FD1A6C3244001B8460 /* Debug */,
 				D4A2F5FE1A6C3244001B8460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF23EF42225258100B97520 /* Build configuration list for PBXNativeTarget "OONIProbeUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF23EF22225258100B97520 /* Debug */,
+				EDF23EF32225258100B97520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -10,5 +10,8 @@
 @property (strong, nonatomic) NSString *network_type;
 
 + (Network*)checkExistingNetworkWithAsn:(NSString*)asn networkName:(NSString*)network_name ip:(NSString*)ip cc:(NSString*)country_code networkType:(NSString*)network_type;
-
+- (NSString*)getAsn;
+- (NSString*)getNetworkName;
+- (NSString*)getNetworkNameOrAsn;
+- (NSString*)getCountry;
 @end
