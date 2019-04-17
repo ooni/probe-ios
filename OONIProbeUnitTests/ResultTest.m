@@ -49,7 +49,7 @@ Measurement *measurement;
 }
 
 - (void)testFailed {
-    //Second measurement failed, isEveryMeasurementUploaded true
+    //Measurement failed, isEveryMeasurementUploaded true
     measurement.is_failed = true;
     [measurement save];
     XCTAssert([result isEveryMeasurementUploaded]);
