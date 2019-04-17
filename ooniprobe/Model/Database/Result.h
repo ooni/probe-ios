@@ -2,6 +2,7 @@
 #import <SharkORM/SharkORM.h>
 #import "JsonResult.h"
 #import "Measurement.h"
+#define NOT_UPLOADED_QUERY @"is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)"
 
 @interface Result : SRKObject
 

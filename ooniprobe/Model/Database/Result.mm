@@ -57,20 +57,22 @@
     return [query count];
 }
 
+- (SRKQuery*)notUploadedQuery{
+    return [[Measurement query] where:[NSString stringWithFormat:@"result_id = ? AND %@", NOT_UPLOADED_QUERY] parameters:@[self]];
+}
+
 - (SRKResultSet*)notUploadedMeasurements {
-    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)" parameters:@[self]];
-    return [query fetch];
+    return [[self notUploadedQuery] fetch];
 }
 
 - (BOOL)isEveryMeasurementUploaded{
-    SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)" parameters:@[self]];
-    if ([query count] == 0)
+    if ([[self notUploadedQuery] count] == 0)
         return true;
     return false;
 }
 
 + (BOOL)isEveryResultUploaded:(SRKResultSet*)results{
-    SRKQuery *query = [[Measurement query] where:@"is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)"];
+    SRKQuery *query = [[Measurement query] where:NOT_UPLOADED_QUERY];
     if ([query count] == 0)
         return true;
     return false;
@@ -87,7 +89,7 @@
     }
     return @"";
 }
-    
+
 -(void)addRuntime:(float)value{
     self.runtime+=value;
 }
@@ -97,7 +99,7 @@
     return [NSByteCountFormatter stringFromByteCount:self.data_usage_up*1024
                                           countStyle:NSByteCountFormatterCountStyleFile];
 }
-    
+
 - (NSString*)getFormattedDataUsageDown{
     return [NSByteCountFormatter stringFromByteCount:self.data_usage_down*1024 countStyle:NSByteCountFormatterCountStyleFile];
 }

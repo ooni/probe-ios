@@ -12,7 +12,7 @@
 }
 
 + (SRKResultSet*)notUploadedMeasurements {
-    return [[[Measurement query] where:@"is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)"] fetch];
+    return [[[Measurement query] where:NOT_UPLOADED_QUERY] fetch];
 }
 
 /*

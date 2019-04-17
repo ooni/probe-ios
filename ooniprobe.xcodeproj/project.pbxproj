@@ -83,6 +83,7 @@
 		EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA7645E2153090800C24688 /* NSDictionary+Safety.m */; };
 		EDA9F21B22414E0E003D40E8 /* UIDevice-DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA9F21A22414E0E003D40E8 /* UIDevice-DeviceInfo.m */; };
 		EDA9F21E224255E7003D40E8 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA9F21D224255E7003D40E8 /* TestSummaryTableViewController.m */; };
+		EDAE20FB22677BE50080FBCD /* ResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE20FA22677BE50080FBCD /* ResultTest.m */; };
 		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
 		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB33B7C21838824002CEC34 /* CustomURLViewController.m */; };
@@ -296,6 +297,7 @@
 		EDA9F21A22414E0E003D40E8 /* UIDevice-DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-DeviceInfo.m"; path = "Utility/UIDevice-DeviceInfo.m"; sourceTree = "<group>"; };
 		EDA9F21C224255E7003D40E8 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
 		EDA9F21D224255E7003D40E8 /* TestSummaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewController.m; sourceTree = "<group>"; };
+		EDAE20FA22677BE50080FBCD /* ResultTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTest.m; sourceTree = "<group>"; };
 		EDB252A220FA46DA00B4EDE4 /* TestKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestKeys.h; sourceTree = "<group>"; };
 		EDB252A320FA46DA00B4EDE4 /* JsonResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonResult.h; sourceTree = "<group>"; };
 		EDB252A520FA46DA00B4EDE4 /* TestKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestKeys.m; sourceTree = "<group>"; };
@@ -833,6 +835,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF23EEF2225258100B97520 /* Info.plist */,
+				EDAE20FA22677BE50080FBCD /* ResultTest.m */,
 				EDF23EF82228CC6000B97520 /* NetworkTest.m */,
 				ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */,
 			);
@@ -1247,6 +1250,7 @@
 			files = (
 				EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */,
 				ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */,
+				EDAE20FB22677BE50080FBCD /* ResultTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
