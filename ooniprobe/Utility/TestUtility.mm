@@ -123,7 +123,7 @@
     }
 }
 
-+ (NSString*)getFileContent:(NSString*)fileName{
++ (NSString*)getUTF8FileContent:(NSString*)fileName{
     NSString *filePath = [TestUtility getFileNamed:fileName];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if([fileManager fileExistsAtPath:filePath])

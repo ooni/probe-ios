@@ -22,7 +22,7 @@
             fileName = [self.measurement getLogFile];
         else if ([self.type isEqualToString:@"json"])
             fileName = [self.measurement getReportFile];
-        NSString *content = [TestUtility getFileContent:fileName];
+        NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
             if ([self.type isEqualToString:@"json"]){
                 NSError *error;
