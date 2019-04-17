@@ -41,7 +41,7 @@ Measurement *measurement;
 }
 
 - (void)testUploadedAndReport {
-    //Measurement uploaded and wirh report_id, isEveryMeasurementUploaded true
+    //Measurement uploaded and with report_id, isEveryMeasurementUploaded true
     measurement.is_uploaded = true;
     measurement.report_id = REPORT_ID;
     [measurement save];
