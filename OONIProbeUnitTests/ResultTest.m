@@ -24,8 +24,9 @@ Measurement *measurement;
 }
 
 - (void)testNoMeasurements {
-    //No measurement, isEveryMeasurementUploaded true
-    XCTAssert([[Result new] isEveryMeasurementUploaded]);
+    //New Result, isEveryMeasurementUploaded true
+    Result *newResult = [Result new];
+    XCTAssert([newResult isEveryMeasurementUploaded]);
 }
 
 - (void)testNotUploaded {
