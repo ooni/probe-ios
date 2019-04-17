@@ -14,28 +14,32 @@ Measurement *measurement;
     // Put setup code here. This method is called before the invocation of each test method in the class.
     [[[Result query] fetch] remove];
     result = [Result new];
-    measurement = [Measurement new];
-    measurement.result_id = result;
-    [measurement save];
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
+-(void)addMeasurement {
+    measurement = [Measurement new];
+    measurement.result_id = result;
+    [measurement save];
+}
+
 - (void)testNoMeasurements {
-    //New Result, isEveryMeasurementUploaded true
-    Result *newResult = [Result new];
-    XCTAssert([newResult isEveryMeasurementUploaded]);
+    //No measurement, isEveryMeasurementUploaded true
+    XCTAssert([result isEveryMeasurementUploaded]);
 }
 
 - (void)testNotUploaded {
     //One measurement, isEveryMeasurementUploaded false
+    [self addMeasurement];
     XCTAssert(![result isEveryMeasurementUploaded]);
 }
 
 - (void)testUploaded {
     //Measurement uploaded but report_id null, isEveryMeasurementUploaded false
+    [self addMeasurement];
     measurement.is_uploaded = true;
     [measurement save];
     XCTAssert(![result isEveryMeasurementUploaded]);
@@ -43,6 +47,7 @@ Measurement *measurement;
 
 - (void)testUploadedAndReport {
     //Measurement uploaded and with report_id, isEveryMeasurementUploaded true
+    [self addMeasurement];
     measurement.is_uploaded = true;
     measurement.report_id = REPORT_ID;
     [measurement save];
@@ -51,6 +56,7 @@ Measurement *measurement;
 
 - (void)testFailed {
     //Measurement failed, isEveryMeasurementUploaded true
+    [self addMeasurement];
     measurement.is_failed = true;
     [measurement save];
     XCTAssert([result isEveryMeasurementUploaded]);
