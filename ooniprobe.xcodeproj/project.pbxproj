@@ -63,7 +63,7 @@
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
-		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
+		ED81BB97223FA9FF000AFA01 /* TestResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsTableViewController.m */; };
 		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
 		ED90A9282198DE5100204B46 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91B2198DE5000204B46 /* Network.m */; };
 		ED90A9292198DE5100204B46 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91C2198DE5000204B46 /* Result.mm */; };
@@ -82,7 +82,7 @@
 		EDA17B07208A389F00D46D0F /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B06208A389F00D46D0F /* Result.storyboard */; };
 		EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA7645E2153090800C24688 /* NSDictionary+Safety.m */; };
 		EDA9F21B22414E0E003D40E8 /* UIDevice-DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA9F21A22414E0E003D40E8 /* UIDevice-DeviceInfo.m */; };
-		EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA9F21D224255E7003D40E8 /* TestSummaryViewController.m */; };
+		EDA9F21E224255E7003D40E8 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA9F21D224255E7003D40E8 /* TestSummaryTableViewController.m */; };
 		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
 		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB33B7C21838824002CEC34 /* CustomURLViewController.m */; };
@@ -255,8 +255,8 @@
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
 		ED81BB92223F84C9000AFA01 /* UploadFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadFooterViewController.h; sourceTree = "<group>"; };
 		ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadFooterViewController.m; sourceTree = "<group>"; };
-		ED81BB95223FA9FF000AFA01 /* TestResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestResultsViewController.h; path = ooniprobe/View/TestResults/TestResultsViewController.h; sourceTree = SOURCE_ROOT; };
-		ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestResultsViewController.m; path = ooniprobe/View/TestResults/TestResultsViewController.m; sourceTree = SOURCE_ROOT; };
+		ED81BB95223FA9FF000AFA01 /* TestResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestResultsTableViewController.h; path = ooniprobe/View/TestResults/TestResultsTableViewController.h; sourceTree = SOURCE_ROOT; };
+		ED81BB96223FA9FF000AFA01 /* TestResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestResultsTableViewController.m; path = ooniprobe/View/TestResults/TestResultsTableViewController.m; sourceTree = SOURCE_ROOT; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewCell.m; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 		EDA7645F2153090800C24688 /* NSDictionary+Safety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safety.h"; path = "Utility/NSDictionary+Safety.h"; sourceTree = "<group>"; };
 		EDA9F21922414E0E003D40E8 /* UIDevice-DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice-DeviceInfo.h"; path = "Utility/UIDevice-DeviceInfo.h"; sourceTree = "<group>"; };
 		EDA9F21A22414E0E003D40E8 /* UIDevice-DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-DeviceInfo.m"; path = "Utility/UIDevice-DeviceInfo.m"; sourceTree = "<group>"; };
-		EDA9F21C224255E7003D40E8 /* TestSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSummaryViewController.h; sourceTree = "<group>"; };
-		EDA9F21D224255E7003D40E8 /* TestSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSummaryViewController.m; sourceTree = "<group>"; };
+		EDA9F21C224255E7003D40E8 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
+		EDA9F21D224255E7003D40E8 /* TestSummaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewController.m; sourceTree = "<group>"; };
 		EDB252A220FA46DA00B4EDE4 /* TestKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestKeys.h; sourceTree = "<group>"; };
 		EDB252A320FA46DA00B4EDE4 /* JsonResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonResult.h; sourceTree = "<group>"; };
 		EDB252A520FA46DA00B4EDE4 /* TestKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestKeys.m; sourceTree = "<group>"; };
@@ -701,10 +701,10 @@
 				EDDBDFB52086900200A170BD /* Details */,
 				EDBBB2DC203D2ED400B84F6F /* Rows */,
 				ED3AE9ED20341C5600DAAF36 /* Headers */,
-				ED81BB95223FA9FF000AFA01 /* TestResultsViewController.h */,
-				ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */,
-				EDA9F21C224255E7003D40E8 /* TestSummaryViewController.h */,
-				EDA9F21D224255E7003D40E8 /* TestSummaryViewController.m */,
+				ED81BB95223FA9FF000AFA01 /* TestResultsTableViewController.h */,
+				ED81BB96223FA9FF000AFA01 /* TestResultsTableViewController.m */,
+				EDA9F21C224255E7003D40E8 /* TestSummaryTableViewController.h */,
+				EDA9F21D224255E7003D40E8 /* TestSummaryTableViewController.m */,
 				ED1EC16F204E9B61000DEB9F /* LogViewController.h */,
 				ED1EC170204E9B61000DEB9F /* LogViewController.m */,
 			);
@@ -1180,7 +1180,7 @@
 				ED90A92A2198DE5100204B46 /* Url.mm in Sources */,
 				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
-				ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */,
+				ED81BB97223FA9FF000AFA01 /* TestResultsTableViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
@@ -1224,7 +1224,7 @@
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
 				ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */,
-				EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */,
+				EDA9F21E224255E7003D40E8 /* TestSummaryTableViewController.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
