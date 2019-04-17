@@ -12,7 +12,7 @@
 }
 
 + (SRKResultSet*)notUploadedMeasurements {
-    return [[[Measurement query] where:NOT_UPLOADED] fetch];
+    return [[[Measurement query] where:NOT_UPLOADED_QUERY] fetch];
 }
 
 /*
