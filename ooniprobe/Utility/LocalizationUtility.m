@@ -84,4 +84,12 @@
     return NSLocalizedString(string, nil);
 }
 
++ (NSString*)getUrlForTest:(NSString*)testName {
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TestUrls" ofType:@"plist"];
+    NSDictionary *stringDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    if ([stringDict objectForKey:testName])
+        return [stringDict objectForKey:testName];
+    return nil;
+}
+
 @end

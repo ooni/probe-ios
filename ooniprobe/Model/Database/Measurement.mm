@@ -11,6 +11,10 @@
     return @{@"start_time": [NSDate date]};
 }
 
++ (SRKResultSet*)notUploadedMeasurements {
+    return [[[Measurement query] where:NOT_UPLOADED_QUERY] fetch];
+}
+
 /*
     Three scenarios:
     I'm running the test, I start the empty summary, I add stuff and save

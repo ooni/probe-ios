@@ -26,6 +26,7 @@
 
 @property (strong, nonatomic) TestKeys *testKeysObj;
 
++(SRKResultSet*)notUploadedMeasurements;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;
 -(TestKeys*)testKeysObj;

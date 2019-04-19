@@ -15,4 +15,6 @@
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (void)downloadUrls:(void (^)(NSArray *))completion;
 + (void)removeFile:(NSString*)fileName;
++ (NSString*)getUTF8FileContent:(NSString*)fileName;
++ (void)writeString:(NSString*)str toFile:(NSString*)fileName;
 @end
