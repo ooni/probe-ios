@@ -7,7 +7,7 @@
 #import "TestDetailsViewController.h"
 #import "MessageUtility.h"
 
-@interface TestSummaryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface TestSummaryTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     UIColor *defaultColor;
     Measurement *segueObj;
     NSString *segueType;

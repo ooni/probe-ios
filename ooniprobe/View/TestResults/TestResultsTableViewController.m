@@ -1,12 +1,12 @@
-#import "TestResultsViewController.h"
+#import "TestResultsTableViewController.h"
 #import <Crashlytics/Crashlytics.h>
 #import "UploadFooterViewController.h"
 
-@interface TestResultsViewController ()
+@interface TestResultsTableViewController ()
 
 @end
 
-@implementation TestResultsViewController
+@implementation TestResultsTableViewController
 @synthesize results;
 
 - (void)awakeFromNib{
@@ -161,7 +161,7 @@
     }
     else if ([[segue identifier] isEqualToString:@"summary"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        TestSummaryViewController *vc = (TestSummaryViewController * )segue.destinationViewController;
+        TestSummaryTableViewController *vc = (TestSummaryTableViewController * )segue.destinationViewController;
         Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
         if (!current.is_viewed){
             [current setIs_viewed:YES];
