@@ -11,6 +11,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UIButton *uploadButton;
 
+//upload_all is a bool used to indicate if the footer should upload a measurement (one) or a result (all)
 @property (assign) bool upload_all;
 
 @end
