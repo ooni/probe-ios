@@ -6,10 +6,6 @@
 #import "TestUtility.h"
 #import "MBProgressHUD.h"
 
-@interface UploadFooterViewController ()
-
-@end
-
 @implementation UploadFooterViewController
 
 - (void)viewDidLoad {
