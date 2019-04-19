@@ -107,7 +107,7 @@
 }
 
 -(void)uploadSingleMeasurement:(Measurement*)measurement{
-    NSString *content = [TestUtility getFileContent:[measurement getReportFile]];
+    NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
     MKCollectorResubmitSettings *settings = [[MKCollectorResubmitSettings alloc] init];
     [settings setSerializedMeasurement:content];
     MKCollectorResubmitResults *results = [settings perform];
