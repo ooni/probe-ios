@@ -2,6 +2,7 @@
 #import "Result.h"
 #import "Measurement.h"
 
+//This view controller manage the upload footer and its method. It's contained as sub view in 3 other views
 @interface UploadFooterViewController : UIViewController
 
 @property (nonatomic, strong) Result *result;

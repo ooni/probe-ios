@@ -31,7 +31,7 @@
 }
 
 -(IBAction)upload{
-    if (_upload_all){
+    if (self.upload_all){
         [self showModalHelp];
     }
     else {
