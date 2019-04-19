@@ -9,13 +9,13 @@ target 'ooniprobe' do
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
     pod 'lottie-ios', '2.5.3'
-    pod 'SharkORM'
+    pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
     pod 'MKDropdownMenu'
     pod 'RHMarkdownLabel'
     pod 'DateTools'
     pod 'OCMapper', '2.0'
 end
 target 'OONIProbeUnitTests' do
-    pod 'SharkORM'
+    pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
 end
 
