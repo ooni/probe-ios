@@ -6,6 +6,7 @@
 
 @class Result;
 
+/// Measurement contains the results of a specific measurement (e.g. Whatsapp).
 @interface Measurement : SRKObject
 
 @property NSString *test_name;
