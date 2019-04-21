@@ -1,14 +1,14 @@
-#import "TestSummaryTableViewController.h"
+#import "TestSummaryViewController.h"
 #import "ReachabilityManager.h"
 #import "Tests.h"
 #import "UploadFooterViewController.h"
 #import "TestSummaryTableViewCell.h"
 
-@interface TestSummaryTableViewController ()
+@interface TestSummaryViewController ()
 
 @end
 
-@implementation TestSummaryTableViewController
+@implementation TestSummaryViewController
 @synthesize result;
 
 - (void)viewDidLoad {
