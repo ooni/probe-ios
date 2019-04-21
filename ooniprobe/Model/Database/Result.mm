@@ -89,7 +89,7 @@
     }
     return @"";
 }
-    
+
 -(void)addRuntime:(float)value{
     self.runtime+=value;
 }
@@ -99,7 +99,7 @@
     return [NSByteCountFormatter stringFromByteCount:self.data_usage_up*1024
                                           countStyle:NSByteCountFormatterCountStyleFile];
 }
-    
+
 - (NSString*)getFormattedDataUsageDown{
     return [NSByteCountFormatter stringFromByteCount:self.data_usage_down*1024 countStyle:NSByteCountFormatterCountStyleFile];
 }

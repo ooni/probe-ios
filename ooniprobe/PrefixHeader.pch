@@ -16,6 +16,9 @@
 #define RELEASE_NAME @""
 #define NSLocalizedFormatString(fmt, ...) [NSString stringWithFormat:NSLocalizedString(fmt, nil), __VA_ARGS__]
 
+#define ONBOARDING_KEY @"first_run"
+#define MANUAL_UPLOAD_POPUP @"upload_result_manually_popup"
+
 #define color_base @"#0588cb"
 #define color_black @"#000000"
 #define color_gray0 @"#f8f9fa"

@@ -7,11 +7,13 @@
 #import "TestDetailsViewController.h"
 #import "MessageUtility.h"
 
-@interface TestSummaryTableViewController : UITableViewController {
+@interface TestSummaryTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     UIColor *defaultColor;
     Measurement *segueObj;
     NSString *segueType;
 }
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableFooterConstraint;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) Result* result;
 @property (nonatomic, strong) SRKResultSet *measurements;
 @end

@@ -1,5 +1,6 @@
 #import "TestResultsTableViewController.h"
 #import <Crashlytics/Crashlytics.h>
+#import "UploadFooterViewController.h"
 
 @interface TestResultsTableViewController ()
 
@@ -49,6 +50,14 @@
     keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];
     resultsDic = dic;
     dispatch_async(dispatch_get_main_queue(), ^{
+        if ([Result isEveryResultUploaded:results]){
+            self.tableFooterConstraint.constant = -45;
+            [self.tableView setNeedsUpdateConstraints];
+        }
+        else {
+            self.tableFooterConstraint.constant = 0;
+            [self.tableView setNeedsUpdateConstraints];
+        }
         [self.tableView reloadData];
     });
 }
@@ -159,6 +168,10 @@
             [current save];
         }
         [vc setResult:current];
+    }
+    else if ([[segue identifier] isEqualToString:@"footer_upload"]){
+        UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;
+        [vc setUpload_all:true];
     }
 }
 
