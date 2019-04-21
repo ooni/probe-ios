@@ -4,10 +4,10 @@
 #import "Result.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "ResultsHeaderViewController.h"
-#import "TestSummaryTableViewController.h"
+#import "TestSummaryViewController.h"
 #import "TestResultTableViewCell.h"
 
-@interface TestResultsTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate> {
+@interface TestResultsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate> {
     NSArray *keys;
     NSDictionary *resultsDic;
     SRKQuery *query;
