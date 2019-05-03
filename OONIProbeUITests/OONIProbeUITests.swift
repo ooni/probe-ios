@@ -63,15 +63,15 @@ class OONIProbeUITests: XCTestCase {
             print("appID: \(appID)\n")
         }
         
+        //Preventing Informed Consent to appear
+        UserDefaults.standard.set("ok", forKey: "first_run")
+
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         let app = XCUIApplication()
         setupSnapshot(app)
         app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-        
-        //Preventing Informed Consent to appear
-        UserDefaults.standard.set("ok", forKey: "first_run")
     }
 
     override func tearDown() {
