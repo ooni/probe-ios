@@ -84,8 +84,8 @@ class OONIProbeUITests: XCTestCase {
         let tabBarsQuery = app.tabBars
         let tablesQuery = app.tables
 
-        let dashboardButton = tabBarsQuery.buttons.element(boundBy: 0)
-        let resultsButton = tabBarsQuery.buttons.element(boundBy: 1)
+        let dashboardButton = tabBarsQuery.firstMatch.buttons.element(boundBy: 0)
+        let resultsButton = tabBarsQuery.firstMatch.buttons.element(boundBy: 1)
         
         dashboardButton.tap()
         snapshot("01Dashboard")
