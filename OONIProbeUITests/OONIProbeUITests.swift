@@ -85,8 +85,8 @@ class OONIProbeUITests: XCTestCase {
         let tablesQuery = app.tables
 
         let predicate = NSPredicate(format: "count > 0")
-        expectationForPredicate(predicate, evaluatedWithObject: tabBarsQuery, handler: nil)
-        waitForExpectationsWithTimeout(15, handler: nil)
+        expectation(for:predicate, evaluatedWithObject: tabBarsQuery, handler: nil)
+        waitForExpectations(timeout: 15, handler: nil)
 
         let dashboardButton = tabBarsQuery.buttons.element(boundBy: 0)
         let resultsButton = tabBarsQuery.buttons.element(boundBy: 1)
