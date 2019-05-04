@@ -8,6 +8,5 @@ before_install:
 script:
   - set -o pipefail && xcodebuild -workspace ooniprobe.xcworkspace/ -scheme ooniprobe CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
   - set -o pipefail && xcodebuild clean test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator -scheme OONIProbeUITests -destination 'name=iPhone Xs Max' CODE_SIGNING_REQUIRED=NO | xcpretty
+  - set -o pipefail && xcodebuild clean test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator  -scheme ooniprobe -destination 'name=iPhone Xs Max' CODE_SIGNING_REQUIRED=NO -only-testing:OONIProbeUnitTests | xcpretty
 #  - set -o pipefail && xcodebuild clean test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator -scheme ooniprobe -destination 'name=iPhone Xs Max'  | xcpretty
-#  - set -o pipefail && xcodebuild clean test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator  -scheme ooniprobe -destination 'name=iPhone Xs Max' CODE_SIGNING_REQUIRED=NO -only-testing:OONIProbeUnitTests | xcpretty
-
