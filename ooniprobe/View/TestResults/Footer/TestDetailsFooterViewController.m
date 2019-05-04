@@ -9,6 +9,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.methodologyButton.layer.cornerRadius = self.methodologyButton.bounds.size.height/2;
+    self.methodologyButton.layer.masksToBounds = YES;
+    self.methodologyButton.layer.borderWidth = 0.5f;
+    self.methodologyButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.methodologyButton setTitle:NSLocalizedString(@"TestResults.Details.Methodology", nil) forState:UIControlStateNormal];
+
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
     [self.dateLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
@@ -29,6 +35,12 @@
     [self.countryDetailLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.runtimeLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.runtimeDetailLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+}
+
+-(IBAction)openMethodology:(id)sender{
+    NSString *url = [LocalizationUtility getUrlForTest:measurement.test_name];
+    if (url != nil)
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 @end

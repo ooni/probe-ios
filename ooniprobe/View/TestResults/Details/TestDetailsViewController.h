@@ -13,5 +13,7 @@
 @property (nonatomic, strong) Result *result;
 @property (nonatomic, strong) Measurement *measurement;
 @property (nonatomic, strong) IBOutlet UIView *headerView;
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *scrollViewFooterConstraint;
 
 @end

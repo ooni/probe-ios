@@ -3,12 +3,16 @@
 #import "TestUtility.h"
 
 @implementation Measurement
-@dynamic test_name, start_time, runtime, is_done, is_uploaded, is_failed, failure_msg, is_upload_failed, upload_failure_msg, is_rerun, report_id, url_id, measurement_id, test_keys, is_anomaly, result_id;
+@dynamic test_name, start_time, runtime, is_done, is_uploaded, is_failed, failure_msg, is_upload_failed, upload_failure_msg, is_rerun, report_id, url_id, test_keys, is_anomaly, result_id;
 
 @synthesize testKeysObj = _testKeysObj;
 
 + (NSDictionary *)defaultValuesForEntity {
     return @{@"start_time": [NSDate date]};
+}
+
++ (SRKResultSet*)notUploadedMeasurements {
+    return [[[Measurement query] where:NOT_UPLOADED_QUERY] fetch];
 }
 
 /*

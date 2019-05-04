@@ -43,8 +43,8 @@
 
 -(void)runTest{
     if (testSuite != nil){
-        totalTests = [testSuite.testList count];
         [testSuite runTestSuite];
+        totalTests = [testSuite.testList count];
         [self setRuntime];
     }
 }

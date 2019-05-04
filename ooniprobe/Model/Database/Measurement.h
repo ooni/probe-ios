@@ -6,6 +6,7 @@
 
 @class Result;
 
+/// Measurement contains the results of a specific measurement (e.g. Whatsapp).
 @interface Measurement : SRKObject
 
 @property NSString *test_name;
@@ -20,13 +21,13 @@
 @property BOOL is_rerun;
 @property NSString *report_id;
 @property Url *url_id;
-@property long measurement_id;
 @property BOOL is_anomaly;
 @property NSString *test_keys;
 @property Result *result_id;
 
 @property (strong, nonatomic) TestKeys *testKeysObj;
 
++(SRKResultSet*)notUploadedMeasurements;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;
 -(TestKeys*)testKeysObj;

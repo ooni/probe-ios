@@ -18,6 +18,8 @@
 		ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0A6200200B52C000235E70 /* OONIRun.storyboard */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */; };
+		ED12BA2D224E0AB6004949E4 /* Tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED12BA2C224E0AB6004949E4 /* Tests.plist */; };
+		ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */; };
 		ED163CE1209C7B880052FB46 /* Airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED163CE0209C7B880052FB46 /* Airports.plist */; };
 		ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC7FE20158D630041089A /* ConfigureButton.m */; };
 		ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.mm */; };
@@ -38,7 +40,6 @@
 		ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */; };
 		ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */; };
 		ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */; };
-		ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
 		ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED365216223A40480093180B /* FailedTestDetailsViewController.m */; };
 		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
@@ -55,13 +56,15 @@
 		ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.m */; };
 		ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */; };
 		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.m */; };
-		ED614794213DABDE00F35E07 /* Tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED614793213DABDE00F35E07 /* Tests.plist */; };
+		ED614794213DABDE00F35E07 /* TestUrls.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED614793213DABDE00F35E07 /* TestUrls.plist */; };
 		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
 		ED6911D820BDC0130022DCFE /* websites.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D720BDC0130022DCFE /* websites.json */; };
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
 		ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */ = {isa = PBXBuildFile; fileRef = ED86D74E227DAB02007D93FB /* OONIProbe.db */; };
+		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
+		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
 		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
 		ED90A9282198DE5100204B46 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91B2198DE5000204B46 /* Network.m */; };
 		ED90A9292198DE5100204B46 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91C2198DE5000204B46 /* Result.mm */; };
@@ -80,6 +83,8 @@
 		EDA17B07208A389F00D46D0F /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA17B06208A389F00D46D0F /* Result.storyboard */; };
 		EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA7645E2153090800C24688 /* NSDictionary+Safety.m */; };
 		EDA9F21B22414E0E003D40E8 /* UIDevice-DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA9F21A22414E0E003D40E8 /* UIDevice-DeviceInfo.m */; };
+		EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA9F21D224255E7003D40E8 /* TestSummaryViewController.m */; };
+		EDAE20FB22677BE50080FBCD /* ResultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAE20FA22677BE50080FBCD /* ResultTest.m */; };
 		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
 		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB33B7C21838824002CEC34 /* CustomURLViewController.m */; };
@@ -101,7 +106,6 @@
 		EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCD73D12180F014003B56D9 /* Header3ViewController.m */; };
 		EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD101BD1EE801F00044E390 /* NotificationService.mm */; };
 		EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD79DE121D6421D00B11078 /* TestDetailsFooterViewController.m */; };
-		EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.m */; };
 		EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */; };
 		EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */; };
 		EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B581FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m */; };
@@ -160,6 +164,9 @@
 		ED0D35BD1DD72824005C863F /* RunButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunButton.m; sourceTree = "<group>"; };
 		ED0D8D6E20186742003DDF23 /* TestOverviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOverviewViewController.h; sourceTree = "<group>"; };
 		ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOverviewViewController.m; sourceTree = "<group>"; };
+		ED12BA2C224E0AB6004949E4 /* Tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
+		ED12BA2E224E5BDD004949E4 /* TestSummaryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewCell.h; sourceTree = "<group>"; };
+		ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewCell.m; sourceTree = "<group>"; };
 		ED163CE0209C7B880052FB46 /* Airports.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Airports.plist; sourceTree = "<group>"; };
 		ED1CC7FD20158D630041089A /* ConfigureButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigureButton.h; sourceTree = "<group>"; };
 		ED1CC7FE20158D630041089A /* ConfigureButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigureButton.m; sourceTree = "<group>"; };
@@ -201,8 +208,6 @@
 		ED2E067F21D487F500E9B9EE /* WebsitesSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebsitesSuite.h; sourceTree = "<group>"; };
 		ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebsitesSuite.mm; sourceTree = "<group>"; };
 		ED2E068221D489E000E9B9EE /* Suite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Suite.h; sourceTree = "<group>"; };
-		ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewController.h; sourceTree = "<group>"; };
-		ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewController.m; sourceTree = "<group>"; };
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		ED365215223A40480093180B /* FailedTestDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FailedTestDetailsViewController.h; sourceTree = "<group>"; };
 		ED365216223A40480093180B /* FailedTestDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FailedTestDetailsViewController.m; sourceTree = "<group>"; };
@@ -241,7 +246,7 @@
 		ED5CD72921DE00B40003EEB0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ED5F8A281F77C4AA0093C8F5 /* VersionUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VersionUtility.h; path = Utility/VersionUtility.h; sourceTree = "<group>"; };
 		ED5F8A291F77C4AA0093C8F5 /* VersionUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = VersionUtility.m; path = Utility/VersionUtility.m; sourceTree = "<group>"; };
-		ED614793213DABDE00F35E07 /* Tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
+		ED614793213DABDE00F35E07 /* TestUrls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestUrls.plist; sourceTree = "<group>"; };
 		ED62AB9B1ED5B70500778249 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ED62AB9C1ED5B70500778249 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ooniprobe.entitlements; sourceTree = "<group>"; };
@@ -250,6 +255,10 @@
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
+		ED81BB92223F84C9000AFA01 /* UploadFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadFooterViewController.h; sourceTree = "<group>"; };
+		ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadFooterViewController.m; sourceTree = "<group>"; };
+		ED81BB95223FA9FF000AFA01 /* TestResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestResultsViewController.h; path = ooniprobe/View/TestResults/TestResultsViewController.h; sourceTree = SOURCE_ROOT; };
+		ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestResultsViewController.m; path = ooniprobe/View/TestResults/TestResultsViewController.m; sourceTree = SOURCE_ROOT; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED86D74E227DAB02007D93FB /* OONIProbe.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = OONIProbe.db; sourceTree = "<group>"; };
@@ -288,6 +297,9 @@
 		EDA7645F2153090800C24688 /* NSDictionary+Safety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safety.h"; path = "Utility/NSDictionary+Safety.h"; sourceTree = "<group>"; };
 		EDA9F21922414E0E003D40E8 /* UIDevice-DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice-DeviceInfo.h"; path = "Utility/UIDevice-DeviceInfo.h"; sourceTree = "<group>"; };
 		EDA9F21A22414E0E003D40E8 /* UIDevice-DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-DeviceInfo.m"; path = "Utility/UIDevice-DeviceInfo.m"; sourceTree = "<group>"; };
+		EDA9F21C224255E7003D40E8 /* TestSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSummaryViewController.h; sourceTree = "<group>"; };
+		EDA9F21D224255E7003D40E8 /* TestSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSummaryViewController.m; sourceTree = "<group>"; };
+		EDAE20FA22677BE50080FBCD /* ResultTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTest.m; sourceTree = "<group>"; };
 		EDB252A220FA46DA00B4EDE4 /* TestKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestKeys.h; sourceTree = "<group>"; };
 		EDB252A320FA46DA00B4EDE4 /* JsonResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonResult.h; sourceTree = "<group>"; };
 		EDB252A520FA46DA00B4EDE4 /* TestKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestKeys.m; sourceTree = "<group>"; };
@@ -323,8 +335,6 @@
 		EDD101BD1EE801F00044E390 /* NotificationService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationService.mm; sourceTree = "<group>"; };
 		EDD79DE021D6421D00B11078 /* TestDetailsFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDetailsFooterViewController.h; sourceTree = "<group>"; };
 		EDD79DE121D6421D00B11078 /* TestDetailsFooterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDetailsFooterViewController.m; sourceTree = "<group>"; };
-		EDDB0B4E1FFD320000EFD9C8 /* TestResultsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestResultsTableViewController.h; sourceTree = "<group>"; };
-		EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestResultsTableViewController.m; sourceTree = "<group>"; };
 		EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
 		EDDB0B531FFF2C5300EFD9C8 /* SettingsUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsUtility.h; path = Utility/SettingsUtility.h; sourceTree = "<group>"; };
 		EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SettingsUtility.mm; path = Utility/SettingsUtility.mm; sourceTree = "<group>"; };
@@ -448,7 +458,8 @@
 				D4A2F5DE1A6C3244001B8460 /* main.m */,
 				EDA22FFB1DD5D39000BD8708 /* PrefixHeader.pch */,
 				ED997D0B207BCEE400C97B1F /* Strings.plist */,
-				ED614793213DABDE00F35E07 /* Tests.plist */,
+				ED12BA2C224E0AB6004949E4 /* Tests.plist */,
+				ED614793213DABDE00F35E07 /* TestUrls.plist */,
 				ED163CE0209C7B880052FB46 /* Airports.plist */,
 			);
 			name = "Supporting Files";
@@ -703,10 +714,10 @@
 				EDDBDFB52086900200A170BD /* Details */,
 				EDBBB2DC203D2ED400B84F6F /* Rows */,
 				ED3AE9ED20341C5600DAAF36 /* Headers */,
-				EDDB0B4E1FFD320000EFD9C8 /* TestResultsTableViewController.h */,
-				EDDB0B4F1FFD320000EFD9C8 /* TestResultsTableViewController.m */,
-				ED345F4D2024085E00F8DFF3 /* TestSummaryTableViewController.h */,
-				ED345F4E2024085E00F8DFF3 /* TestSummaryTableViewController.m */,
+				ED81BB95223FA9FF000AFA01 /* TestResultsViewController.h */,
+				ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */,
+				EDA9F21C224255E7003D40E8 /* TestSummaryViewController.h */,
+				EDA9F21D224255E7003D40E8 /* TestSummaryViewController.m */,
 				ED1EC16F204E9B61000DEB9F /* LogViewController.h */,
 				ED1EC170204E9B61000DEB9F /* LogViewController.m */,
 			);
@@ -720,6 +731,8 @@
 				ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */,
 				EDBBB2DD203D2EF200B84F6F /* TestResultTableViewCell.h */,
 				EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */,
+				ED12BA2E224E5BDD004949E4 /* TestSummaryTableViewCell.h */,
+				ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -766,6 +779,8 @@
 		EDD79DDF21D6420000B11078 /* Footer */ = {
 			isa = PBXGroup;
 			children = (
+				ED81BB92223F84C9000AFA01 /* UploadFooterViewController.h */,
+				ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */,
 				EDD79DE021D6421D00B11078 /* TestDetailsFooterViewController.h */,
 				EDD79DE121D6421D00B11078 /* TestDetailsFooterViewController.m */,
 			);
@@ -831,6 +846,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF23EEF2225258100B97520 /* Info.plist */,
+				EDAE20FA22677BE50080FBCD /* ResultTest.m */,
 				EDF23EF82228CC6000B97520 /* NetworkTest.m */,
 				ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */,
 			);
@@ -1014,11 +1030,12 @@
 				ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */,
 				EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */,
 				ED163CE1209C7B880052FB46 /* Airports.plist in Resources */,
-				ED614794213DABDE00F35E07 /* Tests.plist in Resources */,
+				ED614794213DABDE00F35E07 /* TestUrls.plist in Resources */,
 				EDA17B05208A37BF00D46D0F /* Dashboard.storyboard in Resources */,
 				EDC2C9E21FD8061400FF01D3 /* FiraSans-Italic.otf in Resources */,
 				ED6911DC20BDC04D0022DCFE /* performance.json in Resources */,
 				EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */,
+				ED12BA2D224E0AB6004949E4 /* Tests.plist in Resources */,
 				EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */,
 				EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */,
 				ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */,
@@ -1174,11 +1191,11 @@
 				EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */,
 				ED2E066E21D4867B00E9B9EE /* AbstractTest.mm in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
-				EDDB0B501FFD320000EFD9C8 /* TestResultsTableViewController.m in Sources */,
 				EDA9F21B22414E0E003D40E8 /* UIDevice-DeviceInfo.m in Sources */,
 				ED90A92A2198DE5100204B46 /* Url.mm in Sources */,
 				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
+				ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
@@ -1206,7 +1223,6 @@
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
-				ED345F4F2024085E00F8DFF3 /* TestSummaryTableViewController.m in Sources */,
 				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
 				ED53841F215975A70078C5C6 /* Value.m in Sources */,
@@ -1222,9 +1238,12 @@
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
+				ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */,
+				EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
+				ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */,
 				ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */,
 				ED2E067321D4867B00E9B9EE /* Telegram.mm in Sources */,
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
@@ -1243,6 +1262,7 @@
 			files = (
 				EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */,
 				ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */,
+				EDAE20FB22677BE50080FBCD /* ResultTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

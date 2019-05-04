@@ -78,7 +78,7 @@
     MKGeoIPLookupResults *results = [settings perform];
     NSString *cc = @"XX";
     if ([results good])
-        cc = [results getProbeCC];
+        cc = [results probeCC];
     NSString *path = [NSString stringWithFormat:@"https://orchestrate.ooni.io/api/v1/test-list/urls?country_code=%@", cc];
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
@@ -123,8 +123,24 @@
     }
 }
 
-+ (long)numberOfTest:(NSString*)testName{
-    return [[[Result query] where:@"test_group_name = ?" parameters:@[testName]] count];
++ (NSString*)getUTF8FileContent:(NSString*)fileName{
+    NSString *filePath = [TestUtility getFileNamed:fileName];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if([fileManager fileExistsAtPath:filePath])
+        return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+    return nil;
 }
 
++ (void)writeString:(NSString*)str toFile:(NSString*)fileName{
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileName];
+    if (fileHandle){
+        [fileHandle seekToEndOfFile];
+        [fileHandle writeData:[[NSString stringWithFormat:@"\n%@", str] dataUsingEncoding:NSUTF8StringEncoding]];
+        [fileHandle closeFile];
+    }
+    else {
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+        [data writeToFile:fileName atomically:YES];
+    }
+}
 @end

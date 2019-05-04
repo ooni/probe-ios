@@ -66,7 +66,7 @@
     }];
     dispatch_async(
                    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                       MKTask *task = [MKTask startNettest:settings];
+                       MKTask *task = [MKTask start:settings];
                        while (![task isDone]){
                            // Extract an event from the task queue and unmarshal it.
                            NSDictionary *evinfo = [task waitForNextEvent];
@@ -168,7 +168,7 @@
     if (message == nil) {
         return;
     }
-    [self writeString:message toFile:[TestUtility getFileNamed:[self.result getLogFile:self.name]]];
+    [TestUtility writeString:message toFile:[TestUtility getFileNamed:[self.result getLogFile:self.name]]];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
@@ -239,7 +239,7 @@
             [measurement save];
             return;
         }
-        [self writeString:str toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
+        [TestUtility writeString:str toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
 
         InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
         ObjectMapper *mapper = [[ObjectMapper alloc] init];
@@ -265,19 +265,6 @@
         [self onEntry:json obj:measurement];
         [measurement save];
         [self.result save];
-    }
-}
-
--(void)writeString:(NSString*)str toFile:(NSString*)fileName{
-    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:fileName];
-    if (fileHandle){
-        [fileHandle seekToEndOfFile];
-        [fileHandle writeData:[[NSString stringWithFormat:@"\n%@", str] dataUsingEncoding:NSUTF8StringEncoding]];
-        [fileHandle closeFile];
-    }
-    else {
-        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-        [data writeToFile:fileName atomically:YES];
     }
 }
 

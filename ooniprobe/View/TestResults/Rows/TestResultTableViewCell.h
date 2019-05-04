@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIStackView *stackView3;
 @property (strong, nonatomic) IBOutlet UIImageView *image3;
 @property (strong, nonatomic) IBOutlet UILabel *label3;
+@property (strong, nonatomic) IBOutlet UIImageView *notUploadedImage;
 
 -(void)setResult:(Result*)result;
 @end

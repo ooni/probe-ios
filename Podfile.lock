@@ -6,13 +6,13 @@ PODS:
   - Fabric (1.9.0)
   - lottie-ios (2.5.3)
   - MBProgressHUD (1.1.0)
-  - mkall (0.3.11)
+  - mkall (0.4.1)
   - MKDropdownMenu (1.4)
   - OCMapper (2.0)
   - RHMarkdownLabel (0.0.1):
     - TTTAttributedLabel
     - XNGMarkdownParser
-  - SharkORM (2.3.62)
+  - SharkORM (2.3.67)
   - Toast (4.0.0)
   - TTTAttributedLabel (2.0.0)
   - XNGMarkdownParser (0.3.2)
@@ -22,13 +22,13 @@ DEPENDENCIES:
   - DateTools
   - DZNEmptyDataSet
   - Fabric
-  - lottie-ios
+  - lottie-ios (= 2.5.3)
   - MBProgressHUD
   - mkall (from `https://github.com/measurement-kit/mkall-ios.git`)
   - MKDropdownMenu
   - OCMapper (= 2.0)
   - RHMarkdownLabel
-  - SharkORM
+  - SharkORM (from `https://github.com/sharksync/sharkorm`, tag `v2.3.67`)
   - Toast (~> 4.0.0)
 
 SPEC REPOS:
@@ -42,7 +42,6 @@ SPEC REPOS:
     - MKDropdownMenu
     - OCMapper
     - RHMarkdownLabel
-    - SharkORM
     - Toast
     - TTTAttributedLabel
     - XNGMarkdownParser
@@ -50,11 +49,17 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   mkall:
     :git: https://github.com/measurement-kit/mkall-ios.git
+  SharkORM:
+    :git: https://github.com/sharksync/sharkorm
+    :tag: v2.3.67
 
 CHECKOUT OPTIONS:
   mkall:
-    :commit: a6856a0650a58f3c6ebcdaeb57eb2c7bf932d3a4
+    :commit: 1d065d155902338d37ef02b8a8c9a40181d6a306
     :git: https://github.com/measurement-kit/mkall-ios.git
+  SharkORM:
+    :git: https://github.com/sharksync/sharkorm
+    :tag: v2.3.67
 
 SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
@@ -63,15 +68,15 @@ SPEC CHECKSUMS:
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  mkall: 28fb5ee95f833f118e0827e335e5fb0152f57361
+  mkall: d23becccfe794d242b36fbf439230fdf7173a097
   MKDropdownMenu: 269df4a41d21a1db684ce8bc709befe419fc5bae
   OCMapper: 9b4d542543794c42adc01f1493d894f53e193cb0
   RHMarkdownLabel: 81d6772768e621be57302b7fd5212ad4f78fb0bd
-  SharkORM: ff65244dfc2e1fa4613badad7c42f6febc1951cc
+  SharkORM: 252e4411923110ac1b524a993ee2b3fa13eed7c4
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XNGMarkdownParser: aed98c14f0c0eb20064184ddf9bac26c482722b2
 
-PODFILE CHECKSUM: 8534d4c43814211e8990f95fcaf46e6b656f6c3d
+PODFILE CHECKSUM: 8045c21c9bc280acb0fe9acb6f6e6c48cfbd4ecd
 
 COCOAPODS: 1.6.1

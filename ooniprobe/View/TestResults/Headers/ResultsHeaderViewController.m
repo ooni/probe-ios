@@ -23,6 +23,7 @@
     [self.upImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [self.downImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"uploadFinished" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQueryNoFilter) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"reloadHeader" object:nil];
 

@@ -15,6 +15,12 @@
 
 -(void)setResult:(Result*)result{
     [self.testAsnLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.notUploadedImage setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+
+    if ([result isEveryMeasurementUploaded])
+        [self.notUploadedImage setHidden:YES];
+    else
+        [self.notUploadedImage setHidden:NO];
 
     if (!result.is_viewed)
         [self setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow0 alpha:1.0f]];
