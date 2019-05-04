@@ -14,62 +14,15 @@ class OONIProbeUITests: XCTestCase {
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        let repoRoot = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent()
-        let fixturesDir = repoRoot.appendingPathComponent("fixtures")
 
-        if let simulatorSharedDir = ProcessInfo().environment["SIMULATOR_SHARED_RESOURCES_DIRECTORY"] {
-            let appID = UIDevice.current.identifierForVendor!.uuidString
-
-            let simulatorHomeDirURL = URL(fileURLWithPath: simulatorSharedDir)
-            let containerDir = simulatorHomeDirURL.appendingPathComponent("Containers/Data/Application")
-            
-            let appDirs = try! FileManager.default.contentsOfDirectory(atPath: containerDir.path)
-
-            // ATTENTION BIG CAVEAT!
-            // Currently for the logic below to work you need to have installed (and run) OONI Probe at least once inside of the simulator for the target device. Once that is done it will work OK, but it won't work until then.
-            // When in doubt try rerunning the tests and they should work.
-            // XXX maybe a better way to do this is:
-            // https://developer.apple.com/documentation/foundation/filemanager/1412643-containerurl
-            //https://gist.github.com/pfandrade/21b3959f01fb63bee6a873a574f78f7f
-            //https://blog.codecentric.de/en/2018/06/resetting-ios-application-state-userdefaults-ui-tests/
-            var targetAppDir = containerDir
-            for appDir in appDirs {
-                targetAppDir = containerDir.appendingPathComponent(appDir)
-                if FileManager.default.fileExists(atPath: targetAppDir.appendingPathComponent("Documents/OONIProbe.db").path) {
-                    print("Success!!")
-                    print(targetAppDir)
-                    break
-                }
-            }
-            XCTAssertTrue(targetAppDir != containerDir, "Could not find targetAppDir")
-
-            let prefPath = targetAppDir.appendingPathComponent("Library/Preferences/org.openobservatory.ooniprobe.plist")
-            try? FileManager.default.removeItem(at: prefPath)
-            try! FileManager.default.copyItem(
-                atPath: fixturesDir.appendingPathComponent("org.openobservatory.ooniprobe.plist").path,
-                toPath: prefPath.path
-            )
-            let dbPath = targetAppDir.appendingPathComponent("Documents/OONIProbe.db")
-            print("Deleting \(dbPath.path)")
-            try? FileManager.default.removeItem(at: dbPath)
-            try? FileManager.default.removeItem(at: targetAppDir.appendingPathComponent("Documents/OONIProbe.db-wal"))
-            try? FileManager.default.removeItem(at: targetAppDir.appendingPathComponent("Documents/OONIProbe.db-shm"))
-
-            try! FileManager.default.copyItem(
-                atPath: fixturesDir.appendingPathComponent("OONIProbe.db").path,
-                toPath: dbPath.path
-            )
-            print("repo Root \(repoRoot)\n")
-            print("targetAppDir \(targetAppDir.path)\n")
-            print("sharedFolderURL \(containerDir.path)\n")
-            print("appID: \(appID)\n")
-        }
-        
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         let app = XCUIApplication()
         setupSnapshot(app)
+
+        // Solution taken rom https://blog.codecentric.de/en/2018/06/resetting-ios-application-state-userdefaults-ui-tests/
         //Preventing Informed Consent to appear
         app.launchArguments += ["-first_run", "ok"]
+        app.launchArguments += ["UI-Testing"]
         app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.

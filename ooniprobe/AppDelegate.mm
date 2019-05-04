@@ -16,6 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    if ([self isUITestingEnabled])
+        [self copyDBTesting];
+        
     [SharkORM setDelegate:self];
     [SharkORM openDatabaseNamed:@"OONIProbe"];    
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultPreferences" ofType:@"plist"]]];
@@ -130,7 +133,28 @@
         [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
     });
 }
-    
+
+-(BOOL)isUITestingEnabled{
+    if ([[NSProcessInfo processInfo].arguments containsObject:@"UI-Testing"]) {
+        return true;
+    }
+    return false;
+}
+
+-(void)copyDBTesting{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *txtPath = [documentsDirectory stringByAppendingPathComponent:@"OONIProbe.db"];
+    //Remove database if already there
+    if ([fileManager fileExistsAtPath:txtPath] == YES) {
+        [fileManager removeItemAtPath:txtPath error:&error];
+    }
+    NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"OONIProbe" ofType:@"db"];
+    [fileManager copyItemAtPath:resourcePath toPath:txtPath error:&error];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
