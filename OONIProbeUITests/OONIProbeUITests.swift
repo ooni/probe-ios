@@ -15,6 +15,7 @@ class OONIProbeUITests: XCTestCase {
         // Solution taken rom https://blog.codecentric.de/en/2018/06/resetting-ios-application-state-userdefaults-ui-tests/
         //Preventing Informed Consent to appear
         app.launchArguments += ["-first_run", "ok"]
+        app.launchArguments += ["-upload_result_manually_popup", "ok"]
         app.launchArguments += ["UI-Testing"]
         app.launch()
 
