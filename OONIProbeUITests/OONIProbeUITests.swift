@@ -30,6 +30,8 @@ class OONIProbeUITests: XCTestCase {
             // When in doubt try rerunning the tests and they should work.
             // XXX maybe a better way to do this is:
             // https://developer.apple.com/documentation/foundation/filemanager/1412643-containerurl
+            //https://gist.github.com/pfandrade/21b3959f01fb63bee6a873a574f78f7f
+            //https://blog.codecentric.de/en/2018/06/resetting-ios-application-state-userdefaults-ui-tests/
             var targetAppDir = containerDir
             for appDir in appDirs {
                 targetAppDir = containerDir.appendingPathComponent(appDir)
