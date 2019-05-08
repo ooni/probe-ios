@@ -22,7 +22,7 @@
         //[client setProbeTimezone:[NSTimeZone localTimeZone].abbreviation];
         [client setRegistryURL:NOTIFICATION_SERVER];
         [client setSecretsFile:[self make_path]];
-        [client setSoftwareName:@"ooniprobe-ios"];
+        [client setSoftwareName:SOFTWARE_NAME];
         [client setSoftwareVersion:[VersionUtility get_software_version]];
         for (NSString *s in [TestUtility getTestsArray]) {
             [client addSupportedTest:s];
