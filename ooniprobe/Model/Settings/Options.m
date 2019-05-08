@@ -21,7 +21,7 @@
         self.save_real_probe_asn = [NSNumber numberWithBool:include_asn];
         self.save_real_probe_cc = [NSNumber numberWithBool:include_cc];
         self.no_collector = [NSNumber numberWithBool:!upload_results];
-        self.software_name = @"ooniprobe-ios";
+        self.software_name = SOFTWARE_NAME;
         self.software_version = software_version;
         self.randomize_input = [NSNumber numberWithBool:FALSE];
         self.no_file_report  = [NSNumber numberWithBool:TRUE];

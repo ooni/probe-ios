@@ -5,6 +5,7 @@
 #import <mkall/MKCollector.h>
 #import "TestUtility.h"
 #import "MBProgressHUD.h"
+#import "VersionUtility.h"
 
 @implementation UploadFooterViewController
 
@@ -106,6 +107,8 @@
     NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
     MKCollectorResubmitSettings *settings = [[MKCollectorResubmitSettings alloc] init];
     [settings setSerializedMeasurement:content];
+    [settings setSoftwareName:SOFTWARE_NAME];
+    [settings setSoftwareVersion:[VersionUtility get_software_version]];
     MKCollectorResubmitResults *results = [settings perform];
     if ([results good]){
         //save updated file
