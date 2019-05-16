@@ -191,6 +191,7 @@
 "Modal.Cancel" = "取消";
 "Modal.Delete" = "删除";
 "Modal.Error" = "错误";
+"Modal.Retry" = "重试";
 "Modal.Error.NoInternet" = "无法运行测试。请复查您的互联网连接。";
 "Modal.Error.CantDownloadURLs" = "无法下载网址名单。请重试。";
 "Modal.Error.NotificationNotEnabled" = "需要通知权限。请在手机设置中启用，然后在 OONI Probe 应用中启用。";
@@ -215,6 +216,8 @@
 "Modal.ManualUpload.Paragraph" = "该设置允许您手动重新上传尚未发布的测量结果。";
 "Modal.ManualUpload.Enable" = "启用";
 "Modal.ManualUpload.Disable" = "不要，谢谢";
+"Modal.UploadFailed.Title" = "上传失败";
+"Modal.UploadFailed.Paragraph" = "Would you like to retry or cancel?";
 "Toast.CopiedToClipboard" = "已复制到剪贴板";
 "Snackbar.ResultsNotUploaded.Text" = "未上传";
 "Snackbar.ResultsNotUploaded.Upload" = "上传";
@@ -286,7 +289,7 @@
 "Settings.Performance.DashServerAddress" = "DASH 服务器";
 "Settings.Performance.DashServerPort" = "DASH 服务器端口";
 "Settings.SendEmail.Label" = "发送邮件给支持团队";
-"Settings.SendEmail.Error" = "设备中没有配置邮件客户端";
+"Settings.SendEmail.Error" = "Please send an email to bugs@openobservatory.org with information on the app and iOS version. Tap copy to clipboard below to copy our email address.";
 "Notification.FinishedRunning" = "运行完成";
 "OONIBrowser.TryMirror" = "试试镜像站";
 "OONIBrowser.Loading" = "载入中....";
