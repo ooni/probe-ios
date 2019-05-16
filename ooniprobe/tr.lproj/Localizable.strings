@@ -191,6 +191,7 @@
 "Modal.Cancel" = "İptal";
 "Modal.Delete" = "Sil";
 "Modal.Error" = "Hata";
+"Modal.Retry" = "Yeniden Dene";
 "Modal.Error.NoInternet" = "Sınama yapılamadı. Lütfen İnternet bağlantınızı denetleyin.";
 "Modal.Error.CantDownloadURLs" = "Adres listesi indirilemedi. Lütfen yeniden deneyin.";
 "Modal.Error.NotificationNotEnabled" = "Bildirim izinleri gerekli. Lütfen telefonunuzun ayarlar bölümünden gerekli izinleri verdikten sonra OONI Probe uygulamanızdan etkinleştirin.";
@@ -199,7 +200,7 @@
 "Modal.ResultsNotUploaded.Title" = "Sonuçlar yüklenmemiş";
 "Modal.ResultsNotUploaded.Paragraph" = "Bazı sınama sonuçları OONI sunucularına yüklenmemiş. OONU veri kümesine katkıda bulunmak isterseniz bu sonuçları yükleyin.";
 "Modal.ResultsNotUploaded.Button.Upload" = "Yükle";
-"Modal.ResultsNotUploaded.Uploading" = "Yükleniyor %@ ...";
+"Modal.ResultsNotUploaded.Uploading" = "%@ yükleniyor...";
 "Modal.EnableNotifications.AutomatedTesting" = "Sınamaların otomatik yapılması için bildirim izinleri verilsin.";
 "Modal.EnableNotifications.News" = "Yeni güncellemelere dair haber alınması için bildirim izinleri verilsin.";
 "Modal.EnableNotifications.Any" = "Anlık iletilerin alınması için bildirim izinleri verilsin.";
@@ -215,6 +216,8 @@
 "Modal.ManualUpload.Paragraph" = "Bu seçenek etkinleştirildiğinde, yayınlanmamış ölçümler el ile yeniden yüklenebilir.";
 "Modal.ManualUpload.Enable" = "Etkinleştir";
 "Modal.ManualUpload.Disable" = "Hayır, teşekkürler";
+"Modal.UploadFailed.Title" = "Yükleme başarısız";
+"Modal.UploadFailed.Paragraph" = "Would you like to retry or cancel?";
 "Toast.CopiedToClipboard" = "Panoya kopyalandı";
 "Snackbar.ResultsNotUploaded.Text" = "Yüklenmemiş";
 "Snackbar.ResultsNotUploaded.Upload" = "Yükle";
@@ -286,7 +289,7 @@
 "Settings.Performance.DashServerAddress" = "DASH sunucusu";
 "Settings.Performance.DashServerPort" = "DASH sunucusu bağlantı noktası";
 "Settings.SendEmail.Label" = "Destek ekibine e-posta gönderin";
-"Settings.SendEmail.Error" = "Cihazınızda bir e-posta uygulaması yapılandırılmamış";
+"Settings.SendEmail.Error" = "Please send an email to bugs@openobservatory.org with information on the app and iOS version. Tap copy to clipboard below to copy our email address.";
 "Notification.FinishedRunning" = "Çalışmayı tamamladı";
 "OONIBrowser.TryMirror" = "Kopyası denensin";
 "OONIBrowser.Loading" = "Yükleniyor...";
