@@ -16,7 +16,7 @@ class OONIProbeUITests: XCTestCase {
         //Preventing Informed Consent to appear
         app.launchArguments += ["-first_run", "ok"]
         app.launchArguments += ["-upload_result_manually_popup", "ok"]
-        app.launchArguments += ["UI-Testing"]
+        app.launchArguments += ["enable_ui_testing"]
         app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.

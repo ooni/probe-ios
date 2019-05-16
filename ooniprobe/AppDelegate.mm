@@ -135,7 +135,7 @@
 }
 
 -(BOOL)isUITestingEnabled{
-    if ([[NSProcessInfo processInfo].arguments containsObject:@"UI-Testing"]) {
+    if ([[NSProcessInfo processInfo].arguments containsObject:@"enable_ui_testing"]) {
         return true;
     }
     return false;
