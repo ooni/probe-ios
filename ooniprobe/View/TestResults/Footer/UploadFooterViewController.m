@@ -94,16 +94,20 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD HUDForView:self.navigationController.view].label.text = NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading", [NSString stringWithFormat:@"%d/%ld", done, [notUploaded count]]);
         });
-        [self uploadSingleMeasurement:currentMeasurement];
-        progress += measurementValue;
-        done++;
+        if ([self uploadSingleMeasurement:currentMeasurement]){
+            progress += measurementValue;
+            done++;
+        }
+        else {
+            [self showRetryPopup];
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
         });
     }
 }
 
--(void)uploadSingleMeasurement:(Measurement*)measurement{
+-(BOOL)uploadSingleMeasurement:(Measurement*)measurement{
     NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
     MKCollectorResubmitSettings *settings = [[MKCollectorResubmitSettings alloc] init];
     [settings setSerializedMeasurement:content];
@@ -118,18 +122,20 @@
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
-    else {
-        UIAlertAction* okButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Modal.ResultsNotUploaded.Button.Retry", nil)
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction * action) {
-
-                                   }];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ResultsNotUploaded.Title", nil)
-                               message:NSLocalizedString(@"Modal.ResultsNotUploaded.Paragraph", nil)
-                              okButton:okButton
-                                inView:self];
-    }
+    return [results good];
 }
 
+-(void)showRetryPopup{
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Modal.Retry", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   
+                               }];
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.UploadFailed.Title", nil)
+                           message:NSLocalizedString(@"Modal.UploadFailed.Paragraph", nil)
+                          okButton:okButton
+                            inView:self];
+
+}
 @end
