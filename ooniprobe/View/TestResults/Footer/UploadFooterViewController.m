@@ -118,6 +118,18 @@
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
+    else {
+        UIAlertAction* okButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Modal.ResultsNotUploaded.Button.Retry", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+
+                                   }];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ResultsNotUploaded.Title", nil)
+                               message:NSLocalizedString(@"Modal.ResultsNotUploaded.Paragraph", nil)
+                              okButton:okButton
+                                inView:self];
+    }
 }
 
 @end
