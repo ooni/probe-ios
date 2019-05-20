@@ -93,17 +93,15 @@
                 NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading",
                                     [NSString stringWithFormat:@"%d/%ld", idx+1, [notUploaded count]]);
         });
-        if ([self uploadMeasurement:currentMeasurement]){
-            progress += measurementValue;
-            idx++;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
-            });
-        }
-        else {
+        if (![self uploadMeasurement:currentMeasurement]){
             [self showRetryPopup:notUploaded startAt:idx];
             return;
         }
+        progress += measurementValue;
+        idx++;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
+        });
     }
 }
 
