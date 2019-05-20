@@ -90,7 +90,7 @@
         Measurement *currentMeasurement = [notUploaded objectAtIndex:idx];
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD HUDForView:self.navigationController.view].label.text =
-            NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading",
+                NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading",
                                     [NSString stringWithFormat:@"%d/%ld", idx+1, [notUploaded count]]);
         });
         if ([self uploadMeasurement:currentMeasurement]){
