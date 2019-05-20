@@ -71,8 +71,18 @@
         [self presentViewController:mailer animated:YES completion:nil];
     }
     else {
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
-                               message:NSLocalizedString(@"Settings.SendEmail.Error", nil) inView:self];
+        UIAlertAction* copyButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"TestResults.Details.CopyToClipboard", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                                       pasteboard.string = @"bugs@openobservatory.org";
+                                       [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
+                                   }];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Settings.SendEmail.Label", nil)
+                               message:NSLocalizedString(@"Settings.SendEmail.Error", nil)
+                              okButton:copyButton
+                                inView:self];
     }
 }
 
