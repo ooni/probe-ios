@@ -32,10 +32,10 @@
 }
 
 - (void)testNotUploaded {
-    //One measurement, isEveryMeasurementUploaded false
+    //One measurement, with is_done false, isEveryMeasurementUploaded true
     Result *result = [Result new];
-    Measurement *measurement = [self addMeasurement:result];
-    XCTAssert(![result isEveryMeasurementUploaded]);
+    [self addMeasurement:result];
+    XCTAssert([result isEveryMeasurementUploaded]);
 }
 
 - (void)testUploaded {
@@ -43,6 +43,7 @@
     Result *result = [Result new];
     Measurement *measurement = [self addMeasurement:result];
     measurement.is_uploaded = true;
+    measurement.is_done = true;
     [measurement save];
     XCTAssert(![result isEveryMeasurementUploaded]);
 }
