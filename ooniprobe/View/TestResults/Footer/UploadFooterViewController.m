@@ -81,6 +81,7 @@
     [self uploadMeasurements:notUploaded startAt:0];
 }
 
+//SRKResultSet is a subclass of NSArray
 -(void)uploadMeasurements:(NSArray *)notUploaded startAt:(int)idx{
     if ([notUploaded count] == 0) return;
     float progress = 0.0f;
@@ -88,7 +89,8 @@
     while (idx < [notUploaded count]){
         Measurement *currentMeasurement = [notUploaded objectAtIndex:idx];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD HUDForView:self.navigationController.view].label.text = NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading", [NSString stringWithFormat:@"%d/%ld", idx+1, [notUploaded count]]);
+            [MBProgressHUD HUDForView:self.navigationController.view].label.text =
+            NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading", [NSString stringWithFormat:@"%d/%ld", idx+1, [notUploaded count]]);
         });
         if ([self uploadMeasurement:currentMeasurement]){
             progress += measurementValue;
@@ -98,7 +100,7 @@
             });
         }
         else {
-            [self showRetryPopup:notUploaded :idx];
+            [self showRetryPopup:notUploaded startAt:idx];
             return;
         }
     }
@@ -122,11 +124,11 @@
     return [results good];
 }
 
--(void)showRetryPopup:(NSArray *)notUploaded :(int)start{
+-(void)showRetryPopup:(NSArray *)notUploaded startAt:(int)start{
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.Retry", nil)
                                style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction * action) {
+                               handler:^(UIAlertAction *action) {
                                    [self uploadMeasurements:notUploaded startAt:start];
                                }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.UploadFailed.Title", nil)
