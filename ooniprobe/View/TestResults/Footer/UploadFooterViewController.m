@@ -65,49 +65,46 @@
 - (void)doUploadWithProgress {
     if (self.result == nil && self.measurement == nil && self.upload_all) {
         //upload ALL
-        SRKResultSet *notUploaded = [Measurement notUploadedMeasurements];
-        [self uploadMeasurements:notUploaded];
+        [self uploadMeasurements:[Measurement notUploadedMeasurements]];
     }
     else if (self.result != nil && self.measurement == nil && self.upload_all) {
         //upload all measurements of that result
-        SRKResultSet *notUploaded = [self.result notUploadedMeasurements];
-        [self uploadMeasurements:notUploaded];
+        [self uploadMeasurements:[self.result notUploadedMeasurements]];
     }
     else if (self.result != nil && self.measurement != nil && !self.upload_all) {
         //upload this measurement
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD HUDForView:self.navigationController.view].label.text = NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading", @"");
-        });
-        [self uploadSingleMeasurement:self.measurement];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD HUDForView:self.navigationController.view].progress = 1;
-        });
+        [self uploadMeasurements:[NSArray arrayWithObject:self.measurement]];
     }
 }
 
--(void)uploadMeasurements:(SRKResultSet *)notUploaded{
+-(void)uploadMeasurements:(NSArray *)notUploaded {
+    [self uploadMeasurements:notUploaded startAt:0];
+}
+
+-(void)uploadMeasurements:(NSArray *)notUploaded startAt:(int)idx{
     if ([notUploaded count] == 0) return;
     float progress = 0.0f;
     float measurementValue = 1.0/[notUploaded count];
-    int done = 1;
-    for (Measurement *currentMeasurement in notUploaded){
+    while (idx < [notUploaded count]){
+        Measurement *currentMeasurement = [notUploaded objectAtIndex:idx];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD HUDForView:self.navigationController.view].label.text = NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading", [NSString stringWithFormat:@"%d/%ld", done, [notUploaded count]]);
+            [MBProgressHUD HUDForView:self.navigationController.view].label.text = NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading", [NSString stringWithFormat:@"%d/%ld", idx+1, [notUploaded count]]);
         });
-        if ([self uploadSingleMeasurement:currentMeasurement]){
+        if ([self uploadMeasurement:currentMeasurement]){
             progress += measurementValue;
-            done++;
+            idx++;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
+            });
         }
         else {
-            [self showRetryPopup];
+            [self showRetryPopup:notUploaded :idx];
+            return;
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
-        });
     }
 }
 
--(BOOL)uploadSingleMeasurement:(Measurement*)measurement{
+-(BOOL)uploadMeasurement:(Measurement*)measurement{
     NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
     MKCollectorResubmitSettings *settings = [[MKCollectorResubmitSettings alloc] init];
     [settings setSerializedMeasurement:content];
@@ -125,12 +122,12 @@
     return [results good];
 }
 
--(void)showRetryPopup{
+-(void)showRetryPopup:(NSArray *)notUploaded :(int)start{
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.Retry", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-                                   
+                                   [self uploadMeasurements:notUploaded startAt:start];
                                }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.UploadFailed.Title", nil)
                            message:NSLocalizedString(@"Modal.UploadFailed.Paragraph", nil)
