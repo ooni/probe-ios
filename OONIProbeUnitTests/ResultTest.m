@@ -31,7 +31,7 @@
     XCTAssert([result isEveryMeasurementUploaded]);
 }
 
-- (void)testNotUploaded {
+- (void)testNotDone {
     //One measurement, with is_done false, isEveryMeasurementUploaded true
     Result *result = [Result new];
     [self addMeasurement:result];
