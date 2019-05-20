@@ -7,58 +7,16 @@ class OONIProbeUITests: XCTestCase {
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        let repoRoot = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent()
-        let fixturesDir = repoRoot.appendingPathComponent("fixtures")
 
-        if let simulatorSharedDir = ProcessInfo().environment["SIMULATOR_SHARED_RESOURCES_DIRECTORY"] {
-            let appID = UIDevice.current.identifierForVendor!.uuidString
-
-            let simulatorHomeDirURL = URL(fileURLWithPath: simulatorSharedDir)
-            let containerDir = simulatorHomeDirURL.appendingPathComponent("Containers/Data/Application")
-            
-            let appDirs = try! FileManager.default.contentsOfDirectory(atPath: containerDir.path)
-
-            // ATTENTION BIG CAVEAT!
-            // Currently for the logic below to work you need to have installed (and run) OONI Probe at least once inside of the simulator for the target device. Once that is done it will work OK, but it won't work until then.
-            // When in doubt try rerunning the tests and they should work.
-            // XXX maybe a better way to do this is:
-            // https://developer.apple.com/documentation/foundation/filemanager/1412643-containerurl
-            var targetAppDir = containerDir
-            for appDir in appDirs {
-                targetAppDir = containerDir.appendingPathComponent(appDir)
-                if FileManager.default.fileExists(atPath: targetAppDir.appendingPathComponent("Documents/OONIProbe.db").path) {
-                    print("Success!!")
-                    print(targetAppDir)
-                    break
-                }
-            }
-            XCTAssertTrue(targetAppDir != containerDir, "Could not find targetAppDir")
-
-            let prefPath = targetAppDir.appendingPathComponent("Library/Preferences/org.openobservatory.ooniprobe.plist")
-            try? FileManager.default.removeItem(at: prefPath)
-            try! FileManager.default.copyItem(
-                atPath: fixturesDir.appendingPathComponent("org.openobservatory.ooniprobe.plist").path,
-                toPath: prefPath.path
-            )
-            let dbPath = targetAppDir.appendingPathComponent("Documents/OONIProbe.db")
-            print("Deleting \(dbPath.path)")
-            try? FileManager.default.removeItem(at: dbPath)
-            try? FileManager.default.removeItem(at: targetAppDir.appendingPathComponent("Documents/OONIProbe.db-wal"))
-            try? FileManager.default.removeItem(at: targetAppDir.appendingPathComponent("Documents/OONIProbe.db-shm"))
-
-            try! FileManager.default.copyItem(
-                atPath: fixturesDir.appendingPathComponent("OONIProbe.db").path,
-                toPath: dbPath.path
-            )
-            print("repo Root \(repoRoot)\n")
-            print("targetAppDir \(targetAppDir.path)\n")
-            print("sharedFolderURL \(containerDir.path)\n")
-            print("appID: \(appID)\n")
-        }
-        
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         let app = XCUIApplication()
         setupSnapshot(app)
+
+        // Solution taken rom https://blog.codecentric.de/en/2018/06/resetting-ios-application-state-userdefaults-ui-tests/
+        //Preventing Informed Consent to appear
+        app.launchArguments += ["-first_run", "ok"]
+        app.launchArguments += ["-upload_result_manually_popup", "ok"]
+        app.launchArguments += ["enable_ui_testing"]
         app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
@@ -79,20 +37,18 @@ class OONIProbeUITests: XCTestCase {
 
         let dashboardButton = tabBarsQuery.buttons.element(boundBy: 0)
         let resultsButton = tabBarsQuery.buttons.element(boundBy: 1)
-
         
         dashboardButton.tap()
         snapshot("01Dashboard")
 
         resultsButton.tap()
         snapshot("02TestResults")
-
-        tabBarsQuery.buttons["Test Results"].tap()
+        
         let thepiratebayStaticText = tablesQuery.staticTexts["http://thepiratebay.org"]
-
         tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.image, identifier:"websites")/*[[".cells.containing(.staticText, identifier:\"1 blocked\")",".cells.containing(.staticText, identifier:\"Websites\")",".cells.containing(.staticText, identifier:\"12\/12\/18, 1:23 AM\")",".cells.containing(.image, identifier:\"websites\")",".cells.containing(.staticText, identifier:\"39 tested\")"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         thepiratebayStaticText.tap()
         snapshot("03WebsiteBlocked")
+        
         // We make the assumption the first button in the navigationbar hierarchy is the back button
         app.navigationBars.buttons.element(boundBy: 0).tap()
         app.navigationBars.buttons.element(boundBy: 0).tap()
@@ -128,9 +84,6 @@ class OONIProbeUITests: XCTestCase {
 
         tablesQuery.children(matching: .other).element.children(matching: .button).element.tap()
         tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
-
         snapshot("05ChooseWebsite")
-
     }
-    
 }

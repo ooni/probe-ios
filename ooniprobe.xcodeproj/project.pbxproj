@@ -62,6 +62,7 @@
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
+		ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */ = {isa = PBXBuildFile; fileRef = ED86D74E227DAB02007D93FB /* OONIProbe.db */; };
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
 		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
 		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
@@ -260,6 +261,7 @@
 		ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestResultsViewController.m; path = ooniprobe/View/TestResults/TestResultsViewController.m; sourceTree = SOURCE_ROOT; };
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED86D74E227DAB02007D93FB /* OONIProbe.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = OONIProbe.db; sourceTree = "<group>"; };
 		ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewCell.m; sourceTree = "<group>"; };
 		ED90A9182198B8AB00204B46 /* DashboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewCell.h; sourceTree = "<group>"; };
 		ED90A91B2198DE5000204B46 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 		D4A2F62D1A6C33F7001B8460 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED86D74D227DAB02007D93FB /* fixtures */,
 				EDC2C9EA1FD9939A00FF01D3 /* anim */,
 				EDBCB0871FD5B06C00FA4838 /* fonts */,
 			);
@@ -645,6 +648,14 @@
 			);
 			path = GUI;
 			sourceTree = "<group>";
+		};
+		ED86D74D227DAB02007D93FB /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				ED86D74E227DAB02007D93FB /* OONIProbe.db */,
+			);
+			path = fixtures;
+			sourceTree = SOURCE_ROOT;
 		};
 		ED90A91A2198DE5000204B46 /* Database */ = {
 			isa = PBXGroup;
@@ -1036,6 +1047,7 @@
 				EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */,
 				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
+				ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */,
 				ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
 			);
