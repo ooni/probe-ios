@@ -82,7 +82,7 @@
 }
 
 //SRKResultSet is a subclass of NSArray
--(void)uploadMeasurements:(NSArray *)notUploaded startAt:(int)idx{
+-(void)uploadMeasurements:(NSArray *)notUploaded startAt:(NSUInteger)idx{
     if ([notUploaded count] == 0) return;
     float progress = 0.0f;
     float measurementValue = 1.0/[notUploaded count];
@@ -123,7 +123,7 @@
     return [results good];
 }
 
--(void)showRetryPopup:(NSArray *)notUploaded startAt:(int)start{
+-(void)showRetryPopup:(NSArray *)notUploaded startAt:(NSUInteger)start{
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.Retry", nil)
                                style:UIAlertActionStyleDefault
