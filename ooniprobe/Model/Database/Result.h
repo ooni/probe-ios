@@ -2,7 +2,7 @@
 #import <SharkORM/SharkORM.h>
 #import "JsonResult.h"
 #import "Measurement.h"
-#define NOT_UPLOADED_QUERY @"is_failed = 0 AND (is_uploaded = 0 || report_id IS NULL)"
+#define NOT_UPLOADED_QUERY @"is_failed = 0 AND is_rerun = 0 AND is_done = 1 AND (is_uploaded = 0 || report_id IS NULL)"
 
 /// Results contains the results of a test suite (e.g. Instant messaging).
 @interface Result : SRKObject
