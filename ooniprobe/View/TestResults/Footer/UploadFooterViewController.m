@@ -82,6 +82,7 @@
         });
         if ([notUploaded count] == 0) return;
         float progress = 0.0f;
+        //TODO the progress should consider the startAt not all the count
         float measurementValue = 1.0/[notUploaded count];
         NSUInteger i = idx;
         while (i < [notUploaded count]){
