@@ -15,7 +15,7 @@
 
 -(void)setResult:(Result*)result andMeasurement:(Measurement*)measurement{
     [self.notUploadedImage setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
-    if (measurement.is_uploaded)
+    if (measurement.is_uploaded || measurement.is_failed)
         [self.notUploadedImage setHidden:YES];
     else
         [self.notUploadedImage setHidden:NO];

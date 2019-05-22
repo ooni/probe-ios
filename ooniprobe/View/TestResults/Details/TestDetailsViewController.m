@@ -65,7 +65,7 @@
 
 -(void)reloadFooter{
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.measurement.is_uploaded){
+        if (self.measurement.is_uploaded || self.measurement.is_failed){
             self.scrollViewFooterConstraint.constant = -45;
             [self.scrollView setNeedsUpdateConstraints];
         }
