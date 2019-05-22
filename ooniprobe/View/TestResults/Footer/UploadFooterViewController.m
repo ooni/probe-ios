@@ -50,16 +50,8 @@
 }
 
 -(void)uploadResult{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    hud.mode = MBProgressHUDModeAnnularDeterminate;
-    
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-        [self doUploadWithProgress];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [hud hideAnimated:YES];
-        });
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
-    });
+    [self doUploadWithProgress];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
 }
 
 - (void)doUploadWithProgress {
@@ -83,26 +75,38 @@
 
 //SRKResultSet is a subclass of NSArray
 -(void)uploadMeasurements:(NSArray *)notUploaded startAt:(NSUInteger)idx{
-    if ([notUploaded count] == 0) return;
-    float progress = 0.0f;
-    float measurementValue = 1.0/[notUploaded count];
-    while (idx < [notUploaded count]){
-        Measurement *currentMeasurement = [notUploaded objectAtIndex:idx];
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD HUDForView:self.navigationController.view].label.text =
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            hud.mode = MBProgressHUDModeAnnularDeterminate;
+        });
+        if ([notUploaded count] == 0) return;
+        float progress = 0.0f;
+        float measurementValue = 1.0/[notUploaded count];
+        NSUInteger i = idx;
+        while (i < [notUploaded count]){
+            Measurement *currentMeasurement = [notUploaded objectAtIndex:i];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD HUDForView:self.navigationController.view].label.text =
                 NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading",
-                                    [NSString stringWithFormat:@"%d/%ld", idx+1, [notUploaded count]]);
-        });
-        if (![self uploadMeasurement:currentMeasurement]){
-            [self showRetryPopup:notUploaded startAt:idx];
-            return;
+                                        [NSString stringWithFormat:@"%ld/%ld", i+1, [notUploaded count]]);
+            });
+            if (![self uploadMeasurement:currentMeasurement]){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self showRetryPopup:notUploaded startAt:i];
+                });
+                break;
+            }
+            progress += measurementValue;
+            i++;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
+            });
         }
-        progress += measurementValue;
-        idx++;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
+            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         });
-    }
+    });
 }
 
 -(BOOL)uploadMeasurement:(Measurement*)measurement{
@@ -120,6 +124,9 @@
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
+    else
+        printf("%s", [[results logs] UTF8String]);
+        //NSLog(@"%@", [results logs]);
     return [results good];
 }
 
