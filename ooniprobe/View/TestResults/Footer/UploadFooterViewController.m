@@ -107,7 +107,9 @@
 
 -(BOOL)uploadMeasurement:(Measurement*)measurement{
     NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
+    NSUInteger bytes = [content lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
     MKCollectorResubmitSettings *settings = [[MKCollectorResubmitSettings alloc] init];
+    [settings setTimeout:[TestUtility makeTimeout:bytes]];
     [settings setSerializedMeasurement:content];
     [settings setSoftwareName:SOFTWARE_NAME];
     [settings setSoftwareVersion:[VersionUtility get_software_version]];
