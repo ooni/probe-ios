@@ -55,6 +55,7 @@
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
 		ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.m */; };
 		ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */; };
+		ED5BC3C7229568FB00E311D7 /* MakeTimeoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC3C6229568FB00E311D7 /* MakeTimeoutTest.m */; };
 		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.m */; };
 		ED614794213DABDE00F35E07 /* TestUrls.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED614793213DABDE00F35E07 /* TestUrls.plist */; };
 		ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED62AB9C1ED5B70500778249 /* Reachability.m */; };
@@ -62,9 +63,9 @@
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
-		ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */ = {isa = PBXBuildFile; fileRef = ED86D74E227DAB02007D93FB /* OONIProbe.db */; };
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
 		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
+		ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */ = {isa = PBXBuildFile; fileRef = ED86D74E227DAB02007D93FB /* OONIProbe.db */; };
 		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
 		ED90A9282198DE5100204B46 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91B2198DE5000204B46 /* Network.m */; };
 		ED90A9292198DE5100204B46 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91C2198DE5000204B46 /* Result.mm */; };
@@ -239,6 +240,7 @@
 		ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewController.m; sourceTree = "<group>"; };
 		ED58CF7C1FEBBE2800E3C415 /* TestUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestUtility.h; path = Utility/TestUtility.h; sourceTree = "<group>"; };
 		ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TestUtility.mm; path = Utility/TestUtility.mm; sourceTree = "<group>"; };
+		ED5BC3C6229568FB00E311D7 /* MakeTimeoutTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakeTimeoutTest.m; sourceTree = "<group>"; };
 		ED5CD72221DDE7180003EEB0 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ED5CD72321DDF8E90003EEB0 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED5CD72421DDF8F00003EEB0 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -849,6 +851,7 @@
 				EDAE20FA22677BE50080FBCD /* ResultTest.m */,
 				EDF23EF82228CC6000B97520 /* NetworkTest.m */,
 				ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */,
+				ED5BC3C6229568FB00E311D7 /* MakeTimeoutTest.m */,
 			);
 			path = OONIProbeUnitTests;
 			sourceTree = "<group>";
@@ -1261,6 +1264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */,
+				ED5BC3C7229568FB00E311D7 /* MakeTimeoutTest.m in Sources */,
 				ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */,
 				EDAE20FB22677BE50080FBCD /* ResultTest.m in Sources */,
 			);
