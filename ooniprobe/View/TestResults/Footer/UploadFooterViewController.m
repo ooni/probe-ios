@@ -6,7 +6,6 @@
 #import "TestUtility.h"
 #import "MBProgressHUD.h"
 #import "VersionUtility.h"
-#define STANDARD_TIMEOUT 30
 
 @implementation UploadFooterViewController
 
@@ -111,8 +110,8 @@
     NSUInteger bytes = [content lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
     MKCollectorResubmitSettings *settings = [[MKCollectorResubmitSettings alloc] init];
     //Timeout dependent on the body size considering a minimum upload speed of 12.5 kbit/s + 10 s
-    NSUInteger timeout = bytes * 8 / (12.5 * 1000) + 10;
-    [settings setTimeout:timeout < STANDARD_TIMEOUT ? STANDARD_TIMEOUT : timeout];
+    NSUInteger timeout = bytes / 2000 + 10;
+    [settings setTimeout:timeout];
     [settings setSerializedMeasurement:content];
     [settings setSoftwareName:SOFTWARE_NAME];
     [settings setSoftwareVersion:[VersionUtility get_software_version]];
