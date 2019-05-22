@@ -143,4 +143,11 @@
         [data writeToFile:fileName atomically:YES];
     }
 }
+
++ (NSUInteger)makeTimeout:(NSUInteger)bytes{
+    //Timeout dependent on the body size considering a minimum upload speed of 16 kbit/s + 10 s
+    NSUInteger timeout = bytes / 2000 + 10;
+    return timeout;
+}
+
 @end

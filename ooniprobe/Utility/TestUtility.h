@@ -17,4 +17,5 @@
 + (void)removeFile:(NSString*)fileName;
 + (NSString*)getUTF8FileContent:(NSString*)fileName;
 + (void)writeString:(NSString*)str toFile:(NSString*)fileName;
++ (NSUInteger)makeTimeout:(NSUInteger)bytes;
 @end
