@@ -127,9 +127,6 @@
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
-    else
-        printf("%s", [[results logs] UTF8String]);
-        //NSLog(@"%@", [results logs]);
     return [results good];
 }
 
