@@ -81,16 +81,16 @@
             hud.mode = MBProgressHUDModeAnnularDeterminate;
         });
         if ([notUploaded count] == 0) return;
+        NSUInteger i = idx;
         float progress = 0.0f;
         //The progress should consider the array size - the idx of first element to actually be uploaded
-        float measurementValue = 1.0/([notUploaded count] - idx);
-        NSUInteger i = idx;
+        float measurementValue = 1.0/([notUploaded count] - i);
         while (i < [notUploaded count]){
             Measurement *currentMeasurement = [notUploaded objectAtIndex:i];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD HUDForView:self.navigationController.view].label.text =
                 NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading",
-                                        [NSString stringWithFormat:@"%ld/%ld", i+1, ([notUploaded count] - idx)]);
+                                        [NSString stringWithFormat:@"%ld/%ld", i+1, ([notUploaded count] - i)]);
             });
             if (![self uploadMeasurement:currentMeasurement]){
                 dispatch_async(dispatch_get_main_queue(), ^{
