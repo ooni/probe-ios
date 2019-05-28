@@ -27,7 +27,7 @@
         for (NSString *s in [TestUtility getTestsArray]) {
             [client addSupportedTest:s];
         }
-        [client setTimeout:14];
+        [client setTimeout:DEFAULT_TIMEOUT];
     }
 }
 
