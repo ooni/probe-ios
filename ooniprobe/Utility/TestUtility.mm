@@ -74,7 +74,7 @@
 
 + (void)downloadUrls:(void (^)(NSArray *))completion {
     MKGeoIPLookupSettings *settings = [[MKGeoIPLookupSettings alloc] init];
-    [settings setTimeout:17];
+    [settings setTimeout:DEFAULT_TIMEOUT];
     MKGeoIPLookupResults *results = [settings perform];
     NSString *cc = @"XX";
     if ([results good])
