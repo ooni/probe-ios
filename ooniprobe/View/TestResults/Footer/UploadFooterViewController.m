@@ -113,12 +113,13 @@
 -(BOOL)uploadMeasurement:(Measurement*)measurement{
     NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
     NSUInteger bytes = [content lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-    MKCollectorResubmitSettings *settings = [[MKCollectorResubmitSettings alloc] init];
-    [settings setTimeout:[TestUtility makeTimeout:bytes]];
-    [settings setSerializedMeasurement:content];
-    [settings setSoftwareName:SOFTWARE_NAME];
-    [settings setSoftwareVersion:[VersionUtility get_software_version]];
-    MKCollectorResubmitResults *results = [settings perform];
+    MKCollectorResubmitTask *task = [[MKCollectorResubmitTask alloc]
+                                     initWithSerializedMeasurement:content
+                                     softwareName:SOFTWARE_NAME
+                                     softwareVersion:[VersionUtility get_software_version]
+                                     ];
+    [task setTimeout:[TestUtility makeTimeout:bytes]];
+    MKCollectorResubmitResults *results = [task perform];
     if ([results good]){
         //save updated file
         [TestUtility writeString:[results updatedSerializedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
