@@ -11,23 +11,23 @@
     {
         // thread-safe code
         NSString *device_token = [SettingsUtility get_push_token];
-        MKOrchestraSettings *client = [[MKOrchestraSettings alloc] init];
+        MKOrchestraTask *task = [[MKOrchestraTask alloc] init];
         //TODO ORCHESTRA when orchestrate
         //[client setAvailableBandwidth:@"10110111"];
-        [client setDeviceToken:device_token];
-        [client setLanguage:[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode]];
-        [client setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
-        [client setPlatform:@"ios"];
+        [task setDeviceToken:device_token];
+        [task setLanguage:[[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode]];
+        [task setNetworkType:[[ReachabilityManager sharedManager] getStatus]];
+        [task setPlatform:@"ios"];
         //TODO ORCHESTRA - TIMEZONE
         //[client setProbeTimezone:[NSTimeZone localTimeZone].abbreviation];
-        [client setRegistryURL:NOTIFICATION_SERVER];
-        [client setSecretsFile:[self make_path]];
-        [client setSoftwareName:SOFTWARE_NAME];
-        [client setSoftwareVersion:[VersionUtility get_software_version]];
+        [task setRegistryURL:NOTIFICATION_SERVER];
+        [task setSecretsFile:[self make_path]];
+        [task setSoftwareName:SOFTWARE_NAME];
+        [task setSoftwareVersion:[VersionUtility get_software_version]];
         for (NSString *s in [TestUtility getTestsArray]) {
-            [client addSupportedTest:s];
+            [task addSupportedTest:s];
         }
-        [client setTimeout:DEFAULT_TIMEOUT];
+        [task setTimeout:DEFAULT_TIMEOUT];
     }
 }
 

@@ -4,7 +4,7 @@
 #import "ReachabilityManager.h"
 #import "NSDictionary+Safety.h"
 #import "EventResult.h"
-#import <mkall/MKTask.h>
+#import <mkall/MKAsyncTask.h>
 
 #import <Crashlytics/Crashlytics.h>
 
@@ -66,8 +66,8 @@
     }];
     dispatch_async(
                    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                       MKTask *task = [MKTask start:settings];
-                       while (![task isDone]){
+                       MKAsyncTask *task = [MKAsyncTask start:settings];
+                       while (![task done]){
                            // Extract an event from the task queue and unmarshal it.
                            NSDictionary *evinfo = [task waitForNextEvent];
                            if (evinfo == nil) {

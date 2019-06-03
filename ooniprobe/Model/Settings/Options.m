@@ -1,7 +1,6 @@
 #import "Options.h"
 #import "SettingsUtility.h"
 #import "VersionUtility.h"
-#import <mkall/MKResources.h>
 
 @implementation Options
 
@@ -13,10 +12,6 @@
         BOOL include_cc = [SettingsUtility getSettingWithName:@"include_cc"];
         BOOL upload_results = [SettingsUtility getSettingWithName:@"upload_results"];
         NSString *software_version = [VersionUtility get_software_version];
-
-        self.ca_bundle_path = [MKResources caBundlePath];
-        self.geoip_country_path = [MKResources mmdbCountryPath];
-        self.geoip_asn_path = [MKResources mmdbASNPath];
         self.save_real_probe_ip = [NSNumber numberWithBool:include_ip];
         self.save_real_probe_asn = [NSNumber numberWithBool:include_asn];
         self.save_real_probe_cc = [NSNumber numberWithBool:include_cc];
