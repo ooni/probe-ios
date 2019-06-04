@@ -49,12 +49,7 @@
                             inView:self];
 }
 
--(void)uploadResult{
-    [self doUploadWithProgress];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
-}
-
-- (void)doUploadWithProgress {
+- (void)uploadResult {
     if (self.result == nil && self.measurement == nil && self.upload_all) {
         //upload ALL
         [self uploadMeasurements:[Measurement notUploadedMeasurements]];
@@ -107,6 +102,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         });
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
     });
 }
 
