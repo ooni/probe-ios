@@ -70,6 +70,7 @@
 
 //SRKResultSet is a subclass of NSArray
 -(void)uploadMeasurements:(NSArray *)notUploaded startAt:(NSUInteger)idx{
+    //TODO handle it in a background task
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
@@ -85,7 +86,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD HUDForView:self.navigationController.view].label.text =
                 NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading",
-                                        [NSString stringWithFormat:@"%ld/%ld", i+1, ([notUploaded count] - i)]);
+                                        [NSString stringWithFormat:@"%ld/%ld", i+1, ([notUploaded count] - idx)]);
             });
             if (![self uploadMeasurement:currentMeasurement]){
                 dispatch_async(dispatch_get_main_queue(), ^{
