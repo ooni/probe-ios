@@ -25,6 +25,7 @@
     self.uploadButton.layer.masksToBounds = YES;
     self.uploadButton.layer.borderWidth = 1.0f;
     self.uploadButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
 -(IBAction)upload{
@@ -70,7 +71,10 @@
 
 //SRKResultSet is a subclass of NSArray
 -(void)uploadMeasurements:(NSArray *)notUploaded startAt:(NSUInteger)idx{
-    //TODO handle it in a background task
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
@@ -103,6 +107,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         });
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
     });
 }
