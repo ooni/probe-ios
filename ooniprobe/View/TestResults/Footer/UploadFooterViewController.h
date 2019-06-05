@@ -17,4 +17,5 @@
 // upload_all is a bool used to indicate if the footer should upload a measurement (one) or a result (all)
 @property (assign) bool upload_all;
 
+@property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @end
