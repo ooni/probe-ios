@@ -44,14 +44,14 @@
     if ([self.testList count] == 0){
         [self.result setIs_done:YES];
         [self.result save];
-        //Resetting class values
-        self.result = nil;
-        self.measurementIdx = 0;
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
         if (state == UIApplicationStateBackground || state == UIApplicationStateInactive){
             if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
                 [self showNotification];
         }
+        //Resetting class values
+        self.result = nil;
+        self.measurementIdx = 0;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
     }
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
