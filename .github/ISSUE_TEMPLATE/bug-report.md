@@ -1,3 +1,12 @@
+---
+name: Bug Report
+about: Issue template for reporting bugs
+title: 'subsystem: brief description of unexpected behaviour'
+labels: bug
+assignees: ''
+
+---
+
 ## Expected Behavior
 
 
