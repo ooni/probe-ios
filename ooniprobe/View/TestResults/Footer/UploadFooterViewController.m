@@ -79,6 +79,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             hud.mode = MBProgressHUDModeAnnularDeterminate;
+            hud.backgroundView.style = UIBlurEffectStyleRegular;
         });
         if ([notUploaded count] == 0) return;
         NSUInteger i = idx;
