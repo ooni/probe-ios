@@ -79,6 +79,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             hud.mode = MBProgressHUDModeAnnularDeterminate;
+            hud.bezelView.color = [UIColor lightGrayColor];
+            hud.backgroundView.style = UIBlurEffectStyleRegular;
         });
         if ([notUploaded count] == 0) return;
         NSUInteger i = idx;
@@ -109,6 +111,7 @@
         });
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
+        [MessageUtility showToast:NSLocalizedString(@"Toast.ResultsUploaded", nil) inView:self.navigationController.view];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
     });
 }
