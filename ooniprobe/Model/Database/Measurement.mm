@@ -82,4 +82,24 @@
     [self remove];
 }
 
+- (void)getExplorerUrl:(void (^)(NSString *))measurement_url {
+    NSString *path = [NSString stringWithFormat:@"https://api.ooni.io/api/v1/measurements?report_id=%@&input=%@", self.report_id, self.url_id.url];
+    NSURL *url = [NSURL URLWithString:path];
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            NSArray *resultsArray = [dic objectForKey:@"results"];
+            if ([resultsArray count] == 0)
+                measurement_url(nil);
+            measurement_url([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
+        }
+        else {
+            // Fail
+            measurement_url(nil);
+            NSLog(@"error : %@", error.description);
+        }
+    }];
+    [downloadTask resume];
+}
+
 @end

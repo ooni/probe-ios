@@ -36,5 +36,5 @@
 -(void)save;
 -(void)setReRun;
 -(void)deleteObject;
-
+-(void)getExplorerUrl:(void (^)(NSString *))measurement_url;
 @end
