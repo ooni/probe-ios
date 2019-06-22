@@ -15,11 +15,11 @@
     return [[[Measurement query] where:NOT_UPLOADED_QUERY] fetch];
 }
 
-+ (SRKResultSet*)measurementsWithJson {
++ (NSArray*)measurementsWithJson {
     NSMutableArray *measurementsJson = [NSMutableArray new];
     SRKResultSet* results = [[[Measurement query] where:UPLOADED_QUERY] fetch];
     for (Measurement *measurement in results){
-        if ([TestUtility fileExists:[measurement getReportFile]])
+        if ([measurement hasReportFile])
             [measurementsJson addObject:measurement];
     }
     return measurementsJson;
@@ -52,6 +52,10 @@
 - (void)setTestKeysObj:(TestKeys *)testKeysObj{
     _testKeysObj = testKeysObj;
     self.test_keys = [self.testKeysObj getJsonStr];
+}
+
+-(BOOL)hasReportFile{
+    return [TestUtility fileExists:[self getReportFile]];
 }
 
 -(NSString*)getReportFile{
