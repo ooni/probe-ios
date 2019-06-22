@@ -15,6 +15,16 @@
     return [[[Measurement query] where:NOT_UPLOADED_QUERY] fetch];
 }
 
++ (SRKResultSet*)measurementsWithJson {
+    NSMutableArray *measurementsJson = [NSMutableArray new];
+    SRKResultSet* results = [[[Measurement query] where:UPLOADED_QUERY] fetch];
+    for (Measurement *measurement in results){
+        if ([TestUtility fileExists:[measurement getReportFile]])
+            [measurementsJson addObject:measurement];
+    }
+    return measurementsJson;
+}
+
 /*
     Three scenarios:
     I'm running the test, I start the empty summary, I add stuff and save
