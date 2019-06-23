@@ -28,6 +28,8 @@
 @property (strong, nonatomic) TestKeys *testKeysObj;
 
 +(SRKResultSet*)notUploadedMeasurements;
++(NSArray*)measurementsWithJson;
+-(BOOL)hasReportFile;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;
 -(TestKeys*)testKeysObj;

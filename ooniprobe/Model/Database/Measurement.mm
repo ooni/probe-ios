@@ -15,6 +15,16 @@
     return [[[Measurement query] where:NOT_UPLOADED_QUERY] fetch];
 }
 
++ (NSArray*)measurementsWithJson {
+    NSMutableArray *measurementsJson = [NSMutableArray new];
+    SRKResultSet* results = [[[Measurement query] where:UPLOADED_QUERY] fetch];
+    for (Measurement *measurement in results){
+        if ([measurement hasReportFile])
+            [measurementsJson addObject:measurement];
+    }
+    return measurementsJson;
+}
+
 /*
     Three scenarios:
     I'm running the test, I start the empty summary, I add stuff and save
@@ -42,6 +52,10 @@
 - (void)setTestKeysObj:(TestKeys *)testKeysObj{
     _testKeysObj = testKeysObj;
     self.test_keys = [self.testKeysObj getJsonStr];
+}
+
+-(BOOL)hasReportFile{
+    return [TestUtility fileExists:[self getReportFile]];
 }
 
 -(NSString*)getReportFile{
