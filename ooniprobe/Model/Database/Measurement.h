@@ -38,5 +38,5 @@
 -(void)save;
 -(void)setReRun;
 -(void)deleteObject;
--(void)getExplorerUrl:(void (^)(NSString *))measurement_url;
+-(void)getExplorerUrlSuccessCallback:(void (^)(NSString*))success errorCallback:(void (^)(NSError*))error;
 @end

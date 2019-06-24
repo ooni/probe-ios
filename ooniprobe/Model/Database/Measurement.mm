@@ -96,7 +96,7 @@
     [self remove];
 }
 
-- (void)getExplorerUrl:(void (^)(NSString *))measurement_url {
+-(void)getExplorerUrlSuccessCallback:(void (^)(NSString*))success errorCallback:(void (^)(NSError*))error {
     NSLog(@"%@ getExplorerUrl",self.Id);
     NSMutableString *path = [NSMutableString stringWithFormat:@"https://api.ooni.io/api/v1/measurements?report_id=%@",
                       self.report_id];
@@ -107,19 +107,19 @@
     NSURLSessionDataTask *downloadTask =
     [[NSURLSession sharedSession]
      dataTaskWithURL:url
-     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (!error) {
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            NSArray *resultsArray = [dic objectForKey:@"results"];
-            if ([resultsArray count] == 0)
-                measurement_url(nil);
-            measurement_url([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
-        }
-        else {
-            // Fail
-            measurement_url(nil);
-            NSLog(@"error : %@", error.description);
-        }
+     completionHandler:^(NSData *data, NSURLResponse *response, NSError *nserror) {
+         if (nserror != nil)
+             error(nserror);
+         else {
+             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&nserror];
+             if (nserror != nil)
+                 error(nserror);
+             NSArray *resultsArray = [dic objectForKey:@"results"];
+             //TODO symbolize somehow empty array
+             if ([resultsArray count] == 0)
+                 error(nil);
+             success([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
+         }
     }];
     [downloadTask resume];
 }
