@@ -117,7 +117,10 @@
              NSArray *resultsArray = [dic objectForKey:@"results"];
              //TODO symbolize somehow empty array
              if ([resultsArray count] == 0)
-                 error(nil);
+                 error([NSError errorWithDomain:@"io.ooni.api"
+                                           code:100
+                                       userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
+                                                  }];);
              success([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
          }
     }];
