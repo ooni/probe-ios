@@ -86,7 +86,10 @@
         path = [NSString stringWithFormat:@"%@&category_codes=%@", path, [categories componentsJoinedByString:@","]];
     }
     NSURL *url = [NSURL URLWithString:path];
-    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask *downloadTask =
+    [[NSURLSession sharedSession]
+     dataTaskWithURL:url
+     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             NSArray *urlsArray = [dic objectForKey:@"results"];

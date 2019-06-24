@@ -97,9 +97,17 @@
 }
 
 - (void)getExplorerUrl:(void (^)(NSString *))measurement_url {
-    NSString *path = [NSString stringWithFormat:@"https://api.ooni.io/api/v1/measurements?report_id=%@&input=%@", self.report_id, self.url_id.url];
+    NSLog(@"%@ getExplorerUrl",self.Id);
+    NSMutableString *path = [NSMutableString stringWithFormat:@"https://api.ooni.io/api/v1/measurements?report_id=%@",
+                      self.report_id];
+    if ([self.test_name isEqualToString:@"web_connectivity"])
+        [path appendString:[NSString stringWithFormat:@"&input=%@",
+                            self.url_id.url]];
     NSURL *url = [NSURL URLWithString:path];
-    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask *downloadTask =
+    [[NSURLSession sharedSession]
+     dataTaskWithURL:url
+     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             NSArray *resultsArray = [dic objectForKey:@"results"];
