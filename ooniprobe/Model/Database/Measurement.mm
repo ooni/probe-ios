@@ -104,8 +104,7 @@
         [path appendString:[NSString stringWithFormat:@"&input=%@",
                             self.url_id.url]];
     NSURL *url = [NSURL URLWithString:path];
-    NSURLSessionDataTask *downloadTask =
-    [[NSURLSession sharedSession]
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
          if (error != nil) {

@@ -86,8 +86,7 @@
         path = [NSString stringWithFormat:@"%@&category_codes=%@", path, [categories componentsJoinedByString:@","]];
     }
     NSURL *url = [NSURL URLWithString:path];
-    NSURLSessionDataTask *downloadTask =
-    [[NSURLSession sharedSession]
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
