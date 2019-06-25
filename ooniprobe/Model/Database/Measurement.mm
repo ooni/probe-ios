@@ -108,19 +108,25 @@
     [[NSURLSession sharedSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-         if (error != nil)
+         if (error != nil){
              errorcb(error);
+             return;
+         }
          else {
              NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-             if (error != nil)
+             if (error != nil){
                  errorcb(error);
+                 return;
+             }
              NSArray *resultsArray = [dic objectForKey:@"results"];
              //TODO symbolize somehow empty array
-             if ([resultsArray count] > 0)
+             if ([resultsArray count] > 0){
                  errorcb([NSError errorWithDomain:@"io.ooni.api"
                                            code:100
                                        userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
                                                   }]);
+                 return;
+             }
              successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
          }
     }];
