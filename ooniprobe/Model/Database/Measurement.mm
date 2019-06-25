@@ -96,7 +96,7 @@
     [self remove];
 }
 
--(void)getExplorerUrl:(void (^)(NSString*))successcb error:(void (^)(NSError*))errorcb {
+-(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb {
     NSLog(@"%@ getExplorerUrl",self.Id);
     NSMutableString *path = [NSMutableString stringWithFormat:@"https://api.ooni.io/api/v1/measurements?report_id=%@",
                       self.report_id];
@@ -120,7 +120,7 @@
          //TODO symbolize somehow empty array
          if ([resultsArray count] <= 0) {
              errorcb([NSError errorWithDomain:@"io.ooni.api"
-                                         code:100
+                                         code:JSON_EMPTY_CODE
                                      userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
                                                 }]);
              return;
