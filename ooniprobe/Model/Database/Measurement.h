@@ -38,5 +38,5 @@
 -(void)save;
 -(void)setReRun;
 -(void)deleteObject;
--(void)getExplorerUrlSuccessCallback:(void (^)(NSString*))success errorCallback:(void (^)(NSError*))error;
+-(void)getExplorerUrl:(void (^)(NSString*))successcb error:(void (^)(NSError*))errorcb;
 @end

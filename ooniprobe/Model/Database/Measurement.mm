@@ -96,7 +96,7 @@
     [self remove];
 }
 
--(void)getExplorerUrlSuccessCallback:(void (^)(NSString*))success errorCallback:(void (^)(NSError*))error {
+-(void)getExplorerUrl:(void (^)(NSString*))successcb error:(void (^)(NSError*))errorcb {
     NSLog(@"%@ getExplorerUrl",self.Id);
     NSMutableString *path = [NSMutableString stringWithFormat:@"https://api.ooni.io/api/v1/measurements?report_id=%@",
                       self.report_id];
@@ -107,21 +107,21 @@
     NSURLSessionDataTask *downloadTask =
     [[NSURLSession sharedSession]
      dataTaskWithURL:url
-     completionHandler:^(NSData *data, NSURLResponse *response, NSError *nserror) {
+     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
          if (nserror != nil)
-             error(nserror);
+             errorcb(error);
          else {
-             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&nserror];
-             if (nserror != nil)
-                 error(nserror);
+             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+             if (error != nil)
+                 errorcb(error);
              NSArray *resultsArray = [dic objectForKey:@"results"];
              //TODO symbolize somehow empty array
              if ([resultsArray count] == 0)
-                 error([NSError errorWithDomain:@"io.ooni.api"
+                 errorcb([NSError errorWithDomain:@"io.ooni.api"
                                            code:100
                                        userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
                                                   }];);
-             success([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
+             successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
          }
     }];
     [downloadTask resume];
