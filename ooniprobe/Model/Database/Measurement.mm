@@ -120,7 +120,7 @@
          //TODO symbolize somehow empty array
          if ([resultsArray count] <= 0) {
              errorcb([NSError errorWithDomain:@"io.ooni.api"
-                                         code:JSON_EMPTY_CODE
+                                         code:ERR_JSON_EMPTY
                                      userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
                                                 }]);
              return;
