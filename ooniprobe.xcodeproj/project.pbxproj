@@ -123,6 +123,7 @@
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
 		EDF20736212173B9005B06D7 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20734212173B9005B06D7 /* Advanced.m */; };
 		EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF23EF82228CC6000B97520 /* NetworkTest.m */; };
+		EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8E51C22C40A8E00CF0FF6 /* APITest.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
 
@@ -367,6 +368,7 @@
 		EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OONIProbeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF23EEF2225258100B97520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF23EF82228CC6000B97520 /* NetworkTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTest.m; sourceTree = "<group>"; };
+		EDF8E51C22C40A8E00CF0FF6 /* APITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
 		FBB68CFBE135C2F6BDF61340 /* Pods-ooniprobe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.release.xcconfig"; sourceTree = "<group>"; };
@@ -852,6 +854,7 @@
 				EDF23EF82228CC6000B97520 /* NetworkTest.m */,
 				ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */,
 				ED5BC3C6229568FB00E311D7 /* MakeTimeoutTest.m */,
+				EDF8E51C22C40A8E00CF0FF6 /* APITest.m */,
 			);
 			path = OONIProbeUnitTests;
 			sourceTree = "<group>";
@@ -1264,6 +1267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */,
+				EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */,
 				ED5BC3C7229568FB00E311D7 /* MakeTimeoutTest.m in Sources */,
 				ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */,
 				EDAE20FB22677BE50080FBCD /* ResultTest.m in Sources */,
