@@ -117,8 +117,7 @@
              return;
          }
          NSArray *resultsArray = [dic objectForKey:@"results"];
-         //TODO symbolize somehow empty array
-         if ([resultsArray count] <= 0) {
+         if ([resultsArray count] <= 0 || ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
              errorcb([NSError errorWithDomain:@"io.ooni.api"
                                          code:ERR_JSON_EMPTY
                                      userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
