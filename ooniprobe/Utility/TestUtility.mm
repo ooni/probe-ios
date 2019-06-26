@@ -72,7 +72,7 @@
     return [UIColor colorWithRGBHexString:color_blue5 alpha:alpha];
 }
 
-+ (void)downloadUrls:(void (^)(NSArray *))completion {
++ (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
     MKGeoIPLookupTask *task = [[MKGeoIPLookupTask alloc] init];
     [task setTimeout:DEFAULT_TIMEOUT];
     MKGeoIPLookupResults *results = [task perform];
@@ -89,23 +89,28 @@
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (!error) {
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            NSArray *urlsArray = [dic objectForKey:@"results"];
-            NSMutableArray *urls = [[NSMutableArray alloc] init];
-            for (NSDictionary* current in urlsArray){
-                //List for database
-                Url *url = [Url checkExistingUrl:[current objectForKey:@"url"] categoryCode:[current objectForKey:@"category_code"] countryCode:[current objectForKey:@"country_code"]];
-                //List for mk
-                [urls addObject:url.url];
-            }
-            completion(urls);
-        }
-        else {
-            // Fail
-            completion(nil);
-            NSLog(@"error : %@", error.description);
-        }
+         if (error != nil) {
+             errorcb(error);
+             return;
+         }
+         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+         if (error != nil) {
+             errorcb(error);
+             return;
+         }
+         NSArray *urlsArray = [dic objectForKey:@"results"];
+         NSMutableArray *urls = [[NSMutableArray alloc] init];
+         for (NSDictionary* current in urlsArray){
+             //List for database
+             Url *url = [Url checkExistingUrl:[current objectForKey:@"url"] categoryCode:[current objectForKey:@"category_code"] countryCode:[current objectForKey:@"country_code"]];
+             //List for mk
+             [urls addObject:url.url];
+         }
+         if ([urls count] == 0){
+             errorcb(error);
+             return;
+         }
+         successcb(urls);
     }];
     [downloadTask resume];
 }

@@ -16,15 +16,12 @@
     if (self.inputs == nil || [self.inputs count] == 0){
         //Download urls and then alloc class
         [TestUtility downloadUrls:^(NSArray *urls) {
-            if (urls != nil && [urls count] > 0){
-                [self setUrls:urls];
-                [self setDefaultMaxRuntime];
-                [super runTest];
-            }
-            else {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
-                [super testEnded];
-            }
+            [self setUrls:urls];
+            [self setDefaultMaxRuntime];
+            [super runTest];
+        } onError:^(NSError *error) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
+            [super testEnded];
         }];
     }
     else {
