@@ -97,13 +97,17 @@
 }
 
 -(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb {
-    NSLog(@"%@ getExplorerUrl",self.Id);
-    NSMutableString *path = [NSMutableString stringWithFormat:@"https://api.ooni.io/api/v1/measurements?report_id=%@",
-                      self.report_id];
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.scheme = @"https";
+    components.host = @"api.ooni.io";
+    components.path = @"/api/v1/measurements";
     if ([self.test_name isEqualToString:@"web_connectivity"])
-        [path appendString:[NSString stringWithFormat:@"&input=%@",
-                            self.url_id.url]];
-    NSURL *url = [NSURL URLWithString:path];
+        components.query = [NSString stringWithFormat:@"report_id=%@&input=%@",
+                            self.report_id, self.url_id.url];
+    else
+        components.query = [NSString stringWithFormat:@"report_id=%@",
+                        self.report_id];
+    NSURL *url = components.URL;
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
