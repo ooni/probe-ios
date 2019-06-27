@@ -101,10 +101,14 @@
     components.scheme = @"https";
     components.host = @"api.ooni.io";
     components.path = @"/api/v1/measurements";
-    NSURLQueryItem *reportIdItem = [NSURLQueryItem queryItemWithName:@"report_id" value:self.report_id];
+    NSURLQueryItem *reportIdItem = [NSURLQueryItem
+                                    queryItemWithName:@"report_id"
+                                    value:self.report_id];
 
     if ([self.test_name isEqualToString:@"web_connectivity"]){
-        NSURLQueryItem *urlItem = [NSURLQueryItem queryItemWithName:@"input" value:self.url_id.url];
+        NSURLQueryItem *urlItem = [NSURLQueryItem
+                                   queryItemWithName:@"input"
+                                   value:self.url_id.url];
         components.queryItems = @[ reportIdItem, urlItem ];
     }
     else

@@ -83,11 +83,15 @@
     components.scheme = @"https";
     components.host = @"orchestrate.ooni.io";
     components.path = @"/api/v1/test-list/urls";
-    NSURLQueryItem *ccItem = [NSURLQueryItem queryItemWithName:@"country_code" value:cc];
+    NSURLQueryItem *ccItem = [NSURLQueryItem
+                              queryItemWithName:@"country_code"
+                              value:cc];
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
         [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
-        NSURLQueryItem *categoriesItem = [NSURLQueryItem queryItemWithName:@"category_codes" value:[categories componentsJoinedByString:@","]];
+        NSURLQueryItem *categoriesItem = [NSURLQueryItem
+                                          queryItemWithName:@"category_codes"
+                                          value:[categories componentsJoinedByString:@","]];
         components.queryItems = @[ ccItem, categoriesItem ];
     }
     else {
