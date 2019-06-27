@@ -101,12 +101,15 @@
     components.scheme = @"https";
     components.host = @"api.ooni.io";
     components.path = @"/api/v1/measurements";
-    if ([self.test_name isEqualToString:@"web_connectivity"])
-        components.query = [NSString stringWithFormat:@"report_id=%@&input=%@",
-                            self.report_id, self.url_id.url];
+    NSURLQueryItem *reportIdItem = [NSURLQueryItem queryItemWithName:@"report_id" value:self.report_id];
+
+    if ([self.test_name isEqualToString:@"web_connectivity"]){
+        NSURLQueryItem *urlItem = [NSURLQueryItem queryItemWithName:@"input" value:self.url_id.url];
+        components.queryItems = @[ reportIdItem, urlItem ];
+    }
     else
-        components.query = [NSString stringWithFormat:@"report_id=%@",
-                        self.report_id];
+        components.queryItems = @[ reportIdItem ];
+
     NSURL *url = components.URL;
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
      dataTaskWithURL:url

@@ -107,7 +107,10 @@
              [urls addObject:url.url];
          }
          if ([urls count] == 0){
-             errorcb(error);
+             errorcb([NSError errorWithDomain:@"io.ooni.api"
+                                         code:ERR_JSON_EMPTY
+                                     userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
+                                                }]);
              return;
          }
          successcb(urls);
