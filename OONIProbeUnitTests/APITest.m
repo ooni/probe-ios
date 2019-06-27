@@ -1,5 +1,6 @@
 #import <XCTest/XCTest.h>
 #import "Measurement.h"
+#import "TestUtility.h"
 #define EXISTING_REPORT_ID @"20190113T202156Z_AS327931_CgoC3KbgM6zKajvIIt1AxxybJ1HbjwwWJjsJnlxy9rpcGY54VH"
 #define NONEXISTING_REPORT_ID @"EMPTY"
 
@@ -34,6 +35,14 @@
         XCTAssert(false);
     } onError:^(NSError *error){
         XCTAssert(true);
+    }];
+}
+
+-(void)testDownloadUrls{
+    [TestUtility downloadUrls:^(NSArray *urls) {
+        XCTAssert(true);
+    } onError:^(NSError *error) {
+        XCTAssert(false);
     }];
 }
 

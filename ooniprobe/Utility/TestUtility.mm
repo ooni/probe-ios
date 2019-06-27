@@ -79,13 +79,21 @@
     NSString *cc = @"XX";
     if ([results good])
         cc = [results probeCC];
-    NSString *path = [NSString stringWithFormat:@"https://orchestrate.ooni.io/api/v1/test-list/urls?country_code=%@", cc];
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.scheme = @"https";
+    components.host = @"orchestrate.ooni.io";
+    components.path = @"/api/v1/test-list/urls";
+    NSURLQueryItem *ccItem = [NSURLQueryItem queryItemWithName:@"country_code" value:cc];
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
         [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
-        path = [NSString stringWithFormat:@"%@&category_codes=%@", path, [categories componentsJoinedByString:@","]];
+        NSURLQueryItem *categoriesItem = [NSURLQueryItem queryItemWithName:@"category_codes" value:[categories componentsJoinedByString:@","]];
+        components.queryItems = @[ ccItem, categoriesItem ];
     }
-    NSURL *url = [NSURL URLWithString:path];
+    else {
+        components.queryItems = @[ ccItem ];
+    }
+    NSURL *url = components.URL;
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -107,7 +115,7 @@
              [urls addObject:url.url];
          }
          if ([urls count] == 0){
-             errorcb([NSError errorWithDomain:@"io.ooni.api"
+             errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
                                          code:ERR_JSON_EMPTY
                                      userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
                                                 }]);
