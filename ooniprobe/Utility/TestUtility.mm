@@ -121,8 +121,8 @@
          }
          if ([urls count] == 0){
              errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
-                                         code:ERR_JSON_EMPTY
-                                     userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
+                                         code:ERR_NO_VALID_URLS
+                                     userInfo:@{NSLocalizedDescriptionKey:@"Error.NoValidUrls"
                                                 }]);
              return;
          }
