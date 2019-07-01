@@ -104,7 +104,7 @@
     NSURLQueryItem *reportIdItem = [NSURLQueryItem
                                     queryItemWithName:@"report_id"
                                     value:self.report_id];
-
+    //web_connectivity is the only test using input for now
     if ([self.test_name isEqualToString:@"web_connectivity"]){
         NSURLQueryItem *urlItem = [NSURLQueryItem
                                    queryItemWithName:@"input"

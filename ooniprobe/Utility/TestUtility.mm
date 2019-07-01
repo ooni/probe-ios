@@ -72,6 +72,7 @@
     return [UIColor colorWithRGBHexString:color_blue5 alpha:alpha];
 }
 
+// TODO(lorenzoPrimi): I would move this function into another class who handles all API Calls
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
     MKGeoIPLookupTask *task = [[MKGeoIPLookupTask alloc] init];
     [task setTimeout:DEFAULT_TIMEOUT];
