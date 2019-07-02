@@ -144,6 +144,14 @@
     successcb(urls);
 }
 
+//TODO where and when to call it?
++ (void)deleteUploadedJsons{
+    for (Measurement *measurement in [Measurement measurementsWithJson]){
+        [measurement getExplorerUrl:^(NSString *measurement_url){
+            [TestUtility removeFile:[measurement getReportFile]];
+        } onError:nil];
+    }
+}
 + (void)removeFile:(NSString*)fileName {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
