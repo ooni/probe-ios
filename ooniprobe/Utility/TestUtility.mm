@@ -152,7 +152,8 @@
         } onError:nil];
     }
 }
-+ (void)removeFile:(NSString*)fileName {
+
++ (BOOL)removeFile:(NSString*)fileName {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
@@ -165,6 +166,7 @@
     {
         NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
     }
+    return success;
 }
 
 + (BOOL)fileExists:(NSString*)fileName{

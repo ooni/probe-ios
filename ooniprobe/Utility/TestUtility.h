@@ -15,7 +15,7 @@
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
 + (void)deleteUploadedJsons;
-+ (void)removeFile:(NSString*)fileName;
++ (BOOL)removeFile:(NSString*)fileName;
 + (BOOL)fileExists:(NSString*)fileName;
 + (NSString*)getUTF8FileContent:(NSString*)fileName;
 + (void)writeString:(NSString*)str toFile:(NSString*)fileName;
