@@ -29,6 +29,14 @@
     [[UINavigationBar appearance] setTranslucent:FALSE];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 
+    for (Measurement *measurement in [Measurement measurementsWithJson]){
+        [measurement getExplorerUrl:^(NSString *measurement_url){
+            NSLog(@"SUCCESS %@ measurement_url %@",measurement.Id, measurement_url);
+        } onError:^(NSError *error){
+            NSLog(@"ERROR %@ measurement_url null", measurement.Id);
+        }];
+    }
+
 #ifdef RELEASE
     CrashlyticsKit.delegate = self;
     [Fabric with:@[[Crashlytics class]]];
