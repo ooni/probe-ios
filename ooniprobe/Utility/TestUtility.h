@@ -13,7 +13,7 @@
 + (NSString*)getCategoryForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
-+ (void)downloadUrls:(void (^)(NSArray *))completion;
++ (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
 + (void)removeFile:(NSString*)fileName;
 + (BOOL)fileExists:(NSString*)fileName;
 + (NSString*)getUTF8FileContent:(NSString*)fileName;

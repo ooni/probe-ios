@@ -96,4 +96,57 @@
     [self remove];
 }
 
+-(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb {
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.scheme = @"https";
+    components.host = @"api.ooni.io";
+    components.path = @"/api/v1/measurements";
+    NSURLQueryItem *reportIdItem = [NSURLQueryItem
+                                    queryItemWithName:@"report_id"
+                                    value:self.report_id];
+    //web_connectivity is the only test using input for now
+    if ([self.test_name isEqualToString:@"web_connectivity"]){
+        NSURLQueryItem *urlItem = [NSURLQueryItem
+                                   queryItemWithName:@"input"
+                                   value:self.url_id.url];
+        components.queryItems = @[ reportIdItem, urlItem ];
+    }
+    else
+        components.queryItems = @[ reportIdItem ];
+
+    NSURL *url = components.URL;
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+     dataTaskWithURL:url
+     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         [self getExplorerUrlCallback:data response:response error:error
+                          onSuccess:successcb onError:errorcb];
+     }];
+    [downloadTask resume];
+}
+
+- (void)getExplorerUrlCallback:(NSData *)data
+                    response:(NSURLResponse *)response
+                       error:(NSError *)error
+                   onSuccess:(void (^)(NSString*))successcb
+                     onError:(void (^)(NSError*))errorcb {
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSArray *resultsArray = [dic objectForKey:@"results"];
+    if ([resultsArray count] <= 0 || ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
+        errorcb([NSError errorWithDomain:@"io.ooni.api"
+                                    code:ERR_JSON_EMPTY
+                                userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
+                                           }]);
+        return;
+    }
+    successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
+
+}
 @end

@@ -72,40 +72,76 @@
     return [UIColor colorWithRGBHexString:color_blue5 alpha:alpha];
 }
 
-+ (void)downloadUrls:(void (^)(NSArray *))completion {
+// TODO(lorenzoPrimi): I would move this function into another class who handles all API Calls
++ (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
     MKGeoIPLookupTask *task = [[MKGeoIPLookupTask alloc] init];
     [task setTimeout:DEFAULT_TIMEOUT];
     MKGeoIPLookupResults *results = [task perform];
     NSString *cc = @"XX";
     if ([results good])
         cc = [results probeCC];
-    NSString *path = [NSString stringWithFormat:@"https://orchestrate.ooni.io/api/v1/test-list/urls?country_code=%@", cc];
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.scheme = @"https";
+    components.host = @"orchestrate.ooni.io";
+    components.path = @"/api/v1/test-list/urls";
+    NSURLQueryItem *ccItem = [NSURLQueryItem
+                              queryItemWithName:@"country_code"
+                              value:cc];
     if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
         NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
         [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
-        path = [NSString stringWithFormat:@"%@&category_codes=%@", path, [categories componentsJoinedByString:@","]];
+        NSURLQueryItem *categoriesItem = [NSURLQueryItem
+                                          queryItemWithName:@"category_codes"
+                                          value:[categories componentsJoinedByString:@","]];
+        components.queryItems = @[ ccItem, categoriesItem ];
     }
-    NSURL *url = [NSURL URLWithString:path];
-    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (!error) {
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            NSArray *urlsArray = [dic objectForKey:@"results"];
-            NSMutableArray *urls = [[NSMutableArray alloc] init];
-            for (NSDictionary* current in urlsArray){
-                //List for database
-                Url *url = [Url checkExistingUrl:[current objectForKey:@"url"] categoryCode:[current objectForKey:@"category_code"] countryCode:[current objectForKey:@"country_code"]];
-                //List for mk
-                [urls addObject:url.url];
-            }
-            completion(urls);
-        }
-        else {
-            // Fail
-            completion(nil);
-            NSLog(@"error : %@", error.description);
-        }
+    else {
+        components.queryItems = @[ ccItem ];
+    }
+    NSURL *url = components.URL;
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+     dataTaskWithURL:url
+     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         [self downloadUrlsCallback:data response:response error:error
+                                 onSuccess:successcb onError:errorcb];
     }];
     [downloadTask resume];
+}
+
++ (void)downloadUrlsCallback:(NSData *)data
+                    response:(NSURLResponse *)response
+                    error:(NSError *)error
+                    onSuccess:(void (^)(NSArray*))successcb
+                    onError:(void (^)(NSError*))errorcb {
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSArray *urlsArray = [dic objectForKey:@"results"];
+    NSMutableArray *urls = [[NSMutableArray alloc] init];
+    for (NSDictionary* current in urlsArray){
+        //List for database
+        Url *url = [Url
+                    checkExistingUrl:[current objectForKey:@"url"]
+                    categoryCode:[current objectForKey:@"category_code"]
+                    countryCode:[current objectForKey:@"country_code"]];
+        //List for mk
+        if (url != nil)
+            [urls addObject:url.url];
+    }
+    if ([urls count] == 0){
+        errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
+                                    code:ERR_NO_VALID_URLS
+                                userInfo:@{NSLocalizedDescriptionKey:@"Error.NoValidUrls"
+                                           }]);
+        return;
+    }
+    successcb(urls);
 }
 
 + (void)removeFile:(NSString*)fileName {

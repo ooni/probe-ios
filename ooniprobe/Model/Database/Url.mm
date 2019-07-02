@@ -31,6 +31,9 @@
 }
 
 + (Url*)checkExistingUrl:(NSString*)input categoryCode:(NSString*)categoryCode countryCode:(NSString*)countryCode{
+    if (input == nil) return nil;
+    if (categoryCode == nil) categoryCode = @"MISC";
+    if (countryCode == nil) countryCode = @"XX";
     Url *url = [self getUrl:input];
     if (url == nil){
         url = [[Url alloc] initWithUrl:input category:categoryCode country:countryCode];
