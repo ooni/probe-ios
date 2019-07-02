@@ -19,6 +19,7 @@
 }
 
 - (void)testExisting {
+    //TODO test getExplorerUrlCallback with custom NSData
     Measurement *measurement = [Measurement new];
     measurement.report_id = EXISTING_REPORT_ID;
     [measurement getExplorerUrl:^(NSString *measurement_url){
@@ -39,6 +40,7 @@
 }
 
 -(void)testDownloadUrls{
+    //TODO test downloadUrlsCallback with custom NSData
     [TestUtility downloadUrls:^(NSArray *urls) {
         XCTAssert(true);
     } onError:^(NSError *error) {

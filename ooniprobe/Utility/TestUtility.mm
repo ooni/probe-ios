@@ -102,33 +102,46 @@
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-         if (error != nil) {
-             errorcb(error);
-             return;
-         }
-         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-         if (error != nil) {
-             errorcb(error);
-             return;
-         }
-         NSArray *urlsArray = [dic objectForKey:@"results"];
-         NSMutableArray *urls = [[NSMutableArray alloc] init];
-         for (NSDictionary* current in urlsArray){
-             //List for database
-             Url *url = [Url checkExistingUrl:[current objectForKey:@"url"] categoryCode:[current objectForKey:@"category_code"] countryCode:[current objectForKey:@"country_code"]];
-             //List for mk
-             [urls addObject:url.url];
-         }
-         if ([urls count] == 0){
-             errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
-                                         code:ERR_NO_VALID_URLS
-                                     userInfo:@{NSLocalizedDescriptionKey:@"Error.NoValidUrls"
-                                                }]);
-             return;
-         }
-         successcb(urls);
+         [self downloadUrlsCallback:data response:response error:error
+                                 onSuccess:successcb onError:errorcb];
     }];
     [downloadTask resume];
+}
+
++ (void)downloadUrlsCallback:(NSData *)data
+                    response:(NSURLResponse *)response
+                    error:(NSError *)error
+                    onSuccess:(void (^)(NSArray*))successcb
+                    onError:(void (^)(NSError*))errorcb {
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSArray *urlsArray = [dic objectForKey:@"results"];
+    NSMutableArray *urls = [[NSMutableArray alloc] init];
+    for (NSDictionary* current in urlsArray){
+        //List for database
+        Url *url = [Url
+                    checkExistingUrl:[current objectForKey:@"url"]
+                    categoryCode:[current objectForKey:@"category_code"]
+                    countryCode:[current objectForKey:@"country_code"]];
+        //List for mk
+        if (url != nil)
+            [urls addObject:url.url];
+    }
+    if ([urls count] == 0){
+        errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
+                                    code:ERR_NO_VALID_URLS
+                                userInfo:@{NSLocalizedDescriptionKey:@"Error.NoValidUrls"
+                                           }]);
+        return;
+    }
+    successcb(urls);
 }
 
 + (void)removeFile:(NSString*)fileName {

@@ -118,26 +118,35 @@
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-         if (error != nil) {
-             errorcb(error);
-             return;
-         }
-         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-         if (error != nil) {
-             errorcb(error);
-             return;
-         }
-         NSArray *resultsArray = [dic objectForKey:@"results"];
-         if ([resultsArray count] <= 0 || ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
-             errorcb([NSError errorWithDomain:@"io.ooni.api"
-                                         code:ERR_JSON_EMPTY
-                                     userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
-                                                }]);
-             return;
-         }
-         successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
+         [self getExplorerUrlCallback:data response:response error:error
+                          onSuccess:successcb onError:errorcb];
      }];
     [downloadTask resume];
 }
 
+- (void)getExplorerUrlCallback:(NSData *)data
+                    response:(NSURLResponse *)response
+                       error:(NSError *)error
+                   onSuccess:(void (^)(NSString*))successcb
+                     onError:(void (^)(NSError*))errorcb {
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSArray *resultsArray = [dic objectForKey:@"results"];
+    if ([resultsArray count] <= 0 || ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
+        errorcb([NSError errorWithDomain:@"io.ooni.api"
+                                    code:ERR_JSON_EMPTY
+                                userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
+                                           }]);
+        return;
+    }
+    successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
+
+}
 @end
