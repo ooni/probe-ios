@@ -54,7 +54,7 @@
 
 -(void)testDownloadUrls{
     //TODO test downloadUrlsCallback with custom NSData
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testNonExisting"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testDownloadUrls"];
     [TestUtility downloadUrls:^(NSArray *urls) {
         XCTAssert(true);
         [expectation fulfill];
