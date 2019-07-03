@@ -22,7 +22,16 @@
         if (content != nil) {
             [self.textView setText:content];
         }
-        //TODO show some Log not found
+        //Show Log not found alert, go back on OK.
+        //This will be useful for when we'll implement the auto log deletion
+        UIAlertAction* okButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [self.navigationController popViewControllerAnimated:YES];
+                                   }];
+        //TODO create a string for this, DO NOT MERGE WITHOUT
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error.LogNotFound", nil) message:nil okButton:okButton cancelButton:nil inView:self];
     }
     else if ([self.type isEqualToString:@"json"]){
         fileName = [self.measurement getReportFile];
