@@ -2,6 +2,7 @@
 #import "Measurement.h"
 #import "TestUtility.h"
 #define EXISTING_REPORT_ID @"20190113T202156Z_AS327931_CgoC3KbgM6zKajvIIt1AxxybJ1HbjwwWJjsJnlxy9rpcGY54VH"
+#define EXISTING_REPORT_ID_2 @"20190702T000027Z_AS5413_6FT78sjp5qnESDVWlFlm6bfxxwOEqR08ySAwigTF6C8PFCbMsM"
 #define NONEXISTING_REPORT_ID @"EMPTY"
 
 @interface APITest : XCTestCase
@@ -67,5 +68,39 @@
             XCTAssert(false);
     }];
 }
+
+/*
+ - (void)testDeleteJsons {
+ Measurement *existing_1 = [self addMeasurement:EXISTING_REPORT_ID];
+ Measurement *nonexisting_1 = [self addMeasurement:NONEXISTING_REPORT_ID];
+ Measurement *existing_2 = [self addMeasurement:EXISTING_REPORT_ID_2];
+ Measurement *nonexisting_2 = [self addMeasurement:NONEXISTING_REPORT_ID];
+ [TestUtility deleteUploadedJsons];
+ XCTAssert(![existing_1 hasReportFile]);
+ XCTAssert([nonexisting_1 hasReportFile]);
+ XCTAssert(![existing_2 getReportFile]);
+ XCTAssert([nonexisting_2 hasReportFile]);
+ 
+ //Testing adding functione
+ for (Measurement *measurement in [Measurement measurementsWithJson]){
+ [measurement getExplorerUrl:^(NSString *measurement_url){
+ [TestUtility removeFile:[measurement getReportFile]];
+ if ([measurement.report_id isEqualToString:EXISTING_REPORT_ID] || [measurement.report_id isEqualToString:EXISTING_REPORT_ID_2])
+ XCTAssert(true);
+ } onError:^(NSString *measurement_url){
+ 
+ }];
+ }
+ }
+ */
+
+-(Measurement*)addMeasurement:(NSString*)report_id {
+    Measurement *measurement = [Measurement new];
+    [TestUtility writeString:@"" toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
+    measurement.report_id = report_id;
+    [measurement save];
+    return measurement;
+}
+
 
 @end
