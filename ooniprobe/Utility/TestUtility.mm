@@ -144,12 +144,12 @@
     successcb(urls);
 }
 
-+ (void)deleteUploadedJsons:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb {
++ (void)deleteUploadedJsons:(void (^)(Measurement*))successcb onError:(void (^)(NSError*))errorcb {
     for (Measurement *measurement in [Measurement measurementsWithJson]){
         [measurement getExplorerUrl:^(NSString *measurement_url){
             [TestUtility removeFile:[measurement getReportFile]];
-            successcb(measurement_url);
-        } onError:^(NSString *measurement_url){
+            successcb(measurement);
+        } onError:^(NSError *error){
             errorcb(error);
         }];
     }
