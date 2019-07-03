@@ -41,7 +41,19 @@
             [self.textView setText:prettyPrintedJson];
         }
         else {
-            //TODO Download content from web
+            //Download content from web
+            [self.measurement getExplorerUrl:^(NSString *measurement_url){
+                //TODO show measurement_url (in webview?)
+            } onError:^(NSError *error){
+                UIAlertAction* okButton = [UIAlertAction
+                                        actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction * action) {
+                                               [self.navigationController popViewControllerAnimated:YES];
+                                           }];
+                //TODO What to write here? error.localizeddescription?
+                [MessageUtility alertWithTitle:NSLocalizedString(@"?", nil) message:nil okButton:okButton cancelButton:nil inView:self];
+            }];
         }
     }
     [self.textView setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
