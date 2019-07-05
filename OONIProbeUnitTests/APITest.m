@@ -71,27 +71,17 @@
 
 - (void)testDeleteJsons {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDeleteJsons"];
-    int i = 4;
     Measurement *existing_1 = [self addMeasurement:EXISTING_REPORT_ID];
     Measurement *nonexisting_1 = [self addMeasurement:NONEXISTING_REPORT_ID];
     Measurement *existing_2 = [self addMeasurement:EXISTING_REPORT_ID_2];
     Measurement *nonexisting_2 = [self addMeasurement:NONEXISTING_REPORT_ID];
-    [TestUtility deleteUploadedJsons:^(Measurement *measurement){
+    [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
         if ([measurement.report_id isEqualToString:EXISTING_REPORT_ID] || [measurement.report_id isEqualToString:EXISTING_REPORT_ID_2])
             XCTAssert(true);
         else
             XCTAssert(false);
-        i--;
-        if (i == 0)
-            [expectation fulfill];
-    } onError:^(NSError *error){
-        if ([measurement.report_id isEqualToString:NONEXISTING_REPORT_ID])
-            XCTAssert(true);
-        else
-            XCTAssert(false);
-        i--;
-        if (i == 0)
-            [expectation fulfill];
+        //TODO how do i check that this callback has been called for both measurement in the if and fulfill only after that?
+        [expectation fulfill];
     }];
 }
 

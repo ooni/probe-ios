@@ -144,20 +144,19 @@
     successcb(urls);
 }
 
-+ (void)deleteUploadedJsons:(void (^)(Measurement*))successcb onError:(void (^)(NSError*))errorcb {
-    for (Measurement *measurement in [Measurement measurementsWithJson]){
++ (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover {
+    for (Measurement *measurement in [Measurement measurementsWithJson]) {
         [measurement getExplorerUrl:^(NSString *measurement_url){
-            [TestUtility removeFile:[measurement getReportFile]];
-            successcb(measurement);
-        } onError:^(NSError *error){
-            errorcb(error);
-        }];
+            remover(measurement);
+        } onError:nil];
     }
 }
 
 //TODO where and when to call it?
 + (void)deleteUploadedJsons{
-    [self deleteUploadedJsons:nil onError:nil];
+    [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
+        [TestUtility removeFile:[measurement getReportFile]];
+    }];
 }
 
 + (BOOL)removeFile:(NSString*)fileName {
