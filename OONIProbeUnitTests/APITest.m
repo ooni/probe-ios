@@ -12,6 +12,7 @@
 @implementation APITest
 
 - (void)setUp {
+    [[[Measurement query] fetch] remove];
 }
 
 - (void)tearDown {
@@ -75,15 +76,25 @@
     Measurement *nonexisting_1 = [self addMeasurement:NONEXISTING_REPORT_ID];
     Measurement *existing_2 = [self addMeasurement:EXISTING_REPORT_ID_2];
     Measurement *nonexisting_2 = [self addMeasurement:NONEXISTING_REPORT_ID];
-    [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
-        if ([measurement.report_id isEqualToString:EXISTING_REPORT_ID] || [measurement.report_id isEqualToString:EXISTING_REPORT_ID_2])
-            XCTAssert(true);
-        else
+    __block int successes = 0;
+    [TestUtility deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
+        if ([measurement.report_id isEqualToString:EXISTING_REPORT_ID] ||
+            [measurement.report_id isEqualToString:EXISTING_REPORT_ID_2]) {
+            @synchronized (self) {
+                successes++;
+                if (successes == 2){
+                    XCTAssert(true);
+                    [expectation fulfill];
+                }
+            }
+        } else {
             XCTAssert(false);
-        //TODO how do i check that this callback has been called for both measurement in the if and fulfill only after that?
-        [expectation fulfill];
+            [expectation fulfill];
+        }
     }];
+
 }
+
 
 -(Measurement*)addMeasurement:(NSString*)report_id {
     Measurement *measurement = [Measurement new];
