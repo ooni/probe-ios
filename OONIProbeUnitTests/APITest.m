@@ -12,6 +12,7 @@
 @implementation APITest
 
 - (void)setUp {
+    //TODO remove all files on disk (just in case)
     [[[Measurement query] fetch] remove];
 }
 
