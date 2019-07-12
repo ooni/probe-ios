@@ -148,7 +148,8 @@
     for (Measurement *measurement in [Measurement measurementsWithJson]) {
         [measurement getExplorerUrl:^(NSString *measurement_url){
             remover(measurement);
-        } onError:nil];
+        } onError:^(NSError *error) {
+        }];
     }
 }
 

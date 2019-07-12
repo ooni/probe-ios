@@ -22,8 +22,8 @@
 - (void)testExisting {
     //TODO test getExplorerUrlCallback with custom NSData
     XCTestExpectation *expectation = [self expectationWithDescription:@"testExisting"];
-    Measurement *measurement = [Measurement new];
-    measurement.report_id = EXISTING_REPORT_ID;
+    Measurement *measurement = [self addMeasurement:EXISTING_REPORT_ID
+                                          writeFile:NO];
     [measurement getExplorerUrl:^(NSString *measurement_url){
         XCTAssert(true);
         [expectation fulfill];
@@ -39,8 +39,8 @@
 
 - (void)testNonExisting {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testNonExisting"];
-    Measurement *measurement = [Measurement new];
-    measurement.report_id = NONEXISTING_REPORT_ID;
+    Measurement *measurement = [self addMeasurement:NONEXISTING_REPORT_ID
+                                          writeFile:NO];
     [measurement getExplorerUrl:^(NSString *measurement_url){
         XCTAssert(false);
         [expectation fulfill];
@@ -72,10 +72,11 @@
 
 - (void)testDeleteJsons {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDeleteJsons"];
-    Measurement *existing_1 = [self addMeasurement:EXISTING_REPORT_ID];
-    Measurement *nonexisting_1 = [self addMeasurement:NONEXISTING_REPORT_ID];
-    Measurement *existing_2 = [self addMeasurement:EXISTING_REPORT_ID_2];
-    Measurement *nonexisting_2 = [self addMeasurement:NONEXISTING_REPORT_ID];
+    [self addMeasurement:EXISTING_REPORT_ID writeFile:YES];
+    [self addMeasurement:NONEXISTING_REPORT_ID writeFile:YES];
+    [self addMeasurement:EXISTING_REPORT_ID_2 writeFile:YES];
+    [self addMeasurement:NONEXISTING_REPORT_ID writeFile:YES];
+    XCTAssert([[Measurement measurementsWithJson] count] == 4);
     __block int successes = 0;
     [TestUtility deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
         if ([measurement.report_id isEqualToString:EXISTING_REPORT_ID] ||
@@ -92,15 +93,23 @@
             [expectation fulfill];
         }
     }];
-
+    [self waitForExpectationsWithTimeout:20.0 handler:^(NSError *err) {
+        if(err != nil)
+            XCTAssert(false);
+    }];
 }
 
 
--(Measurement*)addMeasurement:(NSString*)report_id {
+-(Measurement*)addMeasurement:(NSString*)report_id writeFile:(BOOL)report{
+    //Simulating measurement done and uploaded
     Measurement *measurement = [Measurement new];
-    [TestUtility writeString:@"" toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
     measurement.report_id = report_id;
+    measurement.is_done = 1;
+    measurement.is_uploaded = 1;
     [measurement save];
+    //The report has to be written after the DB object is saved
+    if (report)
+        [TestUtility writeString:@"" toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
     return measurement;
 }
 
