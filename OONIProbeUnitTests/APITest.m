@@ -12,7 +12,13 @@
 @implementation APITest
 
 - (void)setUp {
-    //TODO remove all files on disk (just in case)
+    /*
+     We clean all files from simulator
+     Not really needed for testing purpose
+     as we only check Measurements with linked files,
+     needed to don't leave garbage around.
+    */
+    [self removeAllFiles];
     [[[Measurement query] fetch] remove];
 }
 
@@ -114,5 +120,16 @@
     return measurement;
 }
 
+
+- (void)removeAllFiles {
+    NSError *error = nil;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSArray *contents = [fileManager contentsOfDirectoryAtPath:documentDirectory error:&error];
+    for(NSString *sourceFileName in contents) {
+        NSString *sourceFile = [documentDirectory stringByAppendingPathComponent:sourceFileName];
+        [fileManager removeItemAtPath:sourceFile error:&error];
+    }
+}
 
 @end
