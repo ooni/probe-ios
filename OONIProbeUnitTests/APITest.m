@@ -124,7 +124,7 @@
                                    (NSDocumentDirectory, NSUserDomainMask, YES)
                                    lastObject];
     NSArray *contents = [fileManager contentsOfDirectoryAtPath:documentDirectory error:&error];
-    XCTAssert(error == nil)
+    XCTAssert(error == nil);
     for(NSString *sourceFileName in contents) {
         NSString *sourceFile = [documentDirectory stringByAppendingPathComponent:sourceFileName];
         [fileManager removeItemAtPath:sourceFile error:&error];
