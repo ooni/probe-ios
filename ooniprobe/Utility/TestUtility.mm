@@ -149,6 +149,7 @@
         [measurement getExplorerUrl:^(NSString *measurement_url){
             remover(measurement);
         } onError:^(NSError *error) {
+            /* NOTHING */
         }];
     }
 }

@@ -39,8 +39,7 @@
         [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
-        if(err != nil)
-            XCTAssert(false);
+        XCTAssert(err == nil);
     }];
 }
 
@@ -56,8 +55,7 @@
         [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
-        if(err != nil)
-            XCTAssert(false);
+        XCTAssert(err == nil);
     }];
 }
 
@@ -72,8 +70,7 @@
         [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
-        if(err != nil)
-            XCTAssert(false);
+        XCTAssert(err == nil);
     }];
 }
 
@@ -101,8 +98,7 @@
         }
     }];
     [self waitForExpectationsWithTimeout:20.0 handler:^(NSError *err) {
-        if(err != nil)
-            XCTAssert(false);
+        XCTAssert(err == nil);
     }];
 }
 
@@ -124,8 +120,11 @@
 - (void)removeAllFiles {
     NSError *error = nil;
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains
+                                   (NSDocumentDirectory, NSUserDomainMask, YES)
+                                   lastObject];
     NSArray *contents = [fileManager contentsOfDirectoryAtPath:documentDirectory error:&error];
+    XCTAssert(error == nil)
     for(NSString *sourceFileName in contents) {
         NSString *sourceFile = [documentDirectory stringByAppendingPathComponent:sourceFileName];
         [fileManager removeItemAtPath:sourceFile error:&error];
