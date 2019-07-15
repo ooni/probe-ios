@@ -144,7 +144,24 @@
     successcb(urls);
 }
 
-+ (void)removeFile:(NSString*)fileName {
++ (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover {
+    for (Measurement *measurement in [Measurement measurementsWithJson]) {
+        [measurement getExplorerUrl:^(NSString *measurement_url){
+            remover(measurement);
+        } onError:^(NSError *error) {
+            /* NOTHING */
+        }];
+    }
+}
+
+//TODO where and when to call it?
++ (void)deleteUploadedJsons{
+    [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
+        [TestUtility removeFile:[measurement getReportFile]];
+    }];
+}
+
++ (BOOL)removeFile:(NSString*)fileName {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
@@ -157,6 +174,7 @@
     {
         NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
     }
+    return success;
 }
 
 + (BOOL)fileExists:(NSString*)fileName{
