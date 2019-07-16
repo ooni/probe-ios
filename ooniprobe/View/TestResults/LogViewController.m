@@ -22,16 +22,22 @@
         if (content != nil) {
             [self.textView setText:content];
         }
-        //Show Log not found alert, go back on OK.
-        //This will be useful for when we'll implement the auto log deletion
-        UIAlertAction* okButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction * action) {
-                                       [self.navigationController popViewControllerAnimated:YES];
-                                   }];
-        //TODO create a string for this, DO NOT MERGE WITHOUT
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error.LogNotFound", nil) message:nil okButton:okButton cancelButton:nil inView:self];
+        else {
+            //Show Log not found alert, go back on OK.
+            //This will be useful for when we'll implement the auto log deletion
+            UIAlertAction* okButton = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+                                           [self.navigationController popViewControllerAnimated:YES];
+                                       }];
+            //TODO create a string for this, DO NOT MERGE WITHOUT
+            [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error.LogNotFound", nil)
+                                   message:nil
+                                  okButton:okButton
+                              cancelButton:nil
+                                    inView:self];
+        }
     }
     else if ([self.type isEqualToString:@"json"]){
         fileName = [self.measurement getReportFile];
@@ -51,8 +57,11 @@
                                            handler:^(UIAlertAction * action) {
                                                [self.navigationController popViewControllerAnimated:YES];
                                            }];
-                //TODO What to write here? error.localizeddescription?
-                [MessageUtility alertWithTitle:NSLocalizedString(@"?", nil) message:nil okButton:okButton cancelButton:nil inView:self];
+                [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                                       message:[error localizedDescription]
+                                      okButton:okButton
+                                  cancelButton:nil
+                                        inView:self];
             }];
         }
     }
