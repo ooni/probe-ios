@@ -158,6 +158,7 @@
 + (void)deleteUploadedJsons{
     [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
         [TestUtility removeFile:[measurement getReportFile]];
+        [TestUtility removeFile:[measurement getLogFile]];
     }];
 }
 
