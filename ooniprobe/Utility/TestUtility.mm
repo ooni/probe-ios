@@ -156,7 +156,6 @@
     }
 }
 
-//TODO where and when to call it?
 + (void)deleteUploadedJsons{
     [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
         [TestUtility removeFile:[measurement getReportFile]];
