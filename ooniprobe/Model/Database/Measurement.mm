@@ -147,7 +147,7 @@
         ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
         errorcb([NSError errorWithDomain:@"io.ooni.api"
                                     code:ERR_JSON_EMPTY
-                                userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
+                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.JsonEmpty"
                                            }]);
         return;
     }

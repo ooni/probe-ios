@@ -137,7 +137,7 @@
     if ([urls count] == 0){
         errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
                                     code:ERR_NO_VALID_URLS
-                                userInfo:@{NSLocalizedDescriptionKey:@"Error.NoValidUrls"
+                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.NoValidUrls"
                                            }]);
         return;
     }
