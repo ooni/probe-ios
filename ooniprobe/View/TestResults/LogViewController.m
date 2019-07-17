@@ -31,7 +31,6 @@
                                        handler:^(UIAlertAction * action) {
                                            [self.navigationController popViewControllerAnimated:YES];
                                        }];
-            //TODO create a string for this, DO NOT MERGE WITHOUT
             [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error.LogNotFound", nil)
                                    message:nil
                                   okButton:okButton
