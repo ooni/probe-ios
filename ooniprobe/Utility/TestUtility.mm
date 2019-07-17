@@ -170,14 +170,11 @@
     if (lastCalled == nil){
         return YES;
     }
-    else {
-        NSTimeInterval timeOfNoMagic = [[NSDate date] timeIntervalSinceDate:lastCalled];
-        if (timeOfNoMagic > delete_json_delay){
-            return YES;
-        }
-        return NO;
+    NSTimeInterval timeSinceLastCall = [[NSDate date] timeIntervalSinceDate:lastCalled];
+    if (timeSinceLastCall > delete_json_delay){
+        return YES;
     }
-
+    return NO;
 }
 
 + (BOOL)removeFile:(NSString*)fileName {
