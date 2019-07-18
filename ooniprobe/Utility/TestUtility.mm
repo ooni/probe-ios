@@ -2,6 +2,8 @@
 #import "Url.h"
 #import "SettingsUtility.h"
 #import <mkall/MKGeoIPLookup.h>
+#define delete_json_delay 86400
+#define delete_json_key @"deleteUploadedJsons"
 
 @implementation TestUtility
 
@@ -154,12 +156,26 @@
     }
 }
 
-//TODO where and when to call it?
 + (void)deleteUploadedJsons{
     [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
         [TestUtility removeFile:[measurement getReportFile]];
         [TestUtility removeFile:[measurement getLogFile]];
     }];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:delete_json_key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (BOOL)canCallDeleteJson{
+    NSDate *lastCalled =  (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:delete_json_key];
+    
+    if (lastCalled == nil){
+        return YES;
+    }
+    NSTimeInterval timeSinceLastCall = [[NSDate date] timeIntervalSinceDate:lastCalled];
+    if (timeSinceLastCall > delete_json_delay){
+        return YES;
+    }
+    return NO;
 }
 
 + (BOOL)removeFile:(NSString*)fileName {

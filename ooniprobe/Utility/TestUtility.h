@@ -16,6 +16,7 @@
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
 + (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover;
 + (void)deleteUploadedJsons;
++ (BOOL)canCallDeleteJson;
 + (BOOL)removeFile:(NSString*)fileName;
 + (BOOL)fileExists:(NSString*)fileName;
 + (NSString*)getUTF8FileContent:(NSString*)fileName;
