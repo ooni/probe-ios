@@ -144,6 +144,36 @@
     successcb(urls);
 }
 
+//TODO unify this function and the above one
++ (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb onError:(void (^)(NSError*))errorcb {
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+                                          dataTaskWithURL:url
+                                          completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                              [self downloadJsonCallback:data response:response error:error
+                                                               onSuccess:successcb onError:errorcb];
+                                          }];
+    [downloadTask resume];
+}
+
++ (void)downloadJsonCallback:(NSData *)data
+                    response:(NSURLResponse *)response
+                       error:(NSError *)error
+                   onSuccess:(void (^)(NSDictionary*))successcb
+                     onError:(void (^)(NSError*))errorcb {
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    successcb(dic);
+}
+
+
 + (void)removeFile:(NSString*)fileName {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];

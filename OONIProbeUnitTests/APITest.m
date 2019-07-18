@@ -3,7 +3,7 @@
 #import "TestUtility.h"
 #define EXISTING_REPORT_ID @"20190113T202156Z_AS327931_CgoC3KbgM6zKajvIIt1AxxybJ1HbjwwWJjsJnlxy9rpcGY54VH"
 #define NONEXISTING_REPORT_ID @"EMPTY"
-
+#define JSON_URL @"https://api.ooni.io/api/v1/measurement/temp-id-263478291"
 @interface APITest : XCTestCase
 
 @end
@@ -62,6 +62,21 @@
         XCTAssert(false);
         [expectation fulfill];
     }];
+    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
+        if(err != nil)
+            XCTAssert(false);
+    }];
+}
+
+- (void)testJsonFromExplorer {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testJsonFromExplorer"];
+    [TestUtility downloadJson:JSON_URL
+                    onSuccess:^(NSDictionary *urls) {                            XCTAssert(true);
+                        [expectation fulfill];
+                    } onError:^(NSError *error) {
+                        XCTAssert(false);
+                        [expectation fulfill];
+                    }];
     [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
         if(err != nil)
             XCTAssert(false);
