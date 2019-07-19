@@ -71,7 +71,8 @@
 - (void)testJsonFromExplorer {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testJsonFromExplorer"];
     [TestUtility downloadJson:JSON_URL
-                    onSuccess:^(NSDictionary *urls) {                            XCTAssert(true);
+                    onSuccess:^(NSDictionary *urls) {
+                        XCTAssert(true);
                         [expectation fulfill];
                     } onError:^(NSError *error) {
                         XCTAssert(false);
