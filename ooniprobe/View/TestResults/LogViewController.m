@@ -66,8 +66,9 @@
     self.textView.scrollEnabled = true;
 }
 
-//TODO unify these two functions
-//Probably we can remove them since we'll rewrite the json viewer in react
+/*
+ Probably we can remove prettyPrintedJsonfromString and prettyPrintedJsonfromObject them since we'll rewrite the json viewer in react
+ */
 /*
  This function gets a string and if it's a valid JSON makes it pretty printed
  */

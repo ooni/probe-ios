@@ -110,6 +110,7 @@
     [downloadTask resume];
 }
 
+//TODO unify downloadUrlsCallback and downloadJsonCallback
 + (void)downloadUrlsCallback:(NSData *)data
                     response:(NSURLResponse *)response
                     error:(NSError *)error
@@ -146,7 +147,6 @@
     successcb(urls);
 }
 
-//TODO unify this function and the above one
 + (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
     onError:(void (^)(NSError*))errorcb {
     NSURL *url = [NSURL URLWithString:urlStr];
