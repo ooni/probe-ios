@@ -2,6 +2,8 @@
 #import "Url.h"
 #import "SettingsUtility.h"
 #import <mkall/MKGeoIPLookup.h>
+#define delete_json_delay 86400
+#define delete_json_key @"deleteUploadedJsons"
 
 @implementation TestUtility
 
@@ -137,7 +139,7 @@
     if ([urls count] == 0){
         errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
                                     code:ERR_NO_VALID_URLS
-                                userInfo:@{NSLocalizedDescriptionKey:@"Error.NoValidUrls"
+                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.NoValidUrls"
                                            }]);
         return;
     }
@@ -145,7 +147,8 @@
 }
 
 //TODO unify this function and the above one
-+ (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb onError:(void (^)(NSError*))errorcb {
++ (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
+    onError:(void (^)(NSError*))errorcb {
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
                                           dataTaskWithURL:url
@@ -173,8 +176,39 @@
     successcb(dic);
 }
 
++ (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover {
+    for (Measurement *measurement in [Measurement measurementsWithJson]) {
+        [measurement getExplorerUrl:^(NSString *measurement_url){
+            remover(measurement);
+        } onError:^(NSError *error) {
+            /* NOTHING */
+        }];
+    }
+}
 
-+ (void)removeFile:(NSString*)fileName {
++ (void)deleteUploadedJsons{
+    [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
+        [TestUtility removeFile:[measurement getReportFile]];
+        [TestUtility removeFile:[measurement getLogFile]];
+    }];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:delete_json_key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (BOOL)canCallDeleteJson{
+    NSDate *lastCalled =  (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:delete_json_key];
+    
+    if (lastCalled == nil){
+        return YES;
+    }
+    NSTimeInterval timeSinceLastCall = [[NSDate date] timeIntervalSinceDate:lastCalled];
+    if (timeSinceLastCall > delete_json_delay){
+        return YES;
+    }
+    return NO;
+}
+
++ (BOOL)removeFile:(NSString*)fileName {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
@@ -187,6 +221,7 @@
     {
         NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
     }
+    return success;
 }
 
 + (BOOL)fileExists:(NSString*)fileName{

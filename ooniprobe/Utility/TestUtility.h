@@ -14,7 +14,11 @@
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
-+ (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb onError:(void (^)(NSError*))errorcb;
++ (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover;
++ (void)deleteUploadedJsons;
++ (BOOL)canCallDeleteJson;
++ (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
+    onError:(void (^)(NSError*))errorcb;
 + (void)removeFile:(NSString*)fileName;
 + (BOOL)fileExists:(NSString*)fileName;
 + (NSString*)getUTF8FileContent:(NSString*)fileName;

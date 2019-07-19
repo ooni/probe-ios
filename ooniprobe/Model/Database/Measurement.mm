@@ -139,10 +139,15 @@
         return;
     }
     NSArray *resultsArray = [dic objectForKey:@"results"];
-    if ([resultsArray count] <= 0 || ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
+    /*
+     Checking if the array is longer than 1.
+     https://github.com/ooni/probe-ios/pull/293#discussion_r302136014
+     */
+    if ([resultsArray count] != 1 ||
+        ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
         errorcb([NSError errorWithDomain:@"io.ooni.api"
                                     code:ERR_JSON_EMPTY
-                                userInfo:@{NSLocalizedDescriptionKey:@"Error.JsonEmpty"
+                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.JsonEmpty"
                                            }]);
         return;
     }
