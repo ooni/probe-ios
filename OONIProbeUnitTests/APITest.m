@@ -119,7 +119,7 @@
 
 - (void)testMalformedURL {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testMalformedURL"];
-    [TestUtility downloadJson:@"http://www.google.it"
+    [TestUtility downloadJson:@"http://t"
                     onSuccess:^(NSDictionary *urls) {
                         XCTAssert(false);
                         [expectation fulfill];
