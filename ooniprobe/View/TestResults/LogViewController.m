@@ -41,7 +41,7 @@
         NSString *fileName = [self.measurement getReportFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
-            NSString *prettyPrintedJson = [self prettyPrintedJsonfromString:content];
+            NSString *prettyPrintedJson = [self prettyPrintedJsonfromUTF8String:content];
             [self.textView setText:prettyPrintedJson];
         }
         else {
@@ -72,7 +72,7 @@
 /*
  This function gets a string and if it's a valid JSON makes it pretty printed
  */
--(NSString*)prettyPrintedJsonfromString:(NSString *)content{
+-(NSString*)prettyPrintedJsonfromUTF8String:(NSString *)content{
     NSError *error;
     NSData *jsonData = [content dataUsingEncoding:NSUTF8StringEncoding];
     id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
