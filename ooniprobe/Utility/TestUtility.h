@@ -19,7 +19,7 @@
 + (BOOL)canCallDeleteJson;
 + (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
     onError:(void (^)(NSError*))errorcb;
-+ (void)removeFile:(NSString*)fileName;
++ (BOOL)removeFile:(NSString*)fileName;
 + (BOOL)fileExists:(NSString*)fileName;
 + (NSString*)getUTF8FileContent:(NSString*)fileName;
 + (void)writeString:(NSString*)str toFile:(NSString*)fileName;
