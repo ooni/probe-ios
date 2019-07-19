@@ -49,8 +49,8 @@
             //Download content from web
             [self.measurement getExplorerUrl:^(NSString *measurement_url){
                 [TestUtility downloadJson:measurement_url
-                                onSuccess:^(NSDictionary *urls) {
-                                    NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:urls];
+                                onSuccess:^(NSDictionary *measurementJson) {
+                                    NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:measurementJson];
                                     [self.textView setText:prettyPrintedJson];
                                 } onError:^(NSError *error) {
                                     [self onError:error];
