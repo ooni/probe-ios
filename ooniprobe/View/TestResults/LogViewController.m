@@ -66,12 +66,12 @@
     self.textView.scrollEnabled = true;
 }
 
-/*
- *allora l’unica cosa che suggerisco e’ di documentare cosa fa la funzione
- dicendo che se non parsa restituisce la stringa stessa
-*/
 //TODO unify these two functions
 //Probably we can remove them since we rewrite the json viewer in react
+
+/*
+ This function gets a string and if it's a valid JSON makes it pretty printed
+ */
 -(NSString*)prettyPrintedJsonString:(NSString *)content{
     NSError *error;
     NSData *jsonData = [content dataUsingEncoding:NSUTF8StringEncoding];
@@ -84,6 +84,9 @@
     return prettyPrintedJson;
 }
 
+/*
+ This function gets JSON object and make it into a pretty printed string
+ */
 -(NSString*)prettyPrintedJsonObject:(id)jsonObject{
     NSError *error;
     NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
