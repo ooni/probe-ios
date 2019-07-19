@@ -42,7 +42,7 @@
         fileName = [self.measurement getReportFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
-            NSString *prettyPrintedJson = [self prettyPrintedJsonString:content];
+            NSString *prettyPrintedJson = [self prettyPrintedJsonfromString:content];
             [self.textView setText:prettyPrintedJson];
         }
         else {
@@ -50,7 +50,7 @@
             [self.measurement getExplorerUrl:^(NSString *measurement_url){
                 [TestUtility downloadJson:measurement_url
                                 onSuccess:^(NSDictionary *urls) {
-                                    NSString *prettyPrintedJson = [self prettyPrintedJsonObject:urls];
+                                    NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:urls];
                                     [self.textView setText:prettyPrintedJson];
                                 } onError:^(NSError *error) {
                                     [self onError:error];
@@ -72,7 +72,7 @@
 /*
  This function gets a string and if it's a valid JSON makes it pretty printed
  */
--(NSString*)prettyPrintedJsonString:(NSString *)content{
+-(NSString*)prettyPrintedJsonfromString:(NSString *)content{
     NSError *error;
     NSData *jsonData = [content dataUsingEncoding:NSUTF8StringEncoding];
     id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
@@ -87,7 +87,7 @@
 /*
  This function gets JSON object and make it into a pretty printed string
  */
--(NSString*)prettyPrintedJsonObject:(id)jsonObject{
+-(NSString*)prettyPrintedJsonfromObject:(id)jsonObject{
     NSError *error;
     NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
             options:NSJSONWritingPrettyPrinted error:&error];
