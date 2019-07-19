@@ -15,9 +15,8 @@
                                             style:UIBarButtonItemStylePlain
                                             target:self
                                             action:@selector(copy_clipboard:)];
-    NSString *fileName;
     if ([self.type isEqualToString:@"log"]){
-        fileName = [self.measurement getLogFile];
+        NSString *fileName = [self.measurement getLogFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
             [self.textView setText:content];
@@ -39,7 +38,7 @@
         }
     }
     else if ([self.type isEqualToString:@"json"]){
-        fileName = [self.measurement getReportFile];
+        NSString *fileName = [self.measurement getReportFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
             NSString *prettyPrintedJson = [self prettyPrintedJsonfromString:content];
