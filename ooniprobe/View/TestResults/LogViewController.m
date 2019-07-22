@@ -1,6 +1,7 @@
 #import "LogViewController.h"
 #import "TestUtility.h"
 #import "MessageUtility.h"
+#import "MBProgressHUD.h"
 
 @interface LogViewController ()
 
@@ -46,11 +47,17 @@
         }
         else {
             //Download content from web
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            });
             [self.measurement getExplorerUrl:^(NSString *measurement_url){
                 [TestUtility downloadJson:measurement_url
                                 onSuccess:^(NSDictionary *measurementJson) {
-                                    NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:measurementJson];
-                                    [self.textView setText:prettyPrintedJson];
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                                        NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:measurementJson];
+                                        [self.textView setText:prettyPrintedJson];
+                                    });
                                 } onError:^(NSError *error) {
                                     [self onError:error];
                                 }];
@@ -97,6 +104,9 @@
 }
 
 -(void)onError:(NSError*)error{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    });
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
