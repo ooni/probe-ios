@@ -123,7 +123,6 @@
             reporterTask:(MKReporterTask *)task {
     NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
     NSUInteger bytes = [content lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-    //[task setTimeout:[TestUtility makeTimeout:bytes]]; /* XXX */
     MKReporterResults *results = [
       task submit:content uploadTimeout:[TestUtility makeTimeout:bytes]];
     if ([results good]){
