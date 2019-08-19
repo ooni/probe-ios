@@ -24,6 +24,14 @@
     //assign button to navigationbar
     self.navigationItem.rightBarButtonItem = moreButton;
     [self reloadFooter];
+    if ([self.measurement hasReportFile]){
+        [self.measurement getExplorerUrl:^(NSString *measurement_url){
+            [TestUtility removeFile:[self.measurement getReportFile]];
+            [TestUtility removeFile:[self.measurement getLogFile]];
+        } onError:^(NSError *error) {
+            /* NOTHING */
+        }];
+    }
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
