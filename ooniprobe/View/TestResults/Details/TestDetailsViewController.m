@@ -24,8 +24,10 @@
     //assign button to navigationbar
     self.navigationItem.rightBarButtonItem = moreButton;
     [self reloadFooter];
+    isInExplorer = ![self.measurement hasReportFile];
     if ([self.measurement hasReportFile]){
         [self.measurement getExplorerUrl:^(NSString *measurement_url){
+            isInExplorer = TRUE;
             [TestUtility removeFile:[self.measurement getReportFile]];
             [TestUtility removeFile:[self.measurement getLogFile]];
         } onError:^(NSError *error) {
