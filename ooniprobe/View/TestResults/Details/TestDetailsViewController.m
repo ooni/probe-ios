@@ -24,6 +24,16 @@
     //assign button to navigationbar
     self.navigationItem.rightBarButtonItem = moreButton;
     [self reloadFooter];
+    isInExplorer = ![self.measurement hasReportFile];
+    if ([self.measurement hasReportFile]){
+        [self.measurement getExplorerUrl:^(NSString *measurement_url){
+            isInExplorer = TRUE;
+            [TestUtility removeFile:[self.measurement getReportFile]];
+            [TestUtility removeFile:[self.measurement getLogFile]];
+        } onError:^(NSError *error) {
+            isInExplorer = FALSE;
+        }];
+    }
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
@@ -46,6 +56,13 @@
                                    handler:^(UIAlertAction * action) {
                                        [self viewLogs];
                                    }];
+    UIAlertAction* explorerButton = [UIAlertAction
+                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.CopyExplorerURL", nil)
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        [self copyExplorerUrl];
+                                    }];
+
     NSArray *buttons = [NSArray arrayWithObjects:rawDataButton, logButton, nil];
     [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
 
@@ -59,6 +76,22 @@
 - (IBAction)rawData{
     segueType = @"json";
     [self performSegueWithIdentifier:@"toViewLog" sender:self];
+}
+
+-(IBAction)copyExplorerUrl{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    NSMutableString *link = [NSMutableString stringWithFormat:@"https://explorer.ooni.io/measurement/%@", self.measurement.report_id];
+    if ([self.measurement.test_name isEqualToString:@"web_connectivity"])
+        [link appendFormat:@"?input=%@", self.measurement.url_id.url];
+    pasteboard.string = link;
+    if (isInExplorer)
+        [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
+    else
+        [MessageUtility showToast:
+         [NSString stringWithFormat:@"%@\n%@",
+          NSLocalizedString(@"Toast.CopiedToClipboard", nil),
+          NSLocalizedString(@"Toast.WillBeAvailable", nil)]
+          inView:self.view];
 }
 
 #pragma mark - Navigation

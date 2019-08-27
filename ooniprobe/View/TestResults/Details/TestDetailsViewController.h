@@ -8,6 +8,7 @@
 
 @interface TestDetailsViewController : UIViewController {
     NSString *segueType;
+    BOOL isInExplorer;
 }
 
 @property (nonatomic, strong) Result *result;
