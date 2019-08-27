@@ -2,7 +2,7 @@
 #import "MessageUtility.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SettingsUtility.h"
-#import <mkall/MKCollector.h>
+#import <mkall/MKReporter.h>
 #import "TestUtility.h"
 #import "MBProgressHUD.h"
 #import "VersionUtility.h"
@@ -87,6 +87,9 @@
         float progress = 0.0f;
         //The progress should consider the array size - the idx of first element to actually be uploaded
         float measurementValue = 1.0/([notUploaded count] - i);
+        MKReporterTask *task = [[MKReporterTask alloc]
+          initWithSoftwareName:SOFTWARE_NAME
+          softwareVersion:[VersionUtility get_software_version]];
         while (i < [notUploaded count]){
             Measurement *currentMeasurement = [notUploaded objectAtIndex:i];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -94,7 +97,7 @@
                 NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading",
                                         [NSString stringWithFormat:@"%ld/%ld", i+1, ([notUploaded count] - idx)]);
             });
-            if (![self uploadMeasurement:currentMeasurement]){
+            if (![self uploadMeasurement:currentMeasurement reporterTask:task]){
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self showRetryPopup:notUploaded startAt:i];
                 });
@@ -116,16 +119,12 @@
     });
 }
 
--(BOOL)uploadMeasurement:(Measurement*)measurement{
+-(BOOL)uploadMeasurement:(Measurement*)measurement
+            reporterTask:(MKReporterTask *)task {
     NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
     NSUInteger bytes = [content lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-    MKCollectorResubmitTask *task = [[MKCollectorResubmitTask alloc]
-                                     initWithSerializedMeasurement:content
-                                     softwareName:SOFTWARE_NAME
-                                     softwareVersion:[VersionUtility get_software_version]
-                                     ];
-    [task setTimeout:[TestUtility makeTimeout:bytes]];
-    MKCollectorResubmitResults *results = [task perform];
+    MKReporterResults *results = [
+      task submit:content uploadTimeout:[TestUtility makeTimeout:bytes]];
     if ([results good]){
         //save updated file
         [TestUtility writeString:[results updatedSerializedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
