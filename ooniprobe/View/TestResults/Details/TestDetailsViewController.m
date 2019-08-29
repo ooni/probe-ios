@@ -44,6 +44,7 @@
 }
 
 - (void)advancedScreens{
+    //TODO hide log button if log not on disk
     UIAlertAction* rawDataButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
