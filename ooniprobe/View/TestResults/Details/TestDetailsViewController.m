@@ -63,7 +63,7 @@
                                         [self copyExplorerUrl];
                                     }];
 
-    NSArray *buttons = [NSArray arrayWithObjects:rawDataButton, logButton, nil];
+    NSArray *buttons = [NSArray arrayWithObjects:rawDataButton, logButton, explorerButton, nil];
     [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
 
 }
