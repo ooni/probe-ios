@@ -70,8 +70,10 @@
                                  alertControllerWithTitle:title
                                  message:msg
                                  preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:cancelButton];
-    [alert addAction:okButton];
+    if (cancelButton != nil)
+        [alert addAction:cancelButton];
+    if (okButton != nil)
+        [alert addAction:okButton];
     dispatch_async(dispatch_get_main_queue(), ^{
         [view presentViewController:alert animated:YES completion:nil];
     });

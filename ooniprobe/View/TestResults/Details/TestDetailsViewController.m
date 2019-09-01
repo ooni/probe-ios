@@ -44,6 +44,7 @@
 }
 
 - (void)advancedScreens{
+    //TODO hide log button if log not on disk
     UIAlertAction* rawDataButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
@@ -63,7 +64,7 @@
                                         [self copyExplorerUrl];
                                     }];
 
-    NSArray *buttons = [NSArray arrayWithObjects:rawDataButton, logButton, nil];
+    NSArray *buttons = [NSArray arrayWithObjects:rawDataButton, logButton, explorerButton, nil];
     [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
 
 }
