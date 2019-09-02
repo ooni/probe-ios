@@ -58,6 +58,10 @@
     return [TestUtility fileExists:[self getReportFile]];
 }
 
+-(BOOL)hasLogFile{
+    return [TestUtility fileExists:[self getLogFile]];
+}
+
 -(NSString*)getReportFile{
     //LOGS: resultID_test_name.log
     return [NSString stringWithFormat:@"%@-%@.json",  self.Id, self.test_name];
