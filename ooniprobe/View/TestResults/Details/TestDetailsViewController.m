@@ -49,7 +49,13 @@
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-                                       [self rawData];
+                                       if (![[[ReachabilityManager sharedManager] getStatus] isEqualToString:@"no_internet"]
+                                           && isInExplorer)
+                                           [self rawData];
+                                       else
+                                           [MessageUtility
+                                            alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                                            message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
                                    }];
     UIAlertAction* logButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
