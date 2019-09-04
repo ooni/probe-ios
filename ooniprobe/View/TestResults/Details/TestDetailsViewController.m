@@ -55,7 +55,7 @@
                                        else
                                            [MessageUtility
                                             alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
-                                            message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
+                                            message:NSLocalizedString(@"Modal.Error.RawDataNoInternet", nil) inView:self];
                                    }];
     UIAlertAction* logButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
