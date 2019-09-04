@@ -198,6 +198,7 @@
 "Modal.Error.NotificationNotEnabled" = "Нужно разрешить уведомления. Пожалуйста, включите их в настройках телефона, а затем в приложении OONI Probe.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "Зайдите в настройки";
 "Modal.Error.CantCloseScreen" = "На время теста этот экран заблокирован.";
+"Modal.Error.RawDataNoInternet" = "You need to be connected to the internet to download the raw measurement data.";
 "Modal.ResultsNotUploaded.Title" = "Результаты не загружены";
 "Modal.ResultsNotUploaded.Paragraph" = "Некоторые из ваших результатов теста не были загружены на серверы OONI. Если вы хотите помочь проекту OONI с исследовательскими данными, пожалуйста, загрузите результаты на сервер.";
 "Modal.ResultsNotUploaded.Button.Upload" = "Загрузить";
@@ -251,9 +252,12 @@
 "Settings.Notifications.Enabled" = "Включено";
 "Settings.Notifications.OnTestCompletion" = "Известить о завершении теста";
 "Settings.Notifications.OnNews" = "Новостная лента";
-"Settings.AutomatedTesting.Label" = "Периодическое напоминание о тесте";
-"Settings.AutomatedTesting.Enabled" = "Включено";
-"Settings.AutomatedTesting.EnabledTests" = "Активные тесты";
+"Settings.AutomatedTesting.Label" = "Automated Testing";
+"Settings.AutomatedTesting.RunAutomatically" = "Run Tests Automatically";
+"Settings.AutomatedTesting.Reminder" = "Receive Test Reminder";
+"Settings.AutomatedTesting.EnabledTests" = "Enabled Tests";
+"Settings.AutomatedTesting.Reminder.Time" = "Время";
+"Settings.AutomatedTesting.RunAutomatically.TimesPerDay" = "Repetition per day";
 "Settings.AutomatedTesting.Categories.Label" = "Категории";
 "Settings.AutomatedTesting.Categories.Title" = "Категории сайтов для тестирования";
 "Settings.AutomatedTesting.Categories.Subtitle" = "Выбрано категорий: %@";
@@ -297,6 +301,8 @@
 "Settings.SendEmail.Label" = "Send email to support";
 "Settings.SendEmail.Error" = "Please send an email to bugs@openobservatory.org with information on the app and iOS version. Tap \"Copy to clipboard\" below to copy our email address.";
 "Notification.FinishedRunning" = "Завершено";
+"Notification.RunTestReminder" = "Friendly Reminder: Run OONI Probe tests";
+"Notification.RunAutomatically" = "Running OONI Probe tests (automated testing enabled)";
 "OONIBrowser.TryMirror" = "Попробуйте зеркало";
 "OONIBrowser.Loading" = "Загрузка...";
 "OONIBrowser.Error" = "Неизвестная ошибка. Пожалуйста, перезагрузите страницу.";

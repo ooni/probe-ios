@@ -198,6 +198,7 @@
 "Modal.Error.NotificationNotEnabled" = "التطبيق بحاجة الى تصريح التنبيهات. من فضلك قم بإعطاء التطبيق تصريح التنبيهات من خلال إعدادات هاتفك ثم اسمح بها في تطبيق OONI Probe.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "اذهب إلى الإعدادات";
 "Modal.Error.CantCloseScreen" = "هذه الواجهة مغلقة لحين الإنتهاء من الاختبار.";
+"Modal.Error.RawDataNoInternet" = "You need to be connected to the internet to download the raw measurement data.";
 "Modal.ResultsNotUploaded.Title" = "النتائج لم يتمّ رفعها";
 "Modal.ResultsNotUploaded.Paragraph" = "بعض نتائج الاختبارات الخاصة بك لم يتمّ رفعها إلى خوادم OONI. من فضلك قم برفعها اذا كنت ترغب بالمساهمة في تجميع بيانات OONI.";
 "Modal.ResultsNotUploaded.Button.Upload" = "رفع";
@@ -251,9 +252,12 @@
 "Settings.Notifications.Enabled" = "‮مُفعّل";
 "Settings.Notifications.OnTestCompletion" = "إجراء تنبيه عند إنتهاء الاختبار";
 "Settings.Notifications.OnNews" = "شريط الأخبار";
-"Settings.AutomatedTesting.Label" = "تذكير للقيام بالاختبارات بانتظام";
-"Settings.AutomatedTesting.Enabled" = "‮مُفعّل";
-"Settings.AutomatedTesting.EnabledTests" = "الاختبارات المفعلّة";
+"Settings.AutomatedTesting.Label" = "Automated Testing";
+"Settings.AutomatedTesting.RunAutomatically" = "Run Tests Automatically";
+"Settings.AutomatedTesting.Reminder" = "Receive Test Reminder";
+"Settings.AutomatedTesting.EnabledTests" = "Enabled Tests";
+"Settings.AutomatedTesting.Reminder.Time" = "الوقت";
+"Settings.AutomatedTesting.RunAutomatically.TimesPerDay" = "Repetition per day";
 "Settings.AutomatedTesting.Categories.Label" = "الأقسام";
 "Settings.AutomatedTesting.Categories.Title" = "أقسام المواقع للاختبار";
 "Settings.AutomatedTesting.Categories.Subtitle" = "%@ قسمًا مفعل";
@@ -297,6 +301,8 @@
 "Settings.SendEmail.Label" = "إرسال إيميل لفريق الدعم ";
 "Settings.SendEmail.Error" = "Please send an email to bugs@openobservatory.org with information on the app and iOS version. Tap \"Copy to clipboard\" below to copy our email address.";
 "Notification.FinishedRunning" = "انتهى التشغيل";
+"Notification.RunTestReminder" = "Friendly Reminder: Run OONI Probe tests";
+"Notification.RunAutomatically" = "Running OONI Probe tests (automated testing enabled)";
 "OONIBrowser.TryMirror" = "تجربة خادم بديل";
 "OONIBrowser.Loading" = "جاري التحميل...";
 "OONIBrowser.Error" = "حدث خطأ غير متوقع. من فضلك أعد تحميل الصفحة.";

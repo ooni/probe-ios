@@ -198,6 +198,7 @@
 "Modal.Error.NotificationNotEnabled" = "اجازه‌ی اعلان ضروری است. لطفا در تنظیمات تلفن خود و سپس در اپ OONIProbe آن را فعال کنید.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "به تنظیمات بروید";
 "Modal.Error.CantCloseScreen" = "این صفحه در زمان اجرای تست قفل است.";
+"Modal.Error.RawDataNoInternet" = "You need to be connected to the internet to download the raw measurement data.";
 "Modal.ResultsNotUploaded.Title" = "نتایج بارگذاری نشده‌اند";
 "Modal.ResultsNotUploaded.Paragraph" = "بعضی از نتایج تست‌ها به سرورهای OONI  بارگذاری نشده‌اند. اگر مایل به مشارکت در مجموع داده‌‌های OONI هستید، لطفا آن‌ها را بارگذاری کنید.";
 "Modal.ResultsNotUploaded.Button.Upload" = "آپلود";
@@ -251,9 +252,12 @@
 "Settings.Notifications.Enabled" = "فعال است";
 "Settings.Notifications.OnTestCompletion" = "پایان تست را اعلام کن";
 "Settings.Notifications.OnNews" = "خوراک خبری";
-"Settings.AutomatedTesting.Label" = "یادآوری تست منظم";
-"Settings.AutomatedTesting.Enabled" = "فعال است";
-"Settings.AutomatedTesting.EnabledTests" = "تست‌های فعال";
+"Settings.AutomatedTesting.Label" = "Automated Testing";
+"Settings.AutomatedTesting.RunAutomatically" = "Run Tests Automatically";
+"Settings.AutomatedTesting.Reminder" = "Receive Test Reminder";
+"Settings.AutomatedTesting.EnabledTests" = "Enabled Tests";
+"Settings.AutomatedTesting.Reminder.Time" = "زمان";
+"Settings.AutomatedTesting.RunAutomatically.TimesPerDay" = "Repetition per day";
 "Settings.AutomatedTesting.Categories.Label" = "دسته‌بندی‌ها";
 "Settings.AutomatedTesting.Categories.Title" = "دسته‌بندی‌های وبسایت برای تست";
 "Settings.AutomatedTesting.Categories.Subtitle" = "%@ دسته بندی فعال است";
@@ -297,6 +301,8 @@
 "Settings.SendEmail.Label" = "ارسال ایمیل به پشتیبانی";
 "Settings.SendEmail.Error" = "لطفا یک ایمیل به bugs@openobservatory.org همراه با اطلاعات برنامه و نسخه‌ی iOS ارسال کنید. بر روی «کپی در حافظه‌ی موقت» در پایین بزنید تا آدرس ایمیل کپی شود.";
 "Notification.FinishedRunning" = "اجرا به پایان رسید";
+"Notification.RunTestReminder" = "Friendly Reminder: Run OONI Probe tests";
+"Notification.RunAutomatically" = "Running OONI Probe tests (automated testing enabled)";
 "OONIBrowser.TryMirror" = "سرورهای آینه را امتحان کنید";
 "OONIBrowser.Loading" = "در حال بارگذاری...";
 "OONIBrowser.Error" = "یک خطا غیرمنتظره رخ داده است. لطفا صفحه را بارگذاری مجدد کنید.";

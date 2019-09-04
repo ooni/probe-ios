@@ -198,6 +198,7 @@
 "Modal.Error.NotificationNotEnabled" = "अधिसूचना की अनुमति आवश्यक है। कृपया उन्हें अपने फ़ोन की सेटिंग में सक्षम करें और फिर उन्हें अपने OONI जांच ऐप में सक्षम करें।";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "सेटिंग्स पर जाएं";
 "Modal.Error.CantCloseScreen" = "एक परीक्षण चल रहा है, जबकि यह स्क्रीन लॉक है।";
+"Modal.Error.RawDataNoInternet" = "You need to be connected to the internet to download the raw measurement data.";
 "Modal.ResultsNotUploaded.Title" = "परिणाम अपलोड नहीं किए गए";
 "Modal.ResultsNotUploaded.Paragraph" = "आपके कुछ परीक्षा परिणाम OONI सर्वर पर अपलोड नहीं किए गए हैं। यदि आप OONI के डेटासेट में योगदान करना चाहते हैं, तो कृपया उन्हें अपलोड करें।";
 "Modal.ResultsNotUploaded.Button.Upload" = "अपलोड करें";
@@ -251,9 +252,12 @@
 "Settings.Notifications.Enabled" = "सक्षम";
 "Settings.Notifications.OnTestCompletion" = "परीक्षण पूरा होने पर अधिसूचित करें";
 "Settings.Notifications.OnNews" = "समाचार फ़ीड";
-"Settings.AutomatedTesting.Label" = "नियमित परीक्षण अनुस्मारक";
-"Settings.AutomatedTesting.Enabled" = "सक्षम";
-"Settings.AutomatedTesting.EnabledTests" = "सक्षम परीक्षण";
+"Settings.AutomatedTesting.Label" = "Automated Testing";
+"Settings.AutomatedTesting.RunAutomatically" = "Run Tests Automatically";
+"Settings.AutomatedTesting.Reminder" = "Receive Test Reminder";
+"Settings.AutomatedTesting.EnabledTests" = "Enabled Tests";
+"Settings.AutomatedTesting.Reminder.Time" = "पहर";
+"Settings.AutomatedTesting.RunAutomatically.TimesPerDay" = "Repetition per day";
 "Settings.AutomatedTesting.Categories.Label" = "श्रेणियाँ";
 "Settings.AutomatedTesting.Categories.Title" = "परीक्षण करने के लिए वेबसाइट श्रेणियां";
 "Settings.AutomatedTesting.Categories.Subtitle" = "%@ श्रेणियां सक्षम";
@@ -297,6 +301,8 @@
 "Settings.SendEmail.Label" = "Send email to support";
 "Settings.SendEmail.Error" = "Please send an email to bugs@openobservatory.org with information on the app and iOS version. Tap \"Copy to clipboard\" below to copy our email address.";
 "Notification.FinishedRunning" = "समाप्त हो रहा है";
+"Notification.RunTestReminder" = "Friendly Reminder: Run OONI Probe tests";
+"Notification.RunAutomatically" = "Running OONI Probe tests (automated testing enabled)";
 "OONIBrowser.TryMirror" = "दर्पण की कोशिश करो";
 "OONIBrowser.Loading" = "लोड हो रहा है ...";
 "OONIBrowser.Error" = "एक अप्रत्याशित त्रुटि हुई। कृपया इस पृष्ठ को पुनः लोड करें।";

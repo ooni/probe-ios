@@ -198,6 +198,7 @@
 "Modal.Error.NotificationNotEnabled" = "需要通知权限。请在手机设置中启用，然后在 OONI Probe 应用中启用。";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "转到设置页面";
 "Modal.Error.CantCloseScreen" = "有测试运行时，此屏幕将被锁定。";
+"Modal.Error.RawDataNoInternet" = "You need to be connected to the internet to download the raw measurement data.";
 "Modal.ResultsNotUploaded.Title" = "结果未上传";
 "Modal.ResultsNotUploaded.Paragraph" = "您的部分测试结果尚未上传到 OONI 服务器。如果您想为 OONI 数据集做出贡献，请上传它们。";
 "Modal.ResultsNotUploaded.Button.Upload" = "上传";
@@ -251,9 +252,12 @@
 "Settings.Notifications.Enabled" = "启用";
 "Settings.Notifications.OnTestCompletion" = "测试完成后通知";
 "Settings.Notifications.OnNews" = "新闻订阅";
-"Settings.AutomatedTesting.Label" = "定期测试提醒";
-"Settings.AutomatedTesting.Enabled" = "启用";
-"Settings.AutomatedTesting.EnabledTests" = "启用的测试";
+"Settings.AutomatedTesting.Label" = "Automated Testing";
+"Settings.AutomatedTesting.RunAutomatically" = "Run Tests Automatically";
+"Settings.AutomatedTesting.Reminder" = "Receive Test Reminder";
+"Settings.AutomatedTesting.EnabledTests" = "Enabled Tests";
+"Settings.AutomatedTesting.Reminder.Time" = "时间";
+"Settings.AutomatedTesting.RunAutomatically.TimesPerDay" = "Repetition per day";
 "Settings.AutomatedTesting.Categories.Label" = "分类";
 "Settings.AutomatedTesting.Categories.Title" = "要测试的网站类别";
 "Settings.AutomatedTesting.Categories.Subtitle" = "已启用 %@ 个分类";
@@ -297,6 +301,8 @@
 "Settings.SendEmail.Label" = "发送邮件给支持团队";
 "Settings.SendEmail.Error" = "请将应用信息和iOS版本号通过邮件发送至bugs@openobservatory.org。轻触下方的“复制到剪贴板”来复制我们的邮箱地址。";
 "Notification.FinishedRunning" = "运行完成";
+"Notification.RunTestReminder" = "Friendly Reminder: Run OONI Probe tests";
+"Notification.RunAutomatically" = "Running OONI Probe tests (automated testing enabled)";
 "OONIBrowser.TryMirror" = "试试镜像站";
 "OONIBrowser.Loading" = "载入中....";
 "OONIBrowser.Error" = "发生意外错误。请刷新此页面。";

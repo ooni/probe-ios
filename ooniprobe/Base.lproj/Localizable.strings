@@ -198,6 +198,7 @@
 "Modal.Error.NotificationNotEnabled" = "Notification permissions are required. Please enable them in the Settings of your phone and then enable them in your OONI Probe app.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "Go to the Settings";
 "Modal.Error.CantCloseScreen" = "This screen is locked while a test is running.";
+"Modal.Error.RawDataNoInternet" = "You need to be connected to the internet to download the raw measurement data.";
 "Modal.ResultsNotUploaded.Title" = "Results not uploaded";
 "Modal.ResultsNotUploaded.Paragraph" = "Some of your test results have not been uploaded to OONI servers. If you'd like to contribute to OONI's dataset, please upload them.";
 "Modal.ResultsNotUploaded.Button.Upload" = "Upload";
@@ -251,9 +252,12 @@
 "Settings.Notifications.Enabled" = "Enabled";
 "Settings.Notifications.OnTestCompletion" = "Notify upon test completion";
 "Settings.Notifications.OnNews" = "News Feed";
-"Settings.AutomatedTesting.Label" = "Regular test reminder";
-"Settings.AutomatedTesting.Enabled" = "Enabled";
-"Settings.AutomatedTesting.EnabledTests" = "Enabled tests";
+"Settings.AutomatedTesting.Label" = "Automated Testing";
+"Settings.AutomatedTesting.RunAutomatically" = "Run Tests Automatically";
+"Settings.AutomatedTesting.Reminder" = "Receive Test Reminder";
+"Settings.AutomatedTesting.EnabledTests" = "Enabled Tests";
+"Settings.AutomatedTesting.Reminder.Time" = "Time";
+"Settings.AutomatedTesting.RunAutomatically.TimesPerDay" = "Repetition per day";
 "Settings.AutomatedTesting.Categories.Label" = "Categories";
 "Settings.AutomatedTesting.Categories.Title" = "Website categories to test";
 "Settings.AutomatedTesting.Categories.Subtitle" = "%@ categories enabled";
@@ -297,6 +301,8 @@
 "Settings.SendEmail.Label" = "Send email to support";
 "Settings.SendEmail.Error" = "Please send an email to bugs@openobservatory.org with information on the app and iOS version. Tap \"Copy to clipboard\" below to copy our email address.";
 "Notification.FinishedRunning" = "Finished running";
+"Notification.RunTestReminder" = "Friendly Reminder: Run OONI Probe tests";
+"Notification.RunAutomatically" = "Running OONI Probe tests (automated testing enabled)";
 "OONIBrowser.TryMirror" = "Try mirror";
 "OONIBrowser.Loading" = "Loading...";
 "OONIBrowser.Error" = "An unexpected error occurred. Please reload this page.";

@@ -198,6 +198,7 @@
 "Modal.Error.NotificationNotEnabled" = "Nevojitet të drejta njoftimesh. Ju lutem aktivizojini ato tek Rregullimit e telefonit tuaj dhe më pas aktivizojini tek tek aplikacioni juaj OONI Probe.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "Shko tek Rregullimet";
 "Modal.Error.CantCloseScreen" = "Ky ekran është i kyçur ndërkohë që po kryhet testimi.";
+"Modal.Error.RawDataNoInternet" = "You need to be connected to the internet to download the raw measurement data.";
 "Modal.ResultsNotUploaded.Title" = "Rezultatet nuk u ngarkuan";
 "Modal.ResultsNotUploaded.Paragraph" = "Disa nga testimet e tua nuk janë të ngarkuara tek serverat e OONI. Nëse dëshiron të kontribuosh tek baza e të dhënave te OONI, ju lutem ngarkojini ato.\n";
 "Modal.ResultsNotUploaded.Button.Upload" = "Ngarkoni";
@@ -251,9 +252,12 @@
 "Settings.Notifications.Enabled" = "Mundësuar";
 "Settings.Notifications.OnTestCompletion" = "Nofto pasi të kryet testimi";
 "Settings.Notifications.OnNews" = "Kryefaqja";
-"Settings.AutomatedTesting.Label" = "Kujto testime që kryen rregullisht";
-"Settings.AutomatedTesting.Enabled" = "Mundësuar";
-"Settings.AutomatedTesting.EnabledTests" = "Testime të aktivizuara";
+"Settings.AutomatedTesting.Label" = "Automated Testing";
+"Settings.AutomatedTesting.RunAutomatically" = "Run Tests Automatically";
+"Settings.AutomatedTesting.Reminder" = "Receive Test Reminder";
+"Settings.AutomatedTesting.EnabledTests" = "Enabled Tests";
+"Settings.AutomatedTesting.Reminder.Time" = "Koha";
+"Settings.AutomatedTesting.RunAutomatically.TimesPerDay" = "Repetition per day";
 "Settings.AutomatedTesting.Categories.Label" = "Kategoritë";
 "Settings.AutomatedTesting.Categories.Title" = "Kategori faqjesh për të testuar";
 "Settings.AutomatedTesting.Categories.Subtitle" = "%@ shtete të aktivizuara";
@@ -297,6 +301,8 @@
 "Settings.SendEmail.Label" = "Dërgo email tek ndihmuesi";
 "Settings.SendEmail.Error" = "Ju lutem dërgoni email tek bugs@openobservatory.org me informacionin e app dhe versionin e iOS. Zgjidh \"Kopjo në tabelën-mbledhëse\" më poshtë për të kopjuar adresën tonë të email.";
 "Notification.FinishedRunning" = "Mbaroi së ekzekutuari";
+"Notification.RunTestReminder" = "Friendly Reminder: Run OONI Probe tests";
+"Notification.RunAutomatically" = "Running OONI Probe tests (automated testing enabled)";
 "OONIBrowser.TryMirror" = "Përvo mirror";
 "OONIBrowser.Loading" = "Duke u ngarkuar";
 "OONIBrowser.Error" = "Ndodhi një gabim i papritur. Ju lutem ringarkoni këtë faqe.";
