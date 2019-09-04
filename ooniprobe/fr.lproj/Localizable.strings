@@ -198,6 +198,7 @@
 "Modal.Error.NotificationNotEnabled" = "Les autorisations de notification sont nécessaires. Veuillez les activer dans les paramètres de votre téléphone, puis les activer dans votre appli OONI Probe.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "Aller dans les Paramètres";
 "Modal.Error.CantCloseScreen" = "Cet écran est verrouillé pendant qu’un test est en cours.";
+"Modal.Error.RawDataNoInternet" = "You need to be connected to the internet to download the raw measurement data.";
 "Modal.ResultsNotUploaded.Title" = "Les résultats n’ont pas été téléversés";
 "Modal.ResultsNotUploaded.Paragraph" = "Certains de vos résultats de test n’ont pas été téléversés vers les serveurs de l’OONI. Si vous souhaitez contribuer à l’ensemble de données de l’OONI, veuillez les téléverser.";
 "Modal.ResultsNotUploaded.Button.Upload" = "Téléversement";
@@ -251,9 +252,12 @@
 "Settings.Notifications.Enabled" = "Activées";
 "Settings.Notifications.OnTestCompletion" = "Aviser à la fin du test";
 "Settings.Notifications.OnNews" = "Fil d’actualité";
-"Settings.AutomatedTesting.Label" = "Rappel périodique de test";
-"Settings.AutomatedTesting.Enabled" = "Activé";
-"Settings.AutomatedTesting.EnabledTests" = "Tests activés";
+"Settings.AutomatedTesting.Label" = "Automated Testing";
+"Settings.AutomatedTesting.RunAutomatically" = "Run Tests Automatically";
+"Settings.AutomatedTesting.Reminder" = "Receive Test Reminder";
+"Settings.AutomatedTesting.EnabledTests" = "Enabled Tests";
+"Settings.AutomatedTesting.Reminder.Time" = "Heure";
+"Settings.AutomatedTesting.RunAutomatically.TimesPerDay" = "Repetition per day";
 "Settings.AutomatedTesting.Categories.Label" = "Catégories";
 "Settings.AutomatedTesting.Categories.Title" = "Catégories de sites Web à tester";
 "Settings.AutomatedTesting.Categories.Subtitle" = "%@ catégories sont activées";
@@ -297,6 +301,8 @@
 "Settings.SendEmail.Label" = "Envoyer un courriel à l’assistance";
 "Settings.SendEmail.Error" = "Veuillez envoyer un courriel à bugs@openobservatory.org avec des renseignements sur la version de l’appli et d’iOS. Touchez « Copier dans le presse-papiers » ci-dessous pour copier votre adresse courriel.";
 "Notification.FinishedRunning" = "Le test est terminé.";
+"Notification.RunTestReminder" = "Friendly Reminder: Run OONI Probe tests";
+"Notification.RunAutomatically" = "Running OONI Probe tests (automated testing enabled)";
 "OONIBrowser.TryMirror" = "Essayer un miroir";
 "OONIBrowser.Loading" = "Chargement…";
 "OONIBrowser.Error" = "Une erreur inattendue s’est produite. Veuillez recharger cette page.";
