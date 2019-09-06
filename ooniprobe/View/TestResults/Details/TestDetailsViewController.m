@@ -50,13 +50,14 @@
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-                                       if ([[ReachabilityManager sharedManager] isInternetAccessible]
-                                           && isInExplorer)
-                                           [self rawData];
-                                       else
+                                       if (![[ReachabilityManager sharedManager] isInternetAccessible]
+                                           && isInExplorer){
                                            [MessageUtility
                                             alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
                                             message:NSLocalizedString(@"Modal.Error.RawDataNoInternet", nil) inView:self];
+                                           return;
+                                       }
+                                       [self rawData];
                                    }];
     UIAlertAction* logButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
