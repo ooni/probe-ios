@@ -49,7 +49,7 @@
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-                                       if (![[[ReachabilityManager sharedManager] getStatus] isEqualToString:@"no_internet"]
+                                       if ([[ReachabilityManager sharedManager] isInternetAccessible]
                                            && isInExplorer)
                                            [self rawData];
                                        else

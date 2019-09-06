@@ -52,4 +52,8 @@
     return networkType;
 }
 
+- (BOOL)isInternetAccessible{
+    return (![self getStatus] isEqualToString:@"no_internet"]);
+}
+
 @end

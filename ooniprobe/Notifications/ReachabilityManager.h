@@ -7,4 +7,5 @@
 @property (strong, nonatomic) Reachability *reachability;
 + (ReachabilityManager *)sharedManager;
 - (NSString*)getStatus;
+- (BOOL)isInternetAccessible;
 @end
