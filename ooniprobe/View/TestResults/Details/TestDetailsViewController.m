@@ -3,6 +3,7 @@
 #import "Tests.h"
 #import "TestRunningViewController.h"
 #import "UploadFooterViewController.h"
+#import "ReachabilityManager.h"
 
 @interface TestDetailsViewController ()
 
@@ -49,6 +50,13 @@
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
+                                       if ([[ReachabilityManager sharedManager] noInternetAccess]
+                                           && isInExplorer){
+                                           [MessageUtility
+                                            alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                                            message:NSLocalizedString(@"Modal.Error.RawDataNoInternet", nil) inView:self];
+                                           return;
+                                       }
                                        [self rawData];
                                    }];
     UIAlertAction* logButton = [UIAlertAction
