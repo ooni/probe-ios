@@ -64,9 +64,12 @@
                                         [self copyExplorerUrl];
                                     }];
 
-    NSArray *buttons = [NSArray arrayWithObjects:rawDataButton, logButton, explorerButton, nil];
-    [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
-
+    NSArray *buttons;
+    if ([self.measurement hasLogFile])
+        buttons = [NSArray arrayWithObjects:rawDataButton, logButton, explorerButton, nil];
+    else
+        buttons = [NSArray arrayWithObjects:rawDataButton, explorerButton, nil];
+        [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
 }
 
 - (IBAction)viewLogs{

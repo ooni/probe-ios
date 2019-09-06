@@ -30,6 +30,7 @@
 +(SRKResultSet*)notUploadedMeasurements;
 +(NSArray*)measurementsWithJson;
 -(BOOL)hasReportFile;
+-(BOOL)hasLogFile;
 -(NSString*)getReportFile;
 -(NSString*)getLogFile;
 -(TestKeys*)testKeysObj;
