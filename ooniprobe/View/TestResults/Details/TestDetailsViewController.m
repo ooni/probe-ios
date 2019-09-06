@@ -50,7 +50,7 @@
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-                                       if (![[ReachabilityManager sharedManager] isInternetAccessible]
+                                       if ([[ReachabilityManager sharedManager] isInternetAccessible]
                                            && isInExplorer){
                                            [MessageUtility
                                             alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
