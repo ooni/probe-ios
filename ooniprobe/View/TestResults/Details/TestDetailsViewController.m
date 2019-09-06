@@ -3,6 +3,7 @@
 #import "Tests.h"
 #import "TestRunningViewController.h"
 #import "UploadFooterViewController.h"
+#import "ReachabilityManager.h"
 
 @interface TestDetailsViewController ()
 

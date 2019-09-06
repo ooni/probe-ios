@@ -53,7 +53,7 @@
 }
 
 - (BOOL)isInternetAccessible{
-    return (![self getStatus] isEqualToString:@"no_internet"]);
+    return (![[self getStatus] isEqualToString:@"no_internet"]);
 }
 
 @end
