@@ -45,7 +45,6 @@
 }
 
 - (void)advancedScreens{
-    //TODO hide log button if log not on disk
     UIAlertAction* rawDataButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
@@ -72,12 +71,13 @@
                                         [self copyExplorerUrl];
                                     }];
 
-    NSArray *buttons;
+    NSMutableArray *buttons = [NSMutableArray new];
+    [buttons addObject:rawDataButton];
     if ([self.measurement hasLogFile])
-        buttons = [NSArray arrayWithObjects:rawDataButton, logButton, explorerButton, nil];
-    else
-        buttons = [NSArray arrayWithObjects:rawDataButton, explorerButton, nil];
-        [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
+        [buttons addObject:logButton];
+    if (self.measurement.report_id != NULL && ![self.measurement.report_id isEqualToString:@""])
+        [buttons addObject:explorerButton];
+    [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
 }
 
 - (IBAction)viewLogs{
