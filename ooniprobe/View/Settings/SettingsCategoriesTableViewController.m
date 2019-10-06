@@ -1,5 +1,6 @@
 #import "SettingsCategoriesTableViewController.h"
 #import "UIDevice-DeviceInfo.h"
+#import "React/RCTRootView.h"
 
 @interface SettingsCategoriesTableViewController ()
 
@@ -46,7 +47,8 @@
 {
     NSString *current = [categories objectAtIndex:indexPath.row];
     if ([current isEqualToString:@"about_ooni"]){
-        [self performSegueWithIdentifier:current sender:self];
+        //[self performSegueWithIdentifier:current sender:self];
+        [self showReactUI];
     }
     else if ([current isEqualToString:@"send_email"]){
         [self sendEmail];
@@ -54,6 +56,23 @@
     else
         [self performSegueWithIdentifier:@"toSettings" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)showReactUI{
+      NSURL *jsCodeLocation = [NSURL
+                               URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
+      RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+                                                   moduleName: @"HelloWorld"
+                                                   initialProperties:
+    @{
+       @"mk_version": @"1",
+       @"app_version": @"2"
+     }
+                                                       launchOptions:nil
+                               ];
+      UIViewController *vc = [[UIViewController alloc] init];
+      vc.view = rootView;
+      [self presentViewController:vc animated:YES completion:nil];
 }
 
 -(void)sendEmail{
