@@ -59,9 +59,14 @@
 }
 
 -(void)showReactUI{
-      NSURL *jsCodeLocation = [NSURL
-                               URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
-    //URLWithString:@"http://192.168.21.250:8081/index.bundle?platform=ios"];
+    NSURL *jsCodeLocation;
+    #ifdef DEBUG
+    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+    #else
+    jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+    #endif
+      //NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
+    //URLWithString:@"http://192.168.21.250:8081/index.bundle?platform=ios"]
       RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                    moduleName: @"HelloWorld"
                                                    initialProperties:
