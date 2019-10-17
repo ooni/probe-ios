@@ -1,6 +1,8 @@
 #import "SettingsCategoriesTableViewController.h"
 #import "UIDevice-DeviceInfo.h"
 #import "React/RCTRootView.h"
+#import <mkall/MKVersion.h>
+#import "VersionUtility.h"
 
 @interface SettingsCategoriesTableViewController ()
 
@@ -72,11 +74,11 @@
      https://stackoverflow.com/questions/46944197/rctbridge-in-react-native
      */
       RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                   moduleName: @"HelloWorld"
+                                                   moduleName: @"About"
                                                    initialProperties:
     @{
-       @"mk_version": @"1",
-       @"app_version": @"2"
+       @"ooniprobeVersion": [VersionUtility get_software_version],
+       @"mkVersion": [MKVersion versionMK]
      }
                                                        launchOptions:nil
                                ];
