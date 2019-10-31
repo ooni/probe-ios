@@ -6,8 +6,8 @@ env:
   - NODE_VERSION="12.13"
 
 before_install:
+  - brew install yarn
   - nvm install $NODE_VERSION
-  - npm install yarn
   - git clone https://github.com/ooni/probe-react-native.git
   - cd probe-react-native && yarn add react-native && cd ..
   - bundle install
