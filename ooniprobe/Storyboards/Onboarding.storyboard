@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,12 +49,14 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is OONI Probe?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E83-HA-9VG">
                                 <rect key="frame" x="20" y="270" width="374" height="41"/>
+                                <accessibility key="accessibilityConfiguration" identifier="whatIsOoniTitle"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-gy-NKd">
                                 <rect key="frame" x="20" y="319" width="374" height="122.66666666666669"/>
+                                <accessibility key="accessibilityConfiguration" identifier="whatIsOoniText"/>
                                 <string key="text">OONI Probe is free and open source software that enables you to examine internet censorship in your network.
 
 The data that you can collect through this app can serve as evidence of censorship events.</string>
@@ -70,9 +70,10 @@ The data that you can collect through this app can serve as evidence of censorsh
                                     <constraint firstAttribute="width" secondItem="wjo-4r-PfJ" secondAttribute="height" multiplier="23:18" constant="79.222222222222229" id="EWS-fc-RQ1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-DR-K1M">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="got_it" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-DR-K1M">
                                 <rect key="frame" x="102" y="603" width="210" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="gotitButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Dlr-16-jND"/>
                                     <constraint firstAttribute="width" constant="210" id="wkZ-1v-osy"/>
@@ -137,12 +138,14 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Things to know" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-dw-gFn">
                                 <rect key="frame" x="20" y="286" width="374" height="41"/>
+                                <accessibility key="accessibilityConfiguration" identifier="headsUpTitle"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-qb-Qml">
                                 <rect key="frame" x="20" y="335" width="374" height="163.33333333333337"/>
+                                <accessibility key="accessibilityConfiguration" identifier="headsUpText"/>
                                 <string key="text">• OONI data is openly published and will include your network information.
 
 • Anyone monitoring your internet activity (e.g governments or ISP) will know that you are running OONI Probe.
@@ -161,6 +164,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-lT-nrn">
                                 <rect key="frame" x="102" y="603" width="210" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="iunderstandButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="dA4-tK-4Le"/>
                                     <constraint firstAttribute="height" constant="56" id="qht-PF-S9u"/>
@@ -175,6 +179,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bZ-td-099">
                                 <rect key="frame" x="102" y="667" width="210" height="32"/>
+                                <accessibility key="accessibilityConfiguration" identifier="learn_more"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="2zZ-0U-6Aa"/>
                                     <constraint firstAttribute="width" constant="210" id="9Ah-7k-1bZ"/>
@@ -244,12 +249,14 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ldx-vN-fF3">
                                 <rect key="frame" x="20" y="274" width="374" height="41"/>
+                                <accessibility key="accessibilityConfiguration" identifier="defaultSettingsTitle"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hx8-bq-2PZ" customClass="RHMarkdownLabel">
                                 <rect key="frame" x="20" y="324" width="374" height="245"/>
+                                <accessibility key="accessibilityConfiguration" identifier="defaultSettingsText"/>
                                 <string key="text">We will collect and publish:
 
 • Country code (e.g. IT for Italy)
@@ -273,6 +280,7 @@ We do our best not to publish your IP address or any other potentially personall
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB1-sc-28S">
                                 <rect key="frame" x="102" y="603" width="210" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="letsGoButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="hKr-9j-wZI"/>
                                     <constraint firstAttribute="width" constant="210" id="iTV-dJ-yZs"/>
@@ -287,6 +295,7 @@ We do our best not to publish your IP address or any other potentially personall
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIj-ks-Nks">
                                 <rect key="frame" x="102" y="667" width="210" height="32"/>
+                                <accessibility key="accessibilityConfiguration" identifier="change_default"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="Tfy-hp-9qb"/>
                                     <constraint firstAttribute="height" constant="32" id="hOd-vn-osz"/>
@@ -362,6 +371,7 @@ We do our best not to publish your IP address or any other potentially personall
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09P-qe-CG5">
                                                 <rect key="frame" x="0.0" y="200" width="191" height="50"/>
                                                 <color key="backgroundColor" red="0.18431372549019609" green="0.61960784313725492" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="popQuizPositive"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="o7a-y6-QvK"/>
                                                 </constraints>
@@ -374,6 +384,7 @@ We do our best not to publish your IP address or any other potentially personall
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBN-An-L4V">
                                                 <rect key="frame" x="191" y="200" width="191" height="50"/>
                                                 <color key="backgroundColor" red="0.75294117650000003" green="0.019607843140000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="popQuizNegative"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="sBQ-nE-vpZ"/>
                                                 </constraints>
@@ -501,6 +512,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m98-P6-qTI">
                                                 <rect key="frame" x="0.0" y="200" width="191" height="50"/>
                                                 <color key="backgroundColor" red="0.21176470589999999" green="0.25098039220000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="popQuizGoBack"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="lpC-cF-tKa"/>
                                                 </constraints>
@@ -513,6 +525,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0N-wd-hM7">
                                                 <rect key="frame" x="191" y="200" width="191" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="popQuizContinue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="1oD-of-NWg"/>
                                                 </constraints>
