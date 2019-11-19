@@ -50,13 +50,14 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtR-Rs-i3G">
                                                     <rect key="frame" x="19" y="63.999999999999993" width="219" height="15.666666666666664"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.TestDesc"/>
                                                     <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClV-fJ-FW5">
                                                     <rect key="frame" x="19" y="23" width="175" height="33"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="testTitle"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.TestName"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="T3P-BZ-gG6"/>
                                                         <constraint firstAttribute="height" constant="33" id="uys-YB-qpw"/>
@@ -78,7 +79,7 @@
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HL8-tu-cDv" customClass="RunButton">
                                                     <rect key="frame" x="236" y="134" width="77" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="runButton"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.Run"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="DR2-mH-i65"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="WOX-iB-foz"/>
@@ -191,6 +192,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WHM-pS-oxG">
                                 <rect key="frame" x="16" y="101" width="343" height="32"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Dashboard.Running.TestName"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="8pX-MB-859"/>
                                 </constraints>
@@ -209,6 +211,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute 13 seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6n-n1-GOS">
                                 <rect key="frame" x="16" y="619" width="343" height="34"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Dashboard.Running.ETA"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="HfL-R7-pJt"/>
                                 </constraints>
@@ -289,7 +292,7 @@
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hp-nu-K1s" customClass="RunButton">
                                         <rect key="frame" x="144" y="173" width="87" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="runTestButton"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.Run"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="TZn-V4-0so"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="e9b-LL-PKn"/>
@@ -312,6 +315,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4V-eN-VhB">
                                         <rect key="frame" x="8" y="74.666666666666657" width="359" height="35"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.TestName"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="iyd-a4-rfv"/>
                                         </constraints>
@@ -322,6 +326,7 @@
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-ZK-PPc" customClass="ConfigureButton">
                                         <rect key="frame" x="142.66666666666666" y="221" width="90" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.ChooseWebsites"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="9n6-Ha-6oV"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="cPA-GZ-Ubm"/>
@@ -364,12 +369,14 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 seconds" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iq7-fC-T83">
                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="15.666666666666666"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.Estimated"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 days ago" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i39-kd-vO1">
                                                         <rect key="frame" x="0.0" y="15.666666666666686" width="72" height="15.666666666666664"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.LastRun"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
