@@ -5,5 +5,7 @@ before_install:
   - bundle install
   - pod repo update
   - pod install
+  - git clone https://github.com/ooni/probe-mobile-appium.git
 script:
   - set -o pipefail && xcodebuild clean build test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator -scheme ooniprobe -destination 'name=iPhone Xs Max'  | xcpretty
+  - cd probe-mobile-appium && gradle iosRegression
