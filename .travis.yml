@@ -8,7 +8,7 @@ env:
 before_install:
   - brew install gradle
   - nvm install $NODE_VERSION
-  - npm install appium-doctor
+  - npm install appium-doctor -g
   - bundle install
   - pod repo update
   - pod install
