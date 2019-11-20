@@ -9,6 +9,12 @@ before_install:
   - brew install gradle
   - nvm install $NODE_VERSION
   - npm install appium-doctor -g
+  - npm install appium-doctor -g
+  - npm i -g opencv4nodejs
+  - brew tap wix/brew
+  - brew install applesimutils
+  - brew tap facebook/fb
+  - brew install idb-companion
   - bundle install
   - pod repo update
   - pod install
