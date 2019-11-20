@@ -8,6 +8,7 @@ env:
 before_install:
   - brew install gradle
   - nvm install $NODE_VERSION
+  - nvm install appium-doctor
   - bundle install
   - pod repo update
   - pod install
@@ -15,5 +16,6 @@ before_install:
 
 script:
   - set -o pipefail && xcodebuild clean build test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator -scheme ooniprobe -destination 'name=iPhone 11 Pro Max'  | xcpretty
+  - appium-doctor
   - cd probe-mobile-appium && gradle iosRegression
 
