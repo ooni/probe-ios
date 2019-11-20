@@ -16,4 +16,3 @@ before_install:
 script:
   - set -o pipefail && xcodebuild clean build test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator -scheme ooniprobe -destination 'name=iPhone Xs Max'  | xcpretty
   - cd probe-mobile-appium && gradle iosRegression
-
