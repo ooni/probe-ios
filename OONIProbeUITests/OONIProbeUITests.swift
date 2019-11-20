@@ -71,13 +71,13 @@ class OONIProbeUITests: XCTestCase {
         oKey.tap()
         oKey.tap()
         
-        let nKey = app.keys["n"]
+        let nKey = app.keyboards.keys["n"]
         nKey.tap()
         
-        let iKey = app.keys["i"]
+        let iKey = app.keyboards.keys["i"]
         iKey.tap()
         
-        let key = app.keys["."]
+        let key = app.keyboards.keys["."]
         key.tap()
         iKey.tap()
         oKey.tap()
