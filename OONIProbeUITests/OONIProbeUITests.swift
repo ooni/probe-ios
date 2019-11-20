@@ -67,20 +67,7 @@ class OONIProbeUITests: XCTestCase {
         app.buttons["ConfigureButton"].tap()
         tablesQuery.cells.children(matching: .textField).element.tap()
         
-        let oKey = app.keyboards.keys["o"]
-        oKey.tap()
-        oKey.tap()
-        
-        let nKey = app.keyboards.keys["n"]
-        nKey.tap()
-        
-        let iKey = app.keyboards.keys["i"]
-        iKey.tap()
-        
-        let key = app.keyboards.keys["."]
-        key.tap()
-        iKey.tap()
-        oKey.tap()
+        app.typeText("ooni.io")
 
         tablesQuery.children(matching: .other).element.children(matching: .button).element.tap()
         tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
