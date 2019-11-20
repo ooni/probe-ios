@@ -67,7 +67,7 @@ class OONIProbeUITests: XCTestCase {
         app.buttons["ConfigureButton"].tap()
         tablesQuery.cells.children(matching: .textField).element.tap()
         
-        let oKey = app.keys["o"]
+        let oKey = app.keyboards.keys["o"]
         oKey.tap()
         oKey.tap()
         
