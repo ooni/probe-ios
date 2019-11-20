@@ -45,7 +45,7 @@ class OONIProbeUITests: XCTestCase {
         snapshot("02TestResults")
         
         let thepiratebayStaticText = tablesQuery.staticTexts["http://thepiratebay.org"]
-        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.image, identifier:"websites")/*[[".cells.containing(.staticText, identifier:\"1 blocked\")",".cells.containing(.staticText, identifier:\"Websites\")",".cells.containing(.staticText, identifier:\"12\/12\/18, 1:23 AM\")",".cells.containing(.image, identifier:\"websites\")",".cells.containing(.staticText, identifier:\"39 tested\")"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
+        tablesQuery.cells.containing(.staticText, identifier:"Websites").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         thepiratebayStaticText.tap()
         snapshot("03WebsiteBlocked")
         
@@ -54,7 +54,7 @@ class OONIProbeUITests: XCTestCase {
         app.navigationBars.buttons.element(boundBy: 0).tap()
 
         resultsButton.tap()
-        tablesQuery.cells.containing(.image, identifier:"performance").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
+        tablesQuery.cells.containing(.staticText, identifier:"Performance").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         tablesQuery.cells.element(boundBy: 1).tap()
         snapshot("04SpeedTest")
 
