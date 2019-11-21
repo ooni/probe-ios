@@ -19,6 +19,9 @@ before_install:
   - pod install
   - echo $JAVA_HOME
   - echo $PATH
+  - which java
+  - java -version
+  - npm -v
 
 before_script:
   - npm install appium -g
