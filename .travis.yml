@@ -7,29 +7,25 @@ env:
 
 before_install:
   - brew install gradle
-#  - nvm install $NODE_VERSION
-#  - npm install -g appium
-#  - npm install appium-doctor -g
-#  - npm i -g opencv4nodejs
+  - nvm install $NODE_VERSION
   - brew tap wix/brew
   - brew install applesimutils
 #  - brew tap facebook/fb
 #  - brew install idb-companion
+#  - pip3.6 install fb-idb
   - bundle install
   - pod repo update
   - pod install
-#  - git clone https://github.com/ooni/probe-mobile-appium.git
 
 before_script:
-  - nvm install $NODE_VERSION
   - npm install -g appium
   - npm install -g appium-doctor
   - git clone https://github.com/ooni/probe-mobile-appium.git
   - appium-doctor --ios
-  - appium --log-level info > $HOME/appium_log.txt &
+#  - appium --log-level info > $HOME/appium_log.txt &
 
 script:
   - set -o pipefail && xcodebuild clean build test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator -scheme ooniprobe -destination 'name=iPhone 11 Pro Max'  | xcpretty
   - cd probe-mobile-appium && gradle iosRegression
-  - cat $HOME/appium_log.txt
+#  - cat $HOME/appium_log.txt
   - cat /Users/travis/build/ooni/probe-ios/probe-mobile-appium/build/reports/tests/iosRegression/classes/probe.mobile.appium.runners.LandingPageRunner.html
