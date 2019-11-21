@@ -14,9 +14,6 @@ before_install:
   - nvm install $NODE_VERSION
   - brew tap wix/brew
   - brew install applesimutils
-#  - brew tap facebook/fb
-#  - brew install idb-companion
-#  - pip3.6 install fb-idb
   - bundle install
   - pod repo update
   - pod install
