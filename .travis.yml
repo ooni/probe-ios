@@ -1,9 +1,13 @@
 language: objective-c
 osx_image: xcode11.1
 podfile: Podfile
+jdk: oraclejdk8
 
 env:
-  - NODE_VERSION="12.13"
+  global:
+    - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+    - NODE_VERSION="12.13"
+    - PATH=${JAVA_HOME}/bin:$PATH
 
 before_install:
   - brew install gradle
