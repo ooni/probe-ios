@@ -8,6 +8,7 @@ env:
 before_install:
   - brew install gradle
   - nvm install $NODE_VERSION
+  - npm install -g appium
   - npm install appium-doctor -g
   - npm i -g opencv4nodejs
   - brew tap wix/brew
