@@ -2,26 +2,24 @@ language: objective-c
 osx_image: xcode11.1
 podfile: Podfile
 jdk: oraclejdk8
+node_js: 
+  - '10'
 
 env:
   global:
 #    - JAVA_HOME=/usr/lib/jvm/java-8-oracle
-    - NODE_VERSION="12.13"
+    - NODE_VERSION="10.15"
 #    - PATH=${JAVA_HOME}/bin:$PATH
 
 before_install:
   - brew install gradle
-  - nvm install $NODE_VERSION
+#  - nvm install $NODE_VERSION
+  - node -v
   - brew tap wix/brew
   - brew install applesimutils
   - bundle install
   - pod repo update
   - pod install
-  - echo $JAVA_HOME
-  - echo $PATH
-  - which java
-  - java -version
-  - npm -v
 
 before_script:
   - npm install appium -g
