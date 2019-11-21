@@ -19,7 +19,7 @@ before_install:
 
 before_script:
   - npm install appium -g
-#  - npm install -g appium-doctor
+  - npm install -g appium-doctor
   - git clone https://github.com/ooni/probe-mobile-appium.git
   - appium-doctor --ios
 #  - appium --log-level info > $HOME/appium_log.txt &
