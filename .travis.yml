@@ -23,10 +23,13 @@ before_install:
 before_script:
   - nvm install $NODE_VERSION
   - npm install -g appium
+  - npm install -g appium-doctor
   - git clone https://github.com/ooni/probe-mobile-appium.git
+  - appium  -v
+  - appium-doctor --ios
 
 script:
   - set -o pipefail && xcodebuild clean build test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator -scheme ooniprobe -destination 'name=iPhone 11 Pro Max'  | xcpretty
-#  - appium-doctor --ios
+  - appium &
   - cd probe-mobile-appium && gradle iosRegression
   - cat /Users/travis/build/ooni/probe-ios/probe-mobile-appium/build/reports/tests/iosRegression/classes/probe.mobile.appium.runners.LandingPageRunner.html
