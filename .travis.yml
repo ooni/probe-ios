@@ -1,6 +1,9 @@
 language: objective-c
 osx_image: xcode11.1
 podfile: Podfile
+jdk: oraclejdk8
+node_js: 
+  - '10'
 
 env:
   global:
@@ -10,7 +13,7 @@ env:
 
 before_install:
   - brew install gradle
-  - nvm install $NODE_VERSION
+#  - nvm install $NODE_VERSION
   - node -v
   - brew tap wix/brew
   - brew install applesimutils
