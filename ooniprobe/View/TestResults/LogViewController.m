@@ -20,7 +20,7 @@
         NSString *fileName = [self.measurement getLogFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
-            [self.textView setText:content];
+            [self.webView loadHTMLString:[self convertToHtml:content] baseURL:nil];
         }
         else {
             //Show Log not found alert, go back on OK.
@@ -43,7 +43,7 @@
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
             NSString *prettyPrintedJson = [self prettyPrintedJsonfromUTF8String:content];
-            [self.textView setText:prettyPrintedJson];
+            [self.webView loadHTMLString:prettyPrintedJson baseURL:nil];
         }
         else {
             //Download content from web
@@ -56,7 +56,7 @@
                                     dispatch_async(dispatch_get_main_queue(), ^{
                                     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                                         NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:measurementJson];
-                                        [self.textView setText:prettyPrintedJson];
+                                        [self.webView loadHTMLString:prettyPrintedJson baseURL:nil];
                                     });
                                 } onError:^(NSError *error) {
                                     [self onError:error];
@@ -66,10 +66,10 @@
             }];
         }
     }
-    [self.textView setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    self.textView.scrollEnabled = false;
-    [self.textView layoutIfNeeded];
-    self.textView.scrollEnabled = true;
+    //[self.textView setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    //self.textView.scrollEnabled = false;
+    //[self.textView layoutIfNeeded];
+    //self.textView.scrollEnabled = true;
 }
 
 /*
@@ -122,8 +122,12 @@
 
 -(IBAction)copy_clipboard:(id)sender{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = self.textView.text;
+    //pasteboard.string = self.textView.text;
     [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
+}
+
+-(NSString*)convertToHtml:(NSString*)string{
+    return [string stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
 }
 
 @end
