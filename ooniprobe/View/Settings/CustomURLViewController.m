@@ -20,7 +20,7 @@
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
     self.urlsList = [[NSMutableArray alloc] init];
-    [self.urlsList addObject:@"https://"];
+    [self.urlsList addObject:@"http://"];
     
     UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
@@ -37,7 +37,7 @@
 }
 
 -(IBAction)addRow:(id)sender{
-    [self.urlsList addObject:@"https://"];
+    [self.urlsList addObject:@"http://"];
     [self.tableView reloadData];
 }
 
