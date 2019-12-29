@@ -23,7 +23,7 @@
         NSString *fileName = [self.measurement getLogFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
-            text = content;
+            self.text = content;
             [self.webView loadData:[content dataUsingEncoding:NSUTF8StringEncoding]
                           MIMEType:@"text/plain"
                   textEncodingName:@"UTF-8"
@@ -49,7 +49,7 @@
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
             NSString *prettyPrintedJson = [self prettyPrintedJsonfromUTF8String:content];
-            text = prettyPrintedJson;
+            self.text = prettyPrintedJson;
             [self.webView loadData:[prettyPrintedJson
                                     dataUsingEncoding:NSUTF8StringEncoding]
                           MIMEType:@"text/plain"
@@ -68,7 +68,7 @@
                                     dispatch_async(dispatch_get_main_queue(), ^{
                                     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                                         NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:measurementJson];
-                                        text = prettyPrintedJson;
+                                        self.text = prettyPrintedJson;
                                         [self.webView loadData:[prettyPrintedJson
                                                                 dataUsingEncoding:NSUTF8StringEncoding]
                                                       MIMEType:@"text/plain"
@@ -131,7 +131,7 @@
 
 -(IBAction)copy_clipboard:(id)sender{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = text;
+    pasteboard.string = self.text;
     [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
 }
 
