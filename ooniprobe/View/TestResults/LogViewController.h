@@ -2,7 +2,7 @@
 #import "Measurement.h"
 #import <WebKit/WebKit.h>
 
-@interface LogViewController : UIViewController
+@interface LogViewController : UIViewController <WKNavigationDelegate>
 
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) Measurement *measurement;

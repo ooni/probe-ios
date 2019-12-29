@@ -11,6 +11,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //TODO add spinning wheel
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    });
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                             initWithTitle:NSLocalizedString(@"TestResults.Details.CopyToClipboard", nil)
                                             style:UIBarButtonItemStylePlain
@@ -20,7 +24,7 @@
         NSString *fileName = [self.measurement getLogFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
-            [self.webView loadHTMLString:[self convertToHtml:content] baseURL:nil];
+            [self.webView loadData:[content dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" characterEncodingName:@"UTF-8" baseURL:[NSURL new]];
         }
         else {
             //Show Log not found alert, go back on OK.
@@ -43,7 +47,7 @@
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
             NSString *prettyPrintedJson = [self prettyPrintedJsonfromUTF8String:content];
-            [self.webView loadHTMLString:prettyPrintedJson baseURL:nil];
+            [self.webView loadData:[prettyPrintedJson dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" characterEncodingName:@"UTF-8" baseURL:[NSURL new]];
         }
         else {
             //Download content from web
@@ -52,11 +56,12 @@
             });
             [self.measurement getExplorerUrl:^(NSString *measurement_url){
                 [TestUtility downloadJson:measurement_url
+                 //TODO load measurement_url into WebView from the internet
                                 onSuccess:^(NSDictionary *measurementJson) {
                                     dispatch_async(dispatch_get_main_queue(), ^{
                                     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                                         NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:measurementJson];
-                                        [self.webView loadHTMLString:prettyPrintedJson baseURL:nil];
+                                        [self.webView loadData:[prettyPrintedJson dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" characterEncodingName:@"UTF-8" baseURL:[NSURL new]];
                                     });
                                 } onError:^(NSError *error) {
                                     [self onError:error];
@@ -126,8 +131,12 @@
     [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
 }
 
--(NSString*)convertToHtml:(NSString*)string{
-    return [string stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
+
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    dispatch_async(dispatch_get_main_queue(), ^{
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    });
 }
 
 @end
