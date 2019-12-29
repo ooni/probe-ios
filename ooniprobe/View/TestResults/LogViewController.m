@@ -11,7 +11,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //TODO add spinning wheel
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     });
@@ -24,6 +23,7 @@
         NSString *fileName = [self.measurement getLogFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
+            text = content;
             [self.webView loadData:[content dataUsingEncoding:NSUTF8StringEncoding]
                           MIMEType:@"text/plain"
                   textEncodingName:@"UTF-8"
@@ -49,6 +49,7 @@
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
             NSString *prettyPrintedJson = [self prettyPrintedJsonfromUTF8String:content];
+            text = prettyPrintedJson;
             [self.webView loadData:[prettyPrintedJson
                                     dataUsingEncoding:NSUTF8StringEncoding]
                           MIMEType:@"text/plain"
@@ -61,14 +62,13 @@
                 [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             });
             [self.measurement getExplorerUrl:^(NSString *measurement_url){
-                
-                //TODO load measurement_url into WebView from the internet
-
+                //Download measurement data locally and displaying into the WebView
                 [TestUtility downloadJson:measurement_url
                                 onSuccess:^(NSDictionary *measurementJson) {
                                     dispatch_async(dispatch_get_main_queue(), ^{
                                     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                                         NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:measurementJson];
+                                        text = prettyPrintedJson;
                                         [self.webView loadData:[prettyPrintedJson
                                                                 dataUsingEncoding:NSUTF8StringEncoding]
                                                       MIMEType:@"text/plain"
@@ -83,16 +83,8 @@
             }];
         }
     }
-    //[self.textView setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    //self.textView.scrollEnabled = false;
-    //[self.textView layoutIfNeeded];
-    //self.textView.scrollEnabled = true;
 }
 
-/*
- Probably we can remove prettyPrintedJsonfromString and
- prettyPrintedJsonfromObject them since we'll rewrite the json viewer in react
- */
 /**
  This function gets a string and if it's a valid JSON makes it pretty printed
  */
@@ -139,22 +131,22 @@
 
 -(IBAction)copy_clipboard:(id)sender{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    //pasteboard.string = self.textView.text;
+    pasteboard.string = text;
     [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
 }
 
 
-
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     dispatch_async(dispatch_get_main_queue(), ^{
-    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     });
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     dispatch_async(dispatch_get_main_queue(), ^{
-    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     });
+    [self onError:error];
 }
 
 @end

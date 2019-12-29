@@ -5,6 +5,7 @@
 @interface LogViewController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) Measurement *measurement;
 @property (nonatomic, strong) IBOutlet UIWebView *webView;
 
