@@ -24,11 +24,13 @@
         NSString *fileName = [self.measurement getLogFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
-            [self.webView loadData:[content dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" characterEncodingName:@"UTF-8" baseURL:[NSURL new]];
+            [self.webView loadData:[content dataUsingEncoding:NSUTF8StringEncoding]
+                          MIMEType:@"text/plain"
+                  textEncodingName:@"UTF-8"
+                           baseURL:[NSURL new]];
         }
         else {
             //Show Log not found alert, go back on OK.
-            //This will be useful for when we'll implement the auto log deletion
             UIAlertAction* okButton = [UIAlertAction
                                        actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                        style:UIAlertActionStyleDefault
@@ -47,7 +49,11 @@
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
             NSString *prettyPrintedJson = [self prettyPrintedJsonfromUTF8String:content];
-            [self.webView loadData:[prettyPrintedJson dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" characterEncodingName:@"UTF-8" baseURL:[NSURL new]];
+            [self.webView loadData:[prettyPrintedJson
+                                    dataUsingEncoding:NSUTF8StringEncoding]
+                          MIMEType:@"text/plain"
+                  textEncodingName:@"UTF-8"
+                           baseURL:[NSURL new]];
         }
         else {
             //Download content from web
@@ -55,13 +61,19 @@
                 [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             });
             [self.measurement getExplorerUrl:^(NSString *measurement_url){
+                
+                //TODO load measurement_url into WebView from the internet
+
                 [TestUtility downloadJson:measurement_url
-                 //TODO load measurement_url into WebView from the internet
                                 onSuccess:^(NSDictionary *measurementJson) {
                                     dispatch_async(dispatch_get_main_queue(), ^{
                                     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                                         NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:measurementJson];
-                                        [self.webView loadData:[prettyPrintedJson dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" characterEncodingName:@"UTF-8" baseURL:[NSURL new]];
+                                        [self.webView loadData:[prettyPrintedJson
+                                                                dataUsingEncoding:NSUTF8StringEncoding]
+                                                      MIMEType:@"text/plain"
+                                              textEncodingName:@"UTF-8"
+                                                       baseURL:[NSURL new]];
                                     });
                                 } onError:^(NSError *error) {
                                     [self onError:error];
@@ -133,7 +145,13 @@
 
 
 
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    dispatch_async(dispatch_get_main_queue(), ^{
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    });
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     dispatch_async(dispatch_get_main_queue(), ^{
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     });

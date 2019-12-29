@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment version="4352" identifier="iOS"/>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -558,23 +558,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6x-Zb-wYC">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VxV-zI-xhX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <dataDetectorTypes key="dataDetectorTypes"/>
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                                <connections>
+                                    <outlet property="delegate" destination="zYs-kh-5bZ" id="sgy-ka-mSl"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VxV-zI-xhX" secondAttribute="trailing" id="9Q3-Xo-cJ0"/>
+                            <constraint firstItem="VxV-zI-xhX" firstAttribute="leading" secondItem="gEt-06-csL" secondAttribute="leading" id="I15-bi-g9u"/>
+                            <constraint firstItem="VxV-zI-xhX" firstAttribute="top" secondItem="HWN-uv-rZK" secondAttribute="bottom" id="P0j-bF-MQx"/>
+                            <constraint firstItem="ebA-EZ-xo9" firstAttribute="top" secondItem="VxV-zI-xhX" secondAttribute="bottom" id="dFN-eD-oZo"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="webView" destination="M6x-Zb-wYC" id="I2i-7C-Fsn"/>
+                        <outlet property="webView" destination="VxV-zI-xhX" id="d4x-nG-OS9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5o-Yh-Tx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
