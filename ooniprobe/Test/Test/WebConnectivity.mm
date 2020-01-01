@@ -49,10 +49,11 @@
     }
     else if (self.settings.inputs != nil)
         return 30 + (int)[self.settings.inputs count] * 5;
-    else {
+    else if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime_enabled"] boolValue]){
         NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
         return 30 + [max_runtime intValue];
     }
+    return 0;
 }
 
 -(void)setUrls:(NSArray*)inputs{
@@ -61,8 +62,11 @@
 }
 
 -(void)setDefaultMaxRuntime {
-    NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
-    self.settings.options.max_runtime = max_runtime;
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime_enabled"] boolValue]){
+        NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
+        self.settings.options.max_runtime = max_runtime;
+    }
+    self.settings.options.max_runtime = 0;
 }
 
 @end
