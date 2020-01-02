@@ -82,6 +82,9 @@
             hud.bezelView.color = [UIColor lightGrayColor];
             hud.backgroundView.style = UIBlurEffectStyleRegular;
         });
+        NSUInteger total = [notUploaded count];
+        NSUInteger error = 0;
+        NSUInteger uploaded = 0;
         if ([notUploaded count] == 0) return;
         NSUInteger i = idx;
         float progress = 0.0f;
@@ -98,11 +101,14 @@
                                         [NSString stringWithFormat:@"%ld/%ld", i+1, ([notUploaded count] - idx)]);
             });
             if (![self uploadMeasurement:currentMeasurement reporterTask:task]){
-                dispatch_async(dispatch_get_main_queue(), ^{
+                error++;
+                /*
+                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self showRetryPopup:notUploaded startAt:i];
                 });
-                break;
+                break;*/
             }
+            else uploaded++;
             progress += measurementValue;
             i++;
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -114,7 +120,11 @@
         });
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
-        [MessageUtility showToast:NSLocalizedString(@"Toast.ResultsUploaded", nil) inView:self.navigationController.view];
+        if (error == 0)
+            [MessageUtility showToast:NSLocalizedString(@"Toast.ResultsUploaded", nil) inView:self.navigationController.view];
+        else
+            // show  total, error, uploaded. and retry popup.
+            [MessageUtility showToast:NSLocalizedString(@"Toast.ResultsUploaded", nil) inView:self.navigationController.view];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
     });
 }
