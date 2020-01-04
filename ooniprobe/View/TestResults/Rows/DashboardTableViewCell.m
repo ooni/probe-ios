@@ -45,6 +45,7 @@
     
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
+    //TODO convert seconds to minutes and hours when needed
     //if getRuntime = 0 show one hour
     int runTime = [testSuite getRuntime];
     if (runTime == 0)

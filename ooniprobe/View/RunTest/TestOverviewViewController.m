@@ -46,6 +46,7 @@
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.estimatedLabel setText:NSLocalizedString(@"Dashboard.Overview.Estimated", nil)];
+        //TODO convert seconds to minutes and hours when needed
         //if getRuntime = 0 show one hour
         int runTime = [testSuite getRuntime];
         if (runTime == 0)
