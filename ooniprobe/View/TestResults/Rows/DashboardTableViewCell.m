@@ -45,8 +45,11 @@
     
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
-    //TODO if getRuntime = 0 use another string
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", [testSuite getRuntime]]);
+    //if getRuntime = 0 show one hour
+    int runTime = [testSuite getRuntime];
+    if (runTime == 0)
+        runTime = 3600;
+    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", runTime]);
     [self.estimateTime setText:time];
     [self.bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
     
