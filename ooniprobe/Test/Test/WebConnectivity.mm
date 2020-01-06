@@ -18,6 +18,7 @@
         [TestUtility downloadUrls:^(NSArray *urls) {
             [self setUrls:urls];
             [self setDefaultMaxRuntime];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRuntime" object:nil];
             [super runTest];
         } onError:^(NSError *error) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
