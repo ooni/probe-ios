@@ -51,9 +51,11 @@
 }
 
 -(void)setRuntime{
-    totalRuntime = [testSuite getRuntime];
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
-    [self.timeLabel setText:time];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        totalRuntime = [testSuite getRuntime];
+        NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
+        [self.timeLabel setText:time];
+    });
 }
 
 -(void)addAnimation{
