@@ -68,7 +68,8 @@
         NSNumber *max_runtime = [[NSUserDefaults standardUserDefaults] objectForKey:@"max_runtime"];
         self.settings.options.max_runtime = max_runtime;
     }
-    self.settings.options.max_runtime = MAX_RUNTIME_DISABLED;
+    else
+        self.settings.options.max_runtime = MAX_RUNTIME_DISABLED;
 }
 
 @end
