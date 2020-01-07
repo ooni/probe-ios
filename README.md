@@ -17,7 +17,7 @@ censorship and other forms of network interference.
 
 </div>
 
-[Click here to report a bug](https://github.com/ooni/probe-ios/issues/new)
+[Click here to report a bug](https://github.com/ooni/probe/issues/new)
 
 Other supported platforms: [Android](https://github.com/ooni/probe-android), [Desktop](https://github.com/ooni/probe-desktop), [CLI](https://github.com/ooni/probe-cli)
 
