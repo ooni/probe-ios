@@ -92,4 +92,13 @@
     return nil;
 }
 
++ (NSString*)getReadableRuntime:(int)runTime{
+    //TODO convert seconds to minutes and hours when needed
+    //if getRuntime is MAX_RUNTIME_DISABLED show one hour
+    if (runTime == [MAX_RUNTIME_DISABLED intValue])
+        runTime = SECONDS_IN_HOUR;
+    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", runTime]);
+    return time;
+}
+
 @end

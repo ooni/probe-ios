@@ -45,13 +45,7 @@
     
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
-    //TODO convert seconds to minutes and hours when needed
-    //if getRuntime = 0 show one hour
-    int runTime = [testSuite getRuntime];
-    if (runTime == [MAX_RUNTIME_DISABLED intValue])
-        runTime = SECONDS_IN_HOUR;
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", runTime]);
-    [self.estimateTime setText:time];
+    [self.estimateTime setText:[LocalizationUtility getReadableRuntime:[testSuite getRuntime]]];
     [self.bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
     
     [self.testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]]];

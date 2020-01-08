@@ -46,13 +46,8 @@
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.estimatedLabel setText:NSLocalizedString(@"Dashboard.Overview.Estimated", nil)];
-        //TODO convert seconds to minutes and hours when needed
-        //if getRuntime = 0 show one hour
-        int runTime = [testSuite getRuntime];
-        if (runTime == [MAX_RUNTIME_DISABLED intValue])
-            runTime = SECONDS_IN_HOUR;
-        NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", runTime]);
-        [self.estimatedDetailLabel setText:[NSString stringWithFormat:@"%@ %@", testSuite.dataUsage, time]];
+        [self.estimatedDetailLabel setText:[NSString stringWithFormat:@"%@ %@", testSuite.dataUsage,
+                                            [LocalizationUtility getReadableRuntime:[testSuite getRuntime]]]];
         [self.lastrunLabel setText:NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)];
         
         NSString *ago;

@@ -6,7 +6,6 @@
 #import "SettingsTableViewController.h"
 #import "ReachabilityManager.h"
 #import "RHMarkdownLabel.h"
-#import "DateTools.h"
 #import "Suite.h"
 
 @interface TestOverviewViewController : UIViewController {
