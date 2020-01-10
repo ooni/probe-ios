@@ -51,7 +51,7 @@
  */
 -(int)getRuntime{
     if (self.settings.options.max_runtime != nil &&
-        ![self.settings.options.max_runtime isEqual: MAX_RUNTIME_DISABLED]){
+        self.settings.options.max_runtime > MAX_RUNTIME_DISABLED){
         return 30 + [self.settings.options.max_runtime intValue];
     }
     else if (self.settings.inputs != nil)

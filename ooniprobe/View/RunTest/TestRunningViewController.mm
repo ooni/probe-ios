@@ -54,7 +54,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         totalRuntime = [testSuite getRuntime];
         //We don't want to show -1 seconds before downloading the URL list
-        if (totalRuntime == [MAX_RUNTIME_DISABLED intValue])
+        if (totalRuntime <= [MAX_RUNTIME_DISABLED intValue])
             return;
         NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
         [self.timeLabel setText:time];
