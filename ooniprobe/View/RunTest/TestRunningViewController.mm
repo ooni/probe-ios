@@ -22,6 +22,7 @@
     [self.etaLabel setText:NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setRuntime) name:@"updateRuntime" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError) name:@"showError" object:nil];
@@ -50,9 +51,14 @@
 }
 
 -(void)setRuntime{
-    totalRuntime = [testSuite getRuntime];
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
-    [self.timeLabel setText:time];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        totalRuntime = [testSuite getRuntime];
+        //We don't want to show -1 seconds before downloading the URL list
+        if (totalRuntime <= [MAX_RUNTIME_DISABLED intValue])
+            return;
+        NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
+        [self.timeLabel setText:time];
+    });
 }
 
 -(void)addAnimation{

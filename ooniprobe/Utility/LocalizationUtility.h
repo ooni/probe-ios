@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "DateTools.h"
 
 @interface LocalizationUtility : NSObject
 
@@ -11,4 +12,5 @@
 + (NSString*)getSingularPluralTemplate:(long)value :(NSString*)locString;
 + (NSString*)getSingularPlural:(long)value :(NSString*)locString;
 + (NSString*)getUrlForTest:(NSString*)testName;
++ (NSString*)getReadableRuntime:(int)runTime;
 @end
