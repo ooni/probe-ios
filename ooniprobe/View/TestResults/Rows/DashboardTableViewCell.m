@@ -45,8 +45,7 @@
     
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
-    NSString *time = NSLocalizedFormatString(@"Dashboard.Card.Seconds", [NSString stringWithFormat:@"%d", [testSuite getRuntime]]);
-    [self.estimateTime setText:time];
+    [self.estimateTime setText:[LocalizationUtility getReadableRuntime:[testSuite getRuntime]]];
     [self.bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
     
     [self.testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]]];

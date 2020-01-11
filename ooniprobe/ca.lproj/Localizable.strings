@@ -14,7 +14,7 @@
 "Onboarding.PopQuiz.Wrong.Button.Back" = "Enrere";
 "Onboarding.PopQuiz.Wrong.Button.Continue" = "Continua";
 "Onboarding.PopQuiz.1.Title" = "Pregunta 1/2";
-"Onboarding.PopQuiz.1.Question" = "Si algú està supervisant meva activitat a Internet, veurà que estic executant OONI Probe.";
+"Onboarding.PopQuiz.1.Question" = "Si algú està supervisant la meva activitat a Internet, veurà que estic executant OONI Probe.";
 "Onboarding.PopQuiz.1.Wrong.Title" = "Avís";
 "Onboarding.PopQuiz.1.Wrong.Paragraph" = "L'OONI Probe no és una eina de privadesa. Qualsevol que supervisi la vostra activitat a Internet veurà quin programari esteu executant.";
 "Onboarding.PopQuiz.2.Title" = "Pregunta 2/2";
@@ -123,7 +123,7 @@
 "TestResults.Details.Failed.TryAgain" = "Torna-ho a provar";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accessible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ és accessible.";
-"TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablement bloquejat";
+"TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablement blocat";
 "TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ està probablement blocat degut a %@.\n\nNota: es poden produir falsos positius. Més informació [aquí](https://ooni.io/nettest/web-connectivity/).";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "Elusió de censura";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "**Manipulació DNS**";
@@ -197,7 +197,7 @@
 "Modal.Error.CantDownloadURLs" = "No s'ha pogut baixar la llista d'URL. Torneu-ho a provar.";
 "Modal.Error.NotificationNotEnabled" = "Calen permisos de notificació. Activeu-los a la Configuració del telèfon i després activeu-los a l'aplicació OONI Probe.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "Aneu a Configuració";
-"Modal.Error.CantCloseScreen" = "Aquesta pantalla està bloquejada mentre s'està executant una prova.";
+"Modal.Error.CantCloseScreen" = "Aquesta pantalla està blocada mentre s'està executant una prova.";
 "Modal.Error.RawDataNoInternet" = "Heu d'estar connectats a Internet per baixar les dades de mesura sense processar.";
 "Modal.ResultsNotUploaded.Title" = "Els resultats no s'han pujat";
 "Modal.ResultsNotUploaded.Paragraph" = "Alguns dels resultats de les vostres proves no s'han pujat als servidors d'OONI. Si desitgeu contribuir al conjunt de dades d'OONI, pugueu-los.";
@@ -220,7 +220,7 @@
 "Modal.ManualUpload.Enable" = "Habilitar";
 "Modal.ManualUpload.Disable" = "No, gràcies";
 "Modal.UploadFailed.Title" = "Ha fallat la pujada";
-"Modal.UploadFailed.Paragraph" = "Voleu tornar-ho a provar o cancel·lar?";
+"Modal.UploadFailed.Paragraph" = "We have failed to upload %@/%@ measurements. The failure log has been shared with OONI developers.";
 "Modal.Error.LogNotFound" = "No s'ha trobat el fitxer de registre";
 "Modal.Error.NoValidUrls" = "No s'ha trobat URL vàlides";
 "Modal.Error.JsonEmpty" = "JSON buit";
@@ -265,6 +265,7 @@
 "Settings.Advanced.SendCrashReports" = "Envia informes d'errors";
 "Settings.Advanced.DebugLogs" = "Registres de depuració";
 "Settings.Advanced.UseDomainFronting" = "Utilitza sempre el camuflatge del domini";
+"Settings.Websites.MaxRuntimeEnabled" = "Limit test duration";
 "Settings.Websites.MaxRuntime" = "Durada de la prova";
 "Settings.Websites.Categories.Label" = "Categories de lloc web per provar";
 "Settings.Websites.Categories.Description" = "%@ categories activades";

@@ -11,7 +11,7 @@
     TestKeys *testKeys = [self.measurement testKeysObj];
     [self.downloadTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Download", nil)];
     [self.downloadValueLabel setText:[testKeys getDownload]];
-    [self.downloadUnitLabel setText:[testKeys getUploadUnit]];
+    [self.downloadUnitLabel setText:[testKeys getDownloadUnit]];
 
     [self.uploadTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Upload", nil)];
     [self.uploadValueLabel setText:[testKeys getUpload]];

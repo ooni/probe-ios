@@ -45,7 +45,7 @@ class OONIProbeUITests: XCTestCase {
         snapshot("02TestResults")
         
         let thepiratebayStaticText = tablesQuery.staticTexts["http://thepiratebay.org"]
-        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.image, identifier:"websites")/*[[".cells.containing(.staticText, identifier:\"1 blocked\")",".cells.containing(.staticText, identifier:\"Websites\")",".cells.containing(.staticText, identifier:\"12\/12\/18, 1:23 AM\")",".cells.containing(.image, identifier:\"websites\")",".cells.containing(.staticText, identifier:\"39 tested\")"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
+        tablesQuery.cells.containing(.staticText, identifier:"Websites").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         thepiratebayStaticText.tap()
         snapshot("03WebsiteBlocked")
         
@@ -54,7 +54,7 @@ class OONIProbeUITests: XCTestCase {
         app.navigationBars.buttons.element(boundBy: 0).tap()
 
         resultsButton.tap()
-        tablesQuery.cells.containing(.image, identifier:"performance").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
+        tablesQuery.cells.containing(.staticText, identifier:"Performance").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         tablesQuery.cells.element(boundBy: 1).tap()
         snapshot("04SpeedTest")
 
@@ -67,20 +67,7 @@ class OONIProbeUITests: XCTestCase {
         app.buttons["ConfigureButton"].tap()
         tablesQuery.cells.children(matching: .textField).element.tap()
         
-        let oKey = app/*@START_MENU_TOKEN@*/.keys["o"]/*[[".keyboards.keys[\"o\"]",".keys[\"o\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        oKey.tap()
-        oKey.tap()
-        
-        let nKey = app/*@START_MENU_TOKEN@*/.keys["n"]/*[[".keyboards.keys[\"n\"]",".keys[\"n\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        nKey.tap()
-        
-        let iKey = app/*@START_MENU_TOKEN@*/.keys["i"]/*[[".keyboards.keys[\"i\"]",".keys[\"i\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        iKey.tap()
-        
-        let key = app/*@START_MENU_TOKEN@*/.keys["."]/*[[".keyboards.keys[\".\"]",".keys[\".\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        key.tap()
-        iKey.tap()
-        oKey.tap()
+        app.typeText("ooni.io")
 
         tablesQuery.children(matching: .other).element.children(matching: .button).element.tap()
         tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
