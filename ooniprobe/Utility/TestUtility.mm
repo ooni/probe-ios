@@ -189,7 +189,6 @@
 + (void)deleteUploadedJsons{
     [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
         [TestUtility removeFile:[measurement getReportFile]];
-        [TestUtility removeFile:[measurement getLogFile]];
     }];
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:delete_json_key];
     [[NSUserDefaults standardUserDefaults] synchronize];
