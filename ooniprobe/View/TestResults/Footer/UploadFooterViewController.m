@@ -123,6 +123,9 @@
         else
             // show  number of errors in retry popup.
             [MessageUtility showToast:NSLocalizedString(@"Toast.ResultsUploaded", nil) inView:self.navigationController.view];
+        //Use [notUploaded count]
+        NSString *paragraph = NSLocalizedFormatString(@"Modal.UploadFailed.Paragraph", [NSString stringWithFormat:@"%d", errors]);
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
     });
 }
