@@ -49,7 +49,7 @@
 "Dashboard.Middleboxes.Card.Description" = "Zbuloni middleboxes në rrjetin tuaj";
 "Dashboard.Middleboxes.Overview.Paragraph" = "Ofruesit e Shërbimit të Internetit shpeshë përdorin aplikime rrjeti (middleboxes) për qëllime të ndryshme rrjeti (siç janë fshehjet). Shpeshë herë këto middleboxes përdoren të implementuar censurim në internet dhe/ose përgjime.\n\nZbuloni middleboxes në rrjetin tuaj duke përdorur [HTTP Invalid Request Line](https://ooni.io/nettest/http-invalid-request-line/) nga OONI dhe [HTTP Header Field Manipulation](https://ooni.io/nettest/http-header-field-manipulation/) tests.\n\nRezultatet tuaja do të publikohen në [OONI Explorer](https://explorer.ooni.io/world/) dhe [OONI API](https://api.ooni.io/).\n";
 "Dashboard.InstantMessaging.Card.Description" = "Testoni bllokimin e aplikacioneve të mesazheve";
-"Dashboard.InstantMessaging.Overview.Paragraph" = "Check whether [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) and [Telegram](https://ooni.io/nettest/telegram/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.io/world/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.InstantMessaging.Overview.Paragraph" = "Kontrollo nëse [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) dhe [Telegram](https://ooni.io/nettest/telegram/) janë të bllokuara.\n\nRezultatet do të publikohen në [OONI Explorer](https://explorer.ooni.io/world/) dhe [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbps";
 "TestResults.Mbps" = "Mbps";
 "TestResults.Kbps" = "Kbps";
@@ -116,7 +116,7 @@
 "TestResults.Details.Methodology" = "Metodologjia";
 "TestResults.Details.ViewLog" = "Shiko detajet";
 "TestResults.Details.RawData" = "Të dhëna";
-"TestResults.Details.CopyExplorerURL" = "Copy Explorer URL";
+"TestResults.Details.CopyExplorerURL" = "Kopjo URL e Eksploruesit";
 "TestResults.Details.CopyToClipboard" = "Kopjo";
 "TestResults.Details.Failed.Title" = "Dështoi";
 "TestResults.Details.Failed.Paragraph" = "Ju mund të provoni të bëni sërish këtë test ";
@@ -198,7 +198,7 @@
 "Modal.Error.NotificationNotEnabled" = "Nevojitet të drejta njoftimesh. Ju lutem aktivizojini ato tek Rregullimit e telefonit tuaj dhe më pas aktivizojini tek tek aplikacioni juaj OONI Probe.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "Shko tek Rregullimet";
 "Modal.Error.CantCloseScreen" = "Ky ekran është i kyçur ndërkohë që po kryhet testimi.";
-"Modal.Error.RawDataNoInternet" = "You need to be connected to the internet to download the raw measurement data.";
+"Modal.Error.RawDataNoInternet" = "Ju duhet të jeni të lidhur me internet për të shkarkuar vlerat e matjeve.";
 "Modal.ResultsNotUploaded.Title" = "Rezultatet nuk u ngarkuan";
 "Modal.ResultsNotUploaded.Paragraph" = "Disa nga testimet e tua nuk janë të ngarkuara tek serverat e OONI. Nëse dëshiron të kontribuosh tek baza e të dhënave te OONI, ju lutem ngarkojini ato.\n";
 "Modal.ResultsNotUploaded.Button.Upload" = "Ngarkoni";
@@ -220,12 +220,12 @@
 "Modal.ManualUpload.Enable" = "Aktivizoje";
 "Modal.ManualUpload.Disable" = "Jo, faleminderit";
 "Modal.UploadFailed.Title" = "Ngarkimi dështoi";
-"Modal.UploadFailed.Paragraph" = "Doni të provoni sërish apo anulloni?";
-"Modal.Error.LogNotFound" = "Log file not found";
-"Modal.Error.NoValidUrls" = "No valid URLs found";
-"Modal.Error.JsonEmpty" = "JSON empty";
+"Modal.UploadFailed.Paragraph" = "We have failed to upload %@/%@ measurements. The failure log has been shared with OONI developers.";
+"Modal.Error.LogNotFound" = "Skedari i Log -eve nuk u gjet";
+"Modal.Error.NoValidUrls" = "Nuk u gjet URL e vlefshme";
+"Modal.Error.JsonEmpty" = "JSON është bosh";
 "Toast.CopiedToClipboard" = "U kopjua në tabelën-mbledhëse";
-"Toast.WillBeAvailable" = "Will be available within 24h";
+"Toast.WillBeAvailable" = "Do të jete e disponueshme brënda 24h";
 "Snackbar.ResultsNotUploaded.Text" = "Nuk është ngarkuar";
 "Snackbar.ResultsNotUploaded.Upload" = "Ngarkoni";
 "Snackbar.ResultsSomeNotUploaded.Text" = "Disa nuk janë ngarkuar";
@@ -265,6 +265,7 @@
 "Settings.Advanced.SendCrashReports" = "Dërgo raportime dështimi";
 "Settings.Advanced.DebugLogs" = "Kontrollo regjistrat për gabime";
 "Settings.Advanced.UseDomainFronting" = "Gjithmonë përdor front domain";
+"Settings.Websites.MaxRuntimeEnabled" = "Limit test duration";
 "Settings.Websites.MaxRuntime" = "Kohëzgjatja e testimit";
 "Settings.Websites.Categories.Label" = "Kategori faqjesh për të testuar";
 "Settings.Websites.Categories.Description" = "%@ shtete të aktivizuara";

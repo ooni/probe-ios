@@ -114,7 +114,9 @@
     NSMutableArray *settings = [[NSMutableArray alloc] init];
     if ([testName isEqualToString:@"websites"]) {
         if (includeAll) [settings addObject:@"website_categories"];
-        if (includeAll) [settings addObject:@"max_runtime"];
+        if (includeAll) [settings addObject:@"max_runtime_enabled"];
+        if (includeAll && [self getSettingWithName:@"max_runtime_enabled"])
+            [settings addObject:@"max_runtime"];
     }
     else if ([testName isEqualToString:@"instant_messaging"]) {
         [settings addObject:@"test_whatsapp"];
