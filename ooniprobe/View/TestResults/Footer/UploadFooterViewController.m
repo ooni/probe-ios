@@ -145,8 +145,8 @@
                                    [self uploadResult];
                                }];
     NSString *paragraph = NSLocalizedFormatString(@"Modal.UploadFailed.Paragraph",
-                                                  [NSString stringWithFormat:@"%ld", (long)numUploads],
-                                                  [NSString stringWithFormat:@"%ld", (long)errors]);
+                                                  [NSString stringWithFormat:@"%ld", (long)errors],
+                                                  [NSString stringWithFormat:@"%ld", (long)numUploads]);
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.UploadFailed.Title", nil)
                            message:paragraph
                           okButton:okButton
