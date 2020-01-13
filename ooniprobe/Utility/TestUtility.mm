@@ -197,7 +197,7 @@
 
 + (void)removeLogAfterAWeek:(Measurement*)measurement{
     NSTimeInterval timeSinceTest = [[NSDate date] timeIntervalSinceDate:measurement.start_time];
-    if (timeSinceLastCall > delete_json_delay){
+    if (timeSinceTest > delete_json_delay){
         [TestUtility removeFile:[measurement getLogFile]];
     }
 }
