@@ -189,10 +189,17 @@
 + (void)deleteUploadedJsons{
     [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
         [TestUtility removeFile:[measurement getReportFile]];
-        [TestUtility removeFile:[measurement getLogFile]];
+        [TestUtility removeLogAfterAWeek:measurement];
     }];
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:delete_json_key];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)removeLogAfterAWeek:(Measurement*)measurement{
+    NSTimeInterval timeSinceTest = [[NSDate date] timeIntervalSinceDate:measurement.start_time];
+    if (timeSinceLastCall > delete_json_delay){
+        [TestUtility removeFile:[measurement getLogFile]];
+    }
 }
 
 + (BOOL)canCallDeleteJson{
