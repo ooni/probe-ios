@@ -65,12 +65,8 @@
     }
 }
 
--(void)uploadMeasurements:(NSArray *)notUploaded {
-    [self uploadMeasurements:notUploaded startAt:0];
-}
-
 //SRKResultSet is a subclass of NSArray
--(void)uploadMeasurements:(NSArray *)notUploaded startAt:(NSUInteger)idx{
+-(void)uploadMeasurements:(NSArray *)notUploaded{
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
@@ -82,11 +78,11 @@
             hud.bezelView.color = [UIColor lightGrayColor];
             hud.backgroundView.style = UIBlurEffectStyleRegular;
         });
+        NSUInteger errors = 0;
         if ([notUploaded count] == 0) return;
-        NSUInteger i = idx;
+        NSUInteger i = 0;
         float progress = 0.0f;
-        //The progress should consider the array size - the idx of first element to actually be uploaded
-        float measurementValue = 1.0/([notUploaded count] - i);
+        float measurementValue = 1.0/([notUploaded count]);
         MKReporterTask *task = [[MKReporterTask alloc]
           initWithSoftwareName:SOFTWARE_NAME
           softwareVersion:[VersionUtility get_software_version]];
@@ -95,13 +91,10 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD HUDForView:self.navigationController.view].label.text =
                 NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading",
-                                        [NSString stringWithFormat:@"%ld/%ld", i+1, ([notUploaded count] - idx)]);
+                                        [NSString stringWithFormat:@"%ld/%ld", i+1, [notUploaded count]]);
             });
             if (![self uploadMeasurement:currentMeasurement reporterTask:task]){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self showRetryPopup:notUploaded startAt:i];
-                });
-                break;
+                errors++;
             }
             progress += measurementValue;
             i++;
@@ -114,7 +107,14 @@
         });
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
-        [MessageUtility showToast:NSLocalizedString(@"Toast.ResultsUploaded", nil) inView:self.navigationController.view];
+        if (errors == 0)
+            [MessageUtility showToast:NSLocalizedString(@"Toast.ResultsUploaded", nil) inView:self.navigationController.view];
+        else {
+            // show  number of errors in retry popup.
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showRetryPopup:[notUploaded count] withErrors:errors];
+            });
+        }
         [[NSNotificationCenter defaultCenter] postNotificationName:@"uploadFinished" object:nil];
     });
 }
@@ -136,15 +136,19 @@
     return [results good];
 }
 
--(void)showRetryPopup:(NSArray *)notUploaded startAt:(NSUInteger)start{
+-(void)showRetryPopup:(NSInteger)numUploads withErrors:(NSInteger)errors{
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.Retry", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action) {
-                                   [self uploadMeasurements:notUploaded startAt:start];
+                                    //Reload DB query and restart upload
+                                   [self uploadResult];
                                }];
+    NSString *paragraph = NSLocalizedFormatString(@"Modal.UploadFailed.Paragraph",
+                                                  [NSString stringWithFormat:@"%ld", (long)errors],
+                                                  [NSString stringWithFormat:@"%ld", (long)numUploads]);
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.UploadFailed.Title", nil)
-                           message:NSLocalizedString(@"Modal.UploadFailed.Paragraph", nil)
+                           message:paragraph
                           okButton:okButton
                             inView:self];
 
