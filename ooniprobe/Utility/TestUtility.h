@@ -16,6 +16,7 @@
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
 + (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover;
 + (void)deleteUploadedJsons;
++ (void)removeLogAfterAWeek:(Measurement*)measurement;
 + (BOOL)canCallDeleteJson;
 + (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
     onError:(void (^)(NSError*))errorcb;
