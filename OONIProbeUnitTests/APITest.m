@@ -1,8 +1,8 @@
 #import <XCTest/XCTest.h>
 #import "Measurement.h"
 #import "TestUtility.h"
-#define EXISTING_REPORT_ID @"20190113T202156Z_AS327931_CgoC3KbgM6zKajvIIt1AxxybJ1HbjwwWJjsJnlxy9rpcGY54VH"
-#define EXISTING_REPORT_ID_2 @"20190702T000027Z_AS5413_6FT78sjp5qnESDVWlFlm6bfxxwOEqR08ySAwigTF6C8PFCbMsM"
+#define EXISTING_REPORT_ID @"20200113T232417Z_AS577_JZoBZCfObPmU7bxkEKUImuWl40VEb00Q8ZYcifQj3MgchgjOVd"
+#define EXISTING_REPORT_ID_2 @"20200113T235535Z_AS39891_ZsM2hkmJREbadpVf0dKARRLZFsrnX2LYI9PGi7HlyXFBwRyQGP"
 #define NONEXISTING_REPORT_ID @"EMPTY"
 #define NON_PARSABLE_URL @"https://\t"
 #define JSON_URL @"https://api.ooni.io/api/v1/measurement/temp-id-263478291"
