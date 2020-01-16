@@ -20,7 +20,7 @@
     if ([self.type isEqualToString:@"log"]){
         NSString *fileName = [self.measurement getLogFile];
         self.text = [TestUtility getUTF8FileContent:fileName];
-        if (content != nil) {
+        if (self.text != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.textView setText:self.text];
             });
