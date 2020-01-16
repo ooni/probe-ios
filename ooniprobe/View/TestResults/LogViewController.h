@@ -5,6 +5,7 @@
 
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) Measurement *measurement;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) IBOutlet UITextView *textView;
 
 @end

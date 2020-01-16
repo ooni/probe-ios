@@ -16,11 +16,14 @@
                                             style:UIBarButtonItemStylePlain
                                             target:self
                                             action:@selector(copy_clipboard:)];
+    [self.textView setText:NSLocalizedString(@"OONIBrowser.Loading", nil)];
     if ([self.type isEqualToString:@"log"]){
         NSString *fileName = [self.measurement getLogFile];
-        NSString *content = [TestUtility getUTF8FileContent:fileName];
-        if (content != nil) {
-            [self.textView setText:content];
+        self.text = [TestUtility getUTF8FileContent:fileName];
+        if (self.text != nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.textView setText:self.text];
+            });
         }
         else {
             //Show Log not found alert, go back on OK.
@@ -42,8 +45,10 @@
         NSString *fileName = [self.measurement getReportFile];
         NSString *content = [TestUtility getUTF8FileContent:fileName];
         if (content != nil) {
-            NSString *prettyPrintedJson = [self prettyPrintedJsonfromUTF8String:content];
-            [self.textView setText:prettyPrintedJson];
+            self.text = [self prettyPrintedJsonfromUTF8String:content];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.textView setText:self.text];
+            });
         }
         else {
             //Download content from web
@@ -55,8 +60,10 @@
                                 onSuccess:^(NSDictionary *measurementJson) {
                                     dispatch_async(dispatch_get_main_queue(), ^{
                                     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-                                        NSString *prettyPrintedJson = [self prettyPrintedJsonfromObject:measurementJson];
-                                        [self.textView setText:prettyPrintedJson];
+                                        self.text = [self prettyPrintedJsonfromObject:measurementJson];
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            [self.textView setText:self.text];
+                                        });
                                     });
                                 } onError:^(NSError *error) {
                                     [self onError:error];
@@ -122,7 +129,7 @@
 
 -(IBAction)copy_clipboard:(id)sender{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = self.textView.text;
+    pasteboard.string = self.text;
     [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
 }
 
