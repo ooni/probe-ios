@@ -147,7 +147,8 @@
                                [self.result setData_usage_up:self.result.data_usage_up+[event.value.uploaded_kb doubleValue]];
                            }
                            else if ([event.key isEqualToString:@"failure.startup"]) {
-                               //What to do? Run next test
+                               self.result.failure_msg = event.value.failure;
+                               [self.result save];
                            }
                            else if ([event.key isEqualToString:@"bug.json_dump"]) {
                                [CrashlyticsKit recordError:[NSError errorWithDomain:@"json_dump" code:0 userInfo:[event.value dictionary]]];

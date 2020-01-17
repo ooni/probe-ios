@@ -16,6 +16,7 @@
 @property long data_usage_up;
 @property long data_usage_down;
 @property Network *network_id;
+@property NSString *failure_msg;
 
 - (long)totalMeasurements;
 - (long)failedMeasurements;

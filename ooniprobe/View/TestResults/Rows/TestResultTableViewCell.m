@@ -30,7 +30,9 @@
         [self setBackgroundColor:[UIColor colorWithRGBHexString:color_gray2 alpha:1.0f]];
         [self.testIcon setTintColor:[UIColor colorWithRGBHexString:color_gray6 alpha:1.0f]];
         [self.testNameLabel setTextColor:[UIColor colorWithRGBHexString:color_gray6 alpha:1.0f]];
-        [self.testAsnLabel setText:@"Error - could not look up the bouncer"];
+        [self.testAsnLabel setText:[NSString stringWithFormat:@"%@ - %@",
+                                    NSLocalizedString(@"Modal.Error", nil),
+                                    result.failure_msg]];
         [self.stackView1 setHidden:YES];
         [self.stackView2 setHidden:YES];
         [self.stackView3 setHidden:YES];
