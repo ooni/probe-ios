@@ -6,6 +6,7 @@
 #import "TestUtility.h"
 #import "MBProgressHUD.h"
 #import "VersionUtility.h"
+#import "LogViewController.h"
 
 @implementation UploadFooterViewController
 
@@ -150,7 +151,7 @@
                                actionWithTitle:NSLocalizedString(@"Modal.DisplayFailureLog", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action) {
-                                    //TODO
+                                    [self performSegueWithIdentifier:@"toViewLog" sender:self];
                                }];
     NSString *paragraph = NSLocalizedFormatString(@"Modal.UploadFailed.Paragraph",
                                                   [NSString stringWithFormat:@"%ld", (long)errors],
@@ -161,4 +162,14 @@
                             inView:self];
 
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toViewLog"]){
+        LogViewController *vc = (LogViewController *)segue.destinationViewController;
+        [vc setType:@"upload_log"];
+        //TODO set array of errors in txt format
+        [vc setText:@""];
+    }
+}
+
 @end
