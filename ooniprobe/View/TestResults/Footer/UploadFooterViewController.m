@@ -133,6 +133,8 @@
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
+    //TODO use
+    [results reason];
     return [results good];
 }
 
@@ -144,12 +146,18 @@
                                     //Reload DB query and restart upload
                                    [self uploadResult];
                                }];
+    UIAlertAction* logButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Modal.DisplayFailureLog", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action) {
+                                    //TODO
+                               }];
     NSString *paragraph = NSLocalizedFormatString(@"Modal.UploadFailed.Paragraph",
                                                   [NSString stringWithFormat:@"%ld", (long)errors],
                                                   [NSString stringWithFormat:@"%ld", (long)numUploads]);
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.UploadFailed.Title", nil)
                            message:paragraph
-                          okButton:okButton
+                          buttons:@[okButton, logButton]
                             inView:self];
 
 }
