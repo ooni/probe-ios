@@ -79,6 +79,7 @@
             hud.bezelView.color = [UIColor lightGrayColor];
             hud.backgroundView.style = UIBlurEffectStyleRegular;
         });
+        logs = [NSMutableArray new];
         NSUInteger errors = 0;
         if ([notUploaded count] == 0) return;
         NSUInteger i = 0;
@@ -134,8 +135,8 @@
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
-    //TODO use
-    [results reason];
+    if (![results good])
+        [logs addObject:[results reason]];
     return [results good];
 }
 
@@ -167,8 +168,8 @@
     if ([[segue identifier] isEqualToString:@"toViewLog"]){
         LogViewController *vc = (LogViewController *)segue.destinationViewController;
         [vc setType:@"upload_log"];
-        //TODO set array of errors in txt format
-        [vc setText:@""];
+        //Send to next screen array of errors in txt format
+        [vc setText:[logs componentsJoinedByString:@"\n"]];
     }
 }
 

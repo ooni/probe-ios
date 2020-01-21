@@ -3,7 +3,9 @@
 #import "Measurement.h"
 
 /// This view controller manage the upload footer and its method. It's contained as sub view in 3 other views
-@interface UploadFooterViewController : UIViewController
+@interface UploadFooterViewController : UIViewController {
+    NSMutableArray *logs;
+}
 
 /// result contains the Result that the upload footer is about to upload
 @property (nonatomic, strong) Result *result;
