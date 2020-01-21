@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "تقدير الوقت الباقي:";
 "Dashboard.Running.Seconds" = "%@ ثانية ";
 "Dashboard.Running.PreparingTest" = "تحضير الاختبار";
+"Dashboard.Running.ShowLog" = "استعرض السِّجِل";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "انقر البطاقة للمزيد";
 "Dashboard.Card.Seconds" = "~%@ث";
 "Dashboard.Websites.Card.Description" = "اختبار حجب المواقع";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ محجوبة ";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ متاح";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ متاحة";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ محجوب";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "التاريخ والوقت";
 "TestResults.Summary.Hero.Network" = "الشبكة";
 "TestResults.Summary.Hero.Country" = "البلد";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "مُتاح";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "تطبيق";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "تطبيقات";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "تمّ اختبارها";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "تمّ اختبارها";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "محظور";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "محظور";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "يعمل";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "يعمل";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "الأدوات";
 "TestResults.Details.Hero.Runtime" = "زمن التشغيل";
 "TestResults.Details.Methodology" = "المنهجية";
 "TestResults.Details.ViewLog" = "عرض السجل";
 "TestResults.Details.RawData" = "بيانات";
 "TestResults.Details.CopyExplorerURL" = "نسخ رابط المتصفح";
 "TestResults.Details.CopyToClipboard" = "نسخ إلى الحافظة";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "فشل";
 "TestResults.Details.Failed.Paragraph" = "باستطاعتك إجراء هذا الاختبار من جديد ";
 "TestResults.Details.Failed.TryAgain" = "الرجاء المحاولة مجددًا";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "بإمكانك مشاهدة فيديو حتى جودة %@ بدون توقف للتحميل";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "متوسط معدل البت";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "التأخير في التشغيل";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "محظور";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "يعمل";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "ف";
 "Feed.Tab.Label" = "التغذية";
 "Feed.Title" = "التغذية";
 "Modal.OK" = "موافقة";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "رفع";
 "Modal.ResultsNotUploaded.Uploading" = "جارٍ تحميل %@ ...";
 "Toast.ResultsUploaded" = "تم التحميل بنجاح";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "قم بإعطاء تصريح التنبيهات لإجراء الاختبارات اوتوماتيكيًا.";
 "Modal.EnableNotifications.News" = "قم بإعطاء تصريح التنبيهات للحصول على آخر الأخبار.";
 "Modal.EnableNotifications.Any" = "قم بإعطاء تصريح التنبيهات لإستقبال التنبيهات المدفوعة (Push Notifications)";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "المراسلة الفورية";
 "Test.Middleboxes.Fullname" = "Middleboxes";
 "Test.Performance.Fullname" = "الأداء";
+"Test.Circumvention.Fullname" = "تجاوز الحجب";
 "Test.HTTPInvalidRequestLine.Fullname" = "اختبار عدم صلاحية طلب الHTTP";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "اختبار التلاعب بخانة رأس صفحة الHTTP";
 "Test.WebConnectivity.Fullname" = "اختبار الاتصال بالشبكة";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "اختبار واتساب";
 "Test.Telegram.Fullname" = "اختبار تيليجرام";
 "Test.FacebookMessenger.Fullname" = "اختبار فيسبوك مسنجر";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "الإعدادات";
 "Settings.Error.TestDurationTooLow" = "المدة التي حددتها لفترة الاختبار قصيرة جدًا ";
 "Settings.About.Label" = "عن OONI";

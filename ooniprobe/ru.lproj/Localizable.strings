@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "Осталось примерно:";
 "Dashboard.Running.Seconds" = "%@ сек";
 "Dashboard.Running.PreparingTest" = "Подготовка к тесту";
+"Dashboard.Running.ShowLog" = "Показать журнал";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "Нажмите для информации";
 "Dashboard.Card.Seconds" = "~%@с";
 "Dashboard.Websites.Card.Description" = "Определение блокировок сайтов";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "Заблокировано: %@";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "Доступно: %@";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "Доступно: %@";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "Заблокировано: %@";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "Дата и время";
 "TestResults.Summary.Hero.Network" = "Сеть";
 "TestResults.Summary.Hero.Country" = "Страна";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "Доступно";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "Приложение";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Приложения";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Протестировано";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Протестировано";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Блокировано";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Блокировано";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "Работает";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "Работает";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Настройки";
 "TestResults.Details.Hero.Runtime" = "Время теста";
 "TestResults.Details.Methodology" = "Методология";
 "TestResults.Details.ViewLog" = "Посмотреть лог";
 "TestResults.Details.RawData" = "Данные";
 "TestResults.Details.CopyExplorerURL" = "Скопировать ссылку на Explorer";
 "TestResults.Details.CopyToClipboard" = "Скопировать в буфер обмена";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "Ошибка";
 "TestResults.Details.Failed.Paragraph" = "Вы можете попробовать запустить этот тест снова";
 "TestResults.Details.Failed.TryAgain" = "Попробовать снова";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Вы можете повысить видеопоток до %@ без буферизации.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Средний битрейт";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Задержка воспроизведения";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Блокировано";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "Работает";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Лента";
 "Feed.Title" = "Лента";
 "Modal.OK" = "OK";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Загрузить";
 "Modal.ResultsNotUploaded.Uploading" = "Загружаем %@ ...";
 "Toast.ResultsUploaded" = "Загрузка успешно завершена";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "Разрешить уведомления для автоматических тестов.";
 "Modal.EnableNotifications.News" = "Разрешить новостные уведомления.";
 "Modal.EnableNotifications.Any" = "Разрешить push-уведомления.";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "Мессенджеры";
 "Test.Middleboxes.Fullname" = "Middleboxes";
 "Test.Performance.Fullname" = "Производительность";
+"Test.Circumvention.Fullname" = "Обход блокировки Tor";
 "Test.HTTPInvalidRequestLine.Fullname" = "Тест HTTP Invalid Request Line";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "Тест HTTP Header Field Manipulation";
 "Test.WebConnectivity.Fullname" = "Тест веб-соединений";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "Тест WhatsApp";
 "Test.Telegram.Fullname" = "Тест Telegram";
 "Test.FacebookMessenger.Fullname" = "Тест Facebook Messenger";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "Настройки";
 "Settings.Error.TestDurationTooLow" = "Вы указали слишком малое время для теста.";
 "Settings.About.Label" = "Об OONI";

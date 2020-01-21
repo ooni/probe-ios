@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "Temps restant estimé :";
 "Dashboard.Running.Seconds" = "%@ secondes";
 "Dashboard.Running.PreparingTest" = "Préparation du test";
+"Dashboard.Running.ShowLog" = "Afficher journal";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "Toucher la carte pour en savoir plus";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Testez le blocage de sites Web";
@@ -49,7 +51,7 @@
 "Dashboard.Middleboxes.Card.Description" = "Détecter les boîtiers intermédiaires dans votre réseau";
 "Dashboard.Middleboxes.Overview.Paragraph" = "Les fournisseurs d’accès à Internet utilisent souvent des appareils réseau (des boîtiers intermédiaires) pour diverses tâches propres au réseau (telles que la mise en cache). Ces boîtiers intermédiaires sont parfois utilisés pour censurer ou surveiller Internet.\n\nTrouvez des boîtiers intermédiaires dans votre réseau grâce aux tests de l’OONI [HTTP Ligne de requête invalide](https://ooni.io/nettest/http-invalid-request-line/) et [HTTP Manipulation du champ d’en-tête](https://ooni.io/nettest/http-header-field-manipulation/).\n\nVos résultats seront publiés dans l’[explorateur OONI](https://explorer.ooni.io/world/) et l’[API OONI](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "Testez le blocage des applis de messagerie instantanée";
-"Dashboard.InstantMessaging.Overview.Paragraph" = "Vérifiez si [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) et [Telegram](https://ooni.ionettest/telegram/) sont bloqués.\n\nVos résultats seront publiés dans l’[explorateur OONI](https://explorer.ooni.io/world/) et l’[API OONI](https://api.ooni.io/).";
+"Dashboard.InstantMessaging.Overview.Paragraph" = "Vérifiez si [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) et [Telegram](https://ooni.io/nettest/telegram/) sont bloqués.\n\nVos résultats seront publiés dans l’[explorateur OONI](https://explorer.ooni.io/world/) et l’[API OONI](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbps";
 "TestResults.Mbps" = "Mbps";
 "TestResults.Kbps" = "Kbps";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ bloquées";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ accessible";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ accessibles";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ bloqués";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "Estampille temporelle";
 "TestResults.Summary.Hero.Network" = "Réseau";
 "TestResults.Summary.Hero.Country" = "Pays";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "Accessibles";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "Appli";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Applis";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Testées";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Testées";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Bloquées";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Bloquées";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "En cours";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "En cours";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Outils";
 "TestResults.Details.Hero.Runtime" = "Temps d’exécution";
 "TestResults.Details.Methodology" = "Méthodologie";
 "TestResults.Details.ViewLog" = "Visualiser le journal";
 "TestResults.Details.RawData" = "Données";
 "TestResults.Details.CopyExplorerURL" = "Copier l’URL de l’explorateur";
 "TestResults.Details.CopyToClipboard" = "Copier dans le presse-papiers";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "Échec";
 "TestResults.Details.Failed.Paragraph" = "Vous pouvez essayer de relancer ce test";
 "TestResults.Details.Failed.TryAgain" = "Ressayer";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Vous pouvez diffuser en continu jusqu’à %@ sans mise en mémoire tampon.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Débit binaire médian";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Délai de diffusion";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Bloquées";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "En cours";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Flux";
 "Feed.Title" = "Flux";
 "Modal.OK" = "Valider";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Téléversement";
 "Modal.ResultsNotUploaded.Uploading" = "Téléversement de %@…";
 "Toast.ResultsUploaded" = "Téléversement réussi";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "Autoriser les notifications pour lancer des tests automatiquement.";
 "Modal.EnableNotifications.News" = "Autoriser les notifications pour recevoir des nouvelles.";
 "Modal.EnableNotifications.Any" = "Autoriser les notifications pour recevoir des notifications poussées.";
@@ -220,7 +238,7 @@
 "Modal.ManualUpload.Enable" = "Activer";
 "Modal.ManualUpload.Disable" = "Non, merci";
 "Modal.UploadFailed.Title" = "Échec de téléversement";
-"Modal.UploadFailed.Paragraph" = "We have failed to upload %@/%@ measurements. The failure log has been shared with OONI developers.";
+"Modal.UploadFailed.Paragraph" = "Nous n’avons pas réussi à téléverser %@ mesures sur %@. Le journal des échecs a été partagé avec les développeurs d’OONI.";
 "Modal.Error.LogNotFound" = "Le fichier journal est introuvable";
 "Modal.Error.NoValidUrls" = "Aucune URL valide n’a été trouvée";
 "Modal.Error.JsonEmpty" = "Le JSON est vide";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "Messagerie instantanée";
 "Test.Middleboxes.Fullname" = "Boîtiers intermédiaires";
 "Test.Performance.Fullname" = "Performances";
+"Test.Circumvention.Fullname" = "Contournement";
 "Test.HTTPInvalidRequestLine.Fullname" = "Test HTTP Ligne de requête invalide";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "Test HTTP Manipulation champ d’en-tête";
 "Test.WebConnectivity.Fullname" = "Test de connectivité Web";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "Test de WhatsApp";
 "Test.Telegram.Fullname" = "Test de Telegram";
 "Test.FacebookMessenger.Fullname" = "Test de Facebook Messenger";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "Paramètres";
 "Settings.Error.TestDurationTooLow" = "La durée de test que vous avez définie est trop courte.";
 "Settings.About.Label" = "À propos de l’OONI";
