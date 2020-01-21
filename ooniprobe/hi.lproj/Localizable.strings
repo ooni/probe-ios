@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "बचा हुआ अनुमानित समय:";
 "Dashboard.Running.Seconds" = "%@ सेकेंड";
 "Dashboard.Running.PreparingTest" = "परीक्षण की तैयारी";
+"Dashboard.Running.ShowLog" = "Show Log";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "अधिक के लिए कार्ड टैप करें";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "वेबसाइटों के अवरुद्ध परीक्षण का परीक्षण करें";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ अवरुद्ध";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ सुलभ";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ सुलभ";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ अवरुद्ध";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "दिनांक समय";
 "TestResults.Summary.Hero.Network" = "नेटवर्क";
 "TestResults.Summary.Hero.Country" = "देश";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "सुलभ";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "ऐप";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "एप्लिकेशन";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "परीक्षण";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "परीक्षण";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "अवरुद्ध";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "अवरुद्ध";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "काम कर रहे";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "काम कर रहे";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Tools";
 "TestResults.Details.Hero.Runtime" = "रनटाइम";
 "TestResults.Details.Methodology" = "क्रियाविधि";
 "TestResults.Details.ViewLog" = "लॉग देखें";
 "TestResults.Details.RawData" = "डेटा";
 "TestResults.Details.CopyExplorerURL" = "एक्सप्लोरर यूआरएल कॉपी करें";
 "TestResults.Details.CopyToClipboard" = "क्लिपबोर्ड पर कॉपी करें";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "विफ़ल";
 "TestResults.Details.Failed.Paragraph" = "आप इस परीक्षण को फिर से चलाने का प्रयास कर सकते हैं";
 "TestResults.Details.Failed.TryAgain" = "पुनः प्रयास करें";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "आप बफरिंग के बिना %@ तक स्ट्रीम कर सकते हैं।";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "माध्य बिटरेट";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "प्लेआउट विलंब";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "अवरुद्ध";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "काम कर रहे";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "चारा";
 "Feed.Title" = "चारा";
 "Modal.OK" = "ठीक है ";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "अपलोड करें";
 "Modal.ResultsNotUploaded.Uploading" = "अपलोड कर रहे हें %@ ...";
 "Toast.ResultsUploaded" = "अपलोड सफल रहा।";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "स्वचालित रूप से परीक्षण चलाने के लिए अधिसूचना अनुमतियां सक्षम करें।";
 "Modal.EnableNotifications.News" = "समाचार अद्यतन प्राप्त करने के लिए अधिसूचना अनुमति सक्षम करें।";
 "Modal.EnableNotifications.Any" = "पुश सूचनाएँ प्राप्त करने के लिए अधिसूचना अनुमतियां सक्षम करें।";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "तात्कालिक संदेशन";
 "Test.Middleboxes.Fullname" = "मध्य बक्से";
 "Test.Performance.Fullname" = "प्रदर्शन";
+"Test.Circumvention.Fullname" = "Circumvention";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP अवैध अनुरोध लाइन परीक्षण";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP हैडर फील्ड मैनिपुलेशन टेस्ट";
 "Test.WebConnectivity.Fullname" = "वेब कनेक्टिविटी टेस्ट";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "व्हाट्सएप टेस्ट";
 "Test.Telegram.Fullname" = "टेलीग्राम टेस्ट";
 "Test.FacebookMessenger.Fullname" = "फेसबुक मेसेंजर टेस्ट";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "सेटिंग्स";
 "Settings.Error.TestDurationTooLow" = "परीक्षण अवधि के लिए आपके द्वारा निर्धारित समय की मात्रा बहुत कम है।";
 "Settings.About.Label" = "OONI बारे में";

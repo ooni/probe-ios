@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "Εκτιμώμενος χρόνος που απομένει:";
 "Dashboard.Running.Seconds" = "%@ δευτερόλεπτα";
 "Dashboard.Running.PreparingTest" = "Προετοιμασία της δοκιμής";
+"Dashboard.Running.ShowLog" = "Εμφάνιση αρχείου καταγραφής";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "Πάτα την κάρτα για περισσότερα";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Έλεγξε το μπλοκάρισμα ιστοσελιδών";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ μπλοκαρισμένες";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ προσβάσιμη";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ προσβάσιμες";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ μπλοκαρισμένες";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "Ημερομηνία και ώρα";
 "TestResults.Summary.Hero.Network" = "Δίκτυο";
 "TestResults.Summary.Hero.Country" = "Χώρα";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "Προσβάσιμες";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "Εφαρμογή";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Εφαρμογές";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Δοκιμασμένες";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Δοκιμασμένες";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Μπλοκαρισμένες";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Μπλοκαρισμένες";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "Δουλεύει";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "Δουλεύει";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Εργαλεία";
 "TestResults.Details.Hero.Runtime" = "Διάρκεια εκτέλεσης";
 "TestResults.Details.Methodology" = "Μεθοδολογία";
 "TestResults.Details.ViewLog" = "Προβολή αρχείου καταγραφής";
 "TestResults.Details.RawData" = "Δεδομένα";
 "TestResults.Details.CopyExplorerURL" = "Αντιγραφή URL του OONI Explorer";
 "TestResults.Details.CopyToClipboard" = "Αντιγραφή στο πρόχειρο";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "Απέτυχε";
 "TestResults.Details.Failed.Paragraph" = "Μπορείς να επανεκτελέσεις αυτή την δοκιμή";
 "TestResults.Details.Failed.TryAgain" = "Προσπάθησε ξανά";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Μπορείς να κάνεις streaming μέχρι και %@ χωρίς buffering.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Μέσο bitrate";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Καθυστέρηση αναπαραγωγής";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Μπλοκαρισμένες";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "Δουλεύει";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Feed";
 "Feed.Title" = "Feed";
 "Modal.OK" = "Εντάξει";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Ανέβασμα";
 "Modal.ResultsNotUploaded.Uploading" = "Ανεβαίνει %@ ...";
 "Toast.ResultsUploaded" = "Επιτυχής μεταφόρτωση";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "Ενεργοποίησε τα δικαιώματα ειδοποιήσεων για την αυτόματη εκτέλεση δοκιμών.";
 "Modal.EnableNotifications.News" = "Ενεργοποίησε τα δικαιώματα ειδοποιήσεων για να λαμβάνεις ενημερώσεις.";
 "Modal.EnableNotifications.Any" = "Ενεργοποίησε τα δικαιώματα ειδοποιήσεων για να λαμβάνεις ειδοποιήσεις push.";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "Εφαρμογές Συνομιλιών";
 "Test.Middleboxes.Fullname" = "Middleboxes";
 "Test.Performance.Fullname" = "Απόδοση δικτύου";
+"Test.Circumvention.Fullname" = "Παράκαμψη";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP Invalid Request Line";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP Header Field Manipulation";
 "Test.WebConnectivity.Fullname" = "Δοκιμή Web Connectivity";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "Δοκιμή WhatsApp";
 "Test.Telegram.Fullname" = "Δοκιμή Telegram";
 "Test.FacebookMessenger.Fullname" = "Δοκιμή Facebook Messenger";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "Ρυθμίσεις";
 "Settings.Error.TestDurationTooLow" = "Ο χρόνος που έχεις ρυθμίσει για τη διάρκεια εκτέλεσης της δοκιμής είναι πολύ χαμηλός.";
 "Settings.About.Label" = "Σχετικά με το OONI";

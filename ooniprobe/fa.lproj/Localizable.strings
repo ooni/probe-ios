@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "زمان تخمینی باقی‌مانده:";
 "Dashboard.Running.Seconds" = "%@ ثانیه";
 "Dashboard.Running.PreparingTest" = "در حال آماده‌سازی تست";
+"Dashboard.Running.ShowLog" = "نمایش گزارش";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "برای اطلاعات بیشتر کارت را بفشارید";
 "Dashboard.Card.Seconds" = "~%@";
 "Dashboard.Websites.Card.Description" = "تست مسدودیت وبسایت‌ها";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ مسدود شده";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ در دسترس";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ در دسترس";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ مسدود شده";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "تاریخ و زمان";
 "TestResults.Summary.Hero.Network" = "شبکه";
 "TestResults.Summary.Hero.Country" = "کشور";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "در دسترس";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "برنامه";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "برنامه‌ها";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "تست شده";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "تست شده";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "بسته شده";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "بسته شده";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "کار میکنه";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "کار میکنه";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "ابزارها";
 "TestResults.Details.Hero.Runtime" = "زمان اجرا";
 "TestResults.Details.Methodology" = "روش‌شناسی";
 "TestResults.Details.ViewLog" = "نمایش لاگ";
 "TestResults.Details.RawData" = "داده‌‌ها";
 "TestResults.Details.CopyExplorerURL" = "کپی آدرس Explorer";
 "TestResults.Details.CopyToClipboard" = "به حافظه کوتاه مدت کپی کن";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "ناموفق";
 "TestResults.Details.Failed.Paragraph" = "می‌توانید این تست را دوباره انجام دهید";
 "TestResults.Details.Failed.TryAgain" = "دوباره سعی کنید";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "شما می‌توانید تا کیفیت %@ را بدون بافر کردن، پخش زنده کنید. ";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "میانگین نرخ بیت";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "تاخیر پخش";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "بسته شده";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "کار میکنه";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "خوراک";
 "Feed.Title" = "خوراک";
 "Modal.OK" = "باشه";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "آپلود";
 "Modal.ResultsNotUploaded.Uploading" = "بارگذاری %@ ...";
 "Toast.ResultsUploaded" = "بارگذاری با موفقیت انجام شد.";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "اجازه‌ی اعلان را فعال کنید تا تست‌ها به صورت خودکار اجرا شوند.";
 "Modal.EnableNotifications.News" = "اجازه‌ی اعلان را فعال کنید تا اخبار بروز رسانی را دریافت کنید.";
 "Modal.EnableNotifications.Any" = "اجازه‌ی اعلان را فعال کنید تا اعلان های ضروری را دریافت کنید.";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "پيام رسانی سريع";
 "Test.Middleboxes.Fullname" = "Middleboxes";
 "Test.Performance.Fullname" = "کارایی";
+"Test.Circumvention.Fullname" = "◾️ دور زدن سانسور";
 "Test.HTTPInvalidRequestLine.Fullname" = "تست خط درخواست نامعتبر HTTP";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "تست دستکاری فیلد هدر HTTP";
 "Test.WebConnectivity.Fullname" = "تست اتصال به وب";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "تست واتس‌اپ";
 "Test.Telegram.Fullname" = "تست تلگرام";
 "Test.FacebookMessenger.Fullname" = "تست پیام‌رسان فیسبوک";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "تنظیمات";
 "Settings.Error.TestDurationTooLow" = "زمانی که برای مدت این تست مشخص کرده‌اید خیلی کوتاه می‌باشد.";
 "Settings.About.Label" = "درباره‌ی اونی";

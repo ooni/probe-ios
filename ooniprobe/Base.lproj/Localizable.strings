@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "Estimated time left:";
 "Dashboard.Running.Seconds" = "%@ seconds";
 "Dashboard.Running.PreparingTest" = "Preparing test";
+"Dashboard.Running.ShowLog" = "Show Log";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "Tap card for more";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Test the blocking of websites";
@@ -50,6 +52,8 @@
 "Dashboard.Middleboxes.Overview.Paragraph" = "Internet Service Providers often use network appliances (middleboxes) for various networking purposes (such as caching). Sometimes these middleboxes are used to implement internet censorship and/or surveillance.\n\nFind middleboxes in your network using OONI's [HTTP Invalid Request Line](https://ooni.io/nettest/http-invalid-request-line/) and [HTTP Header Field Manipulation](https://ooni.io/nettest/http-header-field-manipulation/) tests.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.io/world/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "Test the blocking of instant messaging apps";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Check whether [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) and [Telegram](https://ooni.io/nettest/telegram/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.io/world/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Circumvention.Card.Description" = "";
+"Dashboard.Circumvention.Overview.Paragraph" = "";
 "TestResults.Gbps" = "Gbps";
 "TestResults.Mbps" = "Mbps";
 "TestResults.Kbps" = "Kbps";
@@ -79,6 +83,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ blocked";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ accessible";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ accessible";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ blocked";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "Date & Time";
 "TestResults.Summary.Hero.Network" = "Network";
 "TestResults.Summary.Hero.Country" = "Country";
@@ -112,12 +118,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "Accessible";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "App";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Apps";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Tested";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Tested";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Blocked";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Blocked";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "Working";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "Working";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Tools";
 "TestResults.Details.Hero.Runtime" = "Runtime";
 "TestResults.Details.Methodology" = "Methodology";
 "TestResults.Details.ViewLog" = "View log";
 "TestResults.Details.RawData" = "Data";
 "TestResults.Details.CopyExplorerURL" = "Copy Explorer URL";
 "TestResults.Details.CopyToClipboard" = "Copy to clipboard";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "Failed";
 "TestResults.Details.Failed.Paragraph" = "You can try to run this test again";
 "TestResults.Details.Failed.TryAgain" = "Try Again";
@@ -186,6 +201,12 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "You can stream up to %@ without buffering.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Median Bitrate";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Playout Delay";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Blocked";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "Working";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Feed";
 "Feed.Title" = "Feed";
 "Modal.OK" = "OK";
@@ -204,6 +225,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Upload";
 "Modal.ResultsNotUploaded.Uploading" = "Uploading %@ ...";
 "Toast.ResultsUploaded" = "Upload successful";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "Enable notification permissions to run tests automatically.";
 "Modal.EnableNotifications.News" = "Enable notification permissions to receive news updates.";
 "Modal.EnableNotifications.Any" = "Enable notification permissions to receive push notifications.";
@@ -234,6 +256,7 @@
 "Test.InstantMessaging.Fullname" = "Instant Messaging";
 "Test.Middleboxes.Fullname" = "Middleboxes";
 "Test.Performance.Fullname" = "Performance";
+"Test.Circumvention.Fullname" = "Circumvention";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP Invalid Request Line Test";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP Header Field Manipulation Test";
 "Test.WebConnectivity.Fullname" = "Web Connectivity Test";
@@ -242,6 +265,7 @@
 "Test.WhatsApp.Fullname" = "WhatsApp Test";
 "Test.Telegram.Fullname" = "Telegram Test";
 "Test.FacebookMessenger.Fullname" = "Facebook Messenger Test";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "Settings";
 "Settings.Error.TestDurationTooLow" = "The amount of time you have set for the test duration is too low.";
 "Settings.About.Label" = "About OONI";

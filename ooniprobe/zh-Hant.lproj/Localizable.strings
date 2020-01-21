@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "預估剩餘時間:";
 "Dashboard.Running.Seconds" = "%@ 秒數";
 "Dashboard.Running.PreparingTest" = "準備測試";
+"Dashboard.Running.ShowLog" = "顯示日誌";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "輕點卡片進一步了解";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "測試遭封鎖的網站";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ 已被封鎖";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ 可訪問";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ 可訪問";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ 已被封鎖";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "日期 & 時間";
 "TestResults.Summary.Hero.Network" = "網路";
 "TestResults.Summary.Hero.Country" = "國家";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "可訪問的";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "App";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "應用程式";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "已測試過";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "已測試過";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "被封鎖的";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "被封鎖的";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "工作中";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "工作中";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Tools";
 "TestResults.Details.Hero.Runtime" = "執行時間";
 "TestResults.Details.Methodology" = "方法學";
 "TestResults.Details.ViewLog" = "檢視記錄";
 "TestResults.Details.RawData" = "數據";
 "TestResults.Details.CopyExplorerURL" = "複製 Explorer URL";
 "TestResults.Details.CopyToClipboard" = "複製到剪貼簿";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "失敗";
 "TestResults.Details.Failed.Paragraph" = "可以試著再次執行此次測試";
 "TestResults.Details.Failed.TryAgain" = "再試一次";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "不透過緩取進行串流 %@";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "位元率中位數";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "耗盡延遲";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "被封鎖的";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "工作中";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "訂閱推送";
 "Feed.Title" = "訂閱推送";
 "Modal.OK" = "OK";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "上傳";
 "Modal.ResultsNotUploaded.Uploading" = "上傳 %@ ...";
 "Toast.ResultsUploaded" = "成功上傳";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "啟用通知授權以便自動執行測試。";
 "Modal.EnableNotifications.News" = "啟用通知授權以便接收新聞更新。";
 "Modal.EnableNotifications.Any" = "啟用通知授權以便接收推送通知。 ";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "即時通訊";
 "Test.Middleboxes.Fullname" = "中間盒";
 "Test.Performance.Fullname" = "效能";
+"Test.Circumvention.Fullname" = "繞行";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP 無效請求行測試";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP 表頭欄位操控測試";
 "Test.WebConnectivity.Fullname" = "網頁連線測試";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "WhatsApp 測試";
 "Test.Telegram.Fullname" = "Telegram 測試";
 "Test.FacebookMessenger.Fullname" = "Facebook Messenger 測試";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "設定";
 "Settings.Error.TestDurationTooLow" = "所設置的測試時間期過低。　";
 "Settings.About.Label" = "關於 OONI";
