@@ -43,7 +43,6 @@
     }
     else {
         //Show Log not found alert, go back on OK.
-        //This will be useful for when we'll implement the auto log deletion
         UIAlertAction* okButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                    style:UIAlertActionStyleDefault
