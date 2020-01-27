@@ -152,6 +152,15 @@
                             inView:self];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Result *result = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    if ([result.measurements count] > 0){
+        [self performSegueWithIdentifier:@"summary" sender:self];
+    }
+    else
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - Navigation
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -168,6 +177,7 @@
             [current save];
         }
         [vc setResult:current];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
     else if ([[segue identifier] isEqualToString:@"footer_upload"]){
         UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;

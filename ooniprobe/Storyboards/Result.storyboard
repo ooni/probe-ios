@@ -212,7 +212,6 @@
                                             <outlet property="testIcon" destination="9Dq-3Q-pDR" id="pOc-XY-BTc"/>
                                             <outlet property="testNameLabel" destination="k6G-am-YQf" id="JlM-ti-cFY"/>
                                             <outlet property="testTimeLabel" destination="MZU-ZE-ROO" id="NNy-Lu-HDs"/>
-                                            <segue destination="6Ff-Rq-ly5" kind="show" identifier="summary" id="P73-VM-zvc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -245,6 +244,7 @@
                     <connections>
                         <outlet property="tableFooterConstraint" destination="aTQ-b7-5Z2" id="aP1-15-erw"/>
                         <outlet property="tableView" destination="bAn-BD-QNS" id="yyj-qu-TqT"/>
+                        <segue destination="6Ff-Rq-ly5" kind="show" identifier="summary" id="9Ap-yx-wM8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YrO-AM-7eB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -592,6 +592,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="DO9-hx-Eag"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="textView" destination="hqF-cC-vHE" id="4bh-wv-HMI"/>
@@ -1041,6 +1042,7 @@
                             <constraint firstItem="cLg-pu-7pS" firstAttribute="top" secondItem="Kb9-Kk-P8j" secondAttribute="bottom" id="rPh-FO-rBy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dZy-bw-3qU"/>
                     <connections>
                         <outlet property="tableFooterConstraint" destination="rPh-FO-rBy" id="zfc-bk-plf"/>
                         <outlet property="tableView" destination="Kb9-Kk-P8j" id="go6-bx-5EI"/>
@@ -1410,6 +1412,7 @@
                             <constraint firstAttribute="trailing" secondItem="UOq-qN-oQJ" secondAttribute="trailing" id="zdj-I9-1YW"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="TON-Te-3cq"/>
                     <connections>
                         <outlet property="headerView" destination="8Hu-Yg-uf8" id="cFm-9N-1AT"/>
                         <outlet property="scrollView" destination="UOq-qN-oQJ" id="ivl-Sy-4vS"/>
@@ -1696,6 +1699,7 @@
                             <constraint firstItem="OVT-RX-mee" firstAttribute="top" secondItem="z31-sG-VeY" secondAttribute="bottom" id="y5V-Ha-jIf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qGa-yn-DLA"/>
                     <connections>
                         <outlet property="detail1SubtitleLabel" destination="Yff-hm-GvH" id="0fB-Ue-GIN"/>
                         <outlet property="detail1TitleLabel" destination="6mL-Sg-fll" id="vsf-by-cvs"/>
@@ -1821,6 +1825,7 @@
                             <constraint firstItem="Vcw-HX-yD7" firstAttribute="top" secondItem="Y71-EW-mdg" secondAttribute="bottom" id="tPh-f4-S4X"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bYA-2E-hel"/>
                     <connections>
                         <outlet property="headerView" destination="Yv2-13-mtU" id="Djg-dL-TGB"/>
                         <outlet property="scrollView" destination="IAv-ZW-gRE" id="YFr-5S-jGm"/>
@@ -2005,6 +2010,7 @@
                             <constraint firstItem="S4L-mK-iRH" firstAttribute="leading" secondItem="how-d9-1Ff" secondAttribute="leading" id="qBb-f1-qXe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oy9-Ad-UP3"/>
                     <connections>
                         <outlet property="bitrateTitleLabel" destination="q6z-MM-5GU" id="CSG-hM-USM"/>
                         <outlet property="bitrateUnitLabel" destination="PMp-JT-CZW" id="ekq-Yo-a8A"/>
@@ -2438,6 +2444,7 @@
                             <constraint firstItem="5bW-PR-JqJ" firstAttribute="leading" secondItem="dp8-zY-Yqf" secondAttribute="leading" id="rAm-Uo-BaH"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="B0U-ba-gcS"/>
                     <connections>
                         <outlet property="averagepingTitleLabel" destination="g6x-Hb-YpV" id="Jky-C4-h8S"/>
                         <outlet property="averagepingUnitLabel" destination="953-WT-qEo" id="WLd-xh-OXz"/>
@@ -2604,6 +2611,7 @@
                             <constraint firstItem="eiN-YA-b24" firstAttribute="top" secondItem="Sxj-sq-6tP" secondAttribute="bottom" id="tWz-g3-cXp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GLx-JD-kkl"/>
                     <connections>
                         <outlet property="headerView" destination="R9C-6g-Fi9" id="Wu3-lt-iDz"/>
                         <outlet property="scrollView" destination="JCx-Ea-4BM" id="dcf-Wd-Zb6"/>
@@ -2700,7 +2708,7 @@
         <image name="upload_nopad" width="11" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oMx-WR-BU4"/>
+        <segue reference="MH8-m4-vnH"/>
         <segue reference="oiP-5B-ecH"/>
         <segue reference="09O-Yn-05B"/>
         <segue reference="J9y-Mo-lFQ"/>

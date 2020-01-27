@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "Temps restant estimat:";
 "Dashboard.Running.Seconds" = "%@ segons";
 "Dashboard.Running.PreparingTest" = "S'està preparant la prova";
+"Dashboard.Running.ShowLog" = "Mostra el registre";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "Toqueu la targeta per obtenir més informació";
 "Dashboard.Card.Seconds" = "~%@ s";
 "Dashboard.Websites.Card.Description" = "Prova el blocatge de llocs web";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ blocats";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ accessible";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ accessibles";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ blocats";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "Data i hora";
 "TestResults.Summary.Hero.Network" = "Xarxa";
 "TestResults.Summary.Hero.Country" = "País";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "Accessibles";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "Aplicació";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Aplicacions";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Provats";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Provats";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Blocats";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Blocats";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "S'està treballant";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "S'està treballant";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Eines";
 "TestResults.Details.Hero.Runtime" = "Temps d'execució";
 "TestResults.Details.Methodology" = "Metodologia";
 "TestResults.Details.ViewLog" = "Mostra els registre";
 "TestResults.Details.RawData" = "Dades";
 "TestResults.Details.CopyExplorerURL" = "Copia l'URL de l'explorador";
 "TestResults.Details.CopyToClipboard" = "Copia al porta-retalls";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "Ha fallat";
 "TestResults.Details.Failed.Paragraph" = "Podeu tornar a provar aquesta prova";
 "TestResults.Details.Failed.TryAgain" = "Torna-ho a provar";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Pot transmetre fins a %@ sense emmagatzematge en la memòria intermèdia.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Taxa de bits mitjana";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Retard en la reproducció";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Blocats";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "S'està treballant";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Mur";
 "Feed.Title" = "Mur";
 "Modal.OK" = "Correcte";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Pujada";
 "Modal.ResultsNotUploaded.Uploading" = "S'està pujant %@...";
 "Toast.ResultsUploaded" = "S'ha pujat amb èxit";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "Activeu els permisos de notificació per executar les proves automàticament.";
 "Modal.EnableNotifications.News" = "Activeu els permisos de notificació per rebre actualitzacions de notícies.";
 "Modal.EnableNotifications.Any" = "Activeu els permisos de notificació per rebre notificacions de tramesa automàtica.";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "Missatgeria instantània";
 "Test.Middleboxes.Fullname" = "«Middleboxes»";
 "Test.Performance.Fullname" = "Rendiment";
+"Test.Circumvention.Fullname" = "Elusió";
 "Test.HTTPInvalidRequestLine.Fullname" = "Prova «HTTP Invalid Request Line Test»";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "Prova «HTTP Header Field Manipulation»";
 "Test.WebConnectivity.Fullname" = "Prova de connectivitat web";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "Prova de WhatsApp";
 "Test.Telegram.Fullname" = "Prova de Telegram";
 "Test.FacebookMessenger.Fullname" = "Prova de Facebook Messenger";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "Configuració";
 "Settings.Error.TestDurationTooLow" = "La quantitat de temps que heu establert per a la durada de la prova és massa baixa.";
 "Settings.About.Label" = "Quant a l'OONI";

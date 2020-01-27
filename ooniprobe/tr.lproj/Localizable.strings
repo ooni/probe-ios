@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "Yaklaşık kalan süre:";
 "Dashboard.Running.Seconds" = "%@ saniye";
 "Dashboard.Running.PreparingTest" = "Sınama hazırlanıyor";
+"Dashboard.Running.ShowLog" = "Günlüğü Görüntüle";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "Ayrıntılar için karta dokunun";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Web sitesi engellemelerini sınayın";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ engellenmiş";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ erişilebilir";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ erişilebilir";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ engellenmiş";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "Tarih ve Saat";
 "TestResults.Summary.Hero.Network" = "Ağ";
 "TestResults.Summary.Hero.Country" = "Ülke";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "Erişilebilir";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "Uygulama";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Uygulama";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Sınanmış";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Sınanmış";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Engellenmiş";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Engellenmiş";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "Çalışıyor";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "Çalışıyor";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Araçlar";
 "TestResults.Details.Hero.Runtime" = "Çalışan Dosya";
 "TestResults.Details.Methodology" = "Yöntem";
 "TestResults.Details.ViewLog" = "Günlüğü görüntüle";
 "TestResults.Details.RawData" = "Veri";
 "TestResults.Details.CopyExplorerURL" = "Tarayıcı Adresini Kopyala";
 "TestResults.Details.CopyToClipboard" = "Panoya kopyala";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "Başarısız";
 "TestResults.Details.Failed.Paragraph" = " Bu sınamayı yeniden çalıştırmayı deneyebilirsiniz";
 "TestResults.Details.Failed.TryAgain" = "Yeniden Dene";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Görüntü akışlarında ara bellek kullanmadan en fazla %@ çözünürlük elde edebilirsiniz.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Ortalama Bithızı";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Kusursuz Oynatma Gecikmesi";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Engellenmiş";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "Çalışıyor";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Akış";
 "Feed.Title" = "Akış";
 "Modal.OK" = "Tamam";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Yükle";
 "Modal.ResultsNotUploaded.Uploading" = "%@ yükleniyor...";
 "Toast.ResultsUploaded" = "Yüklendi";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "Sınamaların otomatik yapılması için bildirim izinleri verilsin.";
 "Modal.EnableNotifications.News" = "Yeni güncellemelere dair haber alınması için bildirim izinleri verilsin.";
 "Modal.EnableNotifications.Any" = "Anlık iletilerin alınması için bildirim izinleri verilsin.";
@@ -220,7 +238,7 @@
 "Modal.ManualUpload.Enable" = "Etkinleştir";
 "Modal.ManualUpload.Disable" = "Hayır, teşekkürler";
 "Modal.UploadFailed.Title" = "Yükleme başarısız";
-"Modal.UploadFailed.Paragraph" = "We have failed to upload %@/%@ measurements. The failure log has been shared with OONI developers.";
+"Modal.UploadFailed.Paragraph" = "%@/%@ ölçüm yüklenemedi. Sorun ile ilgili günlük kayıtları OONI geliştiricileri ile paylaşıldı.";
 "Modal.Error.LogNotFound" = "Günlük dosyası bulunamadı";
 "Modal.Error.NoValidUrls" = "Geçerli bir adres bulunamadı";
 "Modal.Error.JsonEmpty" = "JSON boş";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "Anlık İleti";
 "Test.Middleboxes.Fullname" = "Ara Kutular";
 "Test.Performance.Fullname" = "Performans";
+"Test.Circumvention.Fullname" = "Engellemeyi aşma";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP Geçersiz İstek Hattı Sınaması";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP Üst Bilgi Müdahalesi Sınaması";
 "Test.WebConnectivity.Fullname" = "Web Bağlantı Sınaması";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "WhatsApp Sınaması";
 "Test.Telegram.Fullname" = "Telegram Sınaması";
 "Test.FacebookMessenger.Fullname" = "Facebook Messenger Sınaması";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "Ayarlar";
 "Settings.Error.TestDurationTooLow" = "Sınama süresi için belirlediğiniz süre çok az.";
 "Settings.About.Label" = "OONI Hakkında";

@@ -14,8 +14,31 @@
 }
 
 -(void)setResult:(Result*)result{
+    //Setting generic parameters
+    [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", result.test_group_name]]];
+    [self.testIcon setTintColor:[TestUtility getColorForTest:result.test_group_name]];
+    [self.testNameLabel setTextColor:[TestUtility getColorForTest:result.test_group_name]];
+    self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.test_group_name];
+    self.testTimeLabel.text = [result getLocalizedStartTime];
+    [self.testTimeLabel setTextColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
     [self.testAsnLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.notUploadedImage setTintColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+
+    if ([result.measurements count] == 0){
+        //Bouncer error case
+        [self.notUploadedImage setHidden:YES];
+        [self setBackgroundColor:[UIColor colorWithRGBHexString:color_gray2 alpha:1.0f]];
+        [self.testIcon setTintColor:[UIColor colorWithRGBHexString:color_gray6 alpha:1.0f]];
+        [self.testNameLabel setTextColor:[UIColor colorWithRGBHexString:color_gray6 alpha:1.0f]];
+        [self.testAsnLabel setText:[NSString stringWithFormat:@"%@ - %@",
+                                    NSLocalizedString(@"Modal.Error", nil),
+                                    result.failure_msg]];
+        [self.stackView1 setHidden:YES];
+        [self.stackView2 setHidden:YES];
+        [self.stackView3 setHidden:YES];
+        self.accessoryType = UITableViewCellAccessoryNone;
+        return;
+    }
 
     if ([result isEveryMeasurementUploaded])
         [self.notUploadedImage setHidden:YES];
@@ -27,13 +50,8 @@
     else
         [self setBackgroundColor:[UIColor clearColor]];
     
-    [self.testIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", result.test_group_name]]];
-    [self.testIcon setTintColor:[TestUtility getColorForTest:result.test_group_name]];
-    [self.testNameLabel setTextColor:[TestUtility getColorForTest:result.test_group_name]];
-    self.testNameLabel.text  = [LocalizationUtility getNameForTest:result.test_group_name];
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [self.testAsnLabel setText:[NSString stringWithFormat:@"%@ - %@", [result getAsn], [result getNetworkName]]];
-    self.testTimeLabel.text = [result getLocalizedStartTime];
-    [self.testTimeLabel setTextColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
     [self.stackView1 setAlpha:1.0f];
     [self.stackView2 setAlpha:1.0f];
     [self.stackView3 setAlpha:1.0f];

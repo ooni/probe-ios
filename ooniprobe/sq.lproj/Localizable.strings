@@ -40,6 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "Koha që ka mbetur me përafërsi:";
 "Dashboard.Running.Seconds" = "%@ sekonda";
 "Dashboard.Running.PreparingTest" = "Duke u përgatitur për testim";
+"Dashboard.Running.ShowLog" = "Shfaq log";
+"Dashboard.Running.CloseLog" = "Close Log";
 "Dashboard.Card.Subtitle" = "Shyp mbi kartën për më shumë";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Testo faqet e bllokuara";
@@ -79,6 +81,8 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ të bllokuara";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ të aksesueshme";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ të aksesueshme";
+"TestResults.Overview.Circumvention.Blocked.Plural" = "%@ të bllokuara";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Summary.Hero.DateAndTime" = "Data & Ora";
 "TestResults.Summary.Hero.Network" = "Rrjeti";
 "TestResults.Summary.Hero.Country" = "Vendi";
@@ -112,12 +116,21 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "Aksesueshëm";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "Aplikacion";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Aplikacione";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Testuar";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Testuar";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Bllokuar";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Bllokuar";
+"TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "Po punohet";
+"TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "Po punohet";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Mjete";
 "TestResults.Details.Hero.Runtime" = "Kohëzgjatja";
 "TestResults.Details.Methodology" = "Metodologjia";
 "TestResults.Details.ViewLog" = "Shiko detajet";
 "TestResults.Details.RawData" = "Të dhëna";
 "TestResults.Details.CopyExplorerURL" = "Kopjo URL e Eksploruesit";
 "TestResults.Details.CopyToClipboard" = "Kopjo";
+"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
 "TestResults.Details.Failed.Title" = "Dështoi";
 "TestResults.Details.Failed.Paragraph" = "Ju mund të provoni të bëni sërish këtë test ";
 "TestResults.Details.Failed.TryAgain" = "Riprovoni";
@@ -186,6 +199,10 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Mund të transmetosh video deri më %@ pa ndërprerje.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Rang bitesh mesatar";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Vonesë në fillimin e videos";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Bllokuar";
+"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "Po punohet";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Kryefaqe";
 "Feed.Title" = "Kryefaqe";
 "Modal.OK" = "OK";
@@ -204,6 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Ngarkoni";
 "Modal.ResultsNotUploaded.Uploading" = "Në ngarkim %@ ...";
 "Toast.ResultsUploaded" = "Ngarkimi i sukseshëm";
+"Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.AutomatedTesting" = "Aktivizo të drejtat e njoftimeve që të kryesh testime automatikisht.";
 "Modal.EnableNotifications.News" = "Aktivizo të drejtat e njoftimeve që të marrësh lajme të reja.";
 "Modal.EnableNotifications.Any" = "Aktivizo të drejtat e njoftimeve që të marrësh njoftime.";
@@ -234,6 +252,7 @@
 "Test.InstantMessaging.Fullname" = "Mesazhe";
 "Test.Middleboxes.Fullname" = "Middleboxes";
 "Test.Performance.Fullname" = "Performanca";
+"Test.Circumvention.Fullname" = "Circumvention";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP Invalid Request Line Test";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP Header Field Manipulation Test";
 "Test.WebConnectivity.Fullname" = "Testim lidhjeje në internet";
@@ -242,6 +261,7 @@
 "Test.WhatsApp.Fullname" = "Testim WhatsApp";
 "Test.Telegram.Fullname" = "Testim Telegram";
 "Test.FacebookMessenger.Fullname" = "Testim Facebook Messenger";
+"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "Rregullime";
 "Settings.Error.TestDurationTooLow" = "Sasia e kohës që keni vendosur për kohëzgjatjen e testimit është shumë e vogël.";
 "Settings.About.Label" = "Rreth OONI";
