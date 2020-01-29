@@ -19,7 +19,9 @@
     self.tableView.tableFooterView = [UIView new];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"uploadFinished" object:nil];
-
+    if ([result.test_group_name isEqualToString:@"websites"])
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reRunWebsites)];
+    
     [self reloadMeasurements];
     defaultColor = [TestUtility getColorForTest:result.test_group_name];
 }
@@ -122,6 +124,23 @@
     }
 }
 
+-(void)reRunWebsites{
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Modal.ReRun.Websites.Run", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
+                                       [self performSegueWithIdentifier:@"toTestRun" sender:self];
+                               }];
+    NSString *title = NSLocalizedFormatString(@"Modal.ReRun.Websites.Title",
+                                              [NSString stringWithFormat:@"%ld", self.measurements.count]);
+    [MessageUtility alertWithTitle:title
+                           message:nil
+                          okButton:okButton
+                            inView:self];
+
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"header"]){
         HeaderSwipeViewController *vc = (HeaderSwipeViewController *)segue.destinationViewController;
@@ -136,6 +155,16 @@
         UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;
         [vc setResult:result];
         [vc setUpload_all:true];
+    }
+    else if ([[segue identifier] isEqualToString:@"toTestRun"]){
+        TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
+        WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
+        NSMutableArray *urls = [NSMutableArray new];
+        for (Measurement *m in self.measurements)
+            [urls addObject:m.url_id.url];
+        if ([testSuite getTestList] > 0 && [urls count] > 0)
+            [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
+        [vc setTestSuite:testSuite];
     }
 }
 
