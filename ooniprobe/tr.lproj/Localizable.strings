@@ -41,7 +41,7 @@
 "Dashboard.Running.Seconds" = "%@ saniye";
 "Dashboard.Running.PreparingTest" = "Sınama hazırlanıyor";
 "Dashboard.Running.ShowLog" = "Günlüğü Görüntüle";
-"Dashboard.Running.CloseLog" = "Close Log";
+"Dashboard.Running.CloseLog" = "Günlüğü Kapat";
 "Dashboard.Card.Subtitle" = "Ayrıntılar için karta dokunun";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Web sitesi engellemelerini sınayın";
@@ -82,7 +82,7 @@
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ erişilebilir";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ erişilebilir";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ engellenmiş";
-"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ kullanılabilir";
 "TestResults.Summary.Hero.DateAndTime" = "Tarih ve Saat";
 "TestResults.Summary.Hero.Network" = "Ağ";
 "TestResults.Summary.Hero.Country" = "Ülke";
@@ -122,7 +122,7 @@
 "TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Engellenmiş";
 "TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "Çalışıyor";
 "TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "Çalışıyor";
-"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Araç";
 "TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Araçlar";
 "TestResults.Details.Hero.Runtime" = "Çalışan Dosya";
 "TestResults.Details.Methodology" = "Yöntem";
@@ -130,7 +130,7 @@
 "TestResults.Details.RawData" = "Veri";
 "TestResults.Details.CopyExplorerURL" = "Tarayıcı Adresini Kopyala";
 "TestResults.Details.CopyToClipboard" = "Panoya kopyala";
-"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
+"TestResults.Details.ShowInExplorer" = "OONI gezgininde görüntüle";
 "TestResults.Details.Failed.Title" = "Başarısız";
 "TestResults.Details.Failed.Paragraph" = " Bu sınamayı yeniden çalıştırmayı deneyebilirsiniz";
 "TestResults.Details.Failed.TryAgain" = "Yeniden Dene";
@@ -201,7 +201,7 @@
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Kusursuz Oynatma Gecikmesi";
 "TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Engellenmiş";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "Çalışıyor";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Süresi";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Akış";
 "Feed.Title" = "Akış";
@@ -221,7 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Yükle";
 "Modal.ResultsNotUploaded.Uploading" = "%@ yükleniyor...";
 "Toast.ResultsUploaded" = "Yüklendi";
-"Modal.DisplayFailureLog" = "Display failure log";
+"Modal.DisplayFailureLog" = "Hata günlüğünü görüntüle";
 "Modal.EnableNotifications.AutomatedTesting" = "Sınamaların otomatik yapılması için bildirim izinleri verilsin.";
 "Modal.EnableNotifications.News" = "Yeni güncellemelere dair haber alınması için bildirim izinleri verilsin.";
 "Modal.EnableNotifications.Any" = "Anlık iletilerin alınması için bildirim izinleri verilsin.";
@@ -232,6 +232,8 @@
 "Modal.OnlyDigits" = "Lütfen bu alana sadece sayı girin.";
 "Modal.ReRun.Title" = "Sınamayı yinele";
 "Modal.ReRun.Paragraph" = "Bu sınama tamamlanamadı. Yeniden sınamak ister misiniz?";
+"Modal.ReRun.Websites.Title" = "You are about to re-test %@ websites.";
+"Modal.ReRun.Websites.Run" = "Çalıştır";
 "Modal.CustomURL.NotSaved" = "Bu sayfadan ayrıldığınızda adresleriniz kaydedilmez. Bu sayfadan ayrılmak istediğinize emin misiniz?";
 "Modal.ManualUpload.Title" = "El ile yükleme yapılabilsin mi?";
 "Modal.ManualUpload.Paragraph" = "Bu seçenek etkinleştirildiğinde, yayınlanmamış ölçümler el ile yeniden yüklenebilir.";
@@ -261,7 +263,7 @@
 "Test.WhatsApp.Fullname" = "WhatsApp Sınaması";
 "Test.Telegram.Fullname" = "Telegram Sınaması";
 "Test.FacebookMessenger.Fullname" = "Facebook Messenger Sınaması";
-"Test.Psiphon.Fullname" = "Psiphon Test";
+"Test.Psiphon.Fullname" = "Psiphon Sınaması";
 "Settings.Title" = "Ayarlar";
 "Settings.Error.TestDurationTooLow" = "Sınama süresi için belirlediğiniz süre çok az.";
 "Settings.About.Label" = "OONI Hakkında";

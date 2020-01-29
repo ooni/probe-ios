@@ -40,8 +40,8 @@
 "Dashboard.Running.EstimatedTimeLeft" = "Temps restant estimé :";
 "Dashboard.Running.Seconds" = "%@ secondes";
 "Dashboard.Running.PreparingTest" = "Préparation du test";
-"Dashboard.Running.ShowLog" = "Afficher journal";
-"Dashboard.Running.CloseLog" = "Close Log";
+"Dashboard.Running.ShowLog" = "Afficher le journal";
+"Dashboard.Running.CloseLog" = "Fermer le journal";
 "Dashboard.Card.Subtitle" = "Toucher la carte pour en savoir plus";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Testez le blocage de sites Web";
@@ -82,7 +82,7 @@
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ accessible";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ accessibles";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ bloqués";
-"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ disponibles";
 "TestResults.Summary.Hero.DateAndTime" = "Estampille temporelle";
 "TestResults.Summary.Hero.Network" = "Réseau";
 "TestResults.Summary.Hero.Country" = "Pays";
@@ -116,13 +116,13 @@
 "TestResults.Summary.InstantMessaging.Hero.Reachable.Plural" = "Accessibles";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "Appli";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Applis";
-"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Testées";
-"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Testées";
-"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Bloquées";
-"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Bloquées";
+"TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Testé";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Testés";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Bloqué";
+"TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Bloqués";
 "TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "En cours";
 "TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "En cours";
-"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Outil";
 "TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Outils";
 "TestResults.Details.Hero.Runtime" = "Temps d’exécution";
 "TestResults.Details.Methodology" = "Méthodologie";
@@ -130,7 +130,7 @@
 "TestResults.Details.RawData" = "Données";
 "TestResults.Details.CopyExplorerURL" = "Copier l’URL de l’explorateur";
 "TestResults.Details.CopyToClipboard" = "Copier dans le presse-papiers";
-"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
+"TestResults.Details.ShowInExplorer" = "Afficher dans l’explorateur OONI";
 "TestResults.Details.Failed.Title" = "Échec";
 "TestResults.Details.Failed.Paragraph" = "Vous pouvez essayer de relancer ce test";
 "TestResults.Details.Failed.TryAgain" = "Ressayer";
@@ -199,9 +199,9 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Vous pouvez diffuser en continu jusqu’à %@ sans mise en mémoire tampon.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Débit binaire médian";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Délai de diffusion";
-"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Bloquées";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Bloqués";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "En cours";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Temps d’amorçage";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Flux";
 "Feed.Title" = "Flux";
@@ -221,7 +221,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Téléversement";
 "Modal.ResultsNotUploaded.Uploading" = "Téléversement de %@…";
 "Toast.ResultsUploaded" = "Téléversement réussi";
-"Modal.DisplayFailureLog" = "Display failure log";
+"Modal.DisplayFailureLog" = "Afficher le journal des échecs";
 "Modal.EnableNotifications.AutomatedTesting" = "Autoriser les notifications pour lancer des tests automatiquement.";
 "Modal.EnableNotifications.News" = "Autoriser les notifications pour recevoir des nouvelles.";
 "Modal.EnableNotifications.Any" = "Autoriser les notifications pour recevoir des notifications poussées.";
@@ -232,6 +232,8 @@
 "Modal.OnlyDigits" = "Veuillez ne saisir que des chiffres dans ce champ.";
 "Modal.ReRun.Title" = "Relancer le test";
 "Modal.ReRun.Paragraph" = "Ce test a échoué. Relancer le test ?";
+"Modal.ReRun.Websites.Title" = "You are about to re-test %@ websites.";
+"Modal.ReRun.Websites.Run" = "Lancer";
 "Modal.CustomURL.NotSaved" = "Vos URL ne seront pas enregistrées si vous quittez cet écran. Voulez-vous vraiment le quitter ?";
 "Modal.ManualUpload.Title" = "Activer le téléversement manuel ?";
 "Modal.ManualUpload.Paragraph" = "Ce paramètre vous permet de retéléverser manuellement les mesures non publiées.";
@@ -261,7 +263,7 @@
 "Test.WhatsApp.Fullname" = "Test de WhatsApp";
 "Test.Telegram.Fullname" = "Test de Telegram";
 "Test.FacebookMessenger.Fullname" = "Test de Facebook Messenger";
-"Test.Psiphon.Fullname" = "Psiphon Test";
+"Test.Psiphon.Fullname" = "Test de Psiphon";
 "Settings.Title" = "Paramètres";
 "Settings.Error.TestDurationTooLow" = "La durée de test que vous avez définie est trop courte.";
 "Settings.About.Label" = "À propos de l’OONI";
