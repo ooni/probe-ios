@@ -573,10 +573,10 @@
                         <viewControllerLayoutGuide type="bottom" id="ebA-EZ-xo9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gEt-06-csL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-cC-vHE">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-cC-vHE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -592,7 +592,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="DO9-hx-Eag"/>
+                    <navigationItem key="navigationItem" id="lJJ-zP-BGA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="textView" destination="hqF-cC-vHE" id="4bh-wv-HMI"/>
@@ -2688,6 +2688,7 @@
                     <connections>
                         <outlet property="titleLabel" destination="ED5-OR-lnb" id="rGM-75-9Ob"/>
                         <outlet property="uploadButton" destination="RAc-uQ-ytw" id="0T5-8o-VxW"/>
+                        <segue destination="zYs-kh-5bZ" kind="show" identifier="toViewLog" id="tou-XS-jO3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJ8-a0-nc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2710,7 +2711,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="MH8-m4-vnH"/>
         <segue reference="oiP-5B-ecH"/>
-        <segue reference="09O-Yn-05B"/>
+        <segue reference="tou-XS-jO3"/>
         <segue reference="J9y-Mo-lFQ"/>
     </inferredMetricsTieBreakers>
 </document>

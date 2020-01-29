@@ -6,6 +6,7 @@
 #import "TestUtility.h"
 #import "MBProgressHUD.h"
 #import "VersionUtility.h"
+#import "LogViewController.h"
 
 @implementation UploadFooterViewController
 
@@ -78,6 +79,7 @@
             hud.bezelView.color = [UIColor lightGrayColor];
             hud.backgroundView.style = UIBlurEffectStyleRegular;
         });
+        logs = [NSMutableArray new];
         NSUInteger errors = 0;
         if ([notUploaded count] == 0) return;
         NSUInteger i = 0;
@@ -133,6 +135,8 @@
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
+    if (![results good])
+        [logs addObject:[results reason]];
     return [results good];
 }
 
@@ -144,13 +148,29 @@
                                     //Reload DB query and restart upload
                                    [self uploadResult];
                                }];
+    UIAlertAction* logButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Modal.DisplayFailureLog", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action) {
+                                    [self performSegueWithIdentifier:@"toViewLog" sender:self];
+                               }];
     NSString *paragraph = NSLocalizedFormatString(@"Modal.UploadFailed.Paragraph",
                                                   [NSString stringWithFormat:@"%ld", (long)errors],
                                                   [NSString stringWithFormat:@"%ld", (long)numUploads]);
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.UploadFailed.Title", nil)
                            message:paragraph
-                          okButton:okButton
+                          buttons:@[okButton, logButton]
                             inView:self];
 
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toViewLog"]){
+        LogViewController *vc = (LogViewController *)segue.destinationViewController;
+        [vc setType:@"upload_log"];
+        //Send to next screen array of errors in txt format
+        [vc setText:[logs componentsJoinedByString:@"\n"]];
+    }
+}
+
 @end

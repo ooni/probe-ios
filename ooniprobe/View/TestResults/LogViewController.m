@@ -18,65 +18,84 @@
                                             action:@selector(copy_clipboard:)];
     [self.textView setText:NSLocalizedString(@"OONIBrowser.Loading", nil)];
     if ([self.type isEqualToString:@"log"]){
-        NSString *fileName = [self.measurement getLogFile];
-        self.text = [TestUtility getUTF8FileContent:fileName];
-        if (self.text != nil) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.textView setText:self.text];
-            });
-        }
-        else {
-            //Show Log not found alert, go back on OK.
-            //This will be useful for when we'll implement the auto log deletion
-            UIAlertAction* okButton = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction * action) {
-                                           [self.navigationController popViewControllerAnimated:YES];
-                                       }];
-            [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error.LogNotFound", nil)
-                                   message:nil
-                                  okButton:okButton
-                              cancelButton:nil
-                                    inView:self];
-        }
+        [self showLog];
     }
     else if ([self.type isEqualToString:@"json"]){
-        NSString *fileName = [self.measurement getReportFile];
-        NSString *content = [TestUtility getUTF8FileContent:fileName];
-        if (content != nil) {
-            self.text = [self prettyPrintedJsonfromUTF8String:content];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.textView setText:self.text];
-            });
-        }
-        else {
-            //Download content from web
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-            });
-            [self.measurement getExplorerUrl:^(NSString *measurement_url){
-                [TestUtility downloadJson:measurement_url
-                                onSuccess:^(NSDictionary *measurementJson) {
-                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-                                        self.text = [self prettyPrintedJsonfromObject:measurementJson];
-                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                            [self.textView setText:self.text];
-                                        });
-                                    });
-                                } onError:^(NSError *error) {
-                                    [self onError:error];
-                                }];
-            } onError:^(NSError *error){
-                [self onError:error];
-            }];
-        }
+        [self showJson];
     }
+    else if ([self.type isEqualToString:@"upload_log"]){
+        [self showUploadLog];
+    }
+
     [self.textView setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     self.textView.scrollEnabled = false;
     [self.textView layoutIfNeeded];
     self.textView.scrollEnabled = true;
+}
+
+- (void)showLog{
+    NSString *fileName = [self.measurement getLogFile];
+    self.text = [TestUtility getUTF8FileContent:fileName];
+    if (self.text != nil) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.textView setText:self.text];
+        });
+    }
+    else {
+        //Show Log not found alert, go back on OK.
+        UIAlertAction* okButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [self.navigationController popViewControllerAnimated:YES];
+                                   }];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error.LogNotFound", nil)
+                               message:nil
+                              okButton:okButton
+                          cancelButton:nil
+                                inView:self];
+    }
+}
+
+- (void)showJson{
+    NSString *fileName = [self.measurement getReportFile];
+    NSString *content = [TestUtility getUTF8FileContent:fileName];
+    if (content != nil) {
+        self.text = [self prettyPrintedJsonfromUTF8String:content];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.textView setText:self.text];
+        });
+    }
+    else {
+        //Download content from web
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        });
+        [self.measurement getExplorerUrl:^(NSString *measurement_url){
+            [TestUtility downloadJson:measurement_url
+                            onSuccess:^(NSDictionary *measurementJson) {
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                                    self.text = [self prettyPrintedJsonfromObject:measurementJson];
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        [self.textView setText:self.text];
+                                    });
+                                });
+                            } onError:^(NSError *error) {
+                                [self onError:error];
+                            }];
+        } onError:^(NSError *error){
+            [self onError:error];
+        }];
+    }
+}
+
+- (void)showUploadLog{
+    if (self.text != nil) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.textView setText:self.text];
+        });
+    }
 }
 
 /*
