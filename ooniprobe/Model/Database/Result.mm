@@ -30,13 +30,6 @@
     return nil;
 }
 
--(Measurement*)getFirstMeasurement{
-    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"Id"] fetch];
-    if ([measurements count] > 0)
-        return [measurements objectAtIndex:0];
-    return nil;
-}
-
 - (long)totalMeasurements {
     SRKQuery *query = [[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]];
     return [query count];
@@ -90,14 +83,14 @@
     return @"";
 }
 
--(Measurement*)getFirstMeasurementTime{
+-(Measurement*)getFirstMeasurement{
     SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] order:@"start_time"] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
     return nil;
 }
 
--(Measurement*)getLastMeasurementTime{
+-(Measurement*)getLastMeasurement{
     SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"start_time"] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
@@ -105,8 +98,8 @@
 }
 
 -(float)getRuntime{
-    Measurement *first = [self getFirstMeasurementTime];
-    Measurement *last = [self getLastMeasurementTime];
+    Measurement *first = [self getFirstMeasurement];
+    Measurement *last = [self getLastMeasurement];
     NSTimeInterval secondsBetweenTests = [last.start_time timeIntervalSinceDate:first.start_time];
     return secondsBetweenTests + first.runtime;
 }
