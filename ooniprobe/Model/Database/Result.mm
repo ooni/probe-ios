@@ -94,6 +94,27 @@
     self.runtime+=value;
 }
 
+-(Measurement*)getFirstMeasurementTime{
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] order:@"start_time"] fetch];
+    if ([measurements count] > 0)
+        return [measurements objectAtIndex:0];
+    return nil;
+}
+
+-(Measurement*)getLastMeasurementTime{
+    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"start_time"] fetch];
+    if ([measurements count] > 0)
+        return [measurements objectAtIndex:0];
+    return nil;
+}
+
+-(float)getRuntime{
+    Measurement *first = [self getFirstMeasurementTime];
+    Measurement *last = [self getLastMeasurementTime];
+    NSTimeInterval secondsBetweenTests = [last.start_time timeIntervalSinceDate:first.start_time];
+    return secondsBetweenTests + first.runtime;
+}
+
 //https://stackoverflow.com/questions/7846495/how-to-get-file-size-properly-and-convert-it-to-mb-gb-in-cocoa
 - (NSString*)getFormattedDataUsageUp{
     return [NSByteCountFormatter stringFromByteCount:self.data_usage_up*1024

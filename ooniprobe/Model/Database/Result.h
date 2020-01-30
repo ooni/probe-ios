@@ -30,6 +30,7 @@
 -(NSString*)getFormattedDataUsageUp;
 -(NSString*)getLocalizedNetworkType;
 -(void)addRuntime:(float)value;
+-(float)getRuntime;
 -(NSString*)getLocalizedStartTime;
 -(BOOL)isEveryMeasurementUploaded;
 +(BOOL)isEveryResultUploaded:(SRKResultSet*)results;
