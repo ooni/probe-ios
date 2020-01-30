@@ -276,8 +276,6 @@
         [measurement setStart_time:json.measurement_start_time];
     }
     [measurement setRuntime:[json.test_runtime floatValue]];
-    if (![self.result.test_group_name isEqualToString:@"websites"])
-        [self.result addRuntime:[json.test_runtime floatValue]];
     [measurement setTestKeysObj:json.test_keys];
 }
 

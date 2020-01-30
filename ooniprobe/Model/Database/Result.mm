@@ -2,7 +2,7 @@
 #import "TestUtility.h"
 
 @implementation Result
-@dynamic test_group_name, start_time, runtime, network_id, is_viewed, is_done, data_usage_up, data_usage_down;
+@dynamic test_group_name, start_time, network_id, is_viewed, is_done, data_usage_up, data_usage_down;
 
 + (NSDictionary *)defaultValuesForEntity {
     return @{@"start_time": [NSDate date]};
@@ -88,10 +88,6 @@
             return NSLocalizedString(@"TestResults.Summary.Hero.NoInternet", nil);
     }
     return @"";
-}
-
--(void)addRuntime:(float)value{
-    self.runtime+=value;
 }
 
 -(Measurement*)getFirstMeasurementTime{
