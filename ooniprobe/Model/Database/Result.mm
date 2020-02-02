@@ -84,14 +84,22 @@
 }
 
 -(Measurement*)getFirstMeasurement{
-    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] order:@"start_time"] fetch];
+    SRKResultSet *measurements = [[[[Measurement query]
+                                    where:@"result_id = ? AND is_rerun = 0"
+                                    parameters:@[self]]
+                                   order:@"start_time"]
+                                  limit:1] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
     return nil;
 }
 
 -(Measurement*)getLastMeasurement{
-    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"start_time"] fetch];
+    SRKResultSet *measurements = [[[[Measurement query]
+                                    where:@"result_id = ? AND is_rerun = 0"
+                                    parameters:@[self]]
+                                   orderByDescending:@"start_time"]
+                                  limit:1] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
     return nil;
@@ -101,7 +109,7 @@
     Measurement *first = [self getFirstMeasurement];
     Measurement *last = [self getLastMeasurement];
     NSTimeInterval secondsBetweenTests = [last.start_time timeIntervalSinceDate:first.start_time];
-    return secondsBetweenTests + first.runtime;
+    return secondsBetweenTests + last.runtime;
 }
 
 //https://stackoverflow.com/questions/7846495/how-to-get-file-size-properly-and-convert-it-to-mb-gb-in-cocoa
