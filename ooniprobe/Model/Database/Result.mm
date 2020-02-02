@@ -84,7 +84,7 @@
 }
 
 -(Measurement*)getFirstMeasurement{
-    SRKResultSet *measurements = [[[[Measurement query]
+    SRKResultSet *measurements = [[[[[Measurement query]
                                     where:@"result_id = ? AND is_rerun = 0"
                                     parameters:@[self]]
                                    order:@"start_time"]
@@ -95,7 +95,7 @@
 }
 
 -(Measurement*)getLastMeasurement{
-    SRKResultSet *measurements = [[[[Measurement query]
+    SRKResultSet *measurements = [[[[[Measurement query]
                                     where:@"result_id = ? AND is_rerun = 0"
                                     parameters:@[self]]
                                    orderByDescending:@"start_time"]
