@@ -96,14 +96,7 @@
     if ([self.measurement.test_name isEqualToString:@"web_connectivity"])
         [link appendFormat:@"?input=%@", self.measurement.url_id.url];
     pasteboard.string = link;
-    if (isInExplorer)
-        [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
-    else
-        [MessageUtility showToast:
-         [NSString stringWithFormat:@"%@\n%@",
-          NSLocalizedString(@"Toast.CopiedToClipboard", nil),
-          NSLocalizedString(@"Toast.WillBeAvailable", nil)]
-          inView:self.view];
+    [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
 }
 
 #pragma mark - Navigation
