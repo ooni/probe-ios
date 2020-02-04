@@ -108,6 +108,8 @@
 -(float)getRuntime{
     Measurement *first = [self getFirstMeasurement];
     Measurement *last = [self getLastMeasurement];
+    if (first == nil || last == nil)
+        return 0;
     NSTimeInterval secondsBetweenTests = [last.start_time timeIntervalSinceDate:first.start_time];
     return secondsBetweenTests + last.runtime;
 }
