@@ -44,8 +44,9 @@
 -(IBAction)run:(id)sender{
     urlArray = [[NSMutableArray alloc] init];
     for (NSString *url in self.urlsList){
-        if (![url isEqualToString:@"http://"] && ![url isEqualToString:@"https://"]){
-            Url *currentUrl = [Url checkExistingUrl:url];
+        NSString *sanitizedUrl= [url stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+        if (![sanitizedUrl isEqualToString:@"http://"] && ![sanitizedUrl isEqualToString:@"https://"]){
+            Url *currentUrl = [Url checkExistingUrl:sanitizedUrl];
             [urlArray addObject:currentUrl.url];
         }
     }
