@@ -41,7 +41,7 @@
 "Dashboard.Running.Seconds" = "%@ segundos";
 "Dashboard.Running.PreparingTest" = "Preparando o teste";
 "Dashboard.Running.ShowLog" = "Exibir registro";
-"Dashboard.Running.CloseLog" = "Close Log";
+"Dashboard.Running.CloseLog" = "Fechar registro";
 "Dashboard.Card.Subtitle" = "Clique para ver outras opções ";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Teste o bloqueio de sites";
@@ -82,7 +82,7 @@
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ acessível";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ acessíveis";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ bloqueados";
-"TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
+"TestResults.Overview.Circumvention.Available.Plural" = "%@ disponível";
 "TestResults.Summary.Hero.DateAndTime" = "Data e hora";
 "TestResults.Summary.Hero.Network" = "Rede";
 "TestResults.Summary.Hero.Country" = "País";
@@ -122,7 +122,7 @@
 "TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Bloqueado";
 "TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "Funcionando";
 "TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "Funcionando";
-"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Tool";
+"TestResults.Summary.Circumvention.Hero.Tools.Singular" = "Ferramenta";
 "TestResults.Summary.Circumvention.Hero.Tools.Plural" = "Ferramentas";
 "TestResults.Details.Hero.Runtime" = "Tempo de Execução";
 "TestResults.Details.Methodology" = "Metodologia";
@@ -130,7 +130,7 @@
 "TestResults.Details.RawData" = "Dados";
 "TestResults.Details.CopyExplorerURL" = "Copiar URL do Explorer";
 "TestResults.Details.CopyToClipboard" = "Copiar para área de transferência";
-"TestResults.Details.ShowInExplorer" = "Show in OONI Explorer";
+"TestResults.Details.ShowInExplorer" = "Mostrar no OONI Explorer";
 "TestResults.Details.Failed.Title" = "Falhou";
 "TestResults.Details.Failed.Paragraph" = "Você pode tentar executar este teste novamente";
 "TestResults.Details.Failed.TryAgain" = "Tentar Novamente";
@@ -199,10 +199,6 @@
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Você pode transmitir até %@ sem usar a memória temporária.";
 "TestResults.Details.Performance.Dash.MedianBitrate" = "Taxa média de bits";
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Atraso de Playout";
-"TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Bloqueado";
-"TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "Funcionando";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
 "Feed.Tab.Label" = "Alimentar";
 "Feed.Title" = "Alimentar";
 "Modal.OK" = "OK";
@@ -221,7 +217,7 @@
 "Modal.ResultsNotUploaded.Button.Upload" = "Carregar";
 "Modal.ResultsNotUploaded.Uploading" = "Fazendo upload de %@ ...";
 "Toast.ResultsUploaded" = "Carregamento bem-sucedido";
-"Modal.DisplayFailureLog" = "Display failure log";
+"Modal.DisplayFailureLog" = "Exibir log de falha";
 "Modal.EnableNotifications.AutomatedTesting" = "Habilite as permissões de notificação para executar testes automaticamente.";
 "Modal.EnableNotifications.News" = "Habilite as permissões de notificação para receber atualizações de notícias.";
 "Modal.EnableNotifications.Any" = "Habilite as permissões de notificação para receber notificações não solicitadas.";
@@ -232,7 +228,7 @@
 "Modal.OnlyDigits" = "Por favor, insira apenas dígitos neste campo.";
 "Modal.ReRun.Title" = "Repetir o teste";
 "Modal.ReRun.Paragraph" = "Este teste falhou. Você deseja fazer um outro teste?";
-"Modal.ReRun.Websites.Title" = "You are about to re-test %@ websites.";
+"Modal.ReRun.Websites.Title" = "Você está prestes a testar novamente os sites %@.";
 "Modal.ReRun.Websites.Run" = "Executat";
 "Modal.CustomURL.NotSaved" = "Suas URLs não serão salvas quando você sair desta tela. Tem certeza de que deseja sair desta tela?";
 "Modal.ManualUpload.Title" = "Ativar carregamento manual?";
@@ -240,12 +236,11 @@
 "Modal.ManualUpload.Enable" = "Habilitar";
 "Modal.ManualUpload.Disable" = "Não, agradeço";
 "Modal.UploadFailed.Title" = "Falha ao enviar";
-"Modal.UploadFailed.Paragraph" = "We have failed to upload %@/%@ measurements. The failure log has been shared with OONI developers.";
+"Modal.UploadFailed.Paragraph" = "Falha no upload de %@/%@ das medidas. O log de falhas foi compartilhado com os desenvolvedores OONI.";
 "Modal.Error.LogNotFound" = "Arquivo de log não encontrado";
 "Modal.Error.NoValidUrls" = "Nenhuma URL válida encontrada";
 "Modal.Error.JsonEmpty" = "JSON vazio";
 "Toast.CopiedToClipboard" = "Copiado para a área de transferência";
-"Toast.WillBeAvailable" = "Estará disponível em 24h";
 "Snackbar.ResultsNotUploaded.Text" = "Não Carregado";
 "Snackbar.ResultsNotUploaded.Upload" = "Carregar";
 "Snackbar.ResultsSomeNotUploaded.Text" = "Alguns items não carregaram";
@@ -263,7 +258,6 @@
 "Test.WhatsApp.Fullname" = "Teste do WhatsApp";
 "Test.Telegram.Fullname" = "Teste do Telegram";
 "Test.FacebookMessenger.Fullname" = "Teste do Facebook Messenger";
-"Test.Psiphon.Fullname" = "Psiphon Test";
 "Settings.Title" = "Configurações";
 "Settings.Error.TestDurationTooLow" = "A quantidade de tempo que você definiu para a duração do teste é muito baixa.";
 "Settings.About.Label" = "Sobre OONI";
@@ -287,7 +281,7 @@
 "Settings.Advanced.SendCrashReports" = "Enviar relatórios de erros";
 "Settings.Advanced.DebugLogs" = "Registros de depuração";
 "Settings.Advanced.UseDomainFronting" = "Sempre usar \"domain fronting\"";
-"Settings.Websites.MaxRuntimeEnabled" = "Limit test duration";
+"Settings.Websites.MaxRuntimeEnabled" = "Limitar a duração do teste";
 "Settings.Websites.MaxRuntime" = "Duração do teste";
 "Settings.Websites.Categories.Label" = "Categorias de sites para testar";
 "Settings.Websites.Categories.Description" = "%@ categorias habilitadas";
