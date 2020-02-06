@@ -1,5 +1,6 @@
 #import "Result.h"
 #import "TestUtility.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation Result
 @dynamic test_group_name, start_time, network_id, is_viewed, is_done, data_usage_up, data_usage_down;
@@ -108,8 +109,11 @@
 -(float)getRuntime{
     Measurement *first = [self getFirstMeasurement];
     Measurement *last = [self getLastMeasurement];
-    if (first == nil || last == nil)
+    if (first == nil || last == nil){
+        //TODO move this code to a ExceptionRecord class. #983
+        [CrashlyticsKit recordError:[NSError errorWithDomain:@"get_runtime_null" code:0 userInfo:nil]];
         return 0;
+    }
     NSTimeInterval secondsBetweenTests = [last.start_time timeIntervalSinceDate:first.start_time];
     return secondsBetweenTests + last.runtime;
 }

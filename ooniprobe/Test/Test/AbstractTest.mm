@@ -150,6 +150,7 @@
                                //What to do? Run next test
                            }
                            else if ([event.key isEqualToString:@"bug.json_dump"]) {
+                               //TODO move this code to a ExceptionRecord class. #983
                                [CrashlyticsKit recordError:[NSError errorWithDomain:@"json_dump" code:0 userInfo:[event.value dictionary]]];
                            }
                            else {
