@@ -294,4 +294,16 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"websites"] ||
+        [[segue identifier] isEqualToString:@"performance"] ||
+        [[segue identifier] isEqualToString:@"middle_boxes"] ||
+        [[segue identifier] isEqualToString:@"instant_messaging"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
+        NSString *current = [items objectAtIndex:indexPath.row];
+        [vc setCategory:current];
+    }
+}
+
 @end
