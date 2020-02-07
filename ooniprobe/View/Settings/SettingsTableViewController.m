@@ -48,6 +48,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    //TODO check if this will still work
     if (testSuite != nil){
         [testSuite.testList removeAllObjects];
         [testSuite getTestList];
