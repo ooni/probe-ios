@@ -9,7 +9,6 @@
 @interface SettingsTableViewController : UITableViewController <UITextFieldDelegate, UIAlertViewDelegate> {
     NSArray *items;
     UIToolbar *keyboardToolbar;
-
 }
 
 @property (nonatomic, strong) NSString *category;

@@ -25,16 +25,16 @@
         return @[@"send_crash", @"debug_logs"];
     }
     else if ([categoryName isEqualToString:@"test_settings"]) {
-        return @[@"websites", @"instant_messaging", @"middle_boxes", @"performance"];
+        return [TestUtility getTestTypes];
     }
+    else if ([[TestUtility getTestTypes] containsObject:categoryName])
+        return [SettingsUtility getSettingsForTest:categoryName :YES];
     else
         return nil;
 }
 
 + (NSString*)getTypeForSetting:(NSString*)setting{
-    if ([setting isEqualToString:@"website_categories"] || [setting isEqualToString:@"websites"]
-         || [setting isEqualToString:@"instant_messaging"]  || [setting isEqualToString:@"middle_boxes"]
-         || [setting isEqualToString:@"performance"])
+    if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"])
         return @"int";

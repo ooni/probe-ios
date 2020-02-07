@@ -48,12 +48,12 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    //TODO check if this will still work
     if (testSuite != nil){
         [testSuite.testList removeAllObjects];
         [testSuite getTestList];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"settingsChanged" object:nil];
     }
+    if (testSuite != nil || [[TestUtility getTestTypes] containsObject:category])
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"settingsChanged" object:nil];
 }
 
 #pragma mark - Table view data source
@@ -104,6 +104,11 @@
         }
         else
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        if ([[TestUtility getTestTypes] containsObject:current]){
+            //TODO scale image
+            cell.imageView.image = [UIImage imageNamed:current];
+            [cell.imageView setTintColor:[UIColor colorWithRGBHexString:color_base alpha:1.0f]];
+        }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -296,10 +301,7 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"websites"] ||
-        [[segue identifier] isEqualToString:@"performance"] ||
-        [[segue identifier] isEqualToString:@"middle_boxes"] ||
-        [[segue identifier] isEqualToString:@"instant_messaging"]){
+    if ([[TestUtility getTestTypes] containsObject:[segue identifier]]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
         NSString *current = [items objectAtIndex:indexPath.row];
