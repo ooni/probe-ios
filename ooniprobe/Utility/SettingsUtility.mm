@@ -5,7 +5,7 @@
 
 + (NSArray*)getSettingsCategories{
     //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"notifications", @"sharing", @"test_settings", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"notifications", @"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
@@ -24,7 +24,7 @@
         //TODO DOMAIN FRONTING @"use_domain_fronting"
         return @[@"send_crash", @"debug_logs"];
     }
-    else if ([categoryName isEqualToString:@"test_settings"]) {
+    else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];
     }
     else if ([[TestUtility getTestTypes] containsObject:categoryName])
