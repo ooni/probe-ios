@@ -109,7 +109,7 @@
     Measurement *first = [self getFirstMeasurement];
     Measurement *last = [self getLastMeasurement];
     if (first == nil || last == nil){
-        return ERROR_RUNTIME;
+        return [ERROR_RUNTIME floatValue];
     }
     NSTimeInterval secondsBetweenTests = [last.start_time timeIntervalSinceDate:first.start_time];
     return secondsBetweenTests + last.runtime;
