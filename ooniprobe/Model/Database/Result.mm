@@ -112,7 +112,7 @@
     if (first == nil || last == nil){
         //TODO move this code to a ExceptionRecord class. #983
         [CrashlyticsKit recordError:[NSError errorWithDomain:@"get_runtime_null" code:0 userInfo:nil]];
-        return ERROR_RUNTIME;
+        return 0;
     }
     NSTimeInterval secondsBetweenTests = [last.start_time timeIntervalSinceDate:first.start_time];
     return secondsBetweenTests + last.runtime;
