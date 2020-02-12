@@ -10,7 +10,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTests) name:@"settingsChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTests) name:@"settingsChanged" object:nil];
     [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
     [self loadTests];
 }
@@ -24,16 +24,13 @@
     self.navigationController.navigationBar.topItem.titleView = navbarImageView;
 }
 
--(void)reloadTests{
-    [self.tableView reloadData];
-}
-
 -(void)loadTests{
     items = [[NSMutableArray alloc] init];
     [items addObject:[[WebsitesSuite alloc] init]];
     [items addObject:[[InstantMessagingSuite alloc] init]];
     [items addObject:[[MiddleBoxesSuite alloc] init]];
     [items addObject:[[PerformanceSuite alloc] init]];
+    [self.tableView reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

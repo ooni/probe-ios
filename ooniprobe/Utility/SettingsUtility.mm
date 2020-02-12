@@ -5,7 +5,7 @@
 
 + (NSArray*)getSettingsCategories{
     //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"notifications", @"sharing", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"notifications", @"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
@@ -24,12 +24,17 @@
         //TODO DOMAIN FRONTING @"use_domain_fronting"
         return @[@"send_crash", @"debug_logs"];
     }
+    else if ([categoryName isEqualToString:@"test_options"]) {
+        return [TestUtility getTestTypes];
+    }
+    else if ([[TestUtility getTestTypes] containsObject:categoryName])
+        return [SettingsUtility getSettingsForTest:categoryName :YES];
     else
         return nil;
 }
 
 + (NSString*)getTypeForSetting:(NSString*)setting{
-    if ([setting isEqualToString:@"website_categories"])
+    if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"])
         return @"int";

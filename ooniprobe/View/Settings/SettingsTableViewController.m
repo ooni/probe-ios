@@ -51,8 +51,9 @@
     if (testSuite != nil){
         [testSuite.testList removeAllObjects];
         [testSuite getTestList];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"settingsChanged" object:nil];
     }
+    if (testSuite != nil || [[TestUtility getTestTypes] containsObject:category])
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"settingsChanged" object:nil];
 }
 
 #pragma mark - Table view data source
@@ -103,6 +104,10 @@
         }
         else
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        if ([[TestUtility getTestTypes] containsObject:current]){
+            cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"settings_%@", current]];
+            [cell.imageView setTintColor:[UIColor colorWithRGBHexString:color_base alpha:1.0f]];
+        }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -292,6 +297,15 @@
     }
     [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[TestUtility getTestTypes] containsObject:[segue identifier]]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
+        NSString *current = [items objectAtIndex:indexPath.row];
+        [vc setCategory:current];
+    }
 }
 
 @end
