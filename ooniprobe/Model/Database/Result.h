@@ -10,7 +10,6 @@
 
 @property NSString *test_group_name;
 @property NSDate *start_time;
-@property float runtime;
 @property BOOL is_viewed;
 @property BOOL is_done;
 @property long data_usage_up;
@@ -30,7 +29,7 @@
 -(NSString*)getFormattedDataUsageDown;
 -(NSString*)getFormattedDataUsageUp;
 -(NSString*)getLocalizedNetworkType;
--(void)addRuntime:(float)value;
+-(float)getRuntime;
 -(NSString*)getLocalizedStartTime;
 -(BOOL)isEveryMeasurementUploaded;
 +(BOOL)isEveryResultUploaded:(SRKResultSet*)results;

@@ -2,7 +2,7 @@
 #import "TestUtility.h"
 
 @implementation Result
-@dynamic test_group_name, start_time, runtime, network_id, is_viewed, is_done, data_usage_up, data_usage_down;
+@dynamic test_group_name, start_time, network_id, is_viewed, is_done, data_usage_up, data_usage_down;
 
 + (NSDictionary *)defaultValuesForEntity {
     return @{@"start_time": [NSDate date]};
@@ -25,13 +25,6 @@
 
 -(Measurement*)getMeasurement:(NSString*)name{
     SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND test_name = ? AND is_rerun = 0" parameters:@[self, name]] orderByDescending:@"Id"] fetch];
-    if ([measurements count] > 0)
-        return [measurements objectAtIndex:0];
-    return nil;
-}
-
--(Measurement*)getFirstMeasurement{
-    SRKResultSet *measurements = [[[[Measurement query] where:@"result_id = ? AND is_rerun = 0" parameters:@[self]] orderByDescending:@"Id"] fetch];
     if ([measurements count] > 0)
         return [measurements objectAtIndex:0];
     return nil;
@@ -90,8 +83,33 @@
     return @"";
 }
 
--(void)addRuntime:(float)value{
-    self.runtime+=value;
+-(Measurement*)getFirstMeasurement{
+    SRKResultSet *measurements = [[[[[Measurement query]
+                                    where:@"result_id = ? AND is_rerun = 0"
+                                    parameters:@[self]]
+                                   order:@"start_time"]
+                                  limit:1] fetch];
+    if ([measurements count] > 0)
+        return [measurements objectAtIndex:0];
+    return nil;
+}
+
+-(Measurement*)getLastMeasurement{
+    SRKResultSet *measurements = [[[[[Measurement query]
+                                    where:@"result_id = ? AND is_rerun = 0"
+                                    parameters:@[self]]
+                                   orderByDescending:@"start_time"]
+                                  limit:1] fetch];
+    if ([measurements count] > 0)
+        return [measurements objectAtIndex:0];
+    return nil;
+}
+
+-(float)getRuntime{
+    Measurement *first = [self getFirstMeasurement];
+    Measurement *last = [self getLastMeasurement];
+    NSTimeInterval secondsBetweenTests = [last.start_time timeIntervalSinceDate:first.start_time];
+    return secondsBetweenTests + last.runtime;
 }
 
 //https://stackoverflow.com/questions/7846495/how-to-get-file-size-properly-and-convert-it-to-mb-gb-in-cocoa

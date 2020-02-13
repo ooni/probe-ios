@@ -277,7 +277,6 @@
         [measurement setStart_time:json.measurement_start_time];
     }
     [measurement setRuntime:[json.test_runtime floatValue]];
-    [self.result addRuntime:[json.test_runtime floatValue]];
     [measurement setTestKeysObj:json.test_keys];
 }
 
