@@ -4,9 +4,8 @@
 #import "ReachabilityManager.h"
 #import "NSDictionary+Safety.h"
 #import "EventResult.h"
+#import "ExceptionUtility.h"
 #import <mkall/MKAsyncTask.h>
-
-#import <Crashlytics/Crashlytics.h>
 
 @implementation AbstractTest
 
@@ -151,7 +150,7 @@
                                [self.result save];
                            }
                            else if ([event.key isEqualToString:@"bug.json_dump"]) {
-                               [CrashlyticsKit recordError:[NSError errorWithDomain:@"json_dump" code:0 userInfo:[event.value dictionary]]];
+                               [ExceptionUtility recordError:@"json_dump" code:0 userInfo:[event.value dictionary]];
                            }
                            else {
                                NSLog(@"unused event: %@", evinfo);

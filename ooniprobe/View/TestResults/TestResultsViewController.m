@@ -1,6 +1,6 @@
 #import "TestResultsViewController.h"
-#import <Crashlytics/Crashlytics.h>
 #import "UploadFooterViewController.h"
+#import "ExceptionUtility.h"
 
 @interface TestResultsViewController ()
 
@@ -36,7 +36,7 @@
         NSString *key = [df stringFromDate:current.start_time];
         if (key == nil){
             //reporting error to fabric and delete test
-            [CrashlyticsKit recordError:[NSError errorWithDomain:@"key_nil" code:0 userInfo:[current dictionary]]];
+            [ExceptionUtility recordError:@"key_nil" code:0 userInfo:[current dictionary]];
             [current deleteObject];
         }
         else {
