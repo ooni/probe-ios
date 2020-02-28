@@ -35,8 +35,6 @@
 #endif
 
     application.statusBarStyle = UIStatusBarStyleLightContent;
-
-    [NotificationService updateClient];
     
     //TODO ORCHESTRA Probably don't need it anymore when implementing backgound notifications
     //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo
@@ -54,7 +52,6 @@
     NSLog(@"token: %@",token);
 #ifdef RELEASE
     [SettingsUtility set_push_token:token];
-    [NotificationService updateClient];
 #endif
 }
 

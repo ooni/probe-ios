@@ -34,10 +34,7 @@
 }
 
 - (void)reachabilityDidChange:(NSNotification *)notification {
-    NSString *networkType = [self getStatus];
-    if (![networkType isEqualToString:@"no_internet"]){
-        [NotificationService updateClient];
-    }
+    //Do nothing
 }
 
 - (NSString*)getStatus{
