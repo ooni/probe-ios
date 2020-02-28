@@ -39,7 +39,13 @@
         self.accessoryType = UITableViewCellAccessoryNone;
         return;
     }
-
+    else {
+        //Reset cell views state
+        [self.stackView1 setHidden:NO];
+        [self.stackView2 setHidden:NO];
+        [self.stackView3 setHidden:NO];
+    }
+    
     if ([result isEveryMeasurementUploaded])
         [self.notUploadedImage setHidden:YES];
     else
