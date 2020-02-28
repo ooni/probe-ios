@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import <Crashlytics/Crashlytics.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

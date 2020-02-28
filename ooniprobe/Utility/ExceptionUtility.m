@@ -1,4 +1,5 @@
 #import "ExceptionUtility.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation ExceptionUtility
 
