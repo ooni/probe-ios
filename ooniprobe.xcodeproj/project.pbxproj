@@ -66,6 +66,7 @@
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
 		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
 		ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */ = {isa = PBXBuildFile; fileRef = ED86D74E227DAB02007D93FB /* OONIProbe.db */; };
+		ED8F2A3823F0142A00EF5EDA /* ExceptionUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8F2A3723F0142A00EF5EDA /* ExceptionUtility.m */; };
 		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
 		ED90A9282198DE5100204B46 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91B2198DE5000204B46 /* Network.m */; };
 		ED90A9292198DE5100204B46 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91C2198DE5000204B46 /* Result.mm */; };
@@ -265,6 +266,8 @@
 		ED8569591EB146C200D435EB /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED85695A1EBA227D00D435EB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED86D74E227DAB02007D93FB /* OONIProbe.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = OONIProbe.db; sourceTree = "<group>"; };
+		ED8F2A3623F0142A00EF5EDA /* ExceptionUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExceptionUtility.h; path = Utility/ExceptionUtility.h; sourceTree = "<group>"; };
+		ED8F2A3723F0142A00EF5EDA /* ExceptionUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ExceptionUtility.m; path = Utility/ExceptionUtility.m; sourceTree = "<group>"; };
 		ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewCell.m; sourceTree = "<group>"; };
 		ED90A9182198B8AB00204B46 /* DashboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewCell.h; sourceTree = "<group>"; };
 		ED90A91B2198DE5000204B46 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
@@ -634,6 +637,8 @@
 				EDA7645E2153090800C24688 /* NSDictionary+Safety.m */,
 				EDA9F21922414E0E003D40E8 /* UIDevice-DeviceInfo.h */,
 				EDA9F21A22414E0E003D40E8 /* UIDevice-DeviceInfo.m */,
+				ED8F2A3623F0142A00EF5EDA /* ExceptionUtility.h */,
+				ED8F2A3723F0142A00EF5EDA /* ExceptionUtility.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1238,6 +1243,7 @@
 				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.mm in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
+				ED8F2A3823F0142A00EF5EDA /* ExceptionUtility.m in Sources */,
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
 				ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */,
