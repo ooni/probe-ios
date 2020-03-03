@@ -7,6 +7,7 @@
 #import "TestUtility.h"
 #import "JsonResult.h"
 #import "Settings.h"
+#import <mkall/MKAsyncTask.h>
 
 @class AbstractTest;
 
@@ -24,6 +25,7 @@
 @property id<MKNetworkTestDelegate> delegate;
 @property Settings *settings;
 @property BOOL annotation;
+@property MKAsyncTask *task;
 -(id)initTest:(NSString*)testName;
 -(Measurement*)createMeasurementObject;
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement;
@@ -31,4 +33,5 @@
 -(void)runTest;
 -(int)getRuntime;
 -(void)testEnded;
+-(void)cancelTest;
 @end

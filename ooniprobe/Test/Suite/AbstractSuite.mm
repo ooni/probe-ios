@@ -30,10 +30,20 @@
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     for (AbstractTest *current in [self getTestList]){
+        self.runningTest = current;
         [current setDelegate:self];
         [current setResult:self.result];
         [current runTest];
     }
+}
+
+-(void)cancelTests{
+    [self.runningTest cancelTest];
+/*
+    for (AbstractTest *current in [self getTestList]){
+        [current cancelTest];
+    }
+ */
 }
 
 -(void)testEnded:(AbstractTest*)test{
@@ -51,6 +61,7 @@
         }
         //Resetting class values
         self.result = nil;
+        self.runningTest = nil;
         self.measurementIdx = 0;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
     }

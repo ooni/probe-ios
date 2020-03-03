@@ -5,7 +5,6 @@
 #import "NSDictionary+Safety.h"
 #import "EventResult.h"
 #import "ExceptionUtility.h"
-#import <mkall/MKAsyncTask.h>
 
 @implementation AbstractTest
 
@@ -65,10 +64,10 @@
     }];
     dispatch_async(
                    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                       MKAsyncTask *task = [MKAsyncTask start:settings];
-                       while (![task done]){
+                       self.task = [MKAsyncTask start:settings];
+                       while (![self.task done]){
                            // Extract an event from the task queue and unmarshal it.
-                           NSDictionary *evinfo = [task waitForNextEvent];
+                           NSDictionary *evinfo = [self.task waitForNextEvent];
                            if (evinfo == nil) {
                                break;
                            }
@@ -161,6 +160,11 @@
                            [self testEnded];
                        });
                    });
+}
+
+-(void)cancelTest {
+    if (self.task != NULL)
+        [self.task interrupt];
 }
 
 -(void)updateLogs:(Value *)value{

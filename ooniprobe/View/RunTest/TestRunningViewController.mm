@@ -130,4 +130,17 @@
                            message:NSLocalizedString(@"Modal.Error.CantDownloadURLs", nil) inView:self];
 }
 
+-(IBAction)cancelTest:(id)sender{
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"YES", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                    [testSuite cancelTests];
+                               }];
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Do you want to cancel the test", nil)
+                           message:NSLocalizedString(@"", nil)
+                          okButton:okButton
+                            inView:self];
+}
+
 @end

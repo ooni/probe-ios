@@ -225,6 +225,13 @@
                                 <color key="progressTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="trackTintColor" red="0.29803921570000003" green="0.43137254899999999" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFp-74-K9L">
+                                <rect key="frame" x="345" y="48" width="14" height="22"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="cancelTest:" destination="4q0-13-6dh" eventType="touchUpInside" id="BXH-F2-crf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -234,6 +241,7 @@
                             <constraint firstItem="WHM-pS-oxG" firstAttribute="top" secondItem="ujL-eR-yvm" secondAttribute="bottom" id="5S5-HV-RcB"/>
                             <constraint firstAttribute="bottom" secondItem="Z6n-n1-GOS" secondAttribute="bottom" constant="159" id="8O0-s8-Yvd"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="leading" secondItem="RdD-4o-FNz" secondAttribute="leading" id="8Tm-sy-O1g"/>
+                            <constraint firstItem="gFp-74-K9L" firstAttribute="trailing" secondItem="ujL-eR-yvm" secondAttribute="trailing" id="Bf7-O7-foJ"/>
                             <constraint firstItem="Xcv-iy-zO9" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" constant="42" id="DUQ-km-XFr"/>
                             <constraint firstItem="i6u-M1-RsK" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="Dca-9g-hqz"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="EJg-Ma-PkR"/>
@@ -245,6 +253,7 @@
                             <constraint firstItem="RdD-4o-FNz" firstAttribute="top" secondItem="Z6n-n1-GOS" secondAttribute="bottom" constant="31" id="Ykb-0f-8Bf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xcv-iy-zO9" secondAttribute="trailing" constant="42" id="bYL-ZC-Lwu"/>
                             <constraint firstItem="vNz-6C-NZt" firstAttribute="centerX" secondItem="WHK-n4-vcV" secondAttribute="centerX" id="bzy-ub-c7d"/>
+                            <constraint firstItem="gFp-74-K9L" firstAttribute="top" secondItem="tHi-Ui-7Hp" secondAttribute="bottom" constant="4" id="huJ-am-f7T"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="jWR-19-gZI"/>
                             <constraint firstItem="iDt-w7-KI4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RdD-4o-FNz" secondAttribute="bottom" constant="8" id="n0C-O4-NVK"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="RdD-4o-FNz" secondAttribute="trailing" id="oXZ-td-EGv"/>
@@ -478,6 +487,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close" width="14" height="14"/>
         <image name="tab_dashboard" width="26" height="21"/>
         <image name="websites" width="78" height="78"/>
     </resources>
