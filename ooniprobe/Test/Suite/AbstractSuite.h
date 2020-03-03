@@ -21,5 +21,5 @@
 -(NSArray*)getTestList;
 -(void)newResult;
 -(int)getRuntime;
--(void)cancelTests;
+-(void)interruptTests;
 @end

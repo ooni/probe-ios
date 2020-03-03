@@ -135,9 +135,9 @@
                                actionWithTitle:NSLocalizedString(@"YES", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-                                    [testSuite cancelTests];
+                                    [testSuite interruptTests];
                                }];
-    [MessageUtility alertWithTitle:NSLocalizedString(@"Do you want to cancel the test", nil)
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Do you want to interrupt the test", nil)
                            message:NSLocalizedString(@"", nil)
                           okButton:okButton
                             inView:self];

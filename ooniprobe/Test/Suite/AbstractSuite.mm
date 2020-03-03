@@ -37,8 +37,8 @@
     }
 }
 
--(void)cancelTests{
-    [self.runningTest cancelTest];
+-(void)interruptTests{
+    [self.runningTest interruptTest];
 /*
     for (AbstractTest *current in [self getTestList]){
         [current cancelTest];

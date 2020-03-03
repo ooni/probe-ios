@@ -162,7 +162,7 @@
                    });
 }
 
--(void)cancelTest {
+-(void)interruptTest {
     if (self.task != NULL)
         [self.task interrupt];
 }

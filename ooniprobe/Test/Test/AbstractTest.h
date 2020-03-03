@@ -33,5 +33,5 @@
 -(void)runTest;
 -(int)getRuntime;
 -(void)testEnded;
--(void)cancelTest;
+-(void)interruptTest;
 @end
