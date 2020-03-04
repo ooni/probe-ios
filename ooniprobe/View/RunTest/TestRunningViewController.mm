@@ -20,6 +20,7 @@
     [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Running", nil)];
     [self.logLabel setText:@""];
     [self.etaLabel setText:NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)];
+    [self.timeLabel setText:NSLocalizedString(@"Dashboard.Running.CalculatingETA", nil)];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setRuntime) name:@"updateRuntime" object:nil];
