@@ -155,6 +155,15 @@
     return localizedDateTime;
 }
 
+-(NSString*)getFailureMsg{
+    //if failure is nill return only "Error"
+    if (self.failure_msg == nil)
+        return NSLocalizedString(@"Modal.Error", nil);
+    return [NSString stringWithFormat:@"%@ - %@",
+            NSLocalizedString(@"Modal.Error", nil),
+            self.failure_msg]
+}
+
 -(void)save{
     [self commit];
     /*
