@@ -161,7 +161,7 @@
         return NSLocalizedString(@"Modal.Error", nil);
     return [NSString stringWithFormat:@"%@ - %@",
             NSLocalizedString(@"Modal.Error", nil),
-            self.failure_msg]
+            self.failure_msg];
 }
 
 -(void)save{
