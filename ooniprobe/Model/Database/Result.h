@@ -29,6 +29,7 @@
 -(NSString*)getFormattedDataUsageDown;
 -(NSString*)getFormattedDataUsageUp;
 -(NSString*)getLocalizedNetworkType;
+-(NSString*)getFailureMsg;
 -(float)getRuntime;
 -(NSString*)getLocalizedStartTime;
 -(BOOL)isEveryMeasurementUploaded;
