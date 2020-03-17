@@ -119,6 +119,7 @@
 		EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding3ViewController.m */; };
 		EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */; };
 		EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B711FFF6C8B00EFD9C8 /* Onboarding1ViewController.m */; };
+		EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE47C40241FC6BC0013A1CB /* NetworkSession.m */; };
 		EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */; };
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
@@ -362,6 +363,8 @@
 		EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onboarding3ViewController.m; sourceTree = "<group>"; };
 		EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopQuizViewController.m; sourceTree = "<group>"; };
 		EDDB0B711FFF6C8B00EFD9C8 /* Onboarding1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onboarding1ViewController.m; sourceTree = "<group>"; };
+		EDE47C3F241FC6BC0013A1CB /* NetworkSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkSession.h; path = Utility/NetworkSession.h; sourceTree = "<group>"; };
+		EDE47C40241FC6BC0013A1CB /* NetworkSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NetworkSession.m; path = Utility/NetworkSession.m; sourceTree = "<group>"; };
 		EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = middle_boxes.json; sourceTree = "<group>"; };
 		EDF2072B2120EF12005B06D7 /* Simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		EDF2072E2120EF29005B06D7 /* Advanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Advanced.h; sourceTree = "<group>"; };
@@ -639,6 +642,8 @@
 				EDA9F21A22414E0E003D40E8 /* UIDevice-DeviceInfo.m */,
 				ED8F2A3623F0142A00EF5EDA /* ExceptionUtility.h */,
 				ED8F2A3723F0142A00EF5EDA /* ExceptionUtility.m */,
+				EDE47C3F241FC6BC0013A1CB /* NetworkSession.h */,
+				EDE47C40241FC6BC0013A1CB /* NetworkSession.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1237,6 +1242,7 @@
 				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */,
 				ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */,
 				ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */,
+				EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,

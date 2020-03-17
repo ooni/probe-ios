@@ -2,6 +2,7 @@
 #import "Url.h"
 #import "SettingsUtility.h"
 #import <mkall/MKGeoIPLookup.h>
+#import "NetworkSession.h"
 #define delete_json_delay 86400
 #define delete_json_key @"deleteUploadedJsons"
 
@@ -101,7 +102,7 @@
         components.queryItems = @[ ccItem ];
     }
     NSURL *url = components.URL;
-    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
          [self downloadUrlsCallback:data response:response error:error
@@ -150,7 +151,7 @@
 + (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
     onError:(void (^)(NSError*))errorcb {
     NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
                                           dataTaskWithURL:url
                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                               [self downloadJsonCallback:data response:response error:error
