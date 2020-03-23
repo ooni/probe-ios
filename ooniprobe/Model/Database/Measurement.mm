@@ -1,6 +1,7 @@
 #import "Measurement.h"
 #import "Result.h"
 #import "TestUtility.h"
+#import "NetworkSession.h"
 
 @implementation Measurement
 @dynamic test_name, start_time, runtime, is_done, is_uploaded, is_failed, failure_msg, is_upload_failed, upload_failure_msg, is_rerun, report_id, url_id, test_keys, is_anomaly, result_id;
@@ -119,7 +120,7 @@
         components.queryItems = @[ reportIdItem ];
 
     NSURL *url = components.URL;
-    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
      dataTaskWithURL:url
      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
          [self getExplorerUrlCallback:data response:response error:error
