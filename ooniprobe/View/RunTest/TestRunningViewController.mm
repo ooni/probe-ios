@@ -29,17 +29,19 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [self addAnimation];
 }
 
 -(void)testStart{
-    //dispatch_async(dispatch_get_main_queue(), ^{
     [self.logLabel setText:@""];
     [self.progressBar setProgress:0 animated:YES];
     [self.view setBackgroundColor:[TestUtility getColorForTest:testSuite.name]];
     [self.timeLabel setText:NSLocalizedString(@"Dashboard.Running.CalculatingETA", nil)];
     [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self addAnimation];
+        if (self.isViewLoaded && self.view.window) {
+            [self addAnimation];
+        }
     });
 }
 
@@ -70,6 +72,8 @@
 }
 
 -(void)addAnimation{
+    if (testSuite == nil)
+        return;
     animation = [LOTAnimationView animationNamed:testSuite.name];
     animation.contentMode = UIViewContentModeScaleAspectFit;
     CGRect c = self.animationView.bounds;
