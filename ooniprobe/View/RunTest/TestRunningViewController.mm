@@ -6,27 +6,22 @@
 
 @implementation TestRunningViewController
 
-@synthesize testSuite;
+@synthesize testSuite, testSuites;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[TestUtility getColorForTest:testSuite.name]];
-    [self.timeLabel setText:nil];
-    [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
 
-    [self runTest];
     self.progressBar.layer.cornerRadius = 7.5;
     self.progressBar.layer.masksToBounds = YES;
     [self.progressBar setTrackTintColor:[UIColor colorWithRGBHexString:color_white alpha:0.2f]];
     [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Running", nil)];
-    [self.logLabel setText:@""];
     [self.etaLabel setText:NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)];
-    [self.timeLabel setText:NSLocalizedString(@"Dashboard.Running.CalculatingETA", nil)];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setRuntime) name:@"updateRuntime" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError) name:@"showError" object:nil];
+    [self runTest];
 
     //Keep screen on
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
@@ -34,9 +29,19 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self addAnimation];
 }
 
+-(void)testStart{
+    //dispatch_async(dispatch_get_main_queue(), ^{
+    [self.logLabel setText:@""];
+    [self.progressBar setProgress:0 animated:YES];
+    [self.view setBackgroundColor:[TestUtility getColorForTest:testSuite.name]];
+    [self.timeLabel setText:NSLocalizedString(@"Dashboard.Running.CalculatingETA", nil)];
+    [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self addAnimation];
+    });
+}
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -44,11 +49,13 @@
 }
 
 -(void)runTest{
-    if (testSuite != nil){
-        [testSuite runTestSuite];
-        totalTests = [testSuite.testList count];
-        [self setRuntime];
-    }
+    if ([testSuites count] == 0)
+        return;
+    testSuite = [testSuites objectAtIndex:0];
+    [self testStart];
+    [testSuite runTestSuite];
+    totalTests = [testSuite.testList count];
+    [self setRuntime];
 }
 
 -(void)setRuntime{
@@ -111,19 +118,23 @@
 }
 
 -(void)networkTestEnded{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (_presenting){
-            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:TRUE completion:^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
-            }];
-        }
-        else {
-            [self dismissViewControllerAnimated:TRUE completion:^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
-            }];
-        }
-    });
-
+    [self.testSuites removeObject:testSuite];
+    if ([testSuites count] == 0){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (_presenting){
+                [self.presentingViewController.presentingViewController dismissViewControllerAnimated:TRUE completion:^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
+                }];
+            }
+            else {
+                [self dismissViewControllerAnimated:TRUE completion:^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
+                }];
+            }
+        });
+    }
+    else
+        [self runTest];
 }
 
 -(void)showError{

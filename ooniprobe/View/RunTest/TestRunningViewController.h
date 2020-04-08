@@ -10,7 +10,8 @@
     int totalRuntime;
 }
 
-
+@property (nonatomic, strong) NSMutableArray *testSuites;
+//TODO deprecate testSuite
 @property (nonatomic, strong) AbstractSuite *testSuite;
 @property (strong, nonatomic) IBOutlet UILabel *runningTestsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *testNameLabel;
