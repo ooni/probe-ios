@@ -164,7 +164,7 @@
             [urls addObject:m.url_id.url];
         if ([testSuite getTestList] > 0 && [urls count] > 0)
             [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
-        [vc setTestSuite:testSuite];
+        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
     }
 }
 

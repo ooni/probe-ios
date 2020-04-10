@@ -135,7 +135,7 @@
         if ([testSuiteName isEqualToString:@"websites"])
             [(WebConnectivity*)test setInputs:[NSArray arrayWithObject:self.measurement.url_id.url]];
         [self.measurement setReRun];
-        [vc setTestSuite:testSuite];
+        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
     }
     else if ([[segue identifier] isEqualToString:@"footer_upload"]){
         UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;

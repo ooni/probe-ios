@@ -6,7 +6,7 @@
 
 @implementation TestRunningViewController
 
-@synthesize testSuite, testSuites;
+@synthesize testSuites;
 - (void)viewDidLoad {
     [super viewDidLoad];
 

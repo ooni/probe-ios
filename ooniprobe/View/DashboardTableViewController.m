@@ -84,7 +84,7 @@
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
-        [vc setTestSuite:testSuite];
+        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
     }
     if ([[segue identifier] isEqualToString:@"toTestRunAll"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
