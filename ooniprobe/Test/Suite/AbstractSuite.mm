@@ -46,8 +46,7 @@
         [self.result save];
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
         if (state == UIApplicationStateBackground || state == UIApplicationStateInactive){
-            if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
-                [self showNotification];
+            [self showLocalNotification];
         }
         //Resetting class values
         self.result = nil;
@@ -58,7 +57,7 @@
     self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
-- (void)showNotification {
+- (void)showLocalNotification {
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate date];
     localNotification.timeZone = [NSTimeZone defaultTimeZone];

@@ -9,6 +9,7 @@
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
+    //TODO here
     if ([categoryName isEqualToString:@"notifications"]) {
         if ([self getSettingWithName:@"notifications_enabled"])
             //TODO NEWS reenable @"notifications_news"
