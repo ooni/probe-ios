@@ -9,13 +9,8 @@
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
-    //TODO here
     if ([categoryName isEqualToString:@"notifications"]) {
-        if ([self getSettingWithName:@"notifications_enabled"])
-            //TODO NEWS reenable @"notifications_news"
-            return @[@"notifications_enabled", @"notifications_completion"];
-        else
-            return @[@"notifications_enabled"];
+        return @[@"notifications_enabled"];
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
         //TODO GPS @"include_gps"
