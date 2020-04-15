@@ -5,16 +5,13 @@
 
 + (NSArray*)getSettingsCategories{
     //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"notifications", @"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
+    //TODO NEWS reenable @"notifications_news"
     if ([categoryName isEqualToString:@"notifications"]) {
-        if ([self getSettingWithName:@"notifications_enabled"])
-            //TODO NEWS reenable @"notifications_news"
-            return @[@"notifications_enabled", @"notifications_completion"];
-        else
-            return @[@"notifications_enabled"];
+        return @[@"notifications_enabled"];
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
         //TODO GPS @"include_gps"
