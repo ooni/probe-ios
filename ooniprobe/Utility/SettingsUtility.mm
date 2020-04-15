@@ -5,10 +5,11 @@
 
 + (NSArray*)getSettingsCategories{
     //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"notifications", @"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
+    //TODO NEWS reenable @"notifications_news"
     if ([categoryName isEqualToString:@"notifications"]) {
         return @[@"notifications_enabled"];
     }
