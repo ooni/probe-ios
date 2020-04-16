@@ -12,12 +12,14 @@
     [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
 
     if (!super.measurement.is_anomaly){
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
+        [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                        color:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
     }
     else {
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                        color:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
         [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
     }

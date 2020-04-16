@@ -40,10 +40,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (!super.measurement.is_anomaly){
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
+        [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                        color:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
     }
     else {
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                        color:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
     }
 }
 
