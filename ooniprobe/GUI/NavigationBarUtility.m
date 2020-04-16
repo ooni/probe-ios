@@ -26,19 +26,9 @@
     return appearance;
 }
 
-/*
-+ (void)setNavigationBar:(UINavigationBar *)navigationBar color:(UIColor*)defaultColor{
-    [self setNavigationBar:navigationBar color:defaultColor andTitle:@""];
-}
-*/
 
 + (void)setNavigationBar:(UINavigationBar *)navigationBar{
     [self setNavigationBar:navigationBar color:[UIColor colorWithRGBHexString:color_base alpha:1.0f]];
-}
-
-+ (void)setNavigationBar:(UINavigationBar *)navigationBar color:(UIColor*)defaultColor andTitle:(NSString*)title{
-    [self setNavigationBar:navigationBar color:defaultColor];
-    navigationBar.topItem.title = @"";
 }
 
 + (void)setNavigationBar:(UINavigationBar *)navigationBar color:(UIColor*)defaultColor{
