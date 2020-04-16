@@ -7,7 +7,6 @@
 #import "Result.h"
 #import "TestRunningViewController.h"
 #import "SettingsUtility.h"
-#import "NavigationBarUtility.h"
 
 @interface AppDelegate ()
 
