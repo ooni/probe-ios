@@ -33,12 +33,14 @@
     [self.tableView reloadData];
 }
 
+/* TODO check iPad size
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         return tableView.frame.size.width / 5 * 3;
     }
     return (tableView.frame.size.width / 5 * 3 )/2;
 }
+*/
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
