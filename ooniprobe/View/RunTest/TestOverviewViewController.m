@@ -41,6 +41,21 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBarTintColor:defaultColor];
+    //if (@available(iOS 13, *)) {
+         //[self.navigationController.navigationBar setBackgroundColor:defaultColor];
+     //
+    //https://forums.developer.apple.com/thread/121753
+    //TODO changing backgorund color every screen is a mess in iOS 13
+    if (@available(iOS 13, *))
+    {
+        UINavigationBarAppearance *navBar = [[UINavigationBarAppearance alloc] init];
+        navBar.backgroundColor = defaultColor;
+        //navBar.shadowImage = [UIImage new];
+        //navBar.backgroundImage = [UIImage new];
+        navBar.shadowColor = [UIColor clearColor];
+        self.navigationController.navigationBar.standardAppearance = navBar;
+        self.navigationController.navigationBar.scrollEdgeAppearance = navBar;
+    }
 }
 
 -(void)reloadLastMeasurement{
