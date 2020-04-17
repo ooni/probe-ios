@@ -12,15 +12,16 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTests) name:@"settingsChanged" object:nil];
     [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     [self loadTests];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooni_logo"]];
+    UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooni_probe_logo"]];
     navbarImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [navbarImageView.widthAnchor constraintEqualToConstant:135].active = YES;
-    [navbarImageView.heightAnchor constraintEqualToConstant:24].active = YES;
+    [navbarImageView.widthAnchor constraintEqualToConstant:186].active = YES;
+    [navbarImageView.heightAnchor constraintEqualToConstant:32].active = YES;
     self.navigationController.navigationBar.topItem.titleView = navbarImageView;
 }
 
