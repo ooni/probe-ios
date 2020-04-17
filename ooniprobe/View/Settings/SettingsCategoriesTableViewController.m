@@ -14,7 +14,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     categories = [SettingsUtility getSettingsCategories];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.title = @"";
+    self.title = NSLocalizedString(@"Settings.Title", nil);
 }
 
 #pragma mark - Table view data source

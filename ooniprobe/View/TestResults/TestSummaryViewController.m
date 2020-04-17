@@ -13,9 +13,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.topItem.title = @"";
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.tableView.tableFooterView = [UIView new];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"uploadFinished" object:nil];
@@ -24,19 +21,23 @@
     
     [self reloadMeasurements];
     defaultColor = [TestUtility getColorForTest:result.test_group_name];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:defaultColor];
+    self.navigationController.navigationBar.topItem.title = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.title = @"";
     self.title = [LocalizationUtility getNameForTest:self.result.test_group_name];
-    [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
+    [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                    color:[TestUtility getColorForTest:result.test_group_name]];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
     if (!parent) {
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+        [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                        color:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     }
 }
 

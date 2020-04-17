@@ -10,10 +10,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Settings.About.Label", nil);
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     self.navigationController.navigationBar.topItem.title = @"";
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-
     [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     [self.learnMoreButton setTitle:NSLocalizedString(@"Settings.About.Content.LearnMore", nil) forState:UIControlStateNormal];
     self.learnMoreButton.layer.cornerRadius = 20;

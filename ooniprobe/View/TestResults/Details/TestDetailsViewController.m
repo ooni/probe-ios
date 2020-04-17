@@ -14,9 +14,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[TestUtility getColorForTest:result.test_group_name]];
     self.navigationController.navigationBar.topItem.title = @"";
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.title = [LocalizationUtility getNameForTest:measurement.test_name];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFooter) name:@"uploadFinished" object:nil];
     self.scrollView.alwaysBounceVertical = NO;
@@ -40,7 +39,8 @@
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
     if (!parent) {
-            [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
+        [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                        color:[TestUtility getColorForTest:result.test_group_name]];
     }
 }
 
