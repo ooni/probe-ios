@@ -63,6 +63,7 @@
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
+		ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED78739F2448874500F92DDE /* NavigationBarUtility.m */; };
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
 		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
 		ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */ = {isa = PBXBuildFile; fileRef = ED86D74E227DAB02007D93FB /* OONIProbe.db */; };
@@ -260,6 +261,8 @@
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
+		ED78739E2448874500F92DDE /* NavigationBarUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarUtility.h; sourceTree = "<group>"; };
+		ED78739F2448874500F92DDE /* NavigationBarUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarUtility.m; sourceTree = "<group>"; };
 		ED81BB92223F84C9000AFA01 /* UploadFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadFooterViewController.h; sourceTree = "<group>"; };
 		ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadFooterViewController.m; sourceTree = "<group>"; };
 		ED81BB95223FA9FF000AFA01 /* TestResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestResultsViewController.h; path = ooniprobe/View/TestResults/TestResultsViewController.h; sourceTree = SOURCE_ROOT; };
@@ -659,6 +662,8 @@
 				EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */,
 				ED209668209791C40028BEA3 /* PaddingLabel.h */,
 				ED209669209791C40028BEA3 /* PaddingLabel.m */,
+				ED78739E2448874500F92DDE /* NavigationBarUtility.h */,
+				ED78739F2448874500F92DDE /* NavigationBarUtility.m */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -1266,6 +1271,7 @@
 				EDF20735212173B9005B06D7 /* Simple.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
 				ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */,
+				ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

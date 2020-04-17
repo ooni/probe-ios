@@ -16,13 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.estimatedRowHeight = 80.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.title = @"";
+    self.title = NSLocalizedString(@"TestResults.Overview.Title", nil);
 }
 
 -(void)testFilter:(SRKQuery*)newQuery{
