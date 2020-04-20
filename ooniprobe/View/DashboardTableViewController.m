@@ -23,13 +23,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    UIImageView *navbarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ooni_probe_logo"]];
-    navbarImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [navbarImageView.widthAnchor constraintEqualToConstant:186].active = YES;
-    [navbarImageView.heightAnchor constraintEqualToConstant:32].active = YES;
-    self.navigationController.navigationBar.topItem.titleView = navbarImageView;
-    
-    // It's need for hide default navigation bar and display custom, maybe we can use clear navigation bar instead
     [self.navigationController setNavigationBarHidden:YES];
 }
 
