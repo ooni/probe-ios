@@ -10,6 +10,6 @@
     NSMutableArray *items;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *buttonRun;
+@property (weak, nonatomic) IBOutlet UIButton *runButton;
 
 @end

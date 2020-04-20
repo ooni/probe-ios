@@ -38,9 +38,10 @@
 }
 
 -(void)setShadowRunButton{
-    self.buttonRun.layer.cornerRadius = 20;
-    self.buttonRun.layer.masksToBounds = YES;
-    
+    self.runButton.layer.cornerRadius = 20;
+    self.runButton.layer.masksToBounds = YES;
+    [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
+
     self.viewForShadowRunButton.backgroundColor = [UIColor clearColor];
     
     //https://medium.com/@serdaraylanc/adding-shadow-and-rounded-corner-to-uiview-ced57aa1b4c3
@@ -96,7 +97,7 @@
                                message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
 }
 
--(void)runAll{
+-(IBAction)runAll{
     [self performSegueWithIdentifier:@"toTestRunAll" sender:self];
 }
 
