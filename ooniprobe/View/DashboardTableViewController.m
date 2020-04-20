@@ -59,18 +59,9 @@
     [items addObject:[[MiddleBoxesSuite alloc] init]];
     [items addObject:[[PerformanceSuite alloc] init]];
     [self.tableView reloadData];
-    
+    //TODO-BEFOREMERGE placeholder
     self.labelRunningLastTest.text = @"last tested 1 day ago";
 }
-
-/* TODO check iPad size
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        return tableView.frame.size.width / 5 * 3;
-    }
-    return (tableView.frame.size.width / 5 * 3 )/2;
-}
-*/
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
