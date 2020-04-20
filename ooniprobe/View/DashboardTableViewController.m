@@ -5,6 +5,7 @@
 @interface DashboardTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *viewForShadowRunButton;
+@property (weak, nonatomic) IBOutlet UILabel *labelRunningLastTest;
 
 @end
 
@@ -58,6 +59,8 @@
     [items addObject:[[MiddleBoxesSuite alloc] init]];
     [items addObject:[[PerformanceSuite alloc] init]];
     [self.tableView reloadData];
+    
+    self.labelRunningLastTest.text = @"last tested 1 day ago";
 }
 
 /* TODO check iPad size
