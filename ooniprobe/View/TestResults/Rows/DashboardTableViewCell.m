@@ -43,6 +43,7 @@
 -(void)setTestSuite:(AbstractSuite*)testSuite{
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
+    //TODO add icon _gradient
     [self.testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]]];
     [self.testLogo setTintColor:[TestUtility getColorForTest:testSuite.name]];
     [self.cardbackgroundView setBackgroundColor:[UIColor whiteColor]];
