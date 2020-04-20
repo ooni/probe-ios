@@ -5,7 +5,7 @@
 @interface DashboardTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *viewForShadowRunButton;
-@property (weak, nonatomic) IBOutlet UILabel *labelRunningLastTest;
+@property (weak, nonatomic) IBOutlet UILabel *lastrunLabel;
 
 @end
 
@@ -15,8 +15,10 @@
     [super viewDidLoad];
     [self setShadowRunButton];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTests) name:@"settingsChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     [self loadTests];
+    [self reloadLastMeasurement];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -60,8 +62,21 @@
     [items addObject:[[MiddleBoxesSuite alloc] init]];
     [items addObject:[[PerformanceSuite alloc] init]];
     [self.tableView reloadData];
-    //TODO-BEFOREMERGE placeholder
-    self.labelRunningLastTest.text = @"last tested 1 day ago";
+}
+
+-(void)reloadLastMeasurement{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *ago;
+        SRKResultSet *results = [[[[Result query] limit:1] orderByDescending:@"start_time"] fetch];
+        if ([results count] > 0){
+            ago = [[[results objectAtIndex:0] start_time] timeAgoSinceNow];
+        }
+        else
+            ago = NSLocalizedString(@"Dashboard.Overview.LastRun.Never", nil);
+        [self.lastrunLabel setText:[NSString stringWithFormat:@"%@ %@",
+                                          NSLocalizedString(@"Dashboard.Overview.LatestTest", nil),
+                                          ago]];
+    });
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
