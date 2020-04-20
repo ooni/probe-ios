@@ -28,7 +28,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    // It's need for display navigation bar in other controllers
     [self.navigationController setNavigationBarHidden:NO];
 }
 
@@ -39,8 +38,6 @@
 
     self.viewForShadowRunButton.backgroundColor = [UIColor clearColor];
     
-    //https://medium.com/@serdaraylanc/adding-shadow-and-rounded-corner-to-uiview-ced57aa1b4c3
-    //https://stackoverflow.com/questions/17502082/ios-how-to-add-drop-shadow-and-stroke-shadow-on-uiview
     self.viewForShadowRunButton.layer.shadowRadius  = 5.0f;
     self.viewForShadowRunButton.layer.shadowColor   = [[UIColor blackColor] colorWithAlphaComponent:0.8f].CGColor;
     self.viewForShadowRunButton.layer.shadowOffset  = CGSizeMake(0.0f, 2.0f);

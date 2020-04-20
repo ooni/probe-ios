@@ -41,14 +41,8 @@
 }
 
 -(void)setTestSuite:(AbstractSuite*)testSuite{
-    /*[self.runButton setTitleColor:[TestUtility getColorForTest:testSuite.name] forState:UIControlStateNormal];
-    [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
-    */
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
-    /*[self.estimateTime setText:[LocalizationUtility getReadableRuntime:[testSuite getRuntime]]];
-    [self.bottomLabel setText:NSLocalizedString(@"Dashboard.Card.Subtitle", nil)];
-    */
     [self.testLogo setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]]];
     [self.testLogo setTintColor:[TestUtility getColorForTest:testSuite.name]];
     [self.cardbackgroundView setBackgroundColor:[UIColor whiteColor]];
@@ -63,8 +57,6 @@
     self.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = [UIColor clearColor];
     
-    //https://medium.com/@serdaraylanc/adding-shadow-and-rounded-corner-to-uiview-ced57aa1b4c3
-    //https://stackoverflow.com/questions/17502082/ios-how-to-add-drop-shadow-and-stroke-shadow-on-uiview
     self.contentView.layer.shadowRadius  = 5;
     self.contentView.layer.shadowColor   = [[UIColor blackColor] colorWithAlphaComponent:0.8f].CGColor;
     self.contentView.layer.shadowOffset  = CGSizeMake(0.0f, 1);
