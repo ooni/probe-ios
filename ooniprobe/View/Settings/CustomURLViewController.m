@@ -142,7 +142,7 @@
         WebConnectivity *test = [[WebConnectivity alloc] init];
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         [test setInputs:urlArray];
-        [vc setTestSuite:testSuite];
+        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
     }
 }
 @end

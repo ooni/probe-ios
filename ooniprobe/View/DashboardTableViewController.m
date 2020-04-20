@@ -102,13 +102,21 @@
                                message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
 }
 
+-(void)runAll{
+    [self performSegueWithIdentifier:@"toTestRunAll" sender:self];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
-        [vc setTestSuite:testSuite];
+        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
+    }
+    if ([[segue identifier] isEqualToString:@"toTestRunAll"]){
+        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
+        [vc setTestSuites:items];
     }
     else if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
