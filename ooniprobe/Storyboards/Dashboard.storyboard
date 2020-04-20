@@ -278,10 +278,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lOL-Sl-DHD">
-                                <rect key="frame" x="0.0" y="90" width="373" height="636"/>
+                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lOL-Sl-DHD">
+                                <rect key="frame" x="0.0" y="157" width="373" height="636"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="SN2-LH-aBR" customClass="DashboardTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="373" height="104"/>
@@ -301,35 +301,34 @@
                                                                 <constraint firstAttribute="width" constant="66" id="u8D-9B-V2m"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHW-yM-DMN">
-                                                            <rect key="frame" x="82" y="49" width="253" height="25"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHW-yM-DMN">
+                                                            <rect key="frame" x="82" y="47" width="253" height="15.666666666666664"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.TestDesc"/>
                                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="13"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MT-87-jq3">
-                                                            <rect key="frame" x="82" y="8" width="253" height="33"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MT-87-jq3">
+                                                            <rect key="frame" x="82" y="16" width="253" height="23"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.TestName"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="33" id="bhL-vu-RRa"/>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="i9z-ce-odn"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="21"/>
+                                                            <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="19"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.74509803919999995" green="0.019607843140000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="mHW-yM-DMN" secondAttribute="bottom" constant="8" id="0wA-Hx-1vC"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mHW-yM-DMN" secondAttribute="bottom" constant="8" id="0wA-Hx-1vC"/>
                                                         <constraint firstItem="mHW-yM-DMN" firstAttribute="leading" secondItem="FG1-NM-9b3" secondAttribute="trailing" constant="8" id="5GT-d4-JLk"/>
                                                         <constraint firstAttribute="trailing" secondItem="8MT-87-jq3" secondAttribute="trailing" constant="8" id="JmP-CQ-uKJ"/>
-                                                        <constraint firstAttribute="bottom" secondItem="FG1-NM-9b3" secondAttribute="bottom" constant="8" id="K44-ch-akd"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FG1-NM-9b3" secondAttribute="bottom" constant="8" id="K44-ch-akd"/>
                                                         <constraint firstItem="mHW-yM-DMN" firstAttribute="top" secondItem="8MT-87-jq3" secondAttribute="bottom" constant="8" id="L3I-JB-Was"/>
                                                         <constraint firstAttribute="trailing" secondItem="mHW-yM-DMN" secondAttribute="trailing" constant="8" id="h7v-pT-21r"/>
                                                         <constraint firstItem="FG1-NM-9b3" firstAttribute="leading" secondItem="c91-xe-miE" secondAttribute="leading" constant="8" id="hJX-86-Utx"/>
-                                                        <constraint firstItem="8MT-87-jq3" firstAttribute="top" secondItem="c91-xe-miE" secondAttribute="top" constant="8" id="hJm-PG-Tef"/>
+                                                        <constraint firstItem="8MT-87-jq3" firstAttribute="top" secondItem="c91-xe-miE" secondAttribute="top" constant="16" id="hJm-PG-Tef"/>
                                                         <constraint firstItem="FG1-NM-9b3" firstAttribute="top" secondItem="c91-xe-miE" secondAttribute="top" constant="8" id="lGa-dI-CTy"/>
                                                         <constraint firstItem="8MT-87-jq3" firstAttribute="leading" secondItem="FG1-NM-9b3" secondAttribute="trailing" constant="8" id="rb6-P1-TRs"/>
                                                     </constraints>
@@ -342,6 +341,7 @@
                                                 <constraint firstItem="c91-xe-miE" firstAttribute="trailing" secondItem="KQ9-lO-7zQ" secondAttribute="trailingMargin" id="maN-nw-Xmh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cardbackgroundView" destination="c91-xe-miE" id="sz8-hA-cqA"/>
                                             <outlet property="descLabel" destination="mHW-yM-DMN" id="zb7-Rj-aa3"/>
@@ -357,44 +357,72 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1j-MD-yLT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="-44" width="375" height="147"/>
                                 <subviews>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14a-mz-PTP" customClass="RunButton">
-                                        <rect key="frame" x="149" y="30" width="77" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.Run"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-bg-navbar" translatesAutoresizingMaskIntoConstraints="NO" id="632-8k-vF6">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ooni_probe_logo" translatesAutoresizingMaskIntoConstraints="NO" id="uDk-WD-p0X">
+                                        <rect key="frame" x="10" y="55" width="186" height="32"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zr4-YP-p0N">
+                                        <rect key="frame" x="137.66666666666666" y="100" width="100" height="47"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14a-mz-PTP">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="47"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.Run"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="47" id="I9a-FP-yrO"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="s3v-i5-B1X"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="23"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Run">
+                                                    <color key="titleColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="run:" destination="xoz-EJ-COn" eventType="touchUpInside" id="vIx-ON-8aT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="I9a-FP-yrO"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="s3v-i5-B1X"/>
+                                            <constraint firstItem="14a-mz-PTP" firstAttribute="top" secondItem="Zr4-YP-p0N" secondAttribute="top" id="NgT-iD-GrD"/>
+                                            <constraint firstAttribute="bottom" secondItem="14a-mz-PTP" secondAttribute="bottom" id="gXN-N3-qKn"/>
+                                            <constraint firstItem="14a-mz-PTP" firstAttribute="leading" secondItem="Zr4-YP-p0N" secondAttribute="leading" id="kkO-vP-k1l"/>
+                                            <constraint firstAttribute="trailing" secondItem="14a-mz-PTP" secondAttribute="trailing" id="ncY-IC-ryI"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="18"/>
-                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Run">
-                                            <color key="titleColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="run:" destination="xoz-EJ-COn" eventType="touchUpInside" id="vIx-ON-8aT"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="14a-mz-PTP" firstAttribute="centerX" secondItem="I1j-MD-yLT" secondAttribute="centerX" id="kLW-pp-AEM"/>
-                                    <constraint firstItem="14a-mz-PTP" firstAttribute="centerY" secondItem="I1j-MD-yLT" secondAttribute="centerY" id="rPG-eg-bJe"/>
+                                    <constraint firstItem="Zr4-YP-p0N" firstAttribute="centerX" secondItem="I1j-MD-yLT" secondAttribute="centerX" id="34F-UN-jaP"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zr4-YP-p0N" secondAttribute="bottom" id="8cq-hv-Yb2"/>
+                                    <constraint firstAttribute="height" constant="147" id="Cnf-Cx-0ir"/>
+                                    <constraint firstAttribute="bottom" secondItem="632-8k-vF6" secondAttribute="bottom" constant="8" id="D2P-XC-jwN"/>
+                                    <constraint firstAttribute="trailing" secondItem="632-8k-vF6" secondAttribute="trailing" id="KJj-It-UY5"/>
+                                    <constraint firstItem="uDk-WD-p0X" firstAttribute="leading" secondItem="I1j-MD-yLT" secondAttribute="leading" constant="10" id="aPl-Vx-6d5"/>
+                                    <constraint firstItem="uDk-WD-p0X" firstAttribute="top" secondItem="I1j-MD-yLT" secondAttribute="top" constant="55" id="cOs-bB-CBw"/>
+                                    <constraint firstItem="632-8k-vF6" firstAttribute="top" secondItem="I1j-MD-yLT" secondAttribute="top" id="e2H-Gp-gsf"/>
+                                    <constraint firstItem="632-8k-vF6" firstAttribute="leading" secondItem="I1j-MD-yLT" secondAttribute="leading" id="wDy-Dp-uxa"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="I1j-MD-yLT" firstAttribute="top" secondItem="8Fd-kv-Yw1" secondAttribute="bottom" id="6HJ-WD-6cS"/>
-                            <constraint firstItem="lOL-Sl-DHD" firstAttribute="top" secondItem="I1j-MD-yLT" secondAttribute="bottom" id="8Lk-YW-GJN"/>
+                            <constraint firstItem="I1j-MD-yLT" firstAttribute="top" secondItem="8Fd-kv-Yw1" secondAttribute="bottom" constant="-44" id="6HJ-WD-6cS"/>
                             <constraint firstAttribute="trailing" secondItem="I1j-MD-yLT" secondAttribute="trailing" id="Fle-wk-XqO"/>
                             <constraint firstItem="I1j-MD-yLT" firstAttribute="leading" secondItem="oJF-vr-xYF" secondAttribute="leading" id="rQv-sS-4uU"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="XEd-gs-FcC"/>
                     <connections>
+                        <outlet property="buttonRun" destination="14a-mz-PTP" id="Z4K-Gz-IZV"/>
                         <outlet property="tableView" destination="lOL-Sl-DHD" id="YB8-T7-Fhi"/>
+                        <outlet property="viewForShadowRunButton" destination="Zr4-YP-p0N" id="j17-qc-0jV"/>
                         <segue destination="4q0-13-6dh" kind="presentation" identifier="toTestRun" id="4Jc-qi-ztS"/>
                     </connections>
                 </viewController>
@@ -619,6 +647,8 @@
         <segue reference="4Jc-qi-ztS"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="dashboard-bg-navbar" width="375" height="129"/>
+        <image name="ooni_probe_logo" width="186" height="32"/>
         <image name="tab_dashboard" width="26" height="21"/>
         <image name="websites" width="78" height="78"/>
     </resources>

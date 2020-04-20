@@ -4,14 +4,16 @@
 
 @interface DashboardTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *viewForShadowRunButton;
+
 @end
 
 @implementation DashboardTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setShadowRunButton];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTests) name:@"settingsChanged" object:nil];
-    [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray1 alpha:1.0f]];
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     [self loadTests];
 }
@@ -23,6 +25,30 @@
     [navbarImageView.widthAnchor constraintEqualToConstant:186].active = YES;
     [navbarImageView.heightAnchor constraintEqualToConstant:32].active = YES;
     self.navigationController.navigationBar.topItem.titleView = navbarImageView;
+    
+    // It's need for hide default navigation bar and display custom, maybe we can use clear navigation bar instead
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    // It's need for display navigation bar in other controllers
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+-(void)setShadowRunButton{
+    self.buttonRun.layer.cornerRadius = 20;
+    self.buttonRun.layer.masksToBounds = YES;
+    
+    self.viewForShadowRunButton.backgroundColor = [UIColor clearColor];
+    
+    //https://medium.com/@serdaraylanc/adding-shadow-and-rounded-corner-to-uiview-ced57aa1b4c3
+    //https://stackoverflow.com/questions/17502082/ios-how-to-add-drop-shadow-and-stroke-shadow-on-uiview
+    self.viewForShadowRunButton.layer.shadowRadius  = 5.0f;
+    self.viewForShadowRunButton.layer.shadowColor   = [[UIColor blackColor] colorWithAlphaComponent:0.8f].CGColor;
+    self.viewForShadowRunButton.layer.shadowOffset  = CGSizeMake(0.0f, 2.0f);
+    self.viewForShadowRunButton.layer.shadowOpacity = 0.6f;
+    self.viewForShadowRunButton.layer.masksToBounds = NO;
 }
 
 -(void)loadTests{
