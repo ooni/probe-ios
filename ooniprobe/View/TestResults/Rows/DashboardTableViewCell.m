@@ -43,8 +43,7 @@
 -(void)setTestSuite:(AbstractSuite*)testSuite{
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
-    //TODO set right colors
-    [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]] startColor:[UIColor whiteColor] endColor:[TestUtility getColorForTest:testSuite.name]]];
+    [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]] startColor:[TestUtility getGradientColorForTest:testSuite.name] endColor:[TestUtility getColorForTest:testSuite.name]]];
     [self.cardbackgroundView setBackgroundColor:[UIColor whiteColor]];
 }
 
