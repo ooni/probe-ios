@@ -167,19 +167,19 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHW-yM-DMN">
-                                                            <rect key="frame" x="82" y="47" width="255" height="15.666666666666664"/>
+                                                            <rect key="frame" x="82" y="38.666666666666664" width="255" height="15.666666666666664"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.TestDesc"/>
                                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="13"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MT-87-jq3">
-                                                            <rect key="frame" x="82" y="16" width="255" height="23"/>
+                                                            <rect key="frame" x="82" y="12.000000000000002" width="255" height="21.666666666666671"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.TestName"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="i9z-ce-odn"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="19"/>
+                                                            <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="18"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -191,10 +191,10 @@
                                                         <constraint firstItem="mHW-yM-DMN" firstAttribute="leading" secondItem="FG1-NM-9b3" secondAttribute="trailing" constant="8" id="5GT-d4-JLk"/>
                                                         <constraint firstAttribute="trailing" secondItem="8MT-87-jq3" secondAttribute="trailing" constant="8" id="JmP-CQ-uKJ"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FG1-NM-9b3" secondAttribute="bottom" constant="8" id="K44-ch-akd"/>
-                                                        <constraint firstItem="mHW-yM-DMN" firstAttribute="top" secondItem="8MT-87-jq3" secondAttribute="bottom" constant="8" id="L3I-JB-Was"/>
+                                                        <constraint firstItem="mHW-yM-DMN" firstAttribute="top" secondItem="8MT-87-jq3" secondAttribute="bottom" constant="5" id="L3I-JB-Was"/>
                                                         <constraint firstAttribute="trailing" secondItem="mHW-yM-DMN" secondAttribute="trailing" constant="8" id="h7v-pT-21r"/>
                                                         <constraint firstItem="FG1-NM-9b3" firstAttribute="leading" secondItem="c91-xe-miE" secondAttribute="leading" constant="8" id="hJX-86-Utx"/>
-                                                        <constraint firstItem="8MT-87-jq3" firstAttribute="top" secondItem="c91-xe-miE" secondAttribute="top" constant="16" id="hJm-PG-Tef"/>
+                                                        <constraint firstItem="8MT-87-jq3" firstAttribute="top" secondItem="c91-xe-miE" secondAttribute="top" constant="12" id="hJm-PG-Tef"/>
                                                         <constraint firstItem="8MT-87-jq3" firstAttribute="leading" secondItem="FG1-NM-9b3" secondAttribute="trailing" constant="8" id="rb6-P1-TRs"/>
                                                     </constraints>
                                                 </view>
