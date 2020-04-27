@@ -72,7 +72,6 @@
 
     CGContextSetBlendMode(context, kCGBlendModeNormal);
     CGRect rect = CGRectMake(0, 0, img.size.width, img.size.height);
-    //CGContextDrawImage(context, rect, img.CGImage);
 
     // Create gradient
     NSArray *colors = [NSArray arrayWithObjects:(id)color2.CGColor, (id)color1.CGColor, nil];
