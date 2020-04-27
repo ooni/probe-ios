@@ -6,8 +6,10 @@
 #import "TestOverviewViewController.h"
 #import "ReachabilityManager.h"
 
-@interface DashboardTableViewController : UITableViewController {
+@interface DashboardTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSMutableArray *items;
 }
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *runButton;
 
 @end

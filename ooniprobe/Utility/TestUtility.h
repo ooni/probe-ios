@@ -13,6 +13,7 @@
 + (NSString*)getCategoryForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
++ (UIColor*)getGradientColorForTest:(NSString*)testName;
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
 + (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover;
 + (void)deleteUploadedJsons;
