@@ -9,7 +9,7 @@
     if (self) {
         BOOL include_ip = [SettingsUtility getSettingWithName:@"include_ip"];
         BOOL include_asn = [SettingsUtility getSettingWithName:@"include_asn"];
-        BOOL include_cc = [SettingsUtility getSettingWithName:@"include_cc"];
+        BOOL include_cc = TRUE;
         BOOL upload_results = [SettingsUtility getSettingWithName:@"upload_results"];
         NSString *software_version = [VersionUtility get_software_version];
         self.save_real_probe_ip = [NSNumber numberWithBool:include_ip];
