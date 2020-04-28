@@ -194,29 +194,6 @@
         [self handleNotificationChanges];
         [mySwitch setOn:FALSE];
     }
-    else if ([current isEqualToString:@"include_cc"] && !mySwitch.on){
-        UIAlertAction* okButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction * action) {
-                                       [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
-                                       [[NSUserDefaults standardUserDefaults] synchronize];
-                                       [self reloadSettings];
-                                   }];
-        UIAlertAction* cancelButton = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
-                                       style:UIAlertActionStyleCancel
-                                       handler:^(UIAlertAction * action) {
-                                           [mySwitch setOn:TRUE];
-                                       }];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Settings.Sharing.IncludeCountryCode", nil)
-                            message:NSLocalizedString(@"Settings.Sharing.IncludeCountryCode.PopUp", nil)
-                              okButton:okButton
-                          cancelButton:cancelButton
-                                inView:self];
-        return;
-    }
-    
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
         [MessageUtility alertWithTitle:nil
