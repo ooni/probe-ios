@@ -43,6 +43,8 @@
 "Dashboard.Running.CalculatingETA" = "ETA wird errechnet";
 "Dashboard.Running.ShowLog" = "Zeige Logdatei";
 "Dashboard.Running.CloseLog" = "Log schliessen";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "Tippe auf die Schaltfläche, um mehr zu erfahren";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Teste die Blockierung von Webseiten";
@@ -198,10 +200,10 @@
 "TestResults.Details.Performance.NDT.Download" = "Herunterladen";
 "TestResults.Details.Performance.NDT.Ping" = "Ping";
 "TestResults.Details.Performance.NDT.Server" = "Server";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Paketverlust";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "Außer Betrieb";
 "TestResults.Details.Performance.NDT.AveragePing" = "Durchschnittlicher Ping";
-"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Timeouts";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Du kannst ohne Pufferung bis zu %@ streamen.";
@@ -311,6 +313,7 @@
 "Settings.Advanced.SendCrashReports" = "Sende Absturzberichte";
 "Settings.Advanced.DebugLogs" = "Fehlerprotokolle";
 "Settings.Advanced.UseDomainFronting" = "Immer Domain Fronting benutzen";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Testdauer begrenzen";
 "Settings.Websites.MaxRuntime" = "Testdauer";
 "Settings.Websites.Categories.Label" = "Zu testende Webseiten-Kategorien";
@@ -320,6 +323,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Keine URLs eingegeben";
 "Settings.Websites.CustomURL.Run" = "Ausführen";
 "Settings.Websites.CustomURL.Add" = " Webseite hinzufügen";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "WhatsApp testen";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Alle WhatsApp-Endpunkte testen";
 "Settings.InstantMessaging.TestTelegram" = "Telegram testen";
@@ -336,6 +340,7 @@
 "Settings.Performance.DashServerPort" = "DASH-Serverport";
 "Settings.SendEmail.Label" = "E-Mail an den Support senden";
 "Settings.SendEmail.Error" = "Bitte senden Sie eine E-Mail an bugs@openobservatory.org mit Informationen zur App und iOS-Version. Tippen Sie unten auf \"In die Zwischenablage kopieren\", um unsere E-Mail Adresse zu kopieren.";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "Vollständig ausgeführt";
 "OONIBrowser.TryMirror" = "Versuche Mirror";
 "OONIBrowser.Loading" = "Lade...";

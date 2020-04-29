@@ -43,6 +43,8 @@
 "Dashboard.Running.CalculatingETA" = "محاسبه ETA";
 "Dashboard.Running.ShowLog" = "نمایش رویداد";
 "Dashboard.Running.CloseLog" = "بستن رویداد";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "برای اطلاعات بیشتر کارت را بفشارید";
 "Dashboard.Card.Seconds" = "~%@";
 "Dashboard.Websites.Card.Description" = "تست مسدودیت وبسایت‌ها";
@@ -198,10 +200,10 @@
 "TestResults.Details.Performance.NDT.Download" = "دانلود";
 "TestResults.Details.Performance.NDT.Ping" = "پینگ";
 "TestResults.Details.Performance.NDT.Server" = "سرور";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Packet Loss";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "خارج از روال";
 "TestResults.Details.Performance.NDT.AveragePing" = "میانگین پینگ";
-"TestResults.Details.Performance.NDT.MaxPing" = "حداکثر پینگ";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "اتمام زمان";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "شما می‌توانید تا کیفیت %@ را بدون بافر کردن، پخش زنده کنید. ";
@@ -311,6 +313,7 @@
 "Settings.Advanced.SendCrashReports" = "ارسال گزارش درباره‌ی متوقف شدن برنامه ";
 "Settings.Advanced.DebugLogs" = "ثبت اشکال زدایی‌ها";
 "Settings.Advanced.UseDomainFronting" = "همواره از جعل دامنه استفاده کن";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "کرانمند‌سازی مدت آزمون";
 "Settings.Websites.MaxRuntime" = "مدت تست";
 "Settings.Websites.Categories.Label" = "دسته‌بندی‌های وبسایت برای تست";
@@ -320,6 +323,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "هیچ آدرسی وارد نشده است";
 "Settings.Websites.CustomURL.Run" = "اجرا";
 "Settings.Websites.CustomURL.Add" = "افزودن وبسایت";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "تست واتس‌اپ";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "تست تمام نقاط پایانی واتس‌‌اپ";
 "Settings.InstantMessaging.TestTelegram" = "تست تلگرام";
@@ -336,6 +340,7 @@
 "Settings.Performance.DashServerPort" = "درگاه سرور DASH";
 "Settings.SendEmail.Label" = "ارسال ایمیل به پشتیبانی";
 "Settings.SendEmail.Error" = "لطفا یک ایمیل به bugs@openobservatory.org همراه با اطلاعات برنامه و نسخه‌ی iOS ارسال کنید. بر روی «کپی در حافظه‌ی موقت» در پایین بزنید تا آدرس ایمیل کپی شود.";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "اجرا به پایان رسید";
 "OONIBrowser.TryMirror" = "سرورهای آینه را امتحان کنید";
 "OONIBrowser.Loading" = "در حال بارگذاری...";

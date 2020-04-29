@@ -43,6 +43,8 @@
 "Dashboard.Running.CalculatingETA" = "Calculating ETA";
 "Dashboard.Running.ShowLog" = "Show Log";
 "Dashboard.Running.CloseLog" = "Close Log";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "अधिक के लिए कार्ड टैप करें";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "वेबसाइटों के अवरुद्ध परीक्षण का परीक्षण करें";
@@ -198,10 +200,10 @@
 "TestResults.Details.Performance.NDT.Download" = "डाउनलोड";
 "TestResults.Details.Performance.NDT.Ping" = "पिंग";
 "TestResults.Details.Performance.NDT.Server" = "सर्वर";
-"TestResults.Details.Performance.NDT.PacketLoss" = "पैकेट खो गया";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "खराब";
 "TestResults.Details.Performance.NDT.AveragePing" = "औसत पिंग";
-"TestResults.Details.Performance.NDT.MaxPing" = "मैक्स पिंग";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "एमएसएस";
 "TestResults.Details.Performance.NDT.Timeouts" = "टाइमआउट";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "आप बफरिंग के बिना %@ तक स्ट्रीम कर सकते हैं।";
@@ -311,6 +313,7 @@
 "Settings.Advanced.SendCrashReports" = "क्रैश रिपोर्ट भेजें";
 "Settings.Advanced.DebugLogs" = "दोषमार्जन लॉग";
 "Settings.Advanced.UseDomainFronting" = "हमेशा डोमेन फ्रंटिंग का उपयोग करें";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Limit test duration";
 "Settings.Websites.MaxRuntime" = "परीक्षण अवधि";
 "Settings.Websites.Categories.Label" = "परीक्षण करने के लिए वेबसाइट श्रेणियां";
@@ -320,6 +323,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "कोई यूआरएल दर्ज नहीं हुआ";
 "Settings.Websites.CustomURL.Run" = "चलाना";
 "Settings.Websites.CustomURL.Add" = "वेबसाइट जोड़ें";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "टेस्ट व्हाट्सएप";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "सभी व्हाट्स एप समापन बिंदुओं का परीक्षण करें";
 "Settings.InstantMessaging.TestTelegram" = "टेलीग्राम का परीक्षण करें";
@@ -336,6 +340,7 @@
 "Settings.Performance.DashServerPort" = "DASH server port";
 "Settings.SendEmail.Label" = "Send email to support";
 "Settings.SendEmail.Error" = "कृपया iOS संस्करण और एप्लिकेशन की जानकारी के साथ bugs@openobservatory.org को एक ईमेल भेजें। हमारा  ईमेल पता कॉपी करने के लिए \"क्लिपबोर्ड पर कॉपी करें\" पर टैप करें।";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "समाप्त हो रहा है";
 "OONIBrowser.TryMirror" = "दर्पण की कोशिश करो";
 "OONIBrowser.Loading" = "लोड हो रहा है ...";

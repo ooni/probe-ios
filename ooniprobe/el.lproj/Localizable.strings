@@ -43,6 +43,8 @@
 "Dashboard.Running.CalculatingETA" = "Υπολογίζουμε την εκτιμώμενη ώρα άφιξης";
 "Dashboard.Running.ShowLog" = "Εμφάνιση αρχείου καταγραφής";
 "Dashboard.Running.CloseLog" = "Κλείσιμο αρχείου καταγραφής";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "Πάτα την κάρτα για περισσότερα";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Έλεγξε το μπλοκάρισμα ιστοσελιδών";
@@ -198,10 +200,10 @@
 "TestResults.Details.Performance.NDT.Download" = "Λήψη";
 "TestResults.Details.Performance.NDT.Ping" = "Ping";
 "TestResults.Details.Performance.NDT.Server" = "Διακομιστής";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Απώλεια πακέτων";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "Εκτός λειτουργίας";
 "TestResults.Details.Performance.NDT.AveragePing" = "Μέσος όρος ping";
-"TestResults.Details.Performance.NDT.MaxPing" = "Μέγιστο ping";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Timeouts";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Μπορείς να κάνεις streaming μέχρι και %@ χωρίς buffering.";
@@ -311,6 +313,7 @@
 "Settings.Advanced.SendCrashReports" = "Αποστολή αναφορών σφαλμάτων";
 "Settings.Advanced.DebugLogs" = "Αρχεία καταγραφής εντοπισμού σφαλμάτων";
 "Settings.Advanced.UseDomainFronting" = "Πάντα να χρησιμοποιείται domain fronting";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Περιορισμός διάρκειας δοκιμής";
 "Settings.Websites.MaxRuntime" = "Διάρκεια δοκιμής";
 "Settings.Websites.Categories.Label" = "Κατηγορίες ιστοσελιδών για δοκιμή";
@@ -320,6 +323,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Δεν έχουν εισαχθεί URL";
 "Settings.Websites.CustomURL.Run" = "Εκτέλεση";
 "Settings.Websites.CustomURL.Add" = "Προσθήκη ιστοσελίδας";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "Δοκίμασε το WhatsApp";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Δοκίμασε όλα τα WhatsApp endpoints";
 "Settings.InstantMessaging.TestTelegram" = "Δοκίμασε το Telegram";
@@ -336,6 +340,7 @@
 "Settings.Performance.DashServerPort" = "Θύρα διακομιστή DASH";
 "Settings.SendEmail.Label" = "Αποστολή email στην υποστήριξη";
 "Settings.SendEmail.Error" = "Παρακαλούμε στείλτε ένα email στη διεύθυνση bugs@openobservatory.org με πληροφορίες σχετικά με την έκδοση της εφαρμογής και του iOS. Πατήστε \"Αντιγραφή στο πρόχειρο\" παρακάτω για να αντιγράψετε τη διεύθυνση email μας.";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "Οι δοκιμές εκτελέστηκαν";
 "OONIBrowser.TryMirror" = "Δοκίμασε mirror";
 "OONIBrowser.Loading" = "Φορτώνεται...";

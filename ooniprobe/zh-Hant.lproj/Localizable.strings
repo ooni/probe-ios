@@ -43,6 +43,8 @@
 "Dashboard.Running.CalculatingETA" = "Calculating ETA";
 "Dashboard.Running.ShowLog" = "顯示日誌";
 "Dashboard.Running.CloseLog" = "Close Log";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "輕點卡片進一步了解";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "測試遭封鎖的網站";
@@ -198,10 +200,10 @@
 "TestResults.Details.Performance.NDT.Download" = "下載";
 "TestResults.Details.Performance.NDT.Ping" = "Ping";
 "TestResults.Details.Performance.NDT.Server" = "伺服器";
-"TestResults.Details.Performance.NDT.PacketLoss" = "封包丟失";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "出問題";
 "TestResults.Details.Performance.NDT.AveragePing" = "平均 Ping";
-"TestResults.Details.Performance.NDT.MaxPing" = "最大 Ping";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "逾時";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "不透過緩取進行串流 %@";
@@ -311,6 +313,7 @@
 "Settings.Advanced.SendCrashReports" = "送出出錯崩潰報告";
 "Settings.Advanced.DebugLogs" = "調試記錄";
 "Settings.Advanced.UseDomainFronting" = "皆使用域名前列";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Limit test duration";
 "Settings.Websites.MaxRuntime" = "測試期間";
 "Settings.Websites.Categories.Label" = "測試的網站類別";
@@ -320,6 +323,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "未輸入URL";
 "Settings.Websites.CustomURL.Run" = "執行";
 "Settings.Websites.CustomURL.Add" = "新增網站";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "測試 WhatsApp";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "測試所有的 WhatsApp 端點";
 "Settings.InstantMessaging.TestTelegram" = "測試 Telegram";
@@ -336,6 +340,7 @@
 "Settings.Performance.DashServerPort" = "DASH 伺服器端口";
 "Settings.SendEmail.Label" = "寄求助郵件";
 "Settings.SendEmail.Error" = "請將應用程式與  iOS 相關資訊寄送到此信箱 bugs@openobservatory.org ，下方的\"複製到剪貼簿\"分頁可直接複此電子郵址。 ";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "已完成的執行";
 "OONIBrowser.TryMirror" = "試試鏡像站";
 "OONIBrowser.Loading" = "載入中…";

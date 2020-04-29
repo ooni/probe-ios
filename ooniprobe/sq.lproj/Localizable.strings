@@ -42,7 +42,9 @@
 "Dashboard.Running.PreparingTest" = "Duke u përgatitur për testim";
 "Dashboard.Running.CalculatingETA" = "Calculating ETA";
 "Dashboard.Running.ShowLog" = "Shfaq log";
-"Dashboard.Running.CloseLog" = "Close Log";
+"Dashboard.Running.CloseLog" = "Mbyll log";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "Shyp mbi kartën për më shumë";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Testo faqet e bllokuara";
@@ -198,10 +200,10 @@
 "TestResults.Details.Performance.NDT.Download" = "Shkarkim";
 "TestResults.Details.Performance.NDT.Ping" = "Ping";
 "TestResults.Details.Performance.NDT.Server" = "Server";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Humbje pakete";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "Jashtë shërbimi";
 "TestResults.Details.Performance.NDT.AveragePing" = "Ping mesatar";
-"TestResults.Details.Performance.NDT.MaxPing" = "Ping maksimal";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Timeouts";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Mund të transmetosh video deri më %@ pa ndërprerje.";
@@ -276,7 +278,7 @@
 "Test.InstantMessaging.Fullname" = "Mesazhe";
 "Test.Middleboxes.Fullname" = "Middleboxes";
 "Test.Performance.Fullname" = "Performanca";
-"Test.Circumvention.Fullname" = "Circumvention";
+"Test.Circumvention.Fullname" = "Shmangie";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP Invalid Request Line Test";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP Header Field Manipulation Test";
 "Test.WebConnectivity.Fullname" = "Testim lidhjeje në internet";
@@ -285,8 +287,8 @@
 "Test.WhatsApp.Fullname" = "Testim WhatsApp";
 "Test.Telegram.Fullname" = "Testim Telegram";
 "Test.FacebookMessenger.Fullname" = "Testim Facebook Messenger";
-"Test.Psiphon.Fullname" = "Psiphon Test";
-"Test.Tor.Fullname" = "Tor Test";
+"Test.Psiphon.Fullname" = "Testim i Psiphon";
+"Test.Tor.Fullname" = "Testimi i Tor";
 "Settings.Title" = "Rregullime";
 "Settings.Error.TestDurationTooLow" = "Sasia e kohës që keni vendosur për kohëzgjatjen e testimit është shumë e vogël.";
 "Settings.About.Label" = "Rreth OONI";
@@ -306,12 +308,13 @@
 "Settings.Sharing.IncludeCountryCode" = "Shto Kodin e Shtetit";
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Ky informacion (psh IT për Itali) kërkohet për të identifikuar nga cili shtet po mblidhen të dhënat. Jeni të sigurt që e çaktivizoni këtë opsion?";
 "Settings.Sharing.Footer" = "Duke publikuar rezultatet ti rrit transaprencën të ndërhyrjes në rrjet dhe mbështet komunitetin e OONI. \n\nInformacioni i rrjetit (psh Numri i Sistemit Autonom) kërkohet për të identifikuar Ofruesit e Shërbimit të Internetit.";
-"Settings.TestOptions.Label" = "Test options";
+"Settings.TestOptions.Label" = "Mundësitë e testimit";
 "Settings.Advanced.Label" = "Të mëtejshme";
 "Settings.Advanced.SendCrashReports" = "Dërgo raportime dështimi";
 "Settings.Advanced.DebugLogs" = "Kontrollo regjistrat për gabime";
 "Settings.Advanced.UseDomainFronting" = "Gjithmonë përdor front domain";
-"Settings.Websites.MaxRuntimeEnabled" = "Limit test duration";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
+"Settings.Websites.MaxRuntimeEnabled" = "Kufizo kohëzgjatjen e testimit";
 "Settings.Websites.MaxRuntime" = "Kohëzgjatja e testimit";
 "Settings.Websites.Categories.Label" = "Kategori faqjesh për të testuar";
 "Settings.Websites.Categories.Description" = "%@ shtete të aktivizuara";
@@ -320,6 +323,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Nuk është vendosur asnjë URL";
 "Settings.Websites.CustomURL.Run" = "Përdor";
 "Settings.Websites.CustomURL.Add" = "Shto faqe";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "Testo WhatsApp";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Testo të gjitha skajet e WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Testo Telegram";
@@ -336,6 +340,7 @@
 "Settings.Performance.DashServerPort" = "Porta e serverit NDT";
 "Settings.SendEmail.Label" = "Dërgo email tek ndihmuesi";
 "Settings.SendEmail.Error" = "Ju lutem dërgoni email tek bugs@openobservatory.org me informacionin e app dhe versionin e iOS. Zgjidh \"Kopjo në tabelën-mbledhëse\" më poshtë për të kopjuar adresën tonë të email.";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "Mbaroi së ekzekutuari";
 "OONIBrowser.TryMirror" = "Përvo mirror";
 "OONIBrowser.Loading" = "Duke u ngarkuar";

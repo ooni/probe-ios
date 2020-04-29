@@ -1,6 +1,6 @@
 "General.AppName" = "OONI Probe";
 "Onboarding.WhatIsOONIProbe.Title" = "O que é o OONI Probe?";
-"Onboarding.WhatIsOONIProbe.Paragraph" = "Seu aplicativo para medir a censura na internet.\n\nOs sites e aplicativos de mídia social estão bloqueados? Sua conexão com a internet é estranhamente lenta?\n\nExecute o OONI Probe para descobrir!";
+"Onboarding.WhatIsOONIProbe.Paragraph" = "Seu aplicativo para medir a censura na internet.\n\nOs sites e aplicativos de mídia social estão bloqueados? Sua conexão com a internet é estranhamente lenta?\n\nExecute o OONI Probe para descobrir por quê!";
 "Onboarding.WhatIsOONIProbe.GotIt" = "Entendi";
 "Onboarding.ThingsToKnow.Title" = "Atenção!";
 "Onboarding.ThingsToKnow.Bullet.1" = "Os dados da OONI são publicados abertamente e incluirão as informações da sua rede.";
@@ -43,6 +43,8 @@
 "Dashboard.Running.CalculatingETA" = "Calculando ETA";
 "Dashboard.Running.ShowLog" = "Exibir registro";
 "Dashboard.Running.CloseLog" = "Fechar registro";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "Clique para ver outras opções ";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Teste o bloqueio de sites";
@@ -125,8 +127,8 @@
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "Aplicativo";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Aplicativos";
 "TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Testado";
-"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Testado";
-"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Bloqueado";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Testadas";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Bloqueadas";
 "TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Bloqueado";
 "TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "Funcionando";
 "TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "Funcionando";
@@ -198,10 +200,10 @@
 "TestResults.Details.Performance.NDT.Download" = "Download";
 "TestResults.Details.Performance.NDT.Ping" = "Ping";
 "TestResults.Details.Performance.NDT.Server" = "Servidor";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Perda de Pacotes";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "Fora de Ordem";
 "TestResults.Details.Performance.NDT.AveragePing" = "Ping Médio";
-"TestResults.Details.Performance.NDT.MaxPing" = "Ping Máximo";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Tempo excedido";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Você pode transmitir até %@ sem usar a memória temporária.";
@@ -209,7 +211,7 @@
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Atraso de Playout";
 "TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Provavelmente bloqueado";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "Funcionando";
-"TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Psiphon](https://psiphon.ca/) appears to be blocked.";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Tor](https://www.torproject.org/) parece estar bloqueado.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "Conseguimos inicializar com êxito uma conexão Psiphon. Isso significa que [Psiphon](https://psiphon.ca/) deveria trabalhar.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Hora do Bootstrap";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
@@ -224,7 +226,7 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Name" = "Nome";
 "TestResults.Details.Circumvention.Tor.Table.Header.Address" = "Endereço";
 "TestResults.Details.Circumvention.Tor.Table.Header.Type" = "Tipo";
-"TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "Conectar-se";
+"TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "Conectar";
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "handshake";
 "Feed.Tab.Label" = "Alimentar";
 "Feed.Title" = "Alimentar";
@@ -256,7 +258,7 @@
 "Modal.ReRun.Title" = "Repetir o teste";
 "Modal.ReRun.Paragraph" = "Este teste falhou. Você deseja fazer um outro teste?";
 "Modal.ReRun.Websites.Title" = "Você está prestes a testar novamente os sites %@.";
-"Modal.ReRun.Websites.Run" = "Executat";
+"Modal.ReRun.Websites.Run" = "Executar";
 "Modal.CustomURL.NotSaved" = "Suas URLs não serão salvas quando você sair desta tela. Tem certeza de que deseja sair desta tela?";
 "Modal.ManualUpload.Title" = "Ativar carregamento manual?";
 "Modal.ManualUpload.Paragraph" = "Essa configuração permite que você carregue manualmente as medidas não publicadas.";
@@ -285,7 +287,7 @@
 "Test.WhatsApp.Fullname" = "Teste do WhatsApp";
 "Test.Telegram.Fullname" = "Teste do Telegram";
 "Test.FacebookMessenger.Fullname" = "Teste do Facebook Messenger";
-"Test.Psiphon.Fullname" = "Teste Psiphon";
+"Test.Psiphon.Fullname" = "Teste do Psiphon";
 "Test.Tor.Fullname" = "Teste do Tor";
 "Settings.Title" = "Configurações";
 "Settings.Error.TestDurationTooLow" = "A quantidade de tempo que você definiu para a duração do teste é muito baixa.";
@@ -311,6 +313,7 @@
 "Settings.Advanced.SendCrashReports" = "Enviar relatórios de erros";
 "Settings.Advanced.DebugLogs" = "Registros de depuração";
 "Settings.Advanced.UseDomainFronting" = "Sempre usar \"domain fronting\"";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Limitar a duração do teste";
 "Settings.Websites.MaxRuntime" = "Duração do teste";
 "Settings.Websites.Categories.Label" = "Categorias de sites para testar";
@@ -320,6 +323,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Nenhuma URL inserida";
 "Settings.Websites.CustomURL.Run" = "Rodar";
 "Settings.Websites.CustomURL.Add" = "Adicionar website";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "Teste do WhatsApp";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Testar todas as URLs do WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Teste do Telegram";
@@ -336,6 +340,7 @@
 "Settings.Performance.DashServerPort" = "Porta do servidor DASH";
 "Settings.SendEmail.Label" = "Enviar e-mail para suporte";
 "Settings.SendEmail.Error" = "Por favor, envie um e-mail para bugs@openobservatory.org com informações sobre o aplicativo e a versão do iOS. Toque em \"Copiar para área de transferência,\" abaixo, para copiar nosso endereço de e-mail.";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "Execução concluída";
 "OONIBrowser.TryMirror" = "Tentar espelho";
 "OONIBrowser.Loading" = "Carregando...";

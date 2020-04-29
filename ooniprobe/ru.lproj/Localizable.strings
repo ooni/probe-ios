@@ -43,11 +43,13 @@
 "Dashboard.Running.CalculatingETA" = "Вычисляем предполагаемое время";
 "Dashboard.Running.ShowLog" = "Показать журнал";
 "Dashboard.Running.CloseLog" = "Закрыть журнал";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "Нажмите для информации";
 "Dashboard.Card.Seconds" = "~%@с";
 "Dashboard.Websites.Card.Description" = "Определение блокировок сайтов";
 "Dashboard.Websites.Overview.Paragraph" = "Проверьте, заблокированы ли веб-сайты, с помощью теста OONI [Web Connectivity test](https://ooni.io/nettest/web-connectivity/).\n\nВсякий раз, когда вы запускаете тест, OONI проверяет новый набор сайтов из двух списков Citizen Lab: [глобального](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) и [с выборкой по стране](https://github.com/citizenlab/test-lists/tree/master/lists).\n\nЕсли хотите протестировать конкретные сайты, нажмите соответствующую кнопку выбора сайтов или отметьте категории в настройках на этой карточке.\n\nЭтот тест определит, блокируются ли сайты путем манипуляций с DNS, блокировки TCP/IP или прозрачного HTTP-прокси.\n\nРезультаты будут опубликованы в [OONI Explorer](https://explorer.ooni.io/world/) и [OONI API](https://api.ooni.io/).";
-"Dashboard.Websites.Overview.Paragraph.Desktop" = "Check whether websites are blocked using OONI's [Web Connectivity test](https://ooni.io/nettest/web-connectivity/).\n\nYou will test the websites included in the Citizen Lab's [global](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) and [country-specific](https://github.com/citizenlab/test-lists/tree/master/lists) test lists.\n\nThis test measures whether websites are blocked by means of DNS tampering, TCP/IP blocking or by a transparent HTTP proxy.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Websites.Overview.Paragraph.Desktop" = "Проверьте, блокируются веб-сайты или нет, с помощью теста [Web Connectivity test](https://ooni.io/nettest/web-connectivity/) от OONI.\n\nТест использует списки сайтов от Citizen Lab: [глобальный](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) и [по странам](https://github.com/citizenlab/test-lists/tree/master/lists).\n\nТест покажет, блокируются ли эти сайты с использованием DNS-спуфинга, блокировки TCP/IP или прозрачного HTTP-прокси.\n\nПолученные вами результаты будут опубликованы на ресурсах [OONI Explorer](https://explorer.ooni.org/) и [OONI API](https://api.ooni.io/).";
 "Dashboard.Performance.Card.Description" = "Измерение скорости/производительности вашего соединения";
 "Dashboard.Performance.Overview.Paragraph" = "Скорость/производительность вашей сети можно измерить помощью теста [NDT](https://ooni.io/nettest/ndt/).\n\nСкорость видеопотока - с помощью теста [DASH](https://ooni.io/nettest/dash/).\n\nЭти тесты требуют ресурсов и зависят от скорости в сети.\n\nРезультаты будут опубликованы в [OONI Explorer](https://explorer.ooni.io/world/) и [OONI API](https://api.ooni.io/).\n\nВнимание: в этих тестах используются серверы третьих сторон. Мы не можем гарантировать конфиденциальность вашего IP-адреса.";
 "Dashboard.Middleboxes.Card.Description" = "Определять устройства middlebox в вашей сети";
@@ -198,10 +200,10 @@
 "TestResults.Details.Performance.NDT.Download" = "Скачать";
 "TestResults.Details.Performance.NDT.Ping" = "Пинг";
 "TestResults.Details.Performance.NDT.Server" = "Сервер";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Потеря пакетов";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "Не работает";
 "TestResults.Details.Performance.NDT.AveragePing" = "Средний пинг";
-"TestResults.Details.Performance.NDT.MaxPing" = "Максимальный пинг";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Таймауты";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Вы можете повысить видеопоток до %@ без буферизации.";
@@ -311,6 +313,7 @@
 "Settings.Advanced.SendCrashReports" = "Отправить отчет об ошибке";
 "Settings.Advanced.DebugLogs" = "Журналы отладки";
 "Settings.Advanced.UseDomainFronting" = "Всегда использовать прикрытие доменом";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Ограничить продолжительность теста";
 "Settings.Websites.MaxRuntime" = "Продолжительность теста";
 "Settings.Websites.Categories.Label" = "Категории сайтов для тестирования";
@@ -320,6 +323,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Не указаны адреса";
 "Settings.Websites.CustomURL.Run" = "Старт";
 "Settings.Websites.CustomURL.Add" = "Добавить сайт";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "Тестировать WhatsApp";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Тестировать все конечные точки WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Тестировать Telegram";
@@ -336,6 +340,7 @@
 "Settings.Performance.DashServerPort" = "Порт сервера DASH";
 "Settings.SendEmail.Label" = "Отправить письмо поддержке";
 "Settings.SendEmail.Error" = "Пожалуйста, отправьте письмо на bugs@openobservatory.org с информацией о версиях приложения и iOS. Нажмите «Скопировать в буфер обмена» снизу, чтобы скопировать наш адрес электронной почты.";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "Завершено";
 "OONIBrowser.TryMirror" = "Попробуйте зеркало";
 "OONIBrowser.Loading" = "Загрузка...";
