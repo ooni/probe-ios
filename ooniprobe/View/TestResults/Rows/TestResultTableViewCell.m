@@ -100,6 +100,7 @@
         [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
         [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     }
+    //TODO-MB Safely remove
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
         long anomalousMeasurements = [result anomalousMeasurements];
         [self.stackView2 setHidden:YES];
