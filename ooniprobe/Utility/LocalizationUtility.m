@@ -23,6 +23,7 @@
         return NSLocalizedString(@"TestResults.Overview.FilterTests.Websites", nil);
     else if ([testName isEqualToString:@"performance"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.Performance", nil);
+    //TODO-MB safely remove
     else if ([testName isEqualToString:@"middle_boxes"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.MiddleBoxes", nil);
     else if ([testName isEqualToString:@"instant_messaging"])
