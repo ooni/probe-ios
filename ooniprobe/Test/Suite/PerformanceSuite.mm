@@ -18,10 +18,6 @@
             [self.testList addObject:[[NdtTest alloc] init]];
         if ([SettingsUtility getSettingWithName:@"run_dash"])
             [self.testList addObject:[[Dash alloc] init]];
-        if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"])
-            [self.testList addObject:[[HttpInvalidRequestLine alloc] init]];
-        if ([SettingsUtility getSettingWithName:@"run_http_header_field_manipulation"])
-            [self.testList addObject:[[HttpHeaderFieldManipulation alloc] init]];
     }
     return super.getTestList;
 }

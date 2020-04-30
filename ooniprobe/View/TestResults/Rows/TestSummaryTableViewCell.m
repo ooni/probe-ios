@@ -117,19 +117,6 @@
             [self.detail1Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
             [self setText:[testKeysDash getVideoQuality:YES] forLabel:self.detail1Label inStackView:self.stackView1];
         }
-        else if ([measurement.test_name isEqualToString:@"http_invalid_request_line"]
-                 || [measurement.test_name isEqualToString:@"http_header_field_manipulation"]){
-            [self.titleLabel setText:[LocalizationUtility getNameForTest:measurement.test_name]];
-            if (!measurement.is_anomaly){
-                [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
-                [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
-            }
-            else {
-                [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
-                [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-            }
-        }
-
     }
 }
 
