@@ -37,7 +37,7 @@
     if ([result.test_group_name isEqualToString:@"instant_messaging"]){
         [self rowInstantMessaging:measurement];
     }
-    //TODO-MB Deprecate
+    //__deprecated
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
         [self rowMiddleBoxes:measurement];
     }

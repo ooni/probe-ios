@@ -127,11 +127,6 @@
         [settings addObject:@"test_telegram"];
         [settings addObject:@"test_facebook_messenger"];
     }
-    //TODO-MB Safely remove
-    else if ([testName isEqualToString:@"middle_boxes"]) {
-        [settings addObject:@"run_http_invalid_request_line"];
-        [settings addObject:@"run_http_header_field_manipulation"];
-    }
     else if ([testName isEqualToString:@"performance"]) {
         [settings addObject:@"run_ndt"];
         [settings addObject:@"run_dash"];
