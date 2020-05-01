@@ -67,7 +67,7 @@
     else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
         [self rowInstantMessaging:result];
     }
-    //TODO-MB Safely remove
+    //TODO-MB Deprecate
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
         [self rowMiddleBoxes:result];
     }
@@ -153,6 +153,7 @@
     [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
 }
 
+//TODO-MB Deprecate
 -(void)rowMiddleBoxes:(Result*)result{
     long anomalousMeasurements = [result anomalousMeasurements];
     [self.stackView2 setHidden:YES];

@@ -37,6 +37,7 @@
     if ([result.test_group_name isEqualToString:@"instant_messaging"]){
         [self rowInstantMessaging:measurement];
     }
+    //TODO-MB Deprecate
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
         [self rowMiddleBoxes:measurement];
     }
@@ -44,10 +45,7 @@
         [self rowWebsites:measurement];
     }
     else if ([result.test_group_name isEqualToString:@"performance"]){
-        if ([measurement.test_name isEqualToString:@"ndt"] ||
-            [measurement.test_name isEqualToString:@"dash"]){
-            [self rowPerformance:measurement];
-        }
+        [self rowPerformanceExtended:measurement];
     }
 }
 
@@ -87,9 +85,20 @@
     }
 }
 
+-(void)rowPerformanceExtended:(Measurement*)measurement{
+    if ([measurement.test_name isEqualToString:@"ndt"] ||
+        [measurement.test_name isEqualToString:@"dash"]){
+        [self rowPerformance:measurement];
+    }
+    else if ([measurement.test_name isEqualToString:@"http_invalid_request_line"] ||
+        [measurement.test_name isEqualToString:@"http_header_field_manipulation"]){
+        [self rowMiddleBoxes:measurement];
+    }
+}
+
 -(void)rowPerformance:(Measurement*)measurement{
-    self.ndtSpaceConstraint.constant = self.frame.size.width/1.8;
-    [self setNeedsUpdateConstraints];
+    //self.ndtSpaceConstraint.constant = self.frame.size.width/1.8;
+    //[self setNeedsUpdateConstraints];
     [self.titleLabel setText:[LocalizationUtility getNameForTest:measurement.test_name]];
     [self.detail1Image setHidden:NO];
     [self.detail2Image setHidden:NO];
