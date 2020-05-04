@@ -1,6 +1,6 @@
 "General.AppName" = "OONI Probe";
 "Onboarding.WhatIsOONIProbe.Title" = "ما هو OONI Probe؟";
-"Onboarding.WhatIsOONIProbe.Paragraph" = "تطبيقكم لقياس الرّقابة على الانترنت. \n\nهل هناك مواقع أو تطبيقات إعلام اجتماعي محجوبة؟ هل الاتصال بالانترنت بطئ فوق العادة؟\n\nاستخدموا OONI Probe لتعرفوا! ";
+"Onboarding.WhatIsOONIProbe.Paragraph" = "تطبيقكم لقياس الرّقابة على الانترنت. \n\nهل هناك مواقع أو تطبيقات إعلام اجتماعي محجوبة؟ هل الاتصال بالانترنت أبطأ من العادة؟\n\nاستخدموا OONI Probe لتعرفوا! ";
 "Onboarding.WhatIsOONIProbe.GotIt" = "فهمت";
 "Onboarding.ThingsToKnow.Title" = "إنتباه! ";
 "Onboarding.ThingsToKnow.Bullet.1" = "يتم نشر بيانات OONI علنيّاً، بما فيها معلومات الشّبكة الخاصّة بك. ";
@@ -43,13 +43,16 @@
 "Dashboard.Running.CalculatingETA" = "حساب الوقت اللازم";
 "Dashboard.Running.ShowLog" = "استعرض السِّجِل";
 "Dashboard.Running.CloseLog" = "أغلِق السجل";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "انقر البطاقة للمزيد";
 "Dashboard.Card.Seconds" = "~%@ث";
 "Dashboard.Websites.Card.Description" = "اختبار حجب المواقع";
 "Dashboard.Websites.Overview.Paragraph" = "تحقق ما اذا كانت المواقع محجوبة من خلال [اختبار وصول للشيكة](https://ooni.io/nettest/web-connectivity/) الخاص ب OONI.\n\nفي كل مرة تنقر على تشغيل تختبر مواقع مختلفة من [القائمة العالمية](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) و [القوائم الخاصة بالدول](https://github.com/citizenlab/test-lists/tree/master/lists).\n\nلاختيار موقع معين للاختبار، انقر على زر \"إختر المواقع\" أو اختر أقسام المواقع من خلال اعدادات البطاقة.\n\nهذا الاختبار يقيس ما اذا كان الحجب بسبب التلاعب في DNS أو حجب TCP/IP أو من خلال بروكسي من نوع Transparent HTTP.\n\nنتائج اختبارك ستنشر على [متصفح OONI](https://explorer.ooni.io/world/) و على [OONI API](https://api.ooni.io/).";
-"Dashboard.Websites.Overview.Paragraph.Desktop" = "Check whether websites are blocked using OONI's [Web Connectivity test](https://ooni.io/nettest/web-connectivity/).\n\nYou will test the websites included in the Citizen Lab's [global](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) and [country-specific](https://github.com/citizenlab/test-lists/tree/master/lists) test lists.\n\nThis test measures whether websites are blocked by means of DNS tampering, TCP/IP blocking or by a transparent HTTP proxy.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Websites.Overview.Paragraph.Desktop" = "تأكّدوا عمّا إذا كانت المواقع محجوبة باستخدام [اختبار الاتصاليّة بالويب](https://ooni.io/nettest/web-connectivity) من OONI \n\nستقومون بفحص المواقع الموجودة لدى قائمة اختبارات Citizen Lab [العالميّة](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) و تلك [الخاصّة ببلد معيّنة](https://github.com/citizenlab/test-lists/tree/master/lists)\n\nهذا الفحص يكشف عمّا إذا كانت المواقع محجوبة عن طريق التلاعب ب DNS، حجب TCP/IP أو عن طريق بروكسي HTTP غير مرئي.\n\nسيتم نشر نتائج فحصكم على كل من [مكتشف OONI](https://explorer.ooni.org) و [واجهة تطبيق OONI](https://api.ooni.io/)";
 "Dashboard.Performance.Card.Description" = "اختبار سرعة و جودة شبكتك";
 "Dashboard.Performance.Overview.Paragraph" = "قس سرعة و جودة شبكتك من خلال اختبار [NDT](https://ooni.io/nettest/ndt/).\n\nقس جودة تحميل الفيديو من خلال اختبار [DASH](https://ooni.io/nettest/dash/).\n\nهذه الاختبارات تستهلك بيانات على قدر سرعة اتصالك بالشبكة.\n\nنتائج اختبارك ستنشر على [متصفح OONI](https://explorer.ooni.io/world/) و على [OONI API](https://api.ooni.io/).\n\nتنبيه: هذه الاختبارات تعتمد على سيرفرات من أطراف أخرى. لذلك لا نستطيع ضمان عدم تسجيل عنوان IP الخاص بك.";
+"Dashboard.Performance.Overview.Paragraph.Updated" = "By running the tests in this card, you will:\n\n* Measure the speed and performance of your network ([NDT](https://ooni.org/nettest/ndt/) test)\n\n* Measure video streaming performance ([DASH](https://ooni.org/nettest/dash/) test)\n\n* Check for the presence of [middlebox technologies](https://ooni.org/support/glossary/#middlebox) on your network ([HTTP Invalid Request Line](https://ooni.org/nettest/http-invalid-request-line/) and [HTTP Header Field Manipulation](https://ooni.org/nettest/http-header-field-manipulation/) tests)\n\nThese tests consume data depending on your network speed.\n\nYour test results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).\n\n**Disclaimer:** The [NDT](https://ooni.org/nettest/ndt/) and [DASH](https://ooni.org/nettest/dash/) tests are conducted against third-party servers provided by [Measurement Lab (M-Lab)](https://www.measurementlab.net/). If you run these tests, M-Lab will collect and publish your IP address (for research purposes), irrespective of your OONI Probe settings. Learn more about M-Lab’s data governance through its [privacy statement](https://www.measurementlab.net/privacy/).";
 "Dashboard.Middleboxes.Card.Description" = "البحث عن اختبارات تفتيش في شبكتك";
 "Dashboard.Middleboxes.Overview.Paragraph" = "عادة ما تقوم الشركات المزودة لخدمة الإنترنت بإستخدام أجهزة تسمى middleboxes لإستخدامات مختلفة في الشبكة (مثل تسريع الخدمة عن طريق تقديم نسخة مسجلة من المواقع). أحيانًا ما تستخدم middleboxes لتنفيذ الحجب أو مراقبة الإنترنت.\n\nاعثر على middleboxes في شبكتك بإستخدام اختبارات [عدم صلاحية طلب الHTTP](https://ooni.io/nettest/http-invalid-request-line/) و [التلاعب بخانة رأس صفحة الHTTP](https://ooni.io/nettest/http-header-field-manipulation/).\nنتائج اختبارك ستنشر على [متصفح OONI](https://explorer.ooni.io/world/) و على [OONI API](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "اختبار حجب برامج المراسلة الفورية";
@@ -198,10 +201,10 @@
 "TestResults.Details.Performance.NDT.Download" = "تحميل";
 "TestResults.Details.Performance.NDT.Ping" = "الاستجابة";
 "TestResults.Details.Performance.NDT.Server" = "الخادم";
-"TestResults.Details.Performance.NDT.PacketLoss" = "خسارة حزمة";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "خروج حزمة";
 "TestResults.Details.Performance.NDT.AveragePing" = "متوسط الاستجابة";
-"TestResults.Details.Performance.NDT.MaxPing" = "أعلى استجابة";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "نفاذ وقت الحزمة";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "بإمكانك مشاهدة فيديو حتى جودة %@ بدون توقف للتحميل";
@@ -311,6 +314,7 @@
 "Settings.Advanced.SendCrashReports" = "أرسل تقارير حول تعطل التطبيق";
 "Settings.Advanced.DebugLogs" = "أظهر سجلات التصحيح";
 "Settings.Advanced.UseDomainFronting" = "دائمًا استخدم وسيط في اتصال النطاق Domain Fronting";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "قيّد مدة الاختبار";
 "Settings.Websites.MaxRuntime" = "مدة الاختبار";
 "Settings.Websites.Categories.Label" = "أقسام المواقع للاختبار";
@@ -320,6 +324,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "لم يتم إدخال أي روابط";
 "Settings.Websites.CustomURL.Run" = "ابدأ";
 "Settings.Websites.CustomURL.Add" = "أضف موقعًا";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "اختبر واتساب";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "اختبر كل أطراف واتساب";
 "Settings.InstantMessaging.TestTelegram" = "اختبر تيليجرام";
@@ -336,6 +341,7 @@
 "Settings.Performance.DashServerPort" = "منفذ خادم DASH";
 "Settings.SendEmail.Label" = "إرسال إيميل لفريق الدعم ";
 "Settings.SendEmail.Error" = "من فضلك أرسل رسالة إلكترونية إلى bugs@openobservatory.org تحتوى على معلومات عن اصدار البرنامج وإصدار iOS. اضغط على \"نسخ إلى الحافظة\" فى الأسفل لنسخ عنوان بريدنا الإلكتروني.";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "انتهى التشغيل";
 "OONIBrowser.TryMirror" = "تجربة خادم بديل";
 "OONIBrowser.Loading" = "جاري التحميل...";

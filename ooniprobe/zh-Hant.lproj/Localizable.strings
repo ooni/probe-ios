@@ -43,6 +43,8 @@
 "Dashboard.Running.CalculatingETA" = "Calculating ETA";
 "Dashboard.Running.ShowLog" = "顯示日誌";
 "Dashboard.Running.CloseLog" = "Close Log";
+"Dashboard.Running.Stopping.Title" = "Stopping test...";
+"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
 "Dashboard.Card.Subtitle" = "輕點卡片進一步了解";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "測試遭封鎖的網站";
@@ -50,6 +52,7 @@
 "Dashboard.Websites.Overview.Paragraph.Desktop" = "Check whether websites are blocked using OONI's [Web Connectivity test](https://ooni.io/nettest/web-connectivity/).\n\nYou will test the websites included in the Citizen Lab's [global](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) and [country-specific](https://github.com/citizenlab/test-lists/tree/master/lists) test lists.\n\nThis test measures whether websites are blocked by means of DNS tampering, TCP/IP blocking or by a transparent HTTP proxy.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Performance.Card.Description" = "測試網路速度和效能";
 "Dashboard.Performance.Overview.Paragraph" = "利用 [NDT](https://ooni.io/nettest/ndt/) 測試來衡量網路速度和效能。\n\n用 [DASH](https://ooni.io/nettest/dash/) 測試來了解影片串流的表現。\n\n這些測試會因所在網路速度而消耗數據\n\n測試結果會發佈在 [OONI Explorer](https://explorer.ooni.io/world/) 和 [OONI API](https://api.ooni.io/).\n\n免責聲明: 這些測試是透過第三方伺服器，故我們無法保證你的 IP 地址不被他人收集。";
+"Dashboard.Performance.Overview.Paragraph.Updated" = "By running the tests in this card, you will:\n\n* Measure the speed and performance of your network ([NDT](https://ooni.org/nettest/ndt/) test)\n\n* Measure video streaming performance ([DASH](https://ooni.org/nettest/dash/) test)\n\n* Check for the presence of [middlebox technologies](https://ooni.org/support/glossary/#middlebox) on your network ([HTTP Invalid Request Line](https://ooni.org/nettest/http-invalid-request-line/) and [HTTP Header Field Manipulation](https://ooni.org/nettest/http-header-field-manipulation/) tests)\n\nThese tests consume data depending on your network speed.\n\nYour test results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).\n\n**Disclaimer:** The [NDT](https://ooni.org/nettest/ndt/) and [DASH](https://ooni.org/nettest/dash/) tests are conducted against third-party servers provided by [Measurement Lab (M-Lab)](https://www.measurementlab.net/). If you run these tests, M-Lab will collect and publish your IP address (for research purposes), irrespective of your OONI Probe settings. Learn more about M-Lab’s data governance through its [privacy statement](https://www.measurementlab.net/privacy/).";
 "Dashboard.Middleboxes.Card.Description" = "偵測你的網路環境是否有中間盒";
 "Dashboard.Middleboxes.Overview.Paragraph" = "因各種情況（如為了緩存），網路連線服務商經常會使用一些網路用具 (如中間盒) 。但有時候，中間盒被會用作網路審查與監控。\n\n使用 OONI's [HTTP  無效請求列](https://ooni.io/nettest/http-invalid-request-line/) 和 [HTTP 表頭欄位操控](https://ooni.io/nettest/http-header-field-manipulation/) 測試來找出網路是否有中間盒。\n\n測試結果會發佈在 [OONI Explorer](https://explorer.ooni.io/world/) 和 [OONI API](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "測試遭封鎖的即時通訊應用";
@@ -198,10 +201,10 @@
 "TestResults.Details.Performance.NDT.Download" = "下載";
 "TestResults.Details.Performance.NDT.Ping" = "Ping";
 "TestResults.Details.Performance.NDT.Server" = "伺服器";
-"TestResults.Details.Performance.NDT.PacketLoss" = "封包丟失";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmit Rate";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "出問題";
 "TestResults.Details.Performance.NDT.AveragePing" = "平均 Ping";
-"TestResults.Details.Performance.NDT.MaxPing" = "最大 Ping";
+"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "逾時";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "不透過緩取進行串流 %@";
@@ -311,6 +314,7 @@
 "Settings.Advanced.SendCrashReports" = "送出出錯崩潰報告";
 "Settings.Advanced.DebugLogs" = "調試記錄";
 "Settings.Advanced.UseDomainFronting" = "皆使用域名前列";
+"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Limit test duration";
 "Settings.Websites.MaxRuntime" = "測試期間";
 "Settings.Websites.Categories.Label" = "測試的網站類別";
@@ -320,6 +324,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "未輸入URL";
 "Settings.Websites.CustomURL.Run" = "執行";
 "Settings.Websites.CustomURL.Add" = "新增網站";
+"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "測試 WhatsApp";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "測試所有的 WhatsApp 端點";
 "Settings.InstantMessaging.TestTelegram" = "測試 Telegram";
@@ -336,6 +341,7 @@
 "Settings.Performance.DashServerPort" = "DASH 伺服器端口";
 "Settings.SendEmail.Label" = "寄求助郵件";
 "Settings.SendEmail.Error" = "請將應用程式與  iOS 相關資訊寄送到此信箱 bugs@openobservatory.org ，下方的\"複製到剪貼簿\"分頁可直接複此電子郵址。 ";
+"Settings.Language.Current" = "Current app language is %@";
 "Notification.FinishedRunning" = "已完成的執行";
 "OONIBrowser.TryMirror" = "試試鏡像站";
 "OONIBrowser.Loading" = "載入中…";
