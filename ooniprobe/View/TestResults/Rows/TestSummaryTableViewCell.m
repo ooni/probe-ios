@@ -97,8 +97,8 @@
 }
 
 -(void)rowPerformance:(Measurement*)measurement{
-    //self.ndtSpaceConstraint.constant = self.frame.size.width/1.8;
-    //[self setNeedsUpdateConstraints];
+    self.ndtSpaceConstraint.constant = self.frame.size.width/1.8;
+    [self setNeedsUpdateConstraints];
     [self.titleLabel setText:[LocalizationUtility getNameForTest:measurement.test_name]];
     [self.detail1Image setHidden:NO];
     [self.detail2Image setHidden:NO];
