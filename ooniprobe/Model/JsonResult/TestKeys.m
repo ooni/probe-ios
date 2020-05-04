@@ -293,14 +293,6 @@
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
     
-- (NSString*)getOutOfOrder{
-    if (self.advanced.out_of_order != nil){
-        float ooo = [self.advanced.out_of_order floatValue]*100;
-        return [NSString stringWithFormat:@"%.1f", ooo];
-    }
-    return NSLocalizedString(@"TestResults.NotAvailable", nil);
-}
-    
 - (NSString*)getAveragePing{
     if (self.advanced.avg_rtt != nil){
         return [NSString stringWithFormat:@"%.1f", [self.advanced.avg_rtt floatValue]];
@@ -318,13 +310,6 @@
 - (NSString*)getMSS{
     if (self.advanced.mss != nil){
         return [NSString stringWithFormat:@"%d", [self.advanced.mss intValue]];
-    }
-    return NSLocalizedString(@"TestResults.NotAvailable", nil);
-}
-    
-- (NSString*)getTimeouts{
-    if (self.advanced.timeouts != nil){
-        return [NSString stringWithFormat:@"%d", [self.advanced.timeouts intValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }

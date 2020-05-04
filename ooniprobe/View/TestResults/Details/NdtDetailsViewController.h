@@ -22,10 +22,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *packetlossValueLabel;
 @property (nonatomic, strong) IBOutlet UILabel *packetlossUnitLabel;
 
-@property (nonatomic, strong) IBOutlet UILabel *outoforderTitleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *outoforderValueLabel;
-@property (nonatomic, strong) IBOutlet UILabel *outoforderUnitLabel;
-
 @property (nonatomic, strong) IBOutlet UILabel *averagepingTitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *averagepingValueLabel;
 @property (nonatomic, strong) IBOutlet UILabel *averagepingUnitLabel;
@@ -36,8 +32,5 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *mssTitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *mssValueLabel;
-
-@property (nonatomic, strong) IBOutlet UILabel *timeoutsTitleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *timeoutsValueLabel;
 
 @end

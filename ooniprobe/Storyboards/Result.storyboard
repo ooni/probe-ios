@@ -2055,7 +2055,7 @@
                                 <rect key="frame" x="0.0" y="130" width="414" height="599"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIh-Ta-JOz">
-                                        <rect key="frame" x="0.0" y="219" width="414" height="190"/>
+                                        <rect key="frame" x="0.0" y="164" width="414" height="190"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="190" id="fen-96-hbY"/>
                                         </constraints>
@@ -2071,38 +2071,10 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="g1K-Al-G2b">
-                                        <rect key="frame" x="30" y="30" width="91.5" height="159"/>
+                                        <rect key="frame" x="30" y="30" width="101.5" height="104"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="EKN-Yp-qW0">
-                                                <rect key="frame" x="0.0" y="0.0" width="91.5" height="49"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Packet Loss " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3G-Zo-dfx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="17"/>
-                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uTR-JZ-hEu">
-                                                        <rect key="frame" x="0.0" y="15" width="84.5" height="34"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLa-T3-ftb">
-                                                                <rect key="frame" x="0.0" y="0.0" width="67.5" height="34"/>
-                                                                <accessibility key="accessibilityConfiguration" identifier="TestResults.Details.Performance.NDT.PacketLoss"/>
-                                                                <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="28"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srN-wE-EhF">
-                                                                <rect key="frame" x="72.5" y="13" width="12" height="17"/>
-                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="Ozf-ox-LRG">
-                                                <rect key="frame" x="0.0" y="55" width="91.5" height="49"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="49"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Ping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6x-Hb-YpV">
                                                         <rect key="frame" x="0.0" y="0.0" width="81" height="17"/>
@@ -2129,26 +2101,26 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="plX-UY-eGl">
-                                                <rect key="frame" x="0.0" y="110" width="91.5" height="49"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="EKN-Yp-qW0">
+                                                <rect key="frame" x="0.0" y="55" width="101.5" height="49"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VL1-wV-N3m">
-                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retransmit Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3G-Zo-dfx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="17"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zbu-0u-wv2">
-                                                        <rect key="frame" x="0.0" y="15" width="67.5" height="34"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uTR-JZ-hEu">
+                                                        <rect key="frame" x="0.0" y="15" width="84.5" height="34"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCI-q9-wxX">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLa-T3-ftb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="67.5" height="34"/>
-                                                                <accessibility key="accessibilityConfiguration" identifier="TestResults.Details.Performance.NDT.MSS"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="TestResults.Details.Performance.NDT.PacketLoss"/>
                                                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="28"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWy-RE-7kk">
-                                                                <rect key="frame" x="0.0" y="13" width="0.0" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srN-wE-EhF">
+                                                                <rect key="frame" x="72.5" y="13" width="12" height="17"/>
                                                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -2160,41 +2132,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="DGT-YJ-1bg">
-                                        <rect key="frame" x="207.5" y="30" width="91.5" height="159"/>
+                                        <rect key="frame" x="207.5" y="30" width="110" height="104"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="SRS-nL-ufU">
-                                                <rect key="frame" x="0.0" y="0.0" width="91.5" height="49"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out of Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-vt-WIA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="17"/>
-                                                        <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4Fs-BJ-CV4">
-                                                        <rect key="frame" x="0.0" y="15" width="84.5" height="34"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQm-rB-kyD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="67.5" height="34"/>
-                                                                <accessibility key="accessibilityConfiguration" identifier="TestResults.Details.Performance.NDT.OutOfOrder"/>
-                                                                <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="28"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgH-zF-w3D">
-                                                                <rect key="frame" x="72.5" y="13" width="12" height="17"/>
-                                                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="cbd-a7-heE">
-                                                <rect key="frame" x="0.0" y="55" width="91.5" height="49"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="49"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Ping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ol6-5I-Shm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="57" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Ping Average" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ol6-5I-Shm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="110" height="17"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2218,25 +2162,25 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="KQj-km-D51">
-                                                <rect key="frame" x="0.0" y="110" width="91.5" height="49"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="plX-UY-eGl">
+                                                <rect key="frame" x="0.0" y="55" width="110" height="49"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timeouts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMg-P1-LrB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MSS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VL1-wV-N3m">
+                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="17"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kJc-4x-yfI">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zbu-0u-wv2">
                                                         <rect key="frame" x="0.0" y="15" width="67.5" height="34"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvF-SI-1yn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCI-q9-wxX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="67.5" height="34"/>
-                                                                <accessibility key="accessibilityConfiguration" identifier="TestResults.Details.Performance.NDT.Timeouts"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="TestResults.Details.Performance.NDT.MSS"/>
                                                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="28"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdS-8M-kOP">
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWy-RE-7kk">
                                                                 <rect key="frame" x="0.0" y="13" width="0.0" height="17"/>
                                                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                                                 <nil key="textColor"/>
@@ -2458,9 +2402,6 @@
                         <outlet property="maxpingValueLabel" destination="r1W-V4-lO8" id="dNb-Pv-bfV"/>
                         <outlet property="mssTitleLabel" destination="VL1-wV-N3m" id="8sO-Zt-de1"/>
                         <outlet property="mssValueLabel" destination="RCI-q9-wxX" id="k3O-Io-MYL"/>
-                        <outlet property="outoforderTitleLabel" destination="fFs-vt-WIA" id="3iM-wN-eaJ"/>
-                        <outlet property="outoforderUnitLabel" destination="VgH-zF-w3D" id="aOF-j3-he9"/>
-                        <outlet property="outoforderValueLabel" destination="QQm-rB-kyD" id="yz9-Nk-Hi2"/>
                         <outlet property="packetlossTitleLabel" destination="f3G-Zo-dfx" id="RMO-ci-8um"/>
                         <outlet property="packetlossUnitLabel" destination="srN-wE-EhF" id="8qr-eW-sL4"/>
                         <outlet property="packetlossValueLabel" destination="CLa-T3-ftb" id="VTD-dV-yrN"/>
@@ -2471,8 +2412,6 @@
                         <outlet property="scrollViewFooterConstraint" destination="hcf-Oz-ZAp" id="pyB-fd-fJW"/>
                         <outlet property="serverTitleLabel" destination="rgt-Lm-6Fi" id="Q8M-Jk-L1x"/>
                         <outlet property="serverValueLabel" destination="Gn7-Xr-AVN" id="qwS-qw-w2L"/>
-                        <outlet property="timeoutsTitleLabel" destination="jMg-P1-LrB" id="AsC-a0-Ox4"/>
-                        <outlet property="timeoutsValueLabel" destination="yvF-SI-1yn" id="a5Y-hO-9hm"/>
                         <outlet property="uploadTitleLabel" destination="txN-cW-nkk" id="orw-XT-h3q"/>
                         <outlet property="uploadUnitLabel" destination="MEh-AK-jIY" id="TLe-mz-non"/>
                         <outlet property="uploadValueLabel" destination="QCL-qN-9HU" id="i7s-KJ-Dta"/>

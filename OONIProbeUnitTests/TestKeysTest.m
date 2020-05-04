@@ -159,16 +159,6 @@ TestKeys *testKeys;
     XCTAssert([[testKeys getPacketLoss] isEqualToString:@"100.000"]);
 }
 
-- (void)testOutOfOrder {
-    XCTAssert([[testKeys getOutOfOrder] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced = [Advanced new];
-    XCTAssert([[testKeys getOutOfOrder] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.out_of_order = [NSNumber numberWithDouble:0];
-    XCTAssert([[testKeys getOutOfOrder] isEqualToString:@"0.0"]);
-    testKeys.advanced.out_of_order = [NSNumber numberWithDouble:1];
-    XCTAssert([[testKeys getOutOfOrder] isEqualToString:@"100.0"]);
-}
-
 - (void)testAveragePing {
     XCTAssert([[testKeys getAveragePing] isEqualToString:NOT_AVAILABLE]);
     testKeys.advanced = [Advanced new];
@@ -191,14 +181,6 @@ TestKeys *testKeys;
     XCTAssert([[testKeys getMSS] isEqualToString:NOT_AVAILABLE]);
     testKeys.advanced.mss = [NSNumber numberWithDouble:0];
     XCTAssert([[testKeys getMSS] isEqualToString:@"0"]);
-}
-
-- (void)testTimeouts {
-    XCTAssert([[testKeys getTimeouts] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced = [Advanced new];
-    XCTAssert([[testKeys getTimeouts] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.timeouts = [NSNumber numberWithDouble:0];
-    XCTAssert([[testKeys getTimeouts] isEqualToString:@"0"]);
 }
 
 - (void)testMedianBitrate {
