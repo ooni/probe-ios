@@ -60,99 +60,117 @@
     [self.stackView2 setAlpha:1.0f];
     [self.stackView3 setAlpha:1.0f];
 
+    //Setting test specific UI
     if ([result.test_group_name isEqualToString:@"websites"]){
-        long anomalousMeasurements = [result anomalousMeasurements];
-        long totalMeasurements = [result totalMeasurements];
-        [self.stackView2 setHidden:NO];
-        [self.stackView3 setHidden:YES];
-        [self.image1 setImage:[UIImage imageNamed:@"exclamation_point"]];
-        if (anomalousMeasurements == 0){
-            [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        }
-        else {
-            [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-        }
-        [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:anomalousMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
-        [self.image2 setImage:[UIImage imageNamed:@"globe"]];
-        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
-        [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self rowWebsites:result];
     }
     else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
-        long anomalousMeasurements = [result anomalousMeasurements];
-        long okMeasurements = [result okMeasurements];
-        [self.stackView2 setHidden:NO];
-        [self.stackView3 setHidden:YES];
-        [self.image1 setImage:[UIImage imageNamed:@"exclamation_point"]];
-        if (anomalousMeasurements == 0){
-            [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        }
-        else {
-            [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-        }
-        [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:anomalousMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
-        [self.image2 setImage:[UIImage imageNamed:@"tick"]];
-        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
-        [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self rowInstantMessaging:result];
     }
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
-        long anomalousMeasurements = [result anomalousMeasurements];
-        [self.stackView2 setHidden:YES];
-        [self.stackView3 setHidden:YES];
-        [self.image1 setImage:[UIImage imageNamed:@"middle_boxes"]];
-        if (anomalousMeasurements > 0){
-            [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-            [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-        }
-        else if ([result totalMeasurements] == [result failedMeasurements]){
-            [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        }
-        else {
-            [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];
-            [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-            [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        }
+        [self rowMiddleBoxes:result];
     }
     else if ([result.test_group_name isEqualToString:@"performance"]){
-        Measurement *ndt = [result getMeasurement:@"ndt"];
-        Measurement *dash = [result getMeasurement:@"dash"];
-        [self.stackView2 setHidden:NO];
-        [self.stackView3 setHidden:NO];
-        [self.image1 setImage:[UIImage imageNamed:@"download"]];
+        [self rowPerformance:result];
+    }
+}
+
+-(void)rowWebsites:(Result*)result{
+    long anomalousMeasurements = [result anomalousMeasurements];
+    long totalMeasurements = [result totalMeasurements];
+    [self.stackView2 setHidden:NO];
+    [self.stackView3 setHidden:YES];
+    [self.image1 setImage:[UIImage imageNamed:@"exclamation_point"]];
+    if (anomalousMeasurements == 0){
         [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        [self.image2 setImage:[UIImage imageNamed:@"upload"]];
-        [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-        if (ndt){
-            TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
-            [self setText:[testKeysNdt getDownloadWithUnit] forLabel:self.label1 inStackView:self.stackView1];
-            [self setText:[testKeysNdt getUploadWithUnit] forLabel:self.label2 inStackView:self.stackView2];
-        }
-        else {
-            [self.label1 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
-            [self.stackView1 setAlpha:0.3f];
-            [self.label2 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
-            [self.stackView2 setAlpha:0.3f];
-        }
-        [self.image3 setImage:[UIImage imageNamed:@"video_quality"]];
-        if (dash){
-            TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
-            [self setText:[testKeysDash getVideoQuality:NO] forLabel:self.label3 inStackView:self.stackView3];
-        }
-        else {
-            [self.label3 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
-            [self.stackView3 setAlpha:0.3f];
-        }
-        [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    }
+    else {
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+    }
+    [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:anomalousMeasurements :@"TestResults.Overview.Websites.Blocked"]]];
+    [self.image2 setImage:[UIImage imageNamed:@"globe"]];
+    [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:totalMeasurements :@"TestResults.Overview.Websites.Tested"]]];
+    [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+
+}
+
+-(void)rowInstantMessaging:(Result*)result{
+    long anomalousMeasurements = [result anomalousMeasurements];
+    long okMeasurements = [result okMeasurements];
+    [self.stackView2 setHidden:NO];
+    [self.stackView3 setHidden:YES];
+    [self.image1 setImage:[UIImage imageNamed:@"exclamation_point"]];
+    if (anomalousMeasurements == 0){
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    }
+    else {
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+    }
+    [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:anomalousMeasurements :@"TestResults.Overview.InstantMessaging.Blocked"]]];
+    [self.image2 setImage:[UIImage imageNamed:@"tick"]];
+    [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
+    [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+}
+
+-(void)rowPerformance:(Result*)result{
+    Measurement *ndt = [result getMeasurement:@"ndt"];
+    Measurement *dash = [result getMeasurement:@"dash"];
+    [self.stackView2 setHidden:NO];
+    [self.stackView3 setHidden:NO];
+    [self.image1 setImage:[UIImage imageNamed:@"download"]];
+    [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.image2 setImage:[UIImage imageNamed:@"upload"]];
+    [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    if (ndt){
+        TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
+        [self setText:[testKeysNdt getDownloadWithUnit] forLabel:self.label1 inStackView:self.stackView1];
+        [self setText:[testKeysNdt getUploadWithUnit] forLabel:self.label2 inStackView:self.stackView2];
+    }
+    else {
+        [self.label1 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
+        [self.stackView1 setAlpha:0.3f];
+        [self.label2 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
+        [self.stackView2 setAlpha:0.3f];
+    }
+    [self.image3 setImage:[UIImage imageNamed:@"video_quality"]];
+    if (dash){
+        TestKeys *testKeysDash = [result getMeasurement:@"dash"].testKeysObj;
+        [self setText:[testKeysDash getVideoQuality:NO] forLabel:self.label3 inStackView:self.stackView3];
+    }
+    else {
+        [self.label3 setText:[NSString stringWithFormat:@"%@", NSLocalizedString(@"TestResults.NotAvailable", nil)]];
+        [self.stackView3 setAlpha:0.3f];
+    }
+    [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+}
+
+-(void)rowMiddleBoxes:(Result*)result __deprecated{
+    long anomalousMeasurements = [result anomalousMeasurements];
+    [self.stackView2 setHidden:YES];
+    [self.stackView3 setHidden:YES];
+    [self.image1 setImage:[UIImage imageNamed:@"middle_boxes"]];
+    if (anomalousMeasurements > 0){
+        [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+    }
+    else if ([result totalMeasurements] == [result failedMeasurements]){
+        [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    }
+    else {
+        [self.label1 setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     }
 }
 

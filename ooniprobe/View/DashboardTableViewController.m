@@ -49,7 +49,6 @@
     items = [[NSMutableArray alloc] init];
     [items addObject:[[WebsitesSuite alloc] init]];
     [items addObject:[[InstantMessagingSuite alloc] init]];
-    [items addObject:[[MiddleBoxesSuite alloc] init]];
     [items addObject:[[PerformanceSuite alloc] init]];
     [self.tableView reloadData];
 }
