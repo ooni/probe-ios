@@ -23,6 +23,7 @@
         return NSLocalizedString(@"TestResults.Overview.FilterTests.Websites", nil);
     else if ([testName isEqualToString:@"performance"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.Performance", nil);
+    //__deprecated
     else if ([testName isEqualToString:@"middle_boxes"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.MiddleBoxes", nil);
     else if ([testName isEqualToString:@"instant_messaging"])
@@ -35,6 +36,7 @@
         return NSLocalizedString(@"Dashboard.Websites.Card.Description", nil);
     else if ([testName isEqualToString:@"performance"])
         return NSLocalizedString(@"Dashboard.Performance.Card.Description", nil);
+    //__deprecated
     else if ([testName isEqualToString:@"middle_boxes"])
         return NSLocalizedString(@"Dashboard.Middleboxes.Card.Description", nil);
     else if ([testName isEqualToString:@"instant_messaging"])

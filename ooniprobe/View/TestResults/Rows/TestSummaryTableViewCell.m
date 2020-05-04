@@ -37,6 +37,7 @@
     if ([result.test_group_name isEqualToString:@"instant_messaging"]){
         [self rowInstantMessaging:measurement];
     }
+    //__deprecated
     else if ([result.test_group_name isEqualToString:@"middle_boxes"]){
         [self rowMiddleBoxes:measurement];
     }
@@ -44,10 +45,7 @@
         [self rowWebsites:measurement];
     }
     else if ([result.test_group_name isEqualToString:@"performance"]){
-        if ([measurement.test_name isEqualToString:@"ndt"] ||
-            [measurement.test_name isEqualToString:@"dash"]){
-            [self rowPerformance:measurement];
-        }
+        [self rowPerformanceExtended:measurement];
     }
 }
 
@@ -84,6 +82,17 @@
     else {
         [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
         [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+    }
+}
+
+-(void)rowPerformanceExtended:(Measurement*)measurement{
+    if ([measurement.test_name isEqualToString:@"ndt"] ||
+        [measurement.test_name isEqualToString:@"dash"]){
+        [self rowPerformance:measurement];
+    }
+    else if ([measurement.test_name isEqualToString:@"http_invalid_request_line"] ||
+        [measurement.test_name isEqualToString:@"http_header_field_manipulation"]){
+        [self rowMiddleBoxes:measurement];
     }
 }
 

@@ -157,6 +157,13 @@
         return;
     }
     successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
-
 }
+
+-(BOOL)isMiddleBoxes{
+    if ([self.test_name isEqualToString:@"http_invalid_request_line"] ||
+    [self.test_name isEqualToString:@"http_header_field_manipulation"])
+        return true;
+    return false;
+}
+
 @end

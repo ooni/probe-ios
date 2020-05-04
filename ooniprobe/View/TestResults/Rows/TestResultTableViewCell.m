@@ -152,7 +152,7 @@
     [self.label3 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
 }
 
--(void)rowMiddleBoxes:(Result*)result{
+-(void)rowMiddleBoxes:(Result*)result __deprecated{
     long anomalousMeasurements = [result anomalousMeasurements];
     [self.stackView2 setHidden:YES];
     [self.stackView3 setHidden:YES];

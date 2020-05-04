@@ -15,7 +15,7 @@
                parameters:@[self]]
                orderByDescending:@"is_anomaly"]
                orderByDescending:@"is_failed"]
-               orderByDescending:@"Id"]
+               order:@"Id"]
                fetch];
 }
 
