@@ -1,6 +1,6 @@
 "General.AppName" = "OONI Probe";
 "Onboarding.WhatIsOONIProbe.Title" = "O que é o OONI Probe?";
-"Onboarding.WhatIsOONIProbe.Paragraph" = "Seu aplicativo para medir a censura na internet.\n\nOs sites e aplicativos de mídia social estão bloqueados? Sua conexão com a internet é estranhamente lenta?\n\nExecute o OONI Probe para descobrir!";
+"Onboarding.WhatIsOONIProbe.Paragraph" = "Seu aplicativo para medir a censura na internet.\n\nOs sites e aplicativos de mídia social estão bloqueados? Sua conexão com a internet é estranhamente lenta?\n\nExecute o OONI Probe para descobrir por quê!";
 "Onboarding.WhatIsOONIProbe.GotIt" = "Entendi";
 "Onboarding.ThingsToKnow.Title" = "Atenção!";
 "Onboarding.ThingsToKnow.Bullet.1" = "Os dados da OONI são publicados abertamente e incluirão as informações da sua rede.";
@@ -43,6 +43,8 @@
 "Dashboard.Running.CalculatingETA" = "Calculando ETA";
 "Dashboard.Running.ShowLog" = "Exibir registro";
 "Dashboard.Running.CloseLog" = "Fechar registro";
+"Dashboard.Running.Stopping.Title" = "Parando do teste...";
+"Dashboard.Running.Stopping.Notice" = "A finalizar os testes atualmente pendentes, por favor aguarde...";
 "Dashboard.Card.Subtitle" = "Clique para ver outras opções ";
 "Dashboard.Card.Seconds" = "~%@s";
 "Dashboard.Websites.Card.Description" = "Teste o bloqueio de sites";
@@ -50,6 +52,7 @@
 "Dashboard.Websites.Overview.Paragraph.Desktop" = "Verifique se os sites estão bloqueados usando o OONI [Teste de conectividade da Web](https://ooni.io/nettest/web-connectivity/).\n\nVocê testará os sites incluídos no Citizen Lab's [global](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) elista de teste do [país específico](https://github.com/citizenlab/test-lists/tree/master/lists).\n\nEsse teste mede se os sites são bloqueados por adulteração de DNS, bloqueio de TCP/IP ou por um proxy HTTP transparente.\n\nSeus resultados serão publicados no [OONI Explorer](https://explorer.ooni.org/) e [OONI API](https://api.ooni.io/).";
 "Dashboard.Performance.Card.Description" = "Teste a velocidade e o desempenho de sua rede";
 "Dashboard.Performance.Overview.Paragraph" = "Meça a velocidade e o desempenho de sua rede usando o teste [NDT](https://ooni.io/nettest/ndt/).\n\nMeça o desempenho da transmissão de vídeo usando o teste [DASH](https://ooni.io/nettest/dash/).\n\nEsses testes consomem dados dependendo da velocidade da sua rede.\n\nSeus resultados serão publicados no [OONI Explorer](https://explorer.ooni.io/world/) e [OONI API](https://api.ooni.io/).\n\nIsenção de responsabilidade: esses testes dependem de servidores de terceiros. Portanto, não podemos garantir que seu endereço IP não será coletado.";
+"Dashboard.Performance.Overview.Paragraph.Updated" = "By running the tests in this card, you will:\n\n* Measure the speed and performance of your network ([NDT](https://ooni.org/nettest/ndt/) test)\n\n* Measure video streaming performance ([DASH](https://ooni.org/nettest/dash/) test)\n\n* Check for the presence of [middlebox technologies](https://ooni.org/support/glossary/#middlebox) on your network ([HTTP Invalid Request Line](https://ooni.org/nettest/http-invalid-request-line/) and [HTTP Header Field Manipulation](https://ooni.org/nettest/http-header-field-manipulation/) tests)\n\nThese tests consume data depending on your network speed.\n\nYour test results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).\n\n**Disclaimer:** The [NDT](https://ooni.org/nettest/ndt/) and [DASH](https://ooni.org/nettest/dash/) tests are conducted against third-party servers provided by [Measurement Lab (M-Lab)](https://www.measurementlab.net/). If you run these tests, M-Lab will collect and publish your IP address (for research purposes), irrespective of your OONI Probe settings. Learn more about M-Lab’s data governance through its [privacy statement](https://www.measurementlab.net/privacy/).";
 "Dashboard.Middleboxes.Card.Description" = "Detectar middleboxes na sua rede";
 "Dashboard.Middleboxes.Overview.Paragraph" = "Provedores de serviços de Internet costumam usar dispositivos de rede (middleboxes) para várias finalidades de rede (como o armazenamento em cache). Às vezes, esses dispositivos são usados para implementar censura e/ou vigilância na internet.\n\nEncontre os middleboxes na sua rede usando os testes da OONI [HTTP Invalid Request Line](https://ooni.io/nettest/http-invalid-request-line/) e  [HTTP Header Field Manipulation](https://ooni.io/nettest/http-header-field-manipulation/).\n\nSeus resultados serão publicados no [OONI Explorer](https://explorer.ooni.io/world/) e [OONI API](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "Teste o bloqueio de aplicativos de mensagens instantâneas";
@@ -125,8 +128,8 @@
 "TestResults.Summary.InstantMessaging.Hero.Apps.Singular" = "Aplicativo";
 "TestResults.Summary.InstantMessaging.Hero.Apps.Plural" = "Aplicativos";
 "TestResults.Summary.Circumvention.Hero.Tested.Singular" = "Testado";
-"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Testado";
-"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Bloqueado";
+"TestResults.Summary.Circumvention.Hero.Tested.Plural" = "Testadas";
+"TestResults.Summary.Circumvention.Hero.Blocked.Singular" = "Bloqueadas";
 "TestResults.Summary.Circumvention.Hero.Blocked.Plural" = "Bloqueado";
 "TestResults.Summary.Circumvention.Hero.Reachable.Singular" = "Funcionando";
 "TestResults.Summary.Circumvention.Hero.Reachable.Plural" = "Funcionando";
@@ -198,10 +201,10 @@
 "TestResults.Details.Performance.NDT.Download" = "Download";
 "TestResults.Details.Performance.NDT.Ping" = "Ping";
 "TestResults.Details.Performance.NDT.Server" = "Servidor";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Perda de Pacotes";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Taxa de Retransmissão";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "Fora de Ordem";
 "TestResults.Details.Performance.NDT.AveragePing" = "Ping Médio";
-"TestResults.Details.Performance.NDT.MaxPing" = "Ping Máximo";
+"TestResults.Details.Performance.NDT.MaxPing" = "Estimativa Máxima de Ping";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Tempo excedido";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Você pode transmitir até %@ sem usar a memória temporária.";
@@ -209,7 +212,7 @@
 "TestResults.Details.Performance.Dash.PlayoutDelay" = "Atraso de Playout";
 "TestResults.Details.Circumvention.Psiphon.Blocked.Hero.Title" = "Provavelmente bloqueado";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Hero.Title" = "Funcionando";
-"TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Psiphon](https://psiphon.ca/) appears to be blocked.";
+"TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Tor](https://www.torproject.org/) parece estar bloqueado.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "Conseguimos inicializar com êxito uma conexão Psiphon. Isso significa que [Psiphon](https://psiphon.ca/) deveria trabalhar.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Hora do Bootstrap";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
@@ -224,7 +227,7 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Name" = "Nome";
 "TestResults.Details.Circumvention.Tor.Table.Header.Address" = "Endereço";
 "TestResults.Details.Circumvention.Tor.Table.Header.Type" = "Tipo";
-"TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "Conectar-se";
+"TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "Conectar";
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "handshake";
 "Feed.Tab.Label" = "Alimentar";
 "Feed.Title" = "Alimentar";
@@ -256,7 +259,7 @@
 "Modal.ReRun.Title" = "Repetir o teste";
 "Modal.ReRun.Paragraph" = "Este teste falhou. Você deseja fazer um outro teste?";
 "Modal.ReRun.Websites.Title" = "Você está prestes a testar novamente os sites %@.";
-"Modal.ReRun.Websites.Run" = "Executat";
+"Modal.ReRun.Websites.Run" = "Executar";
 "Modal.CustomURL.NotSaved" = "Suas URLs não serão salvas quando você sair desta tela. Tem certeza de que deseja sair desta tela?";
 "Modal.ManualUpload.Title" = "Ativar carregamento manual?";
 "Modal.ManualUpload.Paragraph" = "Essa configuração permite que você carregue manualmente as medidas não publicadas.";
@@ -285,7 +288,7 @@
 "Test.WhatsApp.Fullname" = "Teste do WhatsApp";
 "Test.Telegram.Fullname" = "Teste do Telegram";
 "Test.FacebookMessenger.Fullname" = "Teste do Facebook Messenger";
-"Test.Psiphon.Fullname" = "Teste Psiphon";
+"Test.Psiphon.Fullname" = "Teste do Psiphon";
 "Test.Tor.Fullname" = "Teste do Tor";
 "Settings.Title" = "Configurações";
 "Settings.Error.TestDurationTooLow" = "A quantidade de tempo que você definiu para a duração do teste é muito baixa.";
@@ -311,6 +314,7 @@
 "Settings.Advanced.SendCrashReports" = "Enviar relatórios de erros";
 "Settings.Advanced.DebugLogs" = "Registros de depuração";
 "Settings.Advanced.UseDomainFronting" = "Sempre usar \"domain fronting\"";
+"Settings.Advanced.CollectAnalytics" = "Coletar estatísticas de utilização do aplicativo";
 "Settings.Websites.MaxRuntimeEnabled" = "Limitar a duração do teste";
 "Settings.Websites.MaxRuntime" = "Duração do teste";
 "Settings.Websites.Categories.Label" = "Categorias de sites para testar";
@@ -320,6 +324,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Nenhuma URL inserida";
 "Settings.Websites.CustomURL.Run" = "Rodar";
 "Settings.Websites.CustomURL.Add" = "Adicionar website";
+"Settings.Websites.TestCount" = "Número de sites testados (0 significa todos)";
 "Settings.InstantMessaging.TestWhatsApp" = "Teste do WhatsApp";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Testar todas as URLs do WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Teste do Telegram";
@@ -336,6 +341,7 @@
 "Settings.Performance.DashServerPort" = "Porta do servidor DASH";
 "Settings.SendEmail.Label" = "Enviar e-mail para suporte";
 "Settings.SendEmail.Error" = "Por favor, envie um e-mail para bugs@openobservatory.org com informações sobre o aplicativo e a versão do iOS. Toque em \"Copiar para área de transferência,\" abaixo, para copiar nosso endereço de e-mail.";
+"Settings.Language.Current" = "Idioma atual da aplicação é %@";
 "Notification.FinishedRunning" = "Execução concluída";
 "OONIBrowser.TryMirror" = "Tentar espelho";
 "OONIBrowser.Loading" = "Carregando...";
