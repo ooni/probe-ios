@@ -76,6 +76,7 @@
 "TestResults.Overview.FilterTests.MiddleBoxes" = "Middleboxes";
 "TestResults.Overview.FilterTests.Performance" = "Απόδοση δικτύου";
 "TestResults.Overview.FilterTests.InstantMessaging" = "Εφαρμογές συνομιλιών";
+"TestResults.Overview.FilterTests.Circumvention" = "Παράκαμψη";
 "TestResults.Overview.NoTestsHaveBeenRun" = "Δεν έχουν εκτελεστεί ακόμα δοκιμές. Τρέξε μια!";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ μπλοκαρισμένη";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ μπλοκαρισμένες";
@@ -88,7 +89,9 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ μπλοκαρισμένες";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ προσβάσιμη";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ προσβάσιμες";
+"TestResults.Overview.Circumvention.Blocked.Singular" = "%@ μπλοκαρισμένες";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ μπλοκαρισμένες";
+"TestResults.Overview.Circumvention.Available.Singular" = "%@ διαθέσιμα";
 "TestResults.Overview.Circumvention.Available.Plural" = "%@ διαθέσιμα";
 "TestResults.Overview.IncompleteResult" = "Ατελές αποτέλεσμα";
 "TestResults.Overview.Error" = "Σφάλμα";
@@ -215,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "Η σύνδεση στο [Psiphon] (https://psiphon.ca/) φαίνεται να έχει μπλοκαριστεί.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "Η σύνδεση στο [Psiphon](https://psiphon.ca/) ήταν επιτυχής, και επομένως πρέπει να λειτουργεί.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Χρόνος εκκίνησης";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "δ";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "Πιθανή λογοκρισία";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "Λειτουργεί";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "Η σύνδεση στο [Tor](https://www.torproject.org/) φαίνεται να έχει μπλοκαριστεί.";
@@ -339,6 +342,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Αυτόματη επιλογή διακομιστή DASH ";
 "Settings.Performance.DashServerAddress" = "Διακομιστής DASH";
 "Settings.Performance.DashServerPort" = "Θύρα διακομιστή DASH";
+"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
+"Settings.Circumvention.TestTor" = "Test Tor";
 "Settings.SendEmail.Label" = "Αποστολή email στην υποστήριξη";
 "Settings.SendEmail.Error" = "Παρακαλούμε στείλτε ένα email στη διεύθυνση bugs@openobservatory.org με πληροφορίες σχετικά με την έκδοση της εφαρμογής και του iOS. Πατήστε \"Αντιγραφή στο πρόχειρο\" παρακάτω για να αντιγράψετε τη διεύθυνση email μας.";
 "Settings.Language.Current" = "Η τρέχουσα γλώσσα εφαρμογής είναι %@";

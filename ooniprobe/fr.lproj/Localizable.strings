@@ -76,6 +76,7 @@
 "TestResults.Overview.FilterTests.MiddleBoxes" = "Boîtiers intermédiaires";
 "TestResults.Overview.FilterTests.Performance" = "Performances";
 "TestResults.Overview.FilterTests.InstantMessaging" = "Messagerie instantanée";
+"TestResults.Overview.FilterTests.Circumvention" = "Contournement";
 "TestResults.Overview.NoTestsHaveBeenRun" = "Aucun test n’a encore été effectué. Essayez d’en lancer un !";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ bloqué";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ bloqués";
@@ -88,7 +89,9 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ bloquées";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ accessible";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ accessibles";
+"TestResults.Overview.Circumvention.Blocked.Singular" = "%@ bloqués";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ bloqués";
+"TestResults.Overview.Circumvention.Available.Singular" = "%@ disponibles";
 "TestResults.Overview.Circumvention.Available.Plural" = "%@ disponibles";
 "TestResults.Overview.IncompleteResult" = "Résultat incomplet";
 "TestResults.Overview.Error" = "Erreur";
@@ -215,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Psiphon](https://psiphon.ca/) semble être bloquée.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "Nous avons réussi à amorcer avec succès une connexion vers Psiphon. Cela signifie que [Psiphon](https://psiphon.ca/) devrait fonctionner.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Temps d’amorçage";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "Probablement bloqué";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "Fonctionne";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "[Tor](https://www.torproject.org/) semble être bloqué.";
@@ -339,6 +342,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Sélection automatique du serveur DASH";
 "Settings.Performance.DashServerAddress" = "Serveur DASH";
 "Settings.Performance.DashServerPort" = "Port du serveur DASH";
+"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
+"Settings.Circumvention.TestTor" = "Test Tor";
 "Settings.SendEmail.Label" = "Envoyer un courriel à l’assistance";
 "Settings.SendEmail.Error" = "Veuillez envoyer un courriel à bugs@openobservatory.org avec des renseignements sur la version de l’appli et d’iOS. Touchez « Copier dans le presse-papiers » ci-dessous pour copier votre adresse courriel.";
 "Settings.Language.Current" = "La langue actuelle de l’appli est %@";
