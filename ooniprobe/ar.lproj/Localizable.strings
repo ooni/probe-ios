@@ -76,6 +76,7 @@
 "TestResults.Overview.FilterTests.MiddleBoxes" = "Middleboxes";
 "TestResults.Overview.FilterTests.Performance" = "الأداء";
 "TestResults.Overview.FilterTests.InstantMessaging" = "المراسلة الفورية";
+"TestResults.Overview.FilterTests.Circumvention" = "تجاوز الحجب";
 "TestResults.Overview.NoTestsHaveBeenRun" = "لم تجر أي اختبار حتى الآن. قم بتجربة أحد الاختبارات!";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ محجوب";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ محجوبة";
@@ -88,7 +89,9 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ محجوبة ";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ متاح";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ متاحة";
+"TestResults.Overview.Circumvention.Blocked.Singular" = "%@ محجوب";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ محجوب";
+"TestResults.Overview.Circumvention.Available.Singular" = "%@ متوفر";
 "TestResults.Overview.Circumvention.Available.Plural" = "%@ متوفر";
 "TestResults.Overview.IncompleteResult" = "نتيجة غير مكتملة";
 "TestResults.Overview.Error" = "خطأ";
@@ -215,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "يبدو أن [Psiphon](https://psiphon.ca/) محجوب.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "تمكنّا بنجاح من التمهيد لاتصال Psiphon. هذا معناه أن [Psiphon](https://psiphon.ca/) ينبغى أن يعمل.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "مدة التمهيد";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "ثا";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "محجوب على الأرجح";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "يعمل";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "يبدو أن [تور](https://www.torproject.org/) محجوب.";
@@ -339,6 +342,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "إختيار خادم DASH اوتوماتيكيًا";
 "Settings.Performance.DashServerAddress" = "خادم DASH";
 "Settings.Performance.DashServerPort" = "منفذ خادم DASH";
+"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
+"Settings.Circumvention.TestTor" = "Test Tor";
 "Settings.SendEmail.Label" = "إرسال إيميل لفريق الدعم ";
 "Settings.SendEmail.Error" = "من فضلك أرسل رسالة إلكترونية إلى bugs@openobservatory.org تحتوى على معلومات عن اصدار البرنامج وإصدار iOS. اضغط على \"نسخ إلى الحافظة\" فى الأسفل لنسخ عنوان بريدنا الإلكتروني.";
 "Settings.Language.Current" = "Current app language is %@";
