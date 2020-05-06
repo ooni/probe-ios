@@ -2,6 +2,7 @@
 #import "TestUtility.h"
 #import "MessageUtility.h"
 #import "MBProgressHUD.h"
+#import "OONIApi.h"
 
 @interface LogViewController ()
 
@@ -72,7 +73,7 @@
             [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         });
         [self.measurement getExplorerUrl:^(NSString *measurement_url){
-            [TestUtility downloadJson:measurement_url
+            [OONIApi downloadJson:measurement_url
                             onSuccess:^(NSDictionary *measurementJson) {
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                 [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];

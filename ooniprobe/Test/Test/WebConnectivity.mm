@@ -1,5 +1,6 @@
 #import "WebConnectivity.h"
 #import "MessageUtility.h"
+#import "OONIApi.h"
 
 @implementation WebConnectivity : AbstractTest
 
@@ -15,7 +16,7 @@
     [super prepareRun];
     if (self.inputs == nil || [self.inputs count] == 0){
         //Download urls and then alloc class
-        [TestUtility downloadUrls:^(NSArray *urls) {
+        [OONIApi downloadUrls:^(NSArray *urls) {
             [self setUrls:urls];
             [self setDefaultMaxRuntime];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRuntime" object:nil];
