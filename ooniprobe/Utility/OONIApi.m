@@ -41,7 +41,6 @@
     [downloadTask resume];
 }
 
-//TODO unify downloadUrlsCallback and downloadJsonCallback
 + (void)downloadUrlsCallback:(NSData *)data
                     response:(NSURLResponse *)response
                     error:(NSError *)error
