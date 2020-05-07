@@ -1,6 +1,7 @@
 #import "TestUtility.h"
 #import "Url.h"
 #import "SettingsUtility.h"
+#import "Suite.h"
 #import <mkall/MKGeoIPLookup.h>
 #define delete_json_delay 86400
 #define delete_json_key @"deleteUploadedJsons"
@@ -22,6 +23,14 @@
 
 + (NSDictionary*)getTests{
     return @{@"websites": @[@"web_connectivity"], @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"], @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"]};
+}
+
++ (NSMutableArray*)getTestObjects{
+    NSMutableArray *tests = [[NSMutableArray alloc] init];
+    [tests addObject:[[WebsitesSuite alloc] init]];
+    [tests addObject:[[InstantMessagingSuite alloc] init]];
+    [tests addObject:[[PerformanceSuite alloc] init]];
+    return tests;
 }
 
 //Used by dropdown

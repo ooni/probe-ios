@@ -8,6 +8,7 @@
 
 + (NSString*)getFileNamed:(NSString*)name;
 + (NSDictionary*)getTests;
++ (NSMutableArray*)getTestObjects;
 + (NSArray*)getTestTypes;
 + (NSArray*)getTestsArray;
 + (NSString*)getCategoryForTest:(NSString*)testName;
