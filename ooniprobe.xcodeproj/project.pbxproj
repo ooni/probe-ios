@@ -47,6 +47,7 @@
 		ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.m */; };
+		ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5C24629A860087B36D /* OONIApi.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED53841C2159757D0078C5C6 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841B2159757D0078C5C6 /* EventResult.m */; };
 		ED53841F215975A70078C5C6 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841E215975A70078C5C6 /* Value.m */; };
@@ -230,6 +231,8 @@
 		ED459A2B1E5E124100EAE084 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED49509B1F951F1D00344E42 /* MessageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageUtility.h; path = Utility/MessageUtility.h; sourceTree = "<group>"; };
 		ED49509C1F951F1D00344E42 /* MessageUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MessageUtility.m; path = Utility/MessageUtility.m; sourceTree = "<group>"; };
+		ED4D1E5B24629A860087B36D /* OONIApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIApi.h; path = Utility/OONIApi.h; sourceTree = "<group>"; };
+		ED4D1E5C24629A860087B36D /* OONIApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIApi.m; path = Utility/OONIApi.m; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED53841A2159757D0078C5C6 /* EventResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResult.h; sourceTree = "<group>"; };
 		ED53841B2159757D0078C5C6 /* EventResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
@@ -635,6 +638,8 @@
 				ED5F8A291F77C4AA0093C8F5 /* VersionUtility.m */,
 				ED58CF7C1FEBBE2800E3C415 /* TestUtility.h */,
 				ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */,
+				ED4D1E5B24629A860087B36D /* OONIApi.h */,
+				ED4D1E5C24629A860087B36D /* OONIApi.m */,
 				EDDB0B531FFF2C5300EFD9C8 /* SettingsUtility.h */,
 				EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */,
 				ED997D08207BB7C400C97B1F /* LocalizationUtility.h */,
@@ -1218,6 +1223,7 @@
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
 				ED90A92D2198DE5100204B46 /* Options.m in Sources */,
 				ED53841C2159757D0078C5C6 /* EventResult.m in Sources */,
+				ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
