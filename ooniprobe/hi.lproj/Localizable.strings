@@ -76,6 +76,7 @@
 "TestResults.Overview.FilterTests.MiddleBoxes" = "मध्य बक्से";
 "TestResults.Overview.FilterTests.Performance" = "प्रदर्शन";
 "TestResults.Overview.FilterTests.InstantMessaging" = "तात्कालिक संदेशन";
+"TestResults.Overview.FilterTests.Circumvention" = "Circumvention";
 "TestResults.Overview.NoTestsHaveBeenRun" = "अभी तक कोई परीक्षण नहीं चला है। एक चलाने की कोशिश करो!";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ अवरुद्ध";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ अवरुद्ध";
@@ -88,7 +89,9 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ अवरुद्ध";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ सुलभ";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ सुलभ";
+"TestResults.Overview.Circumvention.Blocked.Singular" = "%@ अवरुद्ध";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ अवरुद्ध";
+"TestResults.Overview.Circumvention.Available.Singular" = "%@ available";
 "TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Overview.IncompleteResult" = "Incomplete Result";
 "TestResults.Overview.Error" = "त्रुटि";
@@ -215,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Psiphon](https://psiphon.ca/) appears to be blocked.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "We were able to successfully bootstrap a Psiphon connection. This means that [Psiphon](https://psiphon.ca/) should work.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "शायद अवरुद्ध";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "काम कर रहे";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "[Tor](https://www.torproject.org/) appears to be blocked.";
@@ -339,6 +342,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "स्वचालित DASH सर्वर चयन";
 "Settings.Performance.DashServerAddress" = "DASH सर्वर";
 "Settings.Performance.DashServerPort" = "DASH server port";
+"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
+"Settings.Circumvention.TestTor" = "Test Tor";
 "Settings.SendEmail.Label" = "Send email to support";
 "Settings.SendEmail.Error" = "कृपया iOS संस्करण और एप्लिकेशन की जानकारी के साथ bugs@openobservatory.org को एक ईमेल भेजें। हमारा  ईमेल पता कॉपी करने के लिए \"क्लिपबोर्ड पर कॉपी करें\" पर टैप करें।";
 "Settings.Language.Current" = "Current app language is %@";

@@ -46,10 +46,7 @@
 }
 
 -(void)loadTests{
-    items = [[NSMutableArray alloc] init];
-    [items addObject:[[WebsitesSuite alloc] init]];
-    [items addObject:[[InstantMessagingSuite alloc] init]];
-    [items addObject:[[PerformanceSuite alloc] init]];
+    items = [TestUtility getTestObjects];
     [self.tableView reloadData];
 }
 

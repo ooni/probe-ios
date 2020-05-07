@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 #import "Measurement.h"
 #import "TestUtility.h"
+#import "OONIApi.h"
 #define EXISTING_REPORT_ID @"20190113T202156Z_AS327931_CgoC3KbgM6zKajvIIt1AxxybJ1HbjwwWJjsJnlxy9rpcGY54VH"
 #define EXISTING_REPORT_ID_2 @"20190702T000027Z_AS5413_6FT78sjp5qnESDVWlFlm6bfxxwOEqR08ySAwigTF6C8PFCbMsM"
 #define NONEXISTING_REPORT_ID @"EMPTY"
@@ -63,7 +64,7 @@
 -(void)testDownloadUrls{
     //TODO test downloadUrlsCallback with custom NSData
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDownloadUrls"];
-    [TestUtility downloadUrls:^(NSArray *urls) {
+    [OONIApi downloadUrls:^(NSArray *urls) {
         XCTAssert(true);
         [expectation fulfill];
     } onError:^(NSError *error) {
@@ -105,7 +106,7 @@
 
 - (void)testJsonFromExplorer {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testJsonFromExplorer"];
-    [TestUtility downloadJson:JSON_URL
+    [OONIApi downloadJson:JSON_URL
                     onSuccess:^(NSDictionary *urls) {
                         XCTAssert(true);
                         [expectation fulfill];
@@ -120,7 +121,7 @@
 
 - (void)testMalformedURL {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testMalformedURL"];
-    [TestUtility downloadJson:NON_PARSABLE_URL
+    [OONIApi downloadJson:NON_PARSABLE_URL
                     onSuccess:^(NSDictionary *urls) {
                         XCTAssert(false);
                         [expectation fulfill];

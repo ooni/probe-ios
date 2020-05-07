@@ -76,6 +76,7 @@
 "TestResults.Overview.FilterTests.MiddleBoxes" = "Middleboxes";
 "TestResults.Overview.FilterTests.Performance" = "Performanca";
 "TestResults.Overview.FilterTests.InstantMessaging" = "Mesazhe";
+"TestResults.Overview.FilterTests.Circumvention" = "Shmangie";
 "TestResults.Overview.NoTestsHaveBeenRun" = "Asnjë test nuk është kryer deri tani. Bëj një test tani!";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ të bllokuara";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ të bllokuara";
@@ -88,7 +89,9 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ të bllokuara";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ të aksesueshme";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ të aksesueshme";
+"TestResults.Overview.Circumvention.Blocked.Singular" = "%@ të bllokuara";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ të bllokuara";
+"TestResults.Overview.Circumvention.Available.Singular" = "%@ available";
 "TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Overview.IncompleteResult" = "Incomplete Result";
 "TestResults.Overview.Error" = "Gabim";
@@ -215,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Psiphon](https://psiphon.ca/) appears to be blocked.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "We were able to successfully bootstrap a Psiphon connection. This means that [Psiphon](https://psiphon.ca/) should work.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "Mundësisht i bllokuar";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "Po punohet";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "[Tor](https://www.torproject.org/) appears to be blocked.";
@@ -339,6 +342,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Përzgjedhje automatike e serverit DASH";
 "Settings.Performance.DashServerAddress" = "Serveri DASH";
 "Settings.Performance.DashServerPort" = "Porta e serverit NDT";
+"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
+"Settings.Circumvention.TestTor" = "Test Tor";
 "Settings.SendEmail.Label" = "Dërgo email tek ndihmuesi";
 "Settings.SendEmail.Error" = "Ju lutem dërgoni email tek bugs@openobservatory.org me informacionin e app dhe versionin e iOS. Zgjidh \"Kopjo në tabelën-mbledhëse\" më poshtë për të kopjuar adresën tonë të email.";
 "Settings.Language.Current" = "Current app language is %@";
