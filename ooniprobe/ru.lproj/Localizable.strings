@@ -76,6 +76,7 @@
 "TestResults.Overview.FilterTests.MiddleBoxes" = "Промежуточные устройства";
 "TestResults.Overview.FilterTests.Performance" = "Производительность";
 "TestResults.Overview.FilterTests.InstantMessaging" = "Мессенджеры";
+"TestResults.Overview.FilterTests.Circumvention" = "Обход блокировки Tor";
 "TestResults.Overview.NoTestsHaveBeenRun" = "Тесты еще не проводились. Попробуйте!";
 "TestResults.Overview.Websites.Blocked.Singular" = "Заблокировано: %@";
 "TestResults.Overview.Websites.Blocked.Plural" = "Заблокировано: %@";
@@ -88,7 +89,9 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "Заблокировано: %@";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "Доступно: %@";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "Доступно: %@";
+"TestResults.Overview.Circumvention.Blocked.Singular" = "Заблокировано: %@";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "Заблокировано: %@";
+"TestResults.Overview.Circumvention.Available.Singular" = "Доступно: %@";
 "TestResults.Overview.Circumvention.Available.Plural" = "Доступно: %@";
 "TestResults.Overview.IncompleteResult" = "Неполный результат";
 "TestResults.Overview.Error" = "Ошибка";
@@ -215,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "Похоже, [Psiphon](https://psiphon.ca/) заблокирован.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "Нам удалось успешно установить соединение с Psiphon. Это означает, что [Psiphon](https://psiphon.ca/) должен работать.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Время бутстрапа";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "Похоже, заблокировано";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "Работает";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "Похоже, [Tor](https://www.torproject.org/) заблокирован.";
@@ -339,6 +342,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Автоматический выбор сервера DASH";
 "Settings.Performance.DashServerAddress" = "Сервер DASH";
 "Settings.Performance.DashServerPort" = "Порт сервера DASH";
+"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
+"Settings.Circumvention.TestTor" = "Test Tor";
 "Settings.SendEmail.Label" = "Отправить письмо поддержке";
 "Settings.SendEmail.Error" = "Пожалуйста, отправьте письмо на bugs@openobservatory.org с информацией о версиях приложения и iOS. Нажмите «Скопировать в буфер обмена» снизу, чтобы скопировать наш адрес электронной почты.";
 "Settings.Language.Current" = "Current app language is %@";

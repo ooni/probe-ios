@@ -76,6 +76,7 @@
 "TestResults.Overview.FilterTests.MiddleBoxes" = "Middleboxes";
 "TestResults.Overview.FilterTests.Performance" = "Prestazioni";
 "TestResults.Overview.FilterTests.InstantMessaging" = "Messaggistica istantanea";
+"TestResults.Overview.FilterTests.Circumvention" = "Elusione";
 "TestResults.Overview.NoTestsHaveBeenRun" = "Nessun test è stato eseguito. Prova ad eseguirne uno!";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ bloccato";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ bloccati";
@@ -88,7 +89,9 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ bloccati";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ accessibile";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ accessibili";
+"TestResults.Overview.Circumvention.Blocked.Singular" = "%@ bloccati";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ bloccati";
+"TestResults.Overview.Circumvention.Available.Singular" = "%@ disponibile";
 "TestResults.Overview.Circumvention.Available.Plural" = "%@ disponibile";
 "TestResults.Overview.IncompleteResult" = "Risultato incompleto";
 "TestResults.Overview.Error" = "Errore";
@@ -215,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Psiphon](https://psiphon.ca/) sembra sia bloccato.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "Siamo stati in grado di avviare correttamente una connessione Psiphon. Questo vuol dire che [Psiphon](https://psiphon.ca/) dovrebbe funzionare.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Tempo di avvio";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "Probabilmente bloccato";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "Attivo";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "[Tor](https://www.torproject.org/) sembra essere bloccato.";
@@ -339,6 +342,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Seleziona automaticamente il server DASH";
 "Settings.Performance.DashServerAddress" = "Server DASH";
 "Settings.Performance.DashServerPort" = "Porta server DASH";
+"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
+"Settings.Circumvention.TestTor" = "Test Tor";
 "Settings.SendEmail.Label" = "Invia email a supporto";
 "Settings.SendEmail.Error" = "Per favore manda un email a bugs@openobservatory.org con i la versione dell'app e iOS. Tappa su \"Copia nella clipboard\" per copiare il nostro indirizzo email.";
 "Settings.Language.Current" = "Current app language is %@";

@@ -76,6 +76,7 @@
 "TestResults.Overview.FilterTests.MiddleBoxes" = "中間盒";
 "TestResults.Overview.FilterTests.Performance" = "效能";
 "TestResults.Overview.FilterTests.InstantMessaging" = "即時通訊";
+"TestResults.Overview.FilterTests.Circumvention" = "規避";
 "TestResults.Overview.NoTestsHaveBeenRun" = "尚未進行任何測試，請試試執行一次！";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ 已被封鎖";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ 已被封鎖";
@@ -88,7 +89,9 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ 已被封鎖";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ 可訪問";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ 可訪問";
+"TestResults.Overview.Circumvention.Blocked.Singular" = "%@ 已被封鎖";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ 已被封鎖";
+"TestResults.Overview.Circumvention.Available.Singular" = "%@ available";
 "TestResults.Overview.Circumvention.Available.Plural" = "%@ available";
 "TestResults.Overview.IncompleteResult" = "Incomplete Result";
 "TestResults.Overview.Error" = "錯誤";
@@ -215,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Psiphon](https://psiphon.ca/) appears to be blocked.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "We were able to successfully bootstrap a Psiphon connection. This means that [Psiphon](https://psiphon.ca/) should work.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Bootstrap Time";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "s";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "很可能被屏蔽";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "工作中";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "[Tor](https://www.torproject.org/) appears to be blocked.";
@@ -339,6 +342,8 @@
 "Settings.Performance.DashAutomaticServerSelection" = "自動的 DASH 伺服器選取";
 "Settings.Performance.DashServerAddress" = "DASH 伺服器";
 "Settings.Performance.DashServerPort" = "DASH 伺服器端口";
+"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
+"Settings.Circumvention.TestTor" = "Test Tor";
 "Settings.SendEmail.Label" = "寄求助郵件";
 "Settings.SendEmail.Error" = "請將應用程式與  iOS 相關資訊寄送到此信箱 bugs@openobservatory.org ，下方的\"複製到剪貼簿\"分頁可直接複此電子郵址。 ";
 "Settings.Language.Current" = "Current app language is %@";
