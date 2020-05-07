@@ -4,6 +4,6 @@
 
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
 + (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
-onError:(void (^)(NSError*))errorcb;
+             onError:(void (^)(NSError*))errorcb;
 
 @end
