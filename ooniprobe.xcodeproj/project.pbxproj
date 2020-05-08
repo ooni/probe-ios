@@ -23,6 +23,7 @@
 		ED14B231246540A4009AA906 /* CircumventionSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED14B230246540A4009AA906 /* CircumventionSuite.mm */; };
 		ED14B2342465411E009AA906 /* Psiphon.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2332465411E009AA906 /* Psiphon.mm */; };
 		ED14B2372465412C009AA906 /* Tor.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2362465412C009AA906 /* Tor.mm */; };
+		ED14B23924658329009AA906 /* circumvention.json in Resources */ = {isa = PBXBuildFile; fileRef = ED14B23824658329009AA906 /* circumvention.json */; };
 		ED163CE1209C7B880052FB46 /* Airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED163CE0209C7B880052FB46 /* Airports.plist */; };
 		ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC7FE20158D630041089A /* ConfigureButton.m */; };
 		ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.mm */; };
@@ -183,6 +184,7 @@
 		ED14B2332465411E009AA906 /* Psiphon.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Psiphon.mm; sourceTree = "<group>"; };
 		ED14B2352465412C009AA906 /* Tor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tor.h; sourceTree = "<group>"; };
 		ED14B2362465412C009AA906 /* Tor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Tor.mm; sourceTree = "<group>"; };
+		ED14B23824658329009AA906 /* circumvention.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = circumvention.json; sourceTree = "<group>"; };
 		ED163CE0209C7B880052FB46 /* Airports.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Airports.plist; sourceTree = "<group>"; };
 		ED1CC7FD20158D630041089A /* ConfigureButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigureButton.h; sourceTree = "<group>"; };
 		ED1CC7FE20158D630041089A /* ConfigureButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigureButton.m; sourceTree = "<group>"; };
@@ -816,6 +818,7 @@
 				ED6911D920BDC04D0022DCFE /* instant_messaging.json */,
 				EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */,
 				ED6911DA20BDC04D0022DCFE /* performance.json */,
+				ED14B23824658329009AA906 /* circumvention.json */,
 			);
 			path = anim;
 			sourceTree = "<group>";
@@ -1089,6 +1092,7 @@
 				EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */,
 				ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
+				ED14B23924658329009AA906 /* circumvention.json in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
 				EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */,
 				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
