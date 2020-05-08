@@ -21,8 +21,7 @@
 }
 
 -(int)getRuntime{
-    //TODO
-    return 0;
+    return 20;
 }
 
 @end

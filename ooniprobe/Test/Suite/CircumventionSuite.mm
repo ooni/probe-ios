@@ -5,7 +5,7 @@
 -(id) init {
     self = [super init];
     if (self) {
-        self.dataUsage = @"~ BOH MB";
+        self.dataUsage = @"< 1 MB";
         self.name = @"circumvention";
     }
     return self;
