@@ -3,3 +3,4 @@
 #import "InstantMessagingSuite.h"
 #import "MiddleBoxesSuite.h"
 #import "PerformanceSuite.h"
+#import "CircumventionSuite.h"

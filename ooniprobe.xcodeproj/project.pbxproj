@@ -20,6 +20,9 @@
 		ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */; };
 		ED12BA2D224E0AB6004949E4 /* Tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED12BA2C224E0AB6004949E4 /* Tests.plist */; };
 		ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */; };
+		ED14B231246540A4009AA906 /* CircumventionSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14B230246540A4009AA906 /* CircumventionSuite.m */; };
+		ED14B2342465411E009AA906 /* Psiphon.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2332465411E009AA906 /* Psiphon.m */; };
+		ED14B2372465412C009AA906 /* Tor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2362465412C009AA906 /* Tor.m */; };
 		ED163CE1209C7B880052FB46 /* Airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED163CE0209C7B880052FB46 /* Airports.plist */; };
 		ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC7FE20158D630041089A /* ConfigureButton.m */; };
 		ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.mm */; };
@@ -47,8 +50,8 @@
 		ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.m */; };
-		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5C24629A860087B36D /* OONIApi.m */; };
+		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED53841C2159757D0078C5C6 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841B2159757D0078C5C6 /* EventResult.m */; };
 		ED53841F215975A70078C5C6 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841E215975A70078C5C6 /* Value.m */; };
@@ -174,6 +177,12 @@
 		ED12BA2C224E0AB6004949E4 /* Tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
 		ED12BA2E224E5BDD004949E4 /* TestSummaryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewCell.h; sourceTree = "<group>"; };
 		ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewCell.m; sourceTree = "<group>"; };
+		ED14B22F246540A4009AA906 /* CircumventionSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircumventionSuite.h; sourceTree = "<group>"; };
+		ED14B230246540A4009AA906 /* CircumventionSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircumventionSuite.m; sourceTree = "<group>"; };
+		ED14B2322465411E009AA906 /* Psiphon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Psiphon.h; sourceTree = "<group>"; };
+		ED14B2332465411E009AA906 /* Psiphon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Psiphon.m; sourceTree = "<group>"; };
+		ED14B2352465412C009AA906 /* Tor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tor.h; sourceTree = "<group>"; };
+		ED14B2362465412C009AA906 /* Tor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tor.m; sourceTree = "<group>"; };
 		ED163CE0209C7B880052FB46 /* Airports.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Airports.plist; sourceTree = "<group>"; };
 		ED1CC7FD20158D630041089A /* ConfigureButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigureButton.h; sourceTree = "<group>"; };
 		ED1CC7FE20158D630041089A /* ConfigureButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigureButton.m; sourceTree = "<group>"; };
@@ -232,10 +241,10 @@
 		ED459A2B1E5E124100EAE084 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED49509B1F951F1D00344E42 /* MessageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageUtility.h; path = Utility/MessageUtility.h; sourceTree = "<group>"; };
 		ED49509C1F951F1D00344E42 /* MessageUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MessageUtility.m; path = Utility/MessageUtility.m; sourceTree = "<group>"; };
-		ED4D1E5E246315EF0087B36D /* BasicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
-		ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		ED4D1E5B24629A860087B36D /* OONIApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIApi.h; path = Utility/OONIApi.h; sourceTree = "<group>"; };
 		ED4D1E5C24629A860087B36D /* OONIApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIApi.m; path = Utility/OONIApi.m; sourceTree = "<group>"; };
+		ED4D1E5E246315EF0087B36D /* BasicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
+		ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED53841A2159757D0078C5C6 /* EventResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResult.h; sourceTree = "<group>"; };
 		ED53841B2159757D0078C5C6 /* EventResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
@@ -587,6 +596,10 @@
 				ED2E066321D4867B00E9B9EE /* NdtTest.mm */,
 				ED2E066821D4867B00E9B9EE /* Dash.h */,
 				ED2E066421D4867B00E9B9EE /* Dash.mm */,
+				ED14B2322465411E009AA906 /* Psiphon.h */,
+				ED14B2332465411E009AA906 /* Psiphon.m */,
+				ED14B2352465412C009AA906 /* Tor.h */,
+				ED14B2362465412C009AA906 /* Tor.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -605,6 +618,8 @@
 				ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */,
 				ED2E067C21D487EA00E9B9EE /* PerformanceSuite.h */,
 				ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */,
+				ED14B22F246540A4009AA906 /* CircumventionSuite.h */,
+				ED14B230246540A4009AA906 /* CircumventionSuite.m */,
 			);
 			path = Suite;
 			sourceTree = "<group>";
@@ -1202,6 +1217,7 @@
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
+				ED14B231246540A4009AA906 /* CircumventionSuite.m in Sources */,
 				EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */,
 				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
@@ -1216,6 +1232,7 @@
 				ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */,
 				EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */,
 				EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */,
+				ED14B2372465412C009AA906 /* Tor.m in Sources */,
 				ED2E066E21D4867B00E9B9EE /* AbstractTest.mm in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				EDA9F21B22414E0E003D40E8 /* UIDevice-DeviceInfo.m in Sources */,
@@ -1251,6 +1268,7 @@
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
+				ED14B2342465411E009AA906 /* Psiphon.m in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
 				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
