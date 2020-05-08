@@ -47,6 +47,7 @@
 		ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.m */; };
+		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5C24629A860087B36D /* OONIApi.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED53841C2159757D0078C5C6 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841B2159757D0078C5C6 /* EventResult.m */; };
@@ -231,6 +232,8 @@
 		ED459A2B1E5E124100EAE084 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED49509B1F951F1D00344E42 /* MessageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageUtility.h; path = Utility/MessageUtility.h; sourceTree = "<group>"; };
 		ED49509C1F951F1D00344E42 /* MessageUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MessageUtility.m; path = Utility/MessageUtility.m; sourceTree = "<group>"; };
+		ED4D1E5E246315EF0087B36D /* BasicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
+		ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		ED4D1E5B24629A860087B36D /* OONIApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIApi.h; path = Utility/OONIApi.h; sourceTree = "<group>"; };
 		ED4D1E5C24629A860087B36D /* OONIApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIApi.m; path = Utility/OONIApi.m; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -757,6 +760,8 @@
 				EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */,
 				ED12BA2E224E5BDD004949E4 /* TestSummaryTableViewCell.h */,
 				ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */,
+				ED4D1E5E246315EF0087B36D /* BasicTableViewCell.h */,
+				ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -1244,6 +1249,7 @@
 				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
+				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
 				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,

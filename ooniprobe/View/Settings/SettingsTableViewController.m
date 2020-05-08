@@ -105,7 +105,7 @@
         else
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         if ([[TestUtility getTestTypes] containsObject:current]){
-            cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"settings_%@", current]];
+            cell.imageView.image = [UIImage imageNamed:current];
             [cell.imageView setTintColor:[UIColor colorWithRGBHexString:color_base alpha:1.0f]];
         }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
