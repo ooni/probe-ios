@@ -127,6 +127,10 @@
         [settings addObject:@"test_telegram"];
         [settings addObject:@"test_facebook_messenger"];
     }
+    else if ([testName isEqualToString:@"circumvention"]) {
+        [settings addObject:@"test_psiphon"];
+        [settings addObject:@"test_tor"];
+    }
     else if ([testName isEqualToString:@"performance"]) {
         [settings addObject:@"run_ndt"];
         [settings addObject:@"run_dash"];

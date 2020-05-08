@@ -20,6 +20,8 @@
         self = [[MiddleBoxesSuite alloc] init];
     else if ([testSuite isEqualToString:@"instant_messaging"])
         self = [[InstantMessagingSuite alloc] init];
+    else if ([testSuite isEqualToString:@"circumvention"])
+        self = [[CircumventionSuite alloc] init];
     return self;
 }
 
