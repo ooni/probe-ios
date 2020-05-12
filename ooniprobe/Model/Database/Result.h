@@ -37,6 +37,7 @@
 -(void)save;
 -(Measurement*)getMeasurement:(NSString*)name;
 -(SRKResultSet*)measurements;
+-(SRKResultSet*)measurementsSorted;
 -(SRKResultSet*)allmeasurements;
 -(NSString*)getLogFile:(NSString*)test_name;
 -(void)deleteObject;

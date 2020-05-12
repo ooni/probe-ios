@@ -10,6 +10,15 @@
 
 - (SRKResultSet*)measurements {
     //Not showing the re_run measurements
+    return [[[[Measurement query]
+               where:@"result_id = ? AND is_rerun = 0 AND is_done = 1"
+               parameters:@[self]]
+               order:@"Id"]
+               fetch];
+}
+
+- (SRKResultSet*)measurementsSorted {
+    //Not showing the re_run measurements
     return [[[[[[Measurement query]
                where:@"result_id = ? AND is_rerun = 0 AND is_done = 1"
                parameters:@[self]]
@@ -18,6 +27,7 @@
                order:@"Id"]
                fetch];
 }
+
 
 - (SRKResultSet*)allmeasurements {
     return [[[[Measurement query] where:@"result_id = ?" parameters:@[self]] orderByDescending:@"Id"] fetch];
