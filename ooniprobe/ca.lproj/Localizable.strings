@@ -43,8 +43,8 @@
 "Dashboard.Running.CalculatingETA" = "S'està calculant el temps estimat";
 "Dashboard.Running.ShowLog" = "Mostra el registre";
 "Dashboard.Running.CloseLog" = "Tanca el registre";
-"Dashboard.Running.Stopping.Title" = "Stopping test...";
-"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
+"Dashboard.Running.Stopping.Title" = "S'està aturant la prova...";
+"Dashboard.Running.Stopping.Notice" = "S'està finalitzant les proves actualment pendents, espereu...";
 "Dashboard.Card.Subtitle" = "Toqueu la targeta per obtenir més informació";
 "Dashboard.Card.Seconds" = "~%@ s";
 "Dashboard.Websites.Card.Description" = "Prova el blocatge de llocs web";
@@ -204,10 +204,10 @@
 "TestResults.Details.Performance.NDT.Download" = "Baixada";
 "TestResults.Details.Performance.NDT.Ping" = "Ping";
 "TestResults.Details.Performance.NDT.Server" = "Servidor";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmission Rate";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Taxa de retransmissió";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "No funciona";
 "TestResults.Details.Performance.NDT.AveragePing" = "Ping mitjà";
-"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
+"TestResults.Details.Performance.NDT.MaxPing" = "Estimació màxima de ping";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Temps d'espera";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Pot transmetre fins a %@ sense emmagatzematge en la memòria intermèdia.";
@@ -218,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "[Psiphon](https://psiphon.ca/) sembla estar blocat.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "Hem pogut iniciar amb èxit una connexió amb Psiphon. Això vol dir que [Psiphon](https://psiphon.ca/) hauria de funcionar.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Temps d'arrencada";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ segons";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "Probablement blocat";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "S'està treballant";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "[Tor](https://www.torproject.org/) sembla estar blocat.";
@@ -317,7 +317,7 @@
 "Settings.Advanced.SendCrashReports" = "Envia informes d'errors";
 "Settings.Advanced.DebugLogs" = "Registres de depuració";
 "Settings.Advanced.UseDomainFronting" = "Utilitza sempre el camuflatge del domini";
-"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
+"Settings.Advanced.CollectAnalytics" = "Recopila les estadístiques d'ús de l'aplicació";
 "Settings.Websites.MaxRuntimeEnabled" = "Límit de durada de la prova";
 "Settings.Websites.MaxRuntime" = "Durada de la prova";
 "Settings.Websites.Categories.Label" = "Categories de lloc web per provar";
@@ -327,7 +327,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "No s'ha introduït cap URL";
 "Settings.Websites.CustomURL.Run" = "Inicia";
 "Settings.Websites.CustomURL.Add" = "Afegeix lloc web";
-"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
+"Settings.Websites.TestCount" = "Número de llocs web provats (0 significa tots)";
 "Settings.InstantMessaging.TestWhatsApp" = "Prova el WhatsApp";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Prova tots els punts finals de WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Prova el Telegram";
@@ -342,11 +342,11 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Selecció automàtica del servidor DASH";
 "Settings.Performance.DashServerAddress" = "Servidor DASH";
 "Settings.Performance.DashServerPort" = "Port del servidor DASH";
-"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
-"Settings.Circumvention.TestTor" = "Test Tor";
+"Settings.Circumvention.TestPsiphon" = "Prova el Psiphon";
+"Settings.Circumvention.TestTor" = "Prova el Tor";
 "Settings.SendEmail.Label" = "Envia un correu per donar suport";
 "Settings.SendEmail.Error" = "Envieu un correu a bugs@openobservatory.org amb informació sobre l'aplicació i la versió d'iOS. Toqueu «Copia al porta-retalls» a continuació per copiar la nostra adreça de correu.";
-"Settings.Language.Current" = "Current app language is %@";
+"Settings.Language.Current" = "L'idioma actual de l'aplicació és %@";
 "Notification.FinishedRunning" = "Ha finalitzat l'execució";
 "OONIBrowser.TryMirror" = "Prova un mirall";
 "OONIBrowser.Loading" = "S'està carregant...";
