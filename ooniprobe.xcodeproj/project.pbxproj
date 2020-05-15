@@ -47,8 +47,8 @@
 		ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.m */; };
-		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5C24629A860087B36D /* OONIApi.m */; };
+		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED53841C2159757D0078C5C6 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841B2159757D0078C5C6 /* EventResult.m */; };
 		ED53841F215975A70078C5C6 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841E215975A70078C5C6 /* Value.m */; };
@@ -232,10 +232,10 @@
 		ED459A2B1E5E124100EAE084 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED49509B1F951F1D00344E42 /* MessageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageUtility.h; path = Utility/MessageUtility.h; sourceTree = "<group>"; };
 		ED49509C1F951F1D00344E42 /* MessageUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MessageUtility.m; path = Utility/MessageUtility.m; sourceTree = "<group>"; };
-		ED4D1E5E246315EF0087B36D /* BasicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
-		ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		ED4D1E5B24629A860087B36D /* OONIApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIApi.h; path = Utility/OONIApi.h; sourceTree = "<group>"; };
 		ED4D1E5C24629A860087B36D /* OONIApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIApi.m; path = Utility/OONIApi.m; sourceTree = "<group>"; };
+		ED4D1E5E246315EF0087B36D /* BasicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
+		ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED53841A2159757D0078C5C6 /* EventResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResult.h; sourceTree = "<group>"; };
 		ED53841B2159757D0078C5C6 /* EventResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
@@ -1530,7 +1530,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 84;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1573,7 +1573,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 84;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
