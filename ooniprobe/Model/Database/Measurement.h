@@ -40,5 +40,4 @@
 -(void)setReRun;
 -(void)deleteObject;
 -(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb;
--(BOOL)isMiddleBoxes;
 @end

@@ -84,10 +84,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Measurement *current = [self.measurements objectAtIndex:indexPath.row];
     NSString *cell_id;
-    if ([current isMiddleBoxes])
-        cell_id = @"Cell_mb";
-    else if ([result.test_group_name isEqualToString:@"performance"])
+    if ([result.test_group_name isEqualToString:@"performance"])
         cell_id = @"Cell_per";
+    //__deprecated
+    else if ([result.test_group_name isEqualToString:@"middle_boxes"])
+         cell_id = @"Cell_mb";
     else
         cell_id = @"Cell";
     TestSummaryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cell_id forIndexPath:indexPath];

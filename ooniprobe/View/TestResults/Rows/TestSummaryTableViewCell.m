@@ -45,7 +45,7 @@
         [self rowWebsites:measurement];
     }
     else if ([result.test_group_name isEqualToString:@"performance"]){
-        [self rowPerformanceExtended:measurement];
+        [self rowPerformance:measurement];
     }
 }
 
@@ -82,17 +82,6 @@
     else {
         [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
         [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-    }
-}
-
--(void)rowPerformanceExtended:(Measurement*)measurement{
-    if ([measurement.test_name isEqualToString:@"ndt"] ||
-        [measurement.test_name isEqualToString:@"dash"]){
-        [self rowPerformance:measurement];
-    }
-    else if ([measurement.test_name isEqualToString:@"http_invalid_request_line"] ||
-        [measurement.test_name isEqualToString:@"http_header_field_manipulation"]){
-        [self rowMiddleBoxes:measurement];
     }
 }
 
@@ -136,6 +125,22 @@
         [self.detail1Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         [self.detail1Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
         [self setText:[testKeysDash getVideoQuality:YES] forLabel:self.detail1Label inStackView:self.stackView1];
+    }
+    else if ([measurement.test_name isEqualToString:@"http_invalid_request_line"] ||
+        [measurement.test_name isEqualToString:@"http_header_field_manipulation"]){
+        [self.stackView2 setHidden:YES];
+        [self.detail1Image setImage:[UIImage imageNamed:@"middle_boxes"]];
+        [self.detail1Image setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.detail1Label setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        if (measurement.is_failed)
+            [self setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Failed", nil)
+                 forLabel:self.detail1Label inStackView:self.stackView1];
+        else if (!measurement.is_anomaly)
+            [self setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.NotFound", nil)
+                 forLabel:self.detail1Label inStackView:self.stackView1];
+        else
+            [self setText:NSLocalizedString(@"TestResults.Overview.MiddleBoxes.Found", nil)
+                 forLabel:self.detail1Label inStackView:self.stackView1];
     }
 }
 
