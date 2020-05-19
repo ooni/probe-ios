@@ -961,6 +961,10 @@
                                                                 <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="AhF-gE-6be">
                                                                     <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="19" id="BUp-J2-5FG"/>
+                                                                        <constraint firstAttribute="height" constant="19" id="U2P-nb-sWX"/>
+                                                                    </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAM-7P-cpF">
                                                                     <rect key="frame" x="21" y="0.0" width="49.5" height="19"/>
@@ -977,6 +981,10 @@
                                                                 <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload" translatesAutoresizingMaskIntoConstraints="NO" id="jqs-Cc-zfm">
                                                                     <rect key="frame" x="0.0" y="0.0" width="19" height="19.5"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="19" id="Vxg-fp-zK2"/>
+                                                                        <constraint firstAttribute="height" constant="19.5" id="YDP-Af-OVC"/>
+                                                                    </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdt-au-Fnf">
                                                                     <rect key="frame" x="21" y="0.0" width="35.5" height="19.5"/>
