@@ -29,15 +29,13 @@
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
-    int i = 0;
     for (AbstractTest *current in [self getTestList]){
         [current setDelegate:self];
         [current setResult:self.result];
-        //Run test one a second after another to ensure they run in order
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, i * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        //Run test one after another to ensure they run in order
+        dispatch_async(dispatch_get_main_queue(), ^{
             [current runTest];
         });
-        i++;
     }
 }
 
