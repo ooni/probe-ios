@@ -44,7 +44,7 @@
 "Dashboard.Running.ShowLog" = "Показать журнал";
 "Dashboard.Running.CloseLog" = "Закрыть журнал";
 "Dashboard.Running.Stopping.Title" = "Останавливаем тест...";
-"Dashboard.Running.Stopping.Notice" = "Finishing the currently pending tests, please wait...";
+"Dashboard.Running.Stopping.Notice" = "Завершаем текущие незавершенные тесты, пожалуйста, подождите...";
 "Dashboard.Card.Subtitle" = "Нажмите для информации";
 "Dashboard.Card.Seconds" = "~%@с";
 "Dashboard.Websites.Card.Description" = "Определение блокировок сайтов";
@@ -52,7 +52,7 @@
 "Dashboard.Websites.Overview.Paragraph.Desktop" = "Проверьте, блокируются веб-сайты или нет, с помощью теста [Web Connectivity test](https://ooni.io/nettest/web-connectivity/) от OONI.\n\nТест использует списки сайтов от Citizen Lab: [глобальный](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) и [по странам](https://github.com/citizenlab/test-lists/tree/master/lists).\n\nТест покажет, блокируются ли эти сайты с использованием DNS-спуфинга, блокировки TCP/IP или прозрачного HTTP-прокси.\n\nПолученные вами результаты будут опубликованы на ресурсах [OONI Explorer](https://explorer.ooni.org/) и [OONI API](https://api.ooni.io/).";
 "Dashboard.Performance.Card.Description" = "Измерение скорости/производительности вашего соединения";
 "Dashboard.Performance.Overview.Paragraph" = "Скорость/производительность вашей сети можно измерить помощью теста [NDT](https://ooni.io/nettest/ndt/).\n\nСкорость видеопотока - с помощью теста [DASH](https://ooni.io/nettest/dash/).\n\nЭти тесты требуют ресурсов и зависят от скорости в сети.\n\nРезультаты будут опубликованы в [OONI Explorer](https://explorer.ooni.io/world/) и [OONI API](https://api.ooni.io/).\n\nВнимание: в этих тестах используются серверы третьих сторон. Мы не можем гарантировать конфиденциальность вашего IP-адреса.";
-"Dashboard.Performance.Overview.Paragraph.Updated" = "By running the tests in this card, you will:\n\n- Measure the speed and performance of your network ([NDT](https://ooni.org/nettest/ndt/) test)\n- Measure video streaming performance ([DASH](https://ooni.org/nettest/dash/) test)\n- Check for the presence of [middlebox technologies](https://ooni.org/support/glossary/#middlebox) on your network ([HTTP Invalid Request Line](https://ooni.org/nettest/http-invalid-request-line/) and [HTTP Header Field Manipulation](https://ooni.org/nettest/http-header-field-manipulation/) tests)\n\nThese tests consume data depending on your network speed.\n\nYour test results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).\n\n**Disclaimer:** The [NDT](https://ooni.org/nettest/ndt/) and [DASH](https://ooni.org/nettest/dash/) tests are conducted against third-party servers provided by [Measurement Lab (M-Lab)](https://www.measurementlab.net/). If you run these tests, M-Lab will collect and publish your IP address (for research purposes), irrespective of your OONI Probe settings. Learn more about M-Lab’s data governance through its [privacy statement](https://www.measurementlab.net/privacy/).";
+"Dashboard.Performance.Overview.Paragraph.Updated" = "Запустив тесты в этой карточке, вы сможете:\n\n- Измерить скорость и производительность вашей сети ([NDT] (https://ooni.org/nettest/ndt/) тест)\n- Измерить производительность потоковой передачи видео ([DASH](https://ooni.org/nettest/dash/) тест)\n- Проверить наличие [middlebox-технологий] (https://ooni.org/support/glossary/#middlebox) в вашей сети ([HTTP Invalid Request Line](https://ooni.org/nettest/http-invalid-request-line/) и [HTTP Header Field Manipulation](https://ooni.org/nettest/http-header-field-manipulation/) тесты)\n\nЭти тесты потребляют данные в зависимости от скорости вашей сети.\n\nРезультаты ваших тестов будут опубликованы на сайте [OONI Explorer] (https://explorer.ooni.org/) и [OONI API](https://api.ooni.io/).\n\n**Дисклеймер:* * [NDT](https://ooni.org/nettest/ndt/) и [DASH](https://ooni.org/nettest/dash/) тесты проводятся на сторонних серверах, предоставленных [Measurement Lab (M-Lab)](https://www.measurementlab.net). Если вы запускаете эти тесты, M-Lab соберет и опубликует ваш IP-адрес (в исследовательских целях), независимо от ваших настроек OONI Probe. Узнайте больше об управлении данными компании M-Lab в их [заявление о конфиденциальности](https://www.measurementlab.net/privacy/).";
 "Dashboard.Middleboxes.Card.Description" = "Определять устройства middlebox в вашей сети";
 "Dashboard.Middleboxes.Overview.Paragraph" = "Провайдеры интернета часто используют сетевые устройства middlebox в решении различных сетевых задач (например, для кеширования). Бывает, что такие устройства применяются ради интернет-цензуры и/или слежки за пользователями.\n\nА у вас в сети есть устройства middlebox? OONI поможет ответить на этот вопрос с помощью теста [HTTP Invalid Request Line](https://ooni.io/nettest/http-invalid-request-line/) и теста [HTTP Header Field Manipulation](https://ooni.io/nettest/http-header-field-manipulation/).\n\nВаши результаты будут доступны на [OONI Explorer](https://explorer.ooni.io/world/) и [OONI API](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "Определение блокировок мессенджеров";
@@ -204,10 +204,10 @@
 "TestResults.Details.Performance.NDT.Download" = "Скачать";
 "TestResults.Details.Performance.NDT.Ping" = "Пинг";
 "TestResults.Details.Performance.NDT.Server" = "Сервер";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Retransmission Rate";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Скорость повторной передачи";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "Не работает";
 "TestResults.Details.Performance.NDT.AveragePing" = "Средний пинг";
-"TestResults.Details.Performance.NDT.MaxPing" = "Max Ping Estimate";
+"TestResults.Details.Performance.NDT.MaxPing" = "Оценка максимального пинга";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Таймауты";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Вы можете повысить видеопоток до %@ без буферизации.";
@@ -218,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "Похоже, [Psiphon](https://psiphon.ca/) заблокирован.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "Нам удалось успешно установить соединение с Psiphon. Это означает, что [Psiphon](https://psiphon.ca/) должен работать.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Время бутстрапа";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ с";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "Похоже, заблокировано";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "Работает";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "Похоже, [Tor](https://www.torproject.org/) заблокирован.";
@@ -327,7 +327,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Не указаны адреса";
 "Settings.Websites.CustomURL.Run" = "Старт";
 "Settings.Websites.CustomURL.Add" = "Добавить сайт";
-"Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
+"Settings.Websites.TestCount" = "Количество проверенных веб-сайтов (0 означает все)";
 "Settings.InstantMessaging.TestWhatsApp" = "Тестировать WhatsApp";
 "Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Тестировать все конечные точки WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Тестировать Telegram";
@@ -342,11 +342,11 @@
 "Settings.Performance.DashAutomaticServerSelection" = "Автоматический выбор сервера DASH";
 "Settings.Performance.DashServerAddress" = "Сервер DASH";
 "Settings.Performance.DashServerPort" = "Порт сервера DASH";
-"Settings.Circumvention.TestPsiphon" = "Test Psiphon";
-"Settings.Circumvention.TestTor" = "Test Tor";
+"Settings.Circumvention.TestPsiphon" = "Тестировать Psiphon";
+"Settings.Circumvention.TestTor" = "Тестировать Tor";
 "Settings.SendEmail.Label" = "Отправить письмо поддержке";
 "Settings.SendEmail.Error" = "Пожалуйста, отправьте письмо на bugs@openobservatory.org с информацией о версиях приложения и iOS. Нажмите «Скопировать в буфер обмена» снизу, чтобы скопировать наш адрес электронной почты.";
-"Settings.Language.Current" = "Current app language is %@";
+"Settings.Language.Current" = "Текущий язык приложения: %@";
 "Notification.FinishedRunning" = "Завершено";
 "OONIBrowser.TryMirror" = "Попробуйте зеркало";
 "OONIBrowser.Loading" = "Загрузка...";

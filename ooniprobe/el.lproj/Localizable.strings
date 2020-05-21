@@ -43,7 +43,7 @@
 "Dashboard.Running.CalculatingETA" = "Υπολογίζουμε την εκτιμώμενη ώρα άφιξης";
 "Dashboard.Running.ShowLog" = "Εμφάνιση αρχείου καταγραφής";
 "Dashboard.Running.CloseLog" = "Κλείσιμο αρχείου καταγραφής";
-"Dashboard.Running.Stopping.Title" = "Διακοπή της δοκιμής...";
+"Dashboard.Running.Stopping.Title" = "Η δοκιμή διακόπτεται...";
 "Dashboard.Running.Stopping.Notice" = "Ολοκληρώνονται οι τρέχουσες δοκιμές, παρακαλώ περίμενε...";
 "Dashboard.Card.Subtitle" = "Πάτα την κάρτα για περισσότερα";
 "Dashboard.Card.Seconds" = "~%@s";
@@ -52,7 +52,7 @@
 "Dashboard.Websites.Overview.Paragraph.Desktop" = "Δες αν έχουν μπλοκαριστεί ιστοσελίδες, χρησιμοποιώντας τη δοκιμή [Web Connectivity](https://ooni.io/nettest/web-connectivity/) του OONI.\n\nΘα ελέγξεις τις ιστοσελίδες που περιλαμβάνονται στην [παγκόσμια](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) και στην [εθνική](https://github.com/citizenlab/test-lists/tree/master/lists) λίστα του Citizen Lab.\n\nΑυτή η δοκιμή εξετάζει αν ιστοσελίδες έχουν μπλοκαριστεί μέσω DNS, TCP/IP ή HTTP.\n\nΤα αποτελέσματα των δοκιμών σου θα δημοσιευτούν στο [OONI Explorer](https://explorer.ooni.org/) και στο [OONI API](https://api.ooni.io/).";
 "Dashboard.Performance.Card.Description" = "Έλεγξε την ταχύτητα και την απόδοση του δικτύου σου";
 "Dashboard.Performance.Overview.Paragraph" = "Έλεγξε την ταχύτητα και την απόδοση του δικτύου σου, χρησιμοποιώντας τη δοκιμή [NDT](https://ooni.io/nettest/ndt/).\n\nΜέτρησε την απόδοση ροής βίντεο, χρησιμοποιώντας τη δοκιμή [DASH](https://ooni.io/nettest/dash/).\n\nΑυτές οι δοκιμές καταναλώνουν δεδομένα ανάλογα με την ταχύτητα του δικτύου σου.\n\nΤα αποτελέσματα των δοκιμών σου θα δημοσιευτούν στο [OONI Explorer](https://explorer.ooni.io/world/) και στο [OONI API](https://api.ooni.io/).\n\nΠροσοχή: Αυτές οι δοκιμές βασίζονται σε διακομιστές τρίτων. Επομένως, δεν μπορούμε να εγγυηθούμε ότι η διεύθυνση IP σου δε θα συλλεχθεί.";
-"Dashboard.Performance.Overview.Paragraph.Updated" = "Τρέχοντας τις δοκιμές αυτής της κάρτας, θα:\n\n- Μετρήσεις την ταχύτητα και την απόδοση του δικτύου σου (δοκιμὴ [NDT](https://ooni.org/nettest/ndt/))\n- Μετρήσεις την απόδοση ροής βίντεο (δοκιμή [DASH](https://ooni.org/nettest/dash/))\n- Ελέγξεις το δίκτυό σου για την παρουσία [τεχνολογίας middlebox](https://ooni.org/support/glossary/#middlebox) (δοκιμές [HTTP Invalid Request Line](https://ooni.org/nettest/http-invalid-request-line/) και [HTTP Header Field Manipulation](https://ooni.org/nettest/http-header-field-manipulation/))\n\nΑυτές οι δοκιμές καταναλώνουν δεδομένα ανάλογα με την ταχύτητα του δικτύου σου.\n\nΤα αποτελέσματα των δοκιμών σου θα δημοσιευτούν στο [OONI Explorer] (https://explorer.ooni.org/) και [OONI API] (https://api.ooni.io/).\n\n**Προσοχή:** Οι δοκιμές [NDT] (https://ooni.org/nettest/ndt/) και [DASH] (https://ooni.org/nettest/dash/) διεξάγονται σε διακομιστές των [Measurement Lab (M-Lab)] (https://www.measurementlab.net/). Εάν τρέξεις αυτές τις δοκιμές, το M-Lab θα συλλέξει και θα δημοσιεύσει τη διεύθυνση IP σου (για ερευνητικούς σκοπούς), ανεξάρτητα από τις ρυθμίσεις σου στο OONI Probe. Μάθε περισσότερα σχετικά με τη διακυβέρνηση δεδομένων του M-Lab μέσω της [δήλωσης απορρήτου] (https://www.measurementlab.net/privacy/).";
+"Dashboard.Performance.Overview.Paragraph.Updated" = "Τρέχοντας τις δοκιμές αυτής της κάρτας:\n\n- Θα μετρήσεις την ταχύτητα και την απόδοση του δικτύου σου (δοκιμὴ [NDT](https://ooni.org/nettest/ndt/))\n- Θα μετρήσεις την απόδοση ροής βίντεο (δοκιμή [DASH](https://ooni.org/nettest/dash/))\n- Θα ελέγξεις το δίκτυό σου για την παρουσία [τεχνολογίας middlebox](https://ooni.org/support/glossary/#middlebox) (δοκιμές [HTTP Invalid Request Line](https://ooni.org/nettest/http-invalid-request-line/) και [HTTP Header Field Manipulation](https://ooni.org/nettest/http-header-field-manipulation/))\n\nΑυτές οι δοκιμές καταναλώνουν δεδομένα ανάλογα με την ταχύτητα του δικτύου σου.\n\nΤα αποτελέσματα των δοκιμών σου θα δημοσιευτούν στο [OONI Explorer] (https://explorer.ooni.org/) και [OONI API] (https://api.ooni.io/).\n\n**Προσοχή:** Οι δοκιμές [NDT] (https://ooni.org/nettest/ndt/) και [DASH] (https://ooni.org/nettest/dash/) διεξάγονται σε τρίτους διακομιστές που παρέχονται από το [Measurement Lab (M-Lab)] (https://www.measurementlab.net/). Αν τρέξεις αυτές τις δοκιμές, το M-Lab θα συλλέξει και θα δημοσιεύσει τη διεύθυνση IP σου (για ερευνητικούς σκοπούς), ανεξάρτητα από τις ρυθμίσεις σου στο OONI Probe. Μάθε περισσότερα για την πολιτική δεδομένων του M-Lab στη [δήλωσης απορρήτου] (https://www.measurementlab.net/privacy/) του.";
 "Dashboard.Middleboxes.Card.Description" = "Εντόπισε middleboxes στο δίκτυό σου";
 "Dashboard.Middleboxes.Overview.Paragraph" = "Οι πάροχοι υπηρεσιών Διαδικτύου χρησιμοποιούν συχνά συσκευές (middleboxes) για διάφορους σκοπούς δικτύωσης (όπως caching). Μερικές φορές αυτές οι συσκευές χρησιμοποιούνται για την εφαρμογή λογοκρισίας ή επιτήρησης στο Διαδίκτυο.\n\nΔες αν χρησιμοποιούνται τέτοιες συσκευές (middleboxes) στο δίκτυό σου, εκτελώντας τις δοκιμές [HTTP Invalid Request Line](https://ooni.io/nettest/http-invalid-request-line/) και [HTTP Header Field Manipulation](https://ooni.io/nettest/http-header-field-manipulation/) του OONI.\n\nΤα αποτελέσματα των δοκιμών σου θα δημοσιευτούν στο [OONI Explorer](https://explorer.ooni.io/world/) και στο [OONI API](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "Τέσταρε το μπλοκάρισμα εφαρμογών συνομιλιών";
@@ -91,7 +91,7 @@
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ προσβάσιμες";
 "TestResults.Overview.Circumvention.Blocked.Singular" = "%@ μπλοκαρισμένες";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ μπλοκαρισμένες";
-"TestResults.Overview.Circumvention.Available.Singular" = "%@ διαθέσιμα";
+"TestResults.Overview.Circumvention.Available.Singular" = "%@ διαθέσιμες";
 "TestResults.Overview.Circumvention.Available.Plural" = "%@ διαθέσιμα";
 "TestResults.Overview.IncompleteResult" = "Ατελές αποτέλεσμα";
 "TestResults.Overview.Error" = "Σφάλμα";
@@ -204,10 +204,10 @@
 "TestResults.Details.Performance.NDT.Download" = "Λήψη";
 "TestResults.Details.Performance.NDT.Ping" = "Ping";
 "TestResults.Details.Performance.NDT.Server" = "Διακομιστής";
-"TestResults.Details.Performance.NDT.PacketLoss" = "Ποσοστό Αναμετάδοσης";
+"TestResults.Details.Performance.NDT.PacketLoss" = "Ποσοστό αναμετάδοσης";
 "TestResults.Details.Performance.NDT.OutOfOrder" = "Εκτός λειτουργίας";
 "TestResults.Details.Performance.NDT.AveragePing" = "Μέσος όρος ping";
-"TestResults.Details.Performance.NDT.MaxPing" = "Μέγιστη Εκτίμηση Ping";
+"TestResults.Details.Performance.NDT.MaxPing" = "Εκτίμηση μέγιστου ping";
 "TestResults.Details.Performance.NDT.MSS" = "MSS";
 "TestResults.Details.Performance.NDT.Timeouts" = "Timeouts";
 "TestResults.Details.Performance.Dash.VideoWithoutBuffering" = "Μπορείς να κάνεις streaming μέχρι και %@ χωρίς buffering.";
@@ -218,7 +218,7 @@
 "TestResults.Details.Circumvention.Psiphon.Blocked.Content.Paragraph" = "Η σύνδεση στο [Psiphon] (https://psiphon.ca/) φαίνεται να έχει μπλοκαριστεί.";
 "TestResults.Details.Circumvention.Psiphon.Reachable.Content.Paragraph" = "Η σύνδεση στο [Psiphon](https://psiphon.ca/) ήταν επιτυχής, και επομένως πρέπει να λειτουργεί.";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Χρόνος εκκίνησης";
-"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ ' '";
+"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ ''";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "Πιθανή λογοκρισία";
 "TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "Λειτουργεί";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "Η σύνδεση στο [Tor](https://www.torproject.org/) φαίνεται να έχει μπλοκαριστεί.";
