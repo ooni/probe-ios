@@ -24,6 +24,8 @@
 @property id<MKNetworkTestDelegate> delegate;
 @property Settings *settings;
 @property BOOL annotation;
+@property dispatch_queue_t serialQueue;
+
 -(id)initTest:(NSString*)testName;
 -(Measurement*)createMeasurementObject;
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement;

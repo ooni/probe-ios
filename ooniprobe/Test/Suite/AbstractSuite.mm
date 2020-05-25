@@ -25,18 +25,16 @@
 
 -(void)runTestSuite {
     [self newResult];
+    dispatch_queue_t serialQueue = dispatch_queue_create("org.openobservatory.queue", DISPATCH_QUEUE_SERIAL);
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
-    dispatch_queue_t serialQueue = dispatch_queue_create("org.openobservatory.queue", DISPATCH_QUEUE_SERIAL);
     for (AbstractTest *current in [self getTestList]){
         [current setDelegate:self];
+        [current setSerialQueue:serialQueue];
         [current setResult:self.result];
-        //Run test one after another to ensure they run in order
-        dispatch_async(serialQueue, ^{
-            [current runTest];
-        });
+        [current runTest];
     }
 }
 

@@ -63,8 +63,7 @@
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
-    dispatch_async(
-                   dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(_serialQueue, ^{
                        MKAsyncTask *task = [MKAsyncTask start:settings];
                        while (![task done]){
                            // Extract an event from the task queue and unmarshal it.
