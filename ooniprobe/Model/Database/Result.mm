@@ -43,7 +43,7 @@
         for (Measurement *current in measurements){
             if ([current.test_name isEqualToString:testName]){
                 [measurementsSorted addObject:current];
-                continue;
+                break;
             }
         }
     }
