@@ -25,13 +25,28 @@
      * Ndt - Dash - HIRL - HHFM for Performance
      * Psiphon - Tor for Circumvention
     */
-    return [[[[[[Measurement query]
-               where:@"result_id = ? AND is_rerun = 0 AND is_done = 1"
-               parameters:@[self]]
-               orderByDescending:@"is_anomaly"]
-               orderByDescending:@"is_failed"]
-               order:@"Id"]
-               fetch];
+    if ([self.test_group_name isEqualToString:@"websites"]){
+        return [[[[[[Measurement query]
+                   where:@"result_id = ? AND is_rerun = 0 AND is_done = 1"
+                   parameters:@[self]]
+                   orderByDescending:@"is_anomaly"]
+                   orderByDescending:@"is_failed"]
+                   order:@"Id"]
+                   fetch];
+    }
+    NSMutableArray *measurementsSorted = [NSMutableArray new];
+    SRKResultSet *measurements = self.measurements;
+    NSArray *testOrder = [[TestUtility getTests] objectForKey:self.test_group_name];
+    for (NSString *testName in testOrder){
+        for (Measurement *current in measurements){
+            if ([current.test_name isEqualToString:testName]){
+                [measurementsSorted addObject:current];
+                continue;
+            }
+        }
+    }
+    return [[SRKResultSet alloc] initWithArray:measurementsSorted];
+    //return measurementsSorted;
 }
 
 
