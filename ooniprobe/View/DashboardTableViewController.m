@@ -10,6 +10,7 @@
 @end
 
 @implementation DashboardTableViewController
+@synthesize items;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
