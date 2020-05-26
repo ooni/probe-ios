@@ -87,7 +87,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(IBAction)run:(id)sender{
@@ -119,6 +118,7 @@
         TestOverviewViewController *vc = (TestOverviewViewController * )segue.destinationViewController;
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
         [vc setTestSuite:testSuite];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }    
 }
 
