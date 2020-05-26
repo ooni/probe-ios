@@ -110,7 +110,7 @@
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
         [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
     }
-    if ([[segue identifier] isEqualToString:@"toTestRunAll"]){
+    else if ([[segue identifier] isEqualToString:@"toTestRunAll"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         [vc setTestSuites:items];
     }
