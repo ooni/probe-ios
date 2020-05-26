@@ -18,7 +18,13 @@
 }
 
 - (SRKResultSet*)measurementsSorted {
-    //Not showing the re_run measurements
+    /*
+     * Sorting measurements:
+     * by is_anomaly and is_failed for Websites
+     * Whatsapp - Telegram - Facebook for Instant Messaging
+     * Ndt - Dash - HIRL - HHFM for Performance
+     * Psiphon - Tor for Circumvention
+    */
     return [[[[[[Measurement query]
                where:@"result_id = ? AND is_rerun = 0 AND is_done = 1"
                parameters:@[self]]
