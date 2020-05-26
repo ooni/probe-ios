@@ -37,6 +37,8 @@
     NSMutableArray *measurementsSorted = [NSMutableArray new];
     SRKResultSet *measurements = self.measurements;
     NSArray *testOrder = [[TestUtility getTests] objectForKey:self.test_group_name];
+    if (testOrder == nil)
+        return measurements;
     for (NSString *testName in testOrder){
         for (Measurement *current in measurements){
             if ([current.test_name isEqualToString:testName]){
