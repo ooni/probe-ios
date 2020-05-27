@@ -48,10 +48,7 @@
 }
 
 -(void)reloadMeasurements{
-    if ([result.test_group_name isEqualToString:@"websites"])
-        self.measurements = result.measurementsSorted;
-    else
-        self.measurements = result.measurements;
+    self.measurements = result.measurementsSorted;
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([result isEveryMeasurementUploaded]){
             self.tableFooterConstraint.constant = -45;
