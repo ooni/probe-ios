@@ -48,7 +48,6 @@
         }
     }
     return [[SRKResultSet alloc] initWithArray:measurementsSorted];
-    //return measurementsSorted;
 }
 
 
