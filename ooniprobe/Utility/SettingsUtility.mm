@@ -5,20 +5,17 @@
 
 + (NSArray*)getSettingsCategories{
     //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"notifications", @"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
+    //TODO NEWS reenable @"notifications_news"
     if ([categoryName isEqualToString:@"notifications"]) {
-        if ([self getSettingWithName:@"notifications_enabled"])
-            //TODO NEWS reenable @"notifications_news"
-            return @[@"notifications_enabled", @"notifications_completion"];
-        else
-            return @[@"notifications_enabled"];
+        return @[@"notifications_enabled"];
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
         //TODO GPS @"include_gps"
-        return @[@"upload_results", @"upload_results_manually", @"include_asn", @"include_cc", @"include_ip"];
+        return @[@"upload_results", @"upload_results_manually", @"include_asn", @"include_ip"];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
@@ -130,13 +127,11 @@
         [settings addObject:@"test_telegram"];
         [settings addObject:@"test_facebook_messenger"];
     }
-    else if ([testName isEqualToString:@"middle_boxes"]) {
-        [settings addObject:@"run_http_invalid_request_line"];
-        [settings addObject:@"run_http_header_field_manipulation"];
-    }
     else if ([testName isEqualToString:@"performance"]) {
         [settings addObject:@"run_ndt"];
         [settings addObject:@"run_dash"];
+        [settings addObject:@"run_http_invalid_request_line"];
+        [settings addObject:@"run_http_header_field_manipulation"];
     }
     return settings;
 }

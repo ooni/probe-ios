@@ -9,9 +9,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.topItem.title = @"";
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"settingsChanged" object:nil];
 
@@ -36,11 +33,14 @@
     defaultColor = [TestUtility getColorForTest:testSuite.name];
     [self.runButton setTitleColor:defaultColor forState:UIControlStateNormal];
     [self.backgroundView setBackgroundColor:defaultColor];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:defaultColor];
+    self.navigationController.navigationBar.topItem.title = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBarTintColor:defaultColor];
+    [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                    color:defaultColor];
 }
 
 -(void)reloadLastMeasurement{
@@ -73,7 +73,8 @@
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
     if (!parent) {
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+        [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                        color:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     }
 }
 
@@ -89,7 +90,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setTestSuite:testSuite];
+        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
     }
     else if ([[segue identifier] isEqualToString:@"toTestSettings"]){
         SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;

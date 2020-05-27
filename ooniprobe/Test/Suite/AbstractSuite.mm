@@ -25,6 +25,7 @@
 
 -(void)runTestSuite {
     [self newResult];
+    dispatch_queue_t serialQueue = dispatch_queue_create("org.openobservatory.queue", DISPATCH_QUEUE_SERIAL);
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
@@ -32,6 +33,7 @@
     for (AbstractTest *current in [self getTestList]){
         self.runningTest = current;
         [current setDelegate:self];
+        [current setSerialQueue:serialQueue];
         [current setResult:self.result];
         [current runTest];
     }
@@ -56,8 +58,7 @@
         [self.result save];
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
         if (state == UIApplicationStateBackground || state == UIApplicationStateInactive){
-            if ([SettingsUtility getSettingWithName:@"notifications_enabled"] && [SettingsUtility getSettingWithName:@"notifications_completion"])
-                [self showNotification];
+            [self showLocalNotification];
         }
         //Resetting class values
         self.result = nil;
@@ -69,7 +70,7 @@
     self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
-- (void)showNotification {
+- (void)showLocalNotification {
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate date];
     localNotification.timeZone = [NSTimeZone defaultTimeZone];

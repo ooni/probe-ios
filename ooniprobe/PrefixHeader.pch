@@ -6,6 +6,7 @@
 
 #import "UIColor+Hexadecimal.h"
 #import "LocalizationUtility.h"
+#import "NavigationBarUtility.h"
 
 #ifdef DEV
 #define NOTIFICATION_SERVER @"https://registry.proteus.test.ooni.io"
@@ -13,7 +14,7 @@
 #define NOTIFICATION_SERVER @"https://registry.proteus.ooni.io"
 #endif
 
-#define RELEASE_NAME @"-beta.2"
+#define RELEASE_NAME @"-beta.3"
 #define NSLocalizedFormatString(fmt, ...) [NSString stringWithFormat:NSLocalizedString(fmt, nil), __VA_ARGS__]
 
 #define ONBOARDING_KEY @"first_run"

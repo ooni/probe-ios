@@ -2,6 +2,7 @@
 #import "TestDetailsViewController.h"
 #import "PaddingLabel.h"
 
+//This screen is still used for HIRL and HHFM under the Performance suite
 @interface MiddleBoxesDetailsViewController : TestDetailsViewController
 
 @property (nonatomic, strong) IBOutlet UIImageView *statusImage;

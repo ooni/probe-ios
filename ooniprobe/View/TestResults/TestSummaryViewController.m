@@ -13,9 +13,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.topItem.title = @"";
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.tableView.tableFooterView = [UIView new];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMeasurements) name:@"uploadFinished" object:nil];
@@ -24,19 +21,23 @@
     
     [self reloadMeasurements];
     defaultColor = [TestUtility getColorForTest:result.test_group_name];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:defaultColor];
+    self.navigationController.navigationBar.topItem.title = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.title = @"";
     self.title = [LocalizationUtility getNameForTest:self.result.test_group_name];
-    [self.navigationController.navigationBar setBarTintColor:[TestUtility getColorForTest:result.test_group_name]];
+    [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                    color:[TestUtility getColorForTest:result.test_group_name]];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
     if (!parent) {
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+        [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                        color:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
     }
 }
 
@@ -47,7 +48,7 @@
 }
 
 -(void)reloadMeasurements{
-    self.measurements = result.measurements;
+    self.measurements = result.measurementsSorted;
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([result isEveryMeasurementUploaded]){
             self.tableFooterConstraint.constant = -45;
@@ -82,8 +83,9 @@
     NSString *cell_id;
     if ([result.test_group_name isEqualToString:@"performance"])
         cell_id = @"Cell_per";
+    //__deprecated
     else if ([result.test_group_name isEqualToString:@"middle_boxes"])
-        cell_id = @"Cell_mb";
+         cell_id = @"Cell_mb";
     else
         cell_id = @"Cell";
     TestSummaryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cell_id forIndexPath:indexPath];
@@ -164,7 +166,7 @@
             [urls addObject:m.url_id.url];
         if ([testSuite getTestList] > 0 && [urls count] > 0)
             [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
-        [vc setTestSuite:testSuite];
+        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
     }
 }
 

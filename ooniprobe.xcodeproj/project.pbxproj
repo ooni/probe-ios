@@ -47,6 +47,8 @@
 		ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.m */; };
+		ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5C24629A860087B36D /* OONIApi.m */; };
+		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED53841C2159757D0078C5C6 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841B2159757D0078C5C6 /* EventResult.m */; };
 		ED53841F215975A70078C5C6 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841E215975A70078C5C6 /* Value.m */; };
@@ -63,6 +65,7 @@
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
+		ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED78739F2448874500F92DDE /* NavigationBarUtility.m */; };
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
 		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
 		ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */ = {isa = PBXBuildFile; fileRef = ED86D74E227DAB02007D93FB /* OONIProbe.db */; };
@@ -119,6 +122,7 @@
 		EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding3ViewController.m */; };
 		EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */; };
 		EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B711FFF6C8B00EFD9C8 /* Onboarding1ViewController.m */; };
+		EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE47C40241FC6BC0013A1CB /* NetworkSession.m */; };
 		EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */; };
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
@@ -228,6 +232,10 @@
 		ED459A2B1E5E124100EAE084 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED49509B1F951F1D00344E42 /* MessageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageUtility.h; path = Utility/MessageUtility.h; sourceTree = "<group>"; };
 		ED49509C1F951F1D00344E42 /* MessageUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MessageUtility.m; path = Utility/MessageUtility.m; sourceTree = "<group>"; };
+		ED4D1E5B24629A860087B36D /* OONIApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIApi.h; path = Utility/OONIApi.h; sourceTree = "<group>"; };
+		ED4D1E5C24629A860087B36D /* OONIApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIApi.m; path = Utility/OONIApi.m; sourceTree = "<group>"; };
+		ED4D1E5E246315EF0087B36D /* BasicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
+		ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED53841A2159757D0078C5C6 /* EventResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResult.h; sourceTree = "<group>"; };
 		ED53841B2159757D0078C5C6 /* EventResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
@@ -259,6 +267,8 @@
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
+		ED78739E2448874500F92DDE /* NavigationBarUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarUtility.h; sourceTree = "<group>"; };
+		ED78739F2448874500F92DDE /* NavigationBarUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarUtility.m; sourceTree = "<group>"; };
 		ED81BB92223F84C9000AFA01 /* UploadFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadFooterViewController.h; sourceTree = "<group>"; };
 		ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadFooterViewController.m; sourceTree = "<group>"; };
 		ED81BB95223FA9FF000AFA01 /* TestResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestResultsViewController.h; path = ooniprobe/View/TestResults/TestResultsViewController.h; sourceTree = SOURCE_ROOT; };
@@ -362,6 +372,8 @@
 		EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onboarding3ViewController.m; sourceTree = "<group>"; };
 		EDDB0B6F1FFF6C8B00EFD9C8 /* PopQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopQuizViewController.m; sourceTree = "<group>"; };
 		EDDB0B711FFF6C8B00EFD9C8 /* Onboarding1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onboarding1ViewController.m; sourceTree = "<group>"; };
+		EDE47C3F241FC6BC0013A1CB /* NetworkSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkSession.h; path = Utility/NetworkSession.h; sourceTree = "<group>"; };
+		EDE47C40241FC6BC0013A1CB /* NetworkSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NetworkSession.m; path = Utility/NetworkSession.m; sourceTree = "<group>"; };
 		EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = middle_boxes.json; sourceTree = "<group>"; };
 		EDF2072B2120EF12005B06D7 /* Simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		EDF2072E2120EF29005B06D7 /* Advanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Advanced.h; sourceTree = "<group>"; };
@@ -629,6 +641,8 @@
 				ED5F8A291F77C4AA0093C8F5 /* VersionUtility.m */,
 				ED58CF7C1FEBBE2800E3C415 /* TestUtility.h */,
 				ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */,
+				ED4D1E5B24629A860087B36D /* OONIApi.h */,
+				ED4D1E5C24629A860087B36D /* OONIApi.m */,
 				EDDB0B531FFF2C5300EFD9C8 /* SettingsUtility.h */,
 				EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */,
 				ED997D08207BB7C400C97B1F /* LocalizationUtility.h */,
@@ -639,6 +653,8 @@
 				EDA9F21A22414E0E003D40E8 /* UIDevice-DeviceInfo.m */,
 				ED8F2A3623F0142A00EF5EDA /* ExceptionUtility.h */,
 				ED8F2A3723F0142A00EF5EDA /* ExceptionUtility.m */,
+				EDE47C3F241FC6BC0013A1CB /* NetworkSession.h */,
+				EDE47C40241FC6BC0013A1CB /* NetworkSession.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -654,6 +670,8 @@
 				EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */,
 				ED209668209791C40028BEA3 /* PaddingLabel.h */,
 				ED209669209791C40028BEA3 /* PaddingLabel.m */,
+				ED78739E2448874500F92DDE /* NavigationBarUtility.h */,
+				ED78739F2448874500F92DDE /* NavigationBarUtility.m */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -742,6 +760,8 @@
 				EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */,
 				ED12BA2E224E5BDD004949E4 /* TestSummaryTableViewCell.h */,
 				ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */,
+				ED4D1E5E246315EF0087B36D /* BasicTableViewCell.h */,
+				ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -1208,6 +1228,7 @@
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
 				ED90A92D2198DE5100204B46 /* Options.m in Sources */,
 				ED53841C2159757D0078C5C6 /* EventResult.m in Sources */,
+				ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
@@ -1228,6 +1249,7 @@
 				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
+				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
 				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,
@@ -1237,6 +1259,7 @@
 				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */,
 				ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */,
 				ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */,
+				EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
@@ -1260,6 +1283,7 @@
 				EDF20735212173B9005B06D7 /* Simple.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
 				ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */,
+				ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1506,7 +1530,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 86;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1524,7 +1548,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
 				PROVISIONING_PROFILE = "";
@@ -1549,7 +1573,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 86;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1572,7 +1596,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
 				PROVISIONING_PROFILE = "";

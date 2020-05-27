@@ -16,12 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setTranslucent:NO];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_gray2 alpha:1.0f]];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[UIColor colorWithRGBHexString:color_gray2 alpha:1.0f]];
     [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray2 alpha:1.0f]];
     [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.subtitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
@@ -238,7 +233,7 @@
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
-        [vc setTestSuite:testSuite];
+        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
         [vc setPresenting:YES];
     }
 }

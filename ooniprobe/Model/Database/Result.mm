@@ -10,14 +10,46 @@
 
 - (SRKResultSet*)measurements {
     //Not showing the re_run measurements
-    return [[[[[[Measurement query]
+    return [[[[Measurement query]
                where:@"result_id = ? AND is_rerun = 0 AND is_done = 1"
                parameters:@[self]]
-               orderByDescending:@"is_anomaly"]
-               orderByDescending:@"is_failed"]
-               orderByDescending:@"Id"]
+               order:@"Id"]
                fetch];
 }
+
+- (SRKResultSet*)measurementsSorted {
+    /*
+     * Sorting measurements:
+     * by is_anomaly and is_failed for Websites
+     * Whatsapp - Telegram - Facebook for Instant Messaging
+     * Ndt - Dash - HIRL - HHFM for Performance
+     * Psiphon - Tor for Circumvention
+    */
+    if ([self.test_group_name isEqualToString:@"websites"]){
+        return [[[[[[Measurement query]
+                   where:@"result_id = ? AND is_rerun = 0 AND is_done = 1"
+                   parameters:@[self]]
+                   orderByDescending:@"is_anomaly"]
+                   orderByDescending:@"is_failed"]
+                   order:@"Id"]
+                   fetch];
+    }
+    NSMutableArray *measurementsSorted = [NSMutableArray new];
+    SRKResultSet *measurements = self.measurements;
+    NSArray *testOrder = [[TestUtility getTests] objectForKey:self.test_group_name];
+    if (testOrder == nil)
+        return measurements;
+    for (NSString *testName in testOrder){
+        for (Measurement *current in measurements){
+            if ([current.test_name isEqualToString:testName]){
+                [measurementsSorted addObject:current];
+                break;
+            }
+        }
+    }
+    return [[SRKResultSet alloc] initWithArray:measurementsSorted];
+}
+
 
 - (SRKResultSet*)allmeasurements {
     return [[[[Measurement query] where:@"result_id = ?" parameters:@[self]] orderByDescending:@"Id"] fetch];
@@ -153,6 +185,15 @@
 -(NSString*)getLocalizedStartTime{
     NSString *localizedDateTime = [NSDateFormatter localizedStringFromDate:self.start_time dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     return localizedDateTime;
+}
+
+-(NSString*)getFailureMsg{
+    //if failure is nill return only "Error"
+    if (self.failure_msg == nil)
+        return NSLocalizedString(@"Modal.Error", nil);
+    return [NSString stringWithFormat:@"%@ - %@",
+            NSLocalizedString(@"Modal.Error", nil),
+            self.failure_msg];
 }
 
 -(void)save{

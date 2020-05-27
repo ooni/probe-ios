@@ -10,17 +10,11 @@
     [super viewDidLoad];
     [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-
-    if (!super.measurement.is_anomaly){
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
-        [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
-        [self.statusImage setImage:[UIImage imageNamed:@"tick"]];
-    }
-    else {
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-        [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
-        [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
-    }
+    [self.statusImage setImage:[UIImage imageNamed:@"middle_boxes"]];
+    
+    [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
+                                    color:[TestUtility getColorForTest:self.result.test_group_name]];
+    [self.headerView setBackgroundColor:[TestUtility getColorForTest:self.result.test_group_name]];
     
     if ([self.measurement.test_name isEqualToString:@"http_invalid_request_line"]){
         if (!super.measurement.is_anomaly){

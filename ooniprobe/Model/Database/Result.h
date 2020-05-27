@@ -29,6 +29,7 @@
 -(NSString*)getFormattedDataUsageDown;
 -(NSString*)getFormattedDataUsageUp;
 -(NSString*)getLocalizedNetworkType;
+-(NSString*)getFailureMsg;
 -(float)getRuntime;
 -(NSString*)getLocalizedStartTime;
 -(BOOL)isEveryMeasurementUploaded;
@@ -36,6 +37,7 @@
 -(void)save;
 -(Measurement*)getMeasurement:(NSString*)name;
 -(SRKResultSet*)measurements;
+-(SRKResultSet*)measurementsSorted;
 -(SRKResultSet*)allmeasurements;
 -(NSString*)getLogFile:(NSString*)test_name;
 -(void)deleteObject;

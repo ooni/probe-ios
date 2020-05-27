@@ -26,9 +26,6 @@
     [self.packetlossTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.PacketLoss", nil)];
     [self.packetlossValueLabel setText:[testKeys getPacketLoss]];
 
-    [self.outoforderTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.OutOfOrder", nil)];
-    [self.outoforderValueLabel setText:[testKeys getOutOfOrder]];
-
     [self.averagepingTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.AveragePing", nil)];
     [self.averagepingValueLabel setText:[testKeys getAveragePing]];
 
@@ -37,9 +34,6 @@
 
     [self.mssTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.MSS", nil)];
     [self.mssValueLabel setText:[testKeys getMSS]];
-
-    [self.timeoutsTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Timeouts", nil)];
-    [self.timeoutsValueLabel setText:[testKeys getTimeouts]];
     
     [self.downloadTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [self.downloadValueLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
@@ -59,11 +53,7 @@
     [self.packetlossTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.packetlossValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.packetlossUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    
-    [self.outoforderTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [self.outoforderValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [self.outoforderUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    
+        
     [self.averagepingTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.averagepingValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.averagepingUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
@@ -74,9 +64,6 @@
     
     [self.mssTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.mssValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    
-    [self.timeoutsTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [self.timeoutsValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
 }
 
 @end
