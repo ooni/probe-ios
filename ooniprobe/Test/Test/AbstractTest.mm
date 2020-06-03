@@ -5,7 +5,7 @@
 #import "NSDictionary+Safety.h"
 #import "EventResult.h"
 #import "ExceptionUtility.h"
-#import <mkall/MKAsyncTask.h>
+#import "Engine.h"
 
 @implementation AbstractTest
 

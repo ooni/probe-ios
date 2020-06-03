@@ -2,7 +2,7 @@
 #import "MessageUtility.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SettingsUtility.h"
-#import <mkall/MKReporter.h>
+#import "Engine.h"
 #import "TestUtility.h"
 #import "MBProgressHUD.h"
 #import "VersionUtility.h"
@@ -85,9 +85,8 @@
         NSUInteger i = 0;
         float progress = 0.0f;
         float measurementValue = 1.0/([notUploaded count]);
-        MKReporterTask *task = [[MKReporterTask alloc]
-          initWithSoftwareName:SOFTWARE_NAME
-          softwareVersion:[VersionUtility get_software_version]];
+        id<CollectorTask> task = [Engine getNewCollectorTaskWithSoftwareName:SOFTWARE_NAME
+                               softwareVersion:[VersionUtility get_software_version]];
         while (i < [notUploaded count]){
             Measurement *currentMeasurement = [notUploaded objectAtIndex:i];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -122,22 +121,22 @@
 }
 
 -(BOOL)uploadMeasurement:(Measurement*)measurement
-            reporterTask:(MKReporterTask *)task {
+            reporterTask:(id<CollectorTask>)task {
     NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
     NSUInteger bytes = [content lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-    MKReporterResults *results = [
-      task submit:content uploadTimeout:[TestUtility makeTimeout:bytes]];
-    if ([results good]){
+    id<CollectorResults> results = [task maybeDiscoverAndSubmit:content
+                                                    withTimeout:[TestUtility makeTimeout:bytes]];
+    if ([results isGood]){
         //save updated file
-        [TestUtility writeString:[results updatedSerializedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
+        [TestUtility writeString:[results getUpdatedSerializedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
         measurement.is_uploaded = true;
         measurement.is_upload_failed = false;
-        [measurement setReport_id:[results updatedReportID]];
+        [measurement setReport_id:[results getUpdatedReportID]];
         [measurement save];
     }
-    if (![results good])
-        [logs addObject:[results reason]];
-    return [results good];
+    if (![results isGood])
+        [logs addObject:[results getReason]];
+    return [results isGood];
 }
 
 -(void)showRetryPopup:(NSInteger)numUploads withErrors:(NSInteger)errors{

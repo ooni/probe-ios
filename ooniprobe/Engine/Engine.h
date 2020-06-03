@@ -21,12 +21,12 @@
 
 + (NSString*) getVersionMK;
 
-+ (id<GeoIPLookupTask>) newGeoIPLookupTask;
++ (id<GeoIPLookupTask>) getNewGeoIPLookupTask;
 
-+ (MKReporterTask*) newCollectorTaskWithSoftwareName:(NSString *)softwareName
++ (id<CollectorTask>) getNewCollectorTaskWithSoftwareName:(NSString *)softwareName
                                      softwareVersion:(NSString *)softwareVersion;
 
-+ (MKOrchestraTask*) newOrchestraTaskWithSoftwareName:(NSString *)softwareName
++ (id<OrchestraTask>) getNewOrchestraTaskWithSoftwareName:(NSString *)softwareName
                                     softwareVersion:(NSString *)softwareVersion
                                      supportedTests:(NSArray<NSString *> *)supportedTests
                                         deviceToken:(NSString *)deviceToken

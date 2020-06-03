@@ -3,25 +3,14 @@
 
 @implementation Engine
 
-/*
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.probeEngineTasks = @[@"Telegram",
-                       @"Dash",
-                       @"Ndt"];
-    }
-    return self;
-}
-*/
-
 /** getVersionMK returns the version of Measurement Kit we're using */
 + (NSString*) getVersionMK {
     return [MKVersion versionMK];
 }
 
 /** startExperimentTask starts the experiment described by the provided settings. */
-/*+ (ExperimentTask) startExperimentTask(ExperimentSettings settings) throws EngineException {
+/*
+ + (id<ExperimentTask>) startExperimentTask(ExperimentSettings settings) throws EngineException {
     if (probeEngineTasks.contains(settings.taskName())) {
         try {
             return new OONIProbeEngineTaskAdapter(
@@ -37,25 +26,28 @@
 
 
 /** newGeoIPLookupTask creates a new GeoIP lookup task. */
-+ (id<GeoIPLookupTask>) newGeoIPLookupTask {
-    MKGeoIPLookupTaskAdapter *adapter = [[MKGeoIPLookupTaskAdapter alloc] init];
-    return adapter;
-    //return [MKGeoIPLookupTaskAdapter new];
++ (id<GeoIPLookupTask>) getNewGeoIPLookupTask {
+    return [[MKGeoIPLookupTaskAdapter alloc] init];
 }
 
 /** newCollectorTask creates a new collector task. */
-+ (MKReporterTask*) newCollectorTaskWithSoftwareName:(NSString *)softwareName
++ (id<CollectorTask>) getNewCollectorTaskWithSoftwareName:(NSString *)softwareName
                                    softwareVersion:(NSString *)softwareVersion {
-    return [[MKReporterTask alloc]initWithSoftwareName:softwareName  softwareVersion:softwareVersion];
+    return [[MKReporterTaskAdapter alloc] initWithSoftwareName:softwareName
+                                               softwareVersion:softwareVersion];
 }
 
 /** newOrchestraTask creates a new orchestra task. */
-+ (MKOrchestraTask*)newOrchestraTaskWithSoftwareName:(NSString *)softwareName
++ (id<OrchestraTask>) getNewOrchestraTaskWithSoftwareName:(NSString *)softwareName
                                     softwareVersion:(NSString *)softwareVersion
                                      supportedTests:(NSArray<NSString *> *)supportedTests
                                         deviceToken:(NSString *)deviceToken
                                         secretsFile:(NSString *)secretsFile{
-    return [[MKOrchestraTask alloc] initWithSoftwareName:softwareName softwareVersion:softwareVersion supportedTests:supportedTests deviceToken:deviceToken secretsFile:secretsFile];
+    return [[MKOrchestraTaskAdapter alloc] initWithSoftwareName:softwareName
+                                                softwareVersion:softwareVersion
+                                                 supportedTests:supportedTests
+                                                    deviceToken:deviceToken
+                                                    secretsFile:secretsFile];
 }
 
 @end

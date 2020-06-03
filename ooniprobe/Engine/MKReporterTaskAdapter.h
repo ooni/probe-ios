@@ -5,6 +5,8 @@
 
 @interface MKReporterTaskAdapter : NSObject <CollectorTask>
 
+- (id)initWithSoftwareName:(NSString*)softwareName softwareVersion:(NSString*)softwareVersion;
+
 @property (nonatomic, strong) MKReporterTask* task;
 
 @end

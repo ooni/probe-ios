@@ -2,10 +2,10 @@
 
 @implementation MKReporterTaskAdapter
 
-- (id)init {
+- (id)initWithSoftwareName:(NSString*)softwareName softwareVersion:(NSString*)softwareVersion {
     self = [super init];
     if (self) {
-        self.task = [MKReporterTask new];
+        self.task = [[MKReporterTask alloc] initWithSoftwareName:softwareName softwareVersion:softwareVersion];
     }
     return self;
 }
