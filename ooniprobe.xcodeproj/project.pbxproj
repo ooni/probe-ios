@@ -128,6 +128,15 @@
 		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
 		EDF20736212173B9005B06D7 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20734212173B9005B06D7 /* Advanced.m */; };
 		EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF23EF82228CC6000B97520 /* NetworkTest.m */; };
+		EDF4ECF4248549BD001A5406 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ECF3248549BD001A5406 /* Engine.m */; };
+		EDF4ED0124879D31001A5406 /* MKExperimentTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */; };
+		EDF4ED042487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */; };
+		EDF4ED072487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED062487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m */; };
+		EDF4ED0A2487BEE4001A5406 /* MKOrchestraResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED092487BEE4001A5406 /* MKOrchestraResultsAdapter.m */; };
+		EDF4ED0D2487BEFF001A5406 /* MKOrchestraTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0C2487BEFF001A5406 /* MKOrchestraTaskAdapter.m */; };
+		EDF4ED102487BF17001A5406 /* MKReporterResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0F2487BF17001A5406 /* MKReporterResultsAdapter.m */; };
+		EDF4ED132487BF27001A5406 /* MKReporterTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */; };
+		EDF4ED162487BF39001A5406 /* OONIProbeEngineTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */; };
 		EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8E51C22C40A8E00CF0FF6 /* APITest.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
@@ -383,6 +392,32 @@
 		EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OONIProbeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF23EEF2225258100B97520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF23EF82228CC6000B97520 /* NetworkTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTest.m; sourceTree = "<group>"; };
+		EDF4ECF2248549BD001A5406 /* Engine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Engine.h; path = Engine/Engine.h; sourceTree = "<group>"; };
+		EDF4ECF3248549BD001A5406 /* Engine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Engine.m; path = Engine/Engine.m; sourceTree = "<group>"; };
+		EDF4ECF724879683001A5406 /* ExperimentTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExperimentTask.h; path = Engine/ExperimentTask.h; sourceTree = "<group>"; };
+		EDF4ECF824879683001A5406 /* CollectorTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CollectorTask.h; path = Engine/CollectorTask.h; sourceTree = "<group>"; };
+		EDF4ECF924879684001A5406 /* GeoIPLookupResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GeoIPLookupResults.h; path = Engine/GeoIPLookupResults.h; sourceTree = "<group>"; };
+		EDF4ECFA24879684001A5406 /* GeoIPLookupTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GeoIPLookupTask.h; path = Engine/GeoIPLookupTask.h; sourceTree = "<group>"; };
+		EDF4ECFB24879684001A5406 /* OrchestraTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OrchestraTask.h; path = Engine/OrchestraTask.h; sourceTree = "<group>"; };
+		EDF4ECFC24879684001A5406 /* ExperimentSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExperimentSettings.h; path = Engine/ExperimentSettings.h; sourceTree = "<group>"; };
+		EDF4ECFD24879684001A5406 /* CollectorResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CollectorResults.h; path = Engine/CollectorResults.h; sourceTree = "<group>"; };
+		EDF4ECFE24879684001A5406 /* OrchestraResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OrchestraResults.h; path = Engine/OrchestraResults.h; sourceTree = "<group>"; };
+		EDF4ECFF24879D31001A5406 /* MKExperimentTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKExperimentTaskAdapter.h; path = Engine/MKExperimentTaskAdapter.h; sourceTree = "<group>"; };
+		EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKExperimentTaskAdapter.m; path = Engine/MKExperimentTaskAdapter.m; sourceTree = "<group>"; };
+		EDF4ED022487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKGeoIPLookupResultsAdapter.h; path = Engine/MKGeoIPLookupResultsAdapter.h; sourceTree = "<group>"; };
+		EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKGeoIPLookupResultsAdapter.m; path = Engine/MKGeoIPLookupResultsAdapter.m; sourceTree = "<group>"; };
+		EDF4ED052487BED8001A5406 /* MKGeoIPLookupTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKGeoIPLookupTaskAdapter.h; path = Engine/MKGeoIPLookupTaskAdapter.h; sourceTree = "<group>"; };
+		EDF4ED062487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKGeoIPLookupTaskAdapter.m; path = Engine/MKGeoIPLookupTaskAdapter.m; sourceTree = "<group>"; };
+		EDF4ED082487BEE4001A5406 /* MKOrchestraResultsAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKOrchestraResultsAdapter.h; path = Engine/MKOrchestraResultsAdapter.h; sourceTree = "<group>"; };
+		EDF4ED092487BEE4001A5406 /* MKOrchestraResultsAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKOrchestraResultsAdapter.m; path = Engine/MKOrchestraResultsAdapter.m; sourceTree = "<group>"; };
+		EDF4ED0B2487BEFF001A5406 /* MKOrchestraTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKOrchestraTaskAdapter.h; path = Engine/MKOrchestraTaskAdapter.h; sourceTree = "<group>"; };
+		EDF4ED0C2487BEFF001A5406 /* MKOrchestraTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKOrchestraTaskAdapter.m; path = Engine/MKOrchestraTaskAdapter.m; sourceTree = "<group>"; };
+		EDF4ED0E2487BF17001A5406 /* MKReporterResultsAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKReporterResultsAdapter.h; path = Engine/MKReporterResultsAdapter.h; sourceTree = "<group>"; };
+		EDF4ED0F2487BF17001A5406 /* MKReporterResultsAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKReporterResultsAdapter.m; path = Engine/MKReporterResultsAdapter.m; sourceTree = "<group>"; };
+		EDF4ED112487BF27001A5406 /* MKReporterTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKReporterTaskAdapter.h; path = Engine/MKReporterTaskAdapter.h; sourceTree = "<group>"; };
+		EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKReporterTaskAdapter.m; path = Engine/MKReporterTaskAdapter.m; sourceTree = "<group>"; };
+		EDF4ED142487BF39001A5406 /* OONIProbeEngineTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIProbeEngineTaskAdapter.h; path = Engine/OONIProbeEngineTaskAdapter.h; sourceTree = "<group>"; };
+		EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIProbeEngineTaskAdapter.m; path = Engine/OONIProbeEngineTaskAdapter.m; sourceTree = "<group>"; };
 		EDF8E51C22C40A8E00CF0FF6 /* APITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
@@ -452,6 +487,7 @@
 		D4A2F5DB1A6C3244001B8460 /* ooniprobe */ = {
 			isa = PBXGroup;
 			children = (
+				EDF4ECF124854994001A5406 /* Engine */,
 				EDBCB08E1FD5BD7E00FA4838 /* Storyboards */,
 				ED62AB9E1ED5B75100778249 /* ooniprobe.entitlements */,
 				ED58E8C71D0C625300C74F10 /* Utility */,
@@ -884,6 +920,39 @@
 			path = OONIProbeUnitTests;
 			sourceTree = "<group>";
 		};
+		EDF4ECF124854994001A5406 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				EDF4ECFD24879684001A5406 /* CollectorResults.h */,
+				EDF4ECF824879683001A5406 /* CollectorTask.h */,
+				EDF4ECFC24879684001A5406 /* ExperimentSettings.h */,
+				EDF4ECF724879683001A5406 /* ExperimentTask.h */,
+				EDF4ECF924879684001A5406 /* GeoIPLookupResults.h */,
+				EDF4ECFA24879684001A5406 /* GeoIPLookupTask.h */,
+				EDF4ECFE24879684001A5406 /* OrchestraResults.h */,
+				EDF4ECFB24879684001A5406 /* OrchestraTask.h */,
+				EDF4ECF2248549BD001A5406 /* Engine.h */,
+				EDF4ECF3248549BD001A5406 /* Engine.m */,
+				EDF4ECFF24879D31001A5406 /* MKExperimentTaskAdapter.h */,
+				EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */,
+				EDF4ED022487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.h */,
+				EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */,
+				EDF4ED052487BED8001A5406 /* MKGeoIPLookupTaskAdapter.h */,
+				EDF4ED062487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m */,
+				EDF4ED082487BEE4001A5406 /* MKOrchestraResultsAdapter.h */,
+				EDF4ED092487BEE4001A5406 /* MKOrchestraResultsAdapter.m */,
+				EDF4ED0B2487BEFF001A5406 /* MKOrchestraTaskAdapter.h */,
+				EDF4ED0C2487BEFF001A5406 /* MKOrchestraTaskAdapter.m */,
+				EDF4ED0E2487BF17001A5406 /* MKReporterResultsAdapter.h */,
+				EDF4ED0F2487BF17001A5406 /* MKReporterResultsAdapter.m */,
+				EDF4ED112487BF27001A5406 /* MKReporterTaskAdapter.h */,
+				EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */,
+				EDF4ED142487BF39001A5406 /* OONIProbeEngineTaskAdapter.h */,
+				EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */,
+			);
+			name = Engine;
+			sourceTree = "<group>";
+		};
 		F4F15431D4412F561191270F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1206,6 +1275,7 @@
 				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
+				EDF4ED102487BF17001A5406 /* MKReporterResultsAdapter.m in Sources */,
 				EDF20736212173B9005B06D7 /* Advanced.m in Sources */,
 				ED2E067221D4867B00E9B9EE /* Dash.mm in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
@@ -1220,7 +1290,9 @@
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				EDA9F21B22414E0E003D40E8 /* UIDevice-DeviceInfo.m in Sources */,
 				ED90A92A2198DE5100204B46 /* Url.mm in Sources */,
+				EDF4ED072487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m in Sources */,
 				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
+				EDF4ED0A2487BEE4001A5406 /* MKOrchestraResultsAdapter.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
 				ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */,
@@ -1232,6 +1304,8 @@
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
+				EDF4ED0124879D31001A5406 /* MKExperimentTaskAdapter.m in Sources */,
+				EDF4ED162487BF39001A5406 /* OONIProbeEngineTaskAdapter.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
 				ED90A92B2198DE5100204B46 /* Measurement.mm in Sources */,
@@ -1262,6 +1336,7 @@
 				EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
+				EDF4ED0D2487BEFF001A5406 /* MKOrchestraTaskAdapter.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.mm in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
@@ -1273,6 +1348,7 @@
 				EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */,
+				EDF4ECF4248549BD001A5406 /* Engine.m in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
 				ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */,
 				ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */,
@@ -1284,7 +1360,9 @@
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
 				ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */,
 				ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */,
+				EDF4ED132487BF27001A5406 /* MKReporterTaskAdapter.m in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
+				EDF4ED042487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
