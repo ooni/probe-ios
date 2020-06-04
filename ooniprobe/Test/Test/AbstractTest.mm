@@ -68,101 +68,102 @@
         if (error != nil){
             self.result.failure_msg = error.description;
             [self.result save];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self testEnded];
+            });
+            return;
         }
-        else {
-            while (![task isDone]){
-                NSError *error;
-                // Extract an event from the task queue and unmarshal it.
-                NSDictionary *evinfo = [task waitForNextEvent:&error];
-                if (evinfo == nil || error != nil) {
+        while (![task isDone]){
+            NSError *error;
+            // Extract an event from the task queue and unmarshal it.
+            NSDictionary *evinfo = [task waitForNextEvent:&error];
+            if (evinfo == nil || error != nil) {
+                break;
+            }
+            NSLog(@"Got event: %@", evinfo);
+            InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
+            ObjectMapper *mapper = [[ObjectMapper alloc] init];
+            mapper.mappingProvider = mappingProvider;
+            EventResult *event = [mapper objectFromSource:evinfo toInstanceOfClass:[EventResult class]];
+            if (event.key == nil || event.value == nil) {
+                break;
+            }
+            if ([event.key isEqualToString:@"status.started"]) {
+                //[self updateProgressBar:0];
+            }
+            else if ([event.key isEqualToString:@"status.measurement_start"]) {
+                if (event.value.idx == nil || event.value.input == nil) {
                     break;
                 }
-                NSLog(@"Got event: %@", evinfo);
-                InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
-                ObjectMapper *mapper = [[ObjectMapper alloc] init];
-                mapper.mappingProvider = mappingProvider;
-                EventResult *event = [mapper objectFromSource:evinfo toInstanceOfClass:[EventResult class]];
-                if (event.key == nil || event.value == nil) {
+                Measurement *measurement = [self createMeasurementObject];
+                if ([event.value.input length] != 0){
+                    measurement.url_id = [Url getUrl:event.value.input];
+                    [measurement save];
+                }
+                [self.measurements setObject:measurement forKey:event.value.idx];
+            }
+            else if ([event.key isEqualToString:@"status.geoip_lookup"]) {
+                //Save Network info
+                [self saveNetworkInfo:event.value];
+            }
+            else if ([event.key isEqualToString:@"log"]) {
+                [self updateLogs:event.value];
+            }
+            else if ([event.key isEqualToString:@"status.progress"]) {
+                [self updateProgress:event.value];
+            }
+            else if ([event.key isEqualToString:@"measurement"]) {
+                [self onEntryCreate:event.value];
+            }
+            else if ([event.key isEqualToString:@"status.report_create"]) {
+                //Save report_id
+                self.reportId = event.value.report_id;
+            }
+            else if ([event.key isEqualToString:@"failure.report_create"]) {
+                /*
+                 every measure should be resubmitted
+                 substitute report_id in the json
+                 int mk_submit_report(const char *report_as_json);
+                 "value": {"failure": "<failure_string>"}
+                 */
+            }
+            else if ([event.key isEqualToString:@"status.measurement_submission"]) {
+                [self setUploaded:true idx:event.value.idx failure:nil];
+            }
+            else if ([event.key isEqualToString:@"failure.measurement_submission"]) {
+                //this is called in case of failure.report_create with a specific error
+                [self setUploaded:false idx:event.value.idx failure:event.value.failure];
+            }
+            else if ([event.key isEqualToString:@"status.measurement_done"]) {
+                //probabilmente da usare per indicare misura finita
+                if (event.value.idx == nil) {
                     break;
                 }
-                if ([event.key isEqualToString:@"status.started"]) {
-                    //[self updateProgressBar:0];
-                }
-                else if ([event.key isEqualToString:@"status.measurement_start"]) {
-                    if (event.value.idx == nil || event.value.input == nil) {
-                        break;
-                    }
-                    Measurement *measurement = [self createMeasurementObject];
-                    if ([event.value.input length] != 0){
-                        measurement.url_id = [Url getUrl:event.value.input];
-                        [measurement save];
-                    }
-                    [self.measurements setObject:measurement forKey:event.value.idx];
-                }
-                else if ([event.key isEqualToString:@"status.geoip_lookup"]) {
-                    //Save Network info
-                    [self saveNetworkInfo:event.value];
-                }
-                else if ([event.key isEqualToString:@"log"]) {
-                    [self updateLogs:event.value];
-                }
-                else if ([event.key isEqualToString:@"status.progress"]) {
-                    [self updateProgress:event.value];
-                }
-                else if ([event.key isEqualToString:@"measurement"]) {
-                    [self onEntryCreate:event.value];
-                }
-                else if ([event.key isEqualToString:@"status.report_create"]) {
-                    //Save report_id
-                    self.reportId = event.value.report_id;
-                }
-                else if ([event.key isEqualToString:@"failure.report_create"]) {
-                    /*
-                     every measure should be resubmitted
-                     substitute report_id in the json
-                     int mk_submit_report(const char *report_as_json);
-                     "value": {"failure": "<failure_string>"}
-                     */
-                }
-                else if ([event.key isEqualToString:@"status.measurement_submission"]) {
-                    [self setUploaded:true idx:event.value.idx failure:nil];
-                }
-                else if ([event.key isEqualToString:@"failure.measurement_submission"]) {
-                    //this is called in case of failure.report_create with a specific error
-                    [self setUploaded:false idx:event.value.idx failure:event.value.failure];
-                }
-                else if ([event.key isEqualToString:@"status.measurement_done"]) {
-                    //probabilmente da usare per indicare misura finita
-                    if (event.value.idx == nil) {
-                        break;
-                    }
-                    Measurement *measurement = [self.measurements objectForKey:event.value.idx];
-                    if (measurement != nil){
-                        measurement.is_done = true;
-                        [measurement save];
-                    }
-                }
-                else if ([event.key isEqualToString:@"status.end"]) {
-                    //update d.down e d.up
-                    if (event.value.downloaded_kb == nil || event.value.uploaded_kb == nil) {
-                        break;
-                    }
-                    [self.result setData_usage_down:self.result.data_usage_down+[event.value.downloaded_kb doubleValue]];
-                    [self.result setData_usage_up:self.result.data_usage_up+[event.value.uploaded_kb doubleValue]];
-                }
-                else if ([event.key isEqualToString:@"failure.startup"]) {
-                    self.result.failure_msg = event.value.failure;
-                    [self.result save];
-                }
-                else if ([event.key isEqualToString:@"bug.json_dump"]) {
-                    [ExceptionUtility recordError:@"json_dump" code:0 userInfo:[event.value dictionary]];
-                }
-                else {
-                    NSLog(@"unused event: %@", evinfo);
+                Measurement *measurement = [self.measurements objectForKey:event.value.idx];
+                if (measurement != nil){
+                    measurement.is_done = true;
+                    [measurement save];
                 }
             }
-        }
-        // Notify the main thread that the task is now complete
+            else if ([event.key isEqualToString:@"status.end"]) {
+                //update d.down e d.up
+                if (event.value.downloaded_kb == nil || event.value.uploaded_kb == nil) {
+                    break;
+                }
+                [self.result setData_usage_down:self.result.data_usage_down+[event.value.downloaded_kb doubleValue]];
+                [self.result setData_usage_up:self.result.data_usage_up+[event.value.uploaded_kb doubleValue]];
+            }
+            else if ([event.key isEqualToString:@"failure.startup"]) {
+                self.result.failure_msg = event.value.failure;
+                [self.result save];
+            }
+            else if ([event.key isEqualToString:@"bug.json_dump"]) {
+                [ExceptionUtility recordError:@"json_dump" code:0 userInfo:[event.value dictionary]];
+            }
+            else {
+                NSLog(@"unused event: %@", evinfo);
+            }
+        }        // Notify the main thread that the task is now complete
         dispatch_async(dispatch_get_main_queue(), ^{
             [self testEnded];
         });
