@@ -14,23 +14,23 @@
     return self.results.good;
 }
 
-- (NSString*) getProbeIP  {
+- (NSString*) probeIP  {
     return self.results.probeIP;
 }
 
-- (NSString*) getProbeASN {
+- (NSString*) probeASN {
     return self.results.probeASN;
 }
 
-- (NSString*) getProbeCC {
+- (NSString*) probeCC {
     return self.results.probeCC;
 }
 
-- (NSString*) getProbeOrg {
+- (NSString*) probeOrg {
     return self.results.probeOrg;
 }
 
-- (NSString*) getLogs {
+- (NSString*) logs {
     return self.results.logs;
 }
 

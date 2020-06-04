@@ -7,12 +7,12 @@
 @implementation OONIApi
 
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
-    id<GeoIPLookupTask> task = [Engine getNewGeoIPLookupTask];
+    id<GeoIPLookupTask> task = [Engine geoIPLookupTask];
     [task setTimeout:DEFAULT_TIMEOUT];
     id<GeoIPLookupResults> results = [task perform];
     NSString *cc = @"XX";
     if ([results isGood])
-        cc = [results getProbeCC];
+        cc = [results probeCC];
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";
     components.host = @"orchestrate.ooni.io";

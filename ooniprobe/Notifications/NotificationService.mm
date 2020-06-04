@@ -11,7 +11,7 @@
     {
         // thread-safe code
         NSString *device_token = [SettingsUtility get_push_token];        
-        id<OrchestraTask> task = [Engine getNewOrchestraTaskWithSoftwareName:SOFTWARE_NAME
+        id<OrchestraTask> task = [Engine orchestraTaskWithSoftwareName:SOFTWARE_NAME
                                     softwareVersion:[VersionUtility get_software_version]
                                     supportedTests:[TestUtility getTestsArray]
                                     deviceToken:device_token

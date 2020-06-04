@@ -4,7 +4,7 @@
 @implementation Engine
 
 /** getVersionMK returns the version of Measurement Kit we're using */
-+ (NSString*) getVersionMK {
++ (NSString*) versionMK {
     return [MKVersion versionMK];
 }
 
@@ -23,19 +23,19 @@
 }
 
 /** newGeoIPLookupTask creates a new GeoIP lookup task. */
-+ (id<GeoIPLookupTask>) getNewGeoIPLookupTask {
++ (id<GeoIPLookupTask>) geoIPLookupTask {
     return [[MKGeoIPLookupTaskAdapter alloc] init];
 }
 
 /** newCollectorTask creates a new collector task. */
-+ (id<CollectorTask>) getNewCollectorTaskWithSoftwareName:(NSString *)softwareName
++ (id<CollectorTask>) collectorTaskWithSoftwareName:(NSString *)softwareName
                                    softwareVersion:(NSString *)softwareVersion {
     return [[MKReporterTaskAdapter alloc] initWithSoftwareName:softwareName
                                                softwareVersion:softwareVersion];
 }
 
 /** newOrchestraTask creates a new orchestra task. */
-+ (id<OrchestraTask>) getNewOrchestraTaskWithSoftwareName:(NSString *)softwareName
++ (id<OrchestraTask>) orchestraTaskWithSoftwareName:(NSString *)softwareName
                                     softwareVersion:(NSString *)softwareVersion
                                      supportedTests:(NSArray<NSString *> *)supportedTests
                                         deviceToken:(NSString *)deviceToken

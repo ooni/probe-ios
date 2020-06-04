@@ -14,7 +14,7 @@
     return self.results.good;
 }
 
-- (NSString*) getLogs {
+- (NSString*) logs {
     return self.results.logs;
 }
 

@@ -85,7 +85,7 @@
         NSUInteger i = 0;
         float progress = 0.0f;
         float measurementValue = 1.0/([notUploaded count]);
-        id<CollectorTask> task = [Engine getNewCollectorTaskWithSoftwareName:SOFTWARE_NAME
+        id<CollectorTask> task = [Engine collectorTaskWithSoftwareName:SOFTWARE_NAME
                                softwareVersion:[VersionUtility get_software_version]];
         while (i < [notUploaded count]){
             Measurement *currentMeasurement = [notUploaded objectAtIndex:i];
@@ -128,14 +128,14 @@
                                                     withTimeout:[TestUtility makeTimeout:bytes]];
     if ([results isGood]){
         //save updated file
-        [TestUtility writeString:[results getUpdatedSerializedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
+        [TestUtility writeString:[results updatedSerializedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
         measurement.is_uploaded = true;
         measurement.is_upload_failed = false;
-        [measurement setReport_id:[results getUpdatedReportID]];
+        [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
     if (![results isGood])
-        [logs addObject:[results getReason]];
+        [logs addObject:[results reason]];
     return [results isGood];
 }
 

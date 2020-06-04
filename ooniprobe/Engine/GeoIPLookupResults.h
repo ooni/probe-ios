@@ -6,20 +6,20 @@
 /** isGood returns whether we succeeded. */
 - (BOOL) isGood;
 
-/** getProbeIP returns the probe IP. */
-- (NSString*) getProbeIP;
+/** probeIP returns the probe IP. */
+- (NSString*) probeIP;
 
-/** getProbeASN returns the probe ASN. */
-- (NSString*) getProbeASN;
+/** probeASN returns the probe ASN. */
+- (NSString*) probeASN;
 
-/** getProbeCC returns the probe CC. */
-- (NSString*) getProbeCC;
+/** probeCC returns the probe CC. */
+- (NSString*) probeCC;
 
-/** getProbeOrg returns the probe ASN organization. */
-- (NSString*) getProbeOrg;
+/** probeOrg returns the probe ASN organization. */
+- (NSString*) probeOrg;
 
-/** getLogs returns the logs as one or more newline separated
+/** logs returns the logs as one or more newline separated
  * lines containing only UTF-8 characters. */
-- (NSString*) getLogs;
+- (NSString*) logs;
 
 @end

@@ -20,16 +20,16 @@
 */
 @interface Engine : NSObject
 
-+ (NSString*) getVersionMK;
++ (NSString*) versionMK;
 
 + (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings;
 
-+ (id<GeoIPLookupTask>) getNewGeoIPLookupTask;
++ (id<GeoIPLookupTask>) geoIPLookupTask;
 
-+ (id<CollectorTask>) getNewCollectorTaskWithSoftwareName:(NSString *)softwareName
++ (id<CollectorTask>) collectorTaskWithSoftwareName:(NSString *)softwareName
                                      softwareVersion:(NSString *)softwareVersion;
 
-+ (id<OrchestraTask>) getNewOrchestraTaskWithSoftwareName:(NSString *)softwareName
++ (id<OrchestraTask>) orchestraTaskWithSoftwareName:(NSString *)softwareName
                                     softwareVersion:(NSString *)softwareVersion
                                      supportedTests:(NSArray<NSString *> *)supportedTests
                                         deviceToken:(NSString *)deviceToken

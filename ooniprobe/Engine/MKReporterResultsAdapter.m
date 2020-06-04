@@ -14,19 +14,19 @@
     return self.results.good;
 }
 
-- (NSString*)getReason {
+- (NSString*)reason {
     return self.results.reason;
 }
 
-- (NSString*)getLogs {
+- (NSString*)logs {
     return self.results.logs;
 }
 
-- (NSString*)getUpdatedSerializedMeasurement {
+- (NSString*)updatedSerializedMeasurement {
     return self.results.updatedSerializedMeasurement;
 }
 
-- (NSString*)getUpdatedReportID {
+- (NSString*)updatedReportID {
     return self.results.updatedReportID;
 }
 
