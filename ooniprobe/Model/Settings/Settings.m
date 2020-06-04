@@ -30,7 +30,7 @@
 }
 
 - (NSDictionary *)dictionary {
-    return self.settings.getSettingsDictionary;
+    return [self.settings getSettingsDictionary];
 }
 
 
