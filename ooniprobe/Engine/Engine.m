@@ -1,6 +1,6 @@
 #import "Engine.h"
 #import <mkall/MKVersion.h>
-#define probeEngineTasks @[@"Telegram", @"Dash", @"Ndt"]
+#define probeEngineTasks @[@"Telegram"]
 
 @implementation Engine
 
