@@ -38,4 +38,9 @@
  */
 - (void) interrupt;
 
+/**
+ * hasError is used to store the NSError with message in case something happens.
+ */
+- (NSError*) hasError;
+
 @end

@@ -23,8 +23,17 @@
 }
 
 - (NSDictionary*) waitForNextEvent {
+    NSError* curError;
     NSData *data = [self.task.waitForNextEvent dataUsingEncoding:NSUTF8StringEncoding];
-    return [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&curError];
+    if (curError != nil) {
+        self.error = curError;
+    }
+    return json;
+}
+
+- (NSError*) hasError {
+    return self.error;
 }
 
 @end

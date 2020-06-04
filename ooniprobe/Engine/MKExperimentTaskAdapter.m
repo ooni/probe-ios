@@ -26,4 +26,8 @@
     return self.task.waitForNextEvent;
 }
 
+- (NSError*) hasError{
+    return nil;
+}
+
 @end

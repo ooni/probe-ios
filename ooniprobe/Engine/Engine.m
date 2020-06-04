@@ -12,15 +12,14 @@
 /** startExperimentTask starts the experiment described by the provided settings. */
 + (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings {
     if ([probeEngineTasks containsObject:settings.taskName]) {
-        NSError * err;
+        NSError* curError;
         OONIProbeEngineTaskAdapter *task = [[OONIProbeEngineTaskAdapter alloc]
-                                            initWithTask:OonimkallStartTask(settings.serialization, &err)];
-        if (!err)
-            return task;
-        //TODO what to do here?
-        //set failure_msg
-        NSLog(@"cannot start OONI Probe Engine task");
-        return nil;
+                                            initWithTask:OonimkallStartTask(settings.serialization, &curError)];
+        if (curError != nil) {
+            task.error = curError;
+            NSLog(@"cannot start OONI Probe Engine task");
+        }
+        return task;        
     }
     return [[MKExperimentTaskAdapter alloc]
             initWithTask:[MKAsyncTask start:settings.dictionary]];
