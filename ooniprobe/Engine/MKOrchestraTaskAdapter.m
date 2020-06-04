@@ -2,7 +2,11 @@
 
 @implementation MKOrchestraTaskAdapter
 
-- (id)initWithSoftwareName:softwareName softwareVersion:softwareVersion supportedTests:supportedTests deviceToken:deviceToken secretsFile:secretsFile {
+- (id)initWithSoftwareName:softwareName
+           softwareVersion:softwareVersion
+            supportedTests:supportedTests
+               deviceToken:deviceToken
+               secretsFile:secretsFile {
     self = [super init];
     if (self) {
         self.task = [[MKOrchestraTask alloc] initWithSoftwareName:softwareName
