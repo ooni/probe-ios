@@ -3,6 +3,39 @@
 #import "SettingsUtility.h"
 #import "InCodeMappingProvider.h"
 
+@interface ExperimentSettingsAdapter : NSObject <ExperimentSettings>
+- (id)initWithJson:(NSString*)json settings:(Settings*)settings;
+@property (nonatomic, strong) Settings* settings;
+@property (nonatomic, strong) NSString* serialized;
+@property (nonatomic, strong) NSDictionary* dictionary;
+@end
+
+@implementation ExperimentSettingsAdapter
+
+- (id)initWithJson:(NSString*)json settings:(Settings*)settings {
+    self = [super init];
+    if (self) {
+        self.serialized = json;
+        self.settings = settings;
+    }
+    return self;
+}
+
+- (NSString *)serialization {
+    return self.serialized;
+}
+
+- (NSString *)taskName {
+    return self.settings.name;
+}
+
+- (NSDictionary *)dictionary {
+    return self.settings.getSettingsDictionary;
+}
+
+
+@end
+
 @implementation Settings
 
 - (id)init {
@@ -21,6 +54,18 @@
 -(NSDictionary*)getSettingsDictionary{
     ObjectMapper *mapper = [[ObjectMapper alloc] init];
     return [mapper dictionaryFromObject:self];
+}
+
+-(NSString*)getSettingsJson{
+    NSError * err;
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:[self getSettingsDictionary] options:0 error:&err];
+    if (!err)
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return nil;
+}
+
+-(id<ExperimentSettings>)toExperimentSettings {
+    return [[ExperimentSettingsAdapter alloc] initWithJson:[self getSettingsJson] settings:self];
 }
 
 @end

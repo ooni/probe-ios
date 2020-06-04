@@ -24,10 +24,10 @@
 /**
  * waitForNextEvent blocks until the next event is available
  * and return returns such event to the caller. The returned
- * event is a JSON serialized string that uses the data format
- * specified by Measurement Kit v0.9.0.
+ * event is a NSDictionary with the JSON serialized string
+ * that uses the data format specified by Measurement Kit v0.9.0.
  */
-- (NSString*) waitForNextEvent;
+- (NSDictionary*) waitForNextEvent;
 
 /** canInterrupt returns true if this task can be interrupted. */
 - (BOOL) canInterrupt;

@@ -22,12 +22,8 @@
     return self.task.done;
 }
 
-- (NSString*) waitForNextEvent {
-    NSError * err;
-    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:self.task.waitForNextEvent options:0 error:&err];
-    if (err)
-        return nil;
-    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+- (NSDictionary*) waitForNextEvent {
+    return self.task.waitForNextEvent;
 }
 
 @end

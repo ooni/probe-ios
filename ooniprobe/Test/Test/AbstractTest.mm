@@ -58,14 +58,13 @@
 -(void)runTest{
     if(self.annotation)
         [self.settings.annotations setObject:@"ooni-run" forKey:@"origin"];
-    NSDictionary *settings = [self.settings getSettingsDictionary];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     dispatch_async(_serialQueue, ^{
-                       MKAsyncTask *task = [MKAsyncTask start:settings];
-                       while (![task done]){
+                       id<ExperimentTask> task = [Engine startExperimentTaskWithSettings:[self.settings toExperimentSettings]];
+                       while (![task isDone]){
                            // Extract an event from the task queue and unmarshal it.
                            NSDictionary *evinfo = [task waitForNextEvent];
                            if (evinfo == nil) {

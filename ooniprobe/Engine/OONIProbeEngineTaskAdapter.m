@@ -22,8 +22,9 @@
     return [self.task isDone];
 }
 
-- (NSString*) waitForNextEvent {
-    return self.task.waitForNextEvent;
+- (NSDictionary*) waitForNextEvent {
+    NSData *data = [self.task.waitForNextEvent dataUsingEncoding:NSUTF8StringEncoding];
+    return [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 }
 
 @end

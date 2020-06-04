@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "ExperimentSettings.h"
 #import "MKExperimentTaskAdapter.h"
 #import "MKGeoIPLookupResultsAdapter.h"
 #import "MKGeoIPLookupTaskAdapter.h"
@@ -20,6 +21,8 @@
 @interface Engine : NSObject
 
 + (NSString*) getVersionMK;
+
++ (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings;
 
 + (id<GeoIPLookupTask>) getNewGeoIPLookupTask;
 

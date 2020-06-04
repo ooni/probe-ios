@@ -9,21 +9,18 @@
 }
 
 /** startExperimentTask starts the experiment described by the provided settings. */
-/*
- + (id<ExperimentTask>) startExperimentTask(ExperimentSettings settings) throws EngineException {
-    if (probeEngineTasks.contains(settings.taskName())) {
-        try {
-            return new OONIProbeEngineTaskAdapter(
-                    oonimkall.Oonimkall.startTask(settings.serialization())
-            );
-        } catch (Exception exc) {
-            throw new EngineException("cannot start OONI Probe Engine task", exc);
-        }
++ (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings {
+    if ([probeEngineTasks containsObject:settings.taskName]) {
+        NSError * err;
+        OONIProbeEngineTaskAdapter *task = [[OONIProbeEngineTaskAdapter alloc]
+                                            initWithTask:OonimkallStartTask(settings.serialization, &err)];
+        if (!err)
+            return task;
+        NSLog(@"cannot start OONI Probe Engine task");
     }
-    return new MKExperimentTaskAdapter(io.ooni.mk.MKAsyncTask.start(settings.serialization()));
-}*/
-//MKAsyncTask *task = [MKAsyncTask start:settings];
-
+    return [[MKExperimentTaskAdapter alloc]
+            initWithTask:[MKAsyncTask start:settings.dictionary]];
+}
 
 /** newGeoIPLookupTask creates a new GeoIP lookup task. */
 + (id<GeoIPLookupTask>) getNewGeoIPLookupTask {

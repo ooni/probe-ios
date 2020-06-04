@@ -2,6 +2,7 @@
 #import "Options.h"
 #import "ObjectMapper.h"
 #import "NSObject+ObjectMapper.h"
+#import "ExperimentSettings.h"
 
 @interface Settings : NSObject
 @property (nonatomic, strong) NSMutableDictionary *annotations;
@@ -12,4 +13,7 @@
 @property (nonatomic, strong) Options *options;
 
 -(NSDictionary*)getSettingsDictionary;
+-(NSString*)getSettingsJson;
+-(id<ExperimentSettings>)toExperimentSettings;
 @end
+
