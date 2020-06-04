@@ -8,11 +8,6 @@
 #import "MKReporterResultsAdapter.h"
 #import "MKReporterTaskAdapter.h"
 #import "OONIProbeEngineTaskAdapter.h"
-#import <mkall/MKVersion.h>
-#import <mkall/MKGeoIPLookup.h>
-#import <mkall/MKOrchestra.h>
-#import <mkall/MKReporter.h>
-#import <mkall/MKAsyncTask.h>
 
 /**
 * Engine is a factory class for creating several kinds of tasks. We will use different

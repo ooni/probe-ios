@@ -1,4 +1,5 @@
 #import "Engine.h"
+#import <mkall/MKVersion.h>
 #define probeEngineTasks @[@"Telegram", @"Dash", @"Ndt"]
 
 @implementation Engine
@@ -16,7 +17,10 @@
                                             initWithTask:OonimkallStartTask(settings.serialization, &err)];
         if (!err)
             return task;
+        //TODO what to do here?
+        //set failure_msg
         NSLog(@"cannot start OONI Probe Engine task");
+        return nil;
     }
     return [[MKExperimentTaskAdapter alloc]
             initWithTask:[MKAsyncTask start:settings.dictionary]];
