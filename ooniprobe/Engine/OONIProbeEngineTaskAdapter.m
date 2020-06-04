@@ -24,7 +24,7 @@
 
 - (NSDictionary*) waitForNextEvent:(NSError **)error {
     NSData *data = [[self.task waitForNextEvent] dataUsingEncoding:NSUTF8StringEncoding];
-    return [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    return [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
 }
 
 @end
