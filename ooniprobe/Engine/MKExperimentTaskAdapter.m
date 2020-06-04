@@ -22,7 +22,7 @@
     return [self.task done];
 }
 
-- (NSDictionary*) waitForNextEvent {
+- (NSDictionary*) waitForNextEvent:(NSError*)error {
     return [self.task waitForNextEvent];
 }
 

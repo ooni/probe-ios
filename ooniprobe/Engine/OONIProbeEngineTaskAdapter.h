@@ -7,6 +7,5 @@
 - (id)initWithTask:(OonimkallTask*)task;
 
 @property (nonatomic, strong) OonimkallTask* task;
-@property (nonatomic, weak) NSError* error;
 
 @end

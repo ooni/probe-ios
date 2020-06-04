@@ -27,7 +27,7 @@
  * event is a NSDictionary with the JSON serialized string
  * that uses the data format specified by Measurement Kit v0.9.0.
  */
-- (NSDictionary*) waitForNextEvent;
+- (NSDictionary*) waitForNextEvent:(NSError*)error;
 
 /** canInterrupt returns true if this task can be interrupted. */
 - (BOOL) canInterrupt;
@@ -37,10 +37,5 @@
  * not support interrupting a task, this method does noething.
  */
 - (void) interrupt;
-
-/**
- * hasError is used to store the NSError with message in case something happens.
- */
-- (NSError*) hasError;
 
 @end

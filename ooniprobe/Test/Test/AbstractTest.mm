@@ -63,16 +63,18 @@
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     dispatch_async(_serialQueue, ^{
-        id<ExperimentTask> task = [Engine startExperimentTaskWithSettings:[self.settings toExperimentSettings]];
-        if (task.hasError != nil){
-            self.result.failure_msg = task.hasError.description;
+        NSError *error;
+        id<ExperimentTask> task = [Engine startExperimentTaskWithSettings:[self.settings toExperimentSettings] error:error];
+        if (error != nil){
+            self.result.failure_msg = error.description;
             [self.result save];
         }
         else {
             while (![task isDone]){
+                NSError *error;
                 // Extract an event from the task queue and unmarshal it.
-                NSDictionary *evinfo = [task waitForNextEvent];
-                if (evinfo == nil) {
+                NSDictionary *evinfo = [task waitForNextEvent:error];
+                if (evinfo == nil || error != nil) {
                     break;
                 }
                 NSLog(@"Got event: %@", evinfo);
