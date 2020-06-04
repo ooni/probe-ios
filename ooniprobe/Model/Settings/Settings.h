@@ -10,6 +10,9 @@
 @property (nonatomic, strong) NSArray *inputs;
 @property (nonatomic, strong) NSString *log_level;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *assets_dir;
+@property (nonatomic, strong) NSString *state_dir;
+@property (nonatomic, strong) NSString *temp_dir;
 @property (nonatomic, strong) Options *options;
 
 -(NSDictionary*)getSettingsDictionary;

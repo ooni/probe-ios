@@ -47,6 +47,11 @@
         self.disabled_events = @[@"status.queued", @"status.update.websites", @"failure.report_close"];
         self.log_level = [SettingsUtility getVerbosity];
         self.options = [Options new];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        self.state_dir = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"state"]];
+        self.assets_dir = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"assets"]];
+        self.temp_dir = NSTemporaryDirectory();
     }
     return self;
 }
