@@ -11,23 +11,23 @@
 }
 
 - (BOOL)isGood {
-    return self.results.good;
+    return [self.results good];
 }
 
 - (NSString*)reason {
-    return self.results.reason;
+    return [self.results reason];
 }
 
 - (NSString*)logs {
-    return self.results.logs;
+    return [self.results logs];
 }
 
 - (NSString*)updatedSerializedMeasurement {
-    return self.results.updatedSerializedMeasurement;
+    return [self.results updatedSerializedMeasurement];
 }
 
 - (NSString*)updatedReportID {
-    return self.results.updatedReportID;
+    return [self.results updatedReportID];
 }
 
 @end

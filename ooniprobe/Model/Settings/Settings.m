@@ -26,7 +26,7 @@
 }
 
 - (NSString *)taskName {
-    return self.settings.name;
+    return [self.settings name];
 }
 
 - (NSDictionary *)dictionary {

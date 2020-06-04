@@ -19,11 +19,11 @@
 }
 
 - (BOOL) isDone {
-    return self.task.done;
+    return [self.task done];
 }
 
 - (NSDictionary*) waitForNextEvent {
-    return self.task.waitForNextEvent;
+    return [self.task waitForNextEvent];
 }
 
 - (NSError*) hasError{

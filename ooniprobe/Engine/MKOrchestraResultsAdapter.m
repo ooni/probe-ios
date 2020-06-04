@@ -11,11 +11,11 @@
 }
 
 - (BOOL) isGood {
-    return self.results.good;
+    return [self.results good];
 }
 
 - (NSString*) logs {
-    return self.results.logs;
+    return [self.results logs];
 }
 
 @end
