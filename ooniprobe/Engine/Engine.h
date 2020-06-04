@@ -17,7 +17,7 @@
 
 + (NSString*) versionMK;
 
-+ (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings error:(NSError*)error;
++ (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings error:(NSError **)error;
 
 + (id<GeoIPLookupTask>) geoIPLookupTask;
 

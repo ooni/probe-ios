@@ -10,7 +10,7 @@
 }
 
 /** startExperimentTask starts the experiment described by the provided settings. */
-+ (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings error:(NSError*)error {
++ (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings error:(NSError **)error {
     if ([probeEngineTasks containsObject:settings.taskName]) {
         OONIProbeEngineTaskAdapter *task = [[OONIProbeEngineTaskAdapter alloc]
                                             initWithTask:OonimkallStartTask(settings.serialization, &error)];
