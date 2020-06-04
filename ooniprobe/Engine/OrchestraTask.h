@@ -8,15 +8,6 @@
  * available to commit to running measurements. */
 - (void) setAvailableBandwidth:(NSString*) value;
 
-/** setCABundlePath sets the path of the CA bundle to use. */
-- (void) setCABundlePath:(NSString*) value;
-
-/** setGeoIPCountryPath sets the path of the MaxMind country database. */
-- (void) setGeoIPCountryPath:(NSString*) value;
-
-/** setGeoIPASNPath sets the path of the MaxMind ASN database. */
-- (void) setGeoIPASNPath:(NSString*) value;
-
 /** setLanguage sets the device's language. */
 - (void) setLanguage:(NSString*) value;
 

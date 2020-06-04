@@ -19,18 +19,6 @@
     [self.task setAvailableBandwidth:value];
 }
 
-- (void) setCABundlePath:(NSString*) value {
-    //NOT USED
-}
-
-- (void) setGeoIPCountryPath:(NSString*) value {
-    //NOT USED
-}
-
-- (void) setGeoIPASNPath:(NSString*) value {
-    //NOT USED
-}
-
 - (void) setLanguage:(NSString*) value {
     [self.task setLanguage:value];
 }

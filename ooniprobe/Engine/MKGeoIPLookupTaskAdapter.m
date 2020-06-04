@@ -14,18 +14,6 @@
     [self.task setTimeout:timeout];
 }
 
-- (void) setCABundlePath:(NSString*) path {
-    //NOT USED
-}
-
-- (void) setCountryDBPath:(NSString*) path {
-    //NOT USED
-}
-
-- (void) setASNDBPath:(NSString*) path {
-    //NOT USED
-}
-
 - (id<GeoIPLookupResults>) perform {
     return [[MKGeoIPLookupResultsAdapter alloc]
             initWithResults:[self.task perform]];
