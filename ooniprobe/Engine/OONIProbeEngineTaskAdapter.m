@@ -22,10 +22,9 @@
     return [self.task isDone];
 }
 
-- (NSDictionary*) waitForNextEvent:(NSError*)error {
+- (NSDictionary*) waitForNextEvent:(NSError **)error {
     NSData *data = [[self.task waitForNextEvent] dataUsingEncoding:NSUTF8StringEncoding];
-    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    return json;
+    return [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
 }
 
 @end

@@ -73,7 +73,7 @@
             while (![task isDone]){
                 NSError *error;
                 // Extract an event from the task queue and unmarshal it.
-                NSDictionary *evinfo = [task waitForNextEvent:error];
+                NSDictionary *evinfo = [task waitForNextEvent:&error];
                 if (evinfo == nil || error != nil) {
                     break;
                 }
