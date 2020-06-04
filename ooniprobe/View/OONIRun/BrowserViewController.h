@@ -1,5 +1,10 @@
 #import <UIKit/UIKit.h>
 
+/**
+* @deprecated
+* This component is not used and will be probably removed
+*/
+__deprecated
 @interface BrowserViewController : UIViewController <UIWebViewDelegate> {
     int urlIndex;
     NSError *lastError;

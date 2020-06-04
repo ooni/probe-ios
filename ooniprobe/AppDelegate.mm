@@ -118,7 +118,7 @@
     }
 }
 
--(void)openBrowser{
+-(void)openBrowser __deprecated {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
         UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"browserNC"];
