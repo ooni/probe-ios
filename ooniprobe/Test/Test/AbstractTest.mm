@@ -162,7 +162,8 @@
             else {
                 NSLog(@"unused event: %@", evinfo);
             }
-        }        // Notify the main thread that the task is now complete
+        }
+        // Notify the main thread that the task is now complete
         dispatch_async(dispatch_get_main_queue(), ^{
             [self testEnded];
         });
