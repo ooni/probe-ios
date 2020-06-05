@@ -1,5 +1,5 @@
 #import "AboutViewController.h"
-#import <mkall/MKVersion.h>
+#import "Engine.h"
 #import "VersionUtility.h"
 
 @interface AboutViewController ()
@@ -27,7 +27,7 @@
     [self.ppButton setTitleColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]
                         forState:UIControlStateNormal];
     
-    [self.versionLabel setText:[NSString stringWithFormat:@"OONI Probe: %@\nmeasurement-kit: %@", [VersionUtility get_software_version], [MKVersion versionMK]]];
+    [self.versionLabel setText:[NSString stringWithFormat:@"OONI Probe: %@\nmeasurement-kit: %@", [VersionUtility get_software_version], [Engine versionMK]]];
     [self.versionLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 }
 

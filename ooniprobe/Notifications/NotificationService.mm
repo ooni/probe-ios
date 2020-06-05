@@ -1,7 +1,7 @@
 #import "NotificationService.h"
 #import "VersionUtility.h"
 #import "TestUtility.h"
-#import <mkall/MKOrchestra.h>
+#import "Engine.h"
 #import "SettingsUtility.h"
 
 @implementation NotificationService
@@ -11,8 +11,7 @@
     {
         // thread-safe code
         NSString *device_token = [SettingsUtility get_push_token];        
-        MKOrchestraTask *task = [[MKOrchestraTask alloc]
-                                    initWithSoftwareName:SOFTWARE_NAME
+        id<OrchestraTask> task = [Engine orchestraTaskWithSoftwareName:SOFTWARE_NAME
                                     softwareVersion:[VersionUtility get_software_version]
                                     supportedTests:[TestUtility getTestsArray]
                                     deviceToken:device_token

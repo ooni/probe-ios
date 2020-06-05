@@ -2,7 +2,6 @@
 #import "Url.h"
 #import "SettingsUtility.h"
 #import "Suite.h"
-#import <mkall/MKGeoIPLookup.h>
 #define delete_json_delay 86400
 #define delete_json_key @"deleteUploadedJsons"
 
