@@ -46,8 +46,10 @@
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.estimatedLabel setText:NSLocalizedString(@"Dashboard.Overview.Estimated", nil)];
-        [self.estimatedDetailLabel setText:[NSString stringWithFormat:@"%@ %@", testSuite.dataUsage,
-                                            [LocalizationUtility getReadableRuntime:[testSuite getRuntime]]]];
+        [self.estimatedDetailLabel setText:
+         [NSString stringWithFormat:@"%@ %@",
+          testSuite.dataUsage,
+          [LocalizationUtility getReadableRuntime:[testSuite getRuntime]]]];
         [self.lastrunLabel setText:NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)];
         
         NSString *ago;
