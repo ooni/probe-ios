@@ -2,7 +2,8 @@ platform :ios, '9.0'
 # ignore all warnings from all pods
 inhibit_all_warnings!
 target 'ooniprobe' do
-    pod 'mkall', :git => 'https://github.com/measurement-kit/mkall-ios.git', :tag => 'v0.8.0'
+    pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2020.06.04-145317.podspec'
+    pod 'mkall', :git => 'https://github.com/measurement-kit/mkall-ios.git', :tag => 'v0.8.1'
     pod 'Toast', '~> 4.0.0'
     pod 'Fabric'
     pod 'Crashlytics'

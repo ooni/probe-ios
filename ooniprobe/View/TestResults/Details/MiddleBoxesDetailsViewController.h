@@ -2,12 +2,7 @@
 #import "TestDetailsViewController.h"
 #import "PaddingLabel.h"
 
-/**
- * @deprecated
- * Is not possible to run a MiddleBoxesSuite anymore
- * so the MiddleBoxesDetailsViewController is not gonna be shown for new tests
- */
-__deprecated
+//This screen is still used for HIRL and HHFM under the Performance suite
 @interface MiddleBoxesDetailsViewController : TestDetailsViewController
 
 @property (nonatomic, strong) IBOutlet UIImageView *statusImage;

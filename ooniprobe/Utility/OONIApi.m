@@ -1,5 +1,5 @@
 #import "OONIApi.h"
-#import <mkall/MKGeoIPLookup.h>
+#import "Engine.h"
 #import "SettingsUtility.h"
 #import "NetworkSession.h"
 #import "Url.h"
@@ -7,11 +7,11 @@
 @implementation OONIApi
 
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
-    MKGeoIPLookupTask *task = [[MKGeoIPLookupTask alloc] init];
+    id<GeoIPLookupTask> task = [Engine geoIPLookupTask];
     [task setTimeout:DEFAULT_TIMEOUT];
-    MKGeoIPLookupResults *results = [task perform];
+    id<GeoIPLookupResults> results = [task perform];
     NSString *cc = @"XX";
-    if ([results good])
+    if ([results isGood])
         cc = [results probeCC];
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";

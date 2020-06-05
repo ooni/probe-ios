@@ -6,9 +6,10 @@ PODS:
   - Fabric (1.10.2)
   - lottie-ios (2.5.3)
   - MBProgressHUD (1.2.0)
-  - mkall (0.8.0)
+  - mkall (0.8.1)
   - MKDropdownMenu (1.4)
   - OCMapper (2.0)
+  - oonimkall (2020.06.04-145317)
   - RHMarkdownLabel (0.0.1):
     - TTTAttributedLabel
     - XNGMarkdownParser
@@ -24,9 +25,10 @@ DEPENDENCIES:
   - Fabric
   - lottie-ios (= 2.5.3)
   - MBProgressHUD
-  - mkall (from `https://github.com/measurement-kit/mkall-ios.git`, tag `v0.8.0`)
+  - mkall (from `https://github.com/measurement-kit/mkall-ios.git`, tag `v0.8.1`)
   - MKDropdownMenu
   - OCMapper (= 2.0)
+  - oonimkall (from `https://dl.bintray.com/ooni/ios/oonimkall-2020.06.04-145317.podspec`)
   - RHMarkdownLabel
   - SharkORM (from `https://github.com/sharksync/sharkorm`, tag `v2.3.67`)
   - Toast (~> 4.0.0)
@@ -49,7 +51,9 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   mkall:
     :git: https://github.com/measurement-kit/mkall-ios.git
-    :tag: v0.8.0
+    :tag: v0.8.1
+  oonimkall:
+    :podspec: https://dl.bintray.com/ooni/ios/oonimkall-2020.06.04-145317.podspec
   SharkORM:
     :git: https://github.com/sharksync/sharkorm
     :tag: v2.3.67
@@ -57,7 +61,7 @@ EXTERNAL SOURCES:
 CHECKOUT OPTIONS:
   mkall:
     :git: https://github.com/measurement-kit/mkall-ios.git
-    :tag: v0.8.0
+    :tag: v0.8.1
   SharkORM:
     :git: https://github.com/sharksync/sharkorm
     :tag: v2.3.67
@@ -69,15 +73,16 @@ SPEC CHECKSUMS:
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  mkall: 54f5d8c00c447504ea042160f489da392149900e
+  mkall: ad8eb6f86017eb1108ec146d47abfd692181b46c
   MKDropdownMenu: 269df4a41d21a1db684ce8bc709befe419fc5bae
   OCMapper: 9b4d542543794c42adc01f1493d894f53e193cb0
+  oonimkall: 7caae041eba2e6ce899673774aacdb9d88968e5c
   RHMarkdownLabel: 81d6772768e621be57302b7fd5212ad4f78fb0bd
   SharkORM: 252e4411923110ac1b524a993ee2b3fa13eed7c4
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XNGMarkdownParser: aed98c14f0c0eb20064184ddf9bac26c482722b2
 
-PODFILE CHECKSUM: e46333771a04c8c4fd419fa8f61ffb357a42c3fa
+PODFILE CHECKSUM: eced02ff1b195aff1aa33acaaf6206a2d3d82806
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.2

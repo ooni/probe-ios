@@ -10,6 +10,7 @@
 @end
 
 @implementation DashboardTableViewController
+@synthesize items;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -87,7 +88,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(IBAction)run:(id)sender{
@@ -110,7 +110,7 @@
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
         [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
     }
-    if ([[segue identifier] isEqualToString:@"toTestRunAll"]){
+    else if ([[segue identifier] isEqualToString:@"toTestRunAll"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         [vc setTestSuites:items];
     }
@@ -119,6 +119,7 @@
         TestOverviewViewController *vc = (TestOverviewViewController * )segue.destinationViewController;
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
         [vc setTestSuite:testSuite];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }    
 }
 

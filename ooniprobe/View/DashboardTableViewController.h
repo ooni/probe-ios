@@ -7,9 +7,9 @@
 #import "ReachabilityManager.h"
 
 @interface DashboardTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    NSMutableArray *items;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *runButton;
+@property (nonatomic, strong) NSMutableArray *items;
 
 @end
