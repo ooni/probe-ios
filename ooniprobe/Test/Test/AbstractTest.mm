@@ -5,7 +5,7 @@
 #import "NSDictionary+Safety.h"
 #import "EventResult.h"
 #import "ExceptionUtility.h"
-#import <mkall/MKAsyncTask.h>
+#import "Engine.h"
 
 @implementation AbstractTest
 
@@ -58,16 +58,25 @@
 -(void)runTest{
     if(self.annotation)
         [self.settings.annotations setObject:@"ooni-run" forKey:@"origin"];
-    NSDictionary *settings = [self.settings getSettingsDictionary];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     dispatch_async(_serialQueue, ^{
-        MKAsyncTask *task = [MKAsyncTask start:settings];
-        while (![task done]){
+        NSError *error;
+        id<ExperimentTask> task = [Engine startExperimentTaskWithSettings:self.settings error:&error];
+        //TODO refactor this part. This is not a result error but a measurement error.
+        if (error != nil){
+            self.result.failure_msg = error.description;
+            [self.result save];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self testEnded];
+            });
+            return;
+        }
+        while (![task isDone]){
             // Extract an event from the task queue and unmarshal it.
-            NSDictionary *evinfo = [task waitForNextEvent];
+            NSDictionary *evinfo = [task waitForNextEvent:nil];
             if (evinfo == nil) {
                 break;
             }
