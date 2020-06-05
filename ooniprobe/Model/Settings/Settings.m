@@ -48,9 +48,12 @@
         self.options = [Options new];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
-        self.state_dir = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"state"]];
-        self.assets_dir = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"assets"]];
-        self.temp_dir = NSTemporaryDirectory();
+        self.state_dir = [documentsDirectory stringByAppendingPathComponent:
+                          [NSString stringWithFormat:@"state"]];
+        self.assets_dir = [documentsDirectory stringByAppendingPathComponent:
+                           [NSString stringWithFormat:@"assets"]];
+        self.temp_dir = [NSTemporaryDirectory() stringByAppendingPathComponent:
+                         [NSString stringWithFormat:@"ooniprobe"]];
     }
     return self;
 }
