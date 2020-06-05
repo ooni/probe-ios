@@ -10,7 +10,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"settingsChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingsChanged) name:@"settingsChanged" object:nil];
 
     [self.testNameLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testSuite.name];
@@ -46,8 +46,10 @@
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.estimatedLabel setText:NSLocalizedString(@"Dashboard.Overview.Estimated", nil)];
-        [self.estimatedDetailLabel setText:[NSString stringWithFormat:@"%@ %@", testSuite.dataUsage,
-                                            [LocalizationUtility getReadableRuntime:[testSuite getRuntime]]]];
+        [self.estimatedDetailLabel setText:
+         [NSString stringWithFormat:@"%@ %@",
+          testSuite.dataUsage,
+          [LocalizationUtility getReadableRuntime:[testSuite getRuntime]]]];
         [self.lastrunLabel setText:NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)];
         
         NSString *ago;
@@ -59,6 +61,12 @@
             ago = NSLocalizedString(@"Dashboard.Overview.LastRun.Never", nil);
         [self.lastrunDetailLabel setText:ago];
     });
+}
+
+-(void)settingsChanged{
+    [testSuite.testList removeAllObjects];
+    [testSuite getTestList];
+    [self reloadLastMeasurement];
 }
 
 -(NSInteger)daysBetweenTwoDates:(NSDate*)testDate{
