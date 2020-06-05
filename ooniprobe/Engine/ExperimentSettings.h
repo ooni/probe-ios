@@ -17,7 +17,7 @@
 - (NSString*) serialization;
 
 /**
- * dictionary returns the NSDictionary serialization of the task config
+ * dictionary returns the NSDictionary object of the task config
  */
 - (NSDictionary*) dictionary;
 
