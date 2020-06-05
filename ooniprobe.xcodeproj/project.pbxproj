@@ -50,8 +50,6 @@
 		ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5C24629A860087B36D /* OONIApi.m */; };
 		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
-		ED53841C2159757D0078C5C6 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841B2159757D0078C5C6 /* EventResult.m */; };
-		ED53841F215975A70078C5C6 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841E215975A70078C5C6 /* Value.m */; };
 		ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53842121597E950078C5C6 /* OoniRunViewController.m */; };
 		ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55C0C8203BD52900738260 /* Header1MBViewController.m */; };
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
@@ -125,8 +123,6 @@
 		EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE47C40241FC6BC0013A1CB /* NetworkSession.m */; };
 		EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */; };
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
-		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
-		EDF20736212173B9005B06D7 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20734212173B9005B06D7 /* Advanced.m */; };
 		EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF23EF82228CC6000B97520 /* NetworkTest.m */; };
 		EDF4ECF4248549BD001A5406 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ECF3248549BD001A5406 /* Engine.m */; };
 		EDF4ED0124879D31001A5406 /* MKExperimentTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */; };
@@ -137,6 +133,7 @@
 		EDF4ED102487BF17001A5406 /* MKReporterResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0F2487BF17001A5406 /* MKReporterResultsAdapter.m */; };
 		EDF4ED132487BF27001A5406 /* MKReporterTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */; };
 		EDF4ED162487BF39001A5406 /* OONIProbeEngineTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */; };
+		EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED1F248A8B50001A5406 /* EventResult.m */; };
 		EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8E51C22C40A8E00CF0FF6 /* APITest.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
@@ -247,9 +244,7 @@
 		ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED53841A2159757D0078C5C6 /* EventResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResult.h; sourceTree = "<group>"; };
-		ED53841B2159757D0078C5C6 /* EventResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
 		ED53841D215975A70078C5C6 /* Value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Value.h; sourceTree = "<group>"; };
-		ED53841E215975A70078C5C6 /* Value.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Value.m; sourceTree = "<group>"; };
 		ED53842021597E950078C5C6 /* OoniRunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OoniRunViewController.h; sourceTree = "<group>"; };
 		ED53842121597E950078C5C6 /* OoniRunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OoniRunViewController.m; sourceTree = "<group>"; };
 		ED55C0C7203BD52900738260 /* Header1MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header1MBViewController.h; sourceTree = "<group>"; };
@@ -387,8 +382,6 @@
 		EDF2072B2120EF12005B06D7 /* Simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		EDF2072E2120EF29005B06D7 /* Advanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Advanced.h; sourceTree = "<group>"; };
 		EDF2073121217340005B06D7 /* JsonResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonResult.m; sourceTree = "<group>"; };
-		EDF20733212173B8005B06D7 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
-		EDF20734212173B9005B06D7 /* Advanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advanced.m; sourceTree = "<group>"; };
 		EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OONIProbeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF23EEF2225258100B97520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF23EF82228CC6000B97520 /* NetworkTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTest.m; sourceTree = "<group>"; };
@@ -418,6 +411,7 @@
 		EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKReporterTaskAdapter.m; path = Engine/MKReporterTaskAdapter.m; sourceTree = "<group>"; };
 		EDF4ED142487BF39001A5406 /* OONIProbeEngineTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIProbeEngineTaskAdapter.h; path = Engine/OONIProbeEngineTaskAdapter.h; sourceTree = "<group>"; };
 		EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIProbeEngineTaskAdapter.m; path = Engine/OONIProbeEngineTaskAdapter.m; sourceTree = "<group>"; };
+		EDF4ED1F248A8B50001A5406 /* EventResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
 		EDF8E51C22C40A8E00CF0FF6 /* APITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
@@ -758,13 +752,10 @@
 				EDB252A820FA4D4F00B4EDE4 /* Tampering.h */,
 				EDB252A920FA4D4F00B4EDE4 /* Tampering.m */,
 				EDF2072B2120EF12005B06D7 /* Simple.h */,
-				EDF20733212173B8005B06D7 /* Simple.m */,
 				EDF2072E2120EF29005B06D7 /* Advanced.h */,
-				EDF20734212173B9005B06D7 /* Advanced.m */,
-				ED53841A2159757D0078C5C6 /* EventResult.h */,
-				ED53841B2159757D0078C5C6 /* EventResult.m */,
 				ED53841D215975A70078C5C6 /* Value.h */,
-				ED53841E215975A70078C5C6 /* Value.m */,
+				ED53841A2159757D0078C5C6 /* EventResult.h */,
+				EDF4ED1F248A8B50001A5406 /* EventResult.m */,
 			);
 			name = JsonResult;
 			path = Model/JsonResult;
@@ -1276,7 +1267,6 @@
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
 				EDF4ED102487BF17001A5406 /* MKReporterResultsAdapter.m in Sources */,
-				EDF20736212173B9005B06D7 /* Advanced.m in Sources */,
 				ED2E067221D4867B00E9B9EE /* Dash.mm in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
 				EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */,
@@ -1299,7 +1289,6 @@
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
 				ED90A92D2198DE5100204B46 /* Options.m in Sources */,
-				ED53841C2159757D0078C5C6 /* EventResult.m in Sources */,
 				ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
@@ -1323,12 +1312,12 @@
 				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
+				EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */,
 				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
 				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
-				ED53841F215975A70078C5C6 /* Value.m in Sources */,
 				ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm in Sources */,
 				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */,
 				ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */,
@@ -1356,7 +1345,6 @@
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 				EDF2073221217340005B06D7 /* JsonResult.m in Sources */,
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
-				EDF20735212173B9005B06D7 /* Simple.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
 				ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */,
 				ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */,
