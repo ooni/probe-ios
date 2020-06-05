@@ -32,7 +32,6 @@
 }
 
 -(NSString*)serialization {
-    NSLog(@"%@", [self dictionary]);
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:[self dictionary] options:0 error:nil];
     if (jsonData != nil)
         return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
