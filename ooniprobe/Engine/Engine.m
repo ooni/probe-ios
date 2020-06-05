@@ -13,7 +13,7 @@
 + (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings error:(NSError **)error {
     if ([probeEngineTasks containsObject:settings.taskName]) {
         return [[OONIProbeEngineTaskAdapter alloc]
-                initWithTask:OonimkallStartTask(settings.serialization, error)];
+                initWithTask:OonimkallStartTask([settings serialization], error)];
     }
     return [[MKExperimentTaskAdapter alloc]
             initWithTask:[MKAsyncTask start:settings.dictionary]];

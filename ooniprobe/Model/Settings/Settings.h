@@ -4,7 +4,7 @@
 #import "NSObject+ObjectMapper.h"
 #import "ExperimentSettings.h"
 
-@interface Settings : NSObject
+@interface Settings : NSObject <ExperimentSettings>
 @property (nonatomic, strong) NSMutableDictionary *annotations;
 @property (nonatomic, strong) NSArray *disabled_events;
 @property (nonatomic, strong) NSArray *inputs;
@@ -15,8 +15,5 @@
 @property (nonatomic, strong) NSString *temp_dir;
 @property (nonatomic, strong) Options *options;
 
--(NSDictionary*)getSettingsDictionary;
--(NSString*)getSettingsJson;
--(id<ExperimentSettings>)toExperimentSettings;
 @end
 

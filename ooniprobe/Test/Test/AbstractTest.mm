@@ -64,9 +64,8 @@
     }];
     dispatch_async(_serialQueue, ^{
         NSError *error;
-        id<ExperimentTask> task = [Engine startExperimentTaskWithSettings:
-                                   [self.settings toExperimentSettings] error:&error];
-        //TODO refactor this part
+        id<ExperimentTask> task = [Engine startExperimentTaskWithSettings:self.settings error:&error];
+        //TODO refactor this part. This is not a result error but a measurement error.
         if (error != nil){
             self.result.failure_msg = error.description;
             [self.result save];
