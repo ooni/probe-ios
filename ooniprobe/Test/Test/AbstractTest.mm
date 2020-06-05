@@ -65,6 +65,7 @@
     dispatch_async(_serialQueue, ^{
         NSError *error;
         id<ExperimentTask> task = [Engine startExperimentTaskWithSettings:[self.settings toExperimentSettings] error:&error];
+        //TODO refactor this part
         if (error != nil){
             self.result.failure_msg = error.description;
             [self.result save];
