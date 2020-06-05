@@ -7,7 +7,6 @@
 - (id)initWithJson:(NSString*)json settings:(Settings*)settings;
 @property (nonatomic, strong) Settings* settings;
 @property (nonatomic, strong) NSString* serialized;
-@property (nonatomic, strong) NSDictionary* dictionary;
 @end
 
 @implementation ExperimentSettingsAdapter
@@ -22,7 +21,7 @@
 }
 
 - (NSString *)serialization {
-    return self.serialized;
+    return [self serialized];
 }
 
 - (NSString *)taskName {
@@ -47,7 +46,7 @@
         self.disabled_events = @[@"status.queued", @"status.update.websites", @"failure.report_close"];
         self.log_level = [SettingsUtility getVerbosity];
         self.options = [Options new];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         self.state_dir = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"state"]];
         self.assets_dir = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"assets"]];
