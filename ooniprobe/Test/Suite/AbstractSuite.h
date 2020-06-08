@@ -13,7 +13,6 @@
 @property NSMutableArray *testList;
 @property int measurementIdx;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
-@property AbstractTest *runningTest;
 
 -(id)initSuite:(NSString*)testSuite;
 -(void)testEnded:(AbstractTest*)test;
@@ -21,5 +20,4 @@
 -(NSArray*)getTestList;
 -(void)newResult;
 -(int)getRuntime;
--(void)interruptTests;
 @end

@@ -98,6 +98,12 @@
      https://stackoverflow.com/questions/2927028/how-do-i-get-hour-and-minutes-from-nsdate
      */
     NSDictionary *userInfo = notification.userInfo;
+    task = [userInfo objectForKey:@"task"];
+    if ([task canInterrupt])
+        [self.interruptButton setEnabled:YES];
+    else
+        [self.interruptButton setEnabled:NO];
+        
     NSString *name = [userInfo objectForKey:@"name"];
     NSNumber *prog = [userInfo objectForKey:@"prog"];
     //TODO-2.1 this doesn't take in consideration different test runtimes, only the total
@@ -151,7 +157,7 @@
                                actionWithTitle:NSLocalizedString(@"YES", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-                                    [testSuite interruptTests];
+                                    [task interrupt];
                                }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Do you want to interrupt the test", nil)
                            message:NSLocalizedString(@"", nil)

@@ -3,12 +3,14 @@
 #import <QuartzCore/QuartzCore.h>
 #import "TestUtility.h"
 #import "Suite.h"
+#import "Engine.h"
 
 @interface TestRunningViewController : UIViewController {
     float totalTests;
     LOTAnimationView *animation;
     int totalRuntime;
     AbstractSuite *testSuite;
+    id<ExperimentTask> task;
 }
 
 @property (nonatomic, strong) NSMutableArray *testSuites;
@@ -19,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *etaLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *logLabel;
+@property (strong, nonatomic) IBOutlet UIButton *interruptButton;
 @property (assign) bool presenting;
 
 @end

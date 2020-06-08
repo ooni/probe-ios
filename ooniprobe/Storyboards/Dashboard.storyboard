@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -89,8 +89,11 @@
                                 <color key="progressTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="trackTintColor" red="0.29803921570000003" green="0.43137254899999999" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFp-74-K9L">
-                                <rect key="frame" x="345" y="48" width="14" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFp-74-K9L">
+                                <rect key="frame" x="332" y="48" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="gjY-Lm-AIb"/>
+                                </constraints>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="cancelTest:" destination="4q0-13-6dh" eventType="touchUpInside" id="BXH-F2-crf"/>
@@ -105,7 +108,6 @@
                             <constraint firstItem="WHM-pS-oxG" firstAttribute="top" secondItem="ujL-eR-yvm" secondAttribute="bottom" id="5S5-HV-RcB"/>
                             <constraint firstAttribute="bottom" secondItem="Z6n-n1-GOS" secondAttribute="bottom" constant="159" id="8O0-s8-Yvd"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="leading" secondItem="RdD-4o-FNz" secondAttribute="leading" id="8Tm-sy-O1g"/>
-                            <constraint firstItem="gFp-74-K9L" firstAttribute="trailing" secondItem="ujL-eR-yvm" secondAttribute="trailing" id="Bf7-O7-foJ"/>
                             <constraint firstItem="Xcv-iy-zO9" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" constant="42" id="DUQ-km-XFr"/>
                             <constraint firstItem="i6u-M1-RsK" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="Dca-9g-hqz"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="EJg-Ma-PkR"/>
@@ -113,22 +115,25 @@
                             <constraint firstItem="i6u-M1-RsK" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="NHH-ru-4Fp"/>
                             <constraint firstItem="WHM-pS-oxG" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="P0r-XM-4VB"/>
                             <constraint firstItem="ujL-eR-yvm" firstAttribute="leading" secondItem="WHK-n4-vcV" secondAttribute="leadingMargin" id="QDv-kz-8ok"/>
+                            <constraint firstItem="ujL-eR-yvm" firstAttribute="top" secondItem="gFp-74-K9L" secondAttribute="bottom" constant="4" id="VgS-XH-AFL"/>
                             <constraint firstItem="WHM-pS-oxG" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="Voz-6L-yzH"/>
                             <constraint firstItem="RdD-4o-FNz" firstAttribute="top" secondItem="Z6n-n1-GOS" secondAttribute="bottom" constant="31" id="Ykb-0f-8Bf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gFp-74-K9L" secondAttribute="trailing" constant="-3" id="ayM-0M-4Sf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xcv-iy-zO9" secondAttribute="trailing" constant="42" id="bYL-ZC-Lwu"/>
                             <constraint firstItem="vNz-6C-NZt" firstAttribute="centerX" secondItem="WHK-n4-vcV" secondAttribute="centerX" id="bzy-ub-c7d"/>
-                            <constraint firstItem="gFp-74-K9L" firstAttribute="top" secondItem="tHi-Ui-7Hp" secondAttribute="bottom" constant="4" id="huJ-am-f7T"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="jWR-19-gZI"/>
                             <constraint firstItem="iDt-w7-KI4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RdD-4o-FNz" secondAttribute="bottom" constant="8" id="n0C-O4-NVK"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="RdD-4o-FNz" secondAttribute="trailing" id="oXZ-td-EGv"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="top" secondItem="Xcv-iy-zO9" secondAttribute="bottom" constant="17" id="u1z-aa-XoP"/>
                             <constraint firstItem="ujL-eR-yvm" firstAttribute="top" secondItem="tHi-Ui-7Hp" secondAttribute="bottom" constant="38" id="wEj-f3-WcR"/>
+                            <constraint firstItem="gFp-74-K9L" firstAttribute="top" secondItem="tHi-Ui-7Hp" secondAttribute="bottom" constant="4" id="yhz-4P-rBe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jb9-NV-MZ5"/>
                     <connections>
                         <outlet property="animationView" destination="vNz-6C-NZt" id="JQW-fA-qT0"/>
                         <outlet property="etaLabel" destination="i6u-M1-RsK" id="azk-Eu-1dk"/>
+                        <outlet property="interruptButton" destination="gFp-74-K9L" id="HQ5-vw-jeK"/>
                         <outlet property="logLabel" destination="RdD-4o-FNz" id="shq-hP-h7u"/>
                         <outlet property="progressBar" destination="Xcv-iy-zO9" id="uVT-jL-gM0"/>
                         <outlet property="runningTestsLabel" destination="ujL-eR-yvm" id="moE-gb-1FB"/>
@@ -138,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6B-l9-PO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1801" y="612"/>
+            <point key="canvasLocation" x="1800.8" y="611.82266009852219"/>
         </scene>
         <!--Dashboard Table View Controller-->
         <scene sceneID="ecr-3i-gsN">

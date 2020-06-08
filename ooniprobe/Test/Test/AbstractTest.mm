@@ -64,7 +64,7 @@
     }];
     dispatch_async(_serialQueue, ^{
         NSError *error;
-        id<ExperimentTask> task = [Engine startExperimentTaskWithSettings:self.settings error:&error];
+        self.task = [Engine startExperimentTaskWithSettings:self.settings error:&error];
         //TODO refactor this part. This is not a result error but a measurement error.
         if (error != nil){
             self.result.failure_msg = error.description;
@@ -74,9 +74,9 @@
             });
             return;
         }
-        while (![task isDone]){
+        while (![self.task isDone]){
             // Extract an event from the task queue and unmarshal it.
-            NSDictionary *evinfo = [task waitForNextEvent:nil];
+            NSDictionary *evinfo = [self.task waitForNextEvent:nil];
             if (evinfo == nil) {
                 break;
             }
@@ -171,11 +171,6 @@
     });
 }
 
--(void)interruptTest {
-    if (self.task != NULL)
-        [self.task interrupt];
-}
-
 -(void)updateLogs:(Value *)value{
     NSString *message = value.message;
     if (message == nil) {
@@ -205,6 +200,7 @@
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
         [noteInfo setObject:[NSNumber numberWithDouble:progress] forKey:@"prog"];
         [noteInfo setObject:self.name forKey:@"name"];
+        [noteInfo setObject:self.task forKey:@"task"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateProgress" object:nil userInfo:noteInfo];
     });
 }
