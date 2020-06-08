@@ -129,7 +129,7 @@
 		EDF20736212173B9005B06D7 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20734212173B9005B06D7 /* Advanced.m */; };
 		EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF23EF82228CC6000B97520 /* NetworkTest.m */; };
 		EDF4ECF4248549BD001A5406 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ECF3248549BD001A5406 /* Engine.m */; };
-		EDF4ED0124879D31001A5406 /* MKExperimentTaskAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.mm */; };
+		EDF4ED0124879D31001A5406 /* MKExperimentTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */; };
 		EDF4ED042487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */; };
 		EDF4ED072487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED062487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m */; };
 		EDF4ED0A2487BEE4001A5406 /* MKOrchestraResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED092487BEE4001A5406 /* MKOrchestraResultsAdapter.m */; };
@@ -403,7 +403,7 @@
 		EDF4ECFD24879684001A5406 /* CollectorResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CollectorResults.h; path = Engine/CollectorResults.h; sourceTree = "<group>"; };
 		EDF4ECFE24879684001A5406 /* OrchestraResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OrchestraResults.h; path = Engine/OrchestraResults.h; sourceTree = "<group>"; };
 		EDF4ECFF24879D31001A5406 /* MKExperimentTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKExperimentTaskAdapter.h; path = Engine/MKExperimentTaskAdapter.h; sourceTree = "<group>"; };
-		EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MKExperimentTaskAdapter.mm; path = Engine/MKExperimentTaskAdapter.mm; sourceTree = "<group>"; };
+		EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKExperimentTaskAdapter.m; path = Engine/MKExperimentTaskAdapter.m; sourceTree = "<group>"; };
 		EDF4ED022487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKGeoIPLookupResultsAdapter.h; path = Engine/MKGeoIPLookupResultsAdapter.h; sourceTree = "<group>"; };
 		EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKGeoIPLookupResultsAdapter.m; path = Engine/MKGeoIPLookupResultsAdapter.m; sourceTree = "<group>"; };
 		EDF4ED052487BED8001A5406 /* MKGeoIPLookupTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKGeoIPLookupTaskAdapter.h; path = Engine/MKGeoIPLookupTaskAdapter.h; sourceTree = "<group>"; };
@@ -934,7 +934,7 @@
 				EDF4ECF2248549BD001A5406 /* Engine.h */,
 				EDF4ECF3248549BD001A5406 /* Engine.m */,
 				EDF4ECFF24879D31001A5406 /* MKExperimentTaskAdapter.h */,
-				EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.mm */,
+				EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */,
 				EDF4ED022487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.h */,
 				EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */,
 				EDF4ED052487BED8001A5406 /* MKGeoIPLookupTaskAdapter.h */,
@@ -1304,7 +1304,7 @@
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
-				EDF4ED0124879D31001A5406 /* MKExperimentTaskAdapter.mm in Sources */,
+				EDF4ED0124879D31001A5406 /* MKExperimentTaskAdapter.m in Sources */,
 				EDF4ED162487BF39001A5406 /* OONIProbeEngineTaskAdapter.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
