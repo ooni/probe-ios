@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+//DASHSummary and NDT5Summary
 @interface Simple : NSObject
 @property (nonatomic, strong) NSNumber *upload;
 @property (nonatomic, strong) NSNumber *download;
