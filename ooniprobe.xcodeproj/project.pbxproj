@@ -138,6 +138,7 @@
 		EDF4ED28248A9A64001A5406 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED25248A9A64001A5406 /* Value.m */; };
 		EDF4ED2B248A9FA7001A5406 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED29248A9FA6001A5406 /* Server.m */; };
 		EDF4ED2C248A9FA7001A5406 /* Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2A248A9FA7001A5406 /* Summary.m */; };
+		EDF4ED2E248E9D76001A5406 /* MKExperimentTaskAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */; };
 		EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8E51C22C40A8E00CF0FF6 /* APITest.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
@@ -422,6 +423,7 @@
 		EDF4ED25248A9A64001A5406 /* Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Value.m; sourceTree = "<group>"; };
 		EDF4ED29248A9FA6001A5406 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 		EDF4ED2A248A9FA7001A5406 /* Summary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Summary.m; sourceTree = "<group>"; };
+		EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKExperimentTaskAdapter.mm; path = Engine/MKExperimentTaskAdapter.mm; sourceTree = "<group>"; };
 		EDF8E51C22C40A8E00CF0FF6 /* APITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
@@ -942,6 +944,7 @@
 				EDF4ECF2248549BD001A5406 /* Engine.h */,
 				EDF4ECF3248549BD001A5406 /* Engine.m */,
 				EDF4ECFF24879D31001A5406 /* MKExperimentTaskAdapter.h */,
+				EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */,
 				EDF4ED022487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.h */,
 				EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */,
 				EDF4ED052487BED8001A5406 /* MKGeoIPLookupTaskAdapter.h */,
@@ -1336,6 +1339,7 @@
 				EDF4ED2B248A9FA7001A5406 /* Server.m in Sources */,
 				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
+				EDF4ED2E248E9D76001A5406 /* MKExperimentTaskAdapter.mm in Sources */,
 				ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm in Sources */,
 				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */,
 				ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */,
