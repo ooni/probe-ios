@@ -35,6 +35,17 @@
 @property (nonatomic, strong) Server *server;
 @property (nonatomic, strong) Tampering *tampering;
 @property (nonatomic, strong) NSNumber *protocol;
+//Psiphon
+@property (nonatomic, strong) NSNumber * bootstrap_time;
+//Tor
+@property (nonatomic, strong) NSNumber *dir_port_total;
+@property (nonatomic, strong) NSNumber *dir_port_accessible;
+@property (nonatomic, strong) NSNumber *obfs4_total;
+@property (nonatomic, strong) NSNumber *obfs4_accessible;
+@property (nonatomic, strong) NSNumber *or_port_dirauth_total;
+@property (nonatomic, strong) NSNumber *or_port_dirauth_accessible;
+@property (nonatomic, strong) NSNumber *or_port_total;
+@property (nonatomic, strong) NSNumber *or_port_accessible;
 
 - (NSString*)getJsonStr;
 
@@ -86,5 +97,12 @@
 //HIRL
 //- (NSArray*)getSent;
 //- (NSArray*)getReceived;
+
+//PSIPHON
+- (NSString*)getBootstrapTime;
+
+//TOR
+- (NSString*)getBridges;
+- (NSString*)getAuthorities;
 @end
 

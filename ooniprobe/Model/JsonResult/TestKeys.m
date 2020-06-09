@@ -395,4 +395,32 @@
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
+#pragma mark PSIPHON
+- (NSString*)getBootstrapTime{
+    if (self.bootstrap_time != nil){
+        return NSLocalizedFormatString(@"TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit",
+            [NSString stringWithFormat:@"%f", [self.bootstrap_time doubleValue]]);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+#pragma mark TOR
+- (NSString*)getBridges{
+    if (self.obfs4_accessible != nil && self.obfs4_total != nil){
+        return NSLocalizedFormatString(@"TestResults.Details.Circumvention.Tor.BrowserBridges.Label.OK",
+            [NSString stringWithFormat:@"%f", [self.obfs4_accessible floatValue]],
+            [NSString stringWithFormat:@"%f", [self.obfs4_total floatValue]]);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
+- (NSString*)getAuthorities{
+    if (self.or_port_dirauth_accessible != nil && self.or_port_dirauth_total != nil){
+        return NSLocalizedFormatString(@"TestResults.Details.Circumvention.Tor.DirectoryAuthorities.Label.OK",
+            [NSString stringWithFormat:@"%f", [self.or_port_dirauth_accessible floatValue]],
+            [NSString stringWithFormat:@"%f", [self.or_port_dirauth_total floatValue]]);
+    }
+    return NSLocalizedString(@"TestResults.NotAvailable", nil);
+}
+
 @end
