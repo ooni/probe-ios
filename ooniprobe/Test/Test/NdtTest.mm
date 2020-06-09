@@ -26,17 +26,12 @@
 }
 
 -(void)calculateServerName:(JsonResult*)json{
-    if (json.test_keys.server_address != NULL){
-        NSString *server_address = json.test_keys.server_address;
-        NSArray *arr = [server_address componentsSeparatedByString:@"."];
-        if ([arr count] > 3){
-            NSString *server_name = [arr objectAtIndex:3];
-            json.test_keys.server_name = server_name;
-            NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Airports" ofType:@"plist"];
-            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
-            if ([dict objectForKey:[server_name substringToIndex:3]])
-                json.test_keys.server_country = [dict objectForKey:[server_name substringToIndex:3]];
-        }
+    NSString *site = [json.test_keys.server.site substringToIndex:3];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Airports" ofType:@"plist"];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
+    if ([dict objectForKey:site]){
+        json.test_keys.server_name = json.test_keys.server.site;
+        json.test_keys.server_country = [dict objectForKey:site];
     }
 }
 
