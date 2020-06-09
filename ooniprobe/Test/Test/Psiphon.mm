@@ -16,7 +16,7 @@
 }
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
-    //TODO
+    measurement.is_anomaly = json.test_keys.failure == NULL ? false : true;
     [super onEntry:json obj:measurement];
 }
 
