@@ -2,6 +2,8 @@
 #import "Tampering.h"
 #import "Simple.h"
 #import "Advanced.h"
+#import "Summary.h"
+#import "Server.h"
 #define BLOCKED @"blocked"
 
 @interface TestKeys : NSObject
@@ -29,7 +31,10 @@
 @property (nonatomic, strong) NSString *telegram_web_status;
 @property (nonatomic, strong) Simple *simple;
 @property (nonatomic, strong) Advanced *advanced;
+@property (nonatomic, strong) Summary *summary;
+@property (nonatomic, strong) Server *server;
 @property (nonatomic, strong) Tampering *tampering;
+@property (nonatomic, strong) NSNumber *protocol;
 
 - (NSString*)getJsonStr;
 
@@ -57,6 +62,7 @@
 - (UIColor*)getFacebookMessengerTcpColor;
 
 //NDT
+- (BOOL)isNdt7;
 - (NSString*)getUpload;
 - (NSString*)getUploadUnit;
 - (NSString*)getUploadWithUnit;

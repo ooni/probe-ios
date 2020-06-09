@@ -149,6 +149,7 @@ TestKeys *testKeys;
     XCTAssert([[testKeys getServer] isEqualToString:serverStr]);
 }
 
+//TODO update these tests with the new Class Summary
 - (void)testPacketLoss {
     XCTAssert([[testKeys getPacketLoss] isEqualToString:NOT_AVAILABLE]);
     testKeys.advanced = [Advanced new];

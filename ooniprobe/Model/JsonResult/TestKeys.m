@@ -197,19 +197,29 @@
 }
 
 #pragma mark NDT
-    
+
+- (BOOL)isNdt7{
+    return self.protocol != nil && [self.protocol intValue] == 7;
+}
+
 - (NSString*)getUpload{
+    if ([self isNdt7] && self.summary != nil && self.summary.upload != nil){
+        return [self setFractionalDigits:[self getScaledValue:
+                                          [self.summary.upload floatValue]]];
+    }
     if (self.simple.upload != nil){
-        float upload = [self.simple.upload floatValue];
-        return [self setFractionalDigits:[self getScaledValue:upload]];
+        return [self setFractionalDigits:[self getScaledValue:
+                                          [self.simple.upload floatValue]]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
     
 -(NSString*)getUploadUnit{
+    if ([self isNdt7] && self.summary != nil && self.summary.upload != nil){
+        return [self getUnit:[self.summary.upload floatValue]];
+    }
     if (self.simple.upload != nil){
-        float upload = [self.simple.upload floatValue];
-        return [self getUnit:upload];
+        return [self getUnit:[self.simple.upload floatValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -222,17 +232,23 @@
 }
     
 - (NSString*)getDownload{
+    if ([self isNdt7] && self.summary != nil && self.summary.download != nil){
+        return [self setFractionalDigits:[self getScaledValue:
+                                          [self.summary.download floatValue]]];
+    }
     if (self.simple.download != nil){
-        float download = [self.simple.download floatValue];
-        return [self setFractionalDigits:[self getScaledValue:download]];
+        return [self setFractionalDigits:[self getScaledValue:
+                                          [self.simple.download floatValue]]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
     
 -(NSString*)getDownloadUnit{
+    if ([self isNdt7] && self.summary != nil && self.summary.download != nil){
+        return [self getUnit:[self.summary.download floatValue]];
+    }
     if (self.simple.download != nil){
-        float download = [self.simple.download floatValue];
-        return [self getUnit:download];
+        return [self getUnit:[self.simple.download floatValue]];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
@@ -271,6 +287,9 @@
 }
     
 - (NSString*)getPing{
+    if ([self isNdt7] && self.summary != nil && self.summary.ping != nil){
+        return [NSString stringWithFormat:@"%.1f", [self.summary.ping floatValue]];
+    }
     if (self.simple.ping != nil){
         return [NSString stringWithFormat:@"%.1f", [self.simple.ping floatValue]];
     }
@@ -286,14 +305,21 @@
 }
     
 - (NSString*)getPacketLoss{
+    if ([self isNdt7] && self.summary != nil && self.summary.retransmit_rate != nil){
+        return [NSString stringWithFormat:@"%.3f",
+                [self.summary.retransmit_rate floatValue]*100];
+    }
     if (self.advanced.packet_loss != nil){
-        float pl = [self.advanced.packet_loss floatValue]*100;
-        return [NSString stringWithFormat:@"%.3f", pl];
+        return [NSString stringWithFormat:@"%.3f",
+                [self.advanced.packet_loss floatValue]*100];
     }
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
     
 - (NSString*)getAveragePing{
+    if ([self isNdt7] && self.summary != nil && self.summary.avg_rtt != nil){
+        return [NSString stringWithFormat:@"%.1f", [self.summary.avg_rtt floatValue]];
+    }
     if (self.advanced.avg_rtt != nil){
         return [NSString stringWithFormat:@"%.1f", [self.advanced.avg_rtt floatValue]];
     }
@@ -301,6 +327,9 @@
 }
     
 - (NSString*)getMaxPing{
+    if ([self isNdt7] && self.summary != nil && self.summary.max_rtt != nil){
+        return [NSString stringWithFormat:@"%.1f", [self.summary.max_rtt floatValue]];
+    }
     if (self.advanced.max_rtt != nil){
         return [NSString stringWithFormat:@"%.1f", [self.advanced.max_rtt floatValue]];
     }
@@ -308,6 +337,9 @@
 }
     
 - (NSString*)getMSS{
+    if ([self isNdt7] && self.summary != nil && self.summary.mss != nil){
+        return [NSString stringWithFormat:@"%d", [self.summary.mss intValue]];
+    }
     if (self.advanced.mss != nil){
         return [NSString stringWithFormat:@"%d", [self.advanced.mss intValue]];
     }
