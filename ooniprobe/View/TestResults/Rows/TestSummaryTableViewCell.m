@@ -47,6 +47,9 @@
     else if ([result.test_group_name isEqualToString:@"performance"]){
         [self rowPerformance:measurement];
     }
+    else if ([result.test_group_name isEqualToString:@"circumvention"]){
+        [self rowInstantMessaging:measurement];
+    }
 }
 
 -(void)rowWebsites:(Measurement*)measurement{

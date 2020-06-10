@@ -143,6 +143,7 @@
 		EDF4ED2B248A9FA7001A5406 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED29248A9FA6001A5406 /* Server.m */; };
 		EDF4ED2C248A9FA7001A5406 /* Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2A248A9FA7001A5406 /* Summary.m */; };
 		EDF4ED2E248E9D76001A5406 /* MKExperimentTaskAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */; };
+		EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */; };
 		EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8E51C22C40A8E00CF0FF6 /* APITest.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
@@ -435,6 +436,8 @@
 		EDF4ED29248A9FA6001A5406 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 		EDF4ED2A248A9FA7001A5406 /* Summary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Summary.m; sourceTree = "<group>"; };
 		EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKExperimentTaskAdapter.mm; path = Engine/MKExperimentTaskAdapter.mm; sourceTree = "<group>"; };
+		EDF4ED2F248FBFEC001A5406 /* CircumventionDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircumventionDetailsViewController.h; sourceTree = "<group>"; };
+		EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircumventionDetailsViewController.m; sourceTree = "<group>"; };
 		EDF8E51C22C40A8E00CF0FF6 /* APITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
@@ -931,6 +934,8 @@
 				EDA17B00208A312C00D46D0F /* NdtDetailsViewController.m */,
 				ED365215223A40480093180B /* FailedTestDetailsViewController.h */,
 				ED365216223A40480093180B /* FailedTestDetailsViewController.m */,
+				EDF4ED2F248FBFEC001A5406 /* CircumventionDetailsViewController.h */,
+				EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -1355,6 +1360,7 @@
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */,
 				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
+				EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
 				ED14B2342465411E009AA906 /* Psiphon.mm in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
