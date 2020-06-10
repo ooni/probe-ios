@@ -35,6 +35,7 @@
     [tests addObject:[[PerformanceSuite alloc] init]];
     return tests;
 }
+
 //Used by dropdown
 + (NSArray*)getTestTypes{
     return [[self getTests] allKeys];
