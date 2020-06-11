@@ -7,3 +7,5 @@
 #import "Whatsapp.h"
 #import "Telegram.h"
 #import "FacebookMessenger.h"
+#import "Tor.h"
+#import "Psiphon.h"

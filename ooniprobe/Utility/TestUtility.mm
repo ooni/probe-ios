@@ -21,13 +21,17 @@
 }
 
 + (NSDictionary*)getTests{
-    return @{@"websites": @[@"web_connectivity"], @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"], @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"]};
+    return @{@"websites": @[@"web_connectivity"],
+             @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"],
+             @"circumvention": @[@"psiphon", @"tor"],
+             @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"]};
 }
 
 + (NSMutableArray*)getTestObjects{
     NSMutableArray *tests = [[NSMutableArray alloc] init];
     [tests addObject:[[WebsitesSuite alloc] init]];
     [tests addObject:[[InstantMessagingSuite alloc] init]];
+    [tests addObject:[[CircumventionSuite alloc] init]];
     [tests addObject:[[PerformanceSuite alloc] init]];
     return tests;
 }
@@ -79,6 +83,9 @@
     else if ([testName isEqualToString:@"instant_messaging"]){
         return [UIColor colorWithRGBHexString:color_cyan6 alpha:alpha];
     }
+    else if ([testName isEqualToString:@"circumvention"]){
+        return [UIColor colorWithRGBHexString:color_pink6 alpha:1.0f];
+    }
     return [UIColor colorWithRGBHexString:color_blue5 alpha:alpha];
 }
 
@@ -94,6 +101,9 @@
     }
     else if ([testName isEqualToString:@"instant_messaging"]){
         return [UIColor colorWithRGBHexString:color_cyan3 alpha:1.0f];
+    }
+    else if ([testName isEqualToString:@"circumvention"]){
+        return [UIColor colorWithRGBHexString:color_pink4 alpha:1.0f];
     }
     return [UIColor colorWithRGBHexString:color_blue3 alpha:1.0f];
 }
