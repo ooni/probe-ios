@@ -118,6 +118,9 @@
         [self performSegueWithIdentifier:@"toMiddleBoxesTestDetails" sender:self];
     else if ([segueObj.test_name isEqualToString:@"web_connectivity"])
         [self performSegueWithIdentifier:@"toWebsitesTestDetails" sender:self];
+    else if ([segueObj.test_name isEqualToString:@"tor"] ||
+             [segueObj.test_name isEqualToString:@"psiphon"])
+        [self performSegueWithIdentifier:@"toCircumventionTestDetails" sender:self];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -148,7 +151,12 @@
         HeaderSwipeViewController *vc = (HeaderSwipeViewController *)segue.destinationViewController;
         [vc setResult:result];
     }
-    else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] || [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] || [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] || [[segue identifier] isEqualToString:@"toDashTestDetails"] || [[segue identifier] isEqualToString:@"toFailedTestDetails"]){
+    else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] ||
+             [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] ||
+             [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] ||
+             [[segue identifier] isEqualToString:@"toDashTestDetails"] ||
+             [[segue identifier] isEqualToString:@"toFailedTestDetails"] ||
+             [[segue identifier] isEqualToString:@"toCircumventionTestDetails"]){
         TestDetailsViewController *vc = (TestDetailsViewController *)segue.destinationViewController;
         [vc setResult:result];
         [vc setMeasurement:segueObj];
