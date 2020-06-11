@@ -48,6 +48,9 @@
         [self.detail2TitleLabel setText:NSLocalizedString(@"TestResults.Details.Circumvention.Tor.DirectoryAuthorities.Label.Title", nil)];
         [self.detail1SubtitleLabel setText:[testKeys getBridges]];
         [self.detail2SubtitleLabel setText:[testKeys getAuthorities]];
+        for (TorTarget *current in [testKeys targets]){
+            NSLog(@"%@", current.address);
+        }
     }
 }
 

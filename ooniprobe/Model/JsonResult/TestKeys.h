@@ -4,13 +4,12 @@
 #import "Advanced.h"
 #import "Summary.h"
 #import "Server.h"
+#import "TorTarget.h"
 #define BLOCKED @"blocked"
 
 @interface TestKeys : NSObject
 @property (nonatomic, strong) NSString *blocking;
 @property (nonatomic, strong) NSString *accessible;
-@property (nonatomic, strong) NSArray *sent;
-@property (nonatomic, strong) NSArray *received;
 @property (nonatomic, strong) NSString *failure;
 @property (nonatomic, strong) NSString *header_field_name;
 @property (nonatomic, strong) NSString *header_field_number;
@@ -46,6 +45,7 @@
 @property (nonatomic, strong) NSNumber *or_port_dirauth_accessible;
 @property (nonatomic, strong) NSNumber *or_port_total;
 @property (nonatomic, strong) NSNumber *or_port_accessible;
+@property (nonatomic, strong) NSArray *targets;
 
 - (NSString*)getJsonStr;
 
@@ -93,10 +93,6 @@
 - (NSString*)getMedianBitrate;
 - (NSString*)getMedianBitrateUnit;
 - (NSString*)getPlayoutDelay;
-    
-//HIRL
-//- (NSArray*)getSent;
-//- (NSArray*)getReceived;
 
 //PSIPHON
 - (NSString*)getBootstrapTime;
@@ -104,5 +100,6 @@
 //TOR
 - (NSString*)getBridges;
 - (NSString*)getAuthorities;
+
 @end
 

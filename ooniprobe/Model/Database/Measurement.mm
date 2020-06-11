@@ -42,7 +42,13 @@
                 NSLog(@"Error parsing JSON: %@", error);
                 _testKeysObj = [[TestKeys alloc] init];
             }
-            _testKeysObj = [TestKeys objectFromDictionary:jsonDic];
+            InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
+            ObjectMapper *mapper = [[ObjectMapper alloc] init];
+            mapper.mappingProvider = mappingProvider;
+            [mappingProvider mapFromDictionaryKey:@"targets" toPropertyKey:@"targets" forClass:[TestKeys class] withTransformer:^id(id currentNode, id parentNode) {
+                return [TorTarget getTargetsFromArray:currentNode];
+            }];
+            _testKeysObj = [mapper objectFromSource:jsonDic toInstanceOfClass:[TestKeys class]];
         }
         else
             _testKeysObj = [[TestKeys alloc] init];

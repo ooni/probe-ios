@@ -269,6 +269,9 @@
         [mappingProvider mapFromDictionaryKey:@"tampering" toPropertyKey:@"tampering" forClass:[TestKeys class] withTransformer:^id(id currentNode, id parentNode) {
             return [[Tampering alloc] initWithValue:currentNode];
         }];
+        [mappingProvider mapFromDictionaryKey:@"targets" toPropertyKey:@"targets" forClass:[TestKeys class] withTransformer:^id(id currentNode, id parentNode) {
+            return [TorTarget getTargetsFromDic:currentNode];
+        }];
         JsonResult *json = [mapper objectFromSource:jsonDic toInstanceOfClass:[JsonResult class]];
         [self onEntry:json obj:measurement];
         [measurement save];

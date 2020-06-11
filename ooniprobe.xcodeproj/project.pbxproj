@@ -144,6 +144,7 @@
 		EDF4ED2C248A9FA7001A5406 /* Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2A248A9FA7001A5406 /* Summary.m */; };
 		EDF4ED2E248E9D76001A5406 /* MKExperimentTaskAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */; };
 		EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */; };
+		EDF4ED342492280E001A5406 /* TorTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED332492280D001A5406 /* TorTarget.m */; };
 		EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8E51C22C40A8E00CF0FF6 /* APITest.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
@@ -438,6 +439,8 @@
 		EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKExperimentTaskAdapter.mm; path = Engine/MKExperimentTaskAdapter.mm; sourceTree = "<group>"; };
 		EDF4ED2F248FBFEC001A5406 /* CircumventionDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircumventionDetailsViewController.h; sourceTree = "<group>"; };
 		EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircumventionDetailsViewController.m; sourceTree = "<group>"; };
+		EDF4ED322492280D001A5406 /* TorTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorTarget.h; sourceTree = "<group>"; };
+		EDF4ED332492280D001A5406 /* TorTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorTarget.m; sourceTree = "<group>"; };
 		EDF8E51C22C40A8E00CF0FF6 /* APITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
@@ -795,6 +798,8 @@
 				EDF4ED29248A9FA6001A5406 /* Server.m */,
 				ED53841A2159757D0078C5C6 /* EventResult.h */,
 				EDF4ED1F248A8B50001A5406 /* EventResult.m */,
+				EDF4ED322492280D001A5406 /* TorTarget.h */,
+				EDF4ED332492280D001A5406 /* TorTarget.m */,
 			);
 			name = JsonResult;
 			path = Model/JsonResult;
@@ -1402,6 +1407,7 @@
 				ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */,
 				EDF4ED132487BF27001A5406 /* MKReporterTaskAdapter.m in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
+				EDF4ED342492280E001A5406 /* TorTarget.m in Sources */,
 				EDF4ED042487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
