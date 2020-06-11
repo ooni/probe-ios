@@ -31,7 +31,6 @@
         target.type = [curTarget objectForKey:@"target_protocol"];
         NSDictionary *summary = [curTarget objectForKey:@"summary"];
         if (summary != nil){
-            NSLog(@"summary %@", summary);
             NSDictionary *handshake = [summary objectForKey:@"handshake"];
             NSDictionary *connect = [summary objectForKey:@"connect"];
             if ([connect objectForKey:@"failure"])
