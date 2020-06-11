@@ -20,8 +20,7 @@
                           [NSString stringWithFormat:@"state"]];
         self.assets_dir = [documentsDirectory stringByAppendingPathComponent:
                            [NSString stringWithFormat:@"assets"]];
-        self.temp_dir = [NSTemporaryDirectory() stringByAppendingPathComponent:
-                         [NSString stringWithFormat:@"ooniprobe"]];
+        self.temp_dir = NSTemporaryDirectory();
     }
     return self;
 }
