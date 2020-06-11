@@ -33,10 +33,10 @@
         if (summary != nil){
             NSDictionary *handshake = [summary objectForKey:@"handshake"];
             NSDictionary *connect = [summary objectForKey:@"connect"];
-            if ([connect objectForKey:@"failure"])
-                target.connect = [connect objectForKey:@"failure"];
-            if ([handshake objectForKey:@"failure"])
+            if (handshake != nil && [handshake objectForKey:@"failure"])
                 target.handshake = [connect objectForKey:@"failure"];
+            if (connect != nil && [connect objectForKey:@"failure"])
+                target.connect = [connect objectForKey:@"failure"];
         }
         [targets addObject:target];
     }
