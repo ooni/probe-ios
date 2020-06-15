@@ -74,6 +74,7 @@
             });
             return;
         }
+        [self testStarted];
         while (![self.task isDone]){
             // Extract an event from the task queue and unmarshal it.
             NSDictionary *evinfo = [self.task waitForNextEvent:nil];
@@ -193,6 +194,13 @@
     });
 }
 
+-(void)testStarted{
+    NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
+    [noteInfo setObject:self.task forKey:@"task"];
+    [noteInfo setObject:self.name forKey:@"name"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"testStarted" object:nil userInfo:noteInfo];
+}
+
 -(void)updateProgress:(Value *)value {
     NSNumber *percentage = value.percentage;
     NSString *message = value.message;
@@ -207,8 +215,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
         [noteInfo setObject:[NSNumber numberWithDouble:progress] forKey:@"prog"];
-        [noteInfo setObject:self.name forKey:@"name"];
-        [noteInfo setObject:self.task forKey:@"task"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateProgress" object:nil userInfo:noteInfo];
     });
 }

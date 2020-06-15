@@ -15,7 +15,7 @@
     [self.progressBar setTrackTintColor:[UIColor colorWithRGBHexString:color_white alpha:0.2f]];
     [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Running", nil)];
     [self.etaLabel setText:NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testStarted:) name:@"testStarted" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setRuntime) name:@"updateRuntime" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
@@ -91,6 +91,19 @@
     [self.logLabel setText:log];
 }
 
+-(void)testStarted:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    task = [userInfo objectForKey:@"task"];
+    NSString *name = [userInfo objectForKey:@"name"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
+        if ([task canInterrupt])
+            [self.interruptButton setHidden:NO];
+        else
+            [self.interruptButton setHidden:YES];
+    });
+}
+
 -(void)updateProgress:(NSNotification *)notification{
     /*
      Format string with minute and seconds
@@ -98,13 +111,6 @@
      https://stackoverflow.com/questions/2927028/how-do-i-get-hour-and-minutes-from-nsdate
      */
     NSDictionary *userInfo = notification.userInfo;
-    task = [userInfo objectForKey:@"task"];
-    if ([task canInterrupt])
-        [self.interruptButton setEnabled:YES];
-    else
-        [self.interruptButton setEnabled:NO];
-        
-    NSString *name = [userInfo objectForKey:@"name"];
     NSNumber *prog = [userInfo objectForKey:@"prog"];
     //TODO-2.1 this doesn't take in consideration different test runtimes, only the total
     //But still fixes https://github.com/ooni/probe/issues/805
@@ -120,7 +126,6 @@
         [self.progressBar setProgress:progress animated:YES];
         NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%ld", eta]);
         [self.timeLabel setText:time];
-        [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
 
     });
     [animation playWithCompletion:^(BOOL animationFinished) {}];
