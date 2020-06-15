@@ -161,7 +161,12 @@
                 [ExceptionUtility recordError:@"json_dump" code:0 userInfo:[event.value dictionary]];
             }
             else if ([event.key isEqualToString:@"task_terminated"]) {
-                //TODO What do we do?
+                /*
+                 * The task will be interrupted so the current
+                 * measurement data will not show up.
+                 * The measurement db object can be deleted
+                 * TODO to be tested when web_connectivity will be implemented
+                 */
             }
             else {
                 NSLog(@"unused event: %@", evinfo);
