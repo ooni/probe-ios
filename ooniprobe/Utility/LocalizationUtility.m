@@ -28,6 +28,8 @@
         return NSLocalizedString(@"TestResults.Overview.FilterTests.MiddleBoxes", nil);
     else if ([testName isEqualToString:@"instant_messaging"])
         return NSLocalizedString(@"TestResults.Overview.FilterTests.InstantMessaging", nil);
+    else if ([testName isEqualToString:@"circumvention"])
+        return NSLocalizedString(@"TestResults.Overview.FilterTests.Circumvention", nil);
     return @"";
 }
 
@@ -41,6 +43,8 @@
         return NSLocalizedString(@"Dashboard.Middleboxes.Card.Description", nil);
     else if ([testName isEqualToString:@"instant_messaging"])
         return NSLocalizedString(@"Dashboard.InstantMessaging.Card.Description", nil);
+    else if ([testName isEqualToString:@"circumvention"])
+        return NSLocalizedString(@"Dashboard.Circumvention.Card.Description", nil);
     return @"";
 }
 
@@ -54,6 +58,8 @@
         return NSLocalizedString(@"Dashboard.Middleboxes.Overview.Paragraph", nil);
     else if ([testName isEqualToString:@"instant_messaging"])
         return NSLocalizedString(@"Dashboard.InstantMessaging.Overview.Paragraph", nil);
+    else if ([testName isEqualToString:@"circumvention"])
+        return NSLocalizedString(@"Dashboard.Circumvention.Overview.Paragraph", nil);
     return @"";
 }
 

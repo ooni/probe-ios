@@ -73,6 +73,9 @@
     else if ([result.test_group_name isEqualToString:@"performance"]){
         [self rowPerformance:result];
     }
+    else if ([result.test_group_name isEqualToString:@"circumvention"]){
+        [self rowCircumvention:result];
+    }
 }
 
 -(void)rowWebsites:(Result*)result{
@@ -115,6 +118,28 @@
     [self.image2 setImage:[UIImage imageNamed:@"tick"]];
     [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
     [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:okMeasurements :@"TestResults.Overview.InstantMessaging.Available"]]];
+    [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+}
+
+//TODO Refactor with rowInstantMessaging
+-(void)rowCircumvention:(Result*)result{
+    long anomalousMeasurements = [result anomalousMeasurements];
+    long okMeasurements = [result okMeasurements];
+    [self.stackView2 setHidden:NO];
+    [self.stackView3 setHidden:YES];
+    [self.image1 setImage:[UIImage imageNamed:@"exclamation_point"]];
+    if (anomalousMeasurements == 0){
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    }
+    else {
+        [self.image1 setTintColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+        [self.label1 setTextColor:[UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f]];
+    }
+    [self.label1 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:anomalousMeasurements :@"TestResults.Overview.Circumvention.Blocked"]]];
+    [self.image2 setImage:[UIImage imageNamed:@"tick"]];
+    [self.image2 setTintColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.label2 setText:[NSString stringWithFormat:@"%@", [LocalizationUtility getSingularPluralTemplate:okMeasurements :@"TestResults.Overview.Circumvention.Available"]]];
     [self.label2 setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
 }
 

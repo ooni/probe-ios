@@ -2,6 +2,8 @@
 #import "Tampering.h"
 #import "Simple.h"
 #import "Advanced.h"
+#import "Summary.h"
+#import "Server.h"
 #define BLOCKED @"blocked"
 
 @interface TestKeys : NSObject
@@ -29,7 +31,21 @@
 @property (nonatomic, strong) NSString *telegram_web_status;
 @property (nonatomic, strong) Simple *simple;
 @property (nonatomic, strong) Advanced *advanced;
+@property (nonatomic, strong) Summary *summary;
+@property (nonatomic, strong) Server *server;
 @property (nonatomic, strong) Tampering *tampering;
+@property (nonatomic, strong) NSNumber *protocol;
+//Psiphon
+@property (nonatomic, strong) NSNumber * bootstrap_time;
+//Tor
+@property (nonatomic, strong) NSNumber *dir_port_total;
+@property (nonatomic, strong) NSNumber *dir_port_accessible;
+@property (nonatomic, strong) NSNumber *obfs4_total;
+@property (nonatomic, strong) NSNumber *obfs4_accessible;
+@property (nonatomic, strong) NSNumber *or_port_dirauth_total;
+@property (nonatomic, strong) NSNumber *or_port_dirauth_accessible;
+@property (nonatomic, strong) NSNumber *or_port_total;
+@property (nonatomic, strong) NSNumber *or_port_accessible;
 
 - (NSString*)getJsonStr;
 
@@ -57,6 +73,7 @@
 - (UIColor*)getFacebookMessengerTcpColor;
 
 //NDT
+- (BOOL)isNdt7;
 - (NSString*)getUpload;
 - (NSString*)getUploadUnit;
 - (NSString*)getUploadWithUnit;
@@ -80,5 +97,12 @@
 //HIRL
 //- (NSArray*)getSent;
 //- (NSArray*)getReceived;
+
+//PSIPHON
+- (NSString*)getBootstrapTime;
+
+//TOR
+- (NSString*)getBridges;
+- (NSString*)getAuthorities;
 @end
 

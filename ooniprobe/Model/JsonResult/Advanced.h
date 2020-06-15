@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+__deprecated
 @interface Advanced : NSObject
 @property (nonatomic, strong) NSNumber *packet_loss;
 @property (nonatomic, strong) NSNumber *avg_rtt;

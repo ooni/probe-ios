@@ -20,6 +20,10 @@
 		ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */; };
 		ED12BA2D224E0AB6004949E4 /* Tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED12BA2C224E0AB6004949E4 /* Tests.plist */; };
 		ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */; };
+		ED14B231246540A4009AA906 /* CircumventionSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED14B230246540A4009AA906 /* CircumventionSuite.mm */; };
+		ED14B2342465411E009AA906 /* Psiphon.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2332465411E009AA906 /* Psiphon.mm */; };
+		ED14B2372465412C009AA906 /* Tor.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2362465412C009AA906 /* Tor.mm */; };
+		ED14B23924658329009AA906 /* circumvention.json in Resources */ = {isa = PBXBuildFile; fileRef = ED14B23824658329009AA906 /* circumvention.json */; };
 		ED163CE1209C7B880052FB46 /* Airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED163CE0209C7B880052FB46 /* Airports.plist */; };
 		ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC7FE20158D630041089A /* ConfigureButton.m */; };
 		ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.mm */; };
@@ -50,8 +54,6 @@
 		ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5C24629A860087B36D /* OONIApi.m */; };
 		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
-		ED53841C2159757D0078C5C6 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841B2159757D0078C5C6 /* EventResult.m */; };
-		ED53841F215975A70078C5C6 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53841E215975A70078C5C6 /* Value.m */; };
 		ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53842121597E950078C5C6 /* OoniRunViewController.m */; };
 		ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55C0C8203BD52900738260 /* Header1MBViewController.m */; };
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
@@ -125,11 +127,8 @@
 		EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE47C40241FC6BC0013A1CB /* NetworkSession.m */; };
 		EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */; };
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
-		EDF20735212173B9005B06D7 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20733212173B8005B06D7 /* Simple.m */; };
-		EDF20736212173B9005B06D7 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF20734212173B9005B06D7 /* Advanced.m */; };
 		EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF23EF82228CC6000B97520 /* NetworkTest.m */; };
 		EDF4ECF4248549BD001A5406 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ECF3248549BD001A5406 /* Engine.m */; };
-		EDF4ED0124879D31001A5406 /* MKExperimentTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */; };
 		EDF4ED042487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */; };
 		EDF4ED072487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED062487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m */; };
 		EDF4ED0A2487BEE4001A5406 /* MKOrchestraResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED092487BEE4001A5406 /* MKOrchestraResultsAdapter.m */; };
@@ -137,6 +136,14 @@
 		EDF4ED102487BF17001A5406 /* MKReporterResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0F2487BF17001A5406 /* MKReporterResultsAdapter.m */; };
 		EDF4ED132487BF27001A5406 /* MKReporterTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */; };
 		EDF4ED162487BF39001A5406 /* OONIProbeEngineTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */; };
+		EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED1F248A8B50001A5406 /* EventResult.m */; };
+		EDF4ED26248A9A64001A5406 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED23248A9A64001A5406 /* Advanced.m */; };
+		EDF4ED27248A9A64001A5406 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED24248A9A64001A5406 /* Simple.m */; };
+		EDF4ED28248A9A64001A5406 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED25248A9A64001A5406 /* Value.m */; };
+		EDF4ED2B248A9FA7001A5406 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED29248A9FA6001A5406 /* Server.m */; };
+		EDF4ED2C248A9FA7001A5406 /* Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2A248A9FA7001A5406 /* Summary.m */; };
+		EDF4ED2E248E9D76001A5406 /* MKExperimentTaskAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */; };
+		EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */; };
 		EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8E51C22C40A8E00CF0FF6 /* APITest.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
 /* End PBXBuildFile section */
@@ -183,6 +190,13 @@
 		ED12BA2C224E0AB6004949E4 /* Tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
 		ED12BA2E224E5BDD004949E4 /* TestSummaryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewCell.h; sourceTree = "<group>"; };
 		ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewCell.m; sourceTree = "<group>"; };
+		ED14B22F246540A4009AA906 /* CircumventionSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircumventionSuite.h; sourceTree = "<group>"; };
+		ED14B230246540A4009AA906 /* CircumventionSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CircumventionSuite.mm; sourceTree = "<group>"; };
+		ED14B2322465411E009AA906 /* Psiphon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Psiphon.h; sourceTree = "<group>"; };
+		ED14B2332465411E009AA906 /* Psiphon.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Psiphon.mm; sourceTree = "<group>"; };
+		ED14B2352465412C009AA906 /* Tor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tor.h; sourceTree = "<group>"; };
+		ED14B2362465412C009AA906 /* Tor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Tor.mm; sourceTree = "<group>"; };
+		ED14B23824658329009AA906 /* circumvention.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = circumvention.json; sourceTree = "<group>"; };
 		ED163CE0209C7B880052FB46 /* Airports.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Airports.plist; sourceTree = "<group>"; };
 		ED1CC7FD20158D630041089A /* ConfigureButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigureButton.h; sourceTree = "<group>"; };
 		ED1CC7FE20158D630041089A /* ConfigureButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigureButton.m; sourceTree = "<group>"; };
@@ -247,9 +261,7 @@
 		ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED53841A2159757D0078C5C6 /* EventResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResult.h; sourceTree = "<group>"; };
-		ED53841B2159757D0078C5C6 /* EventResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
 		ED53841D215975A70078C5C6 /* Value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Value.h; sourceTree = "<group>"; };
-		ED53841E215975A70078C5C6 /* Value.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Value.m; sourceTree = "<group>"; };
 		ED53842021597E950078C5C6 /* OoniRunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OoniRunViewController.h; sourceTree = "<group>"; };
 		ED53842121597E950078C5C6 /* OoniRunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OoniRunViewController.m; sourceTree = "<group>"; };
 		ED55C0C7203BD52900738260 /* Header1MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header1MBViewController.h; sourceTree = "<group>"; };
@@ -387,8 +399,6 @@
 		EDF2072B2120EF12005B06D7 /* Simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.h; sourceTree = "<group>"; };
 		EDF2072E2120EF29005B06D7 /* Advanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Advanced.h; sourceTree = "<group>"; };
 		EDF2073121217340005B06D7 /* JsonResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonResult.m; sourceTree = "<group>"; };
-		EDF20733212173B8005B06D7 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
-		EDF20734212173B9005B06D7 /* Advanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advanced.m; sourceTree = "<group>"; };
 		EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OONIProbeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF23EEF2225258100B97520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF23EF82228CC6000B97520 /* NetworkTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTest.m; sourceTree = "<group>"; };
@@ -403,7 +413,6 @@
 		EDF4ECFD24879684001A5406 /* CollectorResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CollectorResults.h; path = Engine/CollectorResults.h; sourceTree = "<group>"; };
 		EDF4ECFE24879684001A5406 /* OrchestraResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OrchestraResults.h; path = Engine/OrchestraResults.h; sourceTree = "<group>"; };
 		EDF4ECFF24879D31001A5406 /* MKExperimentTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKExperimentTaskAdapter.h; path = Engine/MKExperimentTaskAdapter.h; sourceTree = "<group>"; };
-		EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKExperimentTaskAdapter.m; path = Engine/MKExperimentTaskAdapter.m; sourceTree = "<group>"; };
 		EDF4ED022487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKGeoIPLookupResultsAdapter.h; path = Engine/MKGeoIPLookupResultsAdapter.h; sourceTree = "<group>"; };
 		EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKGeoIPLookupResultsAdapter.m; path = Engine/MKGeoIPLookupResultsAdapter.m; sourceTree = "<group>"; };
 		EDF4ED052487BED8001A5406 /* MKGeoIPLookupTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKGeoIPLookupTaskAdapter.h; path = Engine/MKGeoIPLookupTaskAdapter.h; sourceTree = "<group>"; };
@@ -418,6 +427,17 @@
 		EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKReporterTaskAdapter.m; path = Engine/MKReporterTaskAdapter.m; sourceTree = "<group>"; };
 		EDF4ED142487BF39001A5406 /* OONIProbeEngineTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIProbeEngineTaskAdapter.h; path = Engine/OONIProbeEngineTaskAdapter.h; sourceTree = "<group>"; };
 		EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIProbeEngineTaskAdapter.m; path = Engine/OONIProbeEngineTaskAdapter.m; sourceTree = "<group>"; };
+		EDF4ED1F248A8B50001A5406 /* EventResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
+		EDF4ED21248A8BCD001A5406 /* Summary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Summary.h; sourceTree = "<group>"; };
+		EDF4ED22248A8C1F001A5406 /* Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		EDF4ED23248A9A64001A5406 /* Advanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advanced.m; sourceTree = "<group>"; };
+		EDF4ED24248A9A64001A5406 /* Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simple.m; sourceTree = "<group>"; };
+		EDF4ED25248A9A64001A5406 /* Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Value.m; sourceTree = "<group>"; };
+		EDF4ED29248A9FA6001A5406 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		EDF4ED2A248A9FA7001A5406 /* Summary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Summary.m; sourceTree = "<group>"; };
+		EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKExperimentTaskAdapter.mm; path = Engine/MKExperimentTaskAdapter.mm; sourceTree = "<group>"; };
+		EDF4ED2F248FBFEC001A5406 /* CircumventionDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircumventionDetailsViewController.h; sourceTree = "<group>"; };
+		EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircumventionDetailsViewController.m; sourceTree = "<group>"; };
 		EDF8E51C22C40A8E00CF0FF6 /* APITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
 		EDFE073B1F375E3C00960AF2 /* DictionaryUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictionaryUtility.h; path = Utility/DictionaryUtility.h; sourceTree = "<group>"; };
 		EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictionaryUtility.m; path = Utility/DictionaryUtility.m; sourceTree = "<group>"; };
@@ -623,6 +643,10 @@
 				ED2E066321D4867B00E9B9EE /* NdtTest.mm */,
 				ED2E066821D4867B00E9B9EE /* Dash.h */,
 				ED2E066421D4867B00E9B9EE /* Dash.mm */,
+				ED14B2322465411E009AA906 /* Psiphon.h */,
+				ED14B2332465411E009AA906 /* Psiphon.mm */,
+				ED14B2352465412C009AA906 /* Tor.h */,
+				ED14B2362465412C009AA906 /* Tor.mm */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -641,6 +665,8 @@
 				ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */,
 				ED2E067C21D487EA00E9B9EE /* PerformanceSuite.h */,
 				ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */,
+				ED14B22F246540A4009AA906 /* CircumventionSuite.h */,
+				ED14B230246540A4009AA906 /* CircumventionSuite.mm */,
 			);
 			path = Suite;
 			sourceTree = "<group>";
@@ -758,13 +784,17 @@
 				EDB252A820FA4D4F00B4EDE4 /* Tampering.h */,
 				EDB252A920FA4D4F00B4EDE4 /* Tampering.m */,
 				EDF2072B2120EF12005B06D7 /* Simple.h */,
-				EDF20733212173B8005B06D7 /* Simple.m */,
+				EDF4ED24248A9A64001A5406 /* Simple.m */,
 				EDF2072E2120EF29005B06D7 /* Advanced.h */,
-				EDF20734212173B9005B06D7 /* Advanced.m */,
-				ED53841A2159757D0078C5C6 /* EventResult.h */,
-				ED53841B2159757D0078C5C6 /* EventResult.m */,
+				EDF4ED23248A9A64001A5406 /* Advanced.m */,
 				ED53841D215975A70078C5C6 /* Value.h */,
-				ED53841E215975A70078C5C6 /* Value.m */,
+				EDF4ED25248A9A64001A5406 /* Value.m */,
+				EDF4ED21248A8BCD001A5406 /* Summary.h */,
+				EDF4ED2A248A9FA7001A5406 /* Summary.m */,
+				EDF4ED22248A8C1F001A5406 /* Server.h */,
+				EDF4ED29248A9FA6001A5406 /* Server.m */,
+				ED53841A2159757D0078C5C6 /* EventResult.h */,
+				EDF4ED1F248A8B50001A5406 /* EventResult.m */,
 			);
 			name = JsonResult;
 			path = Model/JsonResult;
@@ -837,6 +867,7 @@
 				ED6911D920BDC04D0022DCFE /* instant_messaging.json */,
 				EDEF0D9420BE9F28001F3E69 /* middle_boxes.json */,
 				ED6911DA20BDC04D0022DCFE /* performance.json */,
+				ED14B23824658329009AA906 /* circumvention.json */,
 			);
 			path = anim;
 			sourceTree = "<group>";
@@ -903,6 +934,8 @@
 				EDA17B00208A312C00D46D0F /* NdtDetailsViewController.m */,
 				ED365215223A40480093180B /* FailedTestDetailsViewController.h */,
 				ED365216223A40480093180B /* FailedTestDetailsViewController.m */,
+				EDF4ED2F248FBFEC001A5406 /* CircumventionDetailsViewController.h */,
+				EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -934,7 +967,7 @@
 				EDF4ECF2248549BD001A5406 /* Engine.h */,
 				EDF4ECF3248549BD001A5406 /* Engine.m */,
 				EDF4ECFF24879D31001A5406 /* MKExperimentTaskAdapter.h */,
-				EDF4ED0024879D31001A5406 /* MKExperimentTaskAdapter.m */,
+				EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */,
 				EDF4ED022487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.h */,
 				EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */,
 				EDF4ED052487BED8001A5406 /* MKGeoIPLookupTaskAdapter.h */,
@@ -1143,6 +1176,7 @@
 				EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */,
 				ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */,
 				EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */,
+				ED14B23924658329009AA906 /* circumvention.json in Resources */,
 				D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */,
 				EDEF0D9520BE9F28001F3E69 /* middle_boxes.json in Resources */,
 				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
@@ -1271,12 +1305,12 @@
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
+				ED14B231246540A4009AA906 /* CircumventionSuite.mm in Sources */,
 				EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */,
 				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDD101BE1EE801F00044E390 /* NotificationService.mm in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
 				EDF4ED102487BF17001A5406 /* MKReporterResultsAdapter.m in Sources */,
-				EDF20736212173B9005B06D7 /* Advanced.m in Sources */,
 				ED2E067221D4867B00E9B9EE /* Dash.mm in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
 				EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */,
@@ -1286,6 +1320,7 @@
 				ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */,
 				EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */,
 				EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */,
+				ED14B2372465412C009AA906 /* Tor.mm in Sources */,
 				ED2E066E21D4867B00E9B9EE /* AbstractTest.mm in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				EDA9F21B22414E0E003D40E8 /* UIDevice-DeviceInfo.m in Sources */,
@@ -1297,14 +1332,13 @@
 				ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
+				EDF4ED28248A9A64001A5406 /* Value.m in Sources */,
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
 				ED90A92D2198DE5100204B46 /* Options.m in Sources */,
-				ED53841C2159757D0078C5C6 /* EventResult.m in Sources */,
 				ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
-				EDF4ED0124879D31001A5406 /* MKExperimentTaskAdapter.m in Sources */,
 				EDF4ED162487BF39001A5406 /* OONIProbeEngineTaskAdapter.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
@@ -1318,22 +1352,28 @@
 				ED2E067421D4867B00E9B9EE /* FacebookMessenger.mm in Sources */,
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
 				ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */,
+				EDF4ED2C248A9FA7001A5406 /* Summary.m in Sources */,
 				ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */,
 				ED90A9282198DE5100204B46 /* Network.m in Sources */,
 				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
+				EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */,
 				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
+				EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
+				ED14B2342465411E009AA906 /* Psiphon.mm in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
+				EDF4ED2B248A9FA7001A5406 /* Server.m in Sources */,
 				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
-				ED53841F215975A70078C5C6 /* Value.m in Sources */,
+				EDF4ED2E248E9D76001A5406 /* MKExperimentTaskAdapter.mm in Sources */,
 				ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm in Sources */,
 				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */,
 				ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */,
 				ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */,
 				EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */,
+				EDF4ED26248A9A64001A5406 /* Advanced.m in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				EDF4ED0D2487BEFF001A5406 /* MKOrchestraTaskAdapter.m in Sources */,
@@ -1348,6 +1388,7 @@
 				EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */,
+				EDF4ED27248A9A64001A5406 /* Simple.m in Sources */,
 				EDF4ECF4248549BD001A5406 /* Engine.m in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
 				ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */,
@@ -1356,7 +1397,6 @@
 				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 				EDF2073221217340005B06D7 /* JsonResult.m in Sources */,
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
-				EDF20735212173B9005B06D7 /* Simple.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
 				ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */,
 				ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */,

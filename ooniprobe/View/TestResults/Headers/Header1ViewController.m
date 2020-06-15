@@ -23,10 +23,9 @@
 }
 
 -(void)addLabels{
-    if ([result.test_group_name isEqualToString:@"websites"]){
-        [self.view4 setHidden:YES];
-    }
-    else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
+    if ([result.test_group_name isEqualToString:@"websites"] ||
+        [result.test_group_name isEqualToString:@"instant_messaging"] ||
+        [result.test_group_name isEqualToString:@"circumvention"]){
         [self.view4 setHidden:YES];
     }
     else if ([result.test_group_name isEqualToString:@"performance"]){
@@ -50,8 +49,9 @@
     else {
         [self addLine:self.view3];
     }
-
 }
+
+//TODO Refactor websites, instant_messaging, circumvention
 -(void)reloadMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([result.test_group_name isEqualToString:@"websites"]){
@@ -68,13 +68,24 @@
         else if ([result.test_group_name isEqualToString:@"instant_messaging"]){
             [self.label1Top setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Tested"]];
             [self.label2Top setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Blocked"]];
-            [self.label3Top setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.Websites.Hero.Reachable"]];
+            [self.label3Top setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Reachable"]];
             [self.label1Central setText:[NSString stringWithFormat:@"%ld", result.totalMeasurements]];
             [self.label2Central setText:[NSString stringWithFormat:@"%ld", result.anomalousMeasurements]];
             [self.label3Central setText:[NSString stringWithFormat:@"%ld", result.okMeasurements]];
             [self.label1Bottom setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
             [self.label2Bottom setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
             [self.label3Bottom setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.InstantMessaging.Hero.Apps"]];
+        }
+        else if ([result.test_group_name isEqualToString:@"circumvention"]){
+            [self.label1Top setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.Circumvention.Hero.Tested"]];
+            [self.label2Top setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.Circumvention.Hero.Blocked"]];
+            [self.label3Top setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.Circumvention.Hero.Reachable"]];
+            [self.label1Central setText:[NSString stringWithFormat:@"%ld", result.totalMeasurements]];
+            [self.label2Central setText:[NSString stringWithFormat:@"%ld", result.anomalousMeasurements]];
+            [self.label3Central setText:[NSString stringWithFormat:@"%ld", result.okMeasurements]];
+            [self.label1Bottom setText:[LocalizationUtility getSingularPlural:result.totalMeasurements :@"TestResults.Summary.Circumvention.Hero.Tools"]];
+            [self.label2Bottom setText:[LocalizationUtility getSingularPlural:result.anomalousMeasurements :@"TestResults.Summary.Circumvention.Hero.Tools"]];
+            [self.label3Bottom setText:[LocalizationUtility getSingularPlural:result.okMeasurements :@"TestResults.Summary.Circumvention.Hero.Tools"]];
         }
         else if ([result.test_group_name isEqualToString:@"performance"]){
             TestKeys *testKeysNdt = [result getMeasurement:@"ndt"].testKeysObj;
