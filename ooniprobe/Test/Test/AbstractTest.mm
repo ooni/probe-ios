@@ -160,6 +160,9 @@
             else if ([event.key isEqualToString:@"bug.json_dump"]) {
                 [ExceptionUtility recordError:@"json_dump" code:0 userInfo:[event.value dictionary]];
             }
+            else if ([event.key isEqualToString:@"task_terminated"]) {
+                //TODO What do we do?
+            }
             else {
                 NSLog(@"unused event: %@", evinfo);
             }

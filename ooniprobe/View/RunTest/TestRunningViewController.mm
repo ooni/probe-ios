@@ -153,6 +153,7 @@
 }
 
 -(IBAction)cancelTest:(id)sender{
+    //TODO Random strings
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"YES", nil)
                                style:UIAlertActionStyleDefault
