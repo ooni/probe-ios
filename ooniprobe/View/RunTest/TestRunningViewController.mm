@@ -158,15 +158,14 @@
 }
 
 -(IBAction)cancelTest:(id)sender{
-    //TODO Random strings
     UIAlertAction* okButton = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"YES", nil)
+                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
                                     [task interrupt];
                                }];
-    [MessageUtility alertWithTitle:NSLocalizedString(@"Do you want to interrupt the test", nil)
-                           message:NSLocalizedString(@"", nil)
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.InterruptTest.Title", nil)
+                           message:NSLocalizedString(@"Modal.InterruptTest.Paragraph", nil)
                           okButton:okButton
                             inView:self];
 }
