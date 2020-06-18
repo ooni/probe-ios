@@ -54,6 +54,9 @@
     if ([testSuites count] == 0)
         return;
     testSuite = [testSuites objectAtIndex:0];
+    //TODO remove this line when web_connectiviity will be in go
+    if ([testSuite.name isEqualToString:@"websites"])
+        [self.interruptButton setHidden:YES];
     [self testStart];
     [testSuite runTestSuite];
     totalTests = [testSuite.testList count];
@@ -88,7 +91,8 @@
 -(void)updateLog:(NSNotification *)notification{
     NSDictionary *userInfo = notification.userInfo;
     NSString *log = [userInfo objectForKey:@"log"];
-    [self.logLabel setText:log];
+    if (!testSuite.interrupted)
+        [self.logLabel setText:log];
 }
 
 -(void)testStarted:(NSNotification *)notification{
@@ -97,10 +101,6 @@
     NSString *name = [userInfo objectForKey:@"name"];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
-        if ([task canInterrupt])
-            [self.interruptButton setHidden:NO];
-        else
-            [self.interruptButton setHidden:YES];
     });
 }
 
@@ -162,8 +162,12 @@
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-                                    [task interrupt];
-                               }];
+        [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Title", nil)];
+        [self.logLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Notice", nil)];
+        testSuite.interrupted = TRUE;
+        if ([task canInterrupt])
+            [task interrupt];
+    }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.InterruptTest.Title", nil)
                            message:NSLocalizedString(@"Modal.InterruptTest.Paragraph", nil)
                           okButton:okButton
