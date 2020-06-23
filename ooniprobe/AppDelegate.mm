@@ -172,6 +172,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"notifications_enabled"];
     if ([TestUtility canCallDeleteJson])
         [TestUtility deleteUploadedJsons];
+    [TestUtility deleteOldLogs];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

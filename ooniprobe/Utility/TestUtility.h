@@ -17,6 +17,7 @@
 + (UIColor*)getGradientColorForTest:(NSString*)testName;
 + (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover;
 + (void)deleteUploadedJsons;
++ (void)deleteOldLogs;
 + (void)removeLogAfterAWeek:(Measurement*)measurement;
 + (BOOL)canCallDeleteJson;
 + (BOOL)removeFile:(NSString*)fileName;

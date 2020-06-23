@@ -29,7 +29,6 @@
         [self.measurement getExplorerUrl:^(NSString *measurement_url){
             isInExplorer = TRUE;
             [TestUtility removeFile:[self.measurement getReportFile]];
-            [TestUtility removeLogAfterAWeek:self.measurement];
         } onError:^(NSError *error) {
             isInExplorer = FALSE;
         }];

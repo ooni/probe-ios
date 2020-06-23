@@ -26,6 +26,16 @@
     return measurementsJson;
 }
 
++ (NSArray*)measurementsWithLog {
+    NSMutableArray *measurementsLog = [NSMutableArray new];
+    SRKResultSet* results = [[[Measurement query] where:BASIC_QUERY] fetch];
+    for (Measurement *measurement in results){
+        if ([measurement hasLogFile])
+            [measurementsLog addObject:measurement];
+    }
+    return measurementsLog;
+}
+
 /*
     Three scenarios:
     I'm running the test, I start the empty summary, I add stuff and save
