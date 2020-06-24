@@ -3,8 +3,8 @@
 #import "JsonResult.h"
 #import "Measurement.h"
 #define BASIC_QUERY @"is_failed = 0 AND is_rerun = 0 AND is_done = 1"
-#define UPLOADED_QUERY (BASIC_QUERY @"AND (is_uploaded = 1 || report_id IS NOT NULL)")
-#define NOT_UPLOADED_QUERY (BASIC_QUERY @"AND (is_uploaded = 0 || report_id IS NULL)")
+#define UPLOADED_QUERY [NSString stringWithFormat:@"%@ AND (is_uploaded = 1 || report_id IS NOT NULL)", BASIC_QUERY]
+#define NOT_UPLOADED_QUERY [NSString stringWithFormat:@"%@ AND (is_uploaded = 0 || report_id IS NULL)", BASIC_QUERY]
 
 /// Results contains the results of a test suite (e.g. Instant messaging).
 @interface Result : SRKObject
