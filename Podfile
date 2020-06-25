@@ -3,7 +3,7 @@ platform :ios, '9.0'
 inhibit_all_warnings!
 target 'ooniprobe' do
     pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2020.06.24-091116.podspec'
-    pod 'mkall', :git => 'https://github.com/measurement-kit/mkall-ios.git', :tag => 'v0.9.0
+    pod 'mkall', :git => 'https://github.com/measurement-kit/mkall-ios.git', :tag => 'v0.9.0'
     pod 'Toast', '~> 4.0.0'
     pod 'Fabric'
     pod 'Crashlytics'
