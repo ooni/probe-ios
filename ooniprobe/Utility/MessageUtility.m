@@ -89,8 +89,8 @@
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-                                //TODO-COUNTLY trigger action register
-                                }];
+        //TODO-COUNTLY trigger action register
+    }];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
                                    style:UIAlertActionStyleCancel
