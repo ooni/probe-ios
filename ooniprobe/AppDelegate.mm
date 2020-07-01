@@ -31,7 +31,7 @@
 #endif
 
     application.statusBarStyle = UIStatusBarStyleLightContent;
-        NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if(notification) {
         [self handleNotification:notification :application];
     }
@@ -226,15 +226,6 @@
 // database delegates
 - (void)databaseError:(SRKError *)error {
     NSLog(@"DB error: %@", error.errorMessage);
-}
-
-- (void)registerUserNotification{
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
-        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
-    }
 }
 
 @end
