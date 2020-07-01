@@ -1,6 +1,5 @@
 #import "AppDelegate.h"
 #import "NotificationService.h"
-#import "BrowserViewController.h"
 #import "DictionaryUtility.h"
 #import "OoniRunViewController.h"
 #import "MessageUtility.h"
@@ -79,54 +78,17 @@
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive)
     {
-        if ([type isEqualToString:@"open_href"]){
-            UIAlertAction* okButton = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction * action) {
-                                           [self openBrowser];
-                                       }];
-            links = [[NSMutableArray alloc] init];
-            [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
-            if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
-                NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
-                [links addObjectsFromArray:alt_href];
-            }
-            [MessageUtility alertWithTitle:nil
-                                   message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]]
-                                  okButton:okButton
-                                    inView:self.window.rootViewController];
-        }
-        else {
             [MessageUtility alertWithTitle:nil
                                    message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]]
                                     inView:self.window.rootViewController];
-        }
     }
     else {
         // The application was just brought from the background to the foreground,
         // so we consider the app as having been "opened by a push notification."
-        if ([type isEqualToString:@"open_href"]){
-            links = [[NSMutableArray alloc] init];
-            [links addObject:[[userInfo objectForKey:@"payload"] objectForKey:@"href"]];
-            if ([[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"]){
-                NSArray *alt_href = [[userInfo objectForKey:@"payload"] objectForKey:@"alt_hrefs"];
-                [links addObjectsFromArray:alt_href];
-            }
-            [self openBrowser];
-        }
     }
 }
 
--(void)openBrowser __deprecated {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
-        UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"browserNC"];
-        BrowserViewController *bvc = (BrowserViewController*)[nvc.viewControllers objectAtIndex:0];
-        [bvc setUrlList:links];
-        [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
-    });
-}
+
 
 -(BOOL)isUITestingEnabled{
     if ([[NSProcessInfo processInfo].arguments containsObject:@"enable_ui_testing"]) {

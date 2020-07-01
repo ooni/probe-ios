@@ -28,7 +28,6 @@
 		ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC7FE20158D630041089A /* ConfigureButton.m */; };
 		ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.mm */; };
 		ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1EC170204E9B61000DEB9F /* LogViewController.m */; };
-		ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1F33611EFD552F00B42FEC /* BrowserViewController.m */; };
 		ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED209669209791C40028BEA3 /* PaddingLabel.m */; };
 		ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm */; };
 		ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065A21D4867B00E9B9EE /* WebConnectivity.mm */; };
@@ -204,8 +203,6 @@
 		ED1CC80120159D970041089A /* TestRunningViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestRunningViewController.mm; sourceTree = "<group>"; };
 		ED1EC16F204E9B61000DEB9F /* LogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		ED1EC170204E9B61000DEB9F /* LogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
-		ED1F33601EFD552F00B42FEC /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
-		ED1F33611EFD552F00B42FEC /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
 		ED209668209791C40028BEA3 /* PaddingLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaddingLabel.h; sourceTree = "<group>"; };
 		ED209669209791C40028BEA3 /* PaddingLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaddingLabel.m; sourceTree = "<group>"; };
 		ED2E065621D4867B00E9B9EE /* HttpInvalidRequestLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpInvalidRequestLine.h; sourceTree = "<group>"; };
@@ -558,8 +555,6 @@
 		ED0A61FF200B52A300235E70 /* OONIRun */ = {
 			isa = PBXGroup;
 			children = (
-				ED1F33601EFD552F00B42FEC /* BrowserViewController.h */,
-				ED1F33611EFD552F00B42FEC /* BrowserViewController.m */,
 				ED53842021597E950078C5C6 /* OoniRunViewController.h */,
 				ED53842121597E950078C5C6 /* OoniRunViewController.m */,
 			);
@@ -1404,7 +1399,6 @@
 				ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */,
 				ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */,
 				ED2E067321D4867B00E9B9EE /* Telegram.mm in Sources */,
-				ED1F33621EFD552F00B42FEC /* BrowserViewController.m in Sources */,
 				EDF2073221217340005B06D7 /* JsonResult.m in Sources */,
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
