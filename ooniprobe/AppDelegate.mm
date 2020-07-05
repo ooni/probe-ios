@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import "NotificationService.h"
 #import "BrowserViewController.h"
 #import "DictionaryUtility.h"
 #import "OoniRunViewController.h"
@@ -32,10 +31,6 @@
 #endif
 
     application.statusBarStyle = UIStatusBarStyleLightContent;
-    
-    //TODO ORCHESTRA Probably don't need it anymore when implementing backgound notifications
-    //https://stackoverflow.com/questions/30297594/uiapplicationlaunchoptionsremotenotificationkey-not-getting-userinfo
-    //https://stackoverflow.com/questions/38969229/what-is-uiapplicationlaunchoptionsremotenotificationkey-used-for
     NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if(notification) {
         [self handleNotification:notification :application];
