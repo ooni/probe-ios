@@ -15,7 +15,7 @@
     [self.progressBar setTrackTintColor:[UIColor colorWithRGBHexString:color_white alpha:0.2f]];
     [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Running", nil)];
     [self.etaLabel setText:NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testStarted:) name:@"testStarted" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setRuntime) name:@"updateRuntime" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
@@ -54,6 +54,9 @@
     if ([testSuites count] == 0)
         return;
     testSuite = [testSuites objectAtIndex:0];
+    //TODO remove this line when web_connectiviity will be in go
+    if ([testSuite.name isEqualToString:@"websites"])
+        [self.interruptButton setHidden:YES];
     [self testStart];
     [testSuite runTestSuite];
     totalTests = [testSuite.testList count];
@@ -88,7 +91,17 @@
 -(void)updateLog:(NSNotification *)notification{
     NSDictionary *userInfo = notification.userInfo;
     NSString *log = [userInfo objectForKey:@"log"];
-    [self.logLabel setText:log];
+    if (!testSuite.interrupted)
+        [self.logLabel setText:log];
+}
+
+-(void)testStarted:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    task = [userInfo objectForKey:@"task"];
+    NSString *name = [userInfo objectForKey:@"name"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
+    });
 }
 
 -(void)updateProgress:(NSNotification *)notification{
@@ -98,7 +111,6 @@
      https://stackoverflow.com/questions/2927028/how-do-i-get-hour-and-minutes-from-nsdate
      */
     NSDictionary *userInfo = notification.userInfo;
-    NSString *name = [userInfo objectForKey:@"name"];
     NSNumber *prog = [userInfo objectForKey:@"prog"];
     //TODO-2.1 this doesn't take in consideration different test runtimes, only the total
     //But still fixes https://github.com/ooni/probe/issues/805
@@ -114,7 +126,6 @@
         [self.progressBar setProgress:progress animated:YES];
         NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%ld", eta]);
         [self.timeLabel setText:time];
-        [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
 
     });
     [animation playWithCompletion:^(BOOL animationFinished) {}];
@@ -144,6 +155,23 @@
 -(void)showError{
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
                            message:NSLocalizedString(@"Modal.Error.CantDownloadURLs", nil) inView:self];
+}
+
+-(IBAction)cancelTest:(id)sender{
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+        [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Title", nil)];
+        [self.logLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Notice", nil)];
+        testSuite.interrupted = TRUE;
+        if ([task canInterrupt])
+            [task interrupt];
+    }];
+    [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.InterruptTest.Title", nil)
+                           message:NSLocalizedString(@"Modal.InterruptTest.Paragraph", nil)
+                          okButton:okButton
+                            inView:self];
 }
 
 @end
