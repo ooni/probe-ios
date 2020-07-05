@@ -3,8 +3,6 @@
 #import "MKExperimentTaskAdapter.h"
 #import "MKGeoIPLookupResultsAdapter.h"
 #import "MKGeoIPLookupTaskAdapter.h"
-#import "MKOrchestraResultsAdapter.h"
-#import "MKOrchestraTaskAdapter.h"
 #import "MKReporterResultsAdapter.h"
 #import "MKReporterTaskAdapter.h"
 #import "OONIProbeEngineTaskAdapter.h"
@@ -23,10 +21,4 @@
 
 + (id<CollectorTask>) collectorTaskWithSoftwareName:(NSString *)softwareName
                                      softwareVersion:(NSString *)softwareVersion;
-
-+ (id<OrchestraTask>) orchestraTaskWithSoftwareName:(NSString *)softwareName
-                                    softwareVersion:(NSString *)softwareVersion
-                                     supportedTests:(NSArray<NSString *> *)supportedTests
-                                        deviceToken:(NSString *)deviceToken
-                                        secretsFile:(NSString *)secretsFile;
 @end

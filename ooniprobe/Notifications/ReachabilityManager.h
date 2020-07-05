@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import "Reachability.h"
-#import "NotificationService.h"
 
 @interface ReachabilityManager : NSObject
 
