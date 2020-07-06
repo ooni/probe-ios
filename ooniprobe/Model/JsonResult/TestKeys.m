@@ -297,7 +297,7 @@
 }
     
     
-- (NSString*)getServer {
+- (NSString*)getServerDetails {
     if (self.server_name != nil && self.server_country != nil){
         return [NSString stringWithFormat:@"%@ - %@", self.server_name, self.server_country];
     }

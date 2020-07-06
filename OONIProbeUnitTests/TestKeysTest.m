@@ -136,17 +136,17 @@ TestKeys *testKeys;
 }
 
 - (void)testServer {
-    XCTAssert([[testKeys getServer] isEqualToString:NOT_AVAILABLE]);
+    XCTAssert([[testKeys getServerDetails] isEqualToString:NOT_AVAILABLE]);
     testKeys.server_name = BLANK;
     testKeys.server_country = nil;
-    XCTAssert([[testKeys getServer] isEqualToString:NOT_AVAILABLE]);
+    XCTAssert([[testKeys getServerDetails] isEqualToString:NOT_AVAILABLE]);
     testKeys.server_name = nil;
     testKeys.server_country = BLANK;
-    XCTAssert([[testKeys getServer] isEqualToString:NOT_AVAILABLE]);
+    XCTAssert([[testKeys getServerDetails] isEqualToString:NOT_AVAILABLE]);
     testKeys.server_name = BLANK;
     testKeys.server_country = BLANK;
     NSString *serverStr = [NSString stringWithFormat:@"%@ - %@", BLANK, BLANK];
-    XCTAssert([[testKeys getServer] isEqualToString:serverStr]);
+    XCTAssert([[testKeys getServerDetails] isEqualToString:serverStr]);
 }
 
 //TODO update these tests with the new Class Summary

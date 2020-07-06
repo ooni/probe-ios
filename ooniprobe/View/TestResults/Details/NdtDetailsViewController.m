@@ -21,7 +21,7 @@
     [self.pingValueLabel setText:[testKeys getPing]];
 
     [self.serverTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.Server", nil)];
-    [self.serverValueLabel setText:[testKeys getServer]];
+    [self.serverValueLabel setText:[testKeys getServerDetails]];
     
     [self.packetlossTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.NDT.PacketLoss", nil)];
     [self.packetlossValueLabel setText:[testKeys getPacketLoss]];
