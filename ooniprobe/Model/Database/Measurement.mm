@@ -2,6 +2,7 @@
 #import "Result.h"
 #import "TestUtility.h"
 #import "NetworkSession.h"
+#import "OONIApi.h"
 
 @implementation Measurement
 @dynamic test_name, start_time, runtime, is_done, is_uploaded, is_failed, failure_msg, is_upload_failed, upload_failure_msg, is_rerun, report_id, url_id, test_keys, is_anomaly, result_id;
@@ -16,14 +17,14 @@
     return [[[Measurement query] where:NOT_UPLOADED_QUERY] fetch];
 }
 
-+ (NSArray*)measurementsWithJson {
-    NSMutableArray *measurementsJson = [NSMutableArray new];
++ (NSMutableOrderedSet*)getReportsUploaded {
+    NSMutableOrderedSet *reportIds = [NSMutableOrderedSet new];
     SRKResultSet* results = [[[Measurement query] where:UPLOADED_QUERY] fetch];
     for (Measurement *measurement in results){
         if ([measurement hasReportFile])
-            [measurementsJson addObject:measurement];
+            [reportIds addObject:measurement.report_id];
     }
-    return measurementsJson;
+    return reportIds;
 }
 
 + (NSArray*)measurementsWithLog {
@@ -112,61 +113,9 @@
 }
 
 -(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb {
-    NSURLComponents *components = [[NSURLComponents alloc] init];
-    components.scheme = @"https";
-    components.host = @"api.ooni.io";
-    components.path = @"/api/v1/measurements";
-    NSURLQueryItem *reportIdItem = [NSURLQueryItem
-                                    queryItemWithName:@"report_id"
-                                    value:self.report_id];
-    //web_connectivity is the only test using input for now
-    if ([self.test_name isEqualToString:@"web_connectivity"]){
-        NSURLQueryItem *urlItem = [NSURLQueryItem
-                                   queryItemWithName:@"input"
-                                   value:self.url_id.url];
-        components.queryItems = @[ reportIdItem, urlItem ];
-    }
-    else
-        components.queryItems = @[ reportIdItem ];
-
-    NSURL *url = components.URL;
-    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
-     dataTaskWithURL:url
-     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-         [self getExplorerUrlCallback:data response:response error:error
-                          onSuccess:successcb onError:errorcb];
-     }];
-    [downloadTask resume];
+    [OONIApi getExplorerUrl:self.report_id,
+                    withUrl:self.url_id!=nil?self.url_id.url, url,
+                  onSuccess:successcb,
+                    onError:errorcb];
 }
-
-- (void)getExplorerUrlCallback:(NSData *)data
-                    response:(NSURLResponse *)response
-                       error:(NSError *)error
-                   onSuccess:(void (^)(NSString*))successcb
-                     onError:(void (^)(NSError*))errorcb {
-    if (error != nil) {
-        errorcb(error);
-        return;
-    }
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if (error != nil) {
-        errorcb(error);
-        return;
-    }
-    NSArray *resultsArray = [dic objectForKey:@"results"];
-    /*
-     Checking if the array is longer than 1.
-     https://github.com/ooni/probe-ios/pull/293#discussion_r302136014
-     */
-    if ([resultsArray count] != 1 ||
-        ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
-        errorcb([NSError errorWithDomain:@"io.ooni.api"
-                                    code:ERR_JSON_EMPTY
-                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.JsonEmpty"
-                                           }]);
-        return;
-    }
-    successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
-}
-
 @end
