@@ -7,6 +7,7 @@
 #import "TestUtility.h"
 #import "JsonResult.h"
 #import "Settings.h"
+#import "Engine.h"
 
 @class AbstractTest;
 
@@ -25,6 +26,7 @@
 @property Settings *settings;
 @property BOOL annotation;
 @property dispatch_queue_t serialQueue;
+@property id<ExperimentTask> task;
 
 -(id)initTest:(NSString*)testName;
 -(Measurement*)createMeasurementObject;

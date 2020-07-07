@@ -32,10 +32,18 @@
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
+    //prepare measurements
     for (AbstractTest *current in [self getTestList]){
         [current setDelegate:self];
         [current setSerialQueue:serialQueue];
         [current setResult:self.result];
+    }
+    [self runNextMeasurement];
+}
+
+-(void)runNextMeasurement{
+    if ([self.testList count] > 0){
+        AbstractTest *current = [self.testList objectAtIndex:0];
         [current runTest];
     }
 }
@@ -44,6 +52,8 @@
     [self.testList removeObject:test];
     [self.result save];
     self.measurementIdx++;
+    if (self.interrupted)
+        [self.testList removeAllObjects];
     //if last test
     if ([self.testList count] == 0){
         [self.result setIs_done:YES];
@@ -56,9 +66,13 @@
         self.result = nil;
         self.measurementIdx = 0;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
     }
-    [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-    self.backgroundTask = UIBackgroundTaskInvalid;
+    else {
+        //Run next test
+        [self runNextMeasurement];
+    }
 }
 
 - (void)showLocalNotification {

@@ -1,7 +1,6 @@
 #import "MessageUtility.h"
 #import "MBProgressHUD.h"
 #import "UIView+Toast.h"
-#import "NotificationService.h"
 
 @implementation MessageUtility
 
@@ -90,8 +89,8 @@
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-                                   [NotificationService registerUserNotification];
-                               }];
+        //TODO-COUNTLY trigger action register
+    }];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
                                    style:UIAlertActionStyleCancel

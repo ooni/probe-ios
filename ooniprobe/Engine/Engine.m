@@ -31,17 +31,4 @@
                                                softwareVersion:softwareVersion];
 }
 
-/** newOrchestraTask creates a new orchestra task. */
-+ (id<OrchestraTask>) orchestraTaskWithSoftwareName:(NSString *)softwareName
-                                    softwareVersion:(NSString *)softwareVersion
-                                     supportedTests:(NSArray<NSString *> *)supportedTests
-                                        deviceToken:(NSString *)deviceToken
-                                        secretsFile:(NSString *)secretsFile{
-    return [[MKOrchestraTaskAdapter alloc] initWithSoftwareName:softwareName
-                                                softwareVersion:softwareVersion
-                                                 supportedTests:supportedTests
-                                                    deviceToken:deviceToken
-                                                    secretsFile:secretsFile];
-}
-
 @end

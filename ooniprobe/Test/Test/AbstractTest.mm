@@ -64,7 +64,7 @@
     }];
     dispatch_async(_serialQueue, ^{
         NSError *error;
-        id<ExperimentTask> task = [Engine startExperimentTaskWithSettings:self.settings error:&error];
+        self.task = [Engine startExperimentTaskWithSettings:self.settings error:&error];
         //TODO refactor this part. This is not a result error but a measurement error.
         if (error != nil){
             self.result.failure_msg = error.description;
@@ -74,9 +74,10 @@
             });
             return;
         }
-        while (![task isDone]){
+        [self testStarted];
+        while (![self.task isDone]){
             // Extract an event from the task queue and unmarshal it.
-            NSDictionary *evinfo = [task waitForNextEvent:nil];
+            NSDictionary *evinfo = [self.task waitForNextEvent:nil];
             if (evinfo == nil) {
                 break;
             }
@@ -160,6 +161,14 @@
             else if ([event.key isEqualToString:@"bug.json_dump"]) {
                 [ExceptionUtility recordError:@"json_dump" code:0 userInfo:[event.value dictionary]];
             }
+            else if ([event.key isEqualToString:@"task_terminated"]) {
+                /*
+                 * The task will be interrupted so the current
+                 * measurement data will not show up.
+                 * The measurement db object can be deleted
+                 * TODO to be tested when web_connectivity will be implemented
+                 */
+            }
             else {
                 NSLog(@"unused event: %@", evinfo);
             }
@@ -185,6 +194,13 @@
     });
 }
 
+-(void)testStarted{
+    NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
+    [noteInfo setObject:self.task forKey:@"task"];
+    [noteInfo setObject:self.name forKey:@"name"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"testStarted" object:nil userInfo:noteInfo];
+}
+
 -(void)updateProgress:(Value *)value {
     NSNumber *percentage = value.percentage;
     NSString *message = value.message;
@@ -199,7 +215,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
         [noteInfo setObject:[NSNumber numberWithDouble:progress] forKey:@"prog"];
-        [noteInfo setObject:self.name forKey:@"name"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateProgress" object:nil userInfo:noteInfo];
     });
 }
