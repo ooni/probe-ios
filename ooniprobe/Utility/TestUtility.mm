@@ -2,6 +2,7 @@
 #import "Url.h"
 #import "SettingsUtility.h"
 #import "Suite.h"
+#import "OONIApi.h"
 #define delete_json_delay 86400
 #define delete_json_key @"deleteUploadedJsons"
 
@@ -108,20 +109,20 @@
     return [UIColor colorWithRGBHexString:color_blue3 alpha:1.0f];
 }
 
-+ (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover {
-    for (Measurement *measurement in [Measurement measurementsWithJson]) {
-        [measurement getExplorerUrl:^(NSString *measurement_url){
-            remover(measurement);
++(void)deleteMeasurementWithReportId:(NSString*)report_id{
+    for (Measurement *m in [Measurement selectWithReportId:report_id])
+        [TestUtility removeFile:[m getReportFile]];
+}
+
++ (void)deleteUploadedJsons{
+    for (NSString *report_id in [Measurement getReportsUploaded]) {
+        [OONIApi checkReportId:report_id onSuccess:^(BOOL found){
+            if (found)
+                [self deleteMeasurementWithReportId:report_id];
         } onError:^(NSError *error) {
             /* NOTHING */
         }];
     }
-}
-
-+ (void)deleteUploadedJsons{
-    [self deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
-        [TestUtility removeFile:[measurement getReportFile]];
-    }];
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:delete_json_key];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

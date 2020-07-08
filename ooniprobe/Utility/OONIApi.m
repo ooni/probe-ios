@@ -167,9 +167,43 @@
     successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
 }
 
-+(void)checkReportId:(NSString*)report_id
-           onSuccess:(void (^)(NSString*))successcb
++ (void)checkReportId:(NSString*)report_id
+           onSuccess:(void (^)(BOOL))successcb
              onError:(void (^)(NSError*))errorcb{
-    
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.scheme = @"https";
+    components.host = @"api.ooni.io";
+    components.path = @"/api/_/check_report_id";
+    NSURLQueryItem *reportIdItem = [NSURLQueryItem
+                                    queryItemWithName:@"report_id"
+                                    value:report_id];
+    components.queryItems = @[ reportIdItem ];
+    NSURL *url = components.URL;
+    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
+     dataTaskWithURL:url
+     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         [self checkReportIdCallback:data response:response error:error
+                          onSuccess:successcb onError:errorcb];
+     }];
+    [downloadTask resume];
 }
+
++ (void)checkReportIdCallback:(NSData *)data
+                    response:(NSURLResponse *)response
+                       error:(NSError *)error
+                   onSuccess:(void (^)(BOOL))successcb
+                     onError:(void (^)(NSError*))errorcb {
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    BOOL found = [[dic objectForKey:@"found"] boolValue];
+    successcb(found);
+}
+
 @end

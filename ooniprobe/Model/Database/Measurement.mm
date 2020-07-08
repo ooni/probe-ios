@@ -17,6 +17,11 @@
     return [[[Measurement query] where:NOT_UPLOADED_QUERY] fetch];
 }
 
++ (SRKResultSet*)selectWithReportId:(NSString*)report_id {
+    return [[[Measurement query] where:
+             [NSString stringWithFormat:@"%@ AND report_id = %@", UPLOADED_QUERY, report_id]] fetch];
+}
+
 + (NSMutableOrderedSet*)getReportsUploaded {
     NSMutableOrderedSet *reportIds = [NSMutableOrderedSet new];
     SRKResultSet* results = [[[Measurement query] where:UPLOADED_QUERY] fetch];
@@ -113,9 +118,9 @@
 }
 
 -(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb {
-    [OONIApi getExplorerUrl:self.report_id,
-                    withUrl:self.url_id!=nil?self.url_id.url, url,
-                  onSuccess:successcb,
+    [OONIApi getExplorerUrl:self.report_id
+                    withUrl:self.url_id!=nil?self.url_id.url:nil
+                  onSuccess:successcb
                     onError:errorcb];
 }
 @end
