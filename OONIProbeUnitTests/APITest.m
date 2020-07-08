@@ -76,30 +76,20 @@
     }];
 }
 
-- (void)testDeleteJsons {
+- (void)testSelectMeasurementsWithJson {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDeleteJsons"];
     [self addMeasurement:EXISTING_REPORT_ID writeFile:YES];
-    [self addMeasurement:NONEXISTING_REPORT_ID writeFile:YES];
-    [self addMeasurement:EXISTING_REPORT_ID_2 writeFile:YES];
-    [self addMeasurement:NONEXISTING_REPORT_ID writeFile:YES];
-    XCTAssert([[Measurement measurementsWithJson] count] == 4);
-    __block int successes = 0;
-    [TestUtility deleteUploadedJsonsWithMeasurementRemover:^(Measurement *measurement) {
-        if ([measurement.report_id isEqualToString:EXISTING_REPORT_ID] ||
-            [measurement.report_id isEqualToString:EXISTING_REPORT_ID_2]) {
-            @synchronized (self) {
-                successes++;
-                if (successes == 2){
-                    XCTAssert(true);
-                    [expectation fulfill];
-                }
-            }
-        } else {
-            XCTAssert(false);
+    [OONIApi checkReportId:EXISTING_REPORT_ID onSuccess:^(BOOL found){
+        if (found){
+            XCTAssert(true);
             [expectation fulfill];
+
         }
+    } onError:^(NSError *error) {
+        XCTAssert(false);
+        [expectation fulfill];
     }];
-    [self waitForExpectationsWithTimeout:20.0 handler:^(NSError *err) {
+    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
         XCTAssert(err == nil);
     }];
 }
