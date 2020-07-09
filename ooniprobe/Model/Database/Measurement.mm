@@ -123,4 +123,11 @@
                   onSuccess:successcb
                     onError:errorcb];
 }
+
+-(void)checkPublished:(void (^)(BOOL))successcb onError:(void (^)(NSError*))errorcb{
+    [OONIApi checkReportId:self.report_id
+                 onSuccess:successcb
+                   onError:errorcb];
+}
+
 @end

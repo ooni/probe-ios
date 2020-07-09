@@ -26,9 +26,10 @@
     [self reloadFooter];
     isInExplorer = ![self.measurement hasReportFile];
     if ([self.measurement hasReportFile]){
-        [self.measurement getExplorerUrl:^(NSString *measurement_url){
-            isInExplorer = TRUE;
-            [TestUtility removeFile:[self.measurement getReportFile]];
+        [self.measurement checkPublished:^(BOOL found){
+            isInExplorer = found;
+            if (found)
+                [TestUtility deleteMeasurementWithReportId:self.measurement.report_id];
         } onError:^(NSError *error) {
             isInExplorer = FALSE;
         }];
