@@ -43,9 +43,11 @@ class OONIProbeUITests: XCTestCase {
 
         resultsButton.tap()
         snapshot("02TestResults")
+        //Websites cell
+        tablesQuery.cells.element(boundBy: 3).tap()
         
+        //thepiratebay row (cell 0)
         let thepiratebayStaticText = tablesQuery.staticTexts["http://thepiratebay.org"]
-        tablesQuery.cells.containing(.staticText, identifier:"Websites").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
         thepiratebayStaticText.tap()
         snapshot("03WebsiteBlocked")
         
@@ -54,7 +56,9 @@ class OONIProbeUITests: XCTestCase {
         app.navigationBars.buttons.element(boundBy: 0).tap()
 
         resultsButton.tap()
-        tablesQuery.cells.containing(.staticText, identifier:"Performance").staticTexts["AS30722 - Vodafone Italia S.p.A."].tap()
+        
+        //Performance cell
+        tablesQuery.cells.element(boundBy: 1).tap()
         tablesQuery.cells.element(boundBy: 1).tap()
         snapshot("04SpeedTest")
 
