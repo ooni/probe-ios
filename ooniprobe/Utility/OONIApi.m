@@ -106,4 +106,104 @@
     successcb(dic);
 }
 
++ (void)getExplorerUrl:(NSString*)report_id
+               withUrl:(NSString*)measurement_url
+             onSuccess:(void (^)(NSString*))successcb
+               onError:(void (^)(NSError*))errorcb {
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.scheme = @"https";
+    components.host = @"api.ooni.io";
+    components.path = @"/api/v1/measurements";
+    NSURLQueryItem *reportIdItem = [NSURLQueryItem
+                                    queryItemWithName:@"report_id"
+                                    value:report_id];
+    //web_connectivity is the only test using input for now
+    if (measurement_url != nil){
+        NSURLQueryItem *urlItem = [NSURLQueryItem
+                                   queryItemWithName:@"input"
+                                   value:measurement_url];
+        components.queryItems = @[ reportIdItem, urlItem ];
+    }
+    else
+        components.queryItems = @[ reportIdItem ];
+
+    NSURL *url = components.URL;
+    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
+     dataTaskWithURL:url
+     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         [self getExplorerUrlCallback:data response:response error:error
+                          onSuccess:successcb onError:errorcb];
+     }];
+    [downloadTask resume];
+}
+
++ (void)getExplorerUrlCallback:(NSData *)data
+                    response:(NSURLResponse *)response
+                       error:(NSError *)error
+                   onSuccess:(void (^)(NSString*))successcb
+                     onError:(void (^)(NSError*))errorcb {
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSArray *resultsArray = [dic objectForKey:@"results"];
+    /*
+     Checking if the array is longer than 1.
+     https://github.com/ooni/probe-ios/pull/293#discussion_r302136014
+     */
+    if ([resultsArray count] != 1 ||
+        ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
+        errorcb([NSError errorWithDomain:@"io.ooni.api"
+                                    code:ERR_JSON_EMPTY
+                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.JsonEmpty"
+                                           }]);
+        return;
+    }
+    successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
+}
+
++ (void)checkReportId:(NSString*)report_id
+           onSuccess:(void (^)(BOOL))successcb
+             onError:(void (^)(NSError*))errorcb{
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.scheme = @"https";
+    components.host = @"api.ooni.io";
+    components.path = @"/api/_/check_report_id";
+    NSURLQueryItem *reportIdItem = [NSURLQueryItem
+                                    queryItemWithName:@"report_id"
+                                    value:report_id];
+    components.queryItems = @[ reportIdItem ];
+    NSURL *url = components.URL;
+    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
+     dataTaskWithURL:url
+     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         [self checkReportIdCallback:data response:response error:error
+                          onSuccess:successcb onError:errorcb];
+     }];
+    [downloadTask resume];
+}
+
++ (void)checkReportIdCallback:(NSData *)data
+                    response:(NSURLResponse *)response
+                       error:(NSError *)error
+                   onSuccess:(void (^)(BOOL))successcb
+                     onError:(void (^)(NSError*))errorcb {
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    BOOL found = [[dic objectForKey:@"found"] boolValue];
+    successcb(found);
+}
+
 @end

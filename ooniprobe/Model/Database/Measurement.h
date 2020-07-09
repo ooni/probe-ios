@@ -28,8 +28,9 @@
 @property (strong, nonatomic) TestKeys *testKeysObj;
 
 +(SRKResultSet*)notUploadedMeasurements;
-+(NSArray*)measurementsWithJson;
-+ (NSArray*)measurementsWithLog;
++(SRKResultSet*)selectWithReportId:(NSString*)report_id;
++(NSArray*)getReportsUploaded;
++(NSArray*)measurementsWithLog;
 -(BOOL)hasReportFile;
 -(BOOL)hasLogFile;
 -(NSString*)getReportFile;
@@ -41,4 +42,5 @@
 -(void)setReRun;
 -(void)deleteObject;
 -(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb;
+-(void)checkPublished:(void (^)(BOOL))successcb onError:(void (^)(NSError*))errorcb;
 @end

@@ -5,5 +5,9 @@
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
 + (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
              onError:(void (^)(NSError*))errorcb;
++(void)getExplorerUrl:(NSString*)report_id withUrl:(NSString*)measurement_url
+            onSuccess:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb;
++(void)checkReportId:(NSString*)report_id
+            onSuccess:(void (^)(BOOL))successcb onError:(void (^)(NSError*))errorcb;
 
 @end

@@ -15,7 +15,7 @@
 + (UIColor*)getColorForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha;
 + (UIColor*)getGradientColorForTest:(NSString*)testName;
-+ (void)deleteUploadedJsonsWithMeasurementRemover:(void (^)(Measurement *))remover;
++ (void)deleteMeasurementWithReportId:(NSString*)report_id;
 + (void)deleteUploadedJsons;
 + (void)deleteOldLogs;
 + (void)removeLogAfterAWeek:(Measurement*)measurement;
