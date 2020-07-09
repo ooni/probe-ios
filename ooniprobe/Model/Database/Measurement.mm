@@ -119,7 +119,7 @@
 
 -(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb {
     [OONIApi getExplorerUrl:self.report_id
-                    withUrl:self.url_id!=nil?self.url_id.url:nil
+                    withUrl:((self.url_id != nil) ? self.url_id.url : nil)
                   onSuccess:successcb
                     onError:errorcb];
 }
