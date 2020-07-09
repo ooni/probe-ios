@@ -80,11 +80,8 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDeleteJsons"];
     [self addMeasurement:EXISTING_REPORT_ID writeFile:YES];
     [OONIApi checkReportId:EXISTING_REPORT_ID onSuccess:^(BOOL found){
-        if (found){
-            XCTAssert(true);
-            [expectation fulfill];
-
-        }
+        XCTAssert(found);
+        [expectation fulfill];
     } onError:^(NSError *error) {
         XCTAssert(false);
         [expectation fulfill];
