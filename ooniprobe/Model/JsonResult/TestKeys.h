@@ -82,7 +82,7 @@
 - (NSString*)getDownloadWithUnit;
 - (NSString*)getPing;
     
-- (NSString*)getServer;
+- (NSString*)getServerDetails;
 - (NSString*)getPacketLoss;
 - (NSString*)getAveragePing;
 - (NSString*)getMaxPing;

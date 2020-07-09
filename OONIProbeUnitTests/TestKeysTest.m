@@ -13,6 +13,7 @@ TestKeys *testKeys;
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
     testKeys = [TestKeys new];
+    testKeys.protocol = [NSNumber numberWithInt:7];
 }
 
 - (void)tearDown {
@@ -136,51 +137,50 @@ TestKeys *testKeys;
 }
 
 - (void)testServer {
-    XCTAssert([[testKeys getServer] isEqualToString:NOT_AVAILABLE]);
+    XCTAssert([[testKeys getServerDetails] isEqualToString:NOT_AVAILABLE]);
     testKeys.server_name = BLANK;
     testKeys.server_country = nil;
-    XCTAssert([[testKeys getServer] isEqualToString:NOT_AVAILABLE]);
+    XCTAssert([[testKeys getServerDetails] isEqualToString:NOT_AVAILABLE]);
     testKeys.server_name = nil;
     testKeys.server_country = BLANK;
-    XCTAssert([[testKeys getServer] isEqualToString:NOT_AVAILABLE]);
+    XCTAssert([[testKeys getServerDetails] isEqualToString:NOT_AVAILABLE]);
     testKeys.server_name = BLANK;
     testKeys.server_country = BLANK;
     NSString *serverStr = [NSString stringWithFormat:@"%@ - %@", BLANK, BLANK];
-    XCTAssert([[testKeys getServer] isEqualToString:serverStr]);
+    XCTAssert([[testKeys getServerDetails] isEqualToString:serverStr]);
 }
 
-//TODO update these tests with the new Class Summary
 - (void)testPacketLoss {
     XCTAssert([[testKeys getPacketLoss] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced = [Advanced new];
+    testKeys.summary = [Summary new];
     XCTAssert([[testKeys getPacketLoss] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.packet_loss = [NSNumber numberWithDouble:0];
+    testKeys.summary.retransmit_rate = [NSNumber numberWithDouble:0];
     XCTAssert([[testKeys getPacketLoss] isEqualToString:@"0.000"]);
-    testKeys.advanced.packet_loss = [NSNumber numberWithDouble:1];
+    testKeys.summary.retransmit_rate = [NSNumber numberWithDouble:1];
     XCTAssert([[testKeys getPacketLoss] isEqualToString:@"100.000"]);
 }
 
 - (void)testAveragePing {
     XCTAssert([[testKeys getAveragePing] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced = [Advanced new];
+    testKeys.summary = [Summary new];
     XCTAssert([[testKeys getAveragePing] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.avg_rtt = [NSNumber numberWithDouble:0];
+    testKeys.summary.avg_rtt = [NSNumber numberWithDouble:0];
     XCTAssert([[testKeys getAveragePing] isEqualToString:@"0.0"]);
 }
 
 - (void)testMaxPing {
     XCTAssert([[testKeys getMaxPing] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced = [Advanced new];
+    testKeys.summary = [Summary new];
     XCTAssert([[testKeys getMaxPing] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.max_rtt = [NSNumber numberWithDouble:0];
+    testKeys.summary.max_rtt = [NSNumber numberWithDouble:0];
     XCTAssert([[testKeys getMaxPing] isEqualToString:@"0.0"]);
 }
 
 - (void)testMss {
     XCTAssert([[testKeys getMSS] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced = [Advanced new];
+    testKeys.summary = [Summary new];
     XCTAssert([[testKeys getMSS] isEqualToString:NOT_AVAILABLE]);
-    testKeys.advanced.mss = [NSNumber numberWithDouble:0];
+    testKeys.summary.mss = [NSNumber numberWithDouble:0];
     XCTAssert([[testKeys getMSS] isEqualToString:@"0"]);
 }
 
