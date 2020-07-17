@@ -15,6 +15,7 @@ target 'ooniprobe' do
     pod 'RHMarkdownLabel'
     pod 'DateTools'
     pod 'OCMapper', '2.0'
+    pod 'Countly'
 end
 target 'OONIProbeUnitTests' do
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
