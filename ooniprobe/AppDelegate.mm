@@ -46,6 +46,7 @@
 #endif
 }
 
+//TODO-COUNTLY maybe remove
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
     if (notificationSettings.types == UIUserNotificationTypeNone) {
         NSLog(@"Permission not Granted by user");
@@ -55,6 +56,7 @@
     }
 }
 
+//TODO-COUNTLY remove
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     if (userInfo) {
         if ([userInfo objectForKey:@"aps"]){
@@ -68,6 +70,7 @@
     }
 }
 
+//TODO-COUNTLY remove
 -(void)handleNotification:(NSDictionary*)userInfo :(UIApplication *)application{
     NSString *type = [userInfo objectForKey:@"type"];
     UIApplicationState state = [application applicationState];
@@ -123,6 +126,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     });
+    //Called in case the user disable notifications from iOS panel
     if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"notifications_enabled"];
     if ([TestUtility canCallDeleteJson])

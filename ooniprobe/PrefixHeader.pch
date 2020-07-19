@@ -9,9 +9,9 @@
 #import "NavigationBarUtility.h"
 
 #ifdef DEV
-#define NOTIFICATION_SERVER @"https://registry.proteus.test.ooni.io"
+#define NOTIFICATION_SERVER @"https://countly.ooni.io"
 #else
-#define NOTIFICATION_SERVER @"https://registry.proteus.ooni.io"
+#define NOTIFICATION_SERVER @"https://countly.ooni.io"
 #endif
 
 #define RELEASE_NAME @""

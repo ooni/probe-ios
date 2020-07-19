@@ -212,6 +212,7 @@
     [self reloadSettings];
 }
 
+//TODO-COUNTLY check
 - (void)handleNotificationChanges{
     [[UNUserNotificationCenter currentNotificationCenter]getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
         switch (settings.authorizationStatus) {
@@ -243,6 +244,8 @@
         }
     }];
 }
+
+//TODO-COUNTLY check
 - (void)registeredForNotifications {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
     [self reloadSettings];
