@@ -5,6 +5,7 @@
 #import "Result.h"
 #import "TestRunningViewController.h"
 #import "SettingsUtility.h"
+#import "CountlyUtility.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +24,7 @@
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [NavigationBarUtility setDefaults];
-    
+    //[CountlyUtility initCountly];
     application.statusBarStyle = UIStatusBarStyleLightContent;
     NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if(notification) {

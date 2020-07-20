@@ -5,7 +5,7 @@
 
 + (NSArray*)getSettingsCategories{
     //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"sharing", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
@@ -17,9 +17,12 @@
         //TODO GPS @"include_gps"
         return @[@"upload_results", @"upload_results_manually", @"include_asn", @"include_ip"];
     }
+    else if ([categoryName isEqualToString:@"privacy"]) {
+        return @[@"send_analytics", @"send_crash"];
+    }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
-        return @[@"send_crash", @"debug_logs"];
+        return @[@"debug_logs"];
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];

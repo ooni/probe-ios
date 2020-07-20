@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "รหัสประเทศ (เช่น TH สำหรับประเทศไทย)";
 "Onboarding.DefaultSettings.Bullet.2" = "ข้อมูลเครือข่าย (รวมถึง  Autonomous System Number)";
 "Onboarding.DefaultSettings.Bullet.3" = "วันและเวลาของการทดสอบ";
-"Onboarding.DefaultSettings.Paragraph" = "เราทำอย่างดีที่สุดเพื่อจะไม่เผยแพร่ที่อยู่ไอพีของคุณหรือข้อมูลใดที่อาจใช้ระบุบุคคลได้\n\nเรียนรู้เพิ่มเติมใน [นโยบายข้อมูลของ OON](https://ooni.org/about/data-policy/)";
+"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "เริ่มกันเลย";
 "Onboarding.DefaultSettings.Button.Change" = "เปลี่ยนค่าปริยาย";
 "Dashboard.Tab.Label" = "หน้าปัด";
@@ -269,7 +269,7 @@
 "Modal.ManualUpload.Enable" = "เปิดใช้งาน";
 "Modal.ManualUpload.Disable" = "ไม่ล่ะ ขอบคุณ";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. We will never link these app usage metrics to your identity. You can opt out of this at any time through the settings.";
+"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
 "Modal.ShareAnalytics.Enable" = "Share app usage";
 "Modal.ShareAnalytics.Disable" = "Don't share";
 "Modal.UploadFailed.Title" = "การอัปโหลดล้มเหลว";
@@ -319,11 +319,12 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "ข้อมูลนี้ (เช่น TH สำหรับประเทศไทย) ต้องใช้ในการระบุว่าการตรวจวัดนั้นถูกเก็บมาจากประเทศใด คุณแน่ใจหรือไม่ที่จะปิดใช้ตัวเลือกนี้?";
 "Settings.Sharing.Footer" = "โดยการเผยแพร่ผลลัพธ์ คุณจะช่วยเพิ่มความเข้าใจต่อการแทรกแซงเครือข่ายและช่วยสนับสนุนชุมชน OONI\n\nข้อมูลเครือข่าย (หรือ Autonomous System Number) นั้นจำเป็นต่อการระบุผู้ให้บริการอินเทอร์เน็ต";
 "Settings.TestOptions.Label" = "ตัวเลือกการทดสอบ";
+"Settings.Privacy.Label" = "ความเป็นส่วนตัว";
+"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.SendCrashReports" = "ส่งรายงานการพังของแอป";
 "Settings.Advanced.Label" = "ขั้นสูง";
-"Settings.Advanced.SendCrashReports" = "ส่งรายงานการพังของแอป";
 "Settings.Advanced.DebugLogs" = "ปูมดีบัก";
 "Settings.Advanced.UseDomainFronting" = "ใช้ domain fronting เสมอ";
-"Settings.Advanced.CollectAnalytics" = "จัดเก็บสถิติการใช้แอป";
 "Settings.Websites.MaxRuntimeEnabled" = "จำกัดระยะเวลาทดสอบ";
 "Settings.Websites.MaxRuntime" = "ระยะเวลาทดสอบ";
 "Settings.Websites.Categories.Label" = "ประเภทเว็บไซต์ที่จะทดสอบ";
