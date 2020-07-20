@@ -1,10 +1,11 @@
 #import <Foundation/Foundation.h>
+#import "Countly.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ExceptionUtility : NSObject
 
-+ (void)recordError:(NSString*)title code:(NSInteger)code userInfo:(NSDictionary*)userInfo;
++ (void)recordError:(NSString*)title reason:(NSString*)reason userInfo:(NSDictionary*)userInfo;
 
 @end
 

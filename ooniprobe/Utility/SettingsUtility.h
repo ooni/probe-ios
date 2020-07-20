@@ -25,4 +25,7 @@
 
 + (void)set_push_token:(NSString*)push_token;
 
++ (BOOL)isSendCrash;
+
++ (BOOL)isSendAnalytics;
 @end

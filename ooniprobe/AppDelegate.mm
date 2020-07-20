@@ -24,11 +24,6 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [NavigationBarUtility setDefaults];
     
-#ifdef RELEASE
-    CrashlyticsKit.delegate = self;
-    [Fabric with:@[[Crashlytics class]]];
-#endif
-
     application.statusBarStyle = UIStatusBarStyleLightContent;
     NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if(notification) {
@@ -179,12 +174,6 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTest" object:nil userInfo:[NSDictionary dictionaryWithObject:url forKey:@"url"]];
         }
     });
-}
-
-- (void)crashlyticsDidDetectReportForLastExecution:(CLSReport *)report completionHandler:(void (^)(BOOL))completionHandler {
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        completionHandler([[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue]);
-    }];
 }
 
 // database delegates

@@ -155,4 +155,14 @@
     [[NSUserDefaults standardUserDefaults] setObject:push_token forKey:@"push_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
++ (BOOL)isSendCrash {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue];
+}
+
++ (BOOL)isSendAnalytics {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_analytics"] boolValue];
+}
+
+
 @end
