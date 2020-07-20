@@ -38,6 +38,25 @@
                                     }];
         [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ManualUpload.Title", nil) message:NSLocalizedString(@"Modal.ManualUpload.Paragraph", nil) okButton:enableButton cancelButton:disableButton inView:self];
     }
+    else if (![[NSUserDefaults standardUserDefaults] objectForKey:ANALYTICS_POPUP]){
+        UIAlertAction* enableButton = [UIAlertAction
+                                        actionWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Enable", nil)
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {
+                                            [self setModalValue:YES
+                                                            key:@"send_analytics"
+                                                      popupName:ANALYTICS_POPUP];
+                                        }];
+        UIAlertAction* disableButton = [UIAlertAction
+                                    actionWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Disable", nil)
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        [self setModalValue:NO
+                                                        key:@"send_analytics"
+                                                  popupName:ANALYTICS_POPUP];
+                                    }];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Title", nil) message:NSLocalizedString(@"Modal.ShareAnalytics.Paragraph", nil) okButton:enableButton cancelButton:disableButton inView:self];
+    }
 }
 
 -(void)setModalValue:(BOOL)value key:(NSString*)key popupName:(NSString*)popupName{
