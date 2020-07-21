@@ -43,6 +43,7 @@
 }
 
 //TODO-COUNTLY maybe remove
+/*
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
     if (notificationSettings.types == UIUserNotificationTypeNone) {
         NSLog(@"Permission not Granted by user");
@@ -51,36 +52,7 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"registeredForNotifications" object:self];
     }
 }
-
-//TODO-COUNTLY remove
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    if (userInfo) {
-        if ([userInfo objectForKey:@"aps"]){
-            if([[userInfo objectForKey:@"aps"] objectForKey:@"badge"]){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [UIApplication sharedApplication].applicationIconBadgeNumber = [[[userInfo objectForKey:@"aps"] objectForKey: @"badge"] intValue];
-                });
-            }
-        }
-        [self handleNotification:userInfo :application];
-    }
-}
-
-//TODO-COUNTLY remove
--(void)handleNotification:(NSDictionary*)userInfo :(UIApplication *)application{
-    NSString *type = [userInfo objectForKey:@"type"];
-    UIApplicationState state = [application applicationState];
-    if (state == UIApplicationStateActive)
-    {
-            [MessageUtility alertWithTitle:nil
-                                   message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]]
-                                    inView:self.window.rootViewController];
-    }
-    else {
-        // The application was just brought from the background to the foreground,
-        // so we consider the app as having been "opened by a push notification."
-    }
-}
+*/
 
 -(BOOL)isUITestingEnabled{
     if ([[NSProcessInfo processInfo].arguments containsObject:@"enable_ui_testing"]) {
@@ -153,6 +125,7 @@
 }
 
 -(void)handleUrlScheme:(NSURL*)url{
+    //TODO-COUNTLY test open ooni run link
     if ([self.window.rootViewController.presentedViewController isKindOfClass:[TestRunningViewController class]])
         [MessageUtility showToast:NSLocalizedString(@"OONIRun.TestRunningError", nil) inView:self.window.rootViewController.presentedViewController.view];
     else {

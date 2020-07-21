@@ -28,4 +28,6 @@
 + (BOOL)isSendCrash;
 
 + (BOOL)isSendAnalytics;
+
++ (BOOL)isNotification;
 @end

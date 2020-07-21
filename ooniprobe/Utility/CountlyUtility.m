@@ -3,7 +3,7 @@
 
 @implementation CountlyUtility
 
-- (void)initCountly {
++ (void)initCountly {
     CountlyConfig* config = CountlyConfig.new;
     config.appKey = @"146836f41172f9e3287cab6f2cc347de3f5ddf3b";
     config.host = NOTIFICATION_SERVER;
@@ -13,11 +13,11 @@
     config.features = @[CLYPushNotifications, CLYCrashReporting, CLYAutoViewTracking];
     config.deviceID = @"TODO";
     config.requiresConsent = YES;
-    [self reloadConsent];
+    [self reloadConsents];
     [Countly.sharedInstance startWithConfig:config];
 }
 
--(void)reloadConsent{
++ (void)reloadConsents{
     //TODO-COUNTLY handle give remove consent from settings
     [Countly.sharedInstance cancelConsentForAllFeatures];
 
@@ -29,5 +29,8 @@
                                                          CLYConsentViewTracking,
                                                          CLYConsentEvents]];
 
+    if ([SettingsUtility isNotification])
+        [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
 }
+
 @end

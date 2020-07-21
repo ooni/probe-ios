@@ -1,4 +1,5 @@
 #import "SettingsTableViewController.h"
+#import "CountlyUtility.h"
 
 @interface SettingsTableViewController ()
 @end
@@ -189,10 +190,15 @@
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *current = [items objectAtIndex:indexPath.row];
-    //TODO ORCHESTRA handle automated_testing_enabled
     if ([current isEqualToString:@"notifications_enabled"] && mySwitch.on){
+        //TODO-COUNTLY
+        //[CountlyUtility reloadConsents];
         [self handleNotificationChanges];
         [mySwitch setOn:FALSE];
+    }
+    if ([current isEqualToString:@"send_analytics"] ||
+        [current isEqualToString:@"send_crash"]){
+        [CountlyUtility reloadConsents];
     }
     if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
@@ -208,7 +214,6 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
-    //TODO NEWS when enable remote news notification send something to backend
     [self reloadSettings];
 }
 
@@ -217,8 +222,10 @@
     [[UNUserNotificationCenter currentNotificationCenter]getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
         switch (settings.authorizationStatus) {
             case UNAuthorizationStatusNotDetermined:{
-                //First launch
-                [MessageUtility notificationAlertinView:self];
+                //Notification permission asking for the first time
+                //TODO-COUNTLY
+                [Countly.sharedInstance askForNotificationPermission];
+                //[MessageUtility notificationAlertinView:self];
                 break;
             }
             case UNAuthorizationStatusDenied:{
@@ -236,6 +243,7 @@
                 break;
             }
             case UNAuthorizationStatusAuthorized:{
+                //Notification permission already granted
                 [self registeredForNotifications];
                 break;
             }
@@ -245,7 +253,6 @@
     }];
 }
 
-//TODO-COUNTLY check
 - (void)registeredForNotifications {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
     [self reloadSettings];

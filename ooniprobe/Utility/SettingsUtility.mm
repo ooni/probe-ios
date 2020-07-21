@@ -167,5 +167,8 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_analytics"] boolValue];
 }
 
++ (BOOL)isNotification {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
+}
 
 @end
