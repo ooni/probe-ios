@@ -5,7 +5,7 @@
 
 + (NSArray*)getSettingsCategories{
     //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"sharing", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"notifications", @"sharing", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
@@ -145,18 +145,6 @@
 
 + (BOOL)getSettingWithName:(NSString*)settingName{
     return [[[NSUserDefaults standardUserDefaults] objectForKey:settingName] boolValue];
-}
-
-+ (NSString*)get_push_token{
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"]){
-        return [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
-    }
-    return @"";
-}
-
-+ (void)set_push_token:(NSString*)push_token{
-    [[NSUserDefaults standardUserDefaults] setObject:push_token forKey:@"push_token"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (BOOL)isSendCrash {
