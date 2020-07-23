@@ -11,10 +11,12 @@
         config.enableDebug = YES;
     #endif
     config.features = @[CLYPushNotifications, CLYCrashReporting, CLYAutoViewTracking];
-    config.deviceID = @"TODO";
+    config.deviceID = @"Lorenzo-iOS";
     config.requiresConsent = YES;
-    [self reloadConsents];
+    config.pushTestMode = CLYPushTestModeDevelopment;
+    //config.pushTestMode = CLYPushTestModeTestFlightOrAdHoc;
     [Countly.sharedInstance startWithConfig:config];
+    [self reloadConsents];
 }
 
 + (void)reloadConsents{
@@ -22,7 +24,7 @@
     [Countly.sharedInstance cancelConsentForAllFeatures];
 
     if ([SettingsUtility isSendCrash])
-        [Countly.sharedInstance giveConsentForFeature:CLYCrashReporting];
+        [Countly.sharedInstance giveConsentForFeature:CLYConsentCrashReporting];
     
     if ([SettingsUtility isSendAnalytics])
         [Countly.sharedInstance giveConsentForFeatures:@[CLYConsentSessions,
