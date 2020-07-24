@@ -13,6 +13,7 @@
     config.features = @[CLYPushNotifications, CLYCrashReporting, CLYAutoViewTracking];
     config.deviceID = @"Lorenzo-iOS";
     config.requiresConsent = YES;
+    //TODO-COUNTLY before release
     config.pushTestMode = CLYPushTestModeDevelopment;
     //config.pushTestMode = CLYPushTestModeTestFlightOrAdHoc;
     [Countly.sharedInstance startWithConfig:config];
@@ -20,7 +21,6 @@
 }
 
 + (void)reloadConsents{
-    //TODO-COUNTLY handle give remove consent from settings
     [Countly.sharedInstance cancelConsentForAllFeatures];
 
     if ([SettingsUtility isSendCrash])

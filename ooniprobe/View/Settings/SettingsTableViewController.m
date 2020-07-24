@@ -9,11 +9,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(registeredForNotifications)
-                                                 name:@"registeredForNotifications"
-                                               object:nil];
-
     if (category != nil)
         self.title = [LocalizationUtility getNameForSetting:category];
     else if (testSuite != nil)
@@ -190,17 +185,20 @@
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *current = [items objectAtIndex:indexPath.row];
-    if ([current isEqualToString:@"notifications_enabled"] && mySwitch.on){
-        //TODO-COUNTLY
-        //[CountlyUtility reloadConsents];
-        [self handleNotificationChanges];
-        [mySwitch setOn:FALSE];
+    if ([current isEqualToString:@"notifications_enabled"]){
+        if (mySwitch.on){
+            [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
+            [self handleNotificationChanges];
+            [mySwitch setOn:FALSE];
+        }
+        else
+            [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
     }
-    if ([current isEqualToString:@"send_analytics"] ||
+    else if ([current isEqualToString:@"send_analytics"] ||
         [current isEqualToString:@"send_crash"]){
         [CountlyUtility reloadConsents];
     }
-    if (!mySwitch.on && ![self canSetSwitch]){
+    else if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
         [MessageUtility alertWithTitle:nil
                                message:NSLocalizedString(@"Modal.EnableAtLeastOneTest", nil)
@@ -217,15 +215,17 @@
     [self reloadSettings];
 }
 
-//TODO-COUNTLY check
 - (void)handleNotificationChanges{
     [[UNUserNotificationCenter currentNotificationCenter]getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
         switch (settings.authorizationStatus) {
             case UNAuthorizationStatusNotDetermined:{
                 //Notification permission asking for the first time
-                //TODO-COUNTLY
-                [Countly.sharedInstance askForNotificationPermission];
-                //[MessageUtility notificationAlertinView:self];
+                [Countly.sharedInstance
+                 askForNotificationPermissionWithOptions:0
+                 completionHandler:^(BOOL granted, NSError * error) {
+                    if (granted)
+                        [self registeredForNotifications];
+                }];
                 break;
             }
             case UNAuthorizationStatusDenied:{
@@ -254,8 +254,12 @@
 }
 
 - (void)registeredForNotifications {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
-    [self reloadSettings];
+    dispatch_async(dispatch_get_main_queue(), ^
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
+        [CountlyUtility reloadConsents];
+        [self reloadSettings];
+    });
 }
 
 -(BOOL)canSetSwitch{

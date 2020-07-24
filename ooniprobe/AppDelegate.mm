@@ -24,35 +24,11 @@
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [NavigationBarUtility setDefaults];
-    //[CountlyUtility initCountly];
+    [CountlyUtility initCountly];
     application.statusBarStyle = UIStatusBarStyleLightContent;
-    NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    if(notification) {
-        [self handleNotification:notification :application];
-    }
+    
     return YES;
 }
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"token: %@",token);
-#ifdef RELEASE
-    [SettingsUtility set_push_token:token];
-#endif
-}
-
-//TODO-COUNTLY maybe remove
-/*
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
-    if (notificationSettings.types == UIUserNotificationTypeNone) {
-        NSLog(@"Permission not Granted by user");
-    }
-    else{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"registeredForNotifications" object:self];
-    }
-}
-*/
 
 -(BOOL)isUITestingEnabled{
     if ([[NSProcessInfo processInfo].arguments containsObject:@"enable_ui_testing"]) {
