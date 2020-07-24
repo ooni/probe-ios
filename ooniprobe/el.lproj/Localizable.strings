@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Κωδικό χώρας (π.χ. GR για την Ελλάδα)";
 "Onboarding.DefaultSettings.Bullet.2" = "Πληροφορίες δικτύου (όπως ASN, για τον εντοπισμό πάροχου δικτύου)";
 "Onboarding.DefaultSettings.Bullet.3" = "Ώρα και ημερομηνὶα εκτέλεσης δοκιμών";
-"Onboarding.DefaultSettings.Paragraph" = "Κάνουμε ό,τι μπορούμε ώστε να μη δημοσιευτεί η διεύθυνση IP ή άλλα (δυνητικά) προσωπικά σου δεδομένα.\n\nΜάθε περισσότερα διαβάζοντας την [Πολιτική Δεδομένων του OONI](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "Συνέχεια";
 "Onboarding.DefaultSettings.Button.Change" = "Αλλαγή ρυθμίσεων";
 "Dashboard.Tab.Label" = "Ταμπλό";
@@ -251,9 +251,8 @@
 "Modal.ResultsNotUploaded.Uploading" = "Ανεβαίνει %@ ...";
 "Toast.ResultsUploaded" = "Επιτυχές ανέβασμα";
 "Modal.DisplayFailureLog" = "Προβολή αρχείου καταγραφής αποτυχιών";
-"Modal.EnableNotifications.AutomatedTesting" = "Ενεργοποίησε τα δικαιώματα ειδοποιήσεων για την αυτόματη εκτέλεση δοκιμών.";
-"Modal.EnableNotifications.News" = "Ενεργοποίησε τα δικαιώματα ειδοποιήσεων για να λαμβάνεις ενημερώσεις.";
-"Modal.EnableNotifications.Any" = "Ενεργοποίησε τα δικαιώματα ειδοποιήσεων για να λαμβάνεις ειδοποιήσεις push.";
+"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications. Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "Για να βελτιώσουμε την ακρίβεια των δοκιμών, χρειαζόμαστε δικαιώματα GPS. Το OONI συλλέγει τη θέση σου (GPS) μόνο κατά προσέγγιση.";
 "Modal.DoYouWantToDeleteAllTests" = "Θέλεις να διαγράψεις όλα τα αποτελέσματα των δοκιμών σου;";
 "Modal.DoYouWantToDeleteThisTest" = "Θέλεις να διαγράψεις αυτή τη δοκιμή;";
@@ -269,7 +268,7 @@
 "Modal.ManualUpload.Enable" = "Ενεργοποίηση";
 "Modal.ManualUpload.Disable" = "Όχι, ευχαριστώ";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. We will never link these app usage metrics to your identity. You can opt out of this at any time through the settings.";
+"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
 "Modal.ShareAnalytics.Enable" = "Share app usage";
 "Modal.ShareAnalytics.Disable" = "Don't share";
 "Modal.UploadFailed.Title" = "Αποτυχία ανεβάσματος";
@@ -319,11 +318,12 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Αυτή η πληροφορία (π.χ. GR για την Ελλάδα) είναι απαραίτητη για τον προσδιορισμό της χώρας από την οποία συλλέγονται οι μετρήσεις. Είσαι σίγουρος/η ότι θέλεις να απενεργοποιήσεις αυτήν την επιλογή;";
 "Settings.Sharing.Footer" = "Δημοσιεύοντας αποτελέσματα, αυξάνεις τη διαφάνεια για τυχόν παρεμβολές στο Διαδικτύο, και υποστηρίζεις την κοινότητα του OONI.\n\nΓια την αναγνώριση των παρόχων δικτύου, απαιτούνται πληροφορίες δικτύου (όπως ο Αριθμός Αυτόνομου Συστήματος ASN).";
 "Settings.TestOptions.Label" = "Επιλογές δοκιμής";
+"Settings.Privacy.Label" = "Απόρρητο";
+"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.SendCrashReports" = "Αποστολή αναφορών σφαλμάτων";
 "Settings.Advanced.Label" = "Ρυθμίσεις για προχωρημένους";
-"Settings.Advanced.SendCrashReports" = "Αποστολή αναφορών σφαλμάτων";
 "Settings.Advanced.DebugLogs" = "Αρχεία καταγραφής εντοπισμού σφαλμάτων";
 "Settings.Advanced.UseDomainFronting" = "Πάντα να χρησιμοποιείται domain fronting";
-"Settings.Advanced.CollectAnalytics" = "Συλλογή στατιστικών στοιχείων χρήσης εφαρμογής";
 "Settings.Websites.MaxRuntimeEnabled" = "Περιορισμός διάρκειας δοκιμής";
 "Settings.Websites.MaxRuntime" = "Διάρκεια δοκιμής";
 "Settings.Websites.Categories.Label" = "Κατηγορίες ιστοσελιδών για δοκιμή";
@@ -335,7 +335,6 @@
 "Settings.Websites.CustomURL.Add" = "Προσθήκη ιστοσελίδας";
 "Settings.Websites.TestCount" = "Αριθμός δοκιμασμένων ιστοσελίδων (0 σημαίνει όλες)";
 "Settings.InstantMessaging.TestWhatsApp" = "Δοκίμασε το WhatsApp";
-"Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Δοκίμασε όλα τα WhatsApp endpoints";
 "Settings.InstantMessaging.TestTelegram" = "Δοκίμασε το Telegram";
 "Settings.InstantMessaging.TestFacebookMessenger" = "Δοκίμασε το Facebook Messenger";
 "Settings.Middleboxes.TestHTTPInvalidRequestLine" = "Εκτέλεσε τη δοκιμή HTTP Invalid Request Line";

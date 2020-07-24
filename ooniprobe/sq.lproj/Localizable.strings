@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Kodi i shtetit (psh IT për Italinë)";
 "Onboarding.DefaultSettings.Bullet.2" = "Informacion mbi rrjetin (përfshirë numrin autonom të sistemit)";
 "Onboarding.DefaultSettings.Bullet.3" = "Ora dhe data e testimit";
-"Onboarding.DefaultSettings.Paragraph" = "Ne bëjmë ç'është e mundur që to mos publikojmë adresën tënde IP ose informacion tjetër që mund të identifikoheni si person.\n\nMëso më shumë përmes [Politikës së të Dhënave të OONI](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "Nisim";
 "Onboarding.DefaultSettings.Button.Change" = "Ndysho të parazgjedhurat";
 "Dashboard.Tab.Label" = "Paneli kryesor";
@@ -251,9 +251,8 @@
 "Modal.ResultsNotUploaded.Uploading" = "Në ngarkim %@ ...";
 "Toast.ResultsUploaded" = "Ngarkimi i sukseshëm";
 "Modal.DisplayFailureLog" = "Display failure log";
-"Modal.EnableNotifications.AutomatedTesting" = "Aktivizo të drejtat e njoftimeve që të kryesh testime automatikisht.";
-"Modal.EnableNotifications.News" = "Aktivizo të drejtat e njoftimeve që të marrësh lajme të reja.";
-"Modal.EnableNotifications.Any" = "Aktivizo të drejtat e njoftimeve që të marrësh njoftime.";
+"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications. Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "Që të përmirësuar saktësinë e testimeve, na duhen të drejta tek GPS. OONI do të ruaj pozicionin tend të GPS vetëm me përafërsi.";
 "Modal.DoYouWantToDeleteAllTests" = "Doni që të fshihen të gjitha rezultatet e testimeve?";
 "Modal.DoYouWantToDeleteThisTest" = "Doni të fshini këtë testim?";
@@ -269,7 +268,7 @@
 "Modal.ManualUpload.Enable" = "Aktivizoje";
 "Modal.ManualUpload.Disable" = "Jo, faleminderit";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. We will never link these app usage metrics to your identity. You can opt out of this at any time through the settings.";
+"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
 "Modal.ShareAnalytics.Enable" = "Share app usage";
 "Modal.ShareAnalytics.Disable" = "Don't share";
 "Modal.UploadFailed.Title" = "Ngarkimi dështoi";
@@ -319,11 +318,12 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Ky informacion (psh IT për Itali) kërkohet për të identifikuar nga cili shtet po mblidhen të dhënat. Jeni të sigurt që e çaktivizoni këtë opsion?";
 "Settings.Sharing.Footer" = "Duke publikuar rezultatet ti rrit transaprencën të ndërhyrjes në rrjet dhe mbështet komunitetin e OONI. \n\nInformacioni i rrjetit (psh Numri i Sistemit Autonom) kërkohet për të identifikuar Ofruesit e Shërbimit të Internetit.";
 "Settings.TestOptions.Label" = "Mundësitë e testimit";
+"Settings.Privacy.Label" = "Privatësi";
+"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.SendCrashReports" = "Dërgo raportime dështimi";
 "Settings.Advanced.Label" = "Të mëtejshme";
-"Settings.Advanced.SendCrashReports" = "Dërgo raportime dështimi";
 "Settings.Advanced.DebugLogs" = "Kontrollo regjistrat për gabime";
 "Settings.Advanced.UseDomainFronting" = "Gjithmonë përdor front domain";
-"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Kufizo kohëzgjatjen e testimit";
 "Settings.Websites.MaxRuntime" = "Kohëzgjatja e testimit";
 "Settings.Websites.Categories.Label" = "Kategori faqjesh për të testuar";
@@ -335,7 +335,6 @@
 "Settings.Websites.CustomURL.Add" = "Shto faqe";
 "Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "Testo WhatsApp";
-"Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Testo të gjitha skajet e WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Testo Telegram";
 "Settings.InstantMessaging.TestFacebookMessenger" = "Testo Facebook Messenger";
 "Settings.Middleboxes.TestHTTPInvalidRequestLine" = "Kryej testimin HTTP Invalid Request Line ";

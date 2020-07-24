@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Код страны (например, IT для Италии)";
 "Onboarding.DefaultSettings.Bullet.2" = "Сетевую информацию (включая номер автономной системы)";
 "Onboarding.DefaultSettings.Bullet.3" = "Время и дату тестирования";
-"Onboarding.DefaultSettings.Paragraph" = "Мы прилагаем все силы, чтобы не раскрыть ваш IP-адрес и другие данные, которые в принципе могут позволить вас идентифицировать. \n\nПодробнее об этом в [политике OONI по обращению с данными](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "Начнем";
 "Onboarding.DefaultSettings.Button.Change" = "Изменить настройки";
 "Dashboard.Tab.Label" = "Панель приборов";
@@ -251,9 +251,8 @@
 "Modal.ResultsNotUploaded.Uploading" = "Загружаем %@ ...";
 "Toast.ResultsUploaded" = "Загрузка успешно завершена";
 "Modal.DisplayFailureLog" = "Показать список ошибок";
-"Modal.EnableNotifications.AutomatedTesting" = "Разрешить уведомления для автоматических тестов.";
-"Modal.EnableNotifications.News" = "Разрешить новостные уведомления.";
-"Modal.EnableNotifications.Any" = "Разрешить push-уведомления.";
+"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications. Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "Чтобы повысить точность тестов, нам требуется доступ к GPS-данным. OONI собирает только примерные данные о GPS-координатах.";
 "Modal.DoYouWantToDeleteAllTests" = "Удалить все результаты теста?";
 "Modal.DoYouWantToDeleteThisTest" = "Хотите удалить этот тест?";
@@ -269,7 +268,7 @@
 "Modal.ManualUpload.Enable" = "Включить";
 "Modal.ManualUpload.Disable" = "Нет, спасибо";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. We will never link these app usage metrics to your identity. You can opt out of this at any time through the settings.";
+"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
 "Modal.ShareAnalytics.Enable" = "Share app usage";
 "Modal.ShareAnalytics.Disable" = "Don't share";
 "Modal.UploadFailed.Title" = "Загрузка не удалась";
@@ -319,11 +318,12 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Эта информация (например, IT для Италии) нужна, чтобы определять, к какой стране относятся измерения. Уверены, что хотите отключить эту опцию?";
 "Settings.Sharing.Footer" = "Публикуя результаты, вы дополняете картину помех интернет-активности и поддерживаете сообщество OONI.\n\nСетевые данные (в частности, номер автономной системы) нужны для определения провайдеров доступа к интернету.";
 "Settings.TestOptions.Label" = "Варианты тестирования";
+"Settings.Privacy.Label" = "Приватность";
+"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.SendCrashReports" = "Отправить отчет об ошибке";
 "Settings.Advanced.Label" = "Расширенные настройки";
-"Settings.Advanced.SendCrashReports" = "Отправить отчет об ошибке";
 "Settings.Advanced.DebugLogs" = "Журналы отладки";
 "Settings.Advanced.UseDomainFronting" = "Всегда использовать прикрытие доменом";
-"Settings.Advanced.CollectAnalytics" = "Собирать статистику использования приложения";
 "Settings.Websites.MaxRuntimeEnabled" = "Ограничить продолжительность теста";
 "Settings.Websites.MaxRuntime" = "Продолжительность теста";
 "Settings.Websites.Categories.Label" = "Категории сайтов для тестирования";
@@ -335,7 +335,6 @@
 "Settings.Websites.CustomURL.Add" = "Добавить сайт";
 "Settings.Websites.TestCount" = "Количество проверенных веб-сайтов (0 означает все)";
 "Settings.InstantMessaging.TestWhatsApp" = "Тестировать WhatsApp";
-"Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Тестировать все конечные точки WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Тестировать Telegram";
 "Settings.InstantMessaging.TestFacebookMessenger" = "Тестировать Facebook Messenger";
 "Settings.Middleboxes.TestHTTPInvalidRequestLine" = "Начать тест HTTP Invalid Request Line";

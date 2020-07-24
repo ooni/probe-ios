@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "國別代碼 (e.g. IT 為義大利)";
 "Onboarding.DefaultSettings.Bullet.2" = "網路資訊 ( 包含網路自治系統代號 ASN)";
 "Onboarding.DefaultSettings.Bullet.3" = "測試的時間和日期";
-"Onboarding.DefaultSettings.Paragraph" = "我們盡量不會發佈用戶 IP 位置或是其它可能辨識個人資料的資訊。\n\n可進一步了解[ONNI 資料政策](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "開始吧！";
 "Onboarding.DefaultSettings.Button.Change" = "變更預設";
 "Dashboard.Tab.Label" = "儀表板";
@@ -251,9 +251,8 @@
 "Modal.ResultsNotUploaded.Uploading" = "上傳 %@ ...";
 "Toast.ResultsUploaded" = "成功上傳";
 "Modal.DisplayFailureLog" = "Display failure log";
-"Modal.EnableNotifications.AutomatedTesting" = "啟用通知授權以便自動執行測試。";
-"Modal.EnableNotifications.News" = "啟用通知授權以便接收新聞更新。";
-"Modal.EnableNotifications.Any" = "啟用通知授權以便接收推送通知。 ";
+"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications. Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "為改進測試的準確度，需要啟用 GPS 授權。OONI 僅收集大略的 GPS 定位資訊。";
 "Modal.DoYouWantToDeleteAllTests" = "要刪除所有的測試結果嗎？";
 "Modal.DoYouWantToDeleteThisTest" = "要刪除這次的測試嗎？";
@@ -269,7 +268,7 @@
 "Modal.ManualUpload.Enable" = "啟用";
 "Modal.ManualUpload.Disable" = "不用，謝謝";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. We will never link these app usage metrics to your identity. You can opt out of this at any time through the settings.";
+"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
 "Modal.ShareAnalytics.Enable" = "Share app usage";
 "Modal.ShareAnalytics.Disable" = "Don't share";
 "Modal.UploadFailed.Title" = "上傳失敗";
@@ -319,11 +318,12 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "需要這類資訊（例如 IT 代表義大利）以辨別網路計量是自哪個國家收集。是否要關閉此選項？";
 "Settings.Sharing.Footer" = "出版評量結果，參與者共同提高了網路干涉的透明度與對 OONI  社群的支持。\n\n辬識網路連線服務商需要有網路資訊（例如網路自治系統編號 ASN）。";
 "Settings.TestOptions.Label" = "Test options";
+"Settings.Privacy.Label" = "隱私";
+"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.SendCrashReports" = "送出出錯崩潰報告";
 "Settings.Advanced.Label" = "進階的";
-"Settings.Advanced.SendCrashReports" = "送出出錯崩潰報告";
 "Settings.Advanced.DebugLogs" = "調試記錄";
 "Settings.Advanced.UseDomainFronting" = "皆使用域名前列";
-"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Limit test duration";
 "Settings.Websites.MaxRuntime" = "測試期間";
 "Settings.Websites.Categories.Label" = "測試的網站類別";
@@ -335,7 +335,6 @@
 "Settings.Websites.CustomURL.Add" = "新增網站";
 "Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "測試 WhatsApp";
-"Settings.InstantMessaging.WhatsAppExtensiveTesting" = "測試所有的 WhatsApp 端點";
 "Settings.InstantMessaging.TestTelegram" = "測試 Telegram";
 "Settings.InstantMessaging.TestFacebookMessenger" = "測試 Facebook Messenger";
 "Settings.Middleboxes.TestHTTPInvalidRequestLine" = "執行 HTTP 無效請求行測試";

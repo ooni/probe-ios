@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Kode Negara (contoh: IT untuk Italia)";
 "Onboarding.DefaultSettings.Bullet.2" = "Informasi jaringan (termasuk ASN)";
 "Onboarding.DefaultSettings.Bullet.3" = "Jam & tanggal tes";
-"Onboarding.DefaultSettings.Paragraph" = "Kami berusaha sebaik-baiknya untuk tidak mempublikasikan alamat IP Anda atau informasi lain yang berpotensi mudah teridentifikasi secara personal.\n\nPelajari selengkapnya di [OONI's Data Policy](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "Ayo!";
 "Onboarding.DefaultSettings.Button.Change" = "Ubah default";
 "Dashboard.Tab.Label" = "Dasbor";
@@ -251,9 +251,8 @@
 "Modal.ResultsNotUploaded.Uploading" = "Mengunggah %@ ...";
 "Toast.ResultsUploaded" = "Unggahan berhasil";
 "Modal.DisplayFailureLog" = "Tampilkan log kesalahan";
-"Modal.EnableNotifications.AutomatedTesting" = "Mengaktikan izin notifikasi untuk menjalankan tes secara otomatis.";
-"Modal.EnableNotifications.News" = "Mengaktifkan izin notifikasi untuk menerima berita mutakhir.";
-"Modal.EnableNotifications.Any" = "Mengaktifkan izin notifikasi untuk menerima notifikasi tekan.";
+"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications. Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "Untuk meningkatkan akuransi semua tes, kita perlu ijin GPS. OONI hanya akan mengambil perkiraan posisi GPS Anda.";
 "Modal.DoYouWantToDeleteAllTests" = "Anda ingin menghapus semua hasil tes?";
 "Modal.DoYouWantToDeleteThisTest" = "Apakah kamu ingin menghapus tes ini?";
@@ -269,7 +268,7 @@
 "Modal.ManualUpload.Enable" = "Aktifkan";
 "Modal.ManualUpload.Disable" = "Tidak, terima kasih";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. We will never link these app usage metrics to your identity. You can opt out of this at any time through the settings.";
+"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
 "Modal.ShareAnalytics.Enable" = "Share app usage";
 "Modal.ShareAnalytics.Disable" = "Don't share";
 "Modal.UploadFailed.Title" = "Gagal mengunggah";
@@ -319,11 +318,12 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "This information (e.g. IT for Italy) is required to identify which country the measurements are collected from. Are you sure you want to disable this option?";
 "Settings.Sharing.Footer" = "By publishing results, you are increasing transparency of network interference and supporting the OONI community. \n\nNetwork information (i.e. Autonomous System Number) is required for identifying Internet Service Providers.";
 "Settings.TestOptions.Label" = "Pilihan Tes";
+"Settings.Privacy.Label" = "Kerahasiaan pribadi";
+"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.SendCrashReports" = "Kirim laporan tabrakan";
 "Settings.Advanced.Label" = "Advanced ";
-"Settings.Advanced.SendCrashReports" = "Kirim laporan tabrakan";
 "Settings.Advanced.DebugLogs" = "Log Debug";
 "Settings.Advanced.UseDomainFronting" = "Always use domain fronting";
-"Settings.Advanced.CollectAnalytics" = "Collect app usage statistics";
 "Settings.Websites.MaxRuntimeEnabled" = "Batas durasi tes";
 "Settings.Websites.MaxRuntime" = "Durasi tes";
 "Settings.Websites.Categories.Label" = "Kategori laman yang akan dites";
@@ -335,7 +335,6 @@
 "Settings.Websites.CustomURL.Add" = "Tambah laman";
 "Settings.Websites.TestCount" = "Jumlah laman yang sudah dites (0 artinya semua)";
 "Settings.InstantMessaging.TestWhatsApp" = "Tes WhatsApp";
-"Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Test all WhatsApp endpoints";
 "Settings.InstantMessaging.TestTelegram" = "Tes Telegram";
 "Settings.InstantMessaging.TestFacebookMessenger" = "Tes Pesan Facebook";
 "Settings.Middleboxes.TestHTTPInvalidRequestLine" = "Jalankan Tes Baris Permintaan HTTP Invalid";

@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Il codice del paese (es. IT per l'Italia)";
 "Onboarding.DefaultSettings.Bullet.2" = "Informazioni sulla tua rete (incluso l'Autonomous System Number)";
 "Onboarding.DefaultSettings.Bullet.3" = "Data e ora del test";
-"Onboarding.DefaultSettings.Paragraph" = "Facciamo del nostro meglio per evitare di pubblicare il tuo indirizzo IP o altre informazioni personali.\n\nPer maggiori informazioni vedi la [Data Policy di OONI](https://ooni.io/about/data-policy/)";
+"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "Andiamo";
 "Onboarding.DefaultSettings.Button.Change" = "Cambia i default";
 "Dashboard.Tab.Label" = "Dashboard";
@@ -251,9 +251,8 @@
 "Modal.ResultsNotUploaded.Uploading" = "Caricamento %@ ...";
 "Toast.ResultsUploaded" = "Caricamento riuscito";
 "Modal.DisplayFailureLog" = "Visualizza registro errori";
-"Modal.EnableNotifications.AutomatedTesting" = "Attiva i permessi di notifica per eseguire i test automaticamente.";
-"Modal.EnableNotifications.News" = "Attiva i permessi di notifica per ricevere notizie.";
-"Modal.EnableNotifications.Any" = "Attiva i permessi di notifica per ricevere notifiche push.";
+"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications. Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "Per migliorare la precisione dei test, abbiamo bisogno dei permessi GPS. OONI raccoglierà solo coordinate GPS approssimative.";
 "Modal.DoYouWantToDeleteAllTests" = "Vuoi cancellare tutti i risultati dei test?";
 "Modal.DoYouWantToDeleteThisTest" = "Vuoi cancellare questo test?";
@@ -269,7 +268,7 @@
 "Modal.ManualUpload.Enable" = "Abilita";
 "Modal.ManualUpload.Disable" = "No, grazie";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. We will never link these app usage metrics to your identity. You can opt out of this at any time through the settings.";
+"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
 "Modal.ShareAnalytics.Enable" = "Share app usage";
 "Modal.ShareAnalytics.Disable" = "Don't share";
 "Modal.UploadFailed.Title" = "Invio fallito";
@@ -319,11 +318,12 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Tali informazioni (es. IT per Italia) sono necessarie per determinare da quale Paese provengono le misurazioni. Sei sicuro di voler disabilitare quest'opzione?";
 "Settings.Sharing.Footer" = "Pubblicando i risultati, contribuisci alla trasparenza sulle interferenze di rete e dai supporto alla comunità di OONI.\n\nLe informazioni sulla rete (i.e. l'Autonomous System Number) sono necessarie per poter identificare i provider di servizi internet (ISP).";
 "Settings.TestOptions.Label" = "Opzioni dei test";
+"Settings.Privacy.Label" = "Privacy";
+"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.SendCrashReports" = "Manda rapporto sui crash";
 "Settings.Advanced.Label" = "Avanzate";
-"Settings.Advanced.SendCrashReports" = "Manda rapporto sui crash";
 "Settings.Advanced.DebugLogs" = "Log di debug";
 "Settings.Advanced.UseDomainFronting" = "Usa sempre il domain fronting";
-"Settings.Advanced.CollectAnalytics" = "Raccogli statistiche di utilizzo";
 "Settings.Websites.MaxRuntimeEnabled" = "Limita la durata del test";
 "Settings.Websites.MaxRuntime" = "Durata del test";
 "Settings.Websites.Categories.Label" = "Categorie di siti web da misurare";
@@ -335,7 +335,6 @@
 "Settings.Websites.CustomURL.Add" = "Aggiungi sito web";
 "Settings.Websites.TestCount" = "Numero di siti web da misurare (0 significa tutti)";
 "Settings.InstantMessaging.TestWhatsApp" = "Testa WhatsApp";
-"Settings.InstantMessaging.WhatsAppExtensiveTesting" = "Testa tutti i server WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Testa Telegram";
 "Settings.InstantMessaging.TestFacebookMessenger" = "Testa Facebook Messenger";
 "Settings.Middleboxes.TestHTTPInvalidRequestLine" = "Esegui il test HTTP Invalid Request Line";

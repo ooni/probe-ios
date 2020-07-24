@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "رمز الدّولة (مثلاً IT لإيطاليا) ";
 "Onboarding.DefaultSettings.Bullet.2" = "معلومات الشبكة (متضمنا رقم ASN)";
 "Onboarding.DefaultSettings.Bullet.3" = "وقت وتاريخ الاختبار";
-"Onboarding.DefaultSettings.Paragraph" = "نفعل ما بوسعنا لعدم نشر عنوان IP الخاص بك أو أي معلومات شخصية محددة عنك.\n\nأعرف المزيد من خلال [سياسة بيانات OONI](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "فلننطلق!";
 "Onboarding.DefaultSettings.Button.Change" = "تغيير الافتراضي";
 "Dashboard.Tab.Label" = "لوحة التحكم";
@@ -251,9 +251,8 @@
 "Modal.ResultsNotUploaded.Uploading" = "جارٍ تحميل %@ ...";
 "Toast.ResultsUploaded" = "تم التحميل بنجاح";
 "Modal.DisplayFailureLog" = "عرض سجل الإخفاق";
-"Modal.EnableNotifications.AutomatedTesting" = "قم بإعطاء تصريح التنبيهات لإجراء الاختبارات اوتوماتيكيًا.";
-"Modal.EnableNotifications.News" = "قم بإعطاء تصريح التنبيهات للحصول على آخر الأخبار.";
-"Modal.EnableNotifications.Any" = "قم بإعطاء تصريح التنبيهات لإستقبال التنبيهات المدفوعة (Push Notifications)";
+"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications. Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "التطبيق بجاجة إلى تصريح GPS لتحسين دقة الاختبارات. سيقوم OONI بالحصول على موقع GPS التقريبي الخاص بك.";
 "Modal.DoYouWantToDeleteAllTests" = "هل تريد حذف جميع نتائج الإختبارات؟";
 "Modal.DoYouWantToDeleteThisTest" = "هل تريد حذف هذا الإختبار؟";
@@ -269,7 +268,7 @@
 "Modal.ManualUpload.Enable" = "تمكين";
 "Modal.ManualUpload.Disable" = "لا، شكراً";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. We will never link these app usage metrics to your identity. You can opt out of this at any time through the settings.";
+"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
 "Modal.ShareAnalytics.Enable" = "Share app usage";
 "Modal.ShareAnalytics.Disable" = "Don't share";
 "Modal.UploadFailed.Title" = "فَشِلتْ عملية الرفع";
@@ -319,11 +318,12 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "هذه المعلومات (مثلا IT لايطاليا) مطلوبة لتحدبد الدولة التي تم اجراء القياسات فيها. هل أنت متأكد أنك تريد الغاء هذا الإختيار؟";
 "Settings.Sharing.Footer" = "قيامك بنشر النتائج سيرفع من الشفافية حول التدخل في الشبكة ويدعم مجتمع OONI. \n\nمعلومات الشبكة (أي رقم النظام التلقائي ASN) مطلوب لتحديد مزودي خدمات الانترنت. ";
 "Settings.TestOptions.Label" = "اختيارات الاختبار";
+"Settings.Privacy.Label" = "الخصوصية";
+"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.SendCrashReports" = "أرسل تقارير حول تعطل التطبيق";
 "Settings.Advanced.Label" = "متقدم";
-"Settings.Advanced.SendCrashReports" = "أرسل تقارير حول تعطل التطبيق";
 "Settings.Advanced.DebugLogs" = "أظهر سجلات التصحيح";
 "Settings.Advanced.UseDomainFronting" = "دائمًا استخدم وسيط في اتصال النطاق Domain Fronting";
-"Settings.Advanced.CollectAnalytics" = "تطبيق جمع إحصائيات استخدام التطبيق";
 "Settings.Websites.MaxRuntimeEnabled" = "قيّد مدة الاختبار";
 "Settings.Websites.MaxRuntime" = "مدة الاختبار";
 "Settings.Websites.Categories.Label" = "أقسام المواقع للاختبار";
@@ -335,7 +335,6 @@
 "Settings.Websites.CustomURL.Add" = "أضف موقعًا";
 "Settings.Websites.TestCount" = "عدد المواقع المختبرة (0 يعني الكل)";
 "Settings.InstantMessaging.TestWhatsApp" = "اختبر واتساب";
-"Settings.InstantMessaging.WhatsAppExtensiveTesting" = "اختبر كل أطراف واتساب";
 "Settings.InstantMessaging.TestTelegram" = "اختبر تيليجرام";
 "Settings.InstantMessaging.TestFacebookMessenger" = "اختبر فيسبوك مسنجر";
 "Settings.Middleboxes.TestHTTPInvalidRequestLine" = "تشغيل اختبار عدم صلاحية طلب الHTTP";
