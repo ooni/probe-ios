@@ -82,10 +82,8 @@
 
 + (void)notificationAlertinView:(UIViewController *)view
 {
-    //TODO-COUNTLY add new strings
-    //https://github.com/ooni/probe/issues/1210
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:nil message:NSLocalizedString(@"Modal.EnableNotifications.Any", nil)
+                                 alertControllerWithTitle:NSLocalizedString(@"Modal.EnableNotifications.Title", nil) message:NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
