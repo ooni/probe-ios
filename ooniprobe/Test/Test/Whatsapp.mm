@@ -12,9 +12,6 @@
 
 -(void) runTest {
     [super prepareRun];
-    if ([SettingsUtility getSettingWithName:@"test_whatsapp_extensive"]){
-        self.settings.options.all_endpoints = [NSNumber numberWithBool:YES];
-    }
     [super runTest];
 }
 
