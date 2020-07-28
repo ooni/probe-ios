@@ -101,7 +101,6 @@
 }
 
 -(void)handleUrlScheme:(NSURL*)url{
-    //TODO-COUNTLY test open ooni run link
     if ([self.window.rootViewController.presentedViewController isKindOfClass:[TestRunningViewController class]])
         [MessageUtility showToast:NSLocalizedString(@"OONIRun.TestRunningError", nil) inView:self.window.rootViewController.presentedViewController.view];
     else {
