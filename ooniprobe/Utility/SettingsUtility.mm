@@ -122,8 +122,6 @@
     }
     else if ([testName isEqualToString:@"instant_messaging"]) {
         [settings addObject:@"test_whatsapp"];
-        if (includeAll && [self getSettingWithName:@"test_whatsapp"])
-            [settings addObject:@"test_whatsapp_extensive"];
         [settings addObject:@"test_telegram"];
         [settings addObject:@"test_facebook_messenger"];
     }

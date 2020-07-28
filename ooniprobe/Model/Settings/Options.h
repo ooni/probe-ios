@@ -10,7 +10,6 @@
 @property (nonatomic, strong) NSString *software_version;
 @property (nonatomic, strong) NSString *server;
 @property (nonatomic, strong) NSNumber *port;
-@property (nonatomic, strong) NSNumber *all_endpoints;
 @property (nonatomic, strong) NSNumber *randomize_input;
 @property (nonatomic, strong) NSNumber *no_file_report;
 @end
