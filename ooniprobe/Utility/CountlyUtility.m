@@ -1,5 +1,6 @@
 #import "CountlyUtility.h"
 #import "SettingsUtility.h"
+#import "Engine.h"
 
 @implementation CountlyUtility
 
@@ -15,8 +16,7 @@
     //Only for testflights build
     //config.pushTestMode = CLYPushTestModeTestFlightOrAdHoc;
     config.features = @[CLYPushNotifications, CLYCrashReporting, CLYAutoViewTracking];
-    //TODO-COUNTLY
-    config.deviceID = @"Lorenzo-iOS";
+    config.deviceID = [Engine getUUID];
     config.requiresConsent = YES;
     [Countly.sharedInstance startWithConfig:config];
     [self reloadConsents];
