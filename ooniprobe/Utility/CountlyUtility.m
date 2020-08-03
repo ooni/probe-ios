@@ -37,4 +37,8 @@
         [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
 }
 
++ (void)recordEvent:(NSString*)event segmentation:(NSDictionary*)segmentation{
+    [Countly.sharedInstance recordEvent:event segmentation:segmentation];
+}
+
 @end
