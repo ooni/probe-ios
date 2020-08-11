@@ -8,8 +8,8 @@
     CountlyConfig* config = CountlyConfig.new;
     config.appKey = @"146836f41172f9e3287cab6f2cc347de3f5ddf3b";
     config.host = NOTIFICATION_SERVER;
-    //Dabug builds
-    #ifndef DEBUG
+    //Debug builds
+    #ifdef DEBUG
         config.enableDebug = YES;
         config.pushTestMode = CLYPushTestModeDevelopment;
     #endif
