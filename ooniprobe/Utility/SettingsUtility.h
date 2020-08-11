@@ -21,9 +21,11 @@
 
 + (BOOL)getSettingWithName:(NSString*)settingName;
 
-+ (BOOL)isSendCrash;
++ (BOOL)isSendCrashEnabled;
 
-+ (BOOL)isSendAnalytics;
++ (BOOL)isSendAnalyticsEnabled;
 
-+ (BOOL)isNotification;
++ (BOOL)isNotificationEnabled;
+
++ (NSString*)getOrGenerateUUID4;
 @end

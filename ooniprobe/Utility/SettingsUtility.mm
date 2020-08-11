@@ -145,16 +145,25 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:settingName] boolValue];
 }
 
-+ (BOOL)isSendCrash {
++ (BOOL)isSendCrashEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue];
 }
 
-+ (BOOL)isSendAnalytics {
++ (BOOL)isSendAnalyticsEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_analytics"] boolValue];
 }
 
-+ (BOOL)isNotification {
++ (BOOL)isNotificationEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
+}
+
++ (NSString*)getOrGenerateUUID4{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"]){
+        return [[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] stringValue];
+    }
+    else {
+        
+    }
 }
 
 @end

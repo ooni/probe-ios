@@ -192,7 +192,7 @@
             [mySwitch setOn:FALSE];
         }
         else
-            [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
+            [Countly.sharedInstance cancelConsentForFeature:CLYConsentPushNotifications];
     }
     else if ([current isEqualToString:@"send_analytics"] ||
         [current isEqualToString:@"send_crash"]){
