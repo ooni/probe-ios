@@ -10,8 +10,8 @@
     return [MKVersion versionMK];
 }
 
-/** getUUID returns the UUID4 generated for this client  */
-+ (NSString*) getUUID {
+/** newUUID4 returns the a new UUID4 for this client  */
++ (NSString*) newUUID4 {
     return OonimkallNewUUID4();
 }
 

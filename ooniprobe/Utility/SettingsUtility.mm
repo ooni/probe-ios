@@ -1,5 +1,6 @@
 #import "SettingsUtility.h"
 #import "TestUtility.h"
+#import "Engine.h"
 
 @implementation SettingsUtility
 
@@ -158,12 +159,13 @@
 }
 
 + (NSString*)getOrGenerateUUID4{
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"]){
-        return [[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] stringValue];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"]){
+        NSString *uuid = [Engine newUUID4];
+        [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:@"uuid4"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        return uuid;
     }
-    else {
-        
-    }
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] stringValue];
 }
 
 @end
