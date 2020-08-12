@@ -9,9 +9,9 @@
 #import "NavigationBarUtility.h"
 
 #ifdef DEV
-#define NOTIFICATION_SERVER @"https://registry.proteus.test.ooni.io"
+#define NOTIFICATION_SERVER @"https://countly.ooni.io"
 #else
-#define NOTIFICATION_SERVER @"https://registry.proteus.ooni.io"
+#define NOTIFICATION_SERVER @"https://countly.ooni.io"
 #endif
 
 #define RELEASE_NAME @""
@@ -19,6 +19,7 @@
 
 #define ONBOARDING_KEY @"first_run"
 #define MANUAL_UPLOAD_POPUP @"upload_result_manually_popup"
+#define ANALYTICS_POPUP @"analytics_popup"
 #define SOFTWARE_NAME @"ooniprobe-ios"
 #define DEFAULT_TIMEOUT 30
 #define ERR_JSON_EMPTY 100

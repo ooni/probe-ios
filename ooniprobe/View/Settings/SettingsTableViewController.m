@@ -1,4 +1,5 @@
 #import "SettingsTableViewController.h"
+#import "CountlyUtility.h"
 
 @interface SettingsTableViewController ()
 @end
@@ -8,11 +9,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(registeredForNotifications)
-                                                 name:@"registeredForNotifications"
-                                               object:nil];
-
     if (category != nil)
         self.title = [LocalizationUtility getNameForSetting:category];
     else if (testSuite != nil)
@@ -189,12 +185,20 @@
     UITableViewCell *cell = (UITableViewCell *)mySwitch.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *current = [items objectAtIndex:indexPath.row];
-    //TODO ORCHESTRA handle automated_testing_enabled
-    if ([current isEqualToString:@"notifications_enabled"] && mySwitch.on){
-        [self handleNotificationChanges];
-        [mySwitch setOn:FALSE];
+    if ([current isEqualToString:@"notifications_enabled"]){
+        if (mySwitch.on){
+            [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
+            [self handleNotificationChanges];
+            [mySwitch setOn:FALSE];
+        }
+        else
+            [Countly.sharedInstance cancelConsentForFeature:CLYConsentPushNotifications];
     }
-    if (!mySwitch.on && ![self canSetSwitch]){
+    else if ([current isEqualToString:@"send_analytics"] ||
+        [current isEqualToString:@"send_crash"]){
+        [CountlyUtility reloadConsents];
+    }
+    else if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
         [MessageUtility alertWithTitle:nil
                                message:NSLocalizedString(@"Modal.EnableAtLeastOneTest", nil)
@@ -208,7 +212,6 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
-    //TODO NEWS when enable remote news notification send something to backend
     [self reloadSettings];
 }
 
@@ -216,8 +219,13 @@
     [[UNUserNotificationCenter currentNotificationCenter]getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
         switch (settings.authorizationStatus) {
             case UNAuthorizationStatusNotDetermined:{
-                //First launch
-                [MessageUtility notificationAlertinView:self];
+                //Notification permission asking for the first time
+                [Countly.sharedInstance
+                 askForNotificationPermissionWithOptions:0
+                 completionHandler:^(BOOL granted, NSError * error) {
+                    if (granted)
+                        [self registeredForNotifications];
+                }];
                 break;
             }
             case UNAuthorizationStatusDenied:{
@@ -235,6 +243,7 @@
                 break;
             }
             case UNAuthorizationStatusAuthorized:{
+                //Notification permission already granted
                 [self registeredForNotifications];
                 break;
             }
@@ -243,9 +252,14 @@
         }
     }];
 }
+
 - (void)registeredForNotifications {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
-    [self reloadSettings];
+    dispatch_async(dispatch_get_main_queue(), ^
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
+        [CountlyUtility reloadConsents];
+        [self reloadSettings];
+    });
 }
 
 -(BOOL)canSetSwitch{

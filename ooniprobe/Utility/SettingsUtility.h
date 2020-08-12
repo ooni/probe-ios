@@ -21,8 +21,11 @@
 
 + (BOOL)getSettingWithName:(NSString*)settingName;
 
-+ (NSString*)get_push_token;
++ (BOOL)isSendCrashEnabled;
 
-+ (void)set_push_token:(NSString*)push_token;
++ (BOOL)isSendAnalyticsEnabled;
 
++ (BOOL)isNotificationEnabled;
+
++ (NSString*)getOrGenerateUUID4;
 @end

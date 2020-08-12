@@ -15,6 +15,8 @@
 
 + (NSString*) versionMK;
 
++ (NSString*) newUUID4;
+
 + (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings error:(NSError **)error;
 
 + (id<GeoIPLookupTask>) geoIPLookupTask;

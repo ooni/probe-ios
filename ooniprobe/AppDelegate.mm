@@ -5,6 +5,7 @@
 #import "Result.h"
 #import "TestRunningViewController.h"
 #import "SettingsUtility.h"
+#import "CountlyUtility.h"
 
 @interface AppDelegate ()
 
@@ -23,64 +24,10 @@
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [NavigationBarUtility setDefaults];
-    
-#ifdef RELEASE
-    CrashlyticsKit.delegate = self;
-    [Fabric with:@[[Crashlytics class]]];
-#endif
-
+    [CountlyUtility initCountly];
     application.statusBarStyle = UIStatusBarStyleLightContent;
-    NSMutableDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    if(notification) {
-        [self handleNotification:notification :application];
-    }
+    
     return YES;
-}
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"token: %@",token);
-#ifdef RELEASE
-    [SettingsUtility set_push_token:token];
-#endif
-}
-
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
-    if (notificationSettings.types == UIUserNotificationTypeNone) {
-        NSLog(@"Permission not Granted by user");
-    }
-    else{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"registeredForNotifications" object:self];
-    }
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    if (userInfo) {
-        if ([userInfo objectForKey:@"aps"]){
-            if([[userInfo objectForKey:@"aps"] objectForKey:@"badge"]){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [UIApplication sharedApplication].applicationIconBadgeNumber = [[[userInfo objectForKey:@"aps"] objectForKey: @"badge"] intValue];
-                });
-            }
-        }
-        [self handleNotification:userInfo :application];
-    }
-}
-
--(void)handleNotification:(NSDictionary*)userInfo :(UIApplication *)application{
-    NSString *type = [userInfo objectForKey:@"type"];
-    UIApplicationState state = [application applicationState];
-    if (state == UIApplicationStateActive)
-    {
-            [MessageUtility alertWithTitle:nil
-                                   message:[NSString stringWithFormat:@"%@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]]
-                                    inView:self.window.rootViewController];
-    }
-    else {
-        // The application was just brought from the background to the foreground,
-        // so we consider the app as having been "opened by a push notification."
-    }
 }
 
 -(BOOL)isUITestingEnabled{
@@ -123,6 +70,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     });
+    //Called in case the user disable notifications from iOS panel
     if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"notifications_enabled"];
     if ([TestUtility canCallDeleteJson])
@@ -175,12 +123,6 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTest" object:nil userInfo:[NSDictionary dictionaryWithObject:url forKey:@"url"]];
         }
     });
-}
-
-- (void)crashlyticsDidDetectReportForLastExecution:(CLSReport *)report completionHandler:(void (^)(BOOL))completionHandler {
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        completionHandler([[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue]);
-    }];
 }
 
 // database delegates

@@ -1,10 +1,13 @@
 #import "ExceptionUtility.h"
-#import <Crashlytics/Crashlytics.h>
+#import "SettingsUtility.h"
 
 @implementation ExceptionUtility
 
-+ (void)recordError:(NSString*)title code:(NSInteger)code userInfo:(NSDictionary*)userInfo{
-    [CrashlyticsKit recordError:[NSError errorWithDomain:title code:0 userInfo:userInfo]];
++ (void)recordError:(NSString*)title reason:(NSString*)reason userInfo:(NSDictionary*)userInfo{
+    NSException* exception = [NSException exceptionWithName:title
+                                                         reason:reason
+                                                       userInfo:userInfo];
+    [Countly.sharedInstance recordHandledException:exception];
 }
 
 @end

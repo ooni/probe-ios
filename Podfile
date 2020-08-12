@@ -5,8 +5,6 @@ target 'ooniprobe' do
     pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2020.07.23-173154.podspec'
     pod 'mkall', :git => 'https://github.com/measurement-kit/mkall-ios.git', :tag => 'v0.10.0'
     pod 'Toast', '~> 4.0.0'
-    pod 'Fabric'
-    pod 'Crashlytics'
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
     pod 'lottie-ios', '2.5.3'
@@ -15,6 +13,7 @@ target 'ooniprobe' do
     pod 'RHMarkdownLabel'
     pod 'DateTools'
     pod 'OCMapper', '2.0'
+    pod 'Countly'
 end
 target 'OONIProbeUnitTests' do
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'

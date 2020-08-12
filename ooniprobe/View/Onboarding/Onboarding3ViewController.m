@@ -44,6 +44,7 @@
     UIButton *buttonPressed = (UIButton*)sender;
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:ONBOARDING_KEY];
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:MANUAL_UPLOAD_POPUP];
+    [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:ANALYTICS_POPUP];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:^{
         if (buttonPressed == _changeButton){

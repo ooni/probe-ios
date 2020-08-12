@@ -1,4 +1,5 @@
 #import "Engine.h"
+#import <oonimkall/Oonimkall.h>
 #import <mkall/MKVersion.h>
 #define probeEngineTasks @[@"Telegram", @"Ndt", @"Dash", @"Psiphon", @"Tor", @"Whatsapp", @"FacebookMessenger", @"HttpHeaderFieldManipulation", @"HttpInvalidRequestLine"]
 
@@ -7,6 +8,11 @@
 /** getVersionMK returns the version of Measurement Kit we're using */
 + (NSString*) versionMK {
     return [MKVersion versionMK];
+}
+
+/** newUUID4 returns the a new UUID4 for this client  */
++ (NSString*) newUUID4 {
+    return OonimkallNewUUID4();
 }
 
 /** startExperimentTask starts the experiment described by the provided settings. */

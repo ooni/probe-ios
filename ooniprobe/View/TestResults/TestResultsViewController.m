@@ -40,8 +40,10 @@
         NSMutableArray *arr = [[NSMutableArray alloc] init];
         NSString *key = [df stringFromDate:current.start_time];
         if (key == nil){
-            //reporting error to fabric and delete test
-            [ExceptionUtility recordError:@"key_nil" code:0 userInfo:[current dictionary]];
+            //reporting error and delete test
+            [ExceptionUtility recordError:@"key_nil"
+                                   reason:@"testFilter key is null"
+                                 userInfo:[current dictionary]];
             [current deleteObject];
         }
         else {

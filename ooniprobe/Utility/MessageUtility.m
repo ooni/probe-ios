@@ -1,6 +1,7 @@
 #import "MessageUtility.h"
 #import "MBProgressHUD.h"
 #import "UIView+Toast.h"
+#import "Countly.h"
 
 @implementation MessageUtility
 
@@ -81,15 +82,15 @@
 
 + (void)notificationAlertinView:(UIViewController *)view
 {
-    //TODO-GPS-NEWS add Modal.EnableGPS and Modal.EnableNotifications.News and Modal.EnableNotifications.AutomatedTesting
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:nil message:NSLocalizedString(@"Modal.EnableNotifications.Any", nil)
+                                 alertControllerWithTitle:NSLocalizedString(@"Modal.EnableNotifications.Title", nil)
+                                 message:NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-        //TODO-COUNTLY trigger action register
+        [Countly.sharedInstance askForNotificationPermission];
     }];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)

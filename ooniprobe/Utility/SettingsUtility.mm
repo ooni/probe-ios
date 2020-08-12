@@ -1,11 +1,12 @@
 #import "SettingsUtility.h"
 #import "TestUtility.h"
+#import "Engine.h"
 
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
     //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"sharing", @"test_options", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"notifications", @"sharing", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
@@ -17,9 +18,12 @@
         //TODO GPS @"include_gps"
         return @[@"upload_results", @"upload_results_manually", @"include_asn", @"include_ip"];
     }
+    else if ([categoryName isEqualToString:@"privacy"]) {
+        return @[@"send_analytics", @"send_crash"];
+    }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
-        return @[@"send_crash", @"debug_logs"];
+        return @[@"debug_logs"];
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];
@@ -142,15 +146,26 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:settingName] boolValue];
 }
 
-+ (NSString*)get_push_token{
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"]){
-        return [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
-    }
-    return @"";
++ (BOOL)isSendCrashEnabled {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue];
 }
 
-+ (void)set_push_token:(NSString*)push_token{
-    [[NSUserDefaults standardUserDefaults] setObject:push_token forKey:@"push_token"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
++ (BOOL)isSendAnalyticsEnabled {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_analytics"] boolValue];
 }
+
++ (BOOL)isNotificationEnabled {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
+}
+
++ (NSString*)getOrGenerateUUID4{
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"]){
+        NSString *uuid = [Engine newUUID4];
+        [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:@"uuid4"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        return uuid;
+    }
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] stringValue];
+}
+
 @end

@@ -159,7 +159,9 @@
                 [self.result save];
             }
             else if ([event.key isEqualToString:@"bug.json_dump"]) {
-                [ExceptionUtility recordError:@"json_dump" code:0 userInfo:[event.value dictionary]];
+                [ExceptionUtility recordError:@"json_dump"
+                                       reason:@"event.key isEqualToString bug.json_dump"
+                                     userInfo:[event.value dictionary]];
             }
             else if ([event.key isEqualToString:@"task_terminated"]) {
                 /*
