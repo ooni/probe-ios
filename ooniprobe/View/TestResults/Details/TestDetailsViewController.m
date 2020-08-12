@@ -51,8 +51,7 @@
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
         [CountlyUtility recordEvent:@"RawData"];
-        if ([[ReachabilityManager sharedManager] noInternetAccess]
-                && isInExplorer){
+        if ([[ReachabilityManager sharedManager] noInternetAccess] && isInExplorer){
                 [MessageUtility
                  alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
                  message:NSLocalizedString(@"Modal.Error.RawDataNoInternet", nil) inView:self];
