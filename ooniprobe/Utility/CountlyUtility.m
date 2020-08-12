@@ -5,18 +5,15 @@
 @implementation CountlyUtility
 
 + (void)initCountly {
-    CountlyConfig* config = CountlyConfig.new;
+    CountlyConfig* config = [CountlyConfig new];
     config.appKey = @"146836f41172f9e3287cab6f2cc347de3f5ddf3b";
     config.host = NOTIFICATION_SERVER;
-    //Dabug builds
-    #ifndef DEBUG
+    #ifdef DEBUG
         config.enableDebug = YES;
         config.pushTestMode = CLYPushTestModeDevelopment;
     #endif
-    //Only for testflights build
-    //config.pushTestMode = CLYPushTestModeTestFlightOrAdHoc;
     config.features = @[CLYPushNotifications, CLYCrashReporting, CLYAutoViewTracking];
-    config.deviceID = [Engine getUUID];
+    config.deviceID = [SettingsUtility getOrGenerateUUID4];
     config.requiresConsent = YES;
     [Countly.sharedInstance startWithConfig:config];
     [self reloadConsents];
@@ -24,16 +21,17 @@
 
 + (void)reloadConsents{
     [Countly.sharedInstance cancelConsentForAllFeatures];
+    [Countly.sharedInstance giveConsentForFeature:CLYConsentLocation];
 
-    if ([SettingsUtility isSendCrash])
+    if ([SettingsUtility isSendCrashEnabled])
         [Countly.sharedInstance giveConsentForFeature:CLYConsentCrashReporting];
-    
-    if ([SettingsUtility isSendAnalytics])
+
+    if ([SettingsUtility isSendAnalyticsEnabled])
         [Countly.sharedInstance giveConsentForFeatures:@[CLYConsentSessions,
                                                          CLYConsentViewTracking,
                                                          CLYConsentEvents]];
 
-    if ([SettingsUtility isNotification])
+    if ([SettingsUtility isNotificationEnabled])
         [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
 }
 

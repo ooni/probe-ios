@@ -1,5 +1,6 @@
 #import "SettingsUtility.h"
 #import "TestUtility.h"
+#import "Engine.h"
 
 @implementation SettingsUtility
 
@@ -145,16 +146,26 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:settingName] boolValue];
 }
 
-+ (BOOL)isSendCrash {
++ (BOOL)isSendCrashEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue];
 }
 
-+ (BOOL)isSendAnalytics {
++ (BOOL)isSendAnalyticsEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_analytics"] boolValue];
 }
 
-+ (BOOL)isNotification {
++ (BOOL)isNotificationEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
+}
+
++ (NSString*)getOrGenerateUUID4{
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"]){
+        NSString *uuid = [Engine newUUID4];
+        [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:@"uuid4"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        return uuid;
+    }
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] stringValue];
 }
 
 @end

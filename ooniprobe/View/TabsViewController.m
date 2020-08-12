@@ -55,7 +55,11 @@
                                                         key:@"send_analytics"
                                                   popupName:ANALYTICS_POPUP];
                                     }];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Title", nil) message:NSLocalizedString(@"Modal.ShareAnalytics.Paragraph", nil) okButton:enableButton cancelButton:disableButton inView:self];
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Title", nil)
+                               message:NSLocalizedString(@"Modal.ShareAnalytics.Paragraph", nil)
+                              okButton:enableButton
+                          cancelButton:disableButton
+                                inView:self];
     }
 }
 

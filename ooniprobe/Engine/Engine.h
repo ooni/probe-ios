@@ -15,7 +15,7 @@
 
 + (NSString*) versionMK;
 
-+ (NSString*) getUUID;
++ (NSString*) newUUID4;
 
 + (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings error:(NSError **)error;
 

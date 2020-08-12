@@ -83,7 +83,8 @@
 + (void)notificationAlertinView:(UIViewController *)view
 {
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:NSLocalizedString(@"Modal.EnableNotifications.Title", nil) message:NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil)
+                                 alertControllerWithTitle:NSLocalizedString(@"Modal.EnableNotifications.Title", nil)
+                                 message:NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil)
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)

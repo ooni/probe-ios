@@ -192,7 +192,7 @@
             [mySwitch setOn:FALSE];
         }
         else
-            [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
+            [Countly.sharedInstance cancelConsentForFeature:CLYConsentPushNotifications];
     }
     else if ([current isEqualToString:@"send_analytics"] ||
         [current isEqualToString:@"send_crash"]){
@@ -205,12 +205,12 @@
                                 inView:self];
         return;
     }
-    
+
     if (mySwitch.on)
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:current];
     else
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:current];
-    
+
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self reloadSettings];
 }
