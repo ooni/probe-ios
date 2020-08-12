@@ -25,7 +25,7 @@
 
     if ([SettingsUtility isSendCrashEnabled])
         [Countly.sharedInstance giveConsentForFeature:CLYConsentCrashReporting];
-    
+
     if ([SettingsUtility isSendAnalyticsEnabled])
         [Countly.sharedInstance giveConsentForFeatures:@[CLYConsentSessions,
                                                          CLYConsentViewTracking,
@@ -33,6 +33,14 @@
 
     if ([SettingsUtility isNotificationEnabled])
         [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
+}
+
++ (void)recordEvent:(NSString*)event{
+    [Countly.sharedInstance recordEvent:event];
+}
+
++ (void)recordEvent:(NSString*)event segmentation:(NSDictionary*)segmentation{
+    [Countly.sharedInstance recordEvent:event segmentation:segmentation];
 }
 
 @end

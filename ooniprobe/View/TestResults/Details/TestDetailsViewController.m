@@ -4,6 +4,7 @@
 #import "TestRunningViewController.h"
 #import "UploadFooterViewController.h"
 #import "ReachabilityManager.h"
+#import "CountlyUtility.h"
 
 @interface TestDetailsViewController ()
 
@@ -49,27 +50,31 @@
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-                                       if ([[ReachabilityManager sharedManager] noInternetAccess]
-                                           && isInExplorer){
-                                           [MessageUtility
-                                            alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
-                                            message:NSLocalizedString(@"Modal.Error.RawDataNoInternet", nil) inView:self];
-                                           return;
-                                       }
-                                       [self rawData];
-                                   }];
+        [CountlyUtility recordEvent:@"RawData"];
+        if ([[ReachabilityManager sharedManager] noInternetAccess] && isInExplorer){
+                [MessageUtility
+                 alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                 message:NSLocalizedString(@"Modal.Error.RawDataNoInternet", nil) inView:self];
+                return;
+            }
+            [self rawData];
+        }];
+    
     UIAlertAction* logButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-                                       [self viewLogs];
-                                   }];
+        [CountlyUtility recordEvent:@"ViewLog"];
+        [self viewLogs];
+    }];
+    
     UIAlertAction* explorerButton = [UIAlertAction
                                     actionWithTitle:NSLocalizedString(@"TestResults.Details.CopyExplorerURL", nil)
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
-                                        [self copyExplorerUrl];
-                                    }];
+        [CountlyUtility recordEvent:@"CopyExplorerURL"];
+        [self copyExplorerUrl];
+    }];
 
     NSMutableArray *buttons = [NSMutableArray new];
     [buttons addObject:rawDataButton];
