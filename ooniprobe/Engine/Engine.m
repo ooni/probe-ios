@@ -1,7 +1,7 @@
 #import "Engine.h"
 #import <oonimkall/Oonimkall.h>
 #import <mkall/MKVersion.h>
-#define probeEngineTasks @[@"Telegram", @"Ndt", @"Dash", @"Psiphon", @"Tor", @"Whatsapp", @"FacebookMessenger", @"HttpHeaderFieldManipulation", @"HttpInvalidRequestLine"]
+#define probeEngineTasks @[@"Telegram", @"Ndt", @"Dash", @"Psiphon", @"Tor", @"Whatsapp", @"FacebookMessenger", @"HttpHeaderFieldManipulation", @"HttpInvalidRequestLine", @"WebConnectivity"]
 
 @implementation Engine
 
