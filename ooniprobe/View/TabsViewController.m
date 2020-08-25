@@ -38,7 +38,7 @@
                                     }];
         [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ManualUpload.Title", nil) message:NSLocalizedString(@"Modal.ManualUpload.Paragraph", nil) okButton:enableButton cancelButton:disableButton inView:self];
     }
-    else if (![[NSUserDefaults standardUserDefaults] objectForKey:ANALYTICS_POPUP]){
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:ANALYTICS_POPUP]){
         UIAlertAction* enableButton = [UIAlertAction
                                         actionWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Enable", nil)
                                         style:UIAlertActionStyleDefault
