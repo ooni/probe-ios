@@ -1,5 +1,6 @@
 #import "TabsViewController.h"
 #import "MessageUtility.h"
+#import "Measurement.h"
 
 @interface TabsViewController ()
 
@@ -38,7 +39,7 @@
                                     }];
         [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ManualUpload.Title", nil) message:NSLocalizedString(@"Modal.ManualUpload.Paragraph", nil) okButton:enableButton cancelButton:disableButton inView:self];
     }
-    else if (![[NSUserDefaults standardUserDefaults] objectForKey:ANALYTICS_POPUP]){
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:ANALYTICS_POPUP]){
         UIAlertAction* enableButton = [UIAlertAction
                                         actionWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Enable", nil)
                                         style:UIAlertActionStyleDefault
@@ -60,6 +61,11 @@
                               okButton:enableButton
                           cancelButton:disableButton
                                 inView:self];
+    }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_POPUP]
+             && [Measurement doneMeasurementsCount] > 0){
+        //TODO save state or add don't ask again
+        [MessageUtility notificationAlertinView:self];
     }
 }
 
