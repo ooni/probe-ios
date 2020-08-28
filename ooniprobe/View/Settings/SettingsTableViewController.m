@@ -69,8 +69,12 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-    if (category != nil && [category isEqualToString:@"sharing"])
-        return NSLocalizedString(@"Settings.Sharing.Footer", nil);
+    if (category != nil){
+        if ([category isEqualToString:@"sharing"])
+            return NSLocalizedString(@"Settings.Sharing.Footer", nil);
+        if ([category isEqualToString:@"notifications"])
+            return NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil);
+    }
     return nil;
 }
 
