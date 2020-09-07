@@ -151,7 +151,7 @@
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Zugänglich";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ ist zugänglich.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Wahrscheinlich blockiert";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ ist wahrscheinlich blockiert wegen %@.\n\nHinweis: Falsch positive Ergebnisse können auftreten. Erfahre [hier](https://ooni.io/nettest/web-connectivity/) mehr dazu.";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ ist wahrscheinlich blockiert wegen %@.\n\nHinweis: Falsch positive Ergebnisse können auftreten. Erfahre [hier](https://ooni.org/support/faq/#what-are-false-positives) mehr dazu.";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "Zensurumgehung";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "**DNS-Manipulation**";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP" = "**TCP/IP basiertes Blocken**";
@@ -236,9 +236,12 @@
 "Feed.Title" = "Feed";
 "Modal.OK" = "OK";
 "Modal.Cancel" = "Abbrechen";
+"Modal.DontAskAgain" = "Nicht erneut nachfragen";
 "Modal.Delete" = "Entfernen";
 "Modal.Error" = "Fehler";
 "Modal.Retry" = "Versuche erneut";
+"Modal.SoundsGreat" = "Sounds great";
+"Modal.NoThanks" = "Nein, danke";
 "Modal.Error.NoInternet" = "Test konnte nicht ausgeführt werden. Bitte überprüfe deine Internetverbindung.";
 "Modal.Error.CantDownloadURLs" = "URL-Liste kann nicht heruntergeladen werden. Bitte versuche es erneut.";
 "Modal.Error.NotificationNotEnabled" = "Benachrichtigungsberechtigungen sind erforderlich. Bitte aktiviere sie in den Einstellungen deines Telefons und anschließend in deiner OONI Probe App.";
@@ -251,7 +254,7 @@
 "Modal.ResultsNotUploaded.Uploading" = "Hochladen von %@ ...";
 "Toast.ResultsUploaded" = "Upload erfolgreich";
 "Modal.DisplayFailureLog" = "Fehlerlog anzeigen";
-"Modal.EnableNotifications.Title" = "Benachrichtigungen erhalten";
+"Modal.EnableNotifications.Title" = "Get updates on internet censorship";
 "Modal.EnableNotifications.Paragraph" = "Bist du daran interessiert, OONI-Probe-Tests während aufkommender Zensurereignisse durchzuführen? Aktiviere Benachrichtigungen, um eine Nachricht zu erhalten, wenn wir von Internetzensur in deiner Nähe hören!";
 "Modal.EnableGPS" = "Um die Genauigkeit von Tests zu verbessern brauchen wir Berechtigung für GPS. OONI wird nur eine ungefähre Position aufnehmen.";
 "Modal.DoYouWantToDeleteAllTests" = "Möchtest du alle Testergebnisse löschen?";
@@ -268,9 +271,7 @@
 "Modal.ManualUpload.Enable" = "Aktivieren";
 "Modal.ManualUpload.Disable" = "Nein, danke";
 "Modal.ShareAnalytics.Title" = "Hilf uns OONI Probe zu verbessern";
-"Modal.ShareAnalytics.Paragraph" = "Wir möchten einige Metriken darüber sammeln, wie du OONI-Probe verwendest, damit wir sie verbessern können. Du kannst dies jederzeit über die Einstellungen abbestellen.";
-"Modal.ShareAnalytics.Enable" = "App-Nutzung teilen";
-"Modal.ShareAnalytics.Disable" = "Nicht teilen";
+"Modal.ShareAnalytics.Paragraph" = "With the new OONI Probe, you can contribute anonymized usage metrics to help us improve the app. You can opt out through the settings at any time.";
 "Modal.UploadFailed.Title" = "Hochladen fehlgeschlagen";
 "Modal.UploadFailed.Paragraph" = "Wir haben es nicht geschafft, %@/%@ Messungen hochzuladen. Das Fehlerprotokoll wurde den OONI-Entwicklern zur Verfügung gestellt.";
 "Modal.Error.LogNotFound" = "Protokolldatei nicht gefunden";
@@ -352,6 +353,7 @@
 "Settings.SendEmail.Label" = "E-Mail an den Support senden";
 "Settings.SendEmail.Error" = "Bitte senden Sie eine E-Mail an bugs@openobservatory.org mit Informationen zur App und iOS-Version. Tippen Sie unten auf \"In die Zwischenablage kopieren\", um unsere E-Mail Adresse zu kopieren.";
 "Settings.Language.Current" = "Aktuelle App-Sprache ist %@";
+"Settings.Language.Label" = "Sprache";
 "Notification.FinishedRunning" = "Vollständig ausgeführt";
 "OONIBrowser.TryMirror" = "Versuche Mirror";
 "OONIBrowser.Loading" = "Lade...";

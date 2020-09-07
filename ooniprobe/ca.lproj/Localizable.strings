@@ -151,7 +151,7 @@
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accessible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ és accessible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablement blocat";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ està probablement blocat degut a %@.\n\nNota: es poden produir falsos positius. Més informació [aquí](https://ooni.io/nettest/web-connectivity/).";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ està probablement blocat degut a %@.\n\nNota: es poden produir falsos positius. Més informació [aquí](https://ooni.org/support/faq/#what-are-false-positives).";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "Elusió de censura";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "**Manipulació DNS**";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP" = "**Blocatge basat en TCP/IP**";
@@ -236,9 +236,12 @@
 "Feed.Title" = "Mur";
 "Modal.OK" = "Correcte";
 "Modal.Cancel" = "Cancel·la";
+"Modal.DontAskAgain" = "No tornis a preguntar-ho";
 "Modal.Delete" = "Suprimeix";
 "Modal.Error" = "Error";
 "Modal.Retry" = "Reintenta";
+"Modal.SoundsGreat" = "Sounds great";
+"Modal.NoThanks" = "No, gràcies";
 "Modal.Error.NoInternet" = "No s'ha pogut executar la prova. Verifiqueu la connexió a Internet.";
 "Modal.Error.CantDownloadURLs" = "No s'ha pogut baixar la llista d'URL. Torneu-ho a provar.";
 "Modal.Error.NotificationNotEnabled" = "Calen permisos de notificació. Activeu-los a la Configuració del telèfon i després activeu-los a l'aplicació OONI Probe.";
@@ -251,7 +254,7 @@
 "Modal.ResultsNotUploaded.Uploading" = "S'està pujant %@...";
 "Toast.ResultsUploaded" = "S'ha pujat amb èxit";
 "Modal.DisplayFailureLog" = "Mostra el registre d'errors";
-"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications.Title" = "Get updates on internet censorship";
 "Modal.EnableNotifications.Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "Per millorar la precisió de les proves, necessitem permisos de GPS. L'OONI només recopilarà una aproximació de la vostra posició GPS.";
 "Modal.DoYouWantToDeleteAllTests" = "Voleu eliminar tots els resultats de la prova?";
@@ -268,9 +271,7 @@
 "Modal.ManualUpload.Enable" = "Habilitar";
 "Modal.ManualUpload.Disable" = "No, gràcies";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
-"Modal.ShareAnalytics.Enable" = "Share app usage";
-"Modal.ShareAnalytics.Disable" = "Don't share";
+"Modal.ShareAnalytics.Paragraph" = "With the new OONI Probe, you can contribute anonymized usage metrics to help us improve the app. You can opt out through the settings at any time.";
 "Modal.UploadFailed.Title" = "Ha fallat la pujada";
 "Modal.UploadFailed.Paragraph" = "No hem pogut penjar %@/%@ mesures. El registre d'errors s'ha compartit amb els desenvolupadors de l'OONI.";
 "Modal.Error.LogNotFound" = "No s'ha trobat el fitxer de registre";
@@ -352,6 +353,7 @@
 "Settings.SendEmail.Label" = "Envia un correu per donar suport";
 "Settings.SendEmail.Error" = "Envieu un correu a bugs@openobservatory.org amb informació sobre l'aplicació i la versió d'iOS. Toqueu «Copia al porta-retalls» a continuació per copiar la nostra adreça de correu.";
 "Settings.Language.Current" = "L'idioma actual de l'aplicació és %@";
+"Settings.Language.Label" = "Llengua";
 "Notification.FinishedRunning" = "Ha finalitzat l'execució";
 "OONIBrowser.TryMirror" = "Prova un mirall";
 "OONIBrowser.Loading" = "S'està carregant...";

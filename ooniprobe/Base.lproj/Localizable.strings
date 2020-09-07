@@ -151,7 +151,7 @@
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accessible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ is accessible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Likely blocked";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ is likely blocked by means of %@.\n\nNote: False positives can occur. Learn more [here](https://ooni.io/nettest/web-connectivity/).";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ is likely blocked by means of %@.\n\nNote: False positives can occur. Learn more [here](https://ooni.org/support/faq/#what-are-false-positives).";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "Censorship Circumvention";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "**DNS tampering**";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP" = "**TCP/IP based blocking**";
@@ -236,9 +236,12 @@
 "Feed.Title" = "Feed";
 "Modal.OK" = "OK";
 "Modal.Cancel" = "Cancel";
+"Modal.DontAskAgain" = "Don't ask again";
 "Modal.Delete" = "Delete";
 "Modal.Error" = "Error";
 "Modal.Retry" = "Retry";
+"Modal.SoundsGreat" = "Sounds great";
+"Modal.NoThanks" = "No, thanks";
 "Modal.Error.NoInternet" = "Unable to run the test. Please check your internet connectivity.";
 "Modal.Error.CantDownloadURLs" = "Unable to download URL list. Please try again.";
 "Modal.Error.NotificationNotEnabled" = "Notification permissions are required. Please enable them in the Settings of your phone and then enable them in your OONI Probe app.";
@@ -251,7 +254,7 @@
 "Modal.ResultsNotUploaded.Uploading" = "Uploading %@ ...";
 "Toast.ResultsUploaded" = "Upload successful";
 "Modal.DisplayFailureLog" = "Display failure log";
-"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications.Title" = "Get updates on internet censorship";
 "Modal.EnableNotifications.Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "To improve the accuracy of tests, we need GPS permissions. OONI will only collect an approximation of your GPS position.";
 "Modal.DoYouWantToDeleteAllTests" = "Do you want to delete all test results?";
@@ -268,9 +271,7 @@
 "Modal.ManualUpload.Enable" = "Enable";
 "Modal.ManualUpload.Disable" = "No, thanks";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
-"Modal.ShareAnalytics.Enable" = "Share app usage";
-"Modal.ShareAnalytics.Disable" = "Don't share";
+"Modal.ShareAnalytics.Paragraph" = "With the new OONI Probe, you can contribute anonymized usage metrics to help us improve the app. You can opt out through the settings at any time.";
 "Modal.UploadFailed.Title" = "Upload failed";
 "Modal.UploadFailed.Paragraph" = "We have failed to upload %@/%@ measurements. The failure log has been shared with OONI developers.";
 "Modal.Error.LogNotFound" = "Log file not found";
@@ -352,6 +353,7 @@
 "Settings.SendEmail.Label" = "Send email to support";
 "Settings.SendEmail.Error" = "Please send an email to bugs@openobservatory.org with information on the app and iOS version. Tap \"Copy to clipboard\" below to copy our email address.";
 "Settings.Language.Current" = "Current app language is %@";
+"Settings.Language.Label" = "Language";
 "Notification.FinishedRunning" = "Finished running";
 "OONIBrowser.TryMirror" = "Try mirror";
 "OONIBrowser.Loading" = "Loading...";
