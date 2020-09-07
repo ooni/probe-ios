@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Código de país (ej. IT por Italia)";
 "Onboarding.DefaultSettings.Bullet.2" = "Información de red (incluyendo Número de Sistema Autónomo)";
 "Onboarding.DefaultSettings.Bullet.3" = "Hora y fecha de la prueba";
-"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "Hacemos lo humanamente posible para no publicar tu dirección IP o cualquier otra información potencialmente identificable a nivel personal. \n\nPara mejorar OONI Probe también recolectamos métricas del uso de la aplicación e informes de error.\n\nAprende más a través de la [Política de Datos de OONI](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "Vamos";
 "Onboarding.DefaultSettings.Button.Change" = "Cambiar ajustes";
 "Dashboard.Tab.Label" = "Dashboard";
@@ -52,7 +52,7 @@
 "Dashboard.Websites.Overview.Paragraph.Desktop" = "Comprobar si los sitios web están bloqueados usando la [prueba Web Connectivity] de OONI (https://ooni.io/nettest/web-connectivity/).\n\nVas a probar los sitios web incluidos en las listas de pruebas de Citizen Lab [global](https://github.com/citizenlab/test-lists/blob/master/lists/global.csv) y [país-específico](https://github.com/citizenlab/test-lists/tree/master/lists).\n\nEsta prueba mide si los sitios web están bloqueados por medio de manipulación de DNS, bloqueo de TCP/IP o por un proxy transparente HTTP.\n\nTus resultados serán publicados en el [Explorador OONI](https://explorer.ooni.org/) y la [API OONI](https://api.ooni.io/).";
 "Dashboard.Performance.Card.Description" = "Mide la velocidad y rendimiento de tu red";
 "Dashboard.Performance.Overview.Paragraph" = "Mide la velocidad y rendimiento de tu red usando la prueba [NDT](https://ooni.io/nettest/ndt/).\n\nMide el rendimiento del streaming de vídeo usando la prueba [DASH](https://ooni.io/nettest/dash/).\n\nEstas pruebas consumen datos dependiendo de la velocidad de tu red.\n\nTus resultados serán publicados en el [Explorador OONI](https://explorer.ooni.io/world/) y la [API OONI](https://api.ooni.io/).\n\nDescargo: Estas pruebas dependen de servidores de terceros. Por lo tanto, no podemos garantizar que tu dirección IP no será recopilada.";
-"Dashboard.Performance.Overview.Paragraph.Updated" = "Al ejecutar las pruebas en esta tarjeta, tu:\n\n- Medirás la velocidad y desempeño de yu red (prueba [NDT](https://ooni.org/nettest/ndt/))\n- Medirás el desempeño del streaming de vídeo (prueba [DASH](https://ooni.org/nettest/dash/))\n- Comprobarás la presencia de [tecnologías middlebox] (https://ooni.org/support/glossary/#middlebox) en tu red (pruebas [HTTP Invalid Request Line](https://ooni.org/nettest/http-invalid-request-line/) y [HTTP Header Field Manipulation](https://ooni.org/nettest/http-header-field-manipulation/))\n\nEstas pruebas consumen datos dependiendo de la velocidad de tu red.\n\nLos resultados de tus pruebas serán publicados en [OONI Explorer](https://explorer.ooni.org/) y [OONI API](https://api.ooni.io/).\n\n**Descargo:** Las pruebas [NDT](https://ooni.org/nettest/ndt/) y [DASH](https://ooni.org/nettest/dash/) son conducidas en contra de servidores de terceros provistos por [Measurement Lab (M-Lab)](https://www.measurementlab.net/). Si las ejecutas, M-Lab recolectará y publicará tu dirección IP (por propósitos de investigación), independientemente de tus ajustes de OONI Probe. Aprende más acerca de la política de datos de M-Lab’s a través de su [declaración de privacidad](https://www.measurementlab.net/privacy/).";
+"Dashboard.Performance.Overview.Paragraph.Updated" = "Al ejecutar las pruebas en esta tarjeta, tu:\n\n- Medirás la velocidad y desempeño de tu red (prueba [NDT](https://ooni.org/nettest/ndt/))\n- Medirás el desempeño del streaming de vídeo (prueba [DASH](https://ooni.org/nettest/dash/))\n- Comprobarás la presencia de [tecnologías middlebox] (https://ooni.org/support/glossary/#middlebox) en tu red (pruebas [HTTP Invalid Request Line](https://ooni.org/nettest/http-invalid-request-line/) y [HTTP Header Field Manipulation](https://ooni.org/nettest/http-header-field-manipulation/))\n\nEstas pruebas consumen datos dependiendo de la velocidad de tu red.\n\nLos resultados de tus pruebas serán publicados en [OONI Explorer](https://explorer.ooni.org/) y [OONI API](https://api.ooni.io/).\n\n**Descargo:** Las pruebas [NDT](https://ooni.org/nettest/ndt/) y [DASH](https://ooni.org/nettest/dash/) son conducidas en contra de servidores de terceros provistos por [Measurement Lab (M-Lab)](https://www.measurementlab.net/). Si las ejecutas, M-Lab recolectará y publicará tu dirección IP (por propósitos de investigación), independientemente de tus ajustes de OONI Probe. Aprende más acerca de la política de datos de M-Lab’s a través de su [declaración de privacidad](https://www.measurementlab.net/privacy/).";
 "Dashboard.Middleboxes.Card.Description" = "Detecta middleboxes en tu red";
 "Dashboard.Middleboxes.Overview.Paragraph" = "Los Proveedores de Servicio de Internet a menudo usan dispositivos de red (middleboxes) para varios propósitos técnicos (tales como cacheo). A veces estos middleboxes son usados para implementar censura y/o vigilancia de Internet.\n\nEncuentra middleboxes en tu red usando las pruebas de OONI [HTTP Invalid Request Line](https://ooni.io/nettest/http-invalid-request-line/) y [HTTP Header Field Manipulation](https://ooni.io/nettest/http-header-field-manipulation/).\n\nTus resultados serán publicados en el [Explorador OONI](https://explorer.ooni.io/world/) y la [API de OONI](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "Prueba el bloqueo de aplicaciones de mensajería instantánea.";
@@ -89,7 +89,7 @@
 "TestResults.Overview.InstantMessaging.Blocked.Plural" = "%@ bloqueados";
 "TestResults.Overview.InstantMessaging.Available.Singular" = "%@ accesible";
 "TestResults.Overview.InstantMessaging.Available.Plural" = "%@ accesibles";
-"TestResults.Overview.Circumvention.Blocked.Singular" = "%@ bloqueados";
+"TestResults.Overview.Circumvention.Blocked.Singular" = "%@ bloqueado(s)";
 "TestResults.Overview.Circumvention.Blocked.Plural" = "%@ bloqueados";
 "TestResults.Overview.Circumvention.Available.Singular" = "%@ disponible(s)";
 "TestResults.Overview.Circumvention.Available.Plural" = "%@ disponible(s)";
@@ -151,7 +151,7 @@
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accesible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ es accesible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablemente bloqueado";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ está probablemente bloqueado debido a %@.\n\nNota: Falsos positivos pueden ocurrir. Aprende más [aquí](https://ooni.io/nettest/web-connectivity/).";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ está probablemente bloqueado debido a %@.\n\nNota: Falsos positivos pueden ocurrir. Aprende más [aquí](https://ooni.org/support/faq/#what-are-false-positives).";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "Evasión de censura";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "**Manipulación DNS**";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP" = "**Bloqueo basado en TCP/IP**";
@@ -166,7 +166,7 @@
 "TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Title" = "Registro";
 "TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Okay" = "Aceptar";
 "TestResults.Details.InstantMessaging.WhatsApp.Registrations.Label.Failed" = "Falló";
-"TestResults.Details.InstantMessaging.WhatsApp.Reachable.Hero.Title" = "Trabajando";
+"TestResults.Details.InstantMessaging.WhatsApp.Reachable.Hero.Title" = "Funcionando";
 "TestResults.Details.InstantMessaging.WhatsApp.Reachable.Content.Paragraph" = "Esta prueba se conectó exitosamente a WhatsApp, el servicio de registro y la interfaz web (web.whatsapp.com).";
 "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.Hero.Title" = "Probablemente bloqueado";
 "TestResults.Details.InstantMessaging.WhatsApp.LikelyBlocked.Content.Paragraph" = "WhatsApp parece estar bloqueado.";
@@ -220,7 +220,7 @@
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Label.Title" = "Tiempo de arranque";
 "TestResults.Details.Circumvention.Psiphon.BootstrapTime.Unit" = "%@ s";
 "TestResults.Details.Circumvention.Tor.Blocked.Hero.Title" = "Probablemente bloqueado";
-"TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "Trabajando";
+"TestResults.Details.Circumvention.Tor.Reachable.Hero.Title" = "Funcionando";
 "TestResults.Details.Circumvention.Tor.Blocked.Content.Paragraph" = "[Tor](https://www.torproject.org/) parece estar bloqueado.";
 "TestResults.Details.Circumvention.Tor.Reachable.Content.Paragraph" = "Pudimos conectarnos con éxito a los puentes de Tor predeterminados y/o las autoridades de directorio de [Tor](https://www.torproject.org/). Esto significa que Tor debería funcionar.";
 "TestResults.Details.Circumvention.Tor.BrowserBridges.Label.Title" = "Puentes predeterminados";
@@ -236,9 +236,12 @@
 "Feed.Title" = "Lista de suscripciones";
 "Modal.OK" = "Aceptar";
 "Modal.Cancel" = "Cancelar";
+"Modal.DontAskAgain" = "No preguntar de nuevo";
 "Modal.Delete" = "Borrar";
 "Modal.Error" = "Error";
 "Modal.Retry" = "Intentar de nuevo";
+"Modal.SoundsGreat" = "Sounds great";
+"Modal.NoThanks" = "No, gracias!";
 "Modal.Error.NoInternet" = "Incapaz de ejecutar la prueba. Por favor comprueba tu conectividad de Internet.";
 "Modal.Error.CantDownloadURLs" = "Incapaz de descargar la lista de URL. Por favor intenta de nuevo.";
 "Modal.Error.NotificationNotEnabled" = "Son requeridos permisos de notificación. Por favor habilítalos en las Configuraciones de tu teléfono y luego en tu aplicación OONI Probe.";
@@ -251,8 +254,8 @@
 "Modal.ResultsNotUploaded.Uploading" = "Subiendo %@ ...";
 "Toast.ResultsUploaded" = "Subida exitosa";
 "Modal.DisplayFailureLog" = "Mostrar registro de fallos";
-"Modal.EnableNotifications.Title" = "Receive notifications";
-"Modal.EnableNotifications.Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
+"Modal.EnableNotifications.Title" = "Get updates on internet censorship";
+"Modal.EnableNotifications.Paragraph" = "¿Interesado en ejecutar pruebas de OONI Probe durante eventos emergentes de censura? ¡Habilita notificaciones para recibir un mensaje cuando escuchemos acerca de censura en Internet cerca tuyo!";
 "Modal.EnableGPS" = "Para mejorar la precisión de las pruebas, necesitamos permisos para GPS. OONI sólo recopilará una aproximación de tu posición GPS.";
 "Modal.DoYouWantToDeleteAllTests" = "¿Deseas eliminar todos los resultados de las pruebas?";
 "Modal.DoYouWantToDeleteThisTest" = "¿Deseas eliminar esta prueba?";
@@ -267,17 +270,15 @@
 "Modal.ManualUpload.Paragraph" = "Esta configuración te permite volver a subir manualmente mediciones no publicadas.";
 "Modal.ManualUpload.Enable" = "Habilitar";
 "Modal.ManualUpload.Disable" = "No, gracias!";
-"Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
-"Modal.ShareAnalytics.Enable" = "Share app usage";
-"Modal.ShareAnalytics.Disable" = "Don't share";
+"Modal.ShareAnalytics.Title" = "Ayúdanos a mejorar OONI Probe";
+"Modal.ShareAnalytics.Paragraph" = "With the new OONI Probe, you can contribute anonymized usage metrics to help us improve the app. You can opt out through the settings at any time.";
 "Modal.UploadFailed.Title" = "La subida falló";
 "Modal.UploadFailed.Paragraph" = "No hemos podido subir las medidas %@/%@. El registro de fallas ha sido compartido con los desarrolladores de OONI.";
 "Modal.Error.LogNotFound" = "Archivo de registro no encontrado";
 "Modal.Error.NoValidUrls" = "No se encontraron URL válidas";
 "Modal.Error.JsonEmpty" = "JSON vacío";
-"Modal.InterruptTest.Title" = "Do you want to interrupt this test?";
-"Modal.InterruptTest.Paragraph" = "This will interrupt the current test from this moment.";
+"Modal.InterruptTest.Title" = "¿Deseas interrumpir esta prueba?";
+"Modal.InterruptTest.Paragraph" = "Esto interrumpirá la prueba actual a partir de este momento.";
 "Toast.CopiedToClipboard" = "Se ha copiado al portapapeles";
 "Snackbar.ResultsNotUploaded.Text" = "No subido";
 "Snackbar.ResultsNotUploaded.Upload" = "Subir";
@@ -319,7 +320,7 @@
 "Settings.Sharing.Footer" = "Al publicar resultados, estás incrementando la transparencia de la interferencia de red y apoyando a la comunidad de OONI.\n\nCierta información de red (ej., Número de Sistema Autónomo, ASN) es requerida para identificar a Proveedores de Servicio de Internet.";
 "Settings.TestOptions.Label" = "Opciones de la prueba";
 "Settings.Privacy.Label" = "Privacidad";
-"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.CollectAnalytics" = "Compartir métricas de uso de aplicación";
 "Settings.Privacy.SendCrashReports" = "Enviar informes de errores";
 "Settings.Advanced.Label" = "Avanzado";
 "Settings.Advanced.DebugLogs" = "Registros de depuración";
@@ -352,6 +353,7 @@
 "Settings.SendEmail.Label" = "Enviar correo electrónico al soporte";
 "Settings.SendEmail.Error" = "Por favor envíe un correo electrónico a bugs@openobservatory.org con información sobre la aplicación y versión de iOS. Pulse \"Copiar al portapapeles\" abajo para copiar nuestro correo electrónico.";
 "Settings.Language.Current" = "El idioma actual de la aplicación es %@";
+"Settings.Language.Label" = "Idioma";
 "Notification.FinishedRunning" = "Finalizó la ejecución";
 "OONIBrowser.TryMirror" = "Intentar servidor réplica";
 "OONIBrowser.Loading" = "Cargando...";
@@ -411,7 +413,7 @@
 "CategoryCode.HATE.Description" = "Denigración de grupos particulares basada en raza, sexo, sexualidad u otras características";
 "CategoryCode.NEWS.Description" = "Principales sitios web de noticias, medios de noticias regionales e independientes";
 "CategoryCode.XED.Description" = "Cuestiones de salud sexual, incluyendo anticoncepción, enfermedades de transmisión sexual, prevención de violaciones y aborto";
-"CategoryCode.PUBH.Description" = "Public health issues, such as COVID-19, HIV/AIDS, Ebola";
+"CategoryCode.PUBH.Description" = "Cuestiones de salud pública, tales como COVID-19, HIV/AIDS, Ébola";
 "CategoryCode.GMB.Description" = "Juego y apuestas en línea";
 "CategoryCode.ANON.Description" = "Anonimización, elusión de censura y cifrado";
 "CategoryCode.DATE.Description" = "Sitios de citas en línea";

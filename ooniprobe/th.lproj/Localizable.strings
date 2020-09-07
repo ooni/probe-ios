@@ -151,7 +151,7 @@
 "TestResults.Details.Websites.Reachable.Hero.Title" = "เข้าถึงได้";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ เข้าถึงได้";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "น่าจะถูกปิดกั้น";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ น่าจะถูกปิดกั้น ด้วยวิธี %@.\n\nบันทึก: การตรวจพบที่ผิดพลาดเกิดขึ้นได้ เรียนรู้เพิ่ม[ที่นี่](https://ooni.io/nettest/web-connectivity/)";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ น่าจะถูกปิดกั้น ด้วยวิธี %@.\n\nบันทึก: การตรวจพบที่ผิดพลาดเกิดขึ้นได้ เรียนรู้เพิ่ม[ที่นี่](https://ooni.org/support/faq/#what-are-false-positives)";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "การหลบเลี่ยงการปิดกั้น";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "**การปลอมแปลง DNS**";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP" = "**การปิดกั้นที่ TCP/IP**";
@@ -236,9 +236,12 @@
 "Feed.Title" = "ฟีด";
 "Modal.OK" = "ตกลง";
 "Modal.Cancel" = "ยกเลิก";
+"Modal.DontAskAgain" = "ไม่ต้องถามอีก";
 "Modal.Delete" = "ลบ";
 "Modal.Error" = "ข้อผิดพลาด";
 "Modal.Retry" = "ลองใหม่";
+"Modal.SoundsGreat" = "Sounds great";
+"Modal.NoThanks" = "ไม่ล่ะ ขอบคุณ";
 "Modal.Error.NoInternet" = "ไม่สามารถทำการทดสอบได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณ";
 "Modal.Error.CantDownloadURLs" = "ไม่สามารถดาวน์โหลดรายการ URL ได้ กรุณาลองอีกครั้ง";
 "Modal.Error.NotificationNotEnabled" = "จำเป็นต้องอนุญาตให้เข้าถึงการแจ้งเตือน กรุณาเปิดใช้มันในการตั้งค่าของโทรศัพท์ของคุณ และเปิดใช้มันในแอป OONI Probe ของคุณ";
@@ -251,7 +254,7 @@
 "Modal.ResultsNotUploaded.Uploading" = "กำลังอัปโหลด %@ ...";
 "Toast.ResultsUploaded" = "อัปโหลดสำเร็จ";
 "Modal.DisplayFailureLog" = "แสดงปูมความล้มเหลว";
-"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications.Title" = "Get updates on internet censorship";
 "Modal.EnableNotifications.Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "เพื่อเพิ่มความแม่นยำของการทดสอบ เราต้องการการอนุญาตให้เข้าถึงจีพีเอส OONI จะเก็บเฉพาะตำแหน่งจีพีเอสโดยประมาณของคุณเท่านั้น";
 "Modal.DoYouWantToDeleteAllTests" = "คุณต้องการลบผลการทดสอบทั้งหมดหรือไม่?";
@@ -268,9 +271,7 @@
 "Modal.ManualUpload.Enable" = "เปิดใช้งาน";
 "Modal.ManualUpload.Disable" = "ไม่ล่ะ ขอบคุณ";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
-"Modal.ShareAnalytics.Enable" = "Share app usage";
-"Modal.ShareAnalytics.Disable" = "Don't share";
+"Modal.ShareAnalytics.Paragraph" = "With the new OONI Probe, you can contribute anonymized usage metrics to help us improve the app. You can opt out through the settings at any time.";
 "Modal.UploadFailed.Title" = "การอัปโหลดล้มเหลว";
 "Modal.UploadFailed.Paragraph" = "เราล้มเหลวที่จะอัปโหลด %@/%@ การตรวจวัด ปูมความล้มเหลวได้ถูกส่งให้กับทีมพัฒนา OONI แล้ว";
 "Modal.Error.LogNotFound" = "ไม่พบแฟ้มปูม";
@@ -352,6 +353,7 @@
 "Settings.SendEmail.Label" = "ส่งอีเมลขอความช่วยเหลือ";
 "Settings.SendEmail.Error" = "กรุณาส่งอีเมลไปที่ bugs@openobservatory.org พร้อมกับข้อมูลจากแอปและรุ่นของ iOS แตะ \"คัดลอกไปคลิปบอร์ด\" ด้านล่างเพื่อคัดลอกที่อยู่อีเมลของเรา";
 "Settings.Language.Current" = "ภาษาปัจจุบันของแอปคือ %@";
+"Settings.Language.Label" = "ภาษา";
 "Notification.FinishedRunning" = "ทดสอบเสร็จแล้ว";
 "OONIBrowser.TryMirror" = "ลองมิเรอร์";
 "OONIBrowser.Loading" = "กำลังโหลด...";

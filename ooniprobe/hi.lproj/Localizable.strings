@@ -151,7 +151,7 @@
 "TestResults.Details.Websites.Reachable.Hero.Title" = "सुलभ";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ सुलभ है";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "शायद अवरुद्ध";
-"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ संभवत: %@ के माध्यम से अवरुद्ध है।\n\nनोट: झूठी सकारात्मकता हो सकती है। और जानें [यहाँ](https://ooni.io/nettest/web-connectivity/)।";
+"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph" = "%@ संभवत: %@ के माध्यम से अवरुद्ध है।\n\nनोट: झूठी सकारात्मकता हो सकती है। और जानें [यहाँ](https://ooni.org/support/faq/#what-are-false-positives)।";
 "TestResults.Details.Websites.LikelyBlocked.Content.LearnToCircumvent" = "सेंसरशिप सर्कुलेशन";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.DNS" = "** DNS छेड़छाड़ **";
 "TestResults.Details.Websites.LikelyBlocked.BlockingReason.TCPIP" = "**टीसीपी / आईपी आधारित अवरोधन**";
@@ -236,9 +236,12 @@
 "Feed.Title" = "चारा";
 "Modal.OK" = "ठीक है ";
 "Modal.Cancel" = "रद्द करें ";
+"Modal.DontAskAgain" = "फिर से मत पूछो";
 "Modal.Delete" = "हटाना";
 "Modal.Error" = "त्रुटि";
 "Modal.Retry" = "पुन: प्रयास करें";
+"Modal.SoundsGreat" = "Sounds great";
+"Modal.NoThanks" = "जी नहीं, धन्यवाद";
 "Modal.Error.NoInternet" = "परीक्षण चलाने में असमर्थ। कृपया अपनी इंटरनेट कनेक्टिविटी की जांच करें।";
 "Modal.Error.CantDownloadURLs" = "यूआरएल सूची डाउनलोड करने में असमर्थ। कृपया पुन: प्रयास करें।";
 "Modal.Error.NotificationNotEnabled" = "अधिसूचना की अनुमति आवश्यक है। कृपया उन्हें अपने फ़ोन की सेटिंग में सक्षम करें और फिर उन्हें अपने OONI जांच ऐप में सक्षम करें।";
@@ -251,7 +254,7 @@
 "Modal.ResultsNotUploaded.Uploading" = "अपलोड कर रहे हें %@ ...";
 "Toast.ResultsUploaded" = "अपलोड सफल रहा।";
 "Modal.DisplayFailureLog" = "विफलता लॉग प्रदर्शित करें";
-"Modal.EnableNotifications.Title" = "Receive notifications";
+"Modal.EnableNotifications.Title" = "Get updates on internet censorship";
 "Modal.EnableNotifications.Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "परीक्षणों की सटीकता में सुधार करने के लिए, हमें GPS अनुमतियों की आवश्यकता है। OONI केवल आपके GPS स्थिति का एक अनुमान एकत्र करेगा।";
 "Modal.DoYouWantToDeleteAllTests" = "क्या आप सभी परीक्षण परिणामों को हटाना चाहते हैं?";
@@ -268,9 +271,7 @@
 "Modal.ManualUpload.Enable" = "सक्षम करें";
 "Modal.ManualUpload.Disable" = "जी नहीं, धन्यवाद";
 "Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "We would like to collect some metrics about how you use OONI Probe so that we can improve it. You can opt out of this at any time through the settings.";
-"Modal.ShareAnalytics.Enable" = "Share app usage";
-"Modal.ShareAnalytics.Disable" = "Don't share";
+"Modal.ShareAnalytics.Paragraph" = "With the new OONI Probe, you can contribute anonymized usage metrics to help us improve the app. You can opt out through the settings at any time.";
 "Modal.UploadFailed.Title" = "अपलोड विफ़ल रहा।";
 "Modal.UploadFailed.Paragraph" = "हम %@ / %@ माप अपलोड करने में विफल रहे हैं। विफलता लॉग OONI डेवलपर्स के साथ साझा किया गया है।";
 "Modal.Error.LogNotFound" = "लॉग फ़ाइल नहीं मिला";
@@ -352,6 +353,7 @@
 "Settings.SendEmail.Label" = "Send email to support";
 "Settings.SendEmail.Error" = "कृपया iOS संस्करण और एप्लिकेशन की जानकारी के साथ bugs@openobservatory.org को एक ईमेल भेजें। हमारा  ईमेल पता कॉपी करने के लिए \"क्लिपबोर्ड पर कॉपी करें\" पर टैप करें।";
 "Settings.Language.Current" = "वर्तमान एप्लिकेशन भाषा %@ है";
+"Settings.Language.Label" = "भाषा";
 "Notification.FinishedRunning" = "समाप्त हो रहा है";
 "OONIBrowser.TryMirror" = "दर्पण की कोशिश करो";
 "OONIBrowser.Loading" = "लोड हो रहा है ...";
