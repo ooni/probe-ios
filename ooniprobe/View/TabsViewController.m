@@ -40,7 +40,7 @@
     }
     if (![[NSUserDefaults standardUserDefaults] objectForKey:ANALYTICS_POPUP]){
         UIAlertAction* enableButton = [UIAlertAction
-                                        actionWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Enable", nil)
+                                        actionWithTitle:NSLocalizedString(@"Modal.SoundsGreat", nil)
                                         style:UIAlertActionStyleDefault
                                         handler:^(UIAlertAction * action) {
                                             [self setModalValue:YES
@@ -48,7 +48,7 @@
                                                       popupName:ANALYTICS_POPUP];
                                         }];
         UIAlertAction* disableButton = [UIAlertAction
-                                    actionWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Disable", nil)
+                                    actionWithTitle:NSLocalizedString(@"Modal.NoThanks", nil)
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
                                         [self setModalValue:NO
