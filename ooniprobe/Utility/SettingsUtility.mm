@@ -1,6 +1,7 @@
 #import "SettingsUtility.h"
 #import "TestUtility.h"
 #import "Engine.h"
+#import "CountlyUtility.h"
 
 @implementation SettingsUtility
 
@@ -177,4 +178,10 @@
     if(count < 0) count = 0;
     return count;
 }
+
++ (void)registeredForNotifications {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
+    [CountlyUtility reloadConsents];
+}
+
 @end

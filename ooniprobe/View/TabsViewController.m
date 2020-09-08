@@ -63,11 +63,10 @@
                           cancelButton:disableButton
                                 inView:self];
     }
-    //we don't want to flood the user with popupss
+    //we don't want to flood the user with popups
     else if (![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_POPUP]
              && ![SettingsUtility isNotificationEnabled]
             && [SettingsUtility getAppOpenCount] > 3){
-        //TODO save state or add don't ask again
         [MessageUtility notificationAlertinView:self];
         [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:NOTIFICATION_POPUP];
     }

@@ -2,6 +2,7 @@
 #import "MBProgressHUD.h"
 #import "UIView+Toast.h"
 #import "Countly.h"
+#import "SettingsUtility.h"
 
 @implementation MessageUtility
 
@@ -90,7 +91,13 @@
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-        [Countly.sharedInstance askForNotificationPermission];
+        [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
+        [Countly.sharedInstance
+         askForNotificationPermissionWithOptions:0
+         completionHandler:^(BOOL granted, NSError * error) {
+            if (granted)
+                [SettingsUtility registeredForNotifications];
+        }];
     }];
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)

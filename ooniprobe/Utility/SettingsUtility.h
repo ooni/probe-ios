@@ -33,4 +33,5 @@
 
 + (long)getAppOpenCount;
 
++ (void)registeredForNotifications;
 @end
