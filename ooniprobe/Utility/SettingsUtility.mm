@@ -168,4 +168,13 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] stringValue];
 }
 
++ (void)incrementAppOpenCount{
+    [[NSUserDefaults standardUserDefaults] setInteger:[self getAppOpenCount]+1 forKey:@"LaunchCount"];
+}
+
++ (long)getAppOpenCount{
+    long count = [[NSUserDefaults standardUserDefaults] integerForKey:@"LaunchCount"];
+    if(count < 0) count = 0;
+    return count;
+}
 @end

@@ -28,4 +28,9 @@
 + (BOOL)isNotificationEnabled;
 
 + (NSString*)getOrGenerateUUID4;
+
++ (void)incrementAppOpenCount;
+
++ (long)getAppOpenCount;
+
 @end

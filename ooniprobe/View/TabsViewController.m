@@ -1,6 +1,7 @@
 #import "TabsViewController.h"
 #import "MessageUtility.h"
 #import "Measurement.h"
+#import "SettingsUtility.h"
 
 @interface TabsViewController ()
 
@@ -62,17 +63,19 @@
                           cancelButton:disableButton
                                 inView:self];
     }
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_POPUP]
-             && [Measurement doneMeasurementsCount] > 0){
+    //we don't want to flood the user with popupss
+    else if (![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_POPUP]
+             && ![SettingsUtility isNotificationEnabled]
+            && [SettingsUtility getAppOpenCount] > 3){
         //TODO save state or add don't ask again
         [MessageUtility notificationAlertinView:self];
+        [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:NOTIFICATION_POPUP];
     }
 }
 
 -(void)setModalValue:(BOOL)value key:(NSString*)key popupName:(NSString*)popupName{
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:popupName];
     [[NSUserDefaults standardUserDefaults] setBool:value forKey:key];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)showToast:(NSNotification *) notification{
