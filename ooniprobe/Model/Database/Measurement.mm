@@ -32,11 +32,6 @@
     return reportIds;
 }
 
-+ (long)doneMeasurementsCount {
-    SRKQuery *query = [[Measurement query] where:BASIC_QUERY];
-    return [query count];
-}
-
 + (NSArray*)measurementsWithLog {
     NSMutableArray *measurementsLog = [NSMutableArray new];
     SRKResultSet* results = [[[Measurement query] where:BASIC_QUERY] fetch];

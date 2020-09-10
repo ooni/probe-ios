@@ -31,7 +31,6 @@
 +(SRKResultSet*)selectWithReportId:(NSString*)report_id;
 +(NSArray*)getReportsUploaded;
 +(NSArray*)measurementsWithLog;
-+(long)doneMeasurementsCount;
 -(BOOL)hasReportFile;
 -(BOOL)hasLogFile;
 -(NSString*)getReportFile;
