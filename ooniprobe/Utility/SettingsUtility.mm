@@ -170,11 +170,12 @@
 }
 
 + (void)incrementAppOpenCount{
-    [[NSUserDefaults standardUserDefaults] setInteger:[self getAppOpenCount]+1 forKey:@"LaunchCount"];
+    if ([self getAppOpenCount] > NOTIFICATION_POPUP_COUNT) return;
+    [[NSUserDefaults standardUserDefaults] setInteger:[self getAppOpenCount]+1 forKey:NOTIFICATION_POPUP];
 }
 
 + (long)getAppOpenCount{
-    long count = [[NSUserDefaults standardUserDefaults] integerForKey:@"LaunchCount"];
+    long count = [[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_POPUP];
     if(count < 0) count = 0;
     return count;
 }
