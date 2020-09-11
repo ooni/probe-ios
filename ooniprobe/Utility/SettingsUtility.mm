@@ -1,6 +1,7 @@
 #import "SettingsUtility.h"
 #import "TestUtility.h"
 #import "Engine.h"
+#import "CountlyUtility.h"
 
 @implementation SettingsUtility
 
@@ -166,6 +167,22 @@
         return uuid;
     }
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] stringValue];
+}
+
++ (void)incrementAppOpenCount{
+    if ([self getAppOpenCount] > NOTIFICATION_POPUP_COUNT) return;
+    [[NSUserDefaults standardUserDefaults] setInteger:[self getAppOpenCount]+1 forKey:NOTIFICATION_POPUP];
+}
+
++ (long)getAppOpenCount{
+    long count = [[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_POPUP];
+    if(count < 0) count = 0;
+    return count;
+}
+
++ (void)registeredForNotifications {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
+    [CountlyUtility reloadConsents];
 }
 
 @end

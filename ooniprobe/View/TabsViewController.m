@@ -1,5 +1,7 @@
 #import "TabsViewController.h"
 #import "MessageUtility.h"
+#import "Measurement.h"
+#import "SettingsUtility.h"
 
 @interface TabsViewController ()
 
@@ -61,12 +63,17 @@
                           cancelButton:disableButton
                                 inView:self];
     }
+    //we don't want to flood the user with popups
+    else if ([SettingsUtility getAppOpenCount] == NOTIFICATION_POPUP_COUNT
+             && ![SettingsUtility isNotificationEnabled]){
+        [MessageUtility notificationAlertinView:self];
+        [SettingsUtility incrementAppOpenCount];
+    }
 }
 
 -(void)setModalValue:(BOOL)value key:(NSString*)key popupName:(NSString*)popupName{
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:popupName];
     [[NSUserDefaults standardUserDefaults] setBool:value forKey:key];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)showToast:(NSNotification *) notification{

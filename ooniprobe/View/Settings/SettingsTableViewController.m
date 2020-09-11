@@ -228,7 +228,7 @@
                  askForNotificationPermissionWithOptions:0
                  completionHandler:^(BOOL granted, NSError * error) {
                     if (granted)
-                        [self registeredForNotifications];
+                        [self reloadNotificationSettings];
                 }];
                 break;
             }
@@ -248,7 +248,7 @@
             }
             case UNAuthorizationStatusAuthorized:{
                 //Notification permission already granted
-                [self registeredForNotifications];
+                [self reloadNotificationSettings];
                 break;
             }
             default:
@@ -257,11 +257,10 @@
     }];
 }
 
-- (void)registeredForNotifications {
+- (void)reloadNotificationSettings {
+    [SettingsUtility registeredForNotifications];
     dispatch_async(dispatch_get_main_queue(), ^
     {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
-        [CountlyUtility reloadConsents];
         [self reloadSettings];
     });
 }
