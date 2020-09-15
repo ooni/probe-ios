@@ -87,6 +87,29 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
 }
 
+//Called when you tap on a notification
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler
+{
+    //NSDictionary* countlyPayload = response.notification.request.content.userInfo[@"c"];
+    NSLog(@"COUNTLYLOG didReceiveNotificationResponse %@", response.notification.request.content.title);
+    NSLog(@"COUNTLYLOG didReceiveNotificationResponse %@", response.notification.request.content.userInfo);
+    /*
+     {
+         aps =     {
+             alert =         {
+                 body = message;
+                 title = title;
+             };
+             sound = default;
+         };
+         c =     {
+             i = 5f4f746917c8ae43067180e4;
+         };
+     }
+     */
+    //quando tappi
+}
+
 //Handles ooni:// links
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     [self handleUrlScheme:url];
