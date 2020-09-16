@@ -90,24 +90,13 @@
 //Called when you tap on a notification
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler
 {
-    //NSDictionary* countlyPayload = response.notification.request.content.userInfo[@"c"];
-    NSLog(@"COUNTLYLOG didReceiveNotificationResponse %@", response.notification.request.content.title);
+    NSDictionary* countlyPayload = response.notification.request.content.userInfo[@"c"];
     NSLog(@"COUNTLYLOG didReceiveNotificationResponse %@", response.notification.request.content.userInfo);
-    /*
-     {
-         aps =     {
-             alert =         {
-                 body = message;
-                 title = title;
-             };
-             sound = default;
-         };
-         c =     {
-             i = 5f4f746917c8ae43067180e4;
-         };
-     }
-     */
-    //quando tappi
+    if (![countlyPayload objectForKey:@"l"]){
+        [MessageUtility alertWithTitle:response.notification.request.content.title
+                               message:response.notification.request.content.body
+                                inView:self.window.rootViewController];
+    }
 }
 
 //Handles ooni:// links
