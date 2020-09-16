@@ -1,7 +1,8 @@
 #import <UIKit/UIKit.h>
 #import <SharkORM/SharkORM.h>
+#import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, SRKDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, SRKDelegate, UNUserNotificationCenterDelegate> {
     NSMutableArray *links;
 }
 
