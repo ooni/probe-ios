@@ -88,10 +88,11 @@
 }
 
 //Called when you tap on a notification
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void (^)(void))completionHandler
 {
     NSDictionary* countlyPayload = response.notification.request.content.userInfo[@"c"];
-    NSLog(@"COUNTLYLOG didReceiveNotificationResponse %@", response.notification.request.content.userInfo);
     if (![countlyPayload objectForKey:@"l"]){
         [MessageUtility alertWithTitle:response.notification.request.content.title
                                message:response.notification.request.content.body
