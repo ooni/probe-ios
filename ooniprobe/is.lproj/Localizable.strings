@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Landskóði (t.d. IT fyrir Ítalíu)";
 "Onboarding.DefaultSettings.Bullet.2" = "Upplýsingar um netkerfið (þar með talið Autonomous System Number)";
 "Onboarding.DefaultSettings.Bullet.3" = "Tími og dagsetning prófunar";
-"Onboarding.DefaultSettings.Paragraph" = "We do our best not to publish your IP address or any other potentially personally-identifiable information.\n\nTo improve OONI Probe we also collect app usage metrics and crash reports.\n\nLearn more through [OONI's Data Policy](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "Við gerum okkar besta til að birta ekki IP-vistfangið þitt eða aðrar mögulega persónugreinanlegar upplýsingar.\n\nTil að bæta OONI Probe söfnum við samt tölfræði varðandi notkun og hrunskýrslum.\n\nÍtarlegri upplýsingar eru í [gagnaleyndarstefnu OONI](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "Hefjumst handa";
 "Onboarding.DefaultSettings.Button.Change" = "Breyta sjálfgefnum gildum";
 "Dashboard.Tab.Label" = "Stjórnborð";
@@ -240,7 +240,7 @@
 "Modal.Delete" = "Eyða";
 "Modal.Error" = "Villa";
 "Modal.Retry" = "Reyna aftur";
-"Modal.SoundsGreat" = "Sounds great";
+"Modal.SoundsGreat" = "Hljómar vel";
 "Modal.NoThanks" = "Nei takk";
 "Modal.Error.NoInternet" = "Ekki er hægt að keyra prófunina. Athugaðu nettenginguna þína.";
 "Modal.Error.CantDownloadURLs" = "Get ekki sótt lista yfir slóðir. Reyndu aftur.";
@@ -254,7 +254,7 @@
 "Modal.ResultsNotUploaded.Uploading" = "Sendi inn… %@ ...";
 "Toast.ResultsUploaded" = "Innsending tókst";
 "Modal.DisplayFailureLog" = "Birta mistakaskrá";
-"Modal.EnableNotifications.Title" = "Get updates on internet censorship";
+"Modal.EnableNotifications.Title" = "Fáðu vísbendingar um ritskoðun internetsins";
 "Modal.EnableNotifications.Paragraph" = "Interested in running OONI Probe tests during emergent censorship events? Enable notifications to receive a message when we hear of internet censorship near you!";
 "Modal.EnableGPS" = "Til að bæta nákvæmni prófana þurfum við heimildir fyrir GPS-staðsetningar. OONI mun einungis safna grófum GPS-staðsetningum.";
 "Modal.DoYouWantToDeleteAllTests" = "Viltu eyða öllum niðurstöðum prófana?";
@@ -270,15 +270,15 @@
 "Modal.ManualUpload.Paragraph" = "Þetta gerir þér kleift að endursenda inn handvirkt óbirtar mælingar.";
 "Modal.ManualUpload.Enable" = "Virkja";
 "Modal.ManualUpload.Disable" = "Nei takk";
-"Modal.ShareAnalytics.Title" = "Help us improve OONI Probe";
+"Modal.ShareAnalytics.Title" = "Hjálpaðu okkur að bæta OONI Probe";
 "Modal.ShareAnalytics.Paragraph" = "With the new OONI Probe, you can contribute anonymized usage metrics to help us improve the app. You can opt out through the settings at any time.";
 "Modal.UploadFailed.Title" = "Innsending mistókst";
 "Modal.UploadFailed.Paragraph" = "Ekki tókst að senda inn %@/%@ mælingar. Atvikaskránni með því sem brást hefur verið deilt til forritara OONI.";
 "Modal.Error.LogNotFound" = "Atvikaskrá fannst ekki";
 "Modal.Error.NoValidUrls" = "Engar gildar slóðir fundust";
 "Modal.Error.JsonEmpty" = "Tómt JSON";
-"Modal.InterruptTest.Title" = "Do you want to interrupt this test?";
-"Modal.InterruptTest.Paragraph" = "This will interrupt the current test from this moment.";
+"Modal.InterruptTest.Title" = "Viltu stöðva þessa prófun?";
+"Modal.InterruptTest.Paragraph" = "Þetta mun stöðva á þessu þrepi prófunina sem nú er í gangi.";
 "Toast.CopiedToClipboard" = "Afritað á klippispjald";
 "Snackbar.ResultsNotUploaded.Text" = "Ekki sent inn";
 "Snackbar.ResultsNotUploaded.Upload" = "Senda inn";
@@ -320,7 +320,7 @@
 "Settings.Sharing.Footer" = "Með því að birta niðurstöðurnar ertu að auka gegnsæi á íhlutanir í netkerfi og styður þannig OONI-samfélagið. \n\nNetkerfisupplýsingar (þ.e.a.s. Autonomous System Number) eru nauðsynlegar til að auðkenna netþjónustur (ISP - Internet Service Providers).";
 "Settings.TestOptions.Label" = "Valkostir prófunar";
 "Settings.Privacy.Label" = "Friðhelgi";
-"Settings.Privacy.CollectAnalytics" = "Share app usage metrics";
+"Settings.Privacy.CollectAnalytics" = "Deila tölfræði um notkun forrits";
 "Settings.Privacy.SendCrashReports" = "Senda hrunskýrslur";
 "Settings.Advanced.Label" = "Ítarlegra";
 "Settings.Advanced.DebugLogs" = "Villuskrár";
@@ -413,7 +413,7 @@
 "CategoryCode.HATE.Description" = "Vanvirðing við einstaka hópa, byggt á kynþætti, kyni, kynhneigð eða öðru slíku";
 "CategoryCode.NEWS.Description" = "Stórar fréttagáttir, svæðisbundnir fréttamiðlar og óháðir fjölmiðlar";
 "CategoryCode.XED.Description" = "Kynheilsutengd mál, t.d. getnaðarvarnir, kynsjúkdómar, varnir gegn nauðgunum og þungunarrof";
-"CategoryCode.PUBH.Description" = "Public health issues, such as COVID-19, HIV/AIDS, Ebola";
+"CategoryCode.PUBH.Description" = "Lýðheilsumál, eins og t.d. COVID-19, HIV/AIDS, Ebóla";
 "CategoryCode.GMB.Description" = "Fjárhættuspil og veðmál á netinu";
 "CategoryCode.ANON.Description" = "Nafnleysi, dulritun og leiðir framhjá ritskoðun";
 "CategoryCode.DATE.Description" = "Stefnumótasíður á netinu";
