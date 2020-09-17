@@ -1,16 +1,20 @@
 #import "CountlyUtility.h"
 #import "SettingsUtility.h"
 #import "Engine.h"
+#define APP_KEY_PROD @"146836f41172f9e3287cab6f2cc347de3f5ddf3b"
+#define APP_KEY_DEV @"e6c2cfe53e85951d50567467cef3f9fa2eab32c3"
 
 @implementation CountlyUtility
 
 + (void)initCountly {
     CountlyConfig* config = [CountlyConfig new];
-    config.appKey = @"146836f41172f9e3287cab6f2cc347de3f5ddf3b";
     config.host = NOTIFICATION_SERVER;
     #ifdef DEBUG
         config.enableDebug = YES;
         config.pushTestMode = CLYPushTestModeDevelopment;
+        config.appKey = APP_KEY_DEV;
+    #else
+        config.appKey = APP_KEY_PROD;
     #endif
     config.features = @[CLYPushNotifications, CLYCrashReporting, CLYAutoViewTracking];
     config.deviceID = [SettingsUtility getOrGenerateUUID4];
