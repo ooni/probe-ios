@@ -14,7 +14,10 @@
         config.pushTestMode = CLYPushTestModeDevelopment;
         config.appKey = APP_KEY_DEV;
     #else
-        config.appKey = APP_KEY_PROD;
+        if ([self isTestFlight])
+            config.appKey = APP_KEY_DEV;
+        else
+            config.appKey = APP_KEY_PROD;
     #endif
     config.features = @[CLYPushNotifications, CLYCrashReporting, CLYAutoViewTracking];
     config.deviceID = [SettingsUtility getOrGenerateUUID4];
@@ -45,6 +48,11 @@
 
 + (void)recordEvent:(NSString*)event segmentation:(NSDictionary*)segmentation{
     [Countly.sharedInstance recordEvent:event segmentation:segmentation];
+}
+
++ (BOOL)isTestFlight{
+    BOOL isRunningTestFlightBeta = [[[[NSBundle mainBundle] appStoreReceiptURL] lastPathComponent] isEqualToString:@"sandboxReceipt"];
+    return isRunningTestFlightBeta;
 }
 
 @end
