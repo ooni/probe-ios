@@ -6,7 +6,7 @@
 #define EXISTING_REPORT_ID_2 @"20190702T000027Z_AS5413_6FT78sjp5qnESDVWlFlm6bfxxwOEqR08ySAwigTF6C8PFCbMsM"
 #define NONEXISTING_REPORT_ID @"EMPTY"
 #define NON_PARSABLE_URL @"https://\t"
-#define JSON_URL @"https://api.ooni.io/api/v1/measurement/temp-id-263478291"
+#define CLIENT_URL @"ams-pg.ooni.org"
 @interface APITest : XCTestCase
 
 @end
@@ -28,14 +28,21 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
+/* This test will get a measurement detail then try to download the related json */
 - (void)testExisting {
-    //TODO test getExplorerUrlCallback with custom NSData
     XCTestExpectation *expectation = [self expectationWithDescription:@"testExisting"];
-    Measurement *measurement = [self addMeasurement:EXISTING_REPORT_ID
-                                          writeFile:NO];
-    [measurement getExplorerUrl:^(NSString *measurement_url){
-        XCTAssert(true);
-        [expectation fulfill];
+    [OONIApi getExplorerUrl:CLIENT_URL
+                  report_id:EXISTING_REPORT_ID
+                    withUrl:nil
+                  onSuccess:^(NSString *measurement_url){
+        [OONIApi downloadJson:measurement_url
+                        onSuccess:^(NSDictionary *urls) {
+                            XCTAssert(true);
+                            [expectation fulfill];
+                        } onError:^(NSError *error) {
+                            XCTAssert(false);
+                            [expectation fulfill];
+                        }];
     } onError:^(NSError *error){
         XCTAssert(false);
         [expectation fulfill];
@@ -47,9 +54,10 @@
 
 - (void)testNonExisting {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testNonExisting"];
-    Measurement *measurement = [self addMeasurement:NONEXISTING_REPORT_ID
-                                          writeFile:NO];
-    [measurement getExplorerUrl:^(NSString *measurement_url){
+    [OONIApi getExplorerUrl:CLIENT_URL
+                  report_id:NONEXISTING_REPORT_ID
+                    withUrl:nil
+                  onSuccess:^(NSString *measurement_url){
         XCTAssert(false);
         [expectation fulfill];
     } onError:^(NSError *error){
@@ -64,7 +72,8 @@
 -(void)testDownloadUrls{
     //TODO test downloadUrlsCallback with custom NSData
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDownloadUrls"];
-    [OONIApi downloadUrls:^(NSArray *urls) {
+    [OONIApi downloadUrls:CLIENT_URL
+                onSuccess:^(NSArray *urls) {
         XCTAssert(true);
         [expectation fulfill];
     } onError:^(NSError *error) {
@@ -79,7 +88,9 @@
 - (void)testSelectMeasurementsWithJson {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDeleteJsons"];
     [self addMeasurement:EXISTING_REPORT_ID writeFile:YES];
-    [OONIApi checkReportId:EXISTING_REPORT_ID onSuccess:^(BOOL found){
+    [OONIApi checkReportId:CLIENT_URL
+                  reportId:EXISTING_REPORT_ID
+                 onSuccess:^(BOOL found){
         XCTAssert(found);
         [expectation fulfill];
     } onError:^(NSError *error) {
@@ -88,21 +99,6 @@
     }];
     [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
         XCTAssert(err == nil);
-    }];
-}
-
-- (void)testJsonFromExplorer {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testJsonFromExplorer"];
-    [OONIApi downloadJson:JSON_URL
-                    onSuccess:^(NSDictionary *urls) {
-                        XCTAssert(true);
-                        [expectation fulfill];
-                    } onError:^(NSError *error) {
-                        XCTAssert(false);
-                        [expectation fulfill];
-                    }];
-    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
-      XCTAssert(err == nil);
     }];
 }
 
