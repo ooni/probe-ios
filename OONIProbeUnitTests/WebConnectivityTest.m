@@ -4,7 +4,7 @@
 #import "JsonResult.h"
 #import "EventResult.h"
 #import "TestUtility.h"
-#define CLIENT_URL = @"https://ams-pg.ooni.org"
+#define CLIENT_URL @"https://ams-pg.ooni.org"
 
 @interface WebConnectivityTest : XCTestCase
 
@@ -21,6 +21,7 @@ id<ExperimentTask> task;
     settings.inputs = [NSArray arrayWithObject:@"http://mail.google.com"];
     settings.options.no_collector = false;
     [settings.annotations setObject:@"integration-test" forKey:@"origin"];
+    settings.options.probe_services_base_url = CLIENT_URL;
 }
 
 - (void)tearDown {
@@ -31,6 +32,7 @@ id<ExperimentTask> task;
     NSString *report_id_1 = @"r1";
     NSString *report_id_2 = @"r2";
     NSError *error;
+    
     task = [Engine startExperimentTaskWithSettings:settings error:&error];
     if (error != nil)
         XCTAssert(false);
