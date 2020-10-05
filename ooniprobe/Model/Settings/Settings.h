@@ -2,9 +2,9 @@
 #import "Options.h"
 #import "ObjectMapper.h"
 #import "NSObject+ObjectMapper.h"
-#import "ExperimentSettings.h"
+#import "OONIMKTaskConfig.h"
 
-@interface Settings : NSObject <ExperimentSettings>
+@interface Settings : NSObject <OONIMKTaskConfig>
 @property (nonatomic, strong) NSMutableDictionary *annotations;
 @property (nonatomic, strong) NSArray *disabled_events;
 @property (nonatomic, strong) NSArray *inputs;

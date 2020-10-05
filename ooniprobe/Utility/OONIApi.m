@@ -3,16 +3,21 @@
 #import "SettingsUtility.h"
 #import "NetworkSession.h"
 #import "Url.h"
+#import "VersionUtility.h"
 
 @implementation OONIApi
 
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
-    id<GeoIPLookupTask> task = [Engine geoIPLookupTask];
-    [task setTimeout:DEFAULT_TIMEOUT];
-    id<GeoIPLookupResults> results = [task perform];
+    NSError *error;
     NSString *cc = @"XX";
-    if ([results isGood])
-        cc = [results probeCC];
+
+    cc = [Engine resolveProbeCCwithSoftwareName:SOFTWARE_NAME
+                                          softwareVersion:[VersionUtility get_software_version]
+                                                  timeout:DEFAULT_TIMEOUT
+                                                    error:&error];
+    if (error != nil) {
+        //TODO Do we care about the error?
+    }
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";
     components.host = @"orchestrate.ooni.io";

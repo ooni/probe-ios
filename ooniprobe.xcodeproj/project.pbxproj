@@ -81,6 +81,16 @@
 		ED90A92D2198DE5100204B46 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9272198DE5000204B46 /* Options.m */; };
 		ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.m */; };
 		ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED997D0B207BCEE400C97B1F /* Strings.plist */; };
+		ED9CCED4252B2CC6004F8420 /* LoggerNull.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCED3252B2CC6004F8420 /* LoggerNull.m */; };
+		ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCEE7252B30D3004F8420 /* OONIContext.m */; };
+		ED9CCEEE252B3190004F8420 /* OONIGeolocateResults.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCEED252B3190004F8420 /* OONIGeolocateResults.m */; };
+		ED9CCEF7252B3298004F8420 /* OONISessionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCEF6252B3298004F8420 /* OONISessionConfig.m */; };
+		ED9CCEFD252B3460004F8420 /* OONISubmitResults.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCEFC252B3460004F8420 /* OONISubmitResults.m */; };
+		ED9CCF03252B356D004F8420 /* PESession.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCF02252B356D004F8420 /* PESession.m */; };
+		ED9CCF09252B35B3004F8420 /* PELoggerAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCF08252B35B3004F8420 /* PELoggerAdapter.m */; };
+		ED9CCF21252B4A06004F8420 /* LoggeriOS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCF20252B4A06004F8420 /* LoggeriOS.m */; };
+		ED9CCF27252B4A13004F8420 /* LoggerArray.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCF26252B4A13004F8420 /* LoggerArray.m */; };
+		ED9CCF30252B4B9D004F8420 /* LoggerComposed.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCF2F252B4B9D004F8420 /* LoggerComposed.m */; };
 		ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */; };
 		EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AF4208A30E000D46D0F /* InstantMessagingDetailsViewController.m */; };
 		EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AF8208A30E100D46D0F /* MiddleBoxesDetailsViewController.m */; };
@@ -128,18 +138,13 @@
 		EDF2073221217340005B06D7 /* JsonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2073121217340005B06D7 /* JsonResult.m */; };
 		EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF23EF82228CC6000B97520 /* NetworkTest.m */; };
 		EDF4ECF4248549BD001A5406 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ECF3248549BD001A5406 /* Engine.m */; };
-		EDF4ED042487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */; };
-		EDF4ED072487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED062487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m */; };
-		EDF4ED102487BF17001A5406 /* MKReporterResultsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED0F2487BF17001A5406 /* MKReporterResultsAdapter.m */; };
-		EDF4ED132487BF27001A5406 /* MKReporterTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */; };
-		EDF4ED162487BF39001A5406 /* OONIProbeEngineTaskAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */; };
+		EDF4ED162487BF39001A5406 /* PEMKTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED152487BF39001A5406 /* PEMKTask.m */; };
 		EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED1F248A8B50001A5406 /* EventResult.m */; };
 		EDF4ED26248A9A64001A5406 /* Advanced.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED23248A9A64001A5406 /* Advanced.m */; };
 		EDF4ED27248A9A64001A5406 /* Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED24248A9A64001A5406 /* Simple.m */; };
 		EDF4ED28248A9A64001A5406 /* Value.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED25248A9A64001A5406 /* Value.m */; };
 		EDF4ED2B248A9FA7001A5406 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED29248A9FA6001A5406 /* Server.m */; };
 		EDF4ED2C248A9FA7001A5406 /* Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2A248A9FA7001A5406 /* Summary.m */; };
-		EDF4ED2E248E9D76001A5406 /* MKExperimentTaskAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */; };
 		EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */; };
 		EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF8E51C22C40A8E00CF0FF6 /* APITest.m */; };
 		EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE073C1F375E3C00960AF2 /* DictionaryUtility.m */; };
@@ -318,6 +323,30 @@
 		ED997D08207BB7C400C97B1F /* LocalizationUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocalizationUtility.h; path = Utility/LocalizationUtility.h; sourceTree = "<group>"; };
 		ED997D09207BB7C400C97B1F /* LocalizationUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocalizationUtility.m; path = Utility/LocalizationUtility.m; sourceTree = "<group>"; };
 		ED997D0B207BCEE400C97B1F /* Strings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Strings.plist; sourceTree = "<group>"; };
+		ED9CCED3252B2CC6004F8420 /* LoggerNull.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoggerNull.m; path = Engine/LoggerNull.m; sourceTree = "<group>"; };
+		ED9CCED8252B2CE3004F8420 /* OONIMKTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIMKTask.h; path = Engine/OONIMKTask.h; sourceTree = "<group>"; };
+		ED9CCED9252B2CE3004F8420 /* OONIMKTaskConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIMKTaskConfig.h; path = Engine/OONIMKTaskConfig.h; sourceTree = "<group>"; };
+		ED9CCEDA252B2CE4004F8420 /* OONILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONILogger.h; path = Engine/OONILogger.h; sourceTree = "<group>"; };
+		ED9CCEDB252B2CE4004F8420 /* OONISession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONISession.h; path = Engine/OONISession.h; sourceTree = "<group>"; };
+		ED9CCEE6252B30D3004F8420 /* OONIContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIContext.h; path = Engine/OONIContext.h; sourceTree = "<group>"; };
+		ED9CCEE7252B30D3004F8420 /* OONIContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIContext.m; path = Engine/OONIContext.m; sourceTree = "<group>"; };
+		ED9CCEEC252B3190004F8420 /* OONIGeolocateResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIGeolocateResults.h; path = Engine/OONIGeolocateResults.h; sourceTree = "<group>"; };
+		ED9CCEED252B3190004F8420 /* OONIGeolocateResults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIGeolocateResults.m; path = Engine/OONIGeolocateResults.m; sourceTree = "<group>"; };
+		ED9CCEF5252B3298004F8420 /* OONISessionConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONISessionConfig.h; path = Engine/OONISessionConfig.h; sourceTree = "<group>"; };
+		ED9CCEF6252B3298004F8420 /* OONISessionConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONISessionConfig.m; path = Engine/OONISessionConfig.m; sourceTree = "<group>"; };
+		ED9CCEFB252B3460004F8420 /* OONISubmitResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONISubmitResults.h; path = Engine/OONISubmitResults.h; sourceTree = "<group>"; };
+		ED9CCEFC252B3460004F8420 /* OONISubmitResults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONISubmitResults.m; path = Engine/OONISubmitResults.m; sourceTree = "<group>"; };
+		ED9CCF01252B356D004F8420 /* PESession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PESession.h; path = Engine/PESession.h; sourceTree = "<group>"; };
+		ED9CCF02252B356D004F8420 /* PESession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PESession.m; path = Engine/PESession.m; sourceTree = "<group>"; };
+		ED9CCF07252B35B3004F8420 /* PELoggerAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PELoggerAdapter.h; path = Engine/PELoggerAdapter.h; sourceTree = "<group>"; };
+		ED9CCF08252B35B3004F8420 /* PELoggerAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PELoggerAdapter.m; path = Engine/PELoggerAdapter.m; sourceTree = "<group>"; };
+		ED9CCF1B252B414B004F8420 /* LoggerNull.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoggerNull.h; path = Engine/LoggerNull.h; sourceTree = "<group>"; };
+		ED9CCF1F252B4A06004F8420 /* LoggeriOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoggeriOS.h; path = Engine/LoggeriOS.h; sourceTree = "<group>"; };
+		ED9CCF20252B4A06004F8420 /* LoggeriOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoggeriOS.m; path = Engine/LoggeriOS.m; sourceTree = "<group>"; };
+		ED9CCF25252B4A13004F8420 /* LoggerArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoggerArray.h; path = Engine/LoggerArray.h; sourceTree = "<group>"; };
+		ED9CCF26252B4A13004F8420 /* LoggerArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoggerArray.m; path = Engine/LoggerArray.m; sourceTree = "<group>"; };
+		ED9CCF2E252B4B9D004F8420 /* LoggerComposed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoggerComposed.h; path = Engine/LoggerComposed.h; sourceTree = "<group>"; };
+		ED9CCF2F252B4B9D004F8420 /* LoggerComposed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoggerComposed.m; path = Engine/LoggerComposed.m; sourceTree = "<group>"; };
 		ED9D8B99207F5C4A00189FAE /* TestDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDetailsViewController.h; sourceTree = "<group>"; };
 		ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDetailsViewController.m; sourceTree = "<group>"; };
 		EDA17AF3208A30E000D46D0F /* InstantMessagingDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstantMessagingDetailsViewController.h; sourceTree = "<group>"; };
@@ -404,25 +433,8 @@
 		EDF23EF82228CC6000B97520 /* NetworkTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTest.m; sourceTree = "<group>"; };
 		EDF4ECF2248549BD001A5406 /* Engine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Engine.h; path = Engine/Engine.h; sourceTree = "<group>"; };
 		EDF4ECF3248549BD001A5406 /* Engine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Engine.m; path = Engine/Engine.m; sourceTree = "<group>"; };
-		EDF4ECF724879683001A5406 /* ExperimentTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExperimentTask.h; path = Engine/ExperimentTask.h; sourceTree = "<group>"; };
-		EDF4ECF824879683001A5406 /* CollectorTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CollectorTask.h; path = Engine/CollectorTask.h; sourceTree = "<group>"; };
-		EDF4ECF924879684001A5406 /* GeoIPLookupResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GeoIPLookupResults.h; path = Engine/GeoIPLookupResults.h; sourceTree = "<group>"; };
-		EDF4ECFA24879684001A5406 /* GeoIPLookupTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GeoIPLookupTask.h; path = Engine/GeoIPLookupTask.h; sourceTree = "<group>"; };
-		EDF4ECFB24879684001A5406 /* OrchestraTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OrchestraTask.h; path = Engine/OrchestraTask.h; sourceTree = "<group>"; };
-		EDF4ECFC24879684001A5406 /* ExperimentSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExperimentSettings.h; path = Engine/ExperimentSettings.h; sourceTree = "<group>"; };
-		EDF4ECFD24879684001A5406 /* CollectorResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CollectorResults.h; path = Engine/CollectorResults.h; sourceTree = "<group>"; };
-		EDF4ECFE24879684001A5406 /* OrchestraResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OrchestraResults.h; path = Engine/OrchestraResults.h; sourceTree = "<group>"; };
-		EDF4ECFF24879D31001A5406 /* MKExperimentTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKExperimentTaskAdapter.h; path = Engine/MKExperimentTaskAdapter.h; sourceTree = "<group>"; };
-		EDF4ED022487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKGeoIPLookupResultsAdapter.h; path = Engine/MKGeoIPLookupResultsAdapter.h; sourceTree = "<group>"; };
-		EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKGeoIPLookupResultsAdapter.m; path = Engine/MKGeoIPLookupResultsAdapter.m; sourceTree = "<group>"; };
-		EDF4ED052487BED8001A5406 /* MKGeoIPLookupTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKGeoIPLookupTaskAdapter.h; path = Engine/MKGeoIPLookupTaskAdapter.h; sourceTree = "<group>"; };
-		EDF4ED062487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKGeoIPLookupTaskAdapter.m; path = Engine/MKGeoIPLookupTaskAdapter.m; sourceTree = "<group>"; };
-		EDF4ED0E2487BF17001A5406 /* MKReporterResultsAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKReporterResultsAdapter.h; path = Engine/MKReporterResultsAdapter.h; sourceTree = "<group>"; };
-		EDF4ED0F2487BF17001A5406 /* MKReporterResultsAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKReporterResultsAdapter.m; path = Engine/MKReporterResultsAdapter.m; sourceTree = "<group>"; };
-		EDF4ED112487BF27001A5406 /* MKReporterTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MKReporterTaskAdapter.h; path = Engine/MKReporterTaskAdapter.h; sourceTree = "<group>"; };
-		EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MKReporterTaskAdapter.m; path = Engine/MKReporterTaskAdapter.m; sourceTree = "<group>"; };
-		EDF4ED142487BF39001A5406 /* OONIProbeEngineTaskAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIProbeEngineTaskAdapter.h; path = Engine/OONIProbeEngineTaskAdapter.h; sourceTree = "<group>"; };
-		EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIProbeEngineTaskAdapter.m; path = Engine/OONIProbeEngineTaskAdapter.m; sourceTree = "<group>"; };
+		EDF4ED142487BF39001A5406 /* PEMKTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PEMKTask.h; path = Engine/PEMKTask.h; sourceTree = "<group>"; };
+		EDF4ED152487BF39001A5406 /* PEMKTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PEMKTask.m; path = Engine/PEMKTask.m; sourceTree = "<group>"; };
 		EDF4ED1F248A8B50001A5406 /* EventResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResult.m; sourceTree = "<group>"; };
 		EDF4ED21248A8BCD001A5406 /* Summary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Summary.h; sourceTree = "<group>"; };
 		EDF4ED22248A8C1F001A5406 /* Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
@@ -431,7 +443,6 @@
 		EDF4ED25248A9A64001A5406 /* Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Value.m; sourceTree = "<group>"; };
 		EDF4ED29248A9FA6001A5406 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 		EDF4ED2A248A9FA7001A5406 /* Summary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Summary.m; sourceTree = "<group>"; };
-		EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKExperimentTaskAdapter.mm; path = Engine/MKExperimentTaskAdapter.mm; sourceTree = "<group>"; };
 		EDF4ED2F248FBFEC001A5406 /* CircumventionDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircumventionDetailsViewController.h; sourceTree = "<group>"; };
 		EDF4ED30248FBFEC001A5406 /* CircumventionDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircumventionDetailsViewController.m; sourceTree = "<group>"; };
 		EDF8E51C22C40A8E00CF0FF6 /* APITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APITest.m; sourceTree = "<group>"; };
@@ -768,6 +779,22 @@
 			path = Model/Settings;
 			sourceTree = "<group>";
 		};
+		ED9CCF17252B3C9C004F8420 /* Loggers */ = {
+			isa = PBXGroup;
+			children = (
+				ED9CCEDA252B2CE4004F8420 /* OONILogger.h */,
+				ED9CCF25252B4A13004F8420 /* LoggerArray.h */,
+				ED9CCF26252B4A13004F8420 /* LoggerArray.m */,
+				ED9CCF2E252B4B9D004F8420 /* LoggerComposed.h */,
+				ED9CCF2F252B4B9D004F8420 /* LoggerComposed.m */,
+				ED9CCF1F252B4A06004F8420 /* LoggeriOS.h */,
+				ED9CCF20252B4A06004F8420 /* LoggeriOS.m */,
+				ED9CCF1B252B414B004F8420 /* LoggerNull.h */,
+				ED9CCED3252B2CC6004F8420 /* LoggerNull.m */,
+			);
+			name = Loggers;
+			sourceTree = "<group>";
+		};
 		EDB252A120FA46DA00B4EDE4 /* JsonResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -950,28 +977,26 @@
 		EDF4ECF124854994001A5406 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				EDF4ECFD24879684001A5406 /* CollectorResults.h */,
-				EDF4ECF824879683001A5406 /* CollectorTask.h */,
-				EDF4ECFC24879684001A5406 /* ExperimentSettings.h */,
-				EDF4ECF724879683001A5406 /* ExperimentTask.h */,
-				EDF4ECF924879684001A5406 /* GeoIPLookupResults.h */,
-				EDF4ECFA24879684001A5406 /* GeoIPLookupTask.h */,
-				EDF4ECFE24879684001A5406 /* OrchestraResults.h */,
-				EDF4ECFB24879684001A5406 /* OrchestraTask.h */,
+				ED9CCF17252B3C9C004F8420 /* Loggers */,
 				EDF4ECF2248549BD001A5406 /* Engine.h */,
 				EDF4ECF3248549BD001A5406 /* Engine.m */,
-				EDF4ECFF24879D31001A5406 /* MKExperimentTaskAdapter.h */,
-				EDF4ED2D248E9D76001A5406 /* MKExperimentTaskAdapter.mm */,
-				EDF4ED022487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.h */,
-				EDF4ED032487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m */,
-				EDF4ED052487BED8001A5406 /* MKGeoIPLookupTaskAdapter.h */,
-				EDF4ED062487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m */,
-				EDF4ED0E2487BF17001A5406 /* MKReporterResultsAdapter.h */,
-				EDF4ED0F2487BF17001A5406 /* MKReporterResultsAdapter.m */,
-				EDF4ED112487BF27001A5406 /* MKReporterTaskAdapter.h */,
-				EDF4ED122487BF27001A5406 /* MKReporterTaskAdapter.m */,
-				EDF4ED142487BF39001A5406 /* OONIProbeEngineTaskAdapter.h */,
-				EDF4ED152487BF39001A5406 /* OONIProbeEngineTaskAdapter.m */,
+				ED9CCEE6252B30D3004F8420 /* OONIContext.h */,
+				ED9CCEE7252B30D3004F8420 /* OONIContext.m */,
+				ED9CCED8252B2CE3004F8420 /* OONIMKTask.h */,
+				ED9CCED9252B2CE3004F8420 /* OONIMKTaskConfig.h */,
+				ED9CCEDB252B2CE4004F8420 /* OONISession.h */,
+				ED9CCEEC252B3190004F8420 /* OONIGeolocateResults.h */,
+				ED9CCEED252B3190004F8420 /* OONIGeolocateResults.m */,
+				ED9CCEF5252B3298004F8420 /* OONISessionConfig.h */,
+				ED9CCEF6252B3298004F8420 /* OONISessionConfig.m */,
+				ED9CCEFB252B3460004F8420 /* OONISubmitResults.h */,
+				ED9CCEFC252B3460004F8420 /* OONISubmitResults.m */,
+				ED9CCF07252B35B3004F8420 /* PELoggerAdapter.h */,
+				ED9CCF08252B35B3004F8420 /* PELoggerAdapter.m */,
+				EDF4ED142487BF39001A5406 /* PEMKTask.h */,
+				EDF4ED152487BF39001A5406 /* PEMKTask.m */,
+				ED9CCF01252B356D004F8420 /* PESession.h */,
+				ED9CCF02252B356D004F8420 /* PESession.m */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -1027,7 +1052,6 @@
 				D4A2F5D61A6C3244001B8460 /* Frameworks */,
 				D4A2F5D71A6C3244001B8460 /* Resources */,
 				0DB68370272A8F1E523AA5E2 /* [CP] Copy Pods Resources */,
-				901BA501D662298E3A6192F6 /* [CP] Embed Pods Frameworks */,
 				ED4ACEEA24C4B65A00421FB9 /* ShellScript */,
 			);
 			buildRules = (
@@ -1228,24 +1252,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		901BA501D662298E3A6192F6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh",
-				"${PODS_ROOT}/mkall/mkall.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mkall.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		911113021556D4D91C10FB3E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1303,12 +1309,13 @@
 			files = (
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
+				ED9CCF09252B35B3004F8420 /* PELoggerAdapter.m in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
 				ED14B231246540A4009AA906 /* CircumventionSuite.mm in Sources */,
 				EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */,
 				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
-				EDF4ED102487BF17001A5406 /* MKReporterResultsAdapter.m in Sources */,
+				ED9CCF21252B4A06004F8420 /* LoggeriOS.m in Sources */,
 				ED2E067221D4867B00E9B9EE /* Dash.mm in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
 				EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */,
@@ -1323,7 +1330,6 @@
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				EDA9F21B22414E0E003D40E8 /* UIDevice-DeviceInfo.m in Sources */,
 				ED90A92A2198DE5100204B46 /* Url.mm in Sources */,
-				EDF4ED072487BED8001A5406 /* MKGeoIPLookupTaskAdapter.m in Sources */,
 				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
 				ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */,
@@ -1336,8 +1342,10 @@
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
-				EDF4ED162487BF39001A5406 /* OONIProbeEngineTaskAdapter.m in Sources */,
+				ED9CCEFD252B3460004F8420 /* OONISubmitResults.m in Sources */,
+				EDF4ED162487BF39001A5406 /* PEMKTask.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
+				ED9CCF30252B4B9D004F8420 /* LoggerComposed.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
 				ED90A92B2198DE5100204B46 /* Measurement.mm in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
@@ -1346,6 +1354,7 @@
 				ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
 				ED2E067821D487D600E9B9EE /* InstantMessagingSuite.mm in Sources */,
+				ED9CCEEE252B3190004F8420 /* OONIGeolocateResults.m in Sources */,
 				ED2E067421D4867B00E9B9EE /* FacebookMessenger.mm in Sources */,
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
 				ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */,
@@ -1361,12 +1370,13 @@
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
 				ED14B2342465411E009AA906 /* Psiphon.mm in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
+				ED9CCEF7252B3298004F8420 /* OONISessionConfig.m in Sources */,
 				EDF4ED2B248A9FA7001A5406 /* Server.m in Sources */,
 				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
-				EDF4ED2E248E9D76001A5406 /* MKExperimentTaskAdapter.mm in Sources */,
 				ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm in Sources */,
 				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */,
+				ED9CCF03252B356D004F8420 /* PESession.m in Sources */,
 				ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */,
 				ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */,
 				EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */,
@@ -1375,9 +1385,11 @@
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
 				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.mm in Sources */,
+				ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
 				ED8F2A3823F0142A00EF5EDA /* ExceptionUtility.m in Sources */,
+				ED9CCF27252B4A13004F8420 /* LoggerArray.m in Sources */,
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
 				ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */,
 				ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */,
@@ -1395,10 +1407,9 @@
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
 				ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */,
 				ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */,
-				EDF4ED132487BF27001A5406 /* MKReporterTaskAdapter.m in Sources */,
 				ED4ACEE924C4542700421FB9 /* CountlyUtility.m in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
-				EDF4ED042487BEC6001A5406 /* MKGeoIPLookupResultsAdapter.m in Sources */,
+				ED9CCED4252B2CC6004F8420 /* LoggerNull.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1528,7 +1539,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ooniprobe;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = $ARCHS_STANDARD;
 			};
 			name = Release;
 		};
@@ -1729,7 +1740,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm64 armv7s";
+				VALID_ARCHS = $ARCHS_STANDARD;
 			};
 			name = Release;
 		};
@@ -1790,6 +1801,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
+				VALID_ARCHS = $ARCHS_STANDARD;
 			};
 			name = Release;
 		};
