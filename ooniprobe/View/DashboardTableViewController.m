@@ -112,7 +112,7 @@
     }
     else if ([[segue identifier] isEqualToString:@"toTestRunAll"]){
         TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setTestSuites:items];
+        [vc setTestSuites:[NSMutableArray arrayWithArray:items]];
     }
     else if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
