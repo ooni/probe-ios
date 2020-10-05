@@ -11,7 +11,7 @@
 		17E7EDC021BFEE0C001961C7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */; };
 		C8F0F5BCD132FD1482C9804A /* libPods-ooniprobe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
-		D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */; };
+		D4A2F5E21A6C3244001B8460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.m */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
 		EB73683A521F90D387C6C063 /* libPods-OONIProbeUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */; };
@@ -20,32 +20,32 @@
 		ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */; };
 		ED12BA2D224E0AB6004949E4 /* Tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED12BA2C224E0AB6004949E4 /* Tests.plist */; };
 		ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */; };
-		ED14B231246540A4009AA906 /* CircumventionSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED14B230246540A4009AA906 /* CircumventionSuite.mm */; };
-		ED14B2342465411E009AA906 /* Psiphon.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2332465411E009AA906 /* Psiphon.mm */; };
-		ED14B2372465412C009AA906 /* Tor.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2362465412C009AA906 /* Tor.mm */; };
+		ED14B231246540A4009AA906 /* CircumventionSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14B230246540A4009AA906 /* CircumventionSuite.m */; };
+		ED14B2342465411E009AA906 /* Psiphon.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2332465411E009AA906 /* Psiphon.m */; };
+		ED14B2372465412C009AA906 /* Tor.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14B2362465412C009AA906 /* Tor.m */; };
 		ED14B23924658329009AA906 /* circumvention.json in Resources */ = {isa = PBXBuildFile; fileRef = ED14B23824658329009AA906 /* circumvention.json */; };
 		ED163CE1209C7B880052FB46 /* Airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED163CE0209C7B880052FB46 /* Airports.plist */; };
 		ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC7FE20158D630041089A /* ConfigureButton.m */; };
-		ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.mm */; };
+		ED1CC80220159D970041089A /* TestRunningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.m */; };
 		ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1EC170204E9B61000DEB9F /* LogViewController.m */; };
 		ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED209669209791C40028BEA3 /* PaddingLabel.m */; };
-		ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm */; };
-		ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065A21D4867B00E9B9EE /* WebConnectivity.mm */; };
-		ED2E066E21D4867B00E9B9EE /* AbstractTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065B21D4867B00E9B9EE /* AbstractTest.mm */; };
-		ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065C21D4867B00E9B9EE /* HttpInvalidRequestLine.mm */; };
-		ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065F21D4867B00E9B9EE /* Whatsapp.mm */; };
-		ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066321D4867B00E9B9EE /* NdtTest.mm */; };
-		ED2E067221D4867B00E9B9EE /* Dash.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066421D4867B00E9B9EE /* Dash.mm */; };
-		ED2E067321D4867B00E9B9EE /* Telegram.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066521D4867B00E9B9EE /* Telegram.mm */; };
-		ED2E067421D4867B00E9B9EE /* FacebookMessenger.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066621D4867B00E9B9EE /* FacebookMessenger.mm */; };
-		ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066B21D4867B00E9B9EE /* AbstractSuite.mm */; };
-		ED2E067821D487D600E9B9EE /* InstantMessagingSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067721D487D600E9B9EE /* InstantMessagingSuite.mm */; };
-		ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */; };
-		ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */; };
-		ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */; };
+		ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.m */; };
+		ED2E066D21D4867B00E9B9EE /* WebConnectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065A21D4867B00E9B9EE /* WebConnectivity.m */; };
+		ED2E066E21D4867B00E9B9EE /* AbstractTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065B21D4867B00E9B9EE /* AbstractTest.m */; };
+		ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065C21D4867B00E9B9EE /* HttpInvalidRequestLine.m */; };
+		ED2E067021D4867B00E9B9EE /* Whatsapp.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065F21D4867B00E9B9EE /* Whatsapp.m */; };
+		ED2E067121D4867B00E9B9EE /* NdtTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066321D4867B00E9B9EE /* NdtTest.m */; };
+		ED2E067221D4867B00E9B9EE /* Dash.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066421D4867B00E9B9EE /* Dash.m */; };
+		ED2E067321D4867B00E9B9EE /* Telegram.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066521D4867B00E9B9EE /* Telegram.m */; };
+		ED2E067421D4867B00E9B9EE /* FacebookMessenger.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066621D4867B00E9B9EE /* FacebookMessenger.m */; };
+		ED2E067521D4867B00E9B9EE /* AbstractSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E066B21D4867B00E9B9EE /* AbstractSuite.m */; };
+		ED2E067821D487D600E9B9EE /* InstantMessagingSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067721D487D600E9B9EE /* InstantMessagingSuite.m */; };
+		ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.m */; };
+		ED2E067E21D487EA00E9B9EE /* PerformanceSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E067D21D487EA00E9B9EE /* PerformanceSuite.m */; };
+		ED2E068121D487F500E9B9EE /* WebsitesSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E068021D487F500E9B9EE /* WebsitesSuite.m */; };
 		ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3582311FE948580078CCEE /* libsqlite3.tbd */; };
 		ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED365216223A40480093180B /* FailedTestDetailsViewController.m */; };
-		ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.mm */; };
+		ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3932C31E3114740064CD11 /* AboutViewController.m */; };
 		ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */; };
 		ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
@@ -58,7 +58,7 @@
 		ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55C0C8203BD52900738260 /* Header1MBViewController.m */; };
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
 		ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.m */; };
-		ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */; };
+		ED58CF7E1FEBBE2800E3C415 /* TestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED58CF7D1FEBBE2800E3C415 /* TestUtility.m */; };
 		ED5BC3C7229568FB00E311D7 /* MakeTimeoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC3C6229568FB00E311D7 /* MakeTimeoutTest.m */; };
 		ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F8A291F77C4AA0093C8F5 /* VersionUtility.m */; };
 		ED614794213DABDE00F35E07 /* TestUrls.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED614793213DABDE00F35E07 /* TestUrls.plist */; };
@@ -66,7 +66,7 @@
 		ED6911D820BDC0130022DCFE /* websites.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D720BDC0130022DCFE /* websites.json */; };
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
-		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */; };
+		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.m */; };
 		ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED78739F2448874500F92DDE /* NavigationBarUtility.m */; };
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
 		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
@@ -74,9 +74,9 @@
 		ED8F2A3823F0142A00EF5EDA /* ExceptionUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8F2A3723F0142A00EF5EDA /* ExceptionUtility.m */; };
 		ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */; };
 		ED90A9282198DE5100204B46 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91B2198DE5000204B46 /* Network.m */; };
-		ED90A9292198DE5100204B46 /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91C2198DE5000204B46 /* Result.mm */; };
-		ED90A92A2198DE5100204B46 /* Url.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91D2198DE5000204B46 /* Url.mm */; };
-		ED90A92B2198DE5100204B46 /* Measurement.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9222198DE5000204B46 /* Measurement.mm */; };
+		ED90A9292198DE5100204B46 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91C2198DE5000204B46 /* Result.m */; };
+		ED90A92A2198DE5100204B46 /* Url.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A91D2198DE5000204B46 /* Url.m */; };
+		ED90A92B2198DE5100204B46 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9222198DE5000204B46 /* Measurement.m */; };
 		ED90A92C2198DE5100204B46 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9262198DE5000204B46 /* Settings.m */; };
 		ED90A92D2198DE5100204B46 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9272198DE5000204B46 /* Options.m */; };
 		ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.m */; };
@@ -123,7 +123,7 @@
 		EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCD73D12180F014003B56D9 /* Header3ViewController.m */; };
 		EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD79DE121D6421D00B11078 /* TestDetailsFooterViewController.m */; };
 		EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */; };
-		EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */; };
+		EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.m */; };
 		EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B581FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m */; };
 		EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B5A1FFF330700EFD9C8 /* SettingsTableViewController.m */; };
 		EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B5D1FFF3A5A00EFD9C8 /* TabsViewController.m */; };
@@ -181,7 +181,7 @@
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2F5DE1A6C3244001B8460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4A2F5E01A6C3244001B8460 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		D4A2F5E11A6C3244001B8460 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D4A2F5E91A6C3244001B8460 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4A2F5EC1A6C3244001B8460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ED0A6200200B52C000235E70 /* OONIRun.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = OONIRun.storyboard; path = Storyboards/OONIRun.storyboard; sourceTree = "<group>"; };
@@ -193,17 +193,17 @@
 		ED12BA2E224E5BDD004949E4 /* TestSummaryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSummaryTableViewCell.h; sourceTree = "<group>"; };
 		ED12BA2F224E5BDE004949E4 /* TestSummaryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSummaryTableViewCell.m; sourceTree = "<group>"; };
 		ED14B22F246540A4009AA906 /* CircumventionSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircumventionSuite.h; sourceTree = "<group>"; };
-		ED14B230246540A4009AA906 /* CircumventionSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CircumventionSuite.mm; sourceTree = "<group>"; };
+		ED14B230246540A4009AA906 /* CircumventionSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircumventionSuite.m; sourceTree = "<group>"; };
 		ED14B2322465411E009AA906 /* Psiphon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Psiphon.h; sourceTree = "<group>"; };
-		ED14B2332465411E009AA906 /* Psiphon.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Psiphon.mm; sourceTree = "<group>"; };
+		ED14B2332465411E009AA906 /* Psiphon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Psiphon.m; sourceTree = "<group>"; };
 		ED14B2352465412C009AA906 /* Tor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tor.h; sourceTree = "<group>"; };
-		ED14B2362465412C009AA906 /* Tor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Tor.mm; sourceTree = "<group>"; };
+		ED14B2362465412C009AA906 /* Tor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tor.m; sourceTree = "<group>"; };
 		ED14B23824658329009AA906 /* circumvention.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = circumvention.json; sourceTree = "<group>"; };
 		ED163CE0209C7B880052FB46 /* Airports.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Airports.plist; sourceTree = "<group>"; };
 		ED1CC7FD20158D630041089A /* ConfigureButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigureButton.h; sourceTree = "<group>"; };
 		ED1CC7FE20158D630041089A /* ConfigureButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigureButton.m; sourceTree = "<group>"; };
 		ED1CC80020159D970041089A /* TestRunningViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestRunningViewController.h; sourceTree = "<group>"; };
-		ED1CC80120159D970041089A /* TestRunningViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestRunningViewController.mm; sourceTree = "<group>"; };
+		ED1CC80120159D970041089A /* TestRunningViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestRunningViewController.m; sourceTree = "<group>"; };
 		ED1EC16F204E9B61000DEB9F /* LogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		ED1EC170204E9B61000DEB9F /* LogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
 		ED209668209791C40028BEA3 /* PaddingLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaddingLabel.h; sourceTree = "<group>"; };
@@ -211,38 +211,38 @@
 		ED2E065621D4867B00E9B9EE /* HttpInvalidRequestLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpInvalidRequestLine.h; sourceTree = "<group>"; };
 		ED2E065721D4867B00E9B9EE /* AbstractTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractTest.h; sourceTree = "<group>"; };
 		ED2E065821D4867B00E9B9EE /* WebConnectivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebConnectivity.h; sourceTree = "<group>"; };
-		ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HttpHeaderFieldManipulation.mm; sourceTree = "<group>"; };
-		ED2E065A21D4867B00E9B9EE /* WebConnectivity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebConnectivity.mm; sourceTree = "<group>"; };
-		ED2E065B21D4867B00E9B9EE /* AbstractTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AbstractTest.mm; sourceTree = "<group>"; };
-		ED2E065C21D4867B00E9B9EE /* HttpInvalidRequestLine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HttpInvalidRequestLine.mm; sourceTree = "<group>"; };
+		ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHeaderFieldManipulation.m; sourceTree = "<group>"; };
+		ED2E065A21D4867B00E9B9EE /* WebConnectivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebConnectivity.m; sourceTree = "<group>"; };
+		ED2E065B21D4867B00E9B9EE /* AbstractTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractTest.m; sourceTree = "<group>"; };
+		ED2E065C21D4867B00E9B9EE /* HttpInvalidRequestLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpInvalidRequestLine.m; sourceTree = "<group>"; };
 		ED2E065D21D4867B00E9B9EE /* NdtTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NdtTest.h; sourceTree = "<group>"; };
 		ED2E065E21D4867B00E9B9EE /* Whatsapp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Whatsapp.h; sourceTree = "<group>"; };
-		ED2E065F21D4867B00E9B9EE /* Whatsapp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Whatsapp.mm; sourceTree = "<group>"; };
+		ED2E065F21D4867B00E9B9EE /* Whatsapp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Whatsapp.m; sourceTree = "<group>"; };
 		ED2E066021D4867B00E9B9EE /* FacebookMessenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookMessenger.h; sourceTree = "<group>"; };
 		ED2E066121D4867B00E9B9EE /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
 		ED2E066221D4867B00E9B9EE /* HttpHeaderFieldManipulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHeaderFieldManipulation.h; sourceTree = "<group>"; };
-		ED2E066321D4867B00E9B9EE /* NdtTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NdtTest.mm; sourceTree = "<group>"; };
-		ED2E066421D4867B00E9B9EE /* Dash.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Dash.mm; sourceTree = "<group>"; };
-		ED2E066521D4867B00E9B9EE /* Telegram.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Telegram.mm; sourceTree = "<group>"; };
-		ED2E066621D4867B00E9B9EE /* FacebookMessenger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FacebookMessenger.mm; sourceTree = "<group>"; };
+		ED2E066321D4867B00E9B9EE /* NdtTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NdtTest.m; sourceTree = "<group>"; };
+		ED2E066421D4867B00E9B9EE /* Dash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dash.m; sourceTree = "<group>"; };
+		ED2E066521D4867B00E9B9EE /* Telegram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Telegram.m; sourceTree = "<group>"; };
+		ED2E066621D4867B00E9B9EE /* FacebookMessenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookMessenger.m; sourceTree = "<group>"; };
 		ED2E066721D4867B00E9B9EE /* Telegram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telegram.h; sourceTree = "<group>"; };
 		ED2E066821D4867B00E9B9EE /* Dash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dash.h; sourceTree = "<group>"; };
 		ED2E066A21D4867B00E9B9EE /* AbstractSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractSuite.h; sourceTree = "<group>"; };
-		ED2E066B21D4867B00E9B9EE /* AbstractSuite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AbstractSuite.mm; sourceTree = "<group>"; };
+		ED2E066B21D4867B00E9B9EE /* AbstractSuite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractSuite.m; sourceTree = "<group>"; };
 		ED2E067621D487D600E9B9EE /* InstantMessagingSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstantMessagingSuite.h; sourceTree = "<group>"; };
-		ED2E067721D487D600E9B9EE /* InstantMessagingSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = InstantMessagingSuite.mm; sourceTree = "<group>"; };
+		ED2E067721D487D600E9B9EE /* InstantMessagingSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstantMessagingSuite.m; sourceTree = "<group>"; };
 		ED2E067921D487DD00E9B9EE /* MiddleBoxesSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiddleBoxesSuite.h; sourceTree = "<group>"; };
-		ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MiddleBoxesSuite.mm; sourceTree = "<group>"; };
+		ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiddleBoxesSuite.m; sourceTree = "<group>"; };
 		ED2E067C21D487EA00E9B9EE /* PerformanceSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceSuite.h; sourceTree = "<group>"; };
-		ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PerformanceSuite.mm; sourceTree = "<group>"; };
+		ED2E067D21D487EA00E9B9EE /* PerformanceSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceSuite.m; sourceTree = "<group>"; };
 		ED2E067F21D487F500E9B9EE /* WebsitesSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebsitesSuite.h; sourceTree = "<group>"; };
-		ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebsitesSuite.mm; sourceTree = "<group>"; };
+		ED2E068021D487F500E9B9EE /* WebsitesSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebsitesSuite.m; sourceTree = "<group>"; };
 		ED2E068221D489E000E9B9EE /* Suite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Suite.h; sourceTree = "<group>"; };
 		ED3582311FE948580078CCEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		ED365215223A40480093180B /* FailedTestDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FailedTestDetailsViewController.h; sourceTree = "<group>"; };
 		ED365216223A40480093180B /* FailedTestDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FailedTestDetailsViewController.m; sourceTree = "<group>"; };
 		ED3932C21E3114740064CD11 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		ED3932C31E3114740064CD11 /* AboutViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutViewController.mm; sourceTree = "<group>"; };
+		ED3932C31E3114740064CD11 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		ED3A2C761E87E87900419270 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED3AE9EE20341C8600DAAF36 /* ResultsHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsHeaderViewController.h; sourceTree = "<group>"; };
 		ED3AE9EF20341C8600DAAF36 /* ResultsHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsHeaderViewController.m; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		ED58CF781FEBB9A900E3C415 /* DashboardTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewController.h; sourceTree = "<group>"; };
 		ED58CF791FEBB9A900E3C415 /* DashboardTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewController.m; sourceTree = "<group>"; };
 		ED58CF7C1FEBBE2800E3C415 /* TestUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestUtility.h; path = Utility/TestUtility.h; sourceTree = "<group>"; };
-		ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TestUtility.mm; path = Utility/TestUtility.mm; sourceTree = "<group>"; };
+		ED58CF7D1FEBBE2800E3C415 /* TestUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TestUtility.m; path = Utility/TestUtility.m; sourceTree = "<group>"; };
 		ED5BC3C6229568FB00E311D7 /* MakeTimeoutTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakeTimeoutTest.m; sourceTree = "<group>"; };
 		ED5CD72221DDE7180003EEB0 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ED5CD72321DDF8E90003EEB0 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 		ED6911D920BDC04D0022DCFE /* instant_messaging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = instant_messaging.json; sourceTree = "<group>"; };
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
-		ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReachabilityManager.mm; sourceTree = "<group>"; };
+		ED76A7891EF166F3004D9B5E /* ReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityManager.m; sourceTree = "<group>"; };
 		ED78739E2448874500F92DDE /* NavigationBarUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarUtility.h; sourceTree = "<group>"; };
 		ED78739F2448874500F92DDE /* NavigationBarUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarUtility.m; sourceTree = "<group>"; };
 		ED81BB92223F84C9000AFA01 /* UploadFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadFooterViewController.h; sourceTree = "<group>"; };
@@ -309,13 +309,13 @@
 		ED90A9172198B8AB00204B46 /* DashboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewCell.m; sourceTree = "<group>"; };
 		ED90A9182198B8AB00204B46 /* DashboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewCell.h; sourceTree = "<group>"; };
 		ED90A91B2198DE5000204B46 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
-		ED90A91C2198DE5000204B46 /* Result.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Result.mm; sourceTree = "<group>"; };
-		ED90A91D2198DE5000204B46 /* Url.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Url.mm; sourceTree = "<group>"; };
+		ED90A91C2198DE5000204B46 /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
+		ED90A91D2198DE5000204B46 /* Url.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Url.m; sourceTree = "<group>"; };
 		ED90A91E2198DE5000204B46 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
 		ED90A91F2198DE5000204B46 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
 		ED90A9202198DE5000204B46 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
 		ED90A9212198DE5000204B46 /* Url.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Url.h; sourceTree = "<group>"; };
-		ED90A9222198DE5000204B46 /* Measurement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Measurement.mm; sourceTree = "<group>"; };
+		ED90A9222198DE5000204B46 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
 		ED90A9242198DE5000204B46 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		ED90A9252198DE5000204B46 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
 		ED90A9262198DE5000204B46 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
@@ -403,7 +403,7 @@
 		EDD79DE121D6421D00B11078 /* TestDetailsFooterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDetailsFooterViewController.m; sourceTree = "<group>"; };
 		EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
 		EDDB0B531FFF2C5300EFD9C8 /* SettingsUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsUtility.h; path = Utility/SettingsUtility.h; sourceTree = "<group>"; };
-		EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SettingsUtility.mm; path = Utility/SettingsUtility.mm; sourceTree = "<group>"; };
+		EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SettingsUtility.m; path = Utility/SettingsUtility.m; sourceTree = "<group>"; };
 		EDDB0B571FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsCategoriesTableViewController.h; path = Settings/SettingsCategoriesTableViewController.h; sourceTree = "<group>"; };
 		EDDB0B581FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SettingsCategoriesTableViewController.m; path = Settings/SettingsCategoriesTableViewController.m; sourceTree = "<group>"; };
 		EDDB0B5A1FFF330700EFD9C8 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsTableViewController.m; path = Settings/SettingsTableViewController.m; sourceTree = "<group>"; };
@@ -523,7 +523,7 @@
 				ED25280F1CEA34DA0073A29B /* Model */,
 				D4A2F62D1A6C33F7001B8460 /* Resources */,
 				D4A2F5E01A6C3244001B8460 /* AppDelegate.h */,
-				D4A2F5E11A6C3244001B8460 /* AppDelegate.mm */,
+				D4A2F5E11A6C3244001B8460 /* AppDelegate.m */,
 				ED4D60541A7162C400777275 /* Localizable.strings */,
 				D4A2F5E91A6C3244001B8460 /* Images.xcassets */,
 				D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */,
@@ -572,7 +572,7 @@
 				ED62AB9B1ED5B70500778249 /* Reachability.h */,
 				ED62AB9C1ED5B70500778249 /* Reachability.m */,
 				ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */,
-				ED76A7891EF166F3004D9B5E /* ReachabilityManager.mm */,
+				ED76A7891EF166F3004D9B5E /* ReachabilityManager.m */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -581,7 +581,7 @@
 			isa = PBXGroup;
 			children = (
 				ED1CC80020159D970041089A /* TestRunningViewController.h */,
-				ED1CC80120159D970041089A /* TestRunningViewController.mm */,
+				ED1CC80120159D970041089A /* TestRunningViewController.m */,
 				ED0D8D6E20186742003DDF23 /* TestOverviewViewController.h */,
 				ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */,
 			);
@@ -629,27 +629,27 @@
 			children = (
 				ED2E066121D4867B00E9B9EE /* Tests.h */,
 				ED2E065721D4867B00E9B9EE /* AbstractTest.h */,
-				ED2E065B21D4867B00E9B9EE /* AbstractTest.mm */,
+				ED2E065B21D4867B00E9B9EE /* AbstractTest.m */,
 				ED2E065821D4867B00E9B9EE /* WebConnectivity.h */,
-				ED2E065A21D4867B00E9B9EE /* WebConnectivity.mm */,
+				ED2E065A21D4867B00E9B9EE /* WebConnectivity.m */,
 				ED2E065E21D4867B00E9B9EE /* Whatsapp.h */,
-				ED2E065F21D4867B00E9B9EE /* Whatsapp.mm */,
+				ED2E065F21D4867B00E9B9EE /* Whatsapp.m */,
 				ED2E066721D4867B00E9B9EE /* Telegram.h */,
-				ED2E066521D4867B00E9B9EE /* Telegram.mm */,
+				ED2E066521D4867B00E9B9EE /* Telegram.m */,
 				ED2E066021D4867B00E9B9EE /* FacebookMessenger.h */,
-				ED2E066621D4867B00E9B9EE /* FacebookMessenger.mm */,
+				ED2E066621D4867B00E9B9EE /* FacebookMessenger.m */,
 				ED2E065621D4867B00E9B9EE /* HttpInvalidRequestLine.h */,
-				ED2E065C21D4867B00E9B9EE /* HttpInvalidRequestLine.mm */,
+				ED2E065C21D4867B00E9B9EE /* HttpInvalidRequestLine.m */,
 				ED2E066221D4867B00E9B9EE /* HttpHeaderFieldManipulation.h */,
-				ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm */,
+				ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.m */,
 				ED2E065D21D4867B00E9B9EE /* NdtTest.h */,
-				ED2E066321D4867B00E9B9EE /* NdtTest.mm */,
+				ED2E066321D4867B00E9B9EE /* NdtTest.m */,
 				ED2E066821D4867B00E9B9EE /* Dash.h */,
-				ED2E066421D4867B00E9B9EE /* Dash.mm */,
+				ED2E066421D4867B00E9B9EE /* Dash.m */,
 				ED14B2322465411E009AA906 /* Psiphon.h */,
-				ED14B2332465411E009AA906 /* Psiphon.mm */,
+				ED14B2332465411E009AA906 /* Psiphon.m */,
 				ED14B2352465412C009AA906 /* Tor.h */,
-				ED14B2362465412C009AA906 /* Tor.mm */,
+				ED14B2362465412C009AA906 /* Tor.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -659,17 +659,17 @@
 			children = (
 				ED2E068221D489E000E9B9EE /* Suite.h */,
 				ED2E066A21D4867B00E9B9EE /* AbstractSuite.h */,
-				ED2E066B21D4867B00E9B9EE /* AbstractSuite.mm */,
+				ED2E066B21D4867B00E9B9EE /* AbstractSuite.m */,
 				ED2E067F21D487F500E9B9EE /* WebsitesSuite.h */,
-				ED2E068021D487F500E9B9EE /* WebsitesSuite.mm */,
+				ED2E068021D487F500E9B9EE /* WebsitesSuite.m */,
 				ED2E067621D487D600E9B9EE /* InstantMessagingSuite.h */,
-				ED2E067721D487D600E9B9EE /* InstantMessagingSuite.mm */,
+				ED2E067721D487D600E9B9EE /* InstantMessagingSuite.m */,
 				ED2E067921D487DD00E9B9EE /* MiddleBoxesSuite.h */,
-				ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.mm */,
+				ED2E067A21D487DD00E9B9EE /* MiddleBoxesSuite.m */,
 				ED2E067C21D487EA00E9B9EE /* PerformanceSuite.h */,
-				ED2E067D21D487EA00E9B9EE /* PerformanceSuite.mm */,
+				ED2E067D21D487EA00E9B9EE /* PerformanceSuite.m */,
 				ED14B22F246540A4009AA906 /* CircumventionSuite.h */,
-				ED14B230246540A4009AA906 /* CircumventionSuite.mm */,
+				ED14B230246540A4009AA906 /* CircumventionSuite.m */,
 			);
 			path = Suite;
 			sourceTree = "<group>";
@@ -705,11 +705,11 @@
 				ED5F8A281F77C4AA0093C8F5 /* VersionUtility.h */,
 				ED5F8A291F77C4AA0093C8F5 /* VersionUtility.m */,
 				ED58CF7C1FEBBE2800E3C415 /* TestUtility.h */,
-				ED58CF7D1FEBBE2800E3C415 /* TestUtility.mm */,
+				ED58CF7D1FEBBE2800E3C415 /* TestUtility.m */,
 				ED4D1E5B24629A860087B36D /* OONIApi.h */,
 				ED4D1E5C24629A860087B36D /* OONIApi.m */,
 				EDDB0B531FFF2C5300EFD9C8 /* SettingsUtility.h */,
-				EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.mm */,
+				EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.m */,
 				ED997D08207BB7C400C97B1F /* LocalizationUtility.h */,
 				ED997D09207BB7C400C97B1F /* LocalizationUtility.m */,
 				EDA7645F2153090800C24688 /* NSDictionary+Safety.h */,
@@ -755,13 +755,13 @@
 			isa = PBXGroup;
 			children = (
 				ED90A91E2198DE5000204B46 /* Result.h */,
-				ED90A91C2198DE5000204B46 /* Result.mm */,
+				ED90A91C2198DE5000204B46 /* Result.m */,
 				ED90A9202198DE5000204B46 /* Measurement.h */,
-				ED90A9222198DE5000204B46 /* Measurement.mm */,
+				ED90A9222198DE5000204B46 /* Measurement.m */,
 				ED90A91F2198DE5000204B46 /* Network.h */,
 				ED90A91B2198DE5000204B46 /* Network.m */,
 				ED90A9212198DE5000204B46 /* Url.h */,
-				ED90A91D2198DE5000204B46 /* Url.mm */,
+				ED90A91D2198DE5000204B46 /* Url.m */,
 			);
 			name = Database;
 			path = Model/Database;
@@ -916,7 +916,7 @@
 				EDB33B7D21838824002CEC34 /* CustomURLViewController.h */,
 				EDB33B7C21838824002CEC34 /* CustomURLViewController.m */,
 				ED3932C21E3114740064CD11 /* AboutViewController.h */,
-				ED3932C31E3114740064CD11 /* AboutViewController.mm */,
+				ED3932C31E3114740064CD11 /* AboutViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1308,30 +1308,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
-				ED1CC80220159D970041089A /* TestRunningViewController.mm in Sources */,
+				ED1CC80220159D970041089A /* TestRunningViewController.m in Sources */,
 				ED9CCF09252B35B3004F8420 /* PELoggerAdapter.m in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
-				ED14B231246540A4009AA906 /* CircumventionSuite.mm in Sources */,
+				ED14B231246540A4009AA906 /* CircumventionSuite.m in Sources */,
 				EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */,
 				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
 				ED9CCF21252B4A06004F8420 /* LoggeriOS.m in Sources */,
-				ED2E067221D4867B00E9B9EE /* Dash.mm in Sources */,
-				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.mm in Sources */,
+				ED2E067221D4867B00E9B9EE /* Dash.m in Sources */,
+				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.m in Sources */,
 				EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */,
-				ED90A9292198DE5100204B46 /* Result.mm in Sources */,
+				ED90A9292198DE5100204B46 /* Result.m in Sources */,
 				ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */,
-				D4A2F5E21A6C3244001B8460 /* AppDelegate.mm in Sources */,
+				D4A2F5E21A6C3244001B8460 /* AppDelegate.m in Sources */,
 				ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */,
 				EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */,
 				EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */,
-				ED14B2372465412C009AA906 /* Tor.mm in Sources */,
-				ED2E066E21D4867B00E9B9EE /* AbstractTest.mm in Sources */,
+				ED14B2372465412C009AA906 /* Tor.m in Sources */,
+				ED2E066E21D4867B00E9B9EE /* AbstractTest.m in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
 				EDA9F21B22414E0E003D40E8 /* UIDevice-DeviceInfo.m in Sources */,
-				ED90A92A2198DE5100204B46 /* Url.mm in Sources */,
+				ED90A92A2198DE5100204B46 /* Url.m in Sources */,
 				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
-				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.mm in Sources */,
+				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.m in Sources */,
 				ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
@@ -1347,15 +1347,15 @@
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
 				ED9CCF30252B4B9D004F8420 /* LoggerComposed.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
-				ED90A92B2198DE5100204B46 /* Measurement.mm in Sources */,
+				ED90A92B2198DE5100204B46 /* Measurement.m in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
 				EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
-				ED2E067821D487D600E9B9EE /* InstantMessagingSuite.mm in Sources */,
+				ED2E067821D487D600E9B9EE /* InstantMessagingSuite.m in Sources */,
 				ED9CCEEE252B3190004F8420 /* OONIGeolocateResults.m in Sources */,
-				ED2E067421D4867B00E9B9EE /* FacebookMessenger.mm in Sources */,
+				ED2E067421D4867B00E9B9EE /* FacebookMessenger.m in Sources */,
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
 				ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */,
 				EDF4ED2C248A9FA7001A5406 /* Summary.m in Sources */,
@@ -1368,25 +1368,25 @@
 				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
 				EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
-				ED14B2342465411E009AA906 /* Psiphon.mm in Sources */,
-				ED2E067121D4867B00E9B9EE /* NdtTest.mm in Sources */,
+				ED14B2342465411E009AA906 /* Psiphon.m in Sources */,
+				ED2E067121D4867B00E9B9EE /* NdtTest.m in Sources */,
 				ED9CCEF7252B3298004F8420 /* OONISessionConfig.m in Sources */,
 				EDF4ED2B248A9FA7001A5406 /* Server.m in Sources */,
-				ED2E067521D4867B00E9B9EE /* AbstractSuite.mm in Sources */,
+				ED2E067521D4867B00E9B9EE /* AbstractSuite.m in Sources */,
 				EDDB0B5F1FFF3A5A00EFD9C8 /* TabsViewController.m in Sources */,
-				ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.mm in Sources */,
-				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.mm in Sources */,
+				ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.m in Sources */,
+				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.m in Sources */,
 				ED9CCF03252B356D004F8420 /* PESession.m in Sources */,
-				ED2E068121D487F500E9B9EE /* WebsitesSuite.mm in Sources */,
-				ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.mm in Sources */,
+				ED2E068121D487F500E9B9EE /* WebsitesSuite.m in Sources */,
+				ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.m in Sources */,
 				EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */,
 				EDF4ED26248A9A64001A5406 /* Advanced.m in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
-				ED3932C41E3114740064CD11 /* AboutViewController.mm in Sources */,
-				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.mm in Sources */,
+				ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */,
+				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.m in Sources */,
 				ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */,
-				ED58CF7E1FEBBE2800E3C415 /* TestUtility.mm in Sources */,
+				ED58CF7E1FEBBE2800E3C415 /* TestUtility.m in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
 				ED8F2A3823F0142A00EF5EDA /* ExceptionUtility.m in Sources */,
 				ED9CCF27252B4A13004F8420 /* LoggerArray.m in Sources */,
@@ -1395,17 +1395,17 @@
 				ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */,
 				EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
-				ED2E066D21D4867B00E9B9EE /* WebConnectivity.mm in Sources */,
+				ED2E066D21D4867B00E9B9EE /* WebConnectivity.m in Sources */,
 				EDF4ED27248A9A64001A5406 /* Simple.m in Sources */,
 				EDF4ECF4248549BD001A5406 /* Engine.m in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
 				ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */,
 				ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */,
-				ED2E067321D4867B00E9B9EE /* Telegram.mm in Sources */,
+				ED2E067321D4867B00E9B9EE /* Telegram.m in Sources */,
 				EDF2073221217340005B06D7 /* JsonResult.m in Sources */,
 				EDDB0B591FFF32DA00EFD9C8 /* SettingsCategoriesTableViewController.m in Sources */,
 				EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */,
-				ED2E067021D4867B00E9B9EE /* Whatsapp.mm in Sources */,
+				ED2E067021D4867B00E9B9EE /* Whatsapp.m in Sources */,
 				ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */,
 				ED4ACEE924C4542700421FB9 /* CountlyUtility.m in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
