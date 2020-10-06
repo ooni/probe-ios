@@ -11,9 +11,8 @@
 }
 
 - (OONIGeolocateResults*) geolocate:(OONIContext*) ctx error:(NSError **)error{
-    return [[OONIGeolocateResults alloc] initWithResults:
-            [self.session geolocate:ctx.ctx error:error]];
-
+    OonimkallGeolocateResults *r =  [self.session geolocate:ctx.ctx error:error];
+    return (r != nil) ? ([[OONIGeolocateResults alloc] initWithResults:r) : nil;
 }
 
 - (void) maybeUpdateResources:(OONIContext*) ctx error:(NSError **)error{
