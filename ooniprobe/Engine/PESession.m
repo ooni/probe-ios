@@ -17,8 +17,7 @@
 }
 
 - (void) maybeUpdateResources:(OONIContext*) ctx error:(NSError **)error{
-    [self.session maybeUpdateResources:ctx.ctx
-                                 error:error];
+    [self.session maybeUpdateResources:ctx.ctx error:error];
 }
 
 - (OONIContext*) newContext{
