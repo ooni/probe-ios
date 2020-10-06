@@ -22,7 +22,7 @@
 
 + (id<OONIMKTask>) startExperimentTaskWithSettings:(id<OONIMKTaskConfig>)settings error:(NSError **)error;
 
-+ (NSString*) resolveProbeCCwithSoftwareName:(NSString*)softwareName
++ (NSString*) resolveProbeCCWithSoftwareName:(NSString*)softwareName
                              softwareVersion:(NSString*)softwareVersion
                                      timeout:(long)timeout
                                        error:(NSError **)error;

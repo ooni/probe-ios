@@ -11,7 +11,7 @@
     NSError *error;
     NSString *cc = @"XX";
 
-    cc = [Engine resolveProbeCCwithSoftwareName:SOFTWARE_NAME
+    cc = [Engine resolveProbeCCWithSoftwareName:SOFTWARE_NAME
                                           softwareVersion:[VersionUtility get_software_version]
                                                   timeout:DEFAULT_TIMEOUT
                                                     error:&error];

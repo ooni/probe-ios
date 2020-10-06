@@ -15,7 +15,7 @@
 }
 
 /** resolveProbeCC returns the probeCC. */
-+ (NSString*) resolveProbeCCwithSoftwareName:(NSString*)softwareName
++ (NSString*) resolveProbeCCWithSoftwareName:(NSString*)softwareName
                              softwareVersion:(NSString*)softwareVersion
                                      timeout:(long)timeout
                                        error:(NSError **)error {
@@ -47,7 +47,7 @@
     config.logger = [[LoggerComposed alloc] initWithLeft:logger right:[LoggeriOS new]];
     config.softwareName = softwareName;
     config.softwareVersion = softwareVersion;
-    config.verbose = true;
+    config.verbose = false;
     config.assetsDir = [self getAssetsDir];
     config.stateDir = [self getStateDir];
     config.tempDir = [self getTempDir];
@@ -63,7 +63,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     return [documentsDirectory stringByAppendingPathComponent:
-            [NSString stringWithFormat:@"state"]];
+            [NSString stringWithFormat:@"assets"]];
 }
 
 /**
@@ -75,7 +75,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     return [documentsDirectory stringByAppendingPathComponent:
-            [NSString stringWithFormat:@"assets"]];;
+            [NSString stringWithFormat:@"state"]];;
 }
 
 /**
