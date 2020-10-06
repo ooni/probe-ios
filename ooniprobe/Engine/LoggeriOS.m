@@ -4,15 +4,15 @@
 @implementation LoggeriOS
 
 - (void) debug:(NSString*) message {
-    NSLog(@"%@ %@", TAG_ENGINE, message);
+    NSLog(@"%@: debug: %@", TAG_ENGINE, message);
 }
 
 - (void) info:(NSString*) message {
-    NSLog(@"%@ %@", TAG_ENGINE, message);
+    NSLog(@"%@: info: %@", TAG_ENGINE, message);
 }
 
 - (void) warn:(NSString*) message {
-    NSLog(@"%@ %@", TAG_ENGINE, message);
+    NSLog(@"%@: warn: %@", TAG_ENGINE, message);
 }
 
 @end
