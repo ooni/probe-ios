@@ -10,8 +10,7 @@
 
 /** startExperimentTaskWithSettings starts the experiment described by the provided settings. */
 + (id<OONIMKTask>) startExperimentTaskWithSettings:(id<OONIMKTaskConfig>)settings error:(NSError **)error{
-    return [[PEMKTask alloc] initWithTask:OonimkallStartTask(settings.serialization,
-                                                             error)];
+    return [[PEMKTask alloc] initWithTask:OonimkallStartTask(settings.serialization, error)];
 }
 
 /** resolveProbeCC returns the probeCC. */
