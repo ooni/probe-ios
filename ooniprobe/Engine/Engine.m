@@ -8,7 +8,7 @@
     return OonimkallNewUUID4();
 }
 
-/** startExperimentTask starts the experiment described by the provided settings. */
+/** startExperimentTaskWithSettings starts the experiment described by the provided settings. */
 + (id<OONIMKTask>) startExperimentTaskWithSettings:(id<OONIMKTaskConfig>)settings error:(NSError **)error{
     return [[PEMKTask alloc] initWithTask:OonimkallStartTask(settings.serialization,
                                                              error)];
