@@ -13,7 +13,7 @@
                                           softwareVersion:[VersionUtility get_software_version]
                                                   timeout:DEFAULT_TIMEOUT
                                                     error:&error];
-    if (error != nil || cc == nil) {
+    if (cc == nil) {
         cc = @"XX";
     }
     NSURLComponents *components = [[NSURLComponents alloc] init];
