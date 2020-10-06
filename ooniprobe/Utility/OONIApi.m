@@ -16,7 +16,7 @@
                                                   timeout:DEFAULT_TIMEOUT
                                                     error:&error];
     if (error != nil) {
-        //TODO Do we care about the error?
+        return;
     }
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";

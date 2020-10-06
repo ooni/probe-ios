@@ -93,7 +93,6 @@
                                                                        logger:self.logger]
                                                                         error:&error];
         if (error != nil) {
-            //TODO Do we care about the error?
             return;
         }
         // Updating resources with no timeout because we don't know for sure how much
@@ -103,7 +102,7 @@
         [session maybeUpdateResources:[session newContext] error:&error];
         //TODO what to do with error?
         if (error != nil) {
-            //TODO Do we care about the error?
+            return;
         }
         while (i < [notUploaded count]){
             Measurement *currentMeasurement = [notUploaded objectAtIndex:i];
