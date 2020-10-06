@@ -29,8 +29,9 @@
     // and there should be no timeout here.)
     [session maybeUpdateResources:[session newContext]
                             error:error];
-    return [session geolocate:[session newContextWithTimeout:timeout]
-                 error:error].country;
+    if (error != nil)
+        return nil;
+    return [session geolocate:[session newContextWithTimeout:timeout] error:error].country;
 }
 
 /** newSession returns a new OONISession instance. */

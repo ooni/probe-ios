@@ -9,14 +9,12 @@
 
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
     NSError *error;
-    NSString *cc = @"XX";
-
-    cc = [Engine resolveProbeCCWithSoftwareName:SOFTWARE_NAME
+    NSString *cc = [Engine resolveProbeCCWithSoftwareName:SOFTWARE_NAME
                                           softwareVersion:[VersionUtility get_software_version]
                                                   timeout:DEFAULT_TIMEOUT
                                                     error:&error];
-    if (error != nil) {
-        return;
+    if (error != nil || cc == nil) {
+        cc = @"XX";
     }
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";
