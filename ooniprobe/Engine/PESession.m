@@ -31,7 +31,8 @@
 }
 
 - (OONISubmitResults*) submit:(OONIContext*) ctx measurement:(NSString*) measurement error:(NSError **)error{
-    return [[OONISubmitResults alloc] initWithResults:[self.session submit:ctx.ctx measurement:measurement error:error]];
+    OonimkallSubmitResults *r = self.session submit:ctx.ctx measurement:measurement error:error];
+    return (r != nil) ? ([[OONISubmitResults alloc] initWithResults:r]) : nil;
 }
 
 
