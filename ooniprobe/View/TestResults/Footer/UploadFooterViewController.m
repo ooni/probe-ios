@@ -94,6 +94,7 @@
                                                                         error:&error];
         if (error != nil) {
             //TODO Do we care about the error?
+            return;
         }
         // Updating resources with no timeout because we don't know for sure how much
         // it will take to download them and choosing a timeout may prevent the operation
