@@ -100,7 +100,6 @@
         // to ever complete. (Ideally the user should be able to interrupt the process
         // and there should be no timeout here.)
         [session maybeUpdateResources:[session newContext] error:&error];
-        //TODO what to do with error?
         if (error != nil) {
             return;
         }
