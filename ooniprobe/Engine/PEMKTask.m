@@ -1,6 +1,6 @@
-#import "OONIProbeEngineTaskAdapter.h"
+#import "PEMKTask.h"
 
-@implementation OONIProbeEngineTaskAdapter
+@implementation PEMKTask
 
 - (id)initWithTask:(OonimkallTask*)task {
     self = [super init];

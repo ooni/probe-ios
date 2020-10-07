@@ -2,6 +2,7 @@
 #import "ReachabilityManager.h"
 #import "SettingsUtility.h"
 #import "InCodeMappingProvider.h"
+#import "Engine.h"
 
 @implementation Settings
 
@@ -14,13 +15,9 @@
         self.disabled_events = @[@"status.queued", @"status.update.websites", @"failure.report_close"];
         self.log_level = [SettingsUtility getVerbosity];
         self.options = [Options new];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        self.state_dir = [documentsDirectory stringByAppendingPathComponent:
-                          [NSString stringWithFormat:@"state"]];
-        self.assets_dir = [documentsDirectory stringByAppendingPathComponent:
-                           [NSString stringWithFormat:@"assets"]];
-        self.temp_dir = NSTemporaryDirectory();
+        self.state_dir = [Engine getStateDir];
+        self.assets_dir = [Engine getAssetsDir];
+        self.temp_dir = [Engine getTempDir];
     }
     return self;
 }

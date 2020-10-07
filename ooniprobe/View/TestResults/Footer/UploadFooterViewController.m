@@ -12,6 +12,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.logger = [LoggerArray new];
+    
     if (_upload_all){
         //test results and test summary
         [self.titleLabel setText:NSLocalizedString(@"Snackbar.ResultsSomeNotUploaded.Text", nil)];
@@ -79,14 +81,28 @@
             hud.bezelView.color = [UIColor lightGrayColor];
             hud.backgroundView.style = UIBlurEffectStyleRegular;
         });
-        logs = [NSMutableArray new];
         NSUInteger errors = 0;
         if ([notUploaded count] == 0) return;
         NSUInteger i = 0;
         float progress = 0.0f;
         float measurementValue = 1.0/([notUploaded count]);
-        id<CollectorTask> task = [Engine collectorTaskWithSoftwareName:SOFTWARE_NAME
-                               softwareVersion:[VersionUtility get_software_version]];
+        NSError *error;
+        PESession* session = [[PESession alloc] initWithConfig:
+                              [Engine getDefaultSessionConfigWithSoftwareName:SOFTWARE_NAME
+                                                              softwareVersion:[VersionUtility get_software_version]
+                                                                       logger:self.logger]
+                                                                        error:&error];
+        if (error != nil) {
+            return;
+        }
+        // Updating resources with no timeout because we don't know for sure how much
+        // it will take to download them and choosing a timeout may prevent the operation
+        // to ever complete. (Ideally the user should be able to interrupt the process
+        // and there should be no timeout here.)
+        [session maybeUpdateResources:[session newContext] error:&error];
+        if (error != nil) {
+            return;
+        }
         while (i < [notUploaded count]){
             Measurement *currentMeasurement = [notUploaded objectAtIndex:i];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -94,7 +110,7 @@
                 NSLocalizedFormatString(@"Modal.ResultsNotUploaded.Uploading",
                                         [NSString stringWithFormat:@"%ld/%ld", i+1, [notUploaded count]]);
             });
-            if (![self uploadMeasurement:currentMeasurement reporterTask:task]){
+            if (![self uploadMeasurement:currentMeasurement session:session]){
                 errors++;
             }
             progress += measurementValue;
@@ -121,22 +137,21 @@
 }
 
 -(BOOL)uploadMeasurement:(Measurement*)measurement
-            reporterTask:(id<CollectorTask>)task {
+                 session:(id<OONISession>)session {
     NSString *content = [TestUtility getUTF8FileContent:[measurement getReportFile]];
     NSUInteger bytes = [content lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-    id<CollectorResults> results = [task maybeDiscoverAndSubmit:content
-                                                    withTimeout:[TestUtility makeTimeout:bytes]];
-    if ([results isGood]){
+    NSError *error;
+    OONIContext *ooniContext = [session newContextWithTimeout:[TestUtility makeTimeout:bytes]];
+    OONISubmitResults *results = [session submit:ooniContext measurement:content error:&error];
+    if (error == nil){
         //save updated file
-        [TestUtility writeString:[results updatedSerializedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
+        [TestUtility writeString:[results updatedMeasurement] toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
         measurement.is_uploaded = true;
         measurement.is_upload_failed = false;
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
-    if (![results isGood])
-        [logs addObject:[results reason]];
-    return [results isGood];
+    return error == nil;
 }
 
 -(void)showRetryPopup:(NSInteger)numUploads withErrors:(NSInteger)errors{
@@ -168,7 +183,7 @@
         LogViewController *vc = (LogViewController *)segue.destinationViewController;
         [vc setType:@"upload_log"];
         //Send to next screen array of errors in txt format
-        [vc setText:[logs componentsJoinedByString:@"\n"]];
+        [vc setText:[self.logger.array componentsJoinedByString:@"\n"]];
     }
 }
 

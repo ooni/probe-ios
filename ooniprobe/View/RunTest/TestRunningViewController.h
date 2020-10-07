@@ -10,7 +10,7 @@
     LOTAnimationView *animation;
     int totalRuntime;
     AbstractSuite *testSuite;
-    id<ExperimentTask> task;
+    id<OONIMKTask> task;
 }
 
 @property (nonatomic, strong) NSMutableArray *testSuites;
