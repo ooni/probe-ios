@@ -12,7 +12,7 @@
 
 @implementation WebConnectivityTest
 Settings *settings;
-id<ExperimentTask> task;
+id<OONIMKTask> task;
 
 - (void)setUp {
     settings = [Settings new];

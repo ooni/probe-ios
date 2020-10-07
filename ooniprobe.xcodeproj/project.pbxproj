@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		17E7EDB821BFEDD1001961C7 /* OONIProbeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDB721BFEDD1001961C7 /* OONIProbeUITests.swift */; };
 		17E7EDC021BFEE0C001961C7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */; };
-		362BF975DD941BA47CEB79CF /* libPods-OONIProbeUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38575D73AC4D0E4C814662 /* libPods-OONIProbeUnitTests.a */; };
 		C8F0F5BCD132FD1482C9804A /* libPods-ooniprobe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.m */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
 		D4A2F5ED1A6C3244001B8460 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */; };
+		EB73683A521F90D387C6C063 /* libPods-OONIProbeUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */; };
 		ED0A6201200B52C000235E70 /* OONIRun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0A6200200B52C000235E70 /* OONIRun.storyboard */; };
 		ED0D35BE1DD72825005C863F /* RunButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D35BD1DD72824005C863F /* RunButton.m */; };
 		ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */; };
@@ -81,7 +81,6 @@
 		ED90A92D2198DE5100204B46 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = ED90A9272198DE5000204B46 /* Options.m */; };
 		ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED997D09207BB7C400C97B1F /* LocalizationUtility.m */; };
 		ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED997D0B207BCEE400C97B1F /* Strings.plist */; };
-		ED9D313E2524D9CA00E52AF4 /* WebConnectivityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9D313D2524D9CA00E52AF4 /* WebConnectivityTest.m */; };
 		ED9CCED4252B2CC6004F8420 /* LoggerNull.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCED3252B2CC6004F8420 /* LoggerNull.m */; };
 		ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCEE7252B30D3004F8420 /* OONIContext.m */; };
 		ED9CCEEE252B3190004F8420 /* OONIGeolocateResults.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCEED252B3190004F8420 /* OONIGeolocateResults.m */; };
@@ -92,6 +91,7 @@
 		ED9CCF21252B4A06004F8420 /* LoggeriOS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCF20252B4A06004F8420 /* LoggeriOS.m */; };
 		ED9CCF27252B4A13004F8420 /* LoggerArray.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCF26252B4A13004F8420 /* LoggerArray.m */; };
 		ED9CCF30252B4B9D004F8420 /* LoggerComposed.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCF2F252B4B9D004F8420 /* LoggerComposed.m */; };
+		ED9CCFE9252DCDC7004F8420 /* WebConnectivityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9CCFE8252DCDC7004F8420 /* WebConnectivityTest.m */; };
 		ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */; };
 		EDA17AF9208A30E100D46D0F /* InstantMessagingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AF4208A30E000D46D0F /* InstantMessagingDetailsViewController.m */; };
 		EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA17AF8208A30E100D46D0F /* MiddleBoxesDetailsViewController.m */; };
@@ -174,10 +174,10 @@
 		17E7EDB721BFEDD1001961C7 /* OONIProbeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OONIProbeUITests.swift; sourceTree = "<group>"; };
 		17E7EDB921BFEDD1001961C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
-		50EC047D00607DC4387EE4D0 /* Pods-OONIProbeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5FA27C6F8D3FF0E7DB605432 /* Pods-OONIProbeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OONIProbeUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98FEAB61B0AD74E566951F69 /* Pods-OONIProbeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		B14D39522921C8CE117986F7 /* Pods-ooniprobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ooniprobe/Pods-ooniprobe.debug.xcconfig"; sourceTree = "<group>"; };
-		BC38575D73AC4D0E4C814662 /* libPods-OONIProbeUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OONIProbeUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3AF575E180FF33021FBC6A7 /* Pods-OONIProbeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A2F5D91A6C3244001B8460 /* ooniprobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ooniprobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A2F5DD1A6C3244001B8460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2F5DE1A6C3244001B8460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -324,7 +324,6 @@
 		ED997D08207BB7C400C97B1F /* LocalizationUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocalizationUtility.h; path = Utility/LocalizationUtility.h; sourceTree = "<group>"; };
 		ED997D09207BB7C400C97B1F /* LocalizationUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocalizationUtility.m; path = Utility/LocalizationUtility.m; sourceTree = "<group>"; };
 		ED997D0B207BCEE400C97B1F /* Strings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Strings.plist; sourceTree = "<group>"; };
-		ED9D313D2524D9CA00E52AF4 /* WebConnectivityTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebConnectivityTest.m; sourceTree = "<group>"; };
 		ED9CCED3252B2CC6004F8420 /* LoggerNull.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoggerNull.m; path = Engine/LoggerNull.m; sourceTree = "<group>"; };
 		ED9CCED8252B2CE3004F8420 /* OONIMKTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIMKTask.h; path = Engine/OONIMKTask.h; sourceTree = "<group>"; };
 		ED9CCED9252B2CE3004F8420 /* OONIMKTaskConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIMKTaskConfig.h; path = Engine/OONIMKTaskConfig.h; sourceTree = "<group>"; };
@@ -349,6 +348,7 @@
 		ED9CCF26252B4A13004F8420 /* LoggerArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoggerArray.m; path = Engine/LoggerArray.m; sourceTree = "<group>"; };
 		ED9CCF2E252B4B9D004F8420 /* LoggerComposed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoggerComposed.h; path = Engine/LoggerComposed.h; sourceTree = "<group>"; };
 		ED9CCF2F252B4B9D004F8420 /* LoggerComposed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoggerComposed.m; path = Engine/LoggerComposed.m; sourceTree = "<group>"; };
+		ED9CCFE8252DCDC7004F8420 /* WebConnectivityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebConnectivityTest.m; sourceTree = "<group>"; };
 		ED9D8B99207F5C4A00189FAE /* TestDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDetailsViewController.h; sourceTree = "<group>"; };
 		ED9D8B9A207F5C4A00189FAE /* TestDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDetailsViewController.m; sourceTree = "<group>"; };
 		EDA17AF3208A30E000D46D0F /* InstantMessagingDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstantMessagingDetailsViewController.h; sourceTree = "<group>"; };
@@ -474,7 +474,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				362BF975DD941BA47CEB79CF /* libPods-OONIProbeUnitTests.a in Frameworks */,
+				EB73683A521F90D387C6C063 /* libPods-OONIProbeUnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,7 +972,7 @@
 				ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */,
 				ED5BC3C6229568FB00E311D7 /* MakeTimeoutTest.m */,
 				EDF8E51C22C40A8E00CF0FF6 /* APITest.m */,
-				ED9D313D2524D9CA00E52AF4 /* WebConnectivityTest.m */,
+				ED9CCFE8252DCDC7004F8420 /* WebConnectivityTest.m */,
 			);
 			path = OONIProbeUnitTests;
 			sourceTree = "<group>";
@@ -1009,7 +1009,7 @@
 			children = (
 				ED3582311FE948580078CCEE /* libsqlite3.tbd */,
 				01E11775CFCA0BB7A69035D3 /* libPods-ooniprobe.a */,
-				BC38575D73AC4D0E4C814662 /* libPods-OONIProbeUnitTests.a */,
+				2946A332FEE93CBF2E1924E6 /* libPods-OONIProbeUnitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1019,8 +1019,8 @@
 			children = (
 				B14D39522921C8CE117986F7 /* Pods-ooniprobe.debug.xcconfig */,
 				FBB68CFBE135C2F6BDF61340 /* Pods-ooniprobe.release.xcconfig */,
-				50EC047D00607DC4387EE4D0 /* Pods-OONIProbeUnitTests.debug.xcconfig */,
-				5FA27C6F8D3FF0E7DB605432 /* Pods-OONIProbeUnitTests.release.xcconfig */,
+				B3AF575E180FF33021FBC6A7 /* Pods-OONIProbeUnitTests.debug.xcconfig */,
+				98FEAB61B0AD74E566951F69 /* Pods-OONIProbeUnitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1070,11 +1070,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDF23EF42225258100B97520 /* Build configuration list for PBXNativeTarget "OONIProbeUnitTests" */;
 			buildPhases = (
-				42395A3C5A545B756353DE9C /* [CP] Check Pods Manifest.lock */,
+				911113021556D4D91C10FB3E /* [CP] Check Pods Manifest.lock */,
 				EDF23EE72225258100B97520 /* Sources */,
 				EDF23EE82225258100B97520 /* Frameworks */,
 				EDF23EE92225258100B97520 /* Resources */,
-				38EDE0109A427FB67B53A3EB /* [CP] Embed Pods Frameworks */,
+				3631AB52440CE392AE49C5FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1256,7 +1256,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		38EDE0109A427FB67B53A3EB /* [CP] Embed Pods Frameworks */ = {
+		3631AB52440CE392AE49C5FB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1274,7 +1274,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		42395A3C5A545B756353DE9C /* [CP] Check Pods Manifest.lock */ = {
 		911113021556D4D91C10FB3E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1295,24 +1294,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		901BA501D662298E3A6192F6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh",
-				"${PODS_ROOT}/mkall/mkall.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mkall.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED4ACEEA24C4B65A00421FB9 /* ShellScript */ = {
@@ -1461,9 +1442,9 @@
 				EDF23EF92228CC6000B97520 /* NetworkTest.m in Sources */,
 				EDF8E51D22C40A8E00CF0FF6 /* APITest.m in Sources */,
 				ED5BC3C7229568FB00E311D7 /* MakeTimeoutTest.m in Sources */,
+				ED9CCFE9252DCDC7004F8420 /* WebConnectivityTest.m in Sources */,
 				ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */,
 				EDAE20FB22677BE50080FBCD /* ResultTest.m in Sources */,
-				ED9D313E2524D9CA00E52AF4 /* WebConnectivityTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1550,7 +1531,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ooniprobe;
-				VALID_ARCHS = "armv7 arm64 i386 x86_64";
+				VALID_ARCHS = "armv7s armv7 i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -1581,7 +1562,6 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ooniprobe;
-				VALID_ARCHS = "$ARCHS_STANDARD";
 				VALID_ARCHS = $ARCHS_STANDARD;
 			};
 			name = Release;
@@ -1734,7 +1714,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 arm64 i386 x86_64";
+				VALID_ARCHS = "armv7s armv7 i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -1783,14 +1763,13 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "$ARCHS_STANDARD";
 				VALID_ARCHS = $ARCHS_STANDARD;
 			};
 			name = Release;
 		};
 		EDF23EF22225258100B97520 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50EC047D00607DC4387EE4D0 /* Pods-OONIProbeUnitTests.debug.xcconfig */;
+			baseConfigurationReference = B3AF575E180FF33021FBC6A7 /* Pods-OONIProbeUnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1815,13 +1794,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
-				VALID_ARCHS = "armv7 arm64 i386 x86_64";
+				VALID_ARCHS = "armv7s armv7 i386 x86_64";
 			};
 			name = Debug;
 		};
 		EDF23EF32225258100B97520 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FA27C6F8D3FF0E7DB605432 /* Pods-OONIProbeUnitTests.release.xcconfig */;
+			baseConfigurationReference = 98FEAB61B0AD74E566951F69 /* Pods-OONIProbeUnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1846,7 +1825,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
-				VALID_ARCHS = "$ARCHS_STANDARD";
 				VALID_ARCHS = $ARCHS_STANDARD;
 			};
 			name = Release;
