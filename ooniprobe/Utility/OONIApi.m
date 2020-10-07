@@ -6,6 +6,7 @@
 #import "VersionUtility.h"
 #define OONI_ORCHESTRATE_BASE_URL @"orchestrate.ooni.io"
 #define OONI_API_BASE_URL @"api.ooni.io"
+
 @implementation OONIApi
 
 + (void)downloadUrls:(NSString*)baseUrl
