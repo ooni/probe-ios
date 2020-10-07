@@ -20,14 +20,14 @@
 
 + (NSString*) newUUID4;
 
-+ (id<OONIMKTask>) startExperimentTaskWithSettings:(id<OONIMKTaskConfig>)settings error:(NSError **)error;
++ (PEMKTask*) startExperimentTaskWithSettings:(id<OONIMKTaskConfig>)settings error:(NSError **)error;
 
 + (NSString*) resolveProbeCCWithSoftwareName:(NSString*)softwareName
                              softwareVersion:(NSString*)softwareVersion
                                      timeout:(long)timeout
                                        error:(NSError **)error;
 
-+ (id<OONISession>) newSession:(OONISessionConfig*)config error:(NSError **)error;
++ (PESession*) newSession:(OONISessionConfig*)config error:(NSError **)error;
 
 + (OONISessionConfig*) getDefaultSessionConfigWithSoftwareName:(NSString*)softwareName
                                                softwareVersion:(NSString*)softwareVersion

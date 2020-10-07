@@ -9,7 +9,7 @@
 }
 
 /** startExperimentTaskWithSettings starts the experiment described by the provided settings. */
-+ (id<OONIMKTask>) startExperimentTaskWithSettings:(id<OONIMKTaskConfig>)settings error:(NSError **)error{
++ (PEMKTask*) startExperimentTaskWithSettings:(id<OONIMKTaskConfig>)settings error:(NSError **)error{
     return [[PEMKTask alloc] initWithTask:OonimkallStartTask(settings.serialization, error)];
 }
 
@@ -41,9 +41,8 @@
 }
 
 /** newSession returns a new OONISession instance. */
-+ (id<OONISession>) newSession:(OONISessionConfig*)config error:(NSError **)error {
-    id<OONISession> session = [[PESession alloc] initWithConfig:config error:error];
-    return session;
++ (PESession*) newSession:(OONISessionConfig*)config error:(NSError **)error {
+    return [[PESession alloc] initWithConfig:config error:error];
 }
 
 /** getDefaultSessionConfig returns a new SessionConfig with default parameters. */
