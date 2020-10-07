@@ -15,7 +15,7 @@ target 'ooniprobe' do
     pod 'Countly'
 end
 target 'OONIProbeUnitTests' do
-    pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2020.08.21-075809.podspec'
+    pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2020.10.06-103613.podspec'
     pod 'mkall', :git => 'https://github.com/measurement-kit/mkall-ios.git', :tag => 'v0.10.0'
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
 end
