@@ -1074,7 +1074,6 @@
 				EDF23EE72225258100B97520 /* Sources */,
 				EDF23EE82225258100B97520 /* Frameworks */,
 				EDF23EE92225258100B97520 /* Resources */,
-				3631AB52440CE392AE49C5FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1254,24 +1253,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3631AB52440CE392AE49C5FB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests-frameworks.sh",
-				"${PODS_ROOT}/mkall/mkall.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mkall.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		911113021556D4D91C10FB3E /* [CP] Check Pods Manifest.lock */ = {
@@ -1562,7 +1543,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ooniprobe;
-				VALID_ARCHS = $ARCHS_STANDARD;
+				VALID_ARCHS = "$ARCHS_STANDARD";
 			};
 			name = Release;
 		};
@@ -1763,7 +1744,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = $ARCHS_STANDARD;
+				VALID_ARCHS = "$ARCHS_STANDARD";
 			};
 			name = Release;
 		};
@@ -1825,7 +1806,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
-				VALID_ARCHS = $ARCHS_STANDARD;
+				VALID_ARCHS = "$ARCHS_STANDARD";
 			};
 			name = Release;
 		};
