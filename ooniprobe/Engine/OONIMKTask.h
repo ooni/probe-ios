@@ -1,22 +1,22 @@
 #import <Foundation/Foundation.h>
 
 /**
- * ExperimentTask is a task run by OONI Probe's engine. The expected usage
+ * OONIMKTask is an MK-like task run by OONI Probe's engine. The expected usage
  * of this interface like in the following code snippet:
  *
  * <pre>
- *     while (!task.isDone) {
- *         processEvent(task.waitForNextEvent);
+ *     while (!task.isDone()) {
+ *         processEvent(task.waitForNextEvent());
  *     }
  * </pre>
  *
  * We do not necessarily run all tasks using the same backend. Some
  * backends support interrupting a task, others do not. Use the
- * canInterrupt method to find out whether this is possible. If
- * a task can be interrupted, interrupt will interrupt it. The task
+ * canInterrupt() method to find out whether this is possible. If
+ * a task can be interrupted, interrupt() will interrupt it. The task
  * will stop as soon as possible but not necessarily immediately.
  */
-@protocol ExperimentTask 
+@protocol OONIMKTask
 
 /** isDone tells you whether this task has completed. */
 - (BOOL) isDone;

@@ -3,20 +3,22 @@
 #import "SettingsUtility.h"
 #import "NetworkSession.h"
 #import "Url.h"
+#import "VersionUtility.h"
 #define OONI_ORCHESTRATE_BASE_URL @"orchestrate.ooni.io"
 #define OONI_API_BASE_URL @"api.ooni.io"
-
 @implementation OONIApi
 
 + (void)downloadUrls:(NSString*)baseUrl
            onSuccess:(void (^)(NSArray*))successcb
              onError:(void (^)(NSError*))errorcb {
-    id<GeoIPLookupTask> task = [Engine geoIPLookupTask];
-    [task setTimeout:DEFAULT_TIMEOUT];
-    id<GeoIPLookupResults> results = [task perform];
-    NSString *cc = @"XX";
-    if ([results isGood])
-        cc = [results probeCC];
+    NSError *error;
+    NSString *cc = [Engine resolveProbeCCWithSoftwareName:SOFTWARE_NAME
+                                          softwareVersion:[VersionUtility get_software_version]
+                                                  timeout:DEFAULT_TIMEOUT
+                                                    error:&error];
+    if (cc == nil) {
+        cc = @"XX";
+    }
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";
     components.host = baseUrl;
