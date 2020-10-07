@@ -4,10 +4,14 @@
 #import "NetworkSession.h"
 #import "Url.h"
 #import "VersionUtility.h"
+#define OONI_ORCHESTRATE_BASE_URL @"orchestrate.ooni.io"
+#define OONI_API_BASE_URL @"api.ooni.io"
 
 @implementation OONIApi
 
-+ (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
++ (void)downloadUrls:(NSString*)baseUrl
+           onSuccess:(void (^)(NSArray*))successcb
+             onError:(void (^)(NSError*))errorcb {
     NSError *error;
     NSString *cc = [Engine resolveProbeCCWithSoftwareName:SOFTWARE_NAME
                                           softwareVersion:[VersionUtility get_software_version]
@@ -18,7 +22,7 @@
     }
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";
-    components.host = @"orchestrate.ooni.io";
+    components.host = baseUrl;
     components.path = @"/api/v1/test-list/urls";
     NSURLQueryItem *ccItem = [NSURLQueryItem
                               queryItemWithName:@"country_code"
@@ -42,6 +46,12 @@
                                  onSuccess:successcb onError:errorcb];
     }];
     [downloadTask resume];
+}
+
++ (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
+    [self downloadUrls:OONI_ORCHESTRATE_BASE_URL
+             onSuccess:successcb
+               onError:errorcb];
 }
 
 + (void)downloadUrlsCallback:(NSData *)data
@@ -109,13 +119,14 @@
     successcb(dic);
 }
 
-+ (void)getExplorerUrl:(NSString*)report_id
++ (void)getExplorerUrl:(NSString*)baseURl
+             report_id:(NSString*)report_id
                withUrl:(NSString*)measurement_url
              onSuccess:(void (^)(NSString*))successcb
                onError:(void (^)(NSError*))errorcb {
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";
-    components.host = @"api.ooni.io";
+    components.host = baseURl;
     components.path = @"/api/v1/measurements";
     NSURLQueryItem *reportIdItem = [NSURLQueryItem
                                     queryItemWithName:@"report_id"
@@ -138,6 +149,17 @@
                           onSuccess:successcb onError:errorcb];
      }];
     [downloadTask resume];
+}
+
++ (void)getExplorerUrl:(NSString*)report_id
+               withUrl:(NSString*)measurement_url
+             onSuccess:(void (^)(NSString*))successcb
+               onError:(void (^)(NSError*))errorcb {
+    [self getExplorerUrl:OONI_API_BASE_URL
+               report_id:report_id
+                 withUrl:measurement_url
+               onSuccess:successcb
+                 onError:errorcb];
 }
 
 + (void)getExplorerUrlCallback:(NSData *)data
@@ -170,12 +192,13 @@
     successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
 }
 
-+ (void)checkReportId:(NSString*)report_id
++ (void)checkReportId:(NSString*)baseUrl
+            reportId:(NSString*)report_id
            onSuccess:(void (^)(BOOL))successcb
              onError:(void (^)(NSError*))errorcb{
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";
-    components.host = @"api.ooni.io";
+    components.host = baseUrl;
     components.path = @"/api/_/check_report_id";
     NSURLQueryItem *reportIdItem = [NSURLQueryItem
                                     queryItemWithName:@"report_id"
@@ -189,6 +212,15 @@
                           onSuccess:successcb onError:errorcb];
      }];
     [downloadTask resume];
+}
+
++ (void)checkReportId:(NSString*)report_id
+           onSuccess:(void (^)(BOOL))successcb
+             onError:(void (^)(NSError*))errorcb{
+    [self checkReportId:OONI_API_BASE_URL
+               reportId:report_id
+              onSuccess:successcb
+                onError:errorcb];
 }
 
 + (void)checkReportIdCallback:(NSData *)data

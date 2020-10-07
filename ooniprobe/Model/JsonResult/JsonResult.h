@@ -10,6 +10,7 @@
 @property (nonatomic, strong) NSDate *measurement_start_time;
 @property (nonatomic, strong) NSNumber *test_runtime;
 @property (nonatomic, strong) NSString *input;
+@property (nonatomic, strong) NSString *report_id;
 @property (nonatomic, strong) TestKeys *test_keys;
 @end
 

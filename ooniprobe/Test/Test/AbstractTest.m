@@ -265,29 +265,7 @@
             return;
         }
         [TestUtility writeString:str toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
-
-        InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
-        ObjectMapper *mapper = [[ObjectMapper alloc] init];
-        mapper.mappingProvider = mappingProvider;
-
-        //Hack to add UTC format to dates
-        [mappingProvider mapFromDictionaryKey:@"measurement_start_time" toPropertyKey:@"measurement_start_time" forClass:[JsonResult class] withTransformer:^id(id currentNode, id parentNode) {
-            NSString *currentDateStr = [NSString stringWithFormat:@"%@Z", (NSString*)currentNode];
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
-            return [dateFormatter dateFromString:currentDateStr];
-        }];
-        [mappingProvider mapFromDictionaryKey:@"test_start_time" toPropertyKey:@"test_start_time" forClass:[JsonResult class] withTransformer:^id(id currentNode, id parentNode) {
-            NSString *currentDateStr = [NSString stringWithFormat:@"%@Z", (NSString*)currentNode];
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZ"];
-            return [dateFormatter dateFromString:currentDateStr];
-        }];
-        [mappingProvider mapFromDictionaryKey:@"tampering" toPropertyKey:@"tampering" forClass:[TestKeys class] withTransformer:^id(id currentNode, id parentNode) {
-            return [[Tampering alloc] initWithValue:currentNode];
-        }];
-        JsonResult *json = [mapper objectFromSource:jsonDic toInstanceOfClass:[JsonResult class]];
-        [self onEntry:json obj:measurement];
+        [self onEntry:[TestUtility jsonResultfromDic:jsonDic] obj:measurement];
         [measurement save];
         [self.result save];
     }
