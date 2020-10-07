@@ -1512,7 +1512,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ooniprobe;
-				VALID_ARCHS = "armv7s armv7 i386 x86_64";
+				VALID_ARCHS = "armv7s armv7 arm64 i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -1543,7 +1543,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ooniprobe;
-				VALID_ARCHS = "$ARCHS_STANDARD";
+				VALID_ARCHS = $ARCHS_STANDARD;
 			};
 			name = Release;
 		};
@@ -1695,7 +1695,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7s armv7 i386 x86_64";
+				VALID_ARCHS = "armv7s armv7 arm64 i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -1744,7 +1744,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "$ARCHS_STANDARD";
+				VALID_ARCHS = $ARCHS_STANDARD;
 			};
 			name = Release;
 		};
@@ -1775,7 +1775,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
-				VALID_ARCHS = "armv7s armv7 i386 x86_64";
+				VALID_ARCHS = "armv7s armv7 arm64 i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -1806,7 +1806,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ooniprobe.app/ooniprobe";
-				VALID_ARCHS = "$ARCHS_STANDARD";
+				VALID_ARCHS = $ARCHS_STANDARD;
 			};
 			name = Release;
 		};
