@@ -1,11 +1,16 @@
 #import <Foundation/Foundation.h>
-#import "ExperimentSettings.h"
-#import "MKExperimentTaskAdapter.h"
-#import "MKGeoIPLookupResultsAdapter.h"
-#import "MKGeoIPLookupTaskAdapter.h"
-#import "MKReporterResultsAdapter.h"
-#import "MKReporterTaskAdapter.h"
-#import "OONIProbeEngineTaskAdapter.h"
+#import "OONIMKTask.h"
+#import "OONIMKTaskConfig.h"
+#import "PEMKTask.h"
+#import "OONIContext.h"
+#import "OONISession.h"
+#import "OONISessionConfig.h"
+#import "PESession.h"
+#import "OONILogger.h"
+#import "LoggerComposed.h"
+#import "LoggeriOS.h"
+#import "LoggerNull.h"
+#import "LoggerArray.h"
 
 /**
 * Engine is a factory class for creating several kinds of tasks. We will use different
@@ -13,14 +18,25 @@
 */
 @interface Engine : NSObject
 
-+ (NSString*) versionMK;
-
 + (NSString*) newUUID4;
 
-+ (id<ExperimentTask>) startExperimentTaskWithSettings:(id<ExperimentSettings>)settings error:(NSError **)error;
++ (PEMKTask*) startExperimentTaskWithSettings:(id<OONIMKTaskConfig>)settings error:(NSError **)error;
 
-+ (id<GeoIPLookupTask>) geoIPLookupTask;
++ (NSString*) resolveProbeCCWithSoftwareName:(NSString*)softwareName
+                             softwareVersion:(NSString*)softwareVersion
+                                     timeout:(long)timeout
+                                       error:(NSError **)error;
 
-+ (id<CollectorTask>) collectorTaskWithSoftwareName:(NSString *)softwareName
-                                     softwareVersion:(NSString *)softwareVersion;
++ (PESession*) newSession:(OONISessionConfig*)config error:(NSError **)error;
+
++ (OONISessionConfig*) getDefaultSessionConfigWithSoftwareName:(NSString*)softwareName
+                                               softwareVersion:(NSString*)softwareVersion
+                                                        logger:(id<OONILogger>)logger;
+
++ (NSString*) getAssetsDir;
+
++ (NSString*) getStateDir;
+
++ (NSString*) getTempDir;
+
 @end

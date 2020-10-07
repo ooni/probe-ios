@@ -26,7 +26,7 @@
 @property Settings *settings;
 @property BOOL annotation;
 @property dispatch_queue_t serialQueue;
-@property id<ExperimentTask> task;
+@property id<OONIMKTask> task;
 
 -(id)initTest:(NSString*)testName;
 -(Measurement*)createMeasurementObject;

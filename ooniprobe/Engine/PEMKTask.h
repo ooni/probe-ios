@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <oonimkall/Oonimkall.h>
-#import "ExperimentTask.h"
+#import "OONIMKTask.h"
 
-@interface OONIProbeEngineTaskAdapter : NSObject <ExperimentTask>
+@interface PEMKTask : NSObject <OONIMKTask>
 
 - (id)initWithTask:(OonimkallTask*)task;
 

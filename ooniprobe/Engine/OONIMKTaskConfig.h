@@ -1,11 +1,11 @@
 #import <Foundation/Foundation.h>
 
 /**
- * ExperimentSettings is the interface that settings passed to this engine
+ * OONIMKTaskConfig is the interface that any settings for MK-like tasks
  * must implement. It allows the engine to discover the name of the task
  * that we want to run and to obtain its serialization.
  */
-@protocol ExperimentSettings
+@protocol OONIMKTaskConfig
 
 /** taskName returns the task name */
 - (NSString*) taskName;
@@ -20,5 +20,6 @@
  * dictionary returns the NSDictionary object of the task config
  */
 - (NSDictionary*) dictionary;
+
 
 @end
