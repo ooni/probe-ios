@@ -27,7 +27,7 @@
                                      timeout:(long)timeout
                                        error:(NSError **)error;
 
-+ (PESession*) newSession:(OONISessionConfig*) config error:(NSError **)error;
++ (id<OONISession>) newSession:(OONISessionConfig*) config error:(NSError **)error;
 
 + (OONISessionConfig*) getDefaultSessionConfigWithSoftwareName:(NSString*)softwareName
                                                softwareVersion:(NSString*)softwareVersion
