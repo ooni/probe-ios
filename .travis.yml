@@ -1,9 +1,0 @@
-language: objective-c
-osx_image: xcode11.1
-podfile: Podfile
-before_install:
-  - bundle install
-  - pod repo update
-  - pod install
-script:
-  - set -o pipefail && xcodebuild clean build test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator -scheme ooniprobe -destination 'name=iPhone 11 Pro Max'  | xcpretty
