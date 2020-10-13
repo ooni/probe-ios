@@ -68,7 +68,15 @@
         [self viewLogs];
     }];
     
-    UIAlertAction* explorerButton = [UIAlertAction
+    UIAlertAction* shareExplorerURLButton = [UIAlertAction
+                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.ShareExplorerURL", nil)
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+        [CountlyUtility recordEvent:@"ShareExplorerURL"];
+        [self shareExplorerUrl];
+    }];
+
+    UIAlertAction* copyExplorerURLButton = [UIAlertAction
                                     actionWithTitle:NSLocalizedString(@"TestResults.Details.CopyExplorerURL", nil)
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
@@ -80,8 +88,10 @@
     [buttons addObject:rawDataButton];
     if ([self.measurement hasLogFile])
         [buttons addObject:logButton];
-    if (self.measurement.report_id != NULL && ![self.measurement.report_id isEqualToString:@""])
-        [buttons addObject:explorerButton];
+    if (self.measurement.report_id != NULL && ![self.measurement.report_id isEqualToString:@""]){
+        [buttons addObject:shareExplorerURLButton];
+        [buttons addObject:copyExplorerURLButton];
+    }
     [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
 }
 
@@ -95,13 +105,29 @@
     [self performSegueWithIdentifier:@"toViewLog" sender:self];
 }
 
+-(NSString*)getExplorerUrl{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"https://explorer.ooni.io/measurement/%@", self.measurement.report_id];
+    if ([self.measurement.test_name isEqualToString:@"web_connectivity"])
+        [url appendFormat:@"?input=%@", self.measurement.url_id.url];
+    return url;
+}
+
 -(IBAction)copyExplorerUrl{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    NSMutableString *link = [NSMutableString stringWithFormat:@"https://explorer.ooni.io/measurement/%@", self.measurement.report_id];
-    if ([self.measurement.test_name isEqualToString:@"web_connectivity"])
-        [link appendFormat:@"?input=%@", self.measurement.url_id.url];
-    pasteboard.string = link;
+    pasteboard.string = [self getExplorerUrl];
     [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
+}
+
+-(IBAction)shareExplorerUrl{
+    NSURL *url = [NSURL URLWithString:[self getExplorerUrl]];
+    NSArray* dataToShare = @[url];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:dataToShare applicationActivities:nil];
+    if ( [activityViewController respondsToSelector:@selector(popoverPresentationController)] )
+    {
+        activityViewController.popoverPresentationController.sourceView = self.view;
+        activityViewController.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.height/4, 0, 0);
+    }
+    [self presentViewController:activityViewController animated:YES completion:^{}];
 }
 
 #pragma mark - Navigation
