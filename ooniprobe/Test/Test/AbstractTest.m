@@ -112,6 +112,7 @@
             }
             else if ([event.key isEqualToString:@"status.progress"]) {
                 [self updateProgress:event.value];
+                [self updateLogs:event.value];
             }
             else if ([event.key isEqualToString:@"measurement"]) {
                 [self onEntryCreate:event.value];
