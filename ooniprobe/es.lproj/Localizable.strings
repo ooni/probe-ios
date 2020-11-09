@@ -143,7 +143,7 @@
 "TestResults.Details.ViewLog" = "Ver registro";
 "TestResults.Details.RawData" = "Datos";
 "TestResults.Details.CopyExplorerURL" = "Copiar URL del explorador";
-"TestResults.Details.ShareExplorerURL" = "Share Explorer URL";
+"TestResults.Details.ShareExplorerURL" = "Compartir URL del explorador";
 "TestResults.Details.CopyToClipboard" = "Copiar al portapapeles";
 "TestResults.Details.ShowInExplorer" = "Mostrar en OONI Explorer";
 "TestResults.Details.Failed.Title" = "Falló";
@@ -242,7 +242,7 @@
 "Modal.Error" = "Error";
 "Modal.Retry" = "Intentar de nuevo";
 "Modal.SoundsGreat" = "Suena genial";
-"Modal.NoThanks" = "¡No, gracias!";
+"Modal.NoThanks" = "No, gracias";
 "Modal.Error.NoInternet" = "Incapaz de ejecutar la prueba. Por favor comprueba tu conectividad de Internet.";
 "Modal.Error.CantDownloadURLs" = "Incapaz de descargar la lista de URL. Por favor intenta de nuevo.";
 "Modal.Error.NotificationNotEnabled" = "Son requeridos permisos de notificación. Por favor habilítalos en las Configuraciones de tu teléfono y luego en tu aplicación OONI Probe.";
@@ -310,6 +310,12 @@
 "Settings.Notifications.Enabled" = "Activado";
 "Settings.Notifications.OnTestCompletion" = "Notificar una vez que la prueba se haya completado";
 "Settings.Notifications.OnNews" = "Suscripción de noticias";
+"Settings.AutomatedTesting.Label" = "Pruebas automatizadas";
+"Settings.AutomatedTesting.RunAutomatically" = "Ejecutar pruebas automáticamente";
+"Settings.AutomatedTesting.RunAutomaticallyTime" = "Hora";
+"Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Efectuar pruebas sólo sobre WiFi";
+"Settings.AutomatedTesting.RunAutomatically.MaxRuntimeEnabled" = "Limite la duración de la prueba";
+"Settings.AutomatedTesting.RunAutomatically.MaxRuntime" = "Duración de la prueba";
 "Settings.Sharing.Label" = "Compartir";
 "Settings.Sharing.UploadResults" = "Publicar resultados automáticamente";
 "Settings.Sharing.UploadResultsManually" = "Subida Manual de Resultado";
@@ -330,6 +336,13 @@
 "Settings.Websites.MaxRuntime" = "Duración de la prueba";
 "Settings.Websites.Categories.Label" = "Categorías de sitios web a probar";
 "Settings.Websites.Categories.Description" = "%@ categorías habilitadas";
+"Settings.Websites.Categories.Selection.None" = "Deselect All";
+"Settings.Websites.Categories.Selection.All" = "Seleccionar todos";
+"Settings.Websites.Categories.Selection.Done" = "Listo";
+"Settings.Websites.Categories.Confirmation.Title" = "Cambios no guardados";
+"Settings.Websites.Categories.Confirmation.Body" = "You made some changes to the enabled categories. Would you like to save them?";
+"Settings.Websites.Categories.Confirmation.Label.Confirm" = "Guardar";
+"Settings.Websites.Categories.Confirmation.Label.Cancel" = "Descartar";
 "Settings.Websites.CustomURL.Title" = "Elige sitios web a probar";
 "Settings.Websites.CustomURL.URL" = "URL";
 "Settings.Websites.CustomURL.NoURLEntered" = "No se han introducido URLs";

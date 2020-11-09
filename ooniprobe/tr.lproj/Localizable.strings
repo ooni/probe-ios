@@ -143,7 +143,7 @@
 "TestResults.Details.ViewLog" = "Günlüğü görüntüle";
 "TestResults.Details.RawData" = "Veri";
 "TestResults.Details.CopyExplorerURL" = "Tarayıcı Adresini Kopyala";
-"TestResults.Details.ShareExplorerURL" = "Share Explorer URL";
+"TestResults.Details.ShareExplorerURL" = "Gezgin adresini paylaş";
 "TestResults.Details.CopyToClipboard" = "Panoya kopyala";
 "TestResults.Details.ShowInExplorer" = "OONI gezgininde görüntüle";
 "TestResults.Details.Failed.Title" = "Başarısız";
@@ -241,7 +241,7 @@
 "Modal.Delete" = "Sil";
 "Modal.Error" = "Hata";
 "Modal.Retry" = "Yeniden Dene";
-"Modal.SoundsGreat" = "Sounds great";
+"Modal.SoundsGreat" = "Harika görünüyor";
 "Modal.NoThanks" = "Hayır, teşekkürler";
 "Modal.Error.NoInternet" = "Sınama yapılamadı. Lütfen İnternet bağlantınızı denetleyin.";
 "Modal.Error.CantDownloadURLs" = "Adres listesi indirilemedi. Lütfen yeniden deneyin.";
@@ -255,7 +255,7 @@
 "Modal.ResultsNotUploaded.Uploading" = "%@ yükleniyor...";
 "Toast.ResultsUploaded" = "Yüklendi";
 "Modal.DisplayFailureLog" = "Hata günlüğünü görüntüle";
-"Modal.EnableNotifications.Title" = "Get updates on internet censorship";
+"Modal.EnableNotifications.Title" = "İnternet sansürleri hakkında güncel bilgileri alın";
 "Modal.EnableNotifications.Paragraph" = "Yeni sansür uygulamaları sırasında OONI Probe sınamaları yapmak ilginizi çeker mi? Yakınınızda bir İnternet sansürü olduğunu öğrendiğimizde size bildirmemiz için bildirimleri etkinleştirebilirsiniz.";
 "Modal.EnableGPS" = "Sınamaların ayrıntısını arttırmak için GPS izinlerine gerek duyulur. OONI yalnızca yaklaşık GPS konumunuzu kullanır.";
 "Modal.DoYouWantToDeleteAllTests" = "Tüm sınama sonuçlarını silmek ister misiniz?";
@@ -272,7 +272,7 @@
 "Modal.ManualUpload.Enable" = "Etkinleştir";
 "Modal.ManualUpload.Disable" = "Hayır, teşekkürler";
 "Modal.ShareAnalytics.Title" = "OONI Probe uygulamasını geliştirmemize katkıda bulunun";
-"Modal.ShareAnalytics.Paragraph" = "With the new OONI Probe, you can contribute anonymized usage metrics to help us improve the app. You can opt out through the settings at any time.";
+"Modal.ShareAnalytics.Paragraph" = "Yeni OONI Probe uygulamasını geliştirmemize yardımcı olmak için kullanım istatistiklerinizi bizimle paylaşarak katkıda bulunabilirsiniz. İstediğiniz zaman kullanım istatistiklerinizi paylaşmaktan vazgeçebilirsiniz.";
 "Modal.UploadFailed.Title" = "Yükleme başarısız";
 "Modal.UploadFailed.Paragraph" = "%@/%@ ölçüm yüklenemedi. Sorun ile ilgili günlük kayıtları OONI geliştiricileri ile paylaşıldı.";
 "Modal.Error.LogNotFound" = "Günlük dosyası bulunamadı";
@@ -310,6 +310,12 @@
 "Settings.Notifications.Enabled" = "Etkin";
 "Settings.Notifications.OnTestCompletion" = "Sınamanın tamamlandığı bildirilsin";
 "Settings.Notifications.OnNews" = "Haber Akışı";
+"Settings.AutomatedTesting.Label" = "Otomatik sınama";
+"Settings.AutomatedTesting.RunAutomatically" = "Sınamalar otomatik olarak yapılsın";
+"Settings.AutomatedTesting.RunAutomaticallyTime" = "Zaman";
+"Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Yalnız Wi-Fi bağlantısında sınansın";
+"Settings.AutomatedTesting.RunAutomatically.MaxRuntimeEnabled" = "Sınama süresi sınırlansın";
+"Settings.AutomatedTesting.RunAutomatically.MaxRuntime" = "Sınama süresi";
 "Settings.Sharing.Label" = "Paylaşım";
 "Settings.Sharing.UploadResults" = "Sonuçlar Otomatik Olarak Yayınlansın";
 "Settings.Sharing.UploadResultsManually" = "Sonuçları El ile Yükle ";
@@ -330,6 +336,13 @@
 "Settings.Websites.MaxRuntime" = "Sınama süresi";
 "Settings.Websites.Categories.Label" = "Sınanacak web sitesi kategorileri";
 "Settings.Websites.Categories.Description" = "%@ kategori etkin";
+"Settings.Websites.Categories.Selection.None" = "Deselect All";
+"Settings.Websites.Categories.Selection.All" = "Tümünü Seç";
+"Settings.Websites.Categories.Selection.Done" = "Tamam";
+"Settings.Websites.Categories.Confirmation.Title" = "Unsaved Changes";
+"Settings.Websites.Categories.Confirmation.Body" = "You made some changes to the enabled categories. Would you like to save them?";
+"Settings.Websites.Categories.Confirmation.Label.Confirm" = "Kaydet";
+"Settings.Websites.Categories.Confirmation.Label.Cancel" = "Iptal";
 "Settings.Websites.CustomURL.Title" = "Sınanacak web sitelerini seçin";
 "Settings.Websites.CustomURL.URL" = "Adres";
 "Settings.Websites.CustomURL.NoURLEntered" = "Herhangi bir adres yazılmamış";
