@@ -17,10 +17,10 @@
     }
     else if ([categoryName isEqualToString:@"sharing"]) {
         //TODO GPS @"include_gps"
-        return @[@"upload_results", @"upload_results_manually", @"include_asn", @"include_ip"];
+        return @[@"upload_results", @"include_asn", @"include_ip"];
     }
     else if ([categoryName isEqualToString:@"privacy"]) {
-        return @[@"send_analytics", @"send_crash"];
+        return @[@"upload_results", @"send_analytics", @"send_crash"];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
