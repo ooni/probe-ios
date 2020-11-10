@@ -4,7 +4,7 @@
 #import "JsonResult.h"
 #import "EventResult.h"
 #import "TestUtility.h"
-#define CLIENT_URL @"https://ams-pg.ooni.org"
+#define CLIENT_URL @"https://ams-pg-test.ooni.org"
 
 @interface WebConnectivityTest : XCTestCase
 
