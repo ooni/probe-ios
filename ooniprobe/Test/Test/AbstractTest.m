@@ -155,7 +155,8 @@
                 [self.result setData_usage_down:self.result.data_usage_down+[event.value.downloaded_kb doubleValue]];
                 [self.result setData_usage_up:self.result.data_usage_up+[event.value.uploaded_kb doubleValue]];
             }
-            else if ([event.key isEqualToString:@"failure.startup"]) {
+            else if ([event.key isEqualToString:@"failure.startup"] ||
+                     [event.key isEqualToString:@"failure.resolver_lookup"]) {
                 self.result.failure_msg = event.value.failure;
                 [self.result save];
             }
