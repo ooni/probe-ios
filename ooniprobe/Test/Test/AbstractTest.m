@@ -158,6 +158,9 @@
             else if ([event.key isEqualToString:@"failure.startup"] ||
                      [event.key isEqualToString:@"failure.resolver_lookup"]) {
                 self.result.failure_msg = event.value.failure;
+                [ExceptionUtility recordError:@"failure"
+                                       reason:event.key
+                                     userInfo:evinfo];
                 [self.result save];
             }
             else if ([event.key isEqualToString:@"bug.json_dump"]) {
