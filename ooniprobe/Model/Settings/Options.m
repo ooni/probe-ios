@@ -7,8 +7,9 @@
 - (id)init {
     self = [super init];
     if (self) {
-        BOOL include_ip = [SettingsUtility getSettingWithName:@"include_ip"];
-        BOOL include_asn = [SettingsUtility getSettingWithName:@"include_asn"];
+        //TODO remove these options in the future
+        BOOL include_ip = FALSE;
+        BOOL include_asn = TRUE;
         BOOL include_cc = TRUE;
         BOOL upload_results = [SettingsUtility getSettingWithName:@"upload_results"];
         NSString *software_version = [VersionUtility get_software_version];

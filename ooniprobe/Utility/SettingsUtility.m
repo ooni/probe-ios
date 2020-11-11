@@ -6,18 +6,13 @@
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
-    //TODO ORCHESTRA reenable @"automated_testing"
-    return @[@"notifications", @"sharing", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"notifications", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
     //TODO NEWS reenable @"notifications_news"
     if ([categoryName isEqualToString:@"notifications"]) {
         return @[@"notifications_enabled"];
-    }
-    else if ([categoryName isEqualToString:@"sharing"]) {
-        //TODO GPS @"include_gps"
-        return @[@"upload_results", @"include_asn", @"include_ip"];
     }
     else if ([categoryName isEqualToString:@"privacy"]) {
         return @[@"upload_results", @"send_analytics", @"send_crash"];
