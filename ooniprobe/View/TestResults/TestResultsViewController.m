@@ -1,6 +1,7 @@
 #import "TestResultsViewController.h"
 #import "UploadFooterViewController.h"
 #import "ExceptionUtility.h"
+#import "CountlyUtility.h"
 
 @interface TestResultsViewController ()
 
@@ -157,6 +158,7 @@
                            message:NSLocalizedString(@"Modal.DoYouWantToDeleteAllTests", nil)
                           okButton:okButton
                             inView:self];
+    [CountlyUtility recordEvent:@"DeleteAllTests"];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
