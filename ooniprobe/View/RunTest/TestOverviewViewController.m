@@ -1,4 +1,5 @@
 #import "TestOverviewViewController.h"
+#import "CountlyUtility.h"
 
 @interface TestOverviewViewController ()
 
@@ -20,7 +21,6 @@
     [self.testDescriptionLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
     }];
-    
     [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Run", nil)] forState:UIControlStateNormal];
     if ([testSuite.name isEqualToString:@"websites"])
         [self.websitesButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.ChooseWebsites", nil)] forState:UIControlStateNormal];
@@ -87,8 +87,10 @@
 }
 
 -(IBAction)run:(id)sender{
-    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
+    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable){
+        [CountlyUtility recordEvent:[NSString stringWithFormat:@"Run_%@", testSuite.name]];
         [self performSegueWithIdentifier:@"toTestRun" sender:sender];
+    }
     else
         [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
                                message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
