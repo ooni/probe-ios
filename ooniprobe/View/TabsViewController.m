@@ -21,25 +21,6 @@
     if (![[NSUserDefaults standardUserDefaults] objectForKey:ONBOARDING_KEY]){
         [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
     }
-    else if (![[NSUserDefaults standardUserDefaults] objectForKey:MANUAL_UPLOAD_POPUP]){
-        UIAlertAction* enableButton = [UIAlertAction
-                                        actionWithTitle:NSLocalizedString(@"Modal.ManualUpload.Enable", nil)
-                                        style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction * action) {
-                                            [self setModalValue:YES
-                                                            key:@"upload_results_manually"
-                                                      popupName:MANUAL_UPLOAD_POPUP];
-                                        }];
-        UIAlertAction* disableButton = [UIAlertAction
-                                    actionWithTitle:NSLocalizedString(@"Modal.ManualUpload.Disable", nil)
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action) {
-                                        [self setModalValue:NO
-                                                        key:@"upload_results_manually"
-                                                  popupName:MANUAL_UPLOAD_POPUP];
-                                    }];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ManualUpload.Title", nil) message:NSLocalizedString(@"Modal.ManualUpload.Paragraph", nil) okButton:enableButton cancelButton:disableButton inView:self];
-    }
     if (![[NSUserDefaults standardUserDefaults] objectForKey:ANALYTICS_POPUP]){
         UIAlertAction* enableButton = [UIAlertAction
                                         actionWithTitle:NSLocalizedString(@"Modal.SoundsGreat", nil)
