@@ -2,6 +2,7 @@
 #import "UploadFooterViewController.h"
 #import "ExceptionUtility.h"
 #import "CountlyUtility.h"
+#import "MBProgressHUD.h"
 
 @interface TestResultsViewController ()
 
@@ -148,17 +149,27 @@
                                actionWithTitle:NSLocalizedString(@"Modal.Delete", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-                                   for (Result *current in results){
-                                       [current deleteObject];
-                                   }
-                                   [self testFilter:query];
-                                   [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadHeader" object:nil];
+                                [self deleteAll];
                                }];
     [MessageUtility alertWithTitle:nil
                            message:NSLocalizedString(@"Modal.DoYouWantToDeleteAllTests", nil)
                           okButton:okButton
                             inView:self];
     [CountlyUtility recordEvent:@"DeleteAllTests"];
+}
+
+-(void)deleteAll{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        for (Result *current in results){
+            [current deleteObject];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self testFilter:query];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadHeader" object:nil];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
