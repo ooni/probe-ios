@@ -1,5 +1,6 @@
 #import "DashboardTableViewController.h"
 #import "DashboardTableViewCell.h"
+#import "CountlyUtility.h"
 #import "Suite.h"
 
 @interface DashboardTableViewController ()
@@ -91,8 +92,10 @@
 }
 
 -(IBAction)run:(id)sender{
-    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
+    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable){
+        [CountlyUtility recordEvent:@"Run_All"];
         [self performSegueWithIdentifier:@"toTestRun" sender:sender];
+    }
     else
         [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
                                message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];

@@ -18,7 +18,6 @@
 #define NSLocalizedFormatString(fmt, ...) [NSString stringWithFormat:NSLocalizedString(fmt, nil), __VA_ARGS__]
 
 #define ONBOARDING_KEY @"first_run"
-#define MANUAL_UPLOAD_POPUP @"upload_result_manually_popup"
 #define ANALYTICS_POPUP @"analytics_popup"
 #define NOTIFICATION_POPUP @"notification_popup"
 #define NOTIFICATION_POPUP_COUNT 5
