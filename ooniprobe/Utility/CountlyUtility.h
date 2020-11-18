@@ -9,6 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)reloadConsents;
 + (void)recordEvent:(NSString*)event;
 + (void)recordEvent:(NSString*)event segmentation:(NSDictionary*)segmentation;
++ (void)recordView:(NSString*)name;
 @end
 
 NS_ASSUME_NONNULL_END

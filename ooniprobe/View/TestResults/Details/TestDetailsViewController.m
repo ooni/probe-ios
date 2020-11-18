@@ -37,6 +37,12 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [CountlyUtility recordView:@"TestDetails"];
+    [CountlyUtility recordView:[NSString stringWithFormat:@"TestDetails_%@", measurement.test_name]];
+}
+
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
     if (!parent) {

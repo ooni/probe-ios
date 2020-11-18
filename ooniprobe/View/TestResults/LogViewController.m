@@ -34,6 +34,11 @@
     self.textView.scrollEnabled = true;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [CountlyUtility recordView:@"DataView"];
+}
+
 - (void)showLog{
     NSString *fileName = [self.measurement getLogFile];
     self.text = [TestUtility getUTF8FileContent:fileName];

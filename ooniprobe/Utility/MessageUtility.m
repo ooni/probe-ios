@@ -91,6 +91,7 @@
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
+        [CountlyUtility recordEvent:@"NotificationModal_Accepted"];
         [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
         [Countly.sharedInstance
          askForNotificationPermissionWithOptions:0
@@ -99,10 +100,13 @@
                 [SettingsUtility registeredForNotifications];
         }];
     }];
+
     UIAlertAction* cancelButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
                                    style:UIAlertActionStyleCancel
-                                   handler:nil];
+                                   handler:^(UIAlertAction * action) {
+        [CountlyUtility recordEvent:@"NotificationModal_Declined"];
+    }];
     [alert addAction:cancelButton];
     [alert addAction:okButton];
     dispatch_async(dispatch_get_main_queue(), ^{
