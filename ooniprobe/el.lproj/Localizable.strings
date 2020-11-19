@@ -26,7 +26,7 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Κωδικό χώρας (π.χ. GR για την Ελλάδα)";
 "Onboarding.DefaultSettings.Bullet.2" = "Πληροφορίες δικτύου (όπως ASN, για τον εντοπισμό πάροχου δικτύου)";
 "Onboarding.DefaultSettings.Bullet.3" = "Ώρα και ημερομηνὶα εκτέλεσης δοκιμών";
-"Onboarding.DefaultSettings.Paragraph" = "Κάνουμε ό,τι μπορούμε για να μη δημοσιευτεί η διεύθυνση IP σου ή οποιαδήποτε άλλη πιθανώς προσωπικά αναγνωρίσιμη πληροφορία.\n\nΓια τη βελτίωση του OONI Probe, συλλέγουμε επίσης μετρήσεις σχετικές με τη χρήση της εφαρμογής και αναφορές σφαλμάτων.\n\nΜάθε περισσότερα μέσω της [Πολιτικής Δεδομένων του OONI](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "Κάνουμε ό,τι μπορούμε για να μη δημοσιευτεί η διεύθυνση IP σου ή οποιαδήποτε άλλη πιθανώς προσωπικά αναγνωρίσιμη πληροφορία.\n\nΓια τη βελτίωση του OONI Probe, συλλέγουμε επίσης στατιστικά χρήσης της εφαρμογής και αναφορές σφαλμάτων.\n\nΜάθε περισσότερα στην  [Πολιτική Δεδομένων του OONI](https://ooni.io/about/data-policy/).";
 "Onboarding.DefaultSettings.Button.Go" = "Συνέχεια";
 "Onboarding.DefaultSettings.Button.Change" = "Αλλαγή ρυθμίσεων";
 "Dashboard.Tab.Label" = "Ταμπλό";
@@ -143,7 +143,7 @@
 "TestResults.Details.ViewLog" = "Προβολή αρχείου καταγραφής";
 "TestResults.Details.RawData" = "Δεδομένα";
 "TestResults.Details.CopyExplorerURL" = "Αντιγραφή URL του OONI Explorer";
-"TestResults.Details.ShareExplorerURL" = "Μοίρασε τη διεύθυνση URL του OONI Explorer";
+"TestResults.Details.ShareExplorerURL" = "Μοιράσου τη διεύθυνση URL του OONI Explorer";
 "TestResults.Details.CopyToClipboard" = "Αντιγραφή στο πρόχειρο";
 "TestResults.Details.ShowInExplorer" = "Προβολή στον OONI Explorer";
 "TestResults.Details.Failed.Title" = "Απέτυχε";
@@ -237,7 +237,7 @@
 "Feed.Title" = "Feed";
 "Modal.OK" = "Εντάξει";
 "Modal.Cancel" = "Άκυρο";
-"Modal.DontAskAgain" = "Μην ρωτάς ξανά";
+"Modal.DontAskAgain" = "Μη ρωτήσεις ξανά";
 "Modal.Delete" = "Διαγραφή";
 "Modal.Error" = "Σφάλμα";
 "Modal.Retry" = "Ξαναδοκίμασε";
@@ -255,8 +255,8 @@
 "Modal.ResultsNotUploaded.Uploading" = "Ανεβαίνει %@ ...";
 "Toast.ResultsUploaded" = "Επιτυχές ανέβασμα";
 "Modal.DisplayFailureLog" = "Προβολή αρχείου καταγραφής αποτυχιών";
-"Modal.EnableNotifications.Title" = "Ενημερώσεις σχετικά με τη λογοκρισία στο Διαδίκτυο";
-"Modal.EnableNotifications.Paragraph" = "Ενδιαφέρεσαι να εκτελέσεις δοκιμές OONI Probe όταν αναδύεται η λογοκρισία; Ενεργοποίησε τις ειδοποιήσεις σου για να λαμβάνεις μήνυμα όταν ακούμε για λογοκρισία στο Διαδίκτυο κοντά σου!";
+"Modal.EnableNotifications.Title" = "Ενημερώσεις σχετικά με τη λογοκρισία στο διαδίκτυο";
+"Modal.EnableNotifications.Paragraph" = "Ενδιαφέρεσαι να εκτελέσεις δοκιμές OONI Probe σε περιόδους που πραγματοποιούνται ενέργειες λογοκρισίας; Ενεργοποίησε τις ειδοποιήσεις σου για να λαμβάνεις μήνυμα όταν ακούμε για λογοκρισία στο διαδίκτυο κοντά σου!";
 "Modal.EnableGPS" = "Για να βελτιώσουμε την ακρίβεια των δοκιμών, χρειαζόμαστε δικαιώματα GPS. Το OONI συλλέγει τη θέση σου (GPS) μόνο κατά προσέγγιση.";
 "Modal.DoYouWantToDeleteAllTests" = "Θέλεις να διαγράψεις όλα τα αποτελέσματα των δοκιμών σου;";
 "Modal.DoYouWantToDeleteThisTest" = "Θέλεις να διαγράψεις αυτή τη δοκιμή;";
@@ -272,14 +272,14 @@
 "Modal.ManualUpload.Enable" = "Ενεργοποίηση";
 "Modal.ManualUpload.Disable" = "Όχι, ευχαριστώ";
 "Modal.ShareAnalytics.Title" = "Βοήθησε μας να βελτιώσουμε το OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "Με το νέο OONI Probe, μπορείς να συνεισφέρεις ανώνυμες μετρήσεις χρήσης για να μας βοηθήσεις να βελτιώσουμε την εφαρμογή. Μπορείς να αναιρέσεις αυτήν την επιλογή από τις ρυθμίσεις ανά πάσα στιγμή.";
+"Modal.ShareAnalytics.Paragraph" = "Με το νέο OONI Probe, μπορείς να συνεισφέρεις ανώνυμα στατιστικά χρήσης για να μας βοηθήσεις να βελτιώσουμε την εφαρμογή. Μπορείς να αναιρέσεις αυτή την επιλογή από τις ρυθμίσεις ανά πάσα στιγμή.";
 "Modal.UploadFailed.Title" = "Αποτυχία ανεβάσματος";
 "Modal.UploadFailed.Paragraph" = "Αποτύχαμε να ανεβάσουμε %@/%@ μετρήσεις. Το αρχείο καταγραφής αποτυχιών έχει μοιραστεί στους OONI developers.";
 "Modal.Error.LogNotFound" = "Δεν βρέθηκε αρχείο καταγραφής";
 "Modal.Error.NoValidUrls" = "Δεν βρέθηκαν έγκυρα URL";
 "Modal.Error.JsonEmpty" = "Άδειο JSON";
-"Modal.InterruptTest.Title" = "Θες να διακόψεις αυτήν τη δοκιμή;";
-"Modal.InterruptTest.Paragraph" = "Αυτό θα διακόψει την τρέχουσα δοκιμή από αυτήν τη στιγμή.";
+"Modal.InterruptTest.Title" = "Θέλεις να διακόψεις αυτή τη δοκιμή;";
+"Modal.InterruptTest.Paragraph" = "Αυτό θα διακόψει την τρέχουσα δοκιμή από αυτή τη στιγμή.";
 "Toast.CopiedToClipboard" = "Αντιγράφηκε στο πρόχειρο";
 "Snackbar.ResultsNotUploaded.Text" = "Δεν ανέβηκαν";
 "Snackbar.ResultsNotUploaded.Upload" = "Ανέβασμα";
@@ -317,7 +317,7 @@
 "Settings.AutomatedTesting.RunAutomatically.MaxRuntimeEnabled" = "Περιορισμός διάρκειας δοκιμής";
 "Settings.AutomatedTesting.RunAutomatically.MaxRuntime" = "Διάρκεια δοκιμής";
 "Settings.Sharing.Label" = "Κοινή χρήση";
-"Settings.Sharing.UploadResults" = "Publish Results";
+"Settings.Sharing.UploadResults" = "Δημοσίευση αποτελεσμάτων";
 "Settings.Sharing.UploadResultsManually" = "Χειροκίνητο ανέβασμα αποτελεσμάτων";
 "Settings.Sharing.IncludeNetwork" = "Δημοσίευση πληροφοριών δικτύου";
 "Settings.Sharing.GPS" = "Δημοσίευση της κατά προσέγγιση γεωγραφικής θέσης";
@@ -327,7 +327,7 @@
 "Settings.Sharing.Footer" = "Δημοσιεύοντας αποτελέσματα, αυξάνεις τη διαφάνεια για τυχόν παρεμβολές στο Διαδικτύο, και υποστηρίζεις την κοινότητα του OONI.\n\nΓια την αναγνώριση των παρόχων δικτύου, απαιτούνται πληροφορίες δικτύου (όπως ο Αριθμός Αυτόνομου Συστήματος ASN).";
 "Settings.TestOptions.Label" = "Επιλογές δοκιμής";
 "Settings.Privacy.Label" = "Απόρρητο";
-"Settings.Privacy.CollectAnalytics" = "Μοίρασε μετρήσεις χρήσης εφαρμογής";
+"Settings.Privacy.CollectAnalytics" = "Μοιράσου στατιστικά χρήσης εφαρμογής";
 "Settings.Privacy.SendCrashReports" = "Αποστολή αναφορών σφαλμάτων";
 "Settings.Advanced.Label" = "Ρυθμίσεις για προχωρημένους";
 "Settings.Advanced.DebugLogs" = "Αρχεία καταγραφής εντοπισμού σφαλμάτων";
@@ -337,11 +337,11 @@
 "Settings.Websites.Categories.Label" = "Κατηγορίες ιστοσελιδών για δοκιμή";
 "Settings.Websites.Categories.Description" = "%@ ενεργοποιημένες κατηγορίες";
 "Settings.Websites.Categories.Edit" = "Επεξεργασία";
-"Settings.Websites.Categories.Selection.None" = "Deselect All";
+"Settings.Websites.Categories.Selection.None" = "Αποεπιλογή όλων";
 "Settings.Websites.Categories.Selection.All" = "Επιλογή όλων";
 "Settings.Websites.Categories.Selection.Done" = "Τέλος";
 "Settings.Websites.Categories.Confirmation.Title" = "Μη αποθηκευμένες αλλαγές";
-"Settings.Websites.Categories.Confirmation.Body" = "You made some changes to the enabled categories. Would you like to save them?";
+"Settings.Websites.Categories.Confirmation.Body" = "Έκανες αλλαγές στις ενεργοποιημένες κατηγορίες. Θέλεις να τις αποθηκεύσεις;";
 "Settings.Websites.Categories.Confirmation.Label.Confirm" = "Αποθήκευση";
 "Settings.Websites.Categories.Confirmation.Label.Cancel" = "Απόρριψη";
 "Settings.Websites.CustomURL.Title" = "Επέλεξε ιστοσελίδες να δοκιμάσεις";
