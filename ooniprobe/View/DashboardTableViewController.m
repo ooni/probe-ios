@@ -28,6 +28,11 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [CountlyUtility recordView:@"Dashboard"];
+}
+
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];

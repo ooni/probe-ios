@@ -19,7 +19,7 @@
         else
             config.appKey = APP_KEY_PROD;
     #endif
-    config.features = @[CLYPushNotifications, CLYCrashReporting, CLYAutoViewTracking];
+    config.features = @[CLYPushNotifications, CLYCrashReporting];
     config.deviceID = [SettingsUtility getOrGenerateUUID4];
     config.requiresConsent = YES;
     [Countly.sharedInstance startWithConfig:config];
@@ -48,6 +48,10 @@
 
 + (void)recordEvent:(NSString*)event segmentation:(NSDictionary*)segmentation{
     [Countly.sharedInstance recordEvent:event segmentation:segmentation];
+}
+
++ (void)recordView:(NSString*)name{
+    [Countly.sharedInstance recordView:name];
 }
 
 + (BOOL)isTestFlight{

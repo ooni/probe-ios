@@ -43,6 +43,12 @@
                                     color:defaultColor];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [CountlyUtility recordView:@"TestOverview"];
+    [CountlyUtility recordView:[NSString stringWithFormat:@"TestOverview_%@", testSuite.name]];
+}
+
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.estimatedLabel setText:NSLocalizedString(@"Dashboard.Overview.Estimated", nil)];

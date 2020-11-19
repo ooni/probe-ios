@@ -32,6 +32,11 @@
     self.title = NSLocalizedString(@"TestResults.Overview.Title", nil);
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [CountlyUtility recordView:@"TestResults"];
+}
+
 -(void)testFilter:(SRKQuery*)newQuery{
     query = newQuery;
     results = [query fetch];
