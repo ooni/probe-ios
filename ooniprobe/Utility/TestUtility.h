@@ -18,7 +18,7 @@
 + (void)deleteMeasurementWithReportId:(NSString*)report_id;
 + (void)deleteUploadedJsons;
 + (void)deleteOldLogs;
-+ (void)removeLogAfterAWeek:(Measurement*)measurement;
++ (void)removeLogAfterADay:(Measurement*)measurement;
 + (BOOL)canCallDeleteJson;
 + (BOOL)removeFile:(NSString*)fileName;
 + (BOOL)fileExists:(NSString*)fileName;

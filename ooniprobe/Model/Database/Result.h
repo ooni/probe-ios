@@ -3,6 +3,7 @@
 #import "JsonResult.h"
 #import "Measurement.h"
 #define BASIC_QUERY @"is_failed = 0 AND is_rerun = 0 AND is_done = 1"
+#define REPORT_QUERY @"(is_uploaded = 1 || report_id IS NOT NULL)"
 #define UPLOADED_QUERY [NSString stringWithFormat:@"%@ AND (is_uploaded = 1 || report_id IS NOT NULL)", BASIC_QUERY]
 #define NOT_UPLOADED_QUERY [NSString stringWithFormat:@"%@ AND (is_uploaded = 0 || report_id IS NULL)", BASIC_QUERY]
 
