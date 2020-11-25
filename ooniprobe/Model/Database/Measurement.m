@@ -18,8 +18,10 @@
 }
 
 + (SRKResultSet*)selectWithReportId:(NSString*)report_id {
-    return [[[Measurement query] where:
-             [NSString stringWithFormat:@"%@ AND report_id = '%@'", REPORT_QUERY, report_id]] fetch];
+    return [[[Measurement query]
+               where:[NSString stringWithFormat:@"%@ AND report_id = ?", REPORT_QUERY]
+               parameters:@[report_id]]
+               fetch];
 }
 
 + (NSMutableOrderedSet*)getReportsUploaded {
