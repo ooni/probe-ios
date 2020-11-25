@@ -29,7 +29,7 @@
     if ([self.measurement hasReportFile]){
         [self.measurement checkPublished:^(BOOL found){
             isInExplorer = found;
-            if (found)
+            if (found && self.measurement.report_id != NULL)
                 [TestUtility deleteMeasurementWithReportId:self.measurement.report_id];
         } onError:^(NSError *error) {
             isInExplorer = FALSE;

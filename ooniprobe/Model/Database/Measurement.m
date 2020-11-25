@@ -18,13 +18,15 @@
 }
 
 + (SRKResultSet*)selectWithReportId:(NSString*)report_id {
-    return [[[Measurement query] where:
-             [NSString stringWithFormat:@"%@ AND report_id = %@", UPLOADED_QUERY, report_id]] fetch];
+    return [[[Measurement query]
+               where:[NSString stringWithFormat:@"%@ AND report_id = ?", REPORT_QUERY]
+               parameters:@[report_id]]
+               fetch];
 }
 
 + (NSMutableOrderedSet*)getReportsUploaded {
     NSMutableOrderedSet *reportIds = [NSMutableOrderedSet new];
-    SRKResultSet* results = [[[Measurement query] where:UPLOADED_QUERY] fetch];
+    SRKResultSet* results = [[[Measurement query] where:REPORT_QUERY] fetch];
     for (Measurement *measurement in results){
         if ([measurement hasReportFile])
             [reportIds addObject:measurement.report_id];

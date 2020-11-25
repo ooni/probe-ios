@@ -110,8 +110,9 @@
 }
 
 +(void)deleteMeasurementWithReportId:(NSString*)report_id{
-    for (Measurement *m in [Measurement selectWithReportId:report_id])
+    for (Measurement *m in [Measurement selectWithReportId:report_id]){
         [TestUtility removeFile:[m getReportFile]];
+    }
 }
 
 + (void)deleteUploadedJsons{
@@ -129,11 +130,11 @@
 
 + (void)deleteOldLogs{
     for (Measurement *measurement in [Measurement measurementsWithLog]) {
-        [TestUtility removeLogAfterAWeek:measurement];
+        [TestUtility removeLogAfterADay:measurement];
     }
 }
 
-+ (void)removeLogAfterAWeek:(Measurement*)measurement{
++ (void)removeLogAfterADay:(Measurement*)measurement{
     NSTimeInterval timeSinceTest = [[NSDate date] timeIntervalSinceDate:measurement.start_time];
     if (timeSinceTest > delete_json_delay){
         [TestUtility removeFile:[measurement getLogFile]];
