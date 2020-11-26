@@ -26,4 +26,6 @@
 + (void)writeString:(NSString*)str toFile:(NSString*)fileName;
 + (NSUInteger)makeTimeout:(NSUInteger)bytes;
 + (JsonResult*)jsonResultfromDic:(NSDictionary*)json_str;
++ (uint64_t)storageUsed;
++ (void)cleanUp;
 @end
