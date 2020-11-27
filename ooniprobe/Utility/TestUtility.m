@@ -171,7 +171,7 @@
 }
 
 /*
- Return the storage used in the Document folder (in bytes) from .json and .log files
+ Return the storage used in the Document folder (in bytes) from .json and .log files indluding db
  */
 + (uint64_t)storageUsed
 {
@@ -183,18 +183,15 @@
          NSString *fullPath = [documentsPath stringByAppendingPathComponent:path];
          if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir]) {
              if (!isDir){
-             //if ([path containsString:@".json"] || [path containsString:@".log"]){
                  NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:fullPath error:nil];
                  usedSpace += [fileAttributes fileSize];
              }
-             //}
          }
     }
     return usedSpace;
 }
 
 + (void)cleanUp{
-    [SharkORM closeDatabaseNamed:@"OONIProbe"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSArray *paths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
@@ -202,13 +199,16 @@
     for (NSString *path in paths) {
         NSString *fullPath = [documentsPath stringByAppendingPathComponent:path];
         if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir]) {
-            if (!isDir){
-            //if ([path containsString:@".json"] || [path containsString:@".log"]){
+            if (!isDir && ([path containsString:@".json"] || [path containsString:@".log"])){
                 [fileManager removeItemAtPath:fullPath error:nil];
             }
         }
     }
-    [SharkORM openDatabaseNamed:@"OONIProbe"];
+    [SharkORM rawQuery:@"DELETE FROM Result;"];
+    [SharkORM rawQuery:@"DELETE FROM Measurement;"];
+    [SharkORM rawQuery:@"DELETE FROM Network;"];
+    [SharkORM rawQuery:@"DELETE FROM Url;"];
+    [SharkORM rawQuery:@"commit;"];
 }
 
 + (BOOL)fileExists:(NSString*)fileName{
