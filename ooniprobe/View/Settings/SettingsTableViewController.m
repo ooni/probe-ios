@@ -134,7 +134,7 @@
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
         UIButton *cleanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [cleanButton setTitle:@"Clear" forState:UIControlStateNormal];
+        [cleanButton setTitle:NSLocalizedString(@"Settings.Storage.Clear", nil) forState:UIControlStateNormal];
         [cleanButton sizeToFit];
         [cleanButton addTarget:self
                         action:@selector(removeAllTests:) forControlEvents:UIControlEventTouchDown];
@@ -156,10 +156,10 @@
                            message:NSLocalizedString(@"Modal.DoYouWantToDeleteAllTests", nil)
                           okButton:okButton
                             inView:self];
-    //[CountlyUtility recordEvent:@"DeleteAllTests"];
 }
 
 -(void)deleteAll{
+    [CountlyUtility recordEvent:@"ClearStorage"];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [TestUtility cleanUp];
