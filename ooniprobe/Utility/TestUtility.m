@@ -179,7 +179,7 @@
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSArray *paths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
     BOOL isDir;
-     for (NSString *path in paths) {
+    for (NSString *path in paths) {
          NSString *fullPath = [documentsPath stringByAppendingPathComponent:path];
          if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir]) {
              //Don't consider assets or resources directories
