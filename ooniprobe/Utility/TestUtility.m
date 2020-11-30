@@ -170,6 +170,49 @@
     return success;
 }
 
+/*
+ Return the storage used in the Document folder (in bytes) from .json and .log files indluding db
+ */
++ (uint64_t)storageUsed
+{
+    uint64_t usedSpace = 0;
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *paths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
+    BOOL isDir;
+    for (NSString *path in paths) {
+         NSString *fullPath = [documentsPath stringByAppendingPathComponent:path];
+         if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir]) {
+             //Don't consider assets or resources directories
+             if (!isDir){
+                 NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:fullPath error:nil];
+                 usedSpace += [fileAttributes fileSize];
+             }
+         }
+    }
+    return usedSpace;
+}
+
++ (void)cleanUp{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *paths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
+    BOOL isDir;
+    for (NSString *path in paths) {
+        NSString *fullPath = [documentsPath stringByAppendingPathComponent:path];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir]) {
+            //Don't remove the database or other directories
+            if (!isDir && ([path containsString:@".json"] || [path containsString:@".log"])){
+                [fileManager removeItemAtPath:fullPath error:nil];
+            }
+        }
+    }
+    [SharkORM rawQuery:@"DELETE FROM Result;"];
+    [SharkORM rawQuery:@"DELETE FROM Measurement;"];
+    [SharkORM rawQuery:@"DELETE FROM Network;"];
+    [SharkORM rawQuery:@"DELETE FROM Url;"];
+    [SharkORM rawQuery:@"commit;"];
+}
+
 + (BOOL)fileExists:(NSString*)fileName{
     NSString *filePath = [TestUtility getFileNamed:fileName];
     NSFileManager *fileManager = [NSFileManager defaultManager];

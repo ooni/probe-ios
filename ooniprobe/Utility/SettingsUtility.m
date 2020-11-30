@@ -19,7 +19,7 @@
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
-        return @[@"debug_logs"];
+        return @[@"debug_logs", @"storage_usage"];
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];
@@ -35,6 +35,8 @@
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"])
         return @"int";
+    if ([setting isEqualToString:@"storage_usage"])
+        return @"button";
     return @"bool";
 }
 

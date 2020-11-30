@@ -1,5 +1,6 @@
 #import "SettingsTableViewController.h"
 #import "CountlyUtility.h"
+#import "MBProgressHUD.h"
 
 @interface SettingsTableViewController ()
 @end
@@ -128,7 +129,46 @@
         UITextField *textField = [self createTextField:@"string" :value];
         cell.accessoryView = textField;
     }
+    else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"button"]){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
+        cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
+        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+        UIButton *cleanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [cleanButton setTitle:NSLocalizedString(@"Settings.Storage.Clear", nil) forState:UIControlStateNormal];
+        [cleanButton sizeToFit];
+        [cleanButton addTarget:self
+                        action:@selector(removeAllTests:) forControlEvents:UIControlEventTouchDown];
+        cell.accessoryView = cleanButton;
+        NSString *subtitle = [NSByteCountFormatter stringFromByteCount:[TestUtility storageUsed] countStyle:NSByteCountFormatterCountStyleFile];
+        [cell.detailTextLabel setText:subtitle];
+    }
     return cell;
+}
+
+-(IBAction)removeAllTests:(id)sender{
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Modal.Delete", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                [self deleteAll];
+                               }];
+    [MessageUtility alertWithTitle:nil
+                           message:NSLocalizedString(@"Modal.DoYouWantToDeleteAllTests", nil)
+                          okButton:okButton
+                            inView:self];
+}
+
+-(void)deleteAll{
+    [CountlyUtility recordEvent:@"ClearStorage"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [TestUtility cleanUp];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadHeader" object:nil];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 - (UITextField*)createTextField:(NSString*)type :(NSString*)text{

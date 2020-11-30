@@ -166,9 +166,7 @@
 -(void)deleteAll{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        for (Result *current in results){
-            [current deleteObject];
-        }
+        [TestUtility cleanUp];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self testFilter:query];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadHeader" object:nil];
