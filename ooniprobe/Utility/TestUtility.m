@@ -177,11 +177,12 @@
 {
     uint64_t usedSpace = 0;
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-     NSArray *paths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
+    NSArray *paths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
     BOOL isDir;
      for (NSString *path in paths) {
          NSString *fullPath = [documentsPath stringByAppendingPathComponent:path];
          if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir]) {
+             //Don't consider assets or resources directories
              if (!isDir){
                  NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:fullPath error:nil];
                  usedSpace += [fileAttributes fileSize];
@@ -199,6 +200,7 @@
     for (NSString *path in paths) {
         NSString *fullPath = [documentsPath stringByAppendingPathComponent:path];
         if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir]) {
+            //Don't remove the database or other directories
             if (!isDir && ([path containsString:@".json"] || [path containsString:@".log"])){
                 [fileManager removeItemAtPath:fullPath error:nil];
             }
