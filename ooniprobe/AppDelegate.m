@@ -19,8 +19,9 @@
         [self copyDBTesting];
         
     [SharkORM setDelegate:self];
+    //Default is WAL https://www.sqlite.org/wal.html
+    SharkORM.settings.sqliteJournalingMode = @"DELETE";
     [SharkORM openDatabaseNamed:@"OONIProbe"];
-    [SharkORM rawQuery:@"PRAGMA journal_mode = DELETE;"];
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultPreferences" ofType:@"plist"]]];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
