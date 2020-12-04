@@ -20,12 +20,12 @@
 
 <div align="left">
 
-<a href="https://f-droid.org/packages/org.openobservatory.ooniprobe/" target="_blank">
-<img src="assets/F-Droid-badge.png" alt="Get it on F-Droid" height="60px"/>
+<a href='https://play.google.com/store/apps/details?id=org.openobservatory.ooniprobe'>
+<img alt='Get it on Google Play' src='assets/play-store-badge.png' height="50px"/>
 </a>
 
-<a href="https://play.google.com/store/apps/details?id=org.openobservatory.ooniprobe" target="_blank">
-<img src="assets/Google-Play-badge.png" alt="Get it on Google Play" height="60px"/>
+<a href="https://itunes.apple.com/us/app/ooni-probe/id1199566366">
+<img src="assets/app-store-badge.png" height="50px" />
 </a>
 
 </div>
