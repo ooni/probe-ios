@@ -1,21 +1,37 @@
-# OONI Probe iOS [![Build Status](http://img.shields.io/travis/ooni/probe-ios.svg)](https://travis-ci.org/ooni/probe-ios) [![Slack Channel](https://slack.openobservatory.org/badge.svg)](https://slack.openobservatory.org/)
+# OONI Probe iOS
 
-OONI Probe is free and open source software designed to measure internet
-censorship and other forms of network interference.
+[![OONI Probe iOS](assets/OONIProbeLogo.png)](https://ooni.org)
 
-[![OONI Probe](assets/OONIProbeLogo.png)](https://ooni.io)
+<p align="center">
+  <a href="https://slack.openobservatory.org/">
+        <img src="https://slack.openobservatory.org/badge.svg"
+            alt="chat on Slack"></a>
+
+  <a href="https://github.com/ooni/probe/issues?q=label%3Aooni%2Fprobe-ios">
+    <img src="https://img.shields.io/github/issues/ooni/probe/ooni/probe-ios" alt="open issues">
+  </a>
+
+  <img src="http://img.shields.io/travis/ooni/probe-ios.svg" alt="Emulator Tests Status">
+
+  <a href="https://twitter.com/intent/follow?screen_name=OpenObservatory">
+    <img src="https://img.shields.io/twitter/follow/OpenObservatory?style=social&logo=twitter"
+    alt="follow on Twitter"></a>
+</p>
 
 <div align="left">
 
-<a href='https://play.google.com/store/apps/details?id=org.openobservatory.ooniprobe'>
-<img alt='Get it on Google Play' src='assets/play-store-badge.png' height="50px"/>
+<a href="https://f-droid.org/packages/org.openobservatory.ooniprobe/" target="_blank">
+<img src="assets/F-Droid-badge.png" alt="Get it on F-Droid" height="60px"/>
 </a>
 
-<a href="https://itunes.apple.com/us/app/ooni-probe/id1199566366">
-<img src="assets/app-store-badge.png" height="50px" />
+<a href="https://play.google.com/store/apps/details?id=org.openobservatory.ooniprobe" target="_blank">
+<img src="assets/Google-Play-badge.png" alt="Get it on Google Play" height="60px"/>
 </a>
 
 </div>
+
+OONI Probe is free and open source software designed to measure internet
+censorship and other forms of network interference.
 
 [Click here to report a bug](https://github.com/ooni/probe/issues/new)
 
