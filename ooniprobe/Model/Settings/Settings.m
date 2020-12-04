@@ -18,6 +18,7 @@
         self.state_dir = [Engine getStateDir];
         self.assets_dir = [Engine getAssetsDir];
         self.temp_dir = [Engine getTempDir];
+        self.version = [NSNumber numberWithInt:1];
     }
     return self;
 }
