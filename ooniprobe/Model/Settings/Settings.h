@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *assets_dir;
 @property (nonatomic, strong) NSString *state_dir;
 @property (nonatomic, strong) NSString *temp_dir;
+@property (nonatomic, strong) NSNumber *version;
 @property (nonatomic, strong) Options *options;
 
 @end
