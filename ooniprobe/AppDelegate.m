@@ -15,13 +15,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //Default is WAL https://www.sqlite.org/wal.html
     SharkORM.settings.sqliteJournalingMode = @"DELETE";
 
     if ([self isUITestingEnabled])
         [self copyDBTesting];
         
     [SharkORM setDelegate:self];
-    //Default is WAL https://www.sqlite.org/wal.html
     [SharkORM openDatabaseNamed:@"OONIProbe"];
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultPreferences" ofType:@"plist"]]];
 
