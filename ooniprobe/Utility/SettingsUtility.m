@@ -167,7 +167,6 @@
 }
 
 + (void)incrementAppOpenCount{
-    if ([self getAppOpenCount] > NOTIFICATION_POPUP_COUNT) return;
     [[NSUserDefaults standardUserDefaults] setInteger:[self getAppOpenCount]+1 forKey:NOTIFICATION_POPUP];
 }
 

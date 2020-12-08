@@ -16,6 +16,7 @@ class OONIProbeUITests: XCTestCase {
         //Preventing Informed Consent to appear
         app.launchArguments += ["-first_run", "ok"]
         app.launchArguments += ["-analytics_popup", "ok"]
+        app.launchArguments += ["-notification_popup_disable", "ok"]
         app.launchArguments += ["enable_ui_testing"]
         app.launch()
 

@@ -102,11 +102,19 @@
     }];
 
     UIAlertAction* cancelButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil)
+                                   actionWithTitle:NSLocalizedString(@"Modal.NoThanks", nil)
                                    style:UIAlertActionStyleCancel
                                    handler:^(UIAlertAction * action) {
         [CountlyUtility recordEvent:@"NotificationModal_Declined"];
     }];
+    UIAlertAction* neverButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Modal.DontAskAgain", nil)
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction * action) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:NOTIFICATION_POPUP_DISABLE];
+        [CountlyUtility recordEvent:@"NotificationModal_DontAskAgain"];
+    }];
+    [alert addAction:neverButton];
     [alert addAction:cancelButton];
     [alert addAction:okButton];
     dispatch_async(dispatch_get_main_queue(), ^{
