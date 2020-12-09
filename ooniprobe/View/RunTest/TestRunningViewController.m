@@ -55,9 +55,6 @@
     if ([testSuites count] == 0)
         return;
     testSuite = [testSuites objectAtIndex:0];
-    //TODO remove this line when web_connectiviity will be in go
-    if ([testSuite.name isEqualToString:@"websites"])
-        [self.interruptButton setHidden:YES];
     [self testStart];
     [testSuite runTestSuite];
     totalTests = [testSuite.testList count];
