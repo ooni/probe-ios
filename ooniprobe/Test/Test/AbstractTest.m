@@ -14,7 +14,6 @@
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurements = [[NSMutableDictionary alloc] init];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTest) name:@"interruptTest" object:nil];
     }
     return self;
 }
@@ -57,6 +56,7 @@
 }
 
 -(void)runTest{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTest) name:@"interruptTest" object:nil];
     if(self.annotation)
         [self.settings.annotations setObject:@"ooni-run" forKey:@"origin"];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -203,9 +203,10 @@
 }
 
 - (void)interruptTest{
-    NSLog(@"interruptTest AbstractTest");
+    NSLog(@"interruptTest AbstractTest %@", self.name);
     if ([self.task canInterrupt])
         [self.task interrupt];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"interruptTest" object:nil];
 }
 
 -(void)testStarted{
