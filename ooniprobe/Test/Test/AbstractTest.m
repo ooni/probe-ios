@@ -56,6 +56,7 @@
 }
 
 -(void)runTest{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTest) name:@"interruptTest" object:nil];
     if(self.annotation)
         [self.settings.annotations setObject:@"ooni-run" forKey:@"origin"];
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -201,9 +202,15 @@
     });
 }
 
+- (void)interruptTest{
+    NSLog(@"interruptTest AbstractTest %@", self.name);
+    if ([self.task canInterrupt])
+        [self.task interrupt];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"interruptTest" object:nil];
+}
+
 -(void)testStarted{
     NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
-    [noteInfo setObject:self.task forKey:@"task"];
     [noteInfo setObject:self.name forKey:@"name"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"testStarted" object:nil userInfo:noteInfo];
 }

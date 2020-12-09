@@ -26,6 +26,8 @@
 }
 
 -(void)runTestSuite {
+    self.interrupted = false;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTest) name:@"interruptTest" object:nil];
     [self newResult];
     dispatch_queue_t serialQueue = dispatch_queue_create("org.openobservatory.queue", DISPATCH_QUEUE_SERIAL);
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -46,6 +48,12 @@
         AbstractTest *current = [self.testList objectAtIndex:0];
         [current runTest];
     }
+}
+
+- (void)interruptTest{
+    NSLog(@"interruptTest AbstractSuite %@", self.name);
+    self.interrupted = true;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"interruptTest" object:nil];
 }
 
 -(void)testEnded:(AbstractTest*)test{
