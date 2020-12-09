@@ -45,8 +45,9 @@
                                 inView:self];
     }
     //we don't want to flood the user with popups
-    else if ([SettingsUtility getAppOpenCount] == NOTIFICATION_POPUP_COUNT
-             && ![SettingsUtility isNotificationEnabled]){
+    else if ([SettingsUtility getAppOpenCount] % NOTIFICATION_POPUP_COUNT == 0
+             && ![SettingsUtility isNotificationEnabled]
+             && ![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_POPUP_DISABLE]){
         [MessageUtility notificationAlertinView:self];
         [SettingsUtility incrementAppOpenCount];
     }
