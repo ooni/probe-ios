@@ -7,6 +7,7 @@
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.testList = [[NSMutableArray alloc] init];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTest) name:@"interruptTest" object:nil];
     }
     return self;
 }
@@ -26,6 +27,7 @@
 }
 
 -(void)runTestSuite {
+    self.interrupted = false;
     [self newResult];
     dispatch_queue_t serialQueue = dispatch_queue_create("org.openobservatory.queue", DISPATCH_QUEUE_SERIAL);
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -47,6 +49,12 @@
         [current runTest];
     }
 }
+
+- (void)interruptTest{
+    NSLog(@"interruptTest AbstractSuite");
+    self.interrupted = true;
+}
+
 
 -(void)testEnded:(AbstractTest*)test{
     [self.testList removeObject:test];

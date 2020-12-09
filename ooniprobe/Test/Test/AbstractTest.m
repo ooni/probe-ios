@@ -14,6 +14,7 @@
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurements = [[NSMutableDictionary alloc] init];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTest) name:@"interruptTest" object:nil];
     }
     return self;
 }
@@ -201,9 +202,14 @@
     });
 }
 
+- (void)interruptTest{
+    NSLog(@"interruptTest AbstractTest");
+    if ([self.task canInterrupt])
+        [self.task interrupt];
+}
+
 -(void)testStarted{
     NSMutableDictionary *noteInfo = [[NSMutableDictionary alloc] init];
-    [noteInfo setObject:self.task forKey:@"task"];
     [noteInfo setObject:self.name forKey:@"name"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"testStarted" object:nil userInfo:noteInfo];
 }

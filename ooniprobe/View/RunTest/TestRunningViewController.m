@@ -161,8 +161,7 @@
                                handler:^(UIAlertAction * action) {
         [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Title", nil)];
         [self.logLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Notice", nil)];
-        testSuite.interrupted = TRUE;
-        //TODO use notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"interruptTest" object:nil];
     }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.InterruptTest.Title", nil)
                            message:NSLocalizedString(@"Modal.InterruptTest.Paragraph", nil)
