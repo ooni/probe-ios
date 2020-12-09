@@ -95,7 +95,6 @@
 
 -(void)testStarted:(NSNotification *)notification{
     NSDictionary *userInfo = notification.userInfo;
-    task = [userInfo objectForKey:@"task"];
     NSString *name = [userInfo objectForKey:@"name"];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
@@ -163,8 +162,7 @@
         [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Title", nil)];
         [self.logLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Notice", nil)];
         testSuite.interrupted = TRUE;
-        if ([task canInterrupt])
-            [task interrupt];
+        //TODO use notification
     }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.InterruptTest.Title", nil)
                            message:NSLocalizedString(@"Modal.InterruptTest.Paragraph", nil)
