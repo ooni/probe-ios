@@ -56,7 +56,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"interruptTest" object:nil];
 }
 
-
 -(void)testEnded:(AbstractTest*)test{
     [self.testList removeObject:test];
     [self.result save];
