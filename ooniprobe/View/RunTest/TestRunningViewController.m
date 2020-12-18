@@ -21,6 +21,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError) name:@"showError" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTestUI) name:@"interruptTestUI" object:nil];
     [self runTest];
 
     //Keep screen on
@@ -159,8 +160,6 @@
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-        [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Title", nil)];
-        [self.logLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Notice", nil)];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"interruptTest" object:nil];
     }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.InterruptTest.Title", nil)
@@ -169,4 +168,8 @@
                             inView:self];
 }
 
+- (void)interruptTestUI {
+    [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Title", nil)];
+    [self.logLabel setText:NSLocalizedString(@"Dashboard.Running.Stopping.Notice", nil)];
+}
 @end

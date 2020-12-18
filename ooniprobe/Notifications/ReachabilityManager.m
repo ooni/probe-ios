@@ -34,7 +34,9 @@
 }
 
 - (void)reachabilityDidChange:(NSNotification *)notification {
-    //Do nothing
+    NSLog(@"reachabilityDidChange %@", notification);
+    //Interrupt test if network changed
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"interruptTest" object:nil];
 }
 
 - (NSString*)getStatus{

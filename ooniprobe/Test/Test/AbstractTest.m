@@ -204,8 +204,10 @@
 
 - (void)interruptTest{
     NSLog(@"interruptTest AbstractTest %@", self.name);
-    if ([self.task canInterrupt])
+    if ([self.task canInterrupt]){
         [self.task interrupt];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"interruptTestUI" object:nil];
+    }
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"interruptTest" object:nil];
 }
 
