@@ -27,7 +27,10 @@ class OONIProbeUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    
+    /*
+     * This test execute the app with a preloaded database, navigate in the dashboard,
+     * TestResult screen and TestDetails and takes screenshots for the app store.
+     */
     func testScreenshots() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -77,5 +80,96 @@ class OONIProbeUITests: XCTestCase {
         tablesQuery.children(matching: .other).element.children(matching: .button).element.tap()
         tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
         snapshot("05ChooseWebsite")
+    }
+    
+    /*
+     * This test open the custom website screen, input "ooni.io" and run the test,
+     * wait 60 seconds for the test to complete then navigate to the test result screen
+     * to check if the website is accessible.
+     */
+    func testCustomURL() {
+        let app = XCUIApplication()
+
+        let tabBarsQuery = app.tabBars
+        let tablesQuery = app.tables
+
+        let dashboardButton = tabBarsQuery.buttons.element(boundBy: 0)
+        let resultsButton = tabBarsQuery.buttons.element(boundBy: 1)
+        
+        dashboardButton.tap()
+        tablesQuery.cells.element(boundBy: 0).tap()
+        app.buttons["ConfigureButton"].tap()
+        tablesQuery.cells.children(matching: .textField).element.tap()
+        
+        app.typeText("ooni.io")
+
+        tablesQuery.children(matching: .other).element.children(matching: .button).element.tap()
+        tablesQuery.children(matching: .cell).element(boundBy: 1).children(matching: .textField).element.tap()
+
+        let runButton = app.buttons["Run"]
+        XCTAssertTrue(runButton.exists)
+
+        runButton.tap()
+        
+        XCTAssertTrue(resultsButton.waitForExistence(timeout: 50))
+
+        resultsButton.tap()
+        tablesQuery.cells.element(boundBy: 0).tap()
+        
+        //Taps on ooni.io row
+        tablesQuery.cells.element(boundBy: 0).tap()
+
+        //Check the URL is what was tested and accessible
+        let urlLabel = app.staticTexts["TestResults.Details.Hero.TestName"]
+        XCTAssertTrue(urlLabel.label == "http://ooni.io")
+
+        let descriptionLabel = app.staticTexts["TestResults.Details.Hero.Status"]
+        XCTAssertTrue(descriptionLabel.label == "Accessible")
+    }
+    
+    /*
+     * This test navigate into settings, disable the automatic publish results
+     * then runs a IM test and verify that the test result haven't been uploaded.
+     * TODO add more checks
+     */
+    func testSettings() {
+        let app = XCUIApplication()
+
+        let tabBarsQuery = app.tabBars
+        let tablesQuery = app.tables
+
+        let dashboardButton = tabBarsQuery.buttons.element(boundBy: 0)
+        let resultsButton = tabBarsQuery.buttons.element(boundBy: 1)
+        let settingsButton = tabBarsQuery.buttons.element(boundBy: 2)
+
+        resultsButton.tap()
+
+        XCTAssertFalse(tablesQuery.cells.element(boundBy: 0).images["not_uploaded_icon"].exists)
+        
+        settingsButton.tap()
+        tablesQuery.cells.element(boundBy: 2).tap()
+        let resultSwitch = tablesQuery.cells.element(boundBy: 0).children(matching: .switch).element
+        
+        if ((resultSwitch.value as? String) == "1"){
+            resultSwitch.tap()
+        }
+        
+        //From https://stackoverflow.com/questions/44222966/from-an-xcuitest-how-can-i-check-the-on-off-state-of-a-uiswitch
+        XCTAssert((resultSwitch.value as? String) == "0")
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        dashboardButton.tap()
+        
+        //Run IM test
+        tablesQuery.cells.element(boundBy: 1).tap()
+        let runButton = app.buttons["Run"]
+        XCTAssertTrue(runButton.exists)
+        runButton.tap()
+
+        XCTAssertTrue(resultsButton.waitForExistence(timeout: 50))
+
+        //Check results
+        resultsButton.tap()
+        XCTAssertTrue(tablesQuery.cells.element(boundBy: 0).images["not_uploaded_icon"].exists)
+
     }
 }
