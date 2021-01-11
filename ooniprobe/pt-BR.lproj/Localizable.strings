@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "Teste o bloqueio de aplicativos de mensagens instantâneas";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Verifique se [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) e [Telegram](https://ooni.io/nettest/telegram/)  estão bloqueados.\n\nSeus resultados serão publicados no [OONI Explorer](https://explorer.ooni.io/world/) e no [OONI API](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "Testar o bloqueio de ferramentas de evasão à censura";
-"Dashboard.Circumvention.Overview.Paragraph" = "Verifique se [Psiphon](https://ooni.io/nettest/psiphon/) e [Tor](https://ooni.io/nettest/tor/) estão bloqueados.\n\nSeus resultados serão publicados no [OONI Explorer](https://explorer.ooni.org/) e no [OONI API](https://api.ooni.io/).";
+"Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -233,6 +233,17 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Type" = "Tipo";
 "TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "Conectar";
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "Handshake";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "Provavelmente bloqueados";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "Funcionando";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN connections";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
+"TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked" = "Bloqueado";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ bloqueados";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ bloqueados";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "Está bem";
 "Feed.Tab.Label" = "Alimentar";
 "Feed.Title" = "Alimentar";
 "Modal.OK" = "OK";
@@ -300,6 +311,7 @@
 "Test.FacebookMessenger.Fullname" = "Teste do Facebook Messenger";
 "Test.Psiphon.Fullname" = "Teste do Psiphon";
 "Test.Tor.Fullname" = "Teste do Tor";
+"Test.RiseupVPN.Fullname" = "RiseupVPN Test";
 "Settings.Title" = "Configurações";
 "Settings.Error.TestDurationTooLow" = "A quantidade de tempo que você definiu para a duração do teste é muito baixa.";
 "Settings.About.Label" = "Sobre OONI";
@@ -312,9 +324,9 @@
 "Settings.Notifications.OnNews" = "Notícias";
 "Settings.AutomatedTesting.Label" = "Teste automatizado";
 "Settings.AutomatedTesting.RunAutomatically" = "Executar testes automaticamente";
-"Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Run tests only on WiFi";
-"Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Run tests only while charging";
-"Settings.AutomatedTesting.RunAutomatically.Footer" = "By enabling automatic testing, OONI Probe tests will run automatically on a regular basis (and you don’t need to remember to manually run tests).";
+"Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Executar testes apenas em WiFi";
+"Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Executar testes apenas durante o carregamento";
+"Settings.AutomatedTesting.RunAutomatically.Footer" = "Ao ativar o teste automático, os testes OONI Probe serão executados automaticamente em uma base regular (e você não precisa se lembrar de executar os testes manualmente).";
 "Settings.Sharing.Label" = "Compartilhando";
 "Settings.Sharing.UploadResults" = "Publicar os resultados automaticamente";
 "Settings.Sharing.UploadResultsManually" = "Carregamento manual dos resultados";
@@ -364,6 +376,7 @@
 "Settings.Performance.DashServerPort" = "Porta do servidor DASH";
 "Settings.Circumvention.TestPsiphon" = "Teste Psiphon";
 "Settings.Circumvention.TestTor" = "Teste Tor";
+"Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
 "Settings.SendEmail.Label" = "Enviar e-mail para suporte";
 "Settings.SendEmail.Error" = "Por favor, envie um e-mail para bugs@openobservatory.org com informações sobre o aplicativo e a versão do iOS. Toque em \"Copiar para área de transferência,\" abaixo, para copiar nosso endereço de e-mail.";
 "Settings.Language.Current" = "O idioma atual da aplicação é %@";

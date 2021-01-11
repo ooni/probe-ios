@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "त्वरित संदेश एप्लिकेशन को अवरुद्ध करने का परीक्षण करें";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "जाँच करें कि क्या [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) और [Telegram](https://ooni.io/nettest/telegram/) अवरुद्ध हैं।\n\nआपके परिणाम [OONI एक्सप्लोरर](https://explorer.ooni.io/world/) और [OONI API](https://api.ooni.io/) पर प्रकाशित किए जाएंगे।";
 "Dashboard.Circumvention.Card.Description" = "सेंसरशिप परिधि उपकरणों के अवरोधन का परीक्षण करें";
-"Dashboard.Circumvention.Overview.Paragraph" = "जांचें कि क्या [Psiphon] (https://ooni.io/nettest/psiphon/) और [Tor] (https://ooni.io/nettest/tor/) अवरुद्ध हैं।\n\nआपके परिणाम [OONI Explorer] (https://explorer.ooni.org/) और [OONI API] (https://api.ooni.io/) पर प्रकाशित किए जाएंगे।";
+"Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -233,6 +233,17 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Type" = "प्रकार";
 "TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "जोड़ें";
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "हाथ मिलाना";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "शायद अवरुद्ध";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "काम कर रहे";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN connections";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
+"TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked" = "अवरुद्ध";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ अवरुद्ध";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ अवरुद्ध";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "ठीक है ";
 "Feed.Tab.Label" = "चारा";
 "Feed.Title" = "चारा";
 "Modal.OK" = "ठीक है ";
@@ -300,6 +311,7 @@
 "Test.FacebookMessenger.Fullname" = "फेसबुक मेसेंजर टेस्ट";
 "Test.Psiphon.Fullname" = "Psiphon परीक्षा";
 "Test.Tor.Fullname" = "Tor परीक्षा";
+"Test.RiseupVPN.Fullname" = "RiseupVPN Test";
 "Settings.Title" = "सेटिंग्स";
 "Settings.Error.TestDurationTooLow" = "परीक्षण अवधि के लिए आपके द्वारा निर्धारित समय की मात्रा बहुत कम है।";
 "Settings.About.Label" = "OONI बारे में";
@@ -364,6 +376,7 @@
 "Settings.Performance.DashServerPort" = "DASH server port";
 "Settings.Circumvention.TestPsiphon" = "Psiphon का परीक्षण करें";
 "Settings.Circumvention.TestTor" = "टेस्ट Tor";
+"Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
 "Settings.SendEmail.Label" = "Send email to support";
 "Settings.SendEmail.Error" = "कृपया iOS संस्करण और एप्लिकेशन की जानकारी के साथ bugs@openobservatory.org को एक ईमेल भेजें। हमारा  ईमेल पता कॉपी करने के लिए \"क्लिपबोर्ड पर कॉपी करें\" पर टैप करें।";
 "Settings.Language.Current" = "वर्तमान एप्लिकेशन भाषा %@ है";

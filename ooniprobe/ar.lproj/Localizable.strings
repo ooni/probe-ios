@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "اختبار حجب برامج المراسلة الفورية";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "تحقق من حجب [واتساب](https://ooni.io/nettest/whatsapp/)و [ماسنجر الفيسبوك](https://ooni.io/nettest/facebook-messenger/) و [تيليجرام](https://ooni.io/nettest/telegram/)\n\nنتائج اختبارك ستنشر على [متصفح OONI](https://explorer.ooni.io/world/) و على [OONI API](https://api.ooni.io/)";
 "Dashboard.Circumvention.Card.Description" = "اختبار حجب وسائل تجاوز الرقابة.";
-"Dashboard.Circumvention.Overview.Paragraph" = "تحقق من حجب [Psiphon](https://ooni.io/nettest/psiphon/) و [تور](https://ooni.io/nettest/tor/).\n\nنتائج اختبارك ستنشر على [متصفح OONI](https://explorer.ooni.org/) و على [OONI API](https://api.ooni.io/).";
+"Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "غيغابت/ثا";
 "TestResults.Mbps" = "ميغابت/ثا";
 "TestResults.Kbps" = "كيلوبت/ثا";
@@ -233,6 +233,17 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Type" = "النوع";
 "TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "اتصل";
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "المصافحة";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "محجوب على الأرجح";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "يعمل";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN connections";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
+"TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked" = "محجوب";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ محجوب";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ محجوب";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "موافق";
 "Feed.Tab.Label" = "التغذية";
 "Feed.Title" = "التغذية";
 "Modal.OK" = "موافقة";
@@ -300,6 +311,7 @@
 "Test.FacebookMessenger.Fullname" = "اختبار فيسبوك مسنجر";
 "Test.Psiphon.Fullname" = "اختبار Psiphon";
 "Test.Tor.Fullname" = "اختبار تور";
+"Test.RiseupVPN.Fullname" = "RiseupVPN Test";
 "Settings.Title" = "الإعدادات";
 "Settings.Error.TestDurationTooLow" = "المدة التي حددتها لفترة الاختبار قصيرة جدًا ";
 "Settings.About.Label" = "عن OONI";
@@ -364,6 +376,7 @@
 "Settings.Performance.DashServerPort" = "منفذ خادم DASH";
 "Settings.Circumvention.TestPsiphon" = "إختبار Psiphon";
 "Settings.Circumvention.TestTor" = "إختبار Tor";
+"Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
 "Settings.SendEmail.Label" = "إرسال إيميل لفريق الدعم ";
 "Settings.SendEmail.Error" = "من فضلك أرسل رسالة إلكترونية إلى bugs@openobservatory.org تحتوى على معلومات عن اصدار البرنامج وإصدار iOS. اضغط على \"نسخ إلى الحافظة\" فى الأسفل لنسخ عنوان بريدنا الإلكتروني.";
 "Settings.Language.Current" = "اللغة الحالية للتطبيق هي %@";
