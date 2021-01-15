@@ -9,7 +9,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - run: DEBUG_RESOLVER=y bundle install
+      - run: bundle install
       - run: pod repo update
       - run: pod install
       - run: |
