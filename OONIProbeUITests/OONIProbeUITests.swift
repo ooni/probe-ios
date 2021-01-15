@@ -30,8 +30,9 @@ class OONIProbeUITests: XCTestCase {
     /*
      * This test execute the app with a preloaded database, navigate in the dashboard,
      * TestResult screen and TestDetails and takes screenshots for the app store.
+     * This should be always the first test to run due to the preloaded db.
      */
-    func testScreenshots() {
+    func testMakeScreenshots() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let app = XCUIApplication()
@@ -87,7 +88,7 @@ class OONIProbeUITests: XCTestCase {
      * wait 60 seconds for the test to complete then navigate to the test result screen
      * to check if the website is accessible.
      */
-    func testCustomURL() {
+    func testRunCustomURL() {
         let app = XCUIApplication()
 
         let tabBarsQuery = app.tabBars
