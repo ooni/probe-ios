@@ -52,7 +52,7 @@
 
 -(void)prepareRun{
     self.settings = [Settings new];
-    self.settings.name = [LocalizationUtility getMKNameForTest:self.name];
+    self.settings.name = self.name;
 }
 
 -(void)runTest{
