@@ -67,6 +67,7 @@
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.m */; };
+		ED76B20825B6F13D00899EE7 /* RiseupVPN.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76B20725B6F13D00899EE7 /* RiseupVPN.m */; };
 		ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED78739F2448874500F92DDE /* NavigationBarUtility.m */; };
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
 		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
@@ -297,6 +298,8 @@
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityManager.m; sourceTree = "<group>"; };
+		ED76B20625B6F13D00899EE7 /* RiseupVPN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RiseupVPN.h; sourceTree = "<group>"; };
+		ED76B20725B6F13D00899EE7 /* RiseupVPN.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RiseupVPN.m; sourceTree = "<group>"; };
 		ED78739E2448874500F92DDE /* NavigationBarUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarUtility.h; sourceTree = "<group>"; };
 		ED78739F2448874500F92DDE /* NavigationBarUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarUtility.m; sourceTree = "<group>"; };
 		ED81BB92223F84C9000AFA01 /* UploadFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadFooterViewController.h; sourceTree = "<group>"; };
@@ -663,6 +666,8 @@
 				ED14B2332465411E009AA906 /* Psiphon.m */,
 				ED14B2352465412C009AA906 /* Tor.h */,
 				ED14B2362465412C009AA906 /* Tor.m */,
+				ED76B20625B6F13D00899EE7 /* RiseupVPN.h */,
+				ED76B20725B6F13D00899EE7 /* RiseupVPN.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -1340,6 +1345,7 @@
 				ED9D8B9B207F5C4A00189FAE /* TestDetailsViewController.m in Sources */,
 				ED76A78A1EF166F3004D9B5E /* ReachabilityManager.m in Sources */,
 				ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */,
+				ED76B20825B6F13D00899EE7 /* RiseupVPN.m in Sources */,
 				EDDB0B5C1FFF330800EFD9C8 /* SettingsTableViewController.m in Sources */,
 				EDDB0B771FFF6C8B00EFD9C8 /* PopQuizViewController.m in Sources */,
 				EDF4ED28248A9A64001A5406 /* Value.m in Sources */,

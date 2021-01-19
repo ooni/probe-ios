@@ -130,6 +130,7 @@
     else if ([testName isEqualToString:@"circumvention"]) {
         [settings addObject:@"test_psiphon"];
         [settings addObject:@"test_tor"];
+        [settings addObject:@"test_riseupvpn"];
     }
     else if ([testName isEqualToString:@"performance"]) {
         [settings addObject:@"run_ndt"];
