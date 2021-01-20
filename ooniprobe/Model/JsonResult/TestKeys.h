@@ -4,6 +4,7 @@
 #import "Advanced.h"
 #import "Summary.h"
 #import "Server.h"
+#import "GatewayConnection.h"
 #define BLOCKED @"blocked"
 
 @interface TestKeys : NSObject
@@ -46,6 +47,10 @@
 @property (nonatomic, strong) NSNumber *or_port_dirauth_accessible;
 @property (nonatomic, strong) NSNumber *or_port_total;
 @property (nonatomic, strong) NSNumber *or_port_accessible;
+//RiseupVPN
+@property (nonatomic, strong) NSString *api_failure;
+@property (nonatomic, strong) NSNumber *ca_cert_status;
+@property (nonatomic, strong) NSArray *failing_gateways;
 
 - (NSString*)getJsonStr;
 
@@ -104,5 +109,11 @@
 //TOR
 - (NSString*)getBridges;
 - (NSString*)getAuthorities;
+
+//RISEUPVPN
+- (NSString*)getRiseupVPNApiStatus;
+- (NSString*)getRiseupVPNOpenvpnGatewayStatus;
+- (NSString*)getRiseupVPNBridgedGatewayStatus;
+- (NSString*)getGatewayStatus:(NSString*)transport;
 @end
 

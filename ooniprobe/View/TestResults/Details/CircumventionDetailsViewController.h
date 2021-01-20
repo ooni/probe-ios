@@ -14,4 +14,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *detail2TitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *detail2SubtitleLabel;
 
+@property (nonatomic, strong) IBOutlet UILabel *detail3TitleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *detail3SubtitleLabel;
+
 @end

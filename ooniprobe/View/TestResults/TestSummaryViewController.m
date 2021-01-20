@@ -125,7 +125,8 @@
     else if ([segueObj.test_name isEqualToString:@"web_connectivity"])
         [self performSegueWithIdentifier:@"toWebsitesTestDetails" sender:self];
     else if ([segueObj.test_name isEqualToString:@"tor"] ||
-             [segueObj.test_name isEqualToString:@"psiphon"])
+             [segueObj.test_name isEqualToString:@"psiphon"] ||
+             [segueObj.test_name isEqualToString:@"riseupvpn"])
         [self performSegueWithIdentifier:@"toCircumventionTestDetails" sender:self];
 }
 

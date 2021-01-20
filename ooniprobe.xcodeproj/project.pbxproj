@@ -67,6 +67,7 @@
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.m */; };
 		ED76B20825B6F13D00899EE7 /* RiseupVPN.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76B20725B6F13D00899EE7 /* RiseupVPN.m */; };
+		ED76B21725B7067100899EE7 /* GatewayConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76B21625B7067100899EE7 /* GatewayConnection.m */; };
 		ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED78739F2448874500F92DDE /* NavigationBarUtility.m */; };
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
 		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
@@ -298,6 +299,8 @@
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityManager.m; sourceTree = "<group>"; };
 		ED76B20625B6F13D00899EE7 /* RiseupVPN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RiseupVPN.h; sourceTree = "<group>"; };
 		ED76B20725B6F13D00899EE7 /* RiseupVPN.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RiseupVPN.m; sourceTree = "<group>"; };
+		ED76B21525B7067100899EE7 /* GatewayConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayConnection.h; sourceTree = "<group>"; };
+		ED76B21625B7067100899EE7 /* GatewayConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayConnection.m; sourceTree = "<group>"; };
 		ED78739E2448874500F92DDE /* NavigationBarUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarUtility.h; sourceTree = "<group>"; };
 		ED78739F2448874500F92DDE /* NavigationBarUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarUtility.m; sourceTree = "<group>"; };
 		ED81BB92223F84C9000AFA01 /* UploadFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadFooterViewController.h; sourceTree = "<group>"; };
@@ -831,6 +834,8 @@
 				EDF4ED29248A9FA6001A5406 /* Server.m */,
 				ED53841A2159757D0078C5C6 /* EventResult.h */,
 				EDF4ED1F248A8B50001A5406 /* EventResult.m */,
+				ED76B21525B7067100899EE7 /* GatewayConnection.h */,
+				ED76B21625B7067100899EE7 /* GatewayConnection.m */,
 			);
 			name = JsonResult;
 			path = Model/JsonResult;
@@ -1317,6 +1322,7 @@
 			files = (
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.m in Sources */,
+				ED76B21725B7067100899EE7 /* GatewayConnection.m in Sources */,
 				ED9CCF09252B35B3004F8420 /* PELoggerAdapter.m in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
 				ED14B231246540A4009AA906 /* CircumventionSuite.m in Sources */,
