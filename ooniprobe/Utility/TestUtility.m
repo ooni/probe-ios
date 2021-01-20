@@ -24,7 +24,7 @@
 + (NSDictionary*)getTests{
     return @{@"websites": @[@"web_connectivity"],
              @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"],
-             @"circumvention": @[@"psiphon", @"tor"],
+             @"circumvention": @[@"psiphon", @"tor", @"riseupvpn"],
              @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"]};
 }
 
