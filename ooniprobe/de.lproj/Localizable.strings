@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "Teste das Blockieren von Instant Messaging-Apps";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Überprüfen Sie ob [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) und [Telegram](https://ooni.io/nettest/telegram/) blockiert werden.\n\nIhre Ergebnisse werden auf [OONI Explorer](https://explorer.ooni.io/world/) und [OONI API](https://api.ooni.io/) veröffentlicht.";
 "Dashboard.Circumvention.Card.Description" = "Test auf Blockierung der Instrumente zur Zensurumgehung ";
-"Dashboard.Circumvention.Overview.Paragraph" = "Prüfen Sie, ob [Psiphon](https://ooni.io/nettest/psiphon/) und [Tor](https://ooni.io/nettest/tor/) blockiert werden.\n\nIhre Ergebnisse werden auf [OONI Explorer](https://explorer.ooni.org/) und [OONI API](https://api.ooni.io/) veröffentlicht.";
+"Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -233,6 +233,17 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Type" = "Typ";
 "TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "Verbinden";
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "Handschlag";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "Wahrscheinlich blockiert";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "Funktioniert";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN connections";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
+"TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked" = "Gesperrt";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ blockiert";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ blockiert";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "OK";
 "Feed.Tab.Label" = "Feed";
 "Feed.Title" = "Feed";
 "Modal.OK" = "OK";
@@ -300,6 +311,7 @@
 "Test.FacebookMessenger.Fullname" = "Facebook Messenger Test";
 "Test.Psiphon.Fullname" = "Psiphon Test";
 "Test.Tor.Fullname" = "Tor Test";
+"Test.RiseupVPN.Fullname" = "RiseupVPN Test";
 "Settings.Title" = "Einstellungen";
 "Settings.Error.TestDurationTooLow" = "Die eingestellte Zeit für den Test ist zu kurz.";
 "Settings.About.Label" = "Über OONI";
@@ -364,6 +376,7 @@
 "Settings.Performance.DashServerPort" = "DASH-Serverport";
 "Settings.Circumvention.TestPsiphon" = "Psiphon testen";
 "Settings.Circumvention.TestTor" = "Tor Testen";
+"Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
 "Settings.SendEmail.Label" = "E-Mail an den Support senden";
 "Settings.SendEmail.Error" = "Bitte senden Sie eine E-Mail an bugs@openobservatory.org mit Informationen zur App und iOS-Version. Tippen Sie unten auf \"In Zwischenablage kopieren\", um unsere E-Mail Adresse zu kopieren.";
 "Settings.Language.Current" = "Aktuelle App-Sprache ist %@";

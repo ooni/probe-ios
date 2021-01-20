@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "Otestuj blokovanie aplikácií na výmenu okamžitých správ";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Skontroluj, či aplikácie [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) a [Telegram](https://ooni.io/nettest/telegram/) nie sú blokované.\n\nVýsledky sa uverejnia na stránkach [Prieskumníka OONI](https://explorer.ooni.io/world/) a [OONI API](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "Otestovať blokovanie nástrojov obchádzania cenzúry";
-"Dashboard.Circumvention.Overview.Paragraph" = "Skontrolujte, či sú [Psiphon](https://ooni.io/nettest/psiphon/) a sieť [Tor](https://ooni.io/nettest/tor/) blokované.\n\nVaše výsledky sa uverejnia v [Prieskumníku OONI](https://explorer.ooni.org/) a [OONI API](https://api.ooni.io/).";
+"Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -233,6 +233,17 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Type" = "Typ";
 "TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "Pripojiť";
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "Handshake";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "Pravdepodobne blokovaná";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "Funguje";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN connections";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
+"TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked" = "Blokovaná";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ blokovaných";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ blokovaných";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "OK";
 "Feed.Tab.Label" = "Informačný kanál";
 "Feed.Title" = "Informačný kanál";
 "Modal.OK" = "OK";
@@ -300,6 +311,7 @@
 "Test.FacebookMessenger.Fullname" = "Test Facebook Messengera";
 "Test.Psiphon.Fullname" = "Psiphon Test";
 "Test.Tor.Fullname" = "Test siete Tor";
+"Test.RiseupVPN.Fullname" = "RiseupVPN Test";
 "Settings.Title" = "Nastavenia";
 "Settings.Error.TestDurationTooLow" = "Doba trvania testu, ktorú si nastavil/a, je príliš krátka.";
 "Settings.About.Label" = "O projekte OONI";
@@ -364,6 +376,7 @@
 "Settings.Performance.DashServerPort" = "Port servera DASH";
 "Settings.Circumvention.TestPsiphon" = "Test Psiphon";
 "Settings.Circumvention.TestTor" = "Test Tor";
+"Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
 "Settings.SendEmail.Label" = "Poslať e-mail na podporu";
 "Settings.SendEmail.Error" = "Pošli, prosím, e-mail s informáciami o aplikácii a verzii iOS na bugs@openobservatory.org. Pre skopírovanie našej e-mailovej adresy ťukni na „Kopírovať do schránky“ nižšie.";
 "Settings.Language.Current" = "Current app language is %@";

@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "Τέσταρε το μπλοκάρισμα εφαρμογών συνομιλιών";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Δες αν το [WhatsApp](https://ooni.io/nettest/whatsapp/), το [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) και το [Telegram](https://ooni.io/nettest/telegram/) έχουν μπλοκαριστεί.\n\nΤα αποτελέσματα των δοκιμών σου θα δημοσιευτούν στο [OONI Explorer](https://explorer.ooni.io/world/) και στο [OONI API](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "Έλεγξε το μπλοκάρισμα εργαλείων παράκαμψης λογοκρισίας";
-"Dashboard.Circumvention.Overview.Paragraph" = "Δες εάν το [Psiphon] (https://ooni.io/nettest/psiphon/) και το [Tor] (https://ooni.io/nettest/tor/) έχουν μπλοκαριστεί.\n\nΤα αποτελέσματα θα δημοσιευτούν στο [OONI Explorer] (https://explorer.ooni.org/) και στο [OONI API] (https://api.ooni.io/).";
+"Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -233,6 +233,17 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Type" = "Τύπος";
 "TestResults.Details.Circumvention.Tor.Table.Header.Connect" = "Σύνδεση";
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "Χειραψία";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "Likely blocked";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "Working";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN connections";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
+"TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked" = "Blocked";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ blocked";
+"TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ blocked";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "OK";
 "Feed.Tab.Label" = "Feed";
 "Feed.Title" = "Feed";
 "Modal.OK" = "Εντάξει";
@@ -300,6 +311,7 @@
 "Test.FacebookMessenger.Fullname" = "Δοκιμή Facebook Messenger";
 "Test.Psiphon.Fullname" = "Δοκιμή Psiphon";
 "Test.Tor.Fullname" = "Δοκιμή Tor";
+"Test.RiseupVPN.Fullname" = "RiseupVPN Test";
 "Settings.Title" = "Ρυθμίσεις";
 "Settings.Error.TestDurationTooLow" = "Ο χρόνος που έχεις ρυθμίσει για τη διάρκεια εκτέλεσης της δοκιμής είναι πολύ χαμηλός.";
 "Settings.About.Label" = "Σχετικά με το OONI";
@@ -364,6 +376,7 @@
 "Settings.Performance.DashServerPort" = "Θύρα διακομιστή DASH";
 "Settings.Circumvention.TestPsiphon" = "Δοκίμασε το Psiphon";
 "Settings.Circumvention.TestTor" = "Δοκίμασε το Tor";
+"Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
 "Settings.SendEmail.Label" = "Αποστολή email στην υποστήριξη";
 "Settings.SendEmail.Error" = "Παρακαλούμε στείλτε ένα email στη διεύθυνση bugs@openobservatory.org με πληροφορίες σχετικά με την έκδοση της εφαρμογής και του iOS. Πατήστε \"Αντιγραφή στο πρόχειρο\" παρακάτω για να αντιγράψετε τη διεύθυνση email μας.";
 "Settings.Language.Current" = "Η τρέχουσα γλώσσα εφαρμογής είναι %@";

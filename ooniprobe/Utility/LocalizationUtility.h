@@ -4,7 +4,6 @@
 @interface LocalizationUtility : NSObject
 
 + (NSString*)getNameForTest:(NSString*)testName;
-+ (NSString*)getMKNameForTest:(NSString*)testName;
 + (NSString*)getDescriptionForTest:(NSString*)testName;
 + (NSString*)getLongDescriptionForTest:(NSString*)testName;
 + (NSString*)getFilterNameForTest:(NSString*)testName;

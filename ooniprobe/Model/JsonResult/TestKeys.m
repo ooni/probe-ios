@@ -423,4 +423,37 @@
     return NSLocalizedString(@"TestResults.NotAvailable", nil);
 }
 
+#pragma mark RISEUPVPN
+
+- (NSString*)getRiseupVPNApiStatus{
+    if (self.api_failure != nil && !self.ca_cert_status){
+        return NSLocalizedString(@"TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked", nil);
+    }
+    else {
+        return NSLocalizedString(@"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay", nil);
+    }
+}
+
+- (NSString*)getRiseupVPNOpenvpnGatewayStatus{
+    return [self getGatewayStatus:@"openvpn"];
+}
+
+- (NSString*)getRiseupVPNBridgedGatewayStatus{
+    return [self getGatewayStatus:@"obfs4"];
+}
+
+- (NSString*)getGatewayStatus:(NSString*)transport{
+    if (self.failing_gateways != nil) {
+        int blockedConnection = 0;
+        for (GatewayConnection *connection in self.failing_gateways) {
+            if ([transport isEqualToString:connection.transport_type]) {
+                blockedConnection++;
+            }
+        }
+        return [LocalizationUtility getSingularPluralTemplate:blockedConnection :@"TestResults.Overview.Circumvention.RiseupVPN.Blocked"];        
+    } else {
+        return NSLocalizedString(@"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay", nil);
+    }
+}
+
 @end
