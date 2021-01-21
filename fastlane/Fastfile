@@ -23,13 +23,13 @@ platform :ios do
 
 lane :release do
   desc "Deploy a new version to the iTunesConenct"
-  build_app(scheme: "ooniprobe",
-     workspace: "ooniprobe.xcworkspace",
-     include_bitcode: true)
+#  build_app(scheme: "ooniprobe",
+#     workspace: "ooniprobe.xcworkspace",
+#     include_bitcode: true)
     deliver(
      submit_for_review: false,
      automatic_release: false,
-     skip_metadata: true,
+#     skip_metadata: true,
      skip_screenshots: true,
      skip_binary_upload: true
     )
