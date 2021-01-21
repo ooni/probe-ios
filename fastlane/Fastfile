@@ -20,4 +20,18 @@ platform :ios do
   lane :screenshots do
     capture_screenshots(workspace: "ooniprobe.xcworkspace", scheme: "ooniprobe")
   end
+
+lane :release do
+  desc "Deploy a new version to the iTunesConenct"
+#  build_app(scheme: "ooniprobe",
+#     workspace: "ooniprobe.xcworkspace",
+#     include_bitcode: true)
+    deliver(
+     submit_for_review: false,
+     automatic_release: false,
+#     skip_metadata: true,
+     skip_screenshots: true,
+     skip_binary_upload: true
+    )
+   end
 end

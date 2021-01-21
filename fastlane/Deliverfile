@@ -1,3 +1,8 @@
 # The Deliverfile allows you to store various App Store Connect metadata
 # For more information, check out the docs
 # https://docs.fastlane.tools/actions/deliver/
+
+release_notes({
+  'default' => "We're excited to share that the latest OONI Probe version features a brand new test for RiseupVPN! \nThanks to the LEAP collective (who developed this new test), you can now check whether RiseupVPN works on your network."
+})
+
