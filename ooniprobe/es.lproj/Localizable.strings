@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "Prueba el bloqueo de aplicaciones de mensajería instantánea.";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Comprueba si [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) y [Telegram](https://ooni.io/nettest/telegram/) están bloqueados.\n\nTus resultados serán publicados en el [Explorador OONI](https://explorer.ooni.io/world/) y la [API OONI](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "Probar el bloqueo de herramientas de elusión de censura";
-"Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Circumvention.Overview.Paragraph" = "Comprueba si [Psiphon](https://ooni.io/nettest/psiphon/) y [Tor](https://ooni.io/nettest/tor/) o [RiseupVPN](https://ooni.io/nettest/riseupvpn/) están bloqueados.\n\nTus resultados serán publicados en [OONI Explorer] (https://explorer.ooni.org/) y [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -235,11 +235,11 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "Handshake";
 "TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "Probablemente bloqueado";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "Funcionando";
-"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
-"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
-"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
-"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN connections";
-"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) parece estar bloqueado.";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "Fuimos capaces conectarnos exitosamente al servidor de inicio de RiseupVPN y las puertas de salida VPN. Esto significa que [RiseupVPN](https://riseup.net/vpn) debería funcionar.";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Servidor de inicio";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "Conexiones OpenVPN";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Conexiones puenteadas";
 "TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked" = "Bloqueados";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ bloqueado(s)";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ bloqueado(s)";
@@ -311,7 +311,7 @@
 "Test.FacebookMessenger.Fullname" = "Prueba Facebook Messenger";
 "Test.Psiphon.Fullname" = "Prueba de Psiphon";
 "Test.Tor.Fullname" = "Prueba de Tor";
-"Test.RiseupVPN.Fullname" = "RiseupVPN Test";
+"Test.RiseupVPN.Fullname" = "Prueba RiseupVPN";
 "Settings.Title" = "Configuración";
 "Settings.Error.TestDurationTooLow" = "La cantidad de tiempo que haz establecido para la duración de la prueba es demasiado baja.";
 "Settings.About.Label" = "Acerca de OONI";
@@ -376,7 +376,7 @@
 "Settings.Performance.DashServerPort" = "Puerto del servidor DASH";
 "Settings.Circumvention.TestPsiphon" = "Probar Psiphon";
 "Settings.Circumvention.TestTor" = "Probar Tor";
-"Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
+"Settings.Circumvention.TestRiseupVPN" = "Probar RiseupVPN";
 "Settings.SendEmail.Label" = "Enviar correo electrónico al soporte";
 "Settings.SendEmail.Error" = "Por favor envíe un correo electrónico a bugs@openobservatory.org con información sobre la aplicación y versión de iOS. Pulse \"Copiar al portapapeles\" abajo para copiar nuestro correo electrónico.";
 "Settings.Language.Current" = "El idioma actual de la aplicación es %@";

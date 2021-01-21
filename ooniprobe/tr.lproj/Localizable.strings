@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "Anlık ileti uygulamalarının engellenip engellenmediğini anlayın";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "[WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) ve [Telegram](https://ooni.io/nettest/telegram/) uygulamalarının engellenip engellenmediğini kontrol edebilirsiniz.\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.io/world/) ve [OONI API](https://api.ooni.io/) üzerinde yayınlanır.";
 "Dashboard.Circumvention.Card.Description" = "Sansürü aşma araçları engellemesini sınayın";
-"Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Circumvention.Overview.Paragraph" = "[Psiphon](https://ooni.io/nettest/psiphon/) ve [Tor](https://ooni.io/nettest/tor/) ya da [RiseupVPN](https://ooni.io/nettest/riseupvpn/) engelleniyor mu öğrenin.\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.org/) ve [OONI API](https://api.ooni.io/) sayfasında yayınlanır.";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -235,11 +235,11 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "El sıkışma";
 "TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "Engellenmiş olabilir";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "Çalışıyor";
-"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
-"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
-"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
-"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN connections";
-"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) engelleniyor gibi görünüyor";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "RiseupVPN bootstrap sunucusu ve VPN geçitleri ile bağlantı kurabildik. [RiseupVPN](https://riseup.net/vpn) çalışıyor olmalı.";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap sunucusu";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN bağlantıları";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Köprülenmiş bağlantılar";
 "TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked" = "Engellenmiş";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ engellenmiş";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ engellenmiş";
@@ -311,7 +311,7 @@
 "Test.FacebookMessenger.Fullname" = "Facebook Messenger Sınaması";
 "Test.Psiphon.Fullname" = "Psiphon Sınaması";
 "Test.Tor.Fullname" = "Tor Sınaması";
-"Test.RiseupVPN.Fullname" = "RiseupVPN Test";
+"Test.RiseupVPN.Fullname" = "RiseupVPN Sınaması";
 "Settings.Title" = "Ayarlar";
 "Settings.Error.TestDurationTooLow" = "Sınama süresi için belirlediğiniz süre çok az.";
 "Settings.About.Label" = "OONI Hakkında";
@@ -376,7 +376,7 @@
 "Settings.Performance.DashServerPort" = "DASH sunucusu bağlantı noktası";
 "Settings.Circumvention.TestPsiphon" = "Psiphon Dene";
 "Settings.Circumvention.TestTor" = "Tor Dene";
-"Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
+"Settings.Circumvention.TestRiseupVPN" = "RiseupVPN Sınaması";
 "Settings.SendEmail.Label" = "Destek ekibine e-posta gönderin";
 "Settings.SendEmail.Error" = "Lütfen uygulama hakkındaki bilgiler ve iOS sürümünü yazarak bugs@openobservatory.org adresine bir e-posta gönderin. E-posta adresimizi kopyalamak için aşağıdaki \"Panoya kopyala\" seçeneğine dokunun.";
 "Settings.Language.Current" = "Geçerli uygulama dili: %@";

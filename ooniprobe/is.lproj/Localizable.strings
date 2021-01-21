@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "Prófa hindranir fyrir skilaboðaforrit";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Athugaðu hvort [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) og [Telegram](https://ooni.io/nettest/telegram/) verði fyrir hindrunum.\n\nNiðurstöðurnar þínar verða birtar í [OONI Explorer](https://explorer.ooni.org/) og [OONI API](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "Prófa hindranir fyrir leiðir framhjá ritskoðun";
-"Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Circumvention.Overview.Paragraph" = "Athugaðu hvort [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) eða [RiseupVPN](https://ooni.io/nettest/riseupvpn/) verði fyrir hindrunum.\n\nNiðurstöðurnar þínar verða birtar í [OONI Explorer](https://explorer.ooni.org/) og [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -235,11 +235,11 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "Handaband";
 "TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "Líklega hindrað";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "Í vinnslu";
-"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
-"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
-"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
-"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN connections";
-"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "Það lítur út fyrir að [RiseupVPN](https://riseup.net/vpn) sé hindrað.";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "Okkur tókst að sjálfræsa (bootstrap) RiseupVPN-tengingu. Það þýðir að [RiseupVPN](https://riseup.net/vpn) ætti að virka.";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Sjálfræsiþjónn (bootstrap server)";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "OpenVPN-tengingar";
+"TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Brúaðar tengingar";
 "TestResults.Overview.Circumvention.RiseupVPN.Api.Blocked" = "Hindrað";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ hindranir";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ hindranir";
@@ -311,7 +311,7 @@
 "Test.FacebookMessenger.Fullname" = "Prófun Facebook Messenger";
 "Test.Psiphon.Fullname" = "Prófun Psiphon";
 "Test.Tor.Fullname" = "Prófun Tor";
-"Test.RiseupVPN.Fullname" = "RiseupVPN Test";
+"Test.RiseupVPN.Fullname" = "Prófun á RiseupVPN";
 "Settings.Title" = "Stillingar";
 "Settings.Error.TestDurationTooLow" = "Tíminn sem þú settir sem lengd prófunar er of lítill.";
 "Settings.About.Label" = "Um OONI";
@@ -376,7 +376,7 @@
 "Settings.Performance.DashServerPort" = "Gátt DASH-netþjóns";
 "Settings.Circumvention.TestPsiphon" = "Prófa Psiphon";
 "Settings.Circumvention.TestTor" = "Prófa Tor";
-"Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
+"Settings.Circumvention.TestRiseupVPN" = "Prófa RiseupVPN";
 "Settings.SendEmail.Label" = "Senda tölvupóst til að fá aðstoð";
 "Settings.SendEmail.Error" = "Sentu tölvupóst til bugs@openobservatory.org með upplýsingum um forritið og útgáfu þína af iOS. Ýttu á \"Afrita á klippispjald\" hér fyrir neðan til að afrita tölvupóstfangið okkar.";
 "Settings.Language.Current" = "Núverandi tungumál forritsins er %@";
