@@ -109,7 +109,7 @@
     }];
     UIAlertAction* neverButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.DontAskAgain", nil)
-                                   style:UIAlertActionStyleCancel
+                                   style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
         [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:NOTIFICATION_POPUP_DISABLE];
         [CountlyUtility recordEvent:@"NotificationModal_DontAskAgain"];
