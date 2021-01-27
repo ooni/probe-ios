@@ -13,6 +13,7 @@ target 'ooniprobe' do
     pod 'DateTools'
     pod 'OCMapper', '2.0'
     pod 'Countly'
+    pod 'Firebase/Analytics'
 end
 target 'OONIProbeUnitTests' do
     pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2021.01.12-235353.podspec'
