@@ -1297,6 +1297,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			outputFileListPaths = (
 			);
@@ -1304,7 +1305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "COUNTLY_DSYM_UPLOADER=$(/usr/bin/find $SRCROOT -name \"countly_dsym_uploader.sh\" | head -n 1)\nsh \"$COUNTLY_DSYM_UPLOADER\" \"https://countly.ooni.io\" \"146836f41172f9e3287cab6f2cc347de3f5ddf3b\"\n";
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\" ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
