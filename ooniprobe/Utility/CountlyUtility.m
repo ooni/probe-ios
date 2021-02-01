@@ -3,6 +3,7 @@
 #import "Engine.h"
 #define APP_KEY_PROD @"146836f41172f9e3287cab6f2cc347de3f5ddf3b"
 #define APP_KEY_DEV @"e6c2cfe53e85951d50567467cef3f9fa2eab32c3"
+@import Firebase;
 
 @implementation CountlyUtility
 
@@ -19,7 +20,7 @@
         else
             config.appKey = APP_KEY_PROD;
     #endif
-    config.features = @[CLYPushNotifications, CLYCrashReporting];
+    config.features = @[CLYPushNotifications];
     config.deviceID = [SettingsUtility getOrGenerateUUID4];
     config.requiresConsent = YES;
     [Countly.sharedInstance startWithConfig:config];
@@ -29,9 +30,8 @@
 + (void)reloadConsents{
     [Countly.sharedInstance cancelConsentForAllFeatures];
     [Countly.sharedInstance giveConsentForFeature:CLYConsentLocation];
-
-    if ([SettingsUtility isSendCrashEnabled])
-        [Countly.sharedInstance giveConsentForFeature:CLYConsentCrashReporting];
+    [[FIRCrashlytics crashlytics] setCrashlyticsCollectionEnabled:[SettingsUtility isSendCrashEnabled]];
+    [FIRAnalytics setAnalyticsCollectionEnabled:[SettingsUtility isSendAnalyticsEnabled]];
 
     if ([SettingsUtility isSendAnalyticsEnabled])
         [Countly.sharedInstance giveConsentForFeatures:@[CLYConsentSessions,

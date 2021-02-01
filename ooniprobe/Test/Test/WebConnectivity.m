@@ -1,6 +1,7 @@
 #import "WebConnectivity.h"
 #import "MessageUtility.h"
 #import "OONIApi.h"
+#import "ExceptionUtility.h"
 
 @implementation WebConnectivity : AbstractTest
 
@@ -22,6 +23,9 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRuntime" object:nil];
             [super runTest];
         } onError:^(NSError *error) {
+            [ExceptionUtility recordError:@"downloadUrls_error"
+                                   reason:@"downloadUrls failed due to an error"
+                                 userInfo:[error dictionary]];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
             [super testEnded];
         }];
