@@ -30,7 +30,9 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [NavigationBarUtility setDefaults];
     [CountlyUtility initCountly];
+#ifdef RELEASE
     [FIRApp configure];
+#endif
     //Init the ReachabilityManager singleton
     [ReachabilityManager sharedManager];
     application.statusBarStyle = UIStatusBarStyleLightContent;
