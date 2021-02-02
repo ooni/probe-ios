@@ -15,6 +15,7 @@ target 'ooniprobe' do
     pod 'Countly'
     pod 'Firebase/Analytics'
     pod 'Firebase/Crashlytics'
+    pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '6.1.4'
 end
 target 'OONIProbeUnitTests' do
     pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2021.01.12-235353.podspec'
