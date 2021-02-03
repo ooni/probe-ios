@@ -20,4 +20,5 @@ end
 target 'OONIProbeUnitTests' do
     pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2021.01.12-235353.podspec'
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
+    pod 'OCMapper', '2.0'
 end
