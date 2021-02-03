@@ -1,5 +1,5 @@
 platform :ios, '9.0'
-# ignore all warnings from all pods
+use_frameworks!
 inhibit_all_warnings!
 target 'ooniprobe' do
     pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2021.01.12-235353.podspec'
