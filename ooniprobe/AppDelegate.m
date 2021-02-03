@@ -32,15 +32,14 @@
     [NavigationBarUtility setDefaults];
     [CountlyUtility initCountly];
     
-//#ifdef RELEASE
+#ifdef RELEASE
     [FIRApp configure];
     [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
         options.dsn = @"https://fc33135e184e402aa805fa48cd65f0a5@o155150.ingest.sentry.io/5619986";
         //If the DSN is nil or empty or enabled is set to false, the client won't send any data to Sentry.
         options.enabled = [SettingsUtility isSendCrashEnabled];
-        options.debug = @YES; // Enabled debug when first installing is always helpful
     }];
-//#endif
+#endif
     
     //Init the ReachabilityManager singleton
     [ReachabilityManager sharedManager];
