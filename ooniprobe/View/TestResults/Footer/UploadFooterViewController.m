@@ -151,6 +151,7 @@
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
+    //TODO share upload failed log with ExceptionManager
     return error == nil;
 }
 
