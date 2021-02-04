@@ -7,6 +7,7 @@
 #import "MBProgressHUD.h"
 #import "VersionUtility.h"
 #import "LogViewController.h"
+#import "ExceptionUtility.h"
 
 @implementation UploadFooterViewController
 
@@ -151,7 +152,12 @@
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
     }
-    //TODO share upload failed log with ExceptionManager
+    else
+    {
+        [ExceptionUtility recordError:@"uploadMeasurement_failed"
+                               reason:@"measurement failed to upload"
+                             userInfo:[error dictionary]];
+    }
     return error == nil;
 }
 
