@@ -1,4 +1,4 @@
-"General.AppName" = "OONI";
+"General.AppName" = "OONI Probe";
 "Onboarding.WhatIsOONIProbe.Title" = "OONI คืออะไร";
 "Onboarding.WhatIsOONIProbe.Paragraph" = "เเอปเพื่อตรวจหาการปิดกั้นอินเทอร์เน็ตเว็บไซต์และสื่อสังคมถูกปิดกั้นหรือไม่? การเชื่อมต่ออินเทอร์เน็ตของคุณช้ากว่าปกติรึเปล่า?ให้ OONI Probe ทำงานเพื่อหาคำตอบ!";
 "Onboarding.WhatIsOONIProbe.GotIt" = "รับทราบ!";
@@ -58,7 +58,7 @@
 "Dashboard.InstantMessaging.Card.Description" = "ทดสอบการปิดกั้นบริการสนทนาด่วนทันใจ";
 "Dashboard.InstantMessaging.Overview.Paragraph" = "ตรวจสอบว่า [วอทเเอพ](https://ooni.io/nettest/whatsapp/), [เฟสบุ๊คเเมสเซนเจอร์](https://ooni.io/nettest/facebook-messenger/) และ [เทเลเเกรม](https://ooni.io/nettest/telegram/) ถูกปิดกั้นหรือไม่ผลลัพธ์ของคุณจะถูกเผยแพร่บน [การสำรวจOONI](https://explorer.ooni.org/) และ [OONI เอพีไอ](https://api.ooni.io/)";
 "Dashboard.Circumvention.Card.Description" = "ทดสอบเครื่องมือการหลบเลี่ยงเเละหลีกเลี่ยงการปิดกั้นเเละการตรวจสอบเนื้อหา";
-"Dashboard.Circumvention.Overview.Paragraph" = "กำลังตรวจสอบ [ไซฟอน](https://ooni.io/nettest/psiphon/), [ทอร์](https://ooni.io/nettest/tor/) หรือ [ไรซ์อัปวีพีเอ็น](https://ooni.io/nettest/riseupvpn/) ถูกบล็อคหรือไม่.ผลการทดสอบของคุณจะถูกเผยเเพร่บน [การสำรวจOONI](https://explorer.ooni.org/) เเละ [OONI เอพีไอ](https://api.ooni.io/).";
+"Dashboard.Circumvention.Overview.Paragraph" = "กำลังตรวจสอบ [ไซฟอน](https://ooni.io/nettest/psiphon/), [ทอร์](https://ooni.io/nettest/tor/) หรือ [ไรซ์อัพวีพีเอ็น](https://ooni.io/nettest/riseupvpn/) ถูกบล็อคหรือไม่.ผลการทดสอบของคุณจะถูกเผยเเพร่บน [การสำรวจOONI] (https://explorer.ooni.org/) เเละ [OONI เอพีไอ](https://api.ooni.io/).";
 "TestResults.Gbps" = "จิกะบิตต่อวินาที";
 "TestResults.Mbps" = "เมกะบิต";
 "TestResults.Kbps" = "กิโลบิตต่อวินาที";
@@ -235,8 +235,8 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "เเฮนด์เชก";
 "TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "น่าจะถูกปิดกั้น";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "กำลังทำงาน";
-"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[ไรซ์อัปวีพีเอ็น](https://riseup.net/vpn) ปรากฎว่าถูกปิดกั้น";
-"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "เราประสบความสำเร็จที่สามารถเชื่อมต่อกับเซิร์ฟเวอร์บูทสแตร๊ปของไรซ์อัป เเละ วีพีเอ็นเกตเวย์. นั้นหมายถึง [ไรซ์อัปวีพีเอ็น](https://riseup.net/vpn) นั้นทำงานได้ตามปกติ.";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[Riseup VPN](https://riseup.net/vpn) ปรากฎว่าถูกปิดกั้น";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "เราประสบความสำเร็จที่สามารถเชื่อมต่อกับเซิร์ฟเวอร์บูทสแตร๊ปของไรซ์อัพ เเละ วีพีเอ็นเกตเวย์. นั้นหมายถึง [ไรซ์อัพวีพีเอ็น](https://riseup.net/vpn) นั้นทำงานได้ตามปกติ.";
 "TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "เซิร์ฟเวอร์บูทสแตร๊ป";
 "TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "การเชื่อมต่อโอเพ่นวีพีเอ็น";
 "TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "การเชื่อมต่อบริดจ์";
