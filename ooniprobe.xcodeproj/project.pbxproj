@@ -1281,10 +1281,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OCMapper/OCMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SharkORM/SharkORM.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SharkORM.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
