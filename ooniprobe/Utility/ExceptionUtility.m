@@ -11,13 +11,6 @@
                                          code:-1001
                                      userInfo:userInfo];
     [[FIRCrashlytics crashlytics] recordError:error];
-
-    //Preparing NSException for Sentry
-    NSException* exception = [NSException exceptionWithName:title
-                                                         reason:reason
-                                                       userInfo:userInfo];
-    //TODO which one to use?
-    [SentrySDK captureException:exception];
     [SentrySDK captureError:error];
 }
 
