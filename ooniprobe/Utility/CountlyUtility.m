@@ -32,7 +32,8 @@
     [Countly.sharedInstance giveConsentForFeature:CLYConsentLocation];
     [[FIRCrashlytics crashlytics] setCrashlyticsCollectionEnabled:[SettingsUtility isSendCrashEnabled]];
     [FIRAnalytics setAnalyticsCollectionEnabled:[SettingsUtility isSendAnalyticsEnabled]];
-
+    //SentrySDK does not support shutdown functionality
+    
     if ([SettingsUtility isSendAnalyticsEnabled])
         [Countly.sharedInstance giveConsentForFeatures:@[CLYConsentSessions,
                                                          CLYConsentViewTracking,

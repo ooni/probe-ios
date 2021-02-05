@@ -84,6 +84,9 @@ PODS:
   - RHMarkdownLabel (0.0.1):
     - TTTAttributedLabel
     - XNGMarkdownParser
+  - Sentry (6.1.4):
+    - Sentry/Core (= 6.1.4)
+  - Sentry/Core (6.1.4)
   - SharkORM (2.3.67)
   - Toast (4.0.0)
   - TTTAttributedLabel (2.0.0)
@@ -101,6 +104,7 @@ DEPENDENCIES:
   - OCMapper (= 2.0)
   - oonimkall (from `https://dl.bintray.com/ooni/ios/oonimkall-2021.02.03-235136.podspec`)
   - RHMarkdownLabel
+  - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `6.1.4`)
   - SharkORM (from `https://github.com/sharksync/sharkorm`, tag `v2.3.67`)
   - Toast (~> 4.0.0)
 
@@ -132,11 +136,17 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   oonimkall:
     :podspec: https://dl.bintray.com/ooni/ios/oonimkall-2021.02.03-235136.podspec
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 6.1.4
   SharkORM:
     :git: https://github.com/sharksync/sharkorm
     :tag: v2.3.67
 
 CHECKOUT OPTIONS:
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 6.1.4
   SharkORM:
     :git: https://github.com/sharksync/sharkorm
     :tag: v2.3.67
@@ -162,11 +172,12 @@ SPEC CHECKSUMS:
   oonimkall: 4a93f9ee0772819949c0600318d12843dcc0736a
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RHMarkdownLabel: 81d6772768e621be57302b7fd5212ad4f78fb0bd
+  Sentry: 9d055e2de30a77685e86b219acf02e59b82091fc
   SharkORM: 252e4411923110ac1b524a993ee2b3fa13eed7c4
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XNGMarkdownParser: aed98c14f0c0eb20064184ddf9bac26c482722b2
 
-PODFILE CHECKSUM: 9a2263a26f5ee24f895f62de2b5b18429552b13d
+PODFILE CHECKSUM: d8d161d79fa72a47a27ad0408a2505b6c8105d34
 
 COCOAPODS: 1.10.0

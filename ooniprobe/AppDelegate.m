@@ -8,6 +8,7 @@
 #import "CountlyUtility.h"
 #import "ReachabilityManager.h"
 @import Firebase;
+@import Sentry;
 
 @interface AppDelegate ()
 
@@ -30,9 +31,16 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [NavigationBarUtility setDefaults];
     [CountlyUtility initCountly];
+    
 #ifdef RELEASE
     [FIRApp configure];
+    [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
+        options.dsn = @"https://fc33135e184e402aa805fa48cd65f0a5@o155150.ingest.sentry.io/5619986";
+        //If the DSN is nil or empty or enabled is set to false, the client won't send any data to Sentry.
+        options.enabled = [SettingsUtility isSendCrashEnabled];
+    }];
 #endif
+    
     //Init the ReachabilityManager singleton
     [ReachabilityManager sharedManager];
     application.statusBarStyle = UIStatusBarStyleLightContent;

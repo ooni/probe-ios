@@ -7,6 +7,7 @@
 #import "MBProgressHUD.h"
 #import "VersionUtility.h"
 #import "LogViewController.h"
+#import "ExceptionUtility.h"
 
 @implementation UploadFooterViewController
 
@@ -150,6 +151,12 @@
         measurement.is_upload_failed = false;
         [measurement setReport_id:[results updatedReportID]];
         [measurement save];
+    }
+    else
+    {
+        [ExceptionUtility recordError:@"uploadMeasurement_failed"
+                               reason:@"measurement failed to upload"
+                             userInfo:[error dictionary]];
     }
     return error == nil;
 }

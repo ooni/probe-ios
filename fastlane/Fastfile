@@ -20,6 +20,15 @@ platform :ios do
   lane :screenshots do
     capture_screenshots(workspace: "ooniprobe.xcworkspace", scheme: "ooniprobe")
   end
+  
+  lane :upload_symbols do
+    download_dsyms # this is the important part
+    upload_symbols_to_sentry(
+      auth_token: 'YOUR_AUTH_TOKEN',
+      org_slug: 'ooni',
+      project_slug: 'probe-ios',
+    )
+  end
 
 lane :release do
   desc "Deploy a new version to the iTunesConenct"
