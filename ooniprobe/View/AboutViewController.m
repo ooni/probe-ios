@@ -24,7 +24,7 @@
     [self.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     
     [self.ppButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Settings.About.Content.DataPolicy", nil)] forState:UIControlStateNormal];
-    [self.ppButton setTitleColor:[UIColor colorNamed:@"color_blue5"]
+    [self.ppButton setTitleColor:[UIColor colorNamed:@"color_blue4"]
                         forState:UIControlStateNormal];
     
     [self.versionLabel setText:[NSString stringWithFormat:@"OONI Probe: %@", [VersionUtility get_software_version]]];
