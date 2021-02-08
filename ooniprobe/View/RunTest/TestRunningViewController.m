@@ -12,7 +12,7 @@
 
     self.progressBar.layer.cornerRadius = 7.5;
     self.progressBar.layer.masksToBounds = YES;
-    [self.progressBar setTrackTintColor:[UIColor colorWithRGBHexString:color_white alpha:0.2f]];
+    [self.progressBar setTrackTintColor:[[UIColor colorNamed:@"color_white"] colorWithAlphaComponent:0.2f]];
     [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Running", nil)];
     [self.etaLabel setText:NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testStarted:) name:@"testStarted" object:nil];
@@ -35,9 +35,11 @@
 }
 
 -(void)testStart{
+    if (animation)
+        [animation removeFromSuperview];
     [self.logLabel setText:@""];
     [self.progressBar setProgress:0 animated:YES];
-    [self.view setBackgroundColor:[TestUtility getColorForTest:testSuite.name]];
+    [self.view setBackgroundColor:[TestUtility getBackgroundColorForTest:testSuite.name]];
     [self.timeLabel setText:NSLocalizedString(@"Dashboard.Running.CalculatingETA", nil)];
     [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
     dispatch_async(dispatch_get_main_queue(), ^{

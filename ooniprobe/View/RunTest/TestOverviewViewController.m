@@ -16,7 +16,7 @@
     [self.testNameLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testSuite.name];
     [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
-    [self.testDescriptionLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.testDescriptionLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     [self.testDescriptionLabel setMarkdown:testLongDesc];
     [self.testDescriptionLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
@@ -29,8 +29,7 @@
 
     [self reloadLastMeasurement];
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]]];
-    [self.testImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-    defaultColor = [TestUtility getColorForTest:testSuite.name];
+    defaultColor = [TestUtility getBackgroundColorForTest:testSuite.name];
     [self.runButton setTitleColor:defaultColor forState:UIControlStateNormal];
     [self.backgroundView setBackgroundColor:defaultColor];
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:defaultColor];
@@ -88,7 +87,7 @@
     [super willMoveToParentViewController:parent];
     if (!parent) {
         [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
-                                        color:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+                                        color:[UIColor colorNamed:@"color_blue5"]];
     }
 }
 

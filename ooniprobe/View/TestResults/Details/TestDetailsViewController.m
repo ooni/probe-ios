@@ -15,7 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[TestUtility getColorForTest:result.test_group_name]];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[TestUtility getBackgroundColorForTest:result.test_group_name]];
     self.navigationController.navigationBar.topItem.title = @"";
     self.title = [LocalizationUtility getNameForTest:measurement.test_name];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFooter) name:@"uploadFinished" object:nil];
@@ -47,7 +47,7 @@
     [super willMoveToParentViewController:parent];
     if (!parent) {
         [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
-                                        color:[TestUtility getColorForTest:result.test_group_name]];
+                                        color:[TestUtility getBackgroundColorForTest:result.test_group_name]];
     }
 }
 

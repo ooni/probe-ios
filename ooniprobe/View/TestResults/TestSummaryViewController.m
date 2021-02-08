@@ -30,7 +30,7 @@
     self.title = @"";
     self.title = [LocalizationUtility getNameForTest:self.result.test_group_name];
     [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
-                                    color:[TestUtility getColorForTest:result.test_group_name]];
+                                    color:[TestUtility getBackgroundColorForTest:result.test_group_name]];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -43,7 +43,7 @@
     [super willMoveToParentViewController:parent];
     if (!parent) {
         [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
-                                        color:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+                                        color:[UIColor colorNamed:@"color_blue5"]];
     }
 }
 

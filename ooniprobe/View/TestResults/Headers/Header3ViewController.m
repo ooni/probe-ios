@@ -11,7 +11,7 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
     
-    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
+    [self.headerView setBackgroundColor:[TestUtility getBackgroundColorForTest:result.test_group_name]];
     [self.countryLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Country", nil)];
     [self.networkLabel setText:[NSString stringWithFormat:@"%@\n", NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)]];
     [self reloadMeasurement];

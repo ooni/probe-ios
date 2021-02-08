@@ -28,7 +28,7 @@
         [self showUploadLog];
     }
 
-    [self.textView setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.textView setTextColor:[UIColor colorNamed:@"color_gray9"]];
     self.textView.scrollEnabled = false;
     [self.textView layoutIfNeeded];
     self.textView.scrollEnabled = true;

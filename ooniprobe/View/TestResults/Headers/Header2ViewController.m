@@ -11,7 +11,7 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
     
-    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
+    [self.headerView setBackgroundColor:[TestUtility getBackgroundColorForTest:result.test_group_name]];
     [self.dateAndTimeLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
     [self.dataUsageLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DataUsage", nil)];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Runtime", nil)];

@@ -12,12 +12,9 @@
     [super viewDidLoad];
     [self.titleLabel setText:self.measurement.url_id.url];
     [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
-                                    color:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
-    [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-    [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f]];
+                                    color:[UIColor colorNamed:@"color_gray8"]];
+    [self.headerView setBackgroundColor:[UIColor colorNamed:@"color_gray8"]];
     [self.statusImage setImage:[UIImage imageNamed:@"error"]];
-    [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-    [self.subtitleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.Failed.Title", nil)];
     [self.subtitleLabel setText:NSLocalizedString(@"TestResults.Details.Failed.Paragraph", nil)];
     [self.tryAgainButton setTitle:NSLocalizedString(@"TestResults.Details.Failed.TryAgain", nil) forState:UIControlStateNormal];

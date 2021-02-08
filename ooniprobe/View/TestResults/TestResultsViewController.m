@@ -87,7 +87,7 @@
 {
     NSString *text = NSLocalizedString(@"TestResults.Overview.NoTestsHaveBeenRun", nil);
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
-                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray5 alpha:1.0f]};
+                                 NSForegroundColorAttributeName:[UIColor colorNamed:@"color_gray5"]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
@@ -105,7 +105,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    [header.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [header.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     [header.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
 }
 

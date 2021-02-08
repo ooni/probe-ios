@@ -13,14 +13,11 @@
     self.nextButton.layer.masksToBounds = true;
     
     [self.nextButton setTitle:NSLocalizedString(@"Onboarding.WhatIsOONIProbe.GotIt", nil) forState:UIControlStateNormal];
-     [self.nextButton setTitleColor:[UIColor colorWithRGBHexString:color_blue8 alpha:1.0f]
+    [self.nextButton setTitleColor:[UIColor colorNamed:@"color_blue8"]
                            forState:UIControlStateNormal];
-     [self.nextButton setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 
-    [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
     [self.titleLabel setText:NSLocalizedString(@"Onboarding.WhatIsOONIProbe.Title", nil)];
     [self.textLabel setText:NSLocalizedString(@"Onboarding.WhatIsOONIProbe.Paragraph", nil)];
-    [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 }
 
 

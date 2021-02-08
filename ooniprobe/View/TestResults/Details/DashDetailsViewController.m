@@ -16,15 +16,15 @@
     [self.bitrateTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.Dash.MedianBitrate", nil)];
     [self.bitrateValueLabel setText:[testKeys getMedianBitrate]];
     [self.bitrateUnitLabel setText:[testKeys getMedianBitrateUnit]];
-    [self.bitrateTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [self.bitrateValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [self.bitrateUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.bitrateTitleLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+    [self.bitrateValueLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+    [self.bitrateUnitLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
 
     [self.delayTitleLabel setText:NSLocalizedString(@"TestResults.Details.Performance.Dash.PlayoutDelay", nil)];
     [self.delayValueLabel setText:[testKeys getPlayoutDelay]];
-    [self.delayTitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [self.delayValueLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [self.delayUnitLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.delayTitleLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+    [self.delayValueLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+    [self.delayUnitLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
 }
 
 

@@ -11,7 +11,7 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resultUpdated:) name:@"resultUpdated" object:nil];
 
-    [self.headerView setBackgroundColor:[TestUtility getColorForTest:result.test_group_name]];
+    [self.headerView setBackgroundColor:[TestUtility getBackgroundColorForTest:result.test_group_name]];
     [self addLabels];
     [self reloadMeasurement];
 }
@@ -139,7 +139,7 @@
 
 -(void)addLine:(UIView*)view{
     UIView *lineView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, view.frame.size.height)];
-    [lineView setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [lineView setBackgroundColor:[UIColor whiteColor]];
     [view addSubview:lineView];
 }
 

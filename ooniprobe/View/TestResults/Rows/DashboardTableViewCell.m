@@ -44,7 +44,7 @@
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
     [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]] startColor:[TestUtility getGradientColorForTest:testSuite.name] endColor:[TestUtility getColorForTest:testSuite.name]]];
-    [self.cardbackgroundView setBackgroundColor:[UIColor whiteColor]];
+    [self.cardbackgroundView setBackgroundColor:[UIColor colorNamed:@"color_gray0"]];
 }
 
 -(void)setRoundedView{

@@ -114,7 +114,7 @@
         [deleteBtn setHidden:NO];
     else
         [deleteBtn setHidden:YES];
-    textField.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    textField.textColor = [UIColor colorNamed:@"color_gray9"];
     textField.inputAccessoryView = keyboardToolbar;
     textField.text = [self.urlsList objectAtIndex:indexPath.row];
     return cell;

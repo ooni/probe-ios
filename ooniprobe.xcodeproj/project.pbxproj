@@ -107,10 +107,10 @@
 		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
 		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB33B7C21838824002CEC34 /* CustomURLViewController.m */; };
-		EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
 		EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */; };
+		EDBB113A25CD9C4E003FBF15 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDBB113925CD9C4E003FBF15 /* Colors.xcassets */; };
 		EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */; };
 		EDBCB0901FD5BD9B00FA4838 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */; };
 		EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */; };
@@ -383,14 +383,13 @@
 		EDB252A920FA4D4F00B4EDE4 /* Tampering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tampering.m; sourceTree = "<group>"; };
 		EDB33B7C21838824002CEC34 /* CustomURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomURLViewController.m; path = Settings/CustomURLViewController.m; sourceTree = "<group>"; };
 		EDB33B7D21838824002CEC34 /* CustomURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomURLViewController.h; path = Settings/CustomURLViewController.h; sourceTree = "<group>"; };
-		EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hexadecimal.h"; sourceTree = "<group>"; };
-		EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hexadecimal.m"; sourceTree = "<group>"; };
 		EDB6F9B72023526300BDCB0B /* HeaderSwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderSwipeViewController.h; sourceTree = "<group>"; };
 		EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderSwipeViewController.m; sourceTree = "<group>"; };
 		EDB6F9BA202352D000BDCB0B /* Header1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header1ViewController.h; sourceTree = "<group>"; };
 		EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Header1ViewController.m; sourceTree = "<group>"; };
 		EDB6F9BD202352DC00BDCB0B /* Header2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header2ViewController.h; sourceTree = "<group>"; };
 		EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Header2ViewController.m; sourceTree = "<group>"; };
+		EDBB113925CD9C4E003FBF15 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		EDBBB2DD203D2EF200B84F6F /* TestResultTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestResultTableViewCell.h; sourceTree = "<group>"; };
 		EDBBB2DE203D2EF200B84F6F /* TestResultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestResultTableViewCell.m; sourceTree = "<group>"; };
 		EDBCB0881FD5B06C00FA4838 /* FiraSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Light.otf"; sourceTree = "<group>"; };
@@ -545,6 +544,7 @@
 				D4A2F5E11A6C3244001B8460 /* AppDelegate.m */,
 				ED4D60541A7162C400777275 /* Localizable.strings */,
 				D4A2F5E91A6C3244001B8460 /* Images.xcassets */,
+				EDBB113925CD9C4E003FBF15 /* Colors.xcassets */,
 				D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */,
 				D4A2F5DC1A6C3244001B8460 /* Supporting Files */,
 			);
@@ -754,8 +754,6 @@
 				ED0D35BD1DD72824005C863F /* RunButton.m */,
 				ED1CC7FD20158D630041089A /* ConfigureButton.h */,
 				ED1CC7FE20158D630041089A /* ConfigureButton.m */,
-				EDB6BE81202C523500A0CFEF /* UIColor+Hexadecimal.h */,
-				EDB6BE82202C523500A0CFEF /* UIColor+Hexadecimal.m */,
 				ED209668209791C40028BEA3 /* PaddingLabel.h */,
 				ED209669209791C40028BEA3 /* PaddingLabel.m */,
 				ED78739E2448874500F92DDE /* NavigationBarUtility.h */,
@@ -1192,6 +1190,7 @@
 				EDA17B07208A389F00D46D0F /* Result.storyboard in Resources */,
 				EDC2C9DF1FD8061400FF01D3 /* FiraSans-Light.otf in Resources */,
 				EDC2C9E01FD8061400FF01D3 /* FiraSans-LightItalic.otf in Resources */,
+				EDBB113A25CD9C4E003FBF15 /* Colors.xcassets in Resources */,
 				ED6911D820BDC0130022DCFE /* websites.json in Resources */,
 				ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */,
 				EDC2C9E11FD8061400FF01D3 /* FiraSans-Regular.otf in Resources */,
@@ -1393,7 +1392,6 @@
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.m in Sources */,
 				ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */,
 				EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */,
-				EDB6BE83202C523500A0CFEF /* UIColor+Hexadecimal.m in Sources */,
 				ED14B2372465412C009AA906 /* Tor.m in Sources */,
 				ED2E066E21D4867B00E9B9EE /* AbstractTest.m in Sources */,
 				EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */,
@@ -1568,7 +1566,7 @@
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OONIProbeUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1601,7 +1599,7 @@
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OONIProbeUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.OONIProbeUITests;
@@ -1660,13 +1658,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "e7499b75-38e5-4dcb-9cda-ab5aa7ea6eb2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 14.3;
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x84_64";
+				WATCHOS_DEPLOYMENT_TARGET = 7.2;
 			};
 			name = Debug;
 		};
@@ -1710,13 +1711,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "e7499b75-38e5-4dcb-9cda-ab5aa7ea6eb2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 14.3;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x84_64";
+				WATCHOS_DEPLOYMENT_TARGET = 7.2;
 			};
 			name = Release;
 		};
@@ -1752,7 +1756,7 @@
 				IBC_WARNINGS = NO;
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = ooniprobe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 2.9.2;
@@ -1801,7 +1805,7 @@
 				IBC_WARNINGS = NO;
 				IBSC_WARNINGS = NO;
 				INFOPLIST_FILE = ooniprobe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 2.9.2;
@@ -1835,7 +1839,7 @@
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OONIProbeUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1867,7 +1871,7 @@
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OONIProbeUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.OONIProbeUnitTests;

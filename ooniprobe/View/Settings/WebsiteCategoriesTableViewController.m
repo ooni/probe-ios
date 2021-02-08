@@ -41,9 +41,9 @@
     NSString *current = [categories objectAtIndex:indexPath.row];
     NSString *categoryTitle = [NSString stringWithFormat:@"CategoryCode.%@.Name", current];
     cell.textLabel.text = NSLocalizedString(categoryTitle, nil);
-    cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"category_%@", current]];
-    cell.detailTextLabel.textColor = [UIColor colorWithRGBHexString:color_gray5 alpha:1.0f];
+    cell.detailTextLabel.textColor = [UIColor colorNamed:@"color_gray5"];
     NSString *categoryDescription = [NSString stringWithFormat:@"CategoryCode.%@.Description", current];
     cell.detailTextLabel.text = NSLocalizedString(categoryDescription, nil);
     

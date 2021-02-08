@@ -12,23 +12,23 @@
     self.title = NSLocalizedString(@"Settings.About.Label", nil);
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     self.navigationController.navigationBar.topItem.title = @"";
-    [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+    [self.headerView setBackgroundColor:[UIColor colorNamed:@"color_blue5"]];
     [self.learnMoreButton setTitle:NSLocalizedString(@"Settings.About.Content.LearnMore", nil) forState:UIControlStateNormal];
     self.learnMoreButton.layer.cornerRadius = 20;
     self.learnMoreButton.layer.masksToBounds = YES;
-    [self.learnMoreButton setTitleColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]
+    [self.learnMoreButton setTitleColor:[UIColor whiteColor]
                         forState:UIControlStateNormal];
-    [self.learnMoreButton setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
+    [self.learnMoreButton setBackgroundColor:[UIColor colorNamed:@"color_blue5"]];
     
     [self.textLabel setText:NSLocalizedString(@"Settings.About.Content.Paragraph", nil)];
-    [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     
     [self.ppButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Settings.About.Content.DataPolicy", nil)] forState:UIControlStateNormal];
-    [self.ppButton setTitleColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]
+    [self.ppButton setTitleColor:[UIColor colorNamed:@"color_blue5"]
                         forState:UIControlStateNormal];
     
     [self.versionLabel setText:[NSString stringWithFormat:@"OONI Probe: %@", [VersionUtility get_software_version]]];
-    [self.versionLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.versionLabel setTextColor:[UIColor whiteColor]];
 }
 
 

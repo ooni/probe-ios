@@ -73,40 +73,59 @@
 
 + (UIColor*)getColorForTest:(NSString*)testName alpha:(CGFloat)alpha{
     if ([testName isEqualToString:@"websites"]){
-        return [UIColor colorWithRGBHexString:color_indigo6 alpha:alpha];
+        return [[UIColor colorNamed:@"color_indigo6"] colorWithAlphaComponent:alpha];
     }
     else if ([testName isEqualToString:@"performance"]){
-        return [UIColor colorWithRGBHexString:color_fuchsia6 alpha:alpha];
+        return [[UIColor colorNamed:@"color_fuchsia6"] colorWithAlphaComponent:alpha];
     }
     else if ([testName isEqualToString:@"middle_boxes"]){
-        return [UIColor colorWithRGBHexString:color_violet8 alpha:alpha];
+        return [[UIColor colorNamed:@"color_violet8"] colorWithAlphaComponent:alpha];
     }
     else if ([testName isEqualToString:@"instant_messaging"]){
-        return [UIColor colorWithRGBHexString:color_cyan6 alpha:alpha];
+        return [[UIColor colorNamed:@"color_cyan6"] colorWithAlphaComponent:alpha];
     }
     else if ([testName isEqualToString:@"circumvention"]){
-        return [UIColor colorWithRGBHexString:color_pink6 alpha:1.0f];
+        return [UIColor colorNamed:@"color_pink6"];
     }
-    return [UIColor colorWithRGBHexString:color_blue5 alpha:alpha];
+    return [[UIColor colorNamed:@"color_blue5"] colorWithAlphaComponent:alpha];
+}
+
++ (UIColor*)getBackgroundColorForTest:(NSString*)testName {
+    if ([testName isEqualToString:@"websites"]){
+        return [UIColor colorNamed:@"color_indigo5"];
+    }
+    else if ([testName isEqualToString:@"performance"]){
+        return [UIColor colorNamed:@"color_fuchsia5"];
+    }
+    else if ([testName isEqualToString:@"middle_boxes"]){
+        return [UIColor colorNamed:@"color_violet7"];
+    }
+    else if ([testName isEqualToString:@"instant_messaging"]){
+        return [UIColor colorNamed:@"color_cyan5"];
+    }
+    else if ([testName isEqualToString:@"circumvention"]){
+        return [UIColor colorNamed:@"color_pink5"];
+    }
+    return [UIColor colorNamed:@"color_blue5"];
 }
 
 + (UIColor*)getGradientColorForTest:(NSString*)testName{
     if ([testName isEqualToString:@"websites"]){
-        return [UIColor colorWithRGBHexString:color_indigo3 alpha:1.0f];
+        return [UIColor colorNamed:@"color_indigo3"];
     }
     else if ([testName isEqualToString:@"performance"]){
-        return [UIColor colorWithRGBHexString:color_fuchsia3 alpha:1.0f];
+        return [UIColor colorNamed:@"color_fuchsia3"];
     }
     else if ([testName isEqualToString:@"middle_boxes"]){
-        return [UIColor colorWithRGBHexString:color_violet3 alpha:1.0f];
+        return [UIColor colorNamed:@"color_violet3"];
     }
     else if ([testName isEqualToString:@"instant_messaging"]){
-        return [UIColor colorWithRGBHexString:color_cyan3 alpha:1.0f];
+        return [UIColor colorNamed:@"color_cyan3"];
     }
     else if ([testName isEqualToString:@"circumvention"]){
-        return [UIColor colorWithRGBHexString:color_pink4 alpha:1.0f];
+        return [UIColor colorNamed:@"color_pink4"];
     }
-    return [UIColor colorWithRGBHexString:color_blue3 alpha:1.0f];
+    return [UIColor colorNamed:@"color_blue3"];
 }
 
 +(void)deleteMeasurementWithReportId:(NSString*)report_id{

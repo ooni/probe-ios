@@ -73,33 +73,33 @@
     if (self.whatsapp_endpoints_status != nil){
         NSString* endpointStatus = self.whatsapp_endpoints_status;
         if ([endpointStatus isEqualToString:BLOCKED])
-            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_yellow9"];
         else
-            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_gray9"];
     }
-    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    return [UIColor colorNamed:@"color_gray9"];
 }
 
 - (UIColor*)getWhatsappWebStatusColor {
     if (self.whatsapp_web_status != nil){
         NSString* webStatus = self.whatsapp_web_status;
         if ([webStatus isEqualToString:BLOCKED])
-            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_yellow9"];
         else
-            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_gray9"];
     }
-    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    return [UIColor colorNamed:@"color_gray9"];
 }
 
 - (UIColor*)getWhatsappRegistrationStatusColor {
     if (self.registration_server_status != nil){
         NSString* registrationStatus = self.registration_server_status;
         if ([registrationStatus isEqualToString:BLOCKED])
-            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_yellow9"];
         else
-            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_gray9"];
     }
-    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    return [UIColor colorNamed:@"color_gray9"];
 }
 
 #pragma mark TELEGRAM
@@ -132,22 +132,22 @@
         BOOL httpBlocking = [self.telegram_http_blocking boolValue];
         BOOL tcpBlocking = [self.telegram_tcp_blocking boolValue];
         if (httpBlocking || tcpBlocking)
-            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_yellow9"];
         else
-            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_gray9"];
     }
-    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    return [UIColor colorNamed:@"color_gray9"];
 }
 
 - (UIColor*)getTelegramWebStatusColor {
     if (self.telegram_web_status != nil){
         NSString* registrationStatus = self.telegram_web_status;
         if ([registrationStatus isEqualToString:BLOCKED])
-            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_yellow9"];
         else
-            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_gray9"];
     }
-    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    return [UIColor colorNamed:@"color_gray9"];
 }
 
 #pragma mark FB
@@ -178,22 +178,22 @@
     if (self.facebook_dns_blocking){
         BOOL dnsBlocking = [self.facebook_dns_blocking boolValue];
         if (dnsBlocking)
-            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_yellow9"];
         else
-            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_gray9"];
     }
-    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    return [UIColor colorNamed:@"color_gray9"];
 }
 
 - (UIColor*)getFacebookMessengerTcpColor {
     if (self.facebook_tcp_blocking != nil){
         BOOL tcpBlocking = [self.facebook_tcp_blocking boolValue];
         if (tcpBlocking)
-            return [UIColor colorWithRGBHexString:color_yellow9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_yellow9"];
         else
-            return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+            return [UIColor colorNamed:@"color_gray9"];
     }
-    return [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    return [UIColor colorNamed:@"color_gray9"];
 }
 
 #pragma mark NDT

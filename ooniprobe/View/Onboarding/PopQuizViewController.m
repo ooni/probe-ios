@@ -15,23 +15,16 @@
     [self.falseButton addTarget:self action:@selector(answer:) forControlEvents:UIControlEventTouchUpInside];
     [self.falseButton setTitle:NSLocalizedString(@"Onboarding.PopQuiz.False", nil) forState:UIControlStateNormal];
     
-    [self.trueButton setTitleColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]
-                            forState:UIControlStateNormal];
-    [self.trueButton setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
-    [self.falseButton setTitleColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]
-                        forState:UIControlStateNormal];
-    [self.falseButton setBackgroundColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+    [self.trueButton setBackgroundColor:[UIColor colorNamed:@"color_green7"]];
+    [self.falseButton setBackgroundColor:[UIColor colorNamed:@"color_red7"]];
 
     [self.closeView addTarget:self action:@selector(dismissPopup) forControlEvents:UIControlEventTouchUpInside];
     
     self.cointainerWindow.layer.cornerRadius = 12;
     self.cointainerWindow.layer.masksToBounds = true;
-    [self.cointainerWindow setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
-    [self.cointainerWindow setBackgroundColor:[UIColor colorWithRed:5.0/255.0 green:136.0/255.0 blue:203.0/255.0 alpha:1.0]];
+    [self.cointainerWindow setBackgroundColor:[UIColor colorNamed:@"color_blue5"]];
     
     [self.titleLabel setText:NSLocalizedString(@"Onboarding.PopQuiz.Title", nil)];
-    [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-    [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 
     [self reloadQuestion];
 }
@@ -93,11 +86,11 @@
     LOTAnimationView *animation;
     if (!answer){
         animation = [LOTAnimationView animationNamed:@"crossMark"];
-        [animation setBackgroundColor:[UIColor colorWithRGBHexString:color_red8 alpha:1.0f]];
+        [animation setBackgroundColor:[UIColor colorNamed:@"color_red7"]];
     }
     else {
         animation = [LOTAnimationView animationNamed:@"checkMark"];
-        [animation setBackgroundColor:[UIColor colorWithRGBHexString:color_green8 alpha:1.0f]];
+        [animation setBackgroundColor:[UIColor colorNamed:@"color_green7"]];
     }
     animation.contentMode = UIViewContentModeScaleAspectFit;
     [self.cointainerWindow addSubview:animation];

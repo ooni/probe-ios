@@ -48,9 +48,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *current = [categories objectAtIndex:indexPath.row];
     cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
-    cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
     cell.imageView.image = [UIImage imageNamed:current];
-    [cell.imageView setTintColor:[UIColor colorWithRGBHexString:color_base alpha:1.0f]];
     return cell;
 }
 
@@ -78,8 +77,8 @@
         NSString *device = [NSString stringWithFormat:@"\n\n\napp_version %@\ndevice_model %@\nos_version %@", [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"], [UIDevice currentDevice].modelIdentifier, [UIDevice currentDevice].systemVersion];
         [mailer setMessageBody:device isHTML:NO];
         [[mailer navigationBar] setTranslucent:NO];
-        [[mailer navigationBar] setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-        [[mailer navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor colorWithRGBHexString:color_white alpha:1.0f], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
+        [[mailer navigationBar] setTintColor:[UIColor colorNamed:@"color_white"]];
+        [[mailer navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor colorNamed:@"color_white"], NSForegroundColorAttributeName, [UIFont fontWithName:@"FiraSans-SemiBold" size:16], NSFontAttributeName, nil]];
         [self presentViewController:mailer animated:YES completion:nil];
     }
     else {

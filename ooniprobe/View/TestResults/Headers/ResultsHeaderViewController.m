@@ -19,15 +19,13 @@
     [self.networksLabel setText:NSLocalizedString(@"TestResults.Overview.Hero.Networks", nil)];
     [self.dataUsageLabel setText:NSLocalizedString(@"TestResults.Overview.Hero.DataUsage", nil)];
     filter = @"";
-    [self.headerView setBackgroundColor:[UIColor colorWithRGBHexString:color_blue5 alpha:1.0f]];
-    [self.upImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-    [self.downImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [self.headerView setBackgroundColor:[UIColor colorNamed:@"color_blue5"]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"uploadFinished" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQueryNoFilter) name:@"networkTestEnded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"reloadHeader" object:nil];
 
-    self.dropdownMenu.tintColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    self.dropdownMenu.tintColor = [UIColor colorNamed:@"color_gray9"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -80,7 +78,7 @@
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForComponent:(NSInteger)component{
     NSString *text = NSLocalizedString(@"TestResults.Overview.FilterTests", nil);
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
-                                 NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]};
+                                 NSForegroundColorAttributeName:[UIColor colorNamed:@"color_gray9"]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
@@ -90,10 +88,10 @@
     NSDictionary *attributes;
     if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[TestUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
         attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-SemiBold" size:16],
-                       NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]};
+                       NSForegroundColorAttributeName:[UIColor colorNamed:@"color_gray9"]};
     else
         attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
-                       NSForegroundColorAttributeName:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]};
+                       NSForegroundColorAttributeName:[UIColor colorNamed:@"color_gray9"]};
 
     if (row == 0)
         text = NSLocalizedString(@"TestResults.Overview.FilterTests.AllTests", nil);
@@ -106,9 +104,9 @@
 
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
     if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[TestUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
-        return [UIColor colorWithRGBHexString:color_gray2 alpha:1.0f];
+        return [UIColor colorNamed:@"color_gray2"];
     else
-        return [UIColor colorWithRGBHexString:color_white alpha:1.0f];
+        return [UIColor colorNamed:@"color_white"];
 }
 
 - (void)dropdownMenu:(MKDropdownMenu *)dropdownMenu didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
@@ -129,7 +127,7 @@
 
 -(void)addLine:(UIView*)view{
     UIView *lineView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, view.frame.size.height)];
-    [lineView setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
+    [lineView setBackgroundColor:[UIColor whiteColor]];
     [view addSubview:lineView];
 }
 
