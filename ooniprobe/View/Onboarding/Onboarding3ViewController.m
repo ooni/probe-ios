@@ -1,4 +1,5 @@
 #import "Onboarding3ViewController.h"
+#import "CountlyUtility.h"
 
 @interface Onboarding3ViewController ()
 
@@ -56,6 +57,7 @@
         }
         else {
             [self acceptDefaultSettings];
+            [CountlyUtility reloadConsents];
         }
     }];
 }
