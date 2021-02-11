@@ -40,6 +40,11 @@
     [self.goButton setBackgroundColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
 }
 
+-(void)acceptDefaultSettings{
+    [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"send_analytics"];
+    [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"send_crash"];
+}
+
 -(IBAction)configure:(id)sender{
     UIButton *buttonPressed = (UIButton*)sender;
     [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:ONBOARDING_KEY];
@@ -48,6 +53,9 @@
     [self dismissViewControllerAnimated:YES completion:^{
         if (buttonPressed == _changeButton){
             [[NSNotificationCenter defaultCenter] postNotificationName:@"openSettings" object:nil];
+        }
+        else {
+            [self acceptDefaultSettings];
         }
     }];
 }
