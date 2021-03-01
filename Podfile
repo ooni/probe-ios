@@ -13,7 +13,6 @@ target 'ooniprobe' do
     pod 'DateTools'
     pod 'OCMapper', '2.0'
     pod 'Countly'
-    pod 'Firebase/Analytics'
     pod 'Firebase/Crashlytics'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '6.1.4'
 end

@@ -153,8 +153,17 @@
 }
 
 -(void)showError{
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   [self dismissViewControllerAnimated:YES completion:nil];
+                               }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
-                           message:NSLocalizedString(@"Modal.Error.CantDownloadURLs", nil) inView:self];
+                           message:NSLocalizedString(@"Modal.Error.CantDownloadURLs", nil)
+                          okButton:okButton
+                      cancelButton:nil
+                            inView:self];
 }
 
 -(IBAction)cancelTest:(id)sender{

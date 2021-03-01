@@ -16,7 +16,7 @@
 }
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
-    measurement.is_anomaly = json.test_keys.api_failure != nil && json.test_keys.ca_cert_status && json.test_keys.failing_gateways == nil;
+    measurement.is_anomaly = !json.test_keys.ca_cert_status.boolValue || json.test_keys.api_failure != nil || json.test_keys.failing_gateways != nil;
     [super onEntry:json obj:measurement];
 
 }
