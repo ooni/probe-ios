@@ -153,9 +153,11 @@
 }
 
 -(IBAction)copy_clipboard:(id)sender{
-    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = self.text;
-    [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
+    if (self.text != nil && [self.text isKindOfClass:[NSString class]]){
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = self.text;
+        [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
+    }
 }
 
 @end
