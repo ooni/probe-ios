@@ -49,7 +49,6 @@
              && ![SettingsUtility isNotificationEnabled]
              && ![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_POPUP_DISABLE]){
         [MessageUtility notificationAlertinView:self];
-        [SettingsUtility incrementAppOpenCount];
     }
 }
 

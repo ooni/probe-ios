@@ -31,7 +31,7 @@
 
 + (void)incrementAppOpenCount;
 
-+ (long)getAppOpenCount;
++ (NSInteger)getAppOpenCount;
 
 + (void)registeredForNotifications;
 @end

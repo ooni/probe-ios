@@ -172,8 +172,8 @@
     [[NSUserDefaults standardUserDefaults] setInteger:[self getAppOpenCount]+1 forKey:NOTIFICATION_POPUP];
 }
 
-+ (long)getAppOpenCount{
-    long count = [[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_POPUP];
++ (NSInteger)getAppOpenCount{
+    NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_POPUP];
     if(count < 0) count = 0;
     return count;
 }
