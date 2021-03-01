@@ -158,13 +158,14 @@
 }
 
 + (NSString*)getOrGenerateUUID4{
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"]){
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] ||
+        ![[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] isKindOfClass:[NSString class]]){
         NSString *uuid = [Engine newUUID4];
         [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:@"uuid4"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         return uuid;
     }
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] stringValue];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"];
 }
 
 + (void)incrementAppOpenCount{
