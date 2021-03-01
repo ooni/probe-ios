@@ -450,10 +450,12 @@
                 blockedConnection++;
             }
         }
-        return [LocalizationUtility getSingularPluralTemplate:blockedConnection :@"TestResults.Overview.Circumvention.RiseupVPN.Blocked"];        
-    } else {
-        return NSLocalizedString(@"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay", nil);
+        if (blockedConnection == 0) {
+            return NSLocalizedString(@"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay", nil);
+        }
+        return [LocalizationUtility getSingularPluralTemplate:blockedConnection :@"TestResults.Overview.Circumvention.RiseupVPN.Blocked"];
     }
+    return NSLocalizedString(@"TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay", nil);
 }
 
 @end
