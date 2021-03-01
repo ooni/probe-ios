@@ -17,6 +17,10 @@
     NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testSuite.name];
     [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
     [self.testDescriptionLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+    NSMutableDictionary *linkAttributes = [NSMutableDictionary dictionary];
+    [linkAttributes setObject:[NSNumber numberWithBool:YES] forKey:(NSString *)kCTUnderlineStyleAttributeName];
+    [linkAttributes setObject:[UIColor colorNamed:@"color_base"] forKey:(NSString *)kCTForegroundColorAttributeName];
+    self.testDescriptionLabel.linkAttributes = [NSDictionary dictionaryWithDictionary:linkAttributes];
     [self.testDescriptionLabel setMarkdown:testLongDesc];
     [self.testDescriptionLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];

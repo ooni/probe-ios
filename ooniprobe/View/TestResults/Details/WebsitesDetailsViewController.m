@@ -29,6 +29,10 @@
         NSString *paragraph = NSLocalizedFormatString(@"TestResults.Details.Websites.LikelyBlocked.Content.Paragraph", [NSString stringWithFormat:@"`%@`", self.measurement.url_id.url], [testKeys getWebsiteBlocking]);
         [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
         [self.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+        NSMutableDictionary *linkAttributes = [NSMutableDictionary dictionary];
+        [linkAttributes setObject:[NSNumber numberWithBool:YES] forKey:(NSString *)kCTUnderlineStyleAttributeName];
+        [linkAttributes setObject:[UIColor colorNamed:@"color_base"] forKey:(NSString *)kCTForegroundColorAttributeName];
+        self.textLabel.linkAttributes = [NSDictionary dictionaryWithDictionary:linkAttributes];
         [self.textLabel setMarkdown:paragraph];
         [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
             [[UIApplication sharedApplication] openURL:url];

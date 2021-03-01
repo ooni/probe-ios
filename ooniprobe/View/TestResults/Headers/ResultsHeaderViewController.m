@@ -104,7 +104,7 @@
 
 - (UIColor *)dropdownMenu:(MKDropdownMenu *)dropdownMenu backgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
     if ((row == 0 && [filter isEqualToString:@""]) || (row > 0 && [[[TestUtility getTestTypes] objectAtIndex:row-1] isEqualToString:filter]))
-        return [UIColor colorNamed:@"color_gray2"];
+        return [UIColor colorNamed:@"color_gray6"];
     else
         return [UIColor colorNamed:@"color_white"];
 }

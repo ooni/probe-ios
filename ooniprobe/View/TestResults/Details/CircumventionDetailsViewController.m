@@ -10,6 +10,10 @@
     [super viewDidLoad];
     TestKeys *testKeys = [self.measurement testKeysObj];
     [self.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+    NSMutableDictionary *linkAttributes = [NSMutableDictionary dictionary];
+    [linkAttributes setObject:[NSNumber numberWithBool:YES] forKey:(NSString *)kCTUnderlineStyleAttributeName];
+    [linkAttributes setObject:[UIColor colorNamed:@"color_base"] forKey:(NSString *)kCTForegroundColorAttributeName];
+    self.textLabel.linkAttributes = [NSDictionary dictionaryWithDictionary:linkAttributes];
 
     if (!super.measurement.is_anomaly){
         [self.headerView setBackgroundColor:[UIColor colorNamed:@"color_green7"]];
