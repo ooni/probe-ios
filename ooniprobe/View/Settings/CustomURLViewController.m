@@ -1,5 +1,6 @@
 #import "CustomURLViewController.h"
 #import "ReachabilityManager.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CustomURLViewController ()
 
@@ -47,6 +48,13 @@
 }
 
 -(IBAction)run:(id)sender{
+    //Check if every url has a prefix, otherwise show error.
+    if (![self allPrefix]){
+        [MessageUtility showToast:NSLocalizedString(@"Settings.Websites.CustomURL.NoURLEntered", nil)
+                           inView:self.view];
+        [self.tableView reloadData];
+        return;
+    }
     urlArray = [[NSMutableArray alloc] init];
     for (NSString *url in self.urlsList){
         NSString *sanitizedUrl= [url stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
@@ -70,12 +78,26 @@
                            inView:self.view];
 }
 
+-(BOOL)allPrefix{
+    for (NSString *url in self.urlsList){
+        if (![self hasPrefix:url])
+            return NO;
+    }
+    return YES;
+}
+
 -(BOOL)hasUrl{
     for (NSString *url in self.urlsList){
         if (![url isEqualToString:@"http://"] && ![url isEqualToString:@"https://"])
             return YES;
     }
     return NO;
+}
+
+-(BOOL)hasPrefix:(NSString*)url{
+    if (![url containsString:@"http://"] && ![url containsString:@"https://"])
+        return NO;
+    return YES;
 }
 
 -(void)back{
@@ -110,13 +132,24 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     UITextField *textField = (UITextField*)[cell viewWithTag:1];
     UIButton *deleteBtn = (UIButton*)[cell viewWithTag:2];
+    textField.layer.borderWidth = 1.0f;
+    textField.layer.cornerRadius = 8.0f;
+    textField.layer.masksToBounds = YES;
+
     if ([self.urlsList count] > 1)
         [deleteBtn setHidden:NO];
     else
         [deleteBtn setHidden:YES];
+
+    NSString *curUrl = [self.urlsList objectAtIndex:indexPath.row];
+    if ([self hasPrefix:curUrl])
+        textField.layer.borderColor = [[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f] CGColor];
+    else
+        textField.layer.borderColor = [[UIColor colorWithRGBHexString:color_red8 alpha:1.0f] CGColor];
+
     textField.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
     textField.inputAccessoryView = keyboardToolbar;
-    textField.text = [self.urlsList objectAtIndex:indexPath.row];
+    textField.text = curUrl;
     return cell;
 }
 
