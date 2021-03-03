@@ -14,6 +14,7 @@
 + (NSArray*)getSitesCategories;
 
 + (NSArray*)getSitesCategoriesDisabled;
++ (NSArray*)getSitesCategoriesEnabled;
 + (NSArray*)addRemoveSitesCategory:(NSString*)categoryName;
 + (long)getNumberCategoriesEnabled;
 

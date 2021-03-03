@@ -99,6 +99,12 @@
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"categories_disabled"];
 }
 
++ (NSArray*)getSitesCategoriesEnabled {
+    NSMutableArray *categories = [[self getSitesCategories] mutableCopy];
+    [categories removeObjectsInArray:[self getSitesCategoriesDisabled]];
+    return categories;
+}
+
 + (long)getNumberCategoriesEnabled{
     return [[self getSitesCategories] count] - [[self getSitesCategoriesDisabled] count];
 }

@@ -34,5 +34,9 @@
     return (r != nil) ? ([[OONISubmitResults alloc] initWithResults:r]) : nil;
 }
 
+- (OONICheckInResults*) checkIn:(OONIContext*) ctx config:(OONICheckInConfig*) config error:(NSError **)error {
+    OonimkallCheckInInfo *r = [self.session checkIn:ctx.ctx config:[config toOonimkallCheckInConfig] error:error];
+    return (r != nil) ? ([[OONICheckInResults alloc] initWithResults:r]) : nil;
+}
 
 @end

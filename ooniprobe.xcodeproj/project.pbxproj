@@ -121,6 +121,8 @@
 		EDC2C9E41FD8061400FF01D3 /* FiraSans-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EDBCB08D1FD5B06C00FA4838 /* FiraSans-SemiBoldItalic.otf */; };
 		EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */; };
 		EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */; };
+		EDC5A07225EFEA4400F86720 /* OONICheckInResults.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC5A07125EFEA4400F86720 /* OONICheckInResults.m */; };
+		EDC5A07B25EFEBAD00F86720 /* OONICheckInConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC5A07A25EFEBAD00F86720 /* OONICheckInConfig.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCD73D12180F014003B56D9 /* Header3ViewController.m */; };
 		EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD79DE121D6421D00B11078 /* TestDetailsFooterViewController.m */; };
@@ -404,6 +406,10 @@
 		EDBFB1FB21E43A300045F748 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = crossMark.json; sourceTree = "<group>"; };
 		EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = checkMark.json; sourceTree = "<group>"; };
+		EDC5A07025EFEA4400F86720 /* OONICheckInResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONICheckInResults.h; path = Engine/OONICheckInResults.h; sourceTree = "<group>"; };
+		EDC5A07125EFEA4400F86720 /* OONICheckInResults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONICheckInResults.m; path = Engine/OONICheckInResults.m; sourceTree = "<group>"; };
+		EDC5A07925EFEBAD00F86720 /* OONICheckInConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONICheckInConfig.h; path = Engine/OONICheckInConfig.h; sourceTree = "<group>"; };
+		EDC5A07A25EFEBAD00F86720 /* OONICheckInConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONICheckInConfig.m; path = Engine/OONICheckInConfig.m; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDCD73D02180F014003B56D9 /* Header3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header3ViewController.h; sourceTree = "<group>"; };
 		EDCD73D12180F014003B56D9 /* Header3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header3ViewController.m; sourceTree = "<group>"; };
@@ -1011,6 +1017,10 @@
 				ED9CCEDB252B2CE4004F8420 /* OONISession.h */,
 				ED9CCEEC252B3190004F8420 /* OONIGeolocateResults.h */,
 				ED9CCEED252B3190004F8420 /* OONIGeolocateResults.m */,
+				EDC5A07925EFEBAD00F86720 /* OONICheckInConfig.h */,
+				EDC5A07A25EFEBAD00F86720 /* OONICheckInConfig.m */,
+				EDC5A07025EFEA4400F86720 /* OONICheckInResults.h */,
+				EDC5A07125EFEA4400F86720 /* OONICheckInResults.m */,
 				ED9CCEF5252B3298004F8420 /* OONISessionConfig.h */,
 				ED9CCEF6252B3298004F8420 /* OONISessionConfig.m */,
 				ED9CCEFB252B3460004F8420 /* OONISubmitResults.h */,
@@ -1388,6 +1398,7 @@
 				ED2E067221D4867B00E9B9EE /* Dash.m in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.m in Sources */,
 				EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */,
+				EDC5A07225EFEA4400F86720 /* OONICheckInResults.m in Sources */,
 				ED90A9292198DE5100204B46 /* Result.m in Sources */,
 				ED0D8D7020186742003DDF23 /* TestOverviewViewController.m in Sources */,
 				D4A2F5E21A6C3244001B8460 /* AppDelegate.m in Sources */,
@@ -1427,6 +1438,7 @@
 				ED9CCEEE252B3190004F8420 /* OONIGeolocateResults.m in Sources */,
 				ED2E067421D4867B00E9B9EE /* FacebookMessenger.m in Sources */,
 				EDDB0B621FFF509200EFD9C8 /* WebsiteCategoriesTableViewController.m in Sources */,
+				EDC5A07B25EFEBAD00F86720 /* OONICheckInConfig.m in Sources */,
 				ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */,
 				EDF4ED2C248A9FA7001A5406 /* Summary.m in Sources */,
 				ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */,

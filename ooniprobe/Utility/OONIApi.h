@@ -2,7 +2,7 @@
 
 @interface OONIApi : NSObject
 
-+ (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
++ (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb __deprecated;
 + (void)downloadUrls:(NSString*)baseUrl
            onSuccess:(void (^)(NSArray*))successcb
              onError:(void (^)(NSError*))errorcb;

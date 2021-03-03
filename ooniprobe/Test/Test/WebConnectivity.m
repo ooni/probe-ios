@@ -2,6 +2,7 @@
 #import "MessageUtility.h"
 #import "OONIApi.h"
 #import "ExceptionUtility.h"
+#import "VersionUtility.h"
 
 @implementation WebConnectivity : AbstractTest
 
@@ -17,6 +18,56 @@
     [super prepareRun];
     if (self.inputs == nil || [self.inputs count] == 0){
         //Download urls and then alloc class
+        NSError *error;
+        PESession* session = [[PESession alloc] initWithConfig:
+                              [Engine getDefaultSessionConfigWithSoftwareName:SOFTWARE_NAME
+                                                              softwareVersion:[VersionUtility get_software_version]
+                                                                       logger:[LoggerArray new]]
+                                                                        error:&error];
+        if (error != nil) {
+            return;
+        }
+        // Updating resources with no timeout because we don't know for sure how much
+        // it will take to download them and choosing a timeout may prevent the operation
+        // to ever complete. (Ideally the user should be able to interrupt the process
+        // and there should be no timeout here.)
+        [session maybeUpdateResources:[session newContext] error:&error];
+        if (error != nil) {
+            return;
+        }
+        OONIContext *ooniContext = [session newContextWithTimeout:30];
+        OONICheckInConfig *config = [[OONICheckInConfig alloc] initWithSoftwareName:SOFTWARE_NAME
+                                                                    softwareVersion:[VersionUtility get_software_version]
+                                                                         categories:[SettingsUtility getSitesCategoriesEnabled]];
+        OONICheckInResults *results = [session checkIn:ooniContext config:config error:&error];
+        if (error != nil) {
+            [self onError:error];
+            return;
+        }
+        
+        NSMutableArray *urls = [[NSMutableArray alloc] init];
+        for (OONIURLInfo* current in results.webConnectivity.urls){
+            //List for database
+            Url *url = [Url
+                        checkExistingUrl:current.url
+                        categoryCode:current.category_code
+                        countryCode:current.country_code];
+            //List for mk
+            if (url != nil)
+                [urls addObject:url.url];
+        }
+        if ([urls count] == 0){
+            [self onError:[NSError errorWithDomain:@"io.ooni.orchestrate"
+                                              code:ERR_NO_VALID_URLS
+                                          userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.NoValidUrls"
+                                                     }]];
+            return;
+        }
+        [self setUrls:urls];
+        [self setDefaultMaxRuntime];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRuntime" object:nil];
+        [super runTest];
+        /*
         [OONIApi downloadUrls:^(NSArray *urls) {
             [self setUrls:urls];
             [self setDefaultMaxRuntime];
@@ -29,11 +80,20 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
             [super testEnded];
         }];
+         */
     }
     else {
         [self setUrls:self.inputs];
         [super runTest];
     }
+}
+
+-(void)onError:(NSError*)error{
+    [ExceptionUtility recordError:@"downloadUrls_error"
+                           reason:@"downloadUrls failed due to an error"
+                         userInfo:[error dictionary]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
+    [super testEnded];
 }
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
