@@ -22,7 +22,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="settings_categories" id="niC-0T-rEj" customClass="SettingsCategoriesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="JnL-kh-4ft">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -41,9 +41,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="tintColor" name="color_base"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="tableCellGroupedBackgroundColor"/>
-                                <color key="tintColor" name="color_blue4"/>
+                                <color key="tintColor" name="color_base"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -89,7 +90,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="settings" hidesBottomBarWhenPushed="YES" id="FL9-zG-Wm0" customClass="SettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="Dy1-hT-LWV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -112,6 +113,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
+                                    <color key="tintColor" name="color_base"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="tableCellGroupedBackgroundColor"/>
                             </tableViewCell>
@@ -123,14 +125,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fmK-4S-M9p">
-                                            <rect key="frame" x="16" y="10" width="32" height="20"/>
+                                            <rect key="frame" x="16" y="9" width="34" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                             <color key="textColor" red="0.12549019610000001" green="0.1450980392" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mTG-wT-4hC">
-                                            <rect key="frame" x="16" y="33" width="44.5" height="15.5"/>
+                                            <rect key="frame" x="16" y="32.5" width="46.5" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="13"/>
                                             <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -139,6 +141,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="tintColor" name="color_base"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -164,7 +167,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="site_categories" id="FSd-Zs-3Da" customClass="WebsiteCategoriesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="aDi-MB-5MH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -176,14 +179,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W1J-9q-ery">
-                                            <rect key="frame" x="16" y="9" width="32" height="20"/>
+                                            <rect key="frame" x="16" y="9" width="34" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kI0-gY-xFC">
-                                            <rect key="frame" x="16" y="32" width="48" height="16.5"/>
+                                            <rect key="frame" x="16" y="32.5" width="50" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                             <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,6 +195,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="tintColor" name="color_base"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -350,7 +354,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HIX-ry-9k4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DhG-za-ka8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3N7-0b-kY4">
@@ -369,8 +373,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iza-Qi-7Xv">
-                                                <rect key="frame" x="118.5" y="222" width="138" height="40"/>
-                                                <color key="backgroundColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="118" y="222" width="139" height="40"/>
+                                                <color key="backgroundColor" name="color_base"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="8" id="TKn-ah-uJG"/>
                                                     <constraint firstAttribute="height" constant="40" id="l72-l7-50n"/>
@@ -391,6 +395,7 @@
                                                     <constraint firstAttribute="height" constant="24" id="ciY-40-h6C"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
+                                                <color key="tintColor" name="color_base"/>
                                                 <state key="normal" title="Privacy policy">
                                                     <color key="titleColor" name="color_blue4"/>
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -413,7 +418,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVb-RD-nib">
-                                                        <rect key="frame" x="112" y="94" width="151.5" height="50"/>
+                                                        <rect key="frame" x="111" y="94" width="153.5" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="pf7-eC-NfI"/>
                                                         </constraints>
@@ -424,7 +429,7 @@ measurement-kit: x.y.z</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" name="color_blue5"/>
+                                                <color key="backgroundColor" name="color_base"/>
                                                 <constraints>
                                                     <constraint firstItem="glb-X4-13h" firstAttribute="centerX" secondItem="Q8W-mA-yKw" secondAttribute="centerX" id="4oE-Xi-1wJ"/>
                                                     <constraint firstItem="KVb-RD-nib" firstAttribute="top" secondItem="glb-X4-13h" secondAttribute="bottom" constant="8" id="O3s-pP-gZ3"/>
@@ -532,19 +537,19 @@ measurement-kit: x.y.z</string>
         <image name="ooni_logo" width="184" height="52"/>
         <image name="tab_settings" width="23" height="23"/>
         <namedColor name="color_base">
-            <color red="0.019999999552965164" green="0.53299999237060547" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.019607843137254902" green="0.53333333333333333" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="color_blue4">
-            <color red="0.019999999552965164" green="0.53299999237060547" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.21568627450980393" green="0.65098039215686276" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="color_blue5">
-            <color red="0.019999999552965164" green="0.53299999237060547" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.019607843137254902" green="0.53333333333333333" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="color_gray0">
-            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97254901960784312" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="color_gray1">
-            <color red="0.94117647058823528" green="0.95294117647058818" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94509803921568625" green="0.95294117647058818" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="color_white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
