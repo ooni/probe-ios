@@ -39,4 +39,9 @@
     return (r != nil) ? ([[OONICheckInResults alloc] initWithResults:r]) : nil;
 }
 
+- (OONIURLListResult*) fetchURLList:(OONIContext*) ctx config:(OONIURLListConfig*) config error:(NSError **)error {
+    OonimkallURLListResult *r = [self.session fetchURLList:ctx.ctx config:[config toOonimkallURLListConfig] error:(NSError * _Nullable __autoreleasing * _Nullable)error];
+    return (r != nil) ? ([[OONIURLListResult alloc] initWithResults:r]) : nil;
+}
+
 @end

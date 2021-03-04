@@ -123,6 +123,9 @@
 		EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */; };
 		EDC5A07225EFEA4400F86720 /* OONICheckInResults.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC5A07125EFEA4400F86720 /* OONICheckInResults.m */; };
 		EDC5A07B25EFEBAD00F86720 /* OONICheckInConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC5A07A25EFEBAD00F86720 /* OONICheckInConfig.m */; };
+		EDC5A0C525F00C4B00F86720 /* OONIURLInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC5A0C425F00C4B00F86720 /* OONIURLInfo.m */; };
+		EDC5A0CE25F00C9C00F86720 /* OONIURLListConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC5A0CD25F00C9C00F86720 /* OONIURLListConfig.m */; };
+		EDC5A0D425F00CB600F86720 /* OONIURLListResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC5A0D325F00CB600F86720 /* OONIURLListResult.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCD73D12180F014003B56D9 /* Header3ViewController.m */; };
 		EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD79DE121D6421D00B11078 /* TestDetailsFooterViewController.m */; };
@@ -410,6 +413,12 @@
 		EDC5A07125EFEA4400F86720 /* OONICheckInResults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONICheckInResults.m; path = Engine/OONICheckInResults.m; sourceTree = "<group>"; };
 		EDC5A07925EFEBAD00F86720 /* OONICheckInConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONICheckInConfig.h; path = Engine/OONICheckInConfig.h; sourceTree = "<group>"; };
 		EDC5A07A25EFEBAD00F86720 /* OONICheckInConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONICheckInConfig.m; path = Engine/OONICheckInConfig.m; sourceTree = "<group>"; };
+		EDC5A0C325F00C4B00F86720 /* OONIURLInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIURLInfo.h; path = Engine/OONIURLInfo.h; sourceTree = "<group>"; };
+		EDC5A0C425F00C4B00F86720 /* OONIURLInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIURLInfo.m; path = Engine/OONIURLInfo.m; sourceTree = "<group>"; };
+		EDC5A0CC25F00C9C00F86720 /* OONIURLListConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIURLListConfig.h; path = Engine/OONIURLListConfig.h; sourceTree = "<group>"; };
+		EDC5A0CD25F00C9C00F86720 /* OONIURLListConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIURLListConfig.m; path = Engine/OONIURLListConfig.m; sourceTree = "<group>"; };
+		EDC5A0D225F00CB600F86720 /* OONIURLListResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OONIURLListResult.h; path = Engine/OONIURLListResult.h; sourceTree = "<group>"; };
+		EDC5A0D325F00CB600F86720 /* OONIURLListResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OONIURLListResult.m; path = Engine/OONIURLListResult.m; sourceTree = "<group>"; };
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDCD73D02180F014003B56D9 /* Header3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header3ViewController.h; sourceTree = "<group>"; };
 		EDCD73D12180F014003B56D9 /* Header3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header3ViewController.m; sourceTree = "<group>"; };
@@ -1031,6 +1040,12 @@
 				EDF4ED152487BF39001A5406 /* PEMKTask.m */,
 				ED9CCF01252B356D004F8420 /* PESession.h */,
 				ED9CCF02252B356D004F8420 /* PESession.m */,
+				EDC5A0C325F00C4B00F86720 /* OONIURLInfo.h */,
+				EDC5A0C425F00C4B00F86720 /* OONIURLInfo.m */,
+				EDC5A0CC25F00C9C00F86720 /* OONIURLListConfig.h */,
+				EDC5A0CD25F00C9C00F86720 /* OONIURLListConfig.m */,
+				EDC5A0D225F00CB600F86720 /* OONIURLListResult.h */,
+				EDC5A0D325F00CB600F86720 /* OONIURLListResult.m */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -1391,6 +1406,7 @@
 				ED9CCF09252B35B3004F8420 /* PELoggerAdapter.m in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
 				ED14B231246540A4009AA906 /* CircumventionSuite.m in Sources */,
+				EDC5A0C525F00C4B00F86720 /* OONIURLInfo.m in Sources */,
 				EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */,
 				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
@@ -1433,6 +1449,7 @@
 				EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
 				ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */,
+				EDC5A0D425F00CB600F86720 /* OONIURLListResult.m in Sources */,
 				ED62AB9D1ED5B70500778249 /* Reachability.m in Sources */,
 				ED2E067821D487D600E9B9EE /* InstantMessagingSuite.m in Sources */,
 				ED9CCEEE252B3190004F8420 /* OONIGeolocateResults.m in Sources */,
@@ -1463,6 +1480,7 @@
 				ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.m in Sources */,
 				EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */,
 				EDF4ED26248A9A64001A5406 /* Advanced.m in Sources */,
+				EDC5A0CE25F00C9C00F86720 /* OONIURLListConfig.m in Sources */,
 				EDA17AFB208A30E100D46D0F /* MiddleBoxesDetailsViewController.m in Sources */,
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */,

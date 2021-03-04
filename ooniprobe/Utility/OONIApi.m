@@ -4,58 +4,33 @@
 #import "NetworkSession.h"
 #import "Url.h"
 #import "VersionUtility.h"
-#define OONI_ORCHESTRATE_BASE_URL @"orchestrate.ooni.io"
 #define OONI_API_BASE_URL @"api.ooni.io"
 
 @implementation OONIApi
 
-+ (void)downloadUrls:(NSString*)baseUrl
-           onSuccess:(void (^)(NSArray*))successcb
-             onError:(void (^)(NSError*))errorcb {
-    NSError *error;
-    NSString *cc = [Engine resolveProbeCCWithSoftwareName:SOFTWARE_NAME
-                                          softwareVersion:[VersionUtility get_software_version]
-                                                  timeout:DEFAULT_TIMEOUT
-                                                    error:&error];
-    if (cc == nil) {
-        cc = @"XX";
-    }
-    NSURLComponents *components = [[NSURLComponents alloc] init];
-    components.scheme = @"https";
-    components.host = baseUrl;
-    components.path = @"/api/v1/test-list/urls";
-    NSURLQueryItem *ccItem = [NSURLQueryItem
-                              queryItemWithName:@"country_code"
-                              value:cc];
-    if ([[SettingsUtility getSitesCategoriesDisabled] count] > 0){
-        NSMutableArray *categories = [NSMutableArray arrayWithArray:[SettingsUtility getSitesCategories]];
-        [categories removeObjectsInArray:[SettingsUtility getSitesCategoriesDisabled]];
-        NSURLQueryItem *categoriesItem = [NSURLQueryItem
-                                          queryItemWithName:@"category_codes"
-                                          value:[categories componentsJoinedByString:@","]];
-        components.queryItems = @[ ccItem, categoriesItem ];
-    }
-    else {
-        components.queryItems = @[ ccItem ];
-    }
-    NSURL *url = components.URL;
-    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
-     dataTaskWithURL:url
-     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-         [self downloadUrlsCallback:data response:response error:error
-                                 onSuccess:successcb onError:errorcb];
-    }];
-    [downloadTask resume];
-}
-
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
-    [self downloadUrls:OONI_ORCHESTRATE_BASE_URL
-             onSuccess:successcb
-               onError:errorcb];
+    NSError *error;
+    PESession* session = [[PESession alloc] initWithConfig:
+                          [Engine getDefaultSessionConfigWithSoftwareName:SOFTWARE_NAME
+                                                          softwareVersion:[VersionUtility get_software_version]
+                                                                   logger:[LoggerArray new]]
+                                                                    error:&error];
+    if (error != nil) {
+        return;
+    }
+    [session maybeUpdateResources:[session newContext] error:&error];
+    if (error != nil) {
+        return;
+    }
+    OONIContext *ooniContext = [session newContextWithTimeout:30];
+    OONIURLListConfig *config = [OONIURLListConfig new];
+    [config setCategories:[SettingsUtility getSitesCategoriesEnabled]];
+    OONIURLListResult *result = [session fetchURLList:ooniContext config:config error:&error];
+    [self downloadUrlsCallback:result error:error
+                            onSuccess:successcb onError:errorcb];
 }
 
-+ (void)downloadUrlsCallback:(NSData *)data
-                    response:(NSURLResponse *)response
++ (void)downloadUrlsCallback:(OONIURLListResult *)result
                     error:(NSError *)error
                     onSuccess:(void (^)(NSArray*))successcb
                     onError:(void (^)(NSError*))errorcb {
@@ -63,19 +38,13 @@
         errorcb(error);
         return;
     }
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if (error != nil) {
-        errorcb(error);
-        return;
-    }
-    NSArray *urlsArray = [dic objectForKey:@"results"];
     NSMutableArray *urls = [[NSMutableArray alloc] init];
-    for (NSDictionary* current in urlsArray){
+    for (OONIURLInfo* current in result.urls){
         //List for database
         Url *url = [Url
-                    checkExistingUrl:[current objectForKey:@"url"]
-                    categoryCode:[current objectForKey:@"category_code"]
-                    countryCode:[current objectForKey:@"country_code"]];
+                    checkExistingUrl:current.url
+                    categoryCode:current.category_code
+                    countryCode:current.country_code];
         //List for mk
         if (url != nil)
             [urls addObject:url.url];

@@ -32,4 +32,5 @@
     c.webConnectivity = self.webConnectivity;
     return c;
 }
+
 @end
