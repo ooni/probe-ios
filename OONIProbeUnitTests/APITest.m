@@ -2,11 +2,12 @@
 #import "Measurement.h"
 #import "TestUtility.h"
 #import "OONIApi.h"
-#define CLIENT_URL @"https://ams-pg.ooni.org"
 #define EXISTING_REPORT_ID @"20190113T202156Z_AS327931_CgoC3KbgM6zKajvIIt1AxxybJ1HbjwwWJjsJnlxy9rpcGY54VH"
 #define EXISTING_REPORT_ID_2 @"20190702T000027Z_AS5413_6FT78sjp5qnESDVWlFlm6bfxxwOEqR08ySAwigTF6C8PFCbMsM"
 #define NONEXISTING_REPORT_ID @"EMPTY"
 #define NON_PARSABLE_URL @"https://\t"
+#define CLIENT_URL @"ams-pg.ooni.org"
+
 @interface APITest : XCTestCase
 
 @end
