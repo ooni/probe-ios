@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,7 +71,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                                     <constraint firstAttribute="width" secondItem="wjo-4r-PfJ" secondAttribute="height" multiplier="23:18" constant="79.222222222222229" id="EWS-fc-RQ1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="got_it" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-DR-K1M">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="got_it" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-DR-K1M">
                                 <rect key="frame" x="102" y="603" width="210" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.WhatIsOONIProbe.GotIt"/>
@@ -94,6 +95,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="TI7-0x-9pi"/>
                         <color key="backgroundColor" red="0.0" green="0.16862745098039217" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BVF-vN-9qu" firstAttribute="top" secondItem="xbu-DR-K1M" secondAttribute="bottom" constant="77" id="0Xs-bL-fj3"/>
@@ -111,7 +113,6 @@ The data that you can collect through this app can serve as evidence of censorsh
                             <constraint firstItem="xbu-DR-K1M" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cpY-gy-NKd" secondAttribute="bottom" constant="8" id="uXV-S6-0Do"/>
                             <constraint firstItem="xbu-DR-K1M" firstAttribute="centerX" secondItem="gM5-Q3-Fo5" secondAttribute="centerX" id="yZt-kk-UnZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="TI7-0x-9pi"/>
                     </view>
                     <navigationItem key="navigationItem" id="VNp-K5-bqm"/>
                     <connections>
@@ -161,7 +162,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                                     <constraint firstAttribute="width" secondItem="s0Z-yY-pz9" secondAttribute="height" multiplier="207:169" constant="73.491124260355036" id="Fj3-cE-u9O"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-lT-nrn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-lT-nrn">
                                 <rect key="frame" x="102" y="603" width="210" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.ThingsToKnow.Button"/>
@@ -177,7 +178,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                                     <segue destination="0cG-MI-3I3" kind="presentation" identifier="toPopQuiz" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="s18-C0-IER"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bZ-td-099">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bZ-td-099">
                                 <rect key="frame" x="102" y="667" width="210" height="32"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.ThingsToKnow.LearnMore"/>
                                 <constraints>
@@ -200,6 +201,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="C66-6d-BvC"/>
                         <color key="backgroundColor" red="0.058823529411764705" green="0.24313725490196078" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="d3f-qb-Qml" firstAttribute="trailing" secondItem="MM1-JM-jnN" secondAttribute="trailingMargin" id="ASy-0L-xnu"/>
@@ -219,7 +221,6 @@ The data that you can collect through this app can serve as evidence of censorsh
                             <constraint firstItem="2bZ-td-099" firstAttribute="centerX" secondItem="MM1-JM-jnN" secondAttribute="centerX" id="tY4-g9-Z29"/>
                             <constraint firstItem="d3f-qb-Qml" firstAttribute="leading" secondItem="MM1-JM-jnN" secondAttribute="leadingMargin" id="uw9-iM-Bt3"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="C66-6d-BvC"/>
                     </view>
                     <navigationItem key="navigationItem" id="aXo-co-DOr"/>
                     <connections>
@@ -248,14 +249,14 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ldx-vN-fF3">
-                                <rect key="frame" x="20" y="274" width="374" height="41"/>
+                                <rect key="frame" x="20" y="274" width="374" height="39.666666666666686"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Title"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hx8-bq-2PZ" customClass="RHMarkdownLabel">
-                                <rect key="frame" x="20" y="324" width="374" height="245"/>
+                                <rect key="frame" x="20" y="322.66666666666669" width="374" height="237.66666666666669"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Paragraph"/>
                                 <string key="text">We will collect and publish:
 
@@ -277,7 +278,7 @@ We do our best not to publish your IP address or any other potentially personall
                                     <constraint firstAttribute="width" secondItem="2pt-ON-TYp" secondAttribute="height" multiplier="207:133" id="KO9-qj-lhg"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB1-sc-28S">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB1-sc-28S">
                                 <rect key="frame" x="102" y="603" width="210" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Button.Go"/>
@@ -293,7 +294,7 @@ We do our best not to publish your IP address or any other potentially personall
                                     <action selector="configure:" destination="7O5-JB-Uds" eventType="touchUpInside" id="wBd-kD-2Xv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIj-ks-Nks">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIj-ks-Nks">
                                 <rect key="frame" x="102" y="667" width="210" height="32"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Button.Change"/>
                                 <constraints>
@@ -316,6 +317,7 @@ We do our best not to publish your IP address or any other potentially personall
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="tr5-G1-oNN"/>
                         <color key="backgroundColor" red="0.0" green="0.10196078431372549" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2pt-ON-TYp" firstAttribute="top" secondItem="DEh-Zm-8aG" secondAttribute="top" id="5LH-fB-fYY"/>
@@ -335,7 +337,6 @@ We do our best not to publish your IP address or any other potentially personall
                             <constraint firstItem="ldx-vN-fF3" firstAttribute="top" secondItem="2pt-ON-TYp" secondAttribute="bottom" constant="8" id="xKh-mh-bIs"/>
                             <constraint firstItem="d3K-eH-7xm" firstAttribute="top" secondItem="sB1-sc-28S" secondAttribute="bottom" constant="77" id="zUY-gn-rat"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="tr5-G1-oNN"/>
                     </view>
                     <navigationItem key="navigationItem" id="dls-6Z-lfV"/>
                     <connections>
@@ -361,16 +362,16 @@ We do our best not to publish your IP address or any other potentially personall
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeL-Zk-0Bw">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <button opaque="NO" alpha="0.80000000000000004" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rz2-Nu-fG9">
+                                    <button opaque="NO" alpha="0.80000000000000004" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rz2-Nu-fG9">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </button>
                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qf9-Dm-QoQ">
                                         <rect key="frame" x="16" y="243" width="382" height="250"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09P-qe-CG5">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09P-qe-CG5">
                                                 <rect key="frame" x="0.0" y="200" width="191" height="50"/>
-                                                <color key="backgroundColor" red="0.18431372549019609" green="0.61960784313725492" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="color_green7"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.PopQuiz.True"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="o7a-y6-QvK"/>
@@ -381,9 +382,9 @@ We do our best not to publish your IP address or any other potentially personall
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBN-An-L4V">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBN-An-L4V">
                                                 <rect key="frame" x="191" y="200" width="191" height="50"/>
-                                                <color key="backgroundColor" red="0.75294117650000003" green="0.019607843140000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="color_red7"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.PopQuiz.False"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="sBQ-nE-vpZ"/>
@@ -417,7 +418,7 @@ We do our best not to publish your IP address or any other potentially personall
 Anyone monitoring your internet activity may be able to see that you are running OONI Probe.</string>
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="17" name="FiraSans-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -453,6 +454,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <viewLayoutGuide key="safeArea" id="vug-gg-4TQ"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Qf9-Dm-QoQ" firstAttribute="leading" secondItem="vug-gg-4TQ" secondAttribute="leading" constant="16" id="1UU-X0-E0f"/>
@@ -467,9 +469,9 @@ Anyone monitoring your internet activity may be able to see that you are running
                                     <constraint firstItem="vug-gg-4TQ" firstAttribute="trailing" secondItem="Rz2-Nu-fG9" secondAttribute="trailing" id="t06-mX-Qki"/>
                                     <constraint firstItem="Rz2-Nu-fG9" firstAttribute="leading" secondItem="vug-gg-4TQ" secondAttribute="leading" id="zTE-K3-TMU"/>
                                 </constraints>
-                                <viewLayoutGuide key="safeArea" id="vug-gg-4TQ"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="g8b-4M-qSP"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VeL-Zk-0Bw" firstAttribute="leading" secondItem="Jsz-rJ-fN2" secondAttribute="leading" id="DJb-7n-rOf"/>
@@ -477,7 +479,6 @@ Anyone monitoring your internet activity may be able to see that you are running
                             <constraint firstAttribute="trailing" secondItem="VeL-Zk-0Bw" secondAttribute="trailing" id="g1V-Yc-cvt"/>
                             <constraint firstItem="VeL-Zk-0Bw" firstAttribute="top" secondItem="Jsz-rJ-fN2" secondAttribute="top" id="na4-6f-8qq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="g8b-4M-qSP"/>
                     </view>
                     <connections>
                         <outlet property="closeView" destination="Rz2-Nu-fG9" id="uBO-4w-3uS"/>
@@ -504,14 +505,14 @@ Anyone monitoring your internet activity may be able to see that you are running
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2Z-Z8-wK0">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3D-U2-fQE">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3D-U2-fQE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </button>
                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49O-4W-cjc">
                                         <rect key="frame" x="16" y="243" width="382" height="250"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m98-P6-qTI">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m98-P6-qTI">
                                                 <rect key="frame" x="0.0" y="200" width="191" height="50"/>
                                                 <color key="backgroundColor" red="0.21176470589999999" green="0.25098039220000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.PopQuiz.Wrong.Button.Back"/>
@@ -524,7 +525,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0N-wd-hM7">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0N-wd-hM7">
                                                 <rect key="frame" x="191" y="200" width="191" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="Onboarding.PopQuiz.Wrong.Button.Continue"/>
@@ -587,6 +588,7 @@ Anyone monitoring your internet activity may be able to see that you are running
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <viewLayoutGuide key="safeArea" id="5Ym-4I-HMG"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="49O-4W-cjc" firstAttribute="leading" secondItem="5Ym-4I-HMG" secondAttribute="leading" constant="16" id="036-V9-iek"/>
@@ -599,9 +601,9 @@ Anyone monitoring your internet activity may be able to see that you are running
                                     <constraint firstItem="5Ym-4I-HMG" firstAttribute="trailing" secondItem="t3D-U2-fQE" secondAttribute="trailing" id="epj-yL-HJo"/>
                                     <constraint firstItem="t3D-U2-fQE" firstAttribute="leading" secondItem="5Ym-4I-HMG" secondAttribute="leading" id="vxL-YY-XTP"/>
                                 </constraints>
-                                <viewLayoutGuide key="safeArea" id="5Ym-4I-HMG"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="eEI-LH-oPf"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="a2Z-Z8-wK0" firstAttribute="leading" secondItem="liY-on-n4h" secondAttribute="leading" id="1bL-xk-VFA"/>
@@ -609,7 +611,6 @@ Anyone monitoring your internet activity may be able to see that you are running
                             <constraint firstItem="a2Z-Z8-wK0" firstAttribute="bottom" secondItem="eEI-LH-oPf" secondAttribute="bottom" id="bGu-Zg-Q4q"/>
                             <constraint firstAttribute="trailing" secondItem="a2Z-Z8-wK0" secondAttribute="trailing" id="eOY-vj-eQl"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="eEI-LH-oPf"/>
                     </view>
                     <connections>
                         <outlet property="closeView" destination="t3D-U2-fQE" id="MTO-dz-APV"/>
@@ -625,6 +626,11 @@ Anyone monitoring your internet activity may be able to see that you are running
             <point key="canvasLocation" x="3458" y="-338"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="hx8-bq-2PZ">
+            <size key="intrinsicContentSize" width="794.33333333333337" height="178.33333333333334"/>
+        </designable>
+    </designables>
     <resources>
         <image name="dots_1" width="135" height="16"/>
         <image name="dots_2" width="135" height="16"/>
@@ -632,5 +638,11 @@ Anyone monitoring your internet activity may be able to see that you are running
         <image name="onboarding_1" width="360" height="228"/>
         <image name="onboarding_2" width="360" height="242"/>
         <image name="onboarding_3" width="361" height="232"/>
+        <namedColor name="color_green7">
+            <color red="0.18400000035762787" green="0.62000000476837158" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_red7">
+            <color red="0.94099998474121094" green="0.24300000071525574" blue="0.24300000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

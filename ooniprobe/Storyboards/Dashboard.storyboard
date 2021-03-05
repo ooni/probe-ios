@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -160,7 +161,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lOL-Sl-DHD">
                                 <rect key="frame" x="0.0" y="187" width="375" height="537"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="color_white"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="SN2-LH-aBR" customClass="DashboardTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="104"/>
@@ -170,7 +171,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c91-xe-miE">
-                                                    <rect key="frame" x="15" y="11" width="345" height="82"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="82"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websites" translatesAutoresizingMaskIntoConstraints="NO" id="FG1-NM-9b3">
                                                             <rect key="frame" x="8" y="8" width="66" height="66"/>
@@ -181,20 +182,20 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHW-yM-DMN">
-                                                            <rect key="frame" x="82" y="38.666666666666664" width="255" height="15.666666666666664"/>
+                                                            <rect key="frame" x="82" y="38" width="253" height="15.333333333333336"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.TestDesc"/>
                                                             <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="13"/>
-                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" name="color_gray9"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MT-87-jq3">
-                                                            <rect key="frame" x="82" y="12.000000000000002" width="255" height="21.666666666666671"/>
+                                                            <rect key="frame" x="82" y="12" width="253" height="21"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.TestName"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="i9z-ce-odn"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="18"/>
-                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" name="color_gray9"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -241,6 +242,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard-bg-navbar" translatesAutoresizingMaskIntoConstraints="NO" id="632-8k-vF6">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="color_base"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ooni_probe_logo" translatesAutoresizingMaskIntoConstraints="NO" id="uDk-WD-p0X">
                                         <rect key="frame" x="15" y="55" width="186" height="32"/>
@@ -248,7 +250,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zr4-YP-p0N">
                                         <rect key="frame" x="137.66666666666666" y="101" width="100" height="47"/>
                                         <subviews>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14a-mz-PTP">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14a-mz-PTP">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="47"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="Dashboard.Card.Run"/>
@@ -259,7 +261,7 @@
                                                 <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="23"/>
                                                 <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                 <state key="normal" title="Run">
-                                                    <color key="titleColor" red="0.019607843140000001" green="0.53333333329999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" name="color_base"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="runAll" destination="vBz-Iv-qTP" eventType="touchUpInside" id="3HN-H0-7ff"/>
@@ -277,7 +279,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIK-Ym-rRz">
                                         <rect key="frame" x="8" y="156" width="359" height="13"/>
                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="11"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="color_gray9"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -299,7 +301,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="color_white"/>
                         <constraints>
                             <constraint firstItem="I1j-MD-yLT" firstAttribute="top" secondItem="8Fd-kv-Yw1" secondAttribute="bottom" constant="-44" id="6HJ-WD-6cS"/>
                             <constraint firstAttribute="trailing" secondItem="I1j-MD-yLT" secondAttribute="trailing" id="Fle-wk-XqO"/>
@@ -336,7 +338,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-mp-BTr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
                                 <subviews>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hp-nu-K1s" customClass="RunButton">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hp-nu-K1s" customClass="RunButton">
                                         <rect key="frame" x="144" y="173" width="87" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.Run"/>
@@ -354,14 +356,14 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="websites" translatesAutoresizingMaskIntoConstraints="NO" id="8lW-6g-uP6">
-                                        <rect key="frame" x="147.66666666666666" y="0.0" width="80" height="77.666666666666671"/>
+                                        <rect key="frame" x="147.66666666666666" y="0.0" width="80" height="78.333333333333329"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="eFd-kF-Dsd"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4V-eN-VhB">
-                                        <rect key="frame" x="8" y="74.666666666666657" width="359" height="35"/>
+                                        <rect key="frame" x="8" y="75.333333333333343" width="359" height="35"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.TestName"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="iyd-a4-rfv"/>
@@ -370,7 +372,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-ZK-PPc" customClass="ConfigureButton">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-ZK-PPc" customClass="ConfigureButton">
                                         <rect key="frame" x="142.66666666666666" y="221" width="90" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.ChooseWebsites"/>
@@ -392,19 +394,19 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="s9I-XB-nNb">
-                                        <rect key="frame" x="104.00000000000001" y="117.66666666666664" width="167.33333333333337" height="31.333333333333329"/>
+                                        <rect key="frame" x="102.66666666666667" y="118.33333333333336" width="169.66666666666663" height="30.666666666666671"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6kJ-rx-tav">
-                                                <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="31.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="30.666666666666668"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efw-lh-Qks">
-                                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="15.666666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="62" height="15.333333333333334"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Test:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovb-mc-yTr">
-                                                        <rect key="frame" x="0.0" y="15.666666666666686" width="62.333333333333336" height="15.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="15.333333333333314" width="62" height="15.333333333333336"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -412,17 +414,17 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hS2-ZO-F27">
-                                                <rect key="frame" x="95.333333333333343" y="0.0" width="72" height="31.333333333333332"/>
+                                                <rect key="frame" x="94.999999999999972" y="0.0" width="74.666666666666657" height="30.666666666666668"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 seconds" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iq7-fC-T83">
-                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="15.666666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="15.333333333333334"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.Estimated"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 days ago" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i39-kd-vO1">
-                                                        <rect key="frame" x="0.0" y="15.666666666666686" width="72" height="15.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="15.333333333333314" width="74.666666666666671" height="15.333333333333336"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.LastRun"/>
                                                         <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -474,7 +476,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="color_white"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="D5T-5k-VHD" secondAttribute="trailing" id="Fni-z9-6oM"/>
                             <constraint firstItem="OFB-mp-BTr" firstAttribute="leading" secondItem="jNa-T2-1U0" secondAttribute="leading" id="Gna-9S-k5V"/>
@@ -534,6 +536,11 @@
             <point key="canvasLocation" x="151" y="-311"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="OAM-pX-4th">
+            <size key="intrinsicContentSize" width="39.333333333333336" height="18.666666666666668"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="aC9-zV-N73"/>
     </inferredMetricsTieBreakers>
@@ -543,5 +550,14 @@
         <image name="ooni_probe_logo" width="186" height="32"/>
         <image name="tab_dashboard" width="26" height="21"/>
         <image name="websites" width="100" height="100"/>
+        <namedColor name="color_base">
+            <color red="0.019999999552965164" green="0.53299999237060547" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_gray9">
+            <color red="0.1289999932050705" green="0.14499999582767487" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

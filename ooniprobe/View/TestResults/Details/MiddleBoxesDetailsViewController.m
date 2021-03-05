@@ -8,13 +8,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.statusImage setTintColor:[UIColor colorWithRGBHexString:color_white alpha:1.0f]];
-    [self.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [self.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     [self.statusImage setImage:[UIImage imageNamed:@"middle_boxes"]];
     
     [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
-                                    color:[TestUtility getColorForTest:self.result.test_group_name]];
-    [self.headerView setBackgroundColor:[TestUtility getColorForTest:self.result.test_group_name]];
+                                    color:[TestUtility getBackgroundColorForTest:self.result.test_group_name]];
+    [self.headerView setBackgroundColor:[TestUtility getBackgroundColorForTest:self.result.test_group_name]];
     
     if ([self.measurement.test_name isEqualToString:@"http_invalid_request_line"]){
         if (!super.measurement.is_anomaly){

@@ -46,7 +46,7 @@
     self.viewForShadowRunButton.backgroundColor = [UIColor clearColor];
     
     self.viewForShadowRunButton.layer.shadowRadius  = 5.0f;
-    self.viewForShadowRunButton.layer.shadowColor   = [[UIColor blackColor] colorWithAlphaComponent:0.8f].CGColor;
+    self.viewForShadowRunButton.layer.shadowColor   = [[UIColor colorNamed:@"color_black"] colorWithAlphaComponent:0.8f].CGColor;
     self.viewForShadowRunButton.layer.shadowOffset  = CGSizeMake(0.0f, 2.0f);
     self.viewForShadowRunButton.layer.shadowOpacity = 0.6f;
     self.viewForShadowRunButton.layer.masksToBounds = NO;

@@ -88,7 +88,7 @@
     if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"bool"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
-        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+        cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
         UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
         [switchview addTarget:self action:@selector(setSwitch:) forControlEvents:UIControlEventValueChanged];
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue]) switchview.on = YES;
@@ -105,16 +105,15 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         if ([[TestUtility getTestTypes] containsObject:current]){
             cell.imageView.image = [UIImage imageNamed:current];
-            [cell.imageView setTintColor:[UIColor colorWithRGBHexString:color_base alpha:1.0f]];
         }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
-        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+        cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
-        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+        cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
         NSNumber *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         NSDecimalNumber *someNumber = [NSDecimalNumber decimalNumberWithString:[value stringValue]];
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -124,7 +123,7 @@
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"string"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
-        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+        cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
         NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
         UITextField *textField = [self createTextField:@"string" :value];
         cell.accessoryView = textField;
@@ -132,7 +131,7 @@
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"button"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
-        cell.textLabel.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+        cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
         UIButton *cleanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [cleanButton setTitle:NSLocalizedString(@"Settings.Storage.Clear", nil) forState:UIControlStateNormal];
         [cleanButton sizeToFit];
@@ -174,9 +173,9 @@
 - (UITextField*)createTextField:(NSString*)type :(NSString*)text{
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
     textField.delegate = self;
-    textField.backgroundColor = [UIColor colorWithRGBHexString:color_white alpha:1.0f];
+    textField.backgroundColor = [UIColor colorNamed:@"color_white"];
     textField.font = [UIFont fontWithName:@"FiraSans-Regular" size:15.0f];
-    textField.textColor = [UIColor colorWithRGBHexString:color_gray9 alpha:1.0f];
+    textField.textColor = [UIColor colorNamed:@"color_gray9"];
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.text = text;

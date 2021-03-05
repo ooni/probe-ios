@@ -16,11 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[UIColor colorWithRGBHexString:color_gray2 alpha:1.0f]];
-    [self.view setBackgroundColor:[UIColor colorWithRGBHexString:color_gray2 alpha:1.0f]];
-    [self.titleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [self.subtitleLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
-    [self.randomlistLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[UIColor colorNamed:@"color_gray2"]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
     [self handleUrlScheme];
@@ -207,14 +203,14 @@
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.backgroundView.backgroundColor = [UIColor clearColor];
     header.textLabel.font = [UIFont fontWithName:@"FiraSans-Regular" size:18];
-    [header.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [header.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     header.textLabel.text = NSLocalizedFormatString(@"OONIRun.URLs", [NSString stringWithFormat:@"%ld", [urls count]]);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *current = [urls objectAtIndex:indexPath.row];
-    [cell.textLabel setTextColor:[UIColor colorWithRGBHexString:color_gray9 alpha:1.0f]];
+    [cell.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     cell.textLabel.text = current;
     return cell;
 }
