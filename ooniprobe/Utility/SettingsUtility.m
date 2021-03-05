@@ -99,6 +99,12 @@
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"categories_disabled"];
 }
 
++ (NSArray*)getSitesCategoriesEnabled {
+    NSMutableArray *categories = [[self getSitesCategories] mutableCopy];
+    [categories removeObjectsInArray:[self getSitesCategoriesDisabled]];
+    return categories;
+}
+
 + (long)getNumberCategoriesEnabled{
     return [[self getSitesCategories] count] - [[self getSitesCategoriesDisabled] count];
 }
@@ -158,21 +164,22 @@
 }
 
 + (NSString*)getOrGenerateUUID4{
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"]){
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] ||
+        ![[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] isKindOfClass:[NSString class]]){
         NSString *uuid = [Engine newUUID4];
         [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:@"uuid4"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         return uuid;
     }
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] stringValue];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"];
 }
 
 + (void)incrementAppOpenCount{
     [[NSUserDefaults standardUserDefaults] setInteger:[self getAppOpenCount]+1 forKey:NOTIFICATION_POPUP];
 }
 
-+ (long)getAppOpenCount{
-    long count = [[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_POPUP];
++ (NSInteger)getAppOpenCount{
+    NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_POPUP];
     if(count < 0) count = 0;
     return count;
 }

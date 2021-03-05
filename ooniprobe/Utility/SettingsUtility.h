@@ -14,6 +14,7 @@
 + (NSArray*)getSitesCategories;
 
 + (NSArray*)getSitesCategoriesDisabled;
++ (NSArray*)getSitesCategoriesEnabled;
 + (NSArray*)addRemoveSitesCategory:(NSString*)categoryName;
 + (long)getNumberCategoriesEnabled;
 
@@ -31,7 +32,7 @@
 
 + (void)incrementAppOpenCount;
 
-+ (long)getAppOpenCount;
++ (NSInteger)getAppOpenCount;
 
 + (void)registeredForNotifications;
 @end
