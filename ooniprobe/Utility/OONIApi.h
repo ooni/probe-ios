@@ -3,9 +3,6 @@
 @interface OONIApi : NSObject
 
 + (void)downloadUrls:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb;
-+ (void)downloadUrls:(NSString*)baseUrl
-           onSuccess:(void (^)(NSArray*))successcb
-             onError:(void (^)(NSError*))errorcb;
 + (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
              onError:(void (^)(NSError*))errorcb;
 +(void)getExplorerUrl:(NSString*)report_id withUrl:(NSString*)measurement_url

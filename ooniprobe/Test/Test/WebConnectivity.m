@@ -2,6 +2,7 @@
 #import "MessageUtility.h"
 #import "OONIApi.h"
 #import "ExceptionUtility.h"
+#import "VersionUtility.h"
 
 @implementation WebConnectivity : AbstractTest
 
@@ -15,25 +16,35 @@
 
 -(void) runTest {
     [super prepareRun];
-    if (self.inputs == nil || [self.inputs count] == 0){
-        //Download urls and then alloc class
-        [OONIApi downloadUrls:^(NSArray *urls) {
-            [self setUrls:urls];
-            [self setDefaultMaxRuntime];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRuntime" object:nil];
+    dispatch_async(self.serialQueue, ^{
+        if (self.inputs == nil || [self.inputs count] == 0){
+            //Download urls and then alloc class
+            [OONIApi downloadUrls:^(NSArray *urls) {
+                [self setUrls:urls];
+                [self setDefaultMaxRuntime];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRuntime" object:nil];
+                [super runTest];
+            } onError:^(NSError *error) {
+                [ExceptionUtility recordError:@"downloadUrls_error"
+                                       reason:@"downloadUrls failed due to an error"
+                                     userInfo:[error dictionary]];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
+                [super testEnded];
+            }];
+        }
+        else {
+            [self setUrls:self.inputs];
             [super runTest];
-        } onError:^(NSError *error) {
-            [ExceptionUtility recordError:@"downloadUrls_error"
-                                   reason:@"downloadUrls failed due to an error"
-                                 userInfo:[error dictionary]];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
-            [super testEnded];
-        }];
-    }
-    else {
-        [self setUrls:self.inputs];
-        [super runTest];
-    }
+        }
+    });
+}
+
+-(void)onError:(NSError*)error{
+    [ExceptionUtility recordError:@"downloadUrls_error"
+                           reason:@"downloadUrls failed due to an error"
+                         userInfo:[error dictionary]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
+    [super testEnded];
 }
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{

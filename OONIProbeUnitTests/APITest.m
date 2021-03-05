@@ -7,6 +7,7 @@
 #define NONEXISTING_REPORT_ID @"EMPTY"
 #define NON_PARSABLE_URL @"https://\t"
 #define CLIENT_URL @"ams-pg.ooni.org"
+
 @interface APITest : XCTestCase
 
 @end
@@ -72,8 +73,7 @@
 -(void)testDownloadUrls{
     //TODO test downloadUrlsCallback with custom NSData
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDownloadUrls"];
-    [OONIApi downloadUrls:CLIENT_URL
-                onSuccess:^(NSArray *urls) {
+    [OONIApi downloadUrls:^(NSArray *urls) {
         XCTAssert(true);
         [expectation fulfill];
     } onError:^(NSError *error) {

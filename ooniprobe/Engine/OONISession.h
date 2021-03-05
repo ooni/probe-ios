@@ -2,6 +2,10 @@
 #import "OONIContext.h"
 #import "OONIGeolocateResults.h"
 #import "OONISubmitResults.h"
+#import "OONICheckInResults.h"
+#import "OONICheckInConfig.h"
+#import "OONIURLListConfig.h"
+#import "OONIURLListResult.h"
 
 /**
  * OONISession contains shared state for running experiments and/or other
@@ -28,5 +32,14 @@
 
 /** submit submits a measurement and returns the submission results. */
 - (OONISubmitResults*) submit:(OONIContext*) ctx measurement:(NSString*) measurement error:(NSError **)error;
+
+/** checkIn function is called by probes asking if there are tests to be run
+ * The config argument contains the mandatory settings.
+ * Returns the list of tests to run and the URLs, on success, or an explanatory error, in case of failure.
+ */
+- (OONICheckInResults*) checkIn:(OONIContext*) ctx config:(OONICheckInConfig*) config error:(NSError **)error;
+
+/** fetchURLList fetches the list of URLs to test */
+- (OONIURLListResult*) fetchURLList:(OONIContext*) ctx config:(OONIURLListConfig*) config error:(NSError **)error;
 
 @end
