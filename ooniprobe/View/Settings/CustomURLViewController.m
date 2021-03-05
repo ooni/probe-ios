@@ -144,9 +144,9 @@
 
     NSString *curUrl = [self.urlsList objectAtIndex:indexPath.row];
     if ([self hasPrefix:curUrl])
-        textField.layer.borderColor = [[UIColor colorWithRGBHexString:color_gray7 alpha:1.0f] CGColor];
+        textField.layer.borderColor = [[UIColor colorNamed:@"color_gray7"] CGColor];
     else
-        textField.layer.borderColor = [[UIColor colorWithRGBHexString:color_red8 alpha:1.0f] CGColor];
+        textField.layer.borderColor = [[UIColor colorNamed:@"color_red8"] CGColor];
 
     textField.inputAccessoryView = keyboardToolbar;
     textField.text = curUrl;
