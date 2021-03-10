@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios screenshots
 ```
 Generate new localized screenshots
+### ios upload_symbols
+```
+fastlane ios upload_symbols
+```
+
 ### ios release
 ```
 fastlane ios release
