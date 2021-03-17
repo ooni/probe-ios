@@ -18,11 +18,6 @@
     categories = [SettingsUtility getSettingsCategories];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [CountlyUtility recordView:@"Settings"];
-}
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.title = @"";

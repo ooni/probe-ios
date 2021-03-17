@@ -33,12 +33,6 @@
                                     color:[TestUtility getBackgroundColorForTest:result.test_group_name]];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [CountlyUtility recordView:@"TestSummary"];
-    [CountlyUtility recordView:[NSString stringWithFormat:@"TestSummary_%@", result.test_group_name]];
-}
-
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
     if (!parent) {

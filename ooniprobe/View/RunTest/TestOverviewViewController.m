@@ -1,5 +1,5 @@
 #import "TestOverviewViewController.h"
-#import "CountlyUtility.h"
+#import "ThirdPartyServices.h"
 
 @interface TestOverviewViewController ()
 
@@ -46,11 +46,6 @@
                                     color:defaultColor];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [CountlyUtility recordView:@"TestOverview"];
-    [CountlyUtility recordView:[NSString stringWithFormat:@"TestOverview_%@", testSuite.name]];
-}
 
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -97,7 +92,6 @@
 
 -(IBAction)run:(id)sender{
     if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable){
-        [CountlyUtility recordEvent:[NSString stringWithFormat:@"Run_%@", testSuite.name]];
         [self performSegueWithIdentifier:@"toTestRun" sender:sender];
     }
     else

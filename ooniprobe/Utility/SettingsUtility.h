@@ -24,8 +24,6 @@
 
 + (BOOL)isSendCrashEnabled;
 
-+ (BOOL)isSendAnalyticsEnabled;
-
 + (BOOL)isNotificationEnabled;
 
 + (NSString*)getOrGenerateUUID4;

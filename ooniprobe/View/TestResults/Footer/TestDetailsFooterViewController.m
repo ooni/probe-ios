@@ -1,5 +1,5 @@
 #import "TestDetailsFooterViewController.h"
-#import "CountlyUtility.h"
+#import "ThirdPartyServices.h"
 
 @interface TestDetailsFooterViewController ()
 
@@ -39,7 +39,6 @@
 }
 
 -(IBAction)openMethodology:(id)sender{
-    [CountlyUtility recordEvent:@"Methodology"];
     NSString *url = [LocalizationUtility getUrlForTest:measurement.test_name];
     if (url != nil)
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];

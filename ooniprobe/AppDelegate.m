@@ -5,10 +5,8 @@
 #import "Result.h"
 #import "TestRunningViewController.h"
 #import "SettingsUtility.h"
-#import "CountlyUtility.h"
+#import "ThirdPartyServices.h"
 #import "ReachabilityManager.h"
-@import Firebase;
-@import Sentry;
 
 @interface AppDelegate ()
 
@@ -30,22 +28,7 @@
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [NavigationBarUtility setDefaults];
-    
-#ifdef RELEASE
-    [FIRApp configure];
-    [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
-        options.dsn = @"https://fc33135e184e402aa805fa48cd65f0a5@o155150.ingest.sentry.io/5619986";
-        options.beforeSend = ^SentryEvent * _Nullable(SentryEvent * _Nonnull event) {
-            // modify event here or return NULL to discard the event
-            if (![SettingsUtility isSendCrashEnabled])
-                return NULL;
-            return event;
-        };
-    }];
-#endif
-    
-    //Init countly after the other SDKs as it will reload the consents
-    [CountlyUtility initCountly];
+    [ThirdPartyServices reloadConsents];
 
     //Init the ReachabilityManager singleton
     [ReachabilityManager sharedManager];

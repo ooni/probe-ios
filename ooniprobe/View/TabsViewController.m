@@ -21,31 +21,7 @@
     if (![[NSUserDefaults standardUserDefaults] objectForKey:ONBOARDING_KEY]){
         [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
     }
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:ANALYTICS_POPUP]){
-        UIAlertAction* enableButton = [UIAlertAction
-                                        actionWithTitle:NSLocalizedString(@"Modal.SoundsGreat", nil)
-                                        style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction * action) {
-                                            [self setModalValue:YES
-                                                            key:@"send_analytics"
-                                                      popupName:ANALYTICS_POPUP];
-                                        }];
-        UIAlertAction* disableButton = [UIAlertAction
-                                    actionWithTitle:NSLocalizedString(@"Modal.NoThanks", nil)
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action) {
-                                        [self setModalValue:NO
-                                                        key:@"send_analytics"
-                                                  popupName:ANALYTICS_POPUP];
-                                    }];
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.ShareAnalytics.Title", nil)
-                               message:NSLocalizedString(@"Modal.ShareAnalytics.Paragraph", nil)
-                              okButton:enableButton
-                          cancelButton:disableButton
-                                inView:self];
-    }
-    //we don't want to flood the user with popups
-    else if ([SettingsUtility getAppOpenCount] % NOTIFICATION_POPUP_COUNT == 0
+    if ([SettingsUtility getAppOpenCount] % NOTIFICATION_POPUP_COUNT == 0
              && ![SettingsUtility isNotificationEnabled]
              && ![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_POPUP_DISABLE]){
         [MessageUtility notificationAlertinView:self];

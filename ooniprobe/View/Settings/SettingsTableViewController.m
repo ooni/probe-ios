@@ -1,5 +1,5 @@
 #import "SettingsTableViewController.h"
-#import "CountlyUtility.h"
+#import "ThirdPartyServices.h"
 #import "MBProgressHUD.h"
 
 @interface SettingsTableViewController ()
@@ -158,7 +158,6 @@
 }
 
 -(void)deleteAll{
-    [CountlyUtility recordEvent:@"ClearStorage"];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [TestUtility cleanUp];
@@ -230,14 +229,14 @@
         if (mySwitch.on){
             [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
             [self handleNotificationChanges];
+            //TODO         [ThirdPartyServices reloadConsents];
             [mySwitch setOn:FALSE];
         }
         else
             [Countly.sharedInstance cancelConsentForFeature:CLYConsentPushNotifications];
     }
-    else if ([current isEqualToString:@"send_analytics"] ||
-        [current isEqualToString:@"send_crash"]){
-        [CountlyUtility reloadConsents];
+    else if ([current isEqualToString:@"send_crash"]){
+        [ThirdPartyServices reloadConsents];
     }
     else if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];

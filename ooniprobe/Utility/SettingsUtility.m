@@ -1,7 +1,7 @@
 #import "SettingsUtility.h"
 #import "TestUtility.h"
 #import "Engine.h"
-#import "CountlyUtility.h"
+#import "ThirdPartyServices.h"
 
 @implementation SettingsUtility
 
@@ -15,7 +15,7 @@
         return @[@"notifications_enabled"];
     }
     else if ([categoryName isEqualToString:@"privacy"]) {
-        return @[@"upload_results", @"send_analytics", @"send_crash"];
+        return @[@"upload_results", @"send_crash"];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
@@ -155,10 +155,6 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue];
 }
 
-+ (BOOL)isSendAnalyticsEnabled {
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_analytics"] boolValue];
-}
-
 + (BOOL)isNotificationEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
 }
@@ -186,7 +182,7 @@
 
 + (void)registeredForNotifications {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
-    [CountlyUtility reloadConsents];
+    [ThirdPartyServices reloadConsents];
 }
 
 @end

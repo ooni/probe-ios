@@ -1,7 +1,7 @@
 #import "WebConnectivity.h"
 #import "MessageUtility.h"
 #import "OONIApi.h"
-#import "ExceptionUtility.h"
+#import "ThirdPartyServices.h"
 #import "VersionUtility.h"
 
 @implementation WebConnectivity : AbstractTest
@@ -25,7 +25,7 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRuntime" object:nil];
                 [super runTest];
             } onError:^(NSError *error) {
-                [ExceptionUtility recordError:@"downloadUrls_error"
+                [ThirdPartyServices recordError:@"downloadUrls_error"
                                        reason:@"downloadUrls failed due to an error"
                                      userInfo:[error dictionary]];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
@@ -40,7 +40,7 @@
 }
 
 -(void)onError:(NSError*)error{
-    [ExceptionUtility recordError:@"downloadUrls_error"
+    [ThirdPartyServices recordError:@"downloadUrls_error"
                            reason:@"downloadUrls failed due to an error"
                          userInfo:[error dictionary]];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];

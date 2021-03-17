@@ -33,11 +33,6 @@
 
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [CountlyUtility recordView:@"CustomURL"];
-}
-
 -(IBAction)close:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
