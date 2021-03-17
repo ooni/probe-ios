@@ -7,9 +7,7 @@
 
 @implementation ThirdPartyServices
 
-+ (void)initCountly {
-    if (![SettingsUtility isNotificationEnabled])
-        return;
++ (void)initCountlyAnyway {
     CountlyConfig* config = [CountlyConfig new];
     config.host = NOTIFICATION_SERVER;
     #ifdef DEBUG
@@ -27,6 +25,12 @@
     config.requiresConsent = YES;
     [Countly.sharedInstance startWithConfig:config];
     [self reloadConsents];
+}
+
++ (void)initCountly {
+    if (![SettingsUtility isNotificationEnabled])
+        return;
+    [self initCountlyAnyway];
 }
 
 /* We can't shutdown the SDKs during the app lifecycle so we remove consent(s) if any setting changes

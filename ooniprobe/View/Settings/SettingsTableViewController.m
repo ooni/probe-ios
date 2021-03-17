@@ -227,13 +227,11 @@
     NSString *current = [items objectAtIndex:indexPath.row];
     if ([current isEqualToString:@"notifications_enabled"]){
         if (mySwitch.on){
-            [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
+            [ThirdPartyServices initCountlyAnyway];
             [self handleNotificationChanges];
-            //TODO         [ThirdPartyServices reloadConsents];
-            [mySwitch setOn:FALSE];
         }
         else
-            [Countly.sharedInstance cancelConsentForFeature:CLYConsentPushNotifications];
+            [ThirdPartyServices reloadConsents];
     }
     else if ([current isEqualToString:@"send_crash"]){
         [ThirdPartyServices reloadConsents];
@@ -264,7 +262,7 @@
                  askForNotificationPermissionWithOptions:0
                  completionHandler:^(BOOL granted, NSError * error) {
                     if (granted)
-                        [self reloadNotificationSettings];
+                        [self acceptedNotificationSettings];
                 }];
                 break;
             }
@@ -284,7 +282,7 @@
             }
             case UNAuthorizationStatusAuthorized:{
                 //Notification permission already granted
-                [self reloadNotificationSettings];
+                [self acceptedNotificationSettings];
                 break;
             }
             default:
@@ -293,7 +291,7 @@
     }];
 }
 
-- (void)reloadNotificationSettings {
+- (void)acceptedNotificationSettings {
     [SettingsUtility registeredForNotifications];
     dispatch_async(dispatch_get_main_queue(), ^
     {

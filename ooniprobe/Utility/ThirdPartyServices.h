@@ -5,6 +5,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ThirdPartyServices : NSObject
 
++ (void)initCountlyAnyway;
 + (void)reloadConsents;
 + (void)recordError:(NSString*)title reason:(NSString*)reason userInfo:(NSDictionary*)userInfo;
 
