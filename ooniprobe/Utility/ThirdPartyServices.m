@@ -24,7 +24,7 @@
     config.deviceID = [SettingsUtility getOrGenerateUUID4];
     config.requiresConsent = YES;
     [Countly.sharedInstance startWithConfig:config];
-    [self reloadConsents];
+    [self reloadNotificationConsent];
 }
 
 + (void)initCountly {
@@ -43,7 +43,8 @@
 }
 
 + (void)reloadNotificationConsent{
-    if ([Countly sharedInstance] != nil){
+    //If deviceID exist means the SDK has been initialized
+    if ([Countly sharedInstance].deviceID != nil){
         [Countly.sharedInstance cancelConsentForAllFeatures];
         if ([SettingsUtility isNotificationEnabled]){
             [Countly.sharedInstance giveConsentForFeatures:@[CLYConsentLocation, CLYConsentPushNotifications]];

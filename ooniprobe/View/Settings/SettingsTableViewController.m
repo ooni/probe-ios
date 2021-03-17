@@ -228,6 +228,7 @@
     if ([current isEqualToString:@"notifications_enabled"]){
         if (mySwitch.on){
             [ThirdPartyServices initCountlyAnyway];
+            [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
             [self handleNotificationChanges];
         }
         else
@@ -263,6 +264,7 @@
                  completionHandler:^(BOOL granted, NSError * error) {
                     if (granted)
                         [self acceptedNotificationSettings];
+                    [ThirdPartyServices reloadConsents];
                 }];
                 break;
             }

@@ -91,6 +91,7 @@
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
+        [ThirdPartyServices initCountlyAnyway];
         [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
         [Countly.sharedInstance
          askForNotificationPermissionWithOptions:0
