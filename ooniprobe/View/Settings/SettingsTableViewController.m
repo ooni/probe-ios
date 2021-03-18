@@ -1,5 +1,5 @@
 #import "SettingsTableViewController.h"
-#import "CountlyUtility.h"
+#import "ThirdPartyServices.h"
 #import "MBProgressHUD.h"
 
 @interface SettingsTableViewController ()
@@ -158,7 +158,6 @@
 }
 
 -(void)deleteAll{
-    [CountlyUtility recordEvent:@"ClearStorage"];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [TestUtility cleanUp];
@@ -228,16 +227,15 @@
     NSString *current = [items objectAtIndex:indexPath.row];
     if ([current isEqualToString:@"notifications_enabled"]){
         if (mySwitch.on){
+            [ThirdPartyServices initCountlyAnyway];
             [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
             [self handleNotificationChanges];
-            [mySwitch setOn:FALSE];
         }
         else
-            [Countly.sharedInstance cancelConsentForFeature:CLYConsentPushNotifications];
+            [ThirdPartyServices reloadConsents];
     }
-    else if ([current isEqualToString:@"send_analytics"] ||
-        [current isEqualToString:@"send_crash"]){
-        [CountlyUtility reloadConsents];
+    else if ([current isEqualToString:@"send_crash"]){
+        [ThirdPartyServices reloadConsents];
     }
     else if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
@@ -265,7 +263,8 @@
                  askForNotificationPermissionWithOptions:0
                  completionHandler:^(BOOL granted, NSError * error) {
                     if (granted)
-                        [self reloadNotificationSettings];
+                        [self acceptedNotificationSettings];
+                    [ThirdPartyServices reloadConsents];
                 }];
                 break;
             }
@@ -285,7 +284,7 @@
             }
             case UNAuthorizationStatusAuthorized:{
                 //Notification permission already granted
-                [self reloadNotificationSettings];
+                [self acceptedNotificationSettings];
                 break;
             }
             default:
@@ -294,7 +293,7 @@
     }];
 }
 
-- (void)reloadNotificationSettings {
+- (void)acceptedNotificationSettings {
     [SettingsUtility registeredForNotifications];
     dispatch_async(dispatch_get_main_queue(), ^
     {

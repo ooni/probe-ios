@@ -1,6 +1,6 @@
 #import "DashboardTableViewController.h"
 #import "DashboardTableViewCell.h"
-#import "CountlyUtility.h"
+#import "ThirdPartyServices.h"
 #import "Suite.h"
 
 @interface DashboardTableViewController ()
@@ -26,11 +26,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [CountlyUtility recordView:@"Dashboard"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -98,7 +93,6 @@
 
 -(IBAction)run:(id)sender{
     if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable){
-        [CountlyUtility recordEvent:@"Run_All"];
         [self performSegueWithIdentifier:@"toTestRun" sender:sender];
     }
     else

@@ -3,8 +3,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ExceptionUtility : NSObject
+@interface ThirdPartyServices : NSObject
 
++ (void)initCountlyAnyway;
++ (void)reloadConsents;
 + (void)recordError:(NSString*)title reason:(NSString*)reason userInfo:(NSDictionary*)userInfo;
 
 @end

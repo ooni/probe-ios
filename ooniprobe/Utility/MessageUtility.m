@@ -91,7 +91,7 @@
                                actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
-        [CountlyUtility recordEvent:@"NotificationModal_Accepted"];
+        [ThirdPartyServices initCountlyAnyway];
         [Countly.sharedInstance giveConsentForFeature:CLYConsentPushNotifications];
         [Countly.sharedInstance
          askForNotificationPermissionWithOptions:0
@@ -105,14 +105,12 @@
                                    actionWithTitle:NSLocalizedString(@"Modal.NoThanks", nil)
                                    style:UIAlertActionStyleCancel
                                    handler:^(UIAlertAction * action) {
-        [CountlyUtility recordEvent:@"NotificationModal_Declined"];
     }];
     UIAlertAction* neverButton = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Modal.DontAskAgain", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
         [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:NOTIFICATION_POPUP_DISABLE];
-        [CountlyUtility recordEvent:@"NotificationModal_DontAskAgain"];
     }];
     [alert addAction:neverButton];
     [alert addAction:cancelButton];

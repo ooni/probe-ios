@@ -4,7 +4,7 @@
 #import "ReachabilityManager.h"
 #import "NSDictionary+Safety.h"
 #import "EventResult.h"
-#import "ExceptionUtility.h"
+#import "ThirdPartyServices.h"
 #import "Engine.h"
 
 @implementation AbstractTest
@@ -159,13 +159,13 @@
             else if ([event.key isEqualToString:@"failure.startup"] ||
                      [event.key isEqualToString:@"failure.resolver_lookup"]) {
                 self.result.failure_msg = event.value.failure;
-                [ExceptionUtility recordError:@"failure"
+                [ThirdPartyServices recordError:@"failure"
                                        reason:event.key
                                      userInfo:evinfo];
                 [self.result save];
             }
             else if ([event.key isEqualToString:@"bug.json_dump"]) {
-                [ExceptionUtility recordError:@"json_dump"
+                [ThirdPartyServices recordError:@"json_dump"
                                        reason:@"event.key isEqualToString bug.json_dump"
                                      userInfo:[event.value dictionary]];
             }

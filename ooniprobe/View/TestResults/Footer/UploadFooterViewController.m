@@ -7,7 +7,7 @@
 #import "MBProgressHUD.h"
 #import "VersionUtility.h"
 #import "LogViewController.h"
-#import "ExceptionUtility.h"
+#import "ThirdPartyServices.h"
 
 @implementation UploadFooterViewController
 
@@ -154,7 +154,7 @@
     }
     else
     {
-        [ExceptionUtility recordError:@"uploadMeasurement_failed"
+        [ThirdPartyServices recordError:@"uploadMeasurement_failed"
                                reason:@"measurement failed to upload"
                              userInfo:[error dictionary]];
     }

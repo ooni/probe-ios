@@ -30,7 +30,6 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [CountlyUtility recordView:@"TestRunning"];
     [self addAnimation];
 }
 

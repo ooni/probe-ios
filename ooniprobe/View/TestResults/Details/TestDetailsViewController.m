@@ -4,7 +4,7 @@
 #import "TestRunningViewController.h"
 #import "UploadFooterViewController.h"
 #import "ReachabilityManager.h"
-#import "CountlyUtility.h"
+#import "ThirdPartyServices.h"
 
 @interface TestDetailsViewController ()
 
@@ -37,11 +37,6 @@
     }
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [CountlyUtility recordView:@"TestDetails"];
-    [CountlyUtility recordView:[NSString stringWithFormat:@"TestDetails_%@", measurement.test_name]];
-}
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
@@ -56,7 +51,6 @@
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-        [CountlyUtility recordEvent:@"RawData"];
         if ([[ReachabilityManager sharedManager] noInternetAccess] && isInExplorer){
                 [MessageUtility
                  alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
@@ -70,7 +64,6 @@
                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-        [CountlyUtility recordEvent:@"ViewLog"];
         [self viewLogs];
     }];
     
@@ -78,7 +71,6 @@
                                     actionWithTitle:NSLocalizedString(@"TestResults.Details.ShareExplorerURL", nil)
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
-        [CountlyUtility recordEvent:@"ShareExplorerURL"];
         [self shareExplorerUrl];
     }];
 
@@ -86,7 +78,6 @@
                                     actionWithTitle:NSLocalizedString(@"TestResults.Details.CopyExplorerURL", nil)
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
-        [CountlyUtility recordEvent:@"CopyExplorerURL"];
         [self copyExplorerUrl];
     }];
 

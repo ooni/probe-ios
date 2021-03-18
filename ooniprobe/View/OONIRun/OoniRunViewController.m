@@ -22,10 +22,6 @@
     [self handleUrlScheme];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [CountlyUtility recordView:@"OONIRun"];
-}
 
 -(void)reloadTest:(NSNotification *)notification{
     urls = nil;

@@ -1,7 +1,7 @@
 #import "TestResultsViewController.h"
 #import "UploadFooterViewController.h"
-#import "ExceptionUtility.h"
-#import "CountlyUtility.h"
+#import "ThirdPartyServices.h"
+#import "ThirdPartyServices.h"
 #import "MBProgressHUD.h"
 
 @interface TestResultsViewController ()
@@ -32,11 +32,6 @@
     self.title = NSLocalizedString(@"TestResults.Overview.Title", nil);
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [CountlyUtility recordView:@"TestResults"];
-}
-
 -(void)testFilter:(SRKQuery*)newQuery{
     query = newQuery;
     results = [query fetch];
@@ -48,7 +43,7 @@
         NSString *key = [df stringFromDate:current.start_time];
         if (key == nil){
             //reporting error and delete test
-            [ExceptionUtility recordError:@"key_nil"
+            [ThirdPartyServices recordError:@"key_nil"
                                    reason:@"testFilter key is null"
                                  userInfo:[current dictionary]];
             [current deleteObject];
@@ -160,7 +155,6 @@
                            message:NSLocalizedString(@"Modal.DoYouWantToDeleteAllTests", nil)
                           okButton:okButton
                             inView:self];
-    [CountlyUtility recordEvent:@"DeleteAllTests"];
 }
 
 -(void)deleteAll{
