@@ -26,7 +26,8 @@
 "Onboarding.DefaultSettings.Bullet.1" = "کد کشور (مثلا IT برای ایتالیا)";
 "Onboarding.DefaultSettings.Bullet.2" = "اطلاعات شبکه (شامل شماره سیستم مستقل ASN)";
 "Onboarding.DefaultSettings.Bullet.3" = "زمان و تاریخ تست";
-"Onboarding.DefaultSettings.Paragraph" = "ما همه تلاش خود را می‌کنیم تا نشانی IP و یا هر اطلاعاتی که بالققوه قابلیت شناسایی هویت شما را دارند منتشر نکنیم.\n\nما همچنین برای بهبود OONI Probe، اطلاعات استفاده و گزارش‌های خرابی برنامه را جمع‌آوری می‌کنیم.\n\nدر [سیاست‌های داده OONI] بیشتر بخوانید (https://ooni.io/about/data-policy/) بیشتر بخوانید.";
+"Onboarding.DefaultSettings.Paragraph" = "ما همه‌ی تلاش خود را می‌‌کنیم تا آدرس IP شما یا هر اطلاعاتی که بالقوه قابلیت شناسایی هویت شما را دارند را منتشر نکنیم.\n\nدر [سیاست‌های داده OONI] بیشتر بخوانید (https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph.1" = "By tapping \"OK\", you will share crash reports to help us improve OONI Probe.";
 "Onboarding.DefaultSettings.Button.Go" = "بزن بریم! ";
 "Onboarding.DefaultSettings.Button.Change" = "تغییر پیشفرض‌ها";
 "Dashboard.Tab.Label" = "پنل";
@@ -191,6 +192,10 @@
 "TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Content.Paragraph" = "این تست با موفقیت به endpoint های فیسبوک متصل شد و آدرس‌های IP فیسبوک را حل کرد.";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Hero.Title" = "احتمالا مسدود";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph" = "پیام‌رسان فیسبوک به  نظر مسدود می‌رسد.";
+"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Hero.Title" = "احتمالا مسدود";
+"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Content.Paragraph" = "Signal appears to be blocked.";
+"TestResults.Details.InstantMessaging.Signal.Reachable.Hero.Title" = "کار میکنه";
+"TestResults.Details.InstantMessaging.Signal.Reachable.Content.Paragraph" = "This test successfully connected to Signal's endpoints.";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Hero.Title" = "نشانه‌ای از middlebox پیدا نشد";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Content.Paragraph" = "در هنگام ارتباط با سرورهای ما، هیچ ناهنجاری در شبکه شناسایی نشد.";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Hero.Title" = "دستکاری در شبکه";
@@ -282,8 +287,6 @@
 "Modal.ManualUpload.Paragraph" = "با استفاده از این تنظیم می‌توانید اندازه‌گیری‌های منتشر نشده را دوباره به صورت دستی بارگذاری کنید.";
 "Modal.ManualUpload.Enable" = "فعال کن";
 "Modal.ManualUpload.Disable" = "نه، ممنون";
-"Modal.ShareAnalytics.Title" = "در بهبود بخشیدن OONI Probe به ما کمک کنید";
-"Modal.ShareAnalytics.Paragraph" = "با OONI Probe جدید، شما می‌توانید اطلاعات استفاده از برنامه را به صورت گمنام در اختیار ما بگذارید و به بهبود برنامه کمک کنید. شما در هر زمانی می‌توانید از تنظیمات، انصراف دهید.";
 "Modal.UploadFailed.Title" = "آپلود ناموفق بود";
 "Modal.UploadFailed.Paragraph" = "ما در بارگذاری %@/%@ اندازه‌گیری ناکام بودیم. گزارش این ناکامی با توسعه دهندگان OONI به اشتراک گذاشته شد.";
 "Modal.Error.LogNotFound" = "فایل لاگ یافت نشد";
@@ -344,7 +347,6 @@
 "Settings.Sharing.Footer" = "با انتشار نتایج شما به افزایش شفافیت نظارت بر شبکه و جامعه‌ی OONI کمک می‌‌کنید.\n\nاطلاعات شبکه (مثل Autonomous System Number) برای شناسایی سرویس‌دهنده‌ی اینترنت ضروری است.";
 "Settings.TestOptions.Label" = "گزینه‌های آزمون";
 "Settings.Privacy.Label" = "حریم خصوصی";
-"Settings.Privacy.CollectAnalytics" = "معیارهای استفاده از برنامه را به اشتراک بگذارید";
 "Settings.Privacy.SendCrashReports" = "ارسال گزارش درباره‌ی متوقف شدن برنامه ";
 "Settings.Advanced.Label" = "پیشرفته ";
 "Settings.DarkMode.Label" = "حالت تیره";
