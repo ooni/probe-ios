@@ -26,7 +26,8 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Il codice del paese (es. IT per l'Italia)";
 "Onboarding.DefaultSettings.Bullet.2" = "Informazioni sulla tua rete (incluso l'Autonomous System Number)";
 "Onboarding.DefaultSettings.Bullet.3" = "Data e ora del test";
-"Onboarding.DefaultSettings.Paragraph" = "Facciamo del nostro meglio per evitare di pubblicare il tuo indirizzo IP o altre informazioni personali.\n\nPer migliorare OONI Probe, raccogliamo anche i crash reports e i dati sull'utilizzo dell'app.\n\nPer maggiori informazioni vedi la [Data Policy di OONI](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "Facciamo del nostro meglio per evitare di pubblicare il tuo indirizzo IP o altre informazioni personali.\n\nPer maggiori informazioni vedi la [Data Policy di OONI](https://ooni.io/about/data-policy/)";
+"Onboarding.DefaultSettings.Paragraph.1" = "By tapping \"OK\", you will share crash reports to help us improve OONI Probe.";
 "Onboarding.DefaultSettings.Button.Go" = "Andiamo";
 "Onboarding.DefaultSettings.Button.Change" = "Cambia i default";
 "Dashboard.Tab.Label" = "Dashboard";
@@ -191,6 +192,10 @@
 "TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Content.Paragraph" = "Questo test è riuscito a collegarsi ai server di Facebook che si sono risolti in IP associati a Facebook.";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Hero.Title" = "Probabilmente bloccato";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph" = "Facebook Messenger sembra essere bloccato.";
+"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Hero.Title" = "Probabilmente bloccato";
+"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Content.Paragraph" = "Signal appears to be blocked.";
+"TestResults.Details.InstantMessaging.Signal.Reachable.Hero.Title" = "Attivo";
+"TestResults.Details.InstantMessaging.Signal.Reachable.Content.Paragraph" = "This test successfully connected to Signal's endpoints.";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Hero.Title" = "Nessuna middlebox rilevata";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Content.Paragraph" = "Non è stata rilevata alcuna anomalia nel comunicare con i nostri server.";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Hero.Title" = "Manipolazione di rete";
@@ -282,8 +287,6 @@
 "Modal.ManualUpload.Paragraph" = "Questa impostazione ti permette di ricaricare manualmente le misurazioni non pubblicate.";
 "Modal.ManualUpload.Enable" = "Abilita";
 "Modal.ManualUpload.Disable" = "No, grazie";
-"Modal.ShareAnalytics.Title" = "Aiutaci a migliorare OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "Con il nuovo OONI Probe puoi contribuire a migliorare l'app attraverso metriche di utilizzo anonime. Puoi disattivarne l'invio in qualsiasi momento tramite le impostazioni.";
 "Modal.UploadFailed.Title" = "Invio fallito";
 "Modal.UploadFailed.Paragraph" = "Non siamo riusciti a caricare %@/%@ misurazioni. Il log degli errori è stato condiviso con gli sviluppatori di OONI.";
 "Modal.Error.LogNotFound" = "File di log non trovato";
@@ -344,7 +347,6 @@
 "Settings.Sharing.Footer" = "Pubblicando i risultati, contribuisci alla trasparenza sulle interferenze di rete e dai supporto alla comunità di OONI.\n\nLe informazioni sulla rete (i.e. l'Autonomous System Number) sono necessarie per poter identificare i provider di servizi internet (ISP).";
 "Settings.TestOptions.Label" = "Opzioni dei test";
 "Settings.Privacy.Label" = "Privacy";
-"Settings.Privacy.CollectAnalytics" = "Condividi le metriche sull'utilizzo dell'app";
 "Settings.Privacy.SendCrashReports" = "Manda rapporto sui crash";
 "Settings.Advanced.Label" = "Avanzate";
 "Settings.DarkMode.Label" = "Dark Mode";

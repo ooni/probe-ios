@@ -26,7 +26,8 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Ülke kodu (örn: Türkiye için TR)";
 "Onboarding.DefaultSettings.Bullet.2" = "Ağ Bilgileri (Otonom Sistem Numarası İle)";
 "Onboarding.DefaultSettings.Bullet.3" = "Sınama tarih ve saati";
-"Onboarding.DefaultSettings.Paragraph" = "IP adresinizi ya da kim olduğunuzu ortaya çıkarabilecek bilgileri yayınlamamak için elimizden geleni yapıyoruz.\n\nOONI Probe uygulamasını geliştirmek için ayrıca uygulama kullanım istatistiklerini ve çökme raporlarını topluyoruz.\n\nAyrıntılı bilgi almak için [OONI Veri İşleme İlkesi](https://ooni.io/about/data-policy/) bölümüne bakabilirsiniz.";
+"Onboarding.DefaultSettings.Paragraph" = "IP adresinizi ya da kim olduğunuzu ortaya çıkarabilecek bilgileri yayınlamamak için elimizden geleni yapıyoruz.\n\nAyrıntılı bilgi almak için [OONI Veri İşleme İlkesi](https://ooni.io/about/data-policy/) bölümüne bakabilirsiniz.";
+"Onboarding.DefaultSettings.Paragraph.1" = "By tapping \"OK\", you will share crash reports to help us improve OONI Probe.";
 "Onboarding.DefaultSettings.Button.Go" = "Başlayalım";
 "Onboarding.DefaultSettings.Button.Change" = "Varsayılanları değiştir";
 "Dashboard.Tab.Label" = "Pano";
@@ -191,6 +192,10 @@
 "TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Content.Paragraph" = "Bu sınama sırasında Facebook bağlantı noktalarına başarıyla bağlanıldı ve Facebook IP adresleri çözümlendi.";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Hero.Title" = "Engellenmiş olabilir";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph" = "Facebook Messenger engellenmiş gibi görünüyor.";
+"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Hero.Title" = "Engellenmiş olabilir";
+"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Content.Paragraph" = "Signal appears to be blocked.";
+"TestResults.Details.InstantMessaging.Signal.Reachable.Hero.Title" = "Çalışıyor";
+"TestResults.Details.InstantMessaging.Signal.Reachable.Content.Paragraph" = "This test successfully connected to Signal's endpoints.";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Hero.Title" = "Herhangi bir ara kutu algılanmadı";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Content.Paragraph" = "Sunucularımız ile bağlantı kurulurken herhangi bir ağ anormalliği bulunamadı.";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Hero.Title" = "Ağ müdahalesi";
@@ -282,8 +287,6 @@
 "Modal.ManualUpload.Paragraph" = "Bu seçenek etkinleştirildiğinde, yayınlanmamış ölçümler el ile yeniden yüklenebilir.";
 "Modal.ManualUpload.Enable" = "Etkinleştir";
 "Modal.ManualUpload.Disable" = "Hayır, teşekkürler";
-"Modal.ShareAnalytics.Title" = "OONI Probe uygulamasını geliştirmemize katkıda bulunun";
-"Modal.ShareAnalytics.Paragraph" = "Yeni OONI Probe uygulamasını geliştirmemize yardımcı olmak için kullanım istatistiklerinizi bizimle paylaşarak katkıda bulunabilirsiniz. İstediğiniz zaman kullanım istatistiklerinizi paylaşmaktan vazgeçebilirsiniz.";
 "Modal.UploadFailed.Title" = "Yükleme başarısız";
 "Modal.UploadFailed.Paragraph" = "%@/%@ ölçüm yüklenemedi. Sorun ile ilgili günlük kayıtları OONI geliştiricileri ile paylaşıldı.";
 "Modal.Error.LogNotFound" = "Günlük dosyası bulunamadı";
@@ -317,7 +320,7 @@
 "Test.Psiphon.Fullname" = "Psiphon Sınaması";
 "Test.Tor.Fullname" = "Tor Sınaması";
 "Test.RiseupVPN.Fullname" = "RiseupVPN Sınaması";
-"Test.Signal.Fullname" = "Signal Test";
+"Test.Signal.Fullname" = "Signal Sınaması";
 "Settings.Title" = "Ayarlar";
 "Settings.Error.TestDurationTooLow" = "Sınama süresi için belirlediğiniz süre çok az.";
 "Settings.About.Label" = "OONI Hakkında";
@@ -344,7 +347,6 @@
 "Settings.Sharing.Footer" = "Sonuçları yayınlayarak ağ müdahalelerinin daha görünür hale gelmesine yardım ederek OONI topluluğuna destek olursunuz.\n\nAğ bilgileri (Otonom Sistem Numarası gibi) İnternet Hizmeti Sağlayıcılarını belirlemek için gereklidir.";
 "Settings.TestOptions.Label" = "Ayarları sına";
 "Settings.Privacy.Label" = "Gizlilik";
-"Settings.Privacy.CollectAnalytics" = "Uygulama kullanımı istatistikleri paylaşılsın";
 "Settings.Privacy.SendCrashReports" = "Çökme raporları gönderilsin";
 "Settings.Advanced.Label" = "Gelişmiş";
 "Settings.DarkMode.Label" = "Karanlık Kip";
@@ -385,7 +387,7 @@
 "Settings.Circumvention.TestTor" = "Tor Dene";
 "Settings.Circumvention.TestRiseupVPN" = "RiseupVPN Sınaması";
 "Settings.SendEmail.Label" = "Destek ekibine e-posta gönderin";
-"Settings.SendEmail.Message" = "Please describe the problem you are experiencing:";
+"Settings.SendEmail.Message" = "Lütfen yaşadığınız sorunu anlatın:";
 "Settings.SendEmail.Error" = "Lütfen uygulama hakkındaki bilgiler ve iOS sürümünü yazarak bugs@openobservatory.org adresine bir e-posta gönderin. E-posta adresimizi kopyalamak için aşağıdaki \"Panoya kopyala\" seçeneğine dokunun.";
 "Settings.Language.Current" = "Geçerli uygulama dili: %@";
 "Settings.Language.Label" = "Dil";

@@ -26,7 +26,8 @@
 "Onboarding.DefaultSettings.Bullet.1" = "Код страны (например, IT для Италии)";
 "Onboarding.DefaultSettings.Bullet.2" = "Сетевую информацию (включая номер автономной системы)";
 "Onboarding.DefaultSettings.Bullet.3" = "Время и дату тестирования";
-"Onboarding.DefaultSettings.Paragraph" = "Мы прилагаем все силы, чтобы не раскрыть ваш IP-адрес или любые другие данные, которые могут позволить вас идентифицировать.\n\nЧтобы улучшить OONI Probe мы собираем данные об использовании и отчеты об ошибках.\n\nПодробнее об этом в [политике OONI по обращению с данными](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph" = "Мы прилагаем все силы, чтобы не раскрыть ваш IP-адрес и другие данные, которые в принципе могут позволить вас идентифицировать. \n\nПодробнее об этом в [политике OONI по обращению с данными](https://ooni.io/about/data-policy/).";
+"Onboarding.DefaultSettings.Paragraph.1" = "By tapping \"OK\", you will share crash reports to help us improve OONI Probe.";
 "Onboarding.DefaultSettings.Button.Go" = "Начнем";
 "Onboarding.DefaultSettings.Button.Change" = "Изменить настройки";
 "Dashboard.Tab.Label" = "Панель приборов";
@@ -191,6 +192,10 @@
 "TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Content.Paragraph" = "Успешно протестировано соединение с конечными точками Facebook и IP-адресами Facebook.";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Hero.Title" = "Похоже, заблокировано";
 "TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph" = "Похоже, Facebook Messenger заблокирован.";
+"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Hero.Title" = "Похоже, заблокировано";
+"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Content.Paragraph" = "Signal appears to be blocked.";
+"TestResults.Details.InstantMessaging.Signal.Reachable.Hero.Title" = "Работает";
+"TestResults.Details.InstantMessaging.Signal.Reachable.Content.Paragraph" = "This test successfully connected to Signal's endpoints.";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Hero.Title" = "Устройства middlebox не обнаружены";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.NotFound.Content.Paragraph" = "При соединении с нашими серверами не отмечено аномалий в сети.";
 "TestResults.Details.Middleboxes.HTTPInvalidRequestLine.Found.Hero.Title" = "Вмешательство в сетевую активность";
@@ -282,8 +287,6 @@
 "Modal.ManualUpload.Paragraph" = "Эта настройка позволяет вам вручную загружать неопубликованные измерения";
 "Modal.ManualUpload.Enable" = "Включить";
 "Modal.ManualUpload.Disable" = "Нет, спасибо";
-"Modal.ShareAnalytics.Title" = "Помогите нам улучшить OONI Probe";
-"Modal.ShareAnalytics.Paragraph" = "С помощью нового OONI Probe вы можете делиться анонимизированной статистикой использования, чтобы помочь нам улучшить приложение. Вы можете отказаться в настройках в любой момент.";
 "Modal.UploadFailed.Title" = "Загрузка не удалась";
 "Modal.UploadFailed.Paragraph" = "Нам не удалось загрузить измерения %@/%@. Журнал сбоев был передан разработчикам OONI.";
 "Modal.Error.LogNotFound" = "Лог-файл не найден";
@@ -344,7 +347,6 @@
 "Settings.Sharing.Footer" = "Публикуя результаты, вы дополняете картину помех интернет-активности и поддерживаете сообщество OONI.\n\nСетевые данные (в частности, номер автономной системы) нужны для определения провайдеров доступа к интернету.";
 "Settings.TestOptions.Label" = "Варианты тестирования";
 "Settings.Privacy.Label" = "Приватность";
-"Settings.Privacy.CollectAnalytics" = "Поделиться статистикой использования приложения";
 "Settings.Privacy.SendCrashReports" = "Отправить отчет об ошибке";
 "Settings.Advanced.Label" = "Расширенные настройки";
 "Settings.DarkMode.Label" = "Dark Mode";
