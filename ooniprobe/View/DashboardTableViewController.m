@@ -2,6 +2,7 @@
 #import "DashboardTableViewCell.h"
 #import "ThirdPartyServices.h"
 #import "Suite.h"
+#import "BackgroundTask.h"
 
 @interface DashboardTableViewController ()
 
@@ -21,6 +22,7 @@
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     [self loadTests];
     [self reloadLastMeasurement];
+    [BackgroundTask configure];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -54,6 +54,7 @@
 		ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5C24629A860087B36D /* OONIApi.m */; };
 		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
+		ED4DF7DA2609F0ED00521C5B /* BackgroundTask.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4DF7D92609F0ED00521C5B /* BackgroundTask.m */; };
 		ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53842121597E950078C5C6 /* OoniRunViewController.m */; };
 		ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55C0C8203BD52900738260 /* Header1MBViewController.m */; };
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
@@ -275,6 +276,8 @@
 		ED4D1E5E246315EF0087B36D /* BasicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
 		ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED4DF7D82609F0ED00521C5B /* BackgroundTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BackgroundTask.h; path = Utility/BackgroundTask.h; sourceTree = "<group>"; };
+		ED4DF7D92609F0ED00521C5B /* BackgroundTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BackgroundTask.m; path = Utility/BackgroundTask.m; sourceTree = "<group>"; };
 		ED53841A2159757D0078C5C6 /* EventResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResult.h; sourceTree = "<group>"; };
 		ED53841D215975A70078C5C6 /* Value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Value.h; sourceTree = "<group>"; };
 		ED53842021597E950078C5C6 /* OoniRunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OoniRunViewController.h; sourceTree = "<group>"; };
@@ -753,6 +756,8 @@
 				EDE47C40241FC6BC0013A1CB /* NetworkSession.m */,
 				ED4ACEE724C4542700421FB9 /* ThirdPartyServices.h */,
 				ED4ACEE824C4542700421FB9 /* ThirdPartyServices.m */,
+				ED4DF7D82609F0ED00521C5B /* BackgroundTask.h */,
+				ED4DF7D92609F0ED00521C5B /* BackgroundTask.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1452,6 +1457,7 @@
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */,
 				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.m in Sources */,
+				ED4DF7DA2609F0ED00521C5B /* BackgroundTask.m in Sources */,
 				ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.m in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,

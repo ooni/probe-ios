@@ -11,7 +11,7 @@
     CountlyConfig* config = [CountlyConfig new];
     config.host = NOTIFICATION_SERVER;
     #ifdef DEBUG
-        config.enableDebug = YES;
+        //config.enableDebug = YES;
         config.pushTestMode = CLYPushTestModeDevelopment;
         config.appKey = APP_KEY_DEV;
     #else
