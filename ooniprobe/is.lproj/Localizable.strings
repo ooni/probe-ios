@@ -57,7 +57,7 @@
 "Dashboard.Middleboxes.Card.Description" = "Leita að millitölvum á netinu þínu";
 "Dashboard.Middleboxes.Overview.Paragraph" = "Internetþjónustur (ISP - Internet Service Providers) nota oft allskyns nettæki (millitölvur) fyrir ýmislegt sem tengist rekstri netkerfa (eins og t.d. biðminni - caching). Sometimes these middleboxes are used to implement internet censorship and/or surveillance.\n\nFinndu millitölvur í netkerfinu með [prófun fyrir línu með ógidri HTTP-beiðni](https://ooni.io/nettest/http-invalid-request-line/) og [prófun á hvort átt hafi verið við HTTP-haus](https://ooni.io/nettest/http-header-field-manipulation/) frá OONI.\n\nNiðurstöðurnar þínar verða birtar í [OONI Explorer](https://explorer.ooni.org/) og [OONI API](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "Prófa hindranir fyrir skilaboðaforrit";
-"Dashboard.InstantMessaging.Overview.Paragraph" = "Athugaðu hvort [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) og [Telegram](https://ooni.io/nettest/telegram/) verði fyrir hindrunum.\n\nNiðurstöðurnar þínar verða birtar í [OONI Explorer](https://explorer.ooni.org/) og [OONI API](https://api.ooni.io/).";
+"Dashboard.InstantMessaging.Overview.Paragraph" = "Check whether [WhatsApp](https://ooni.org/nettest/whatsapp/), [Facebook Messenger](https://ooni.org/nettest/facebook-messenger/), [Telegram](https://ooni.org/nettest/telegram/), and [Signal](https://ooni.org/nettest/signal) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.io/world/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "Prófa hindranir fyrir leiðir framhjá ritskoðun";
 "Dashboard.Circumvention.Overview.Paragraph" = "Athugaðu hvort [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) eða [RiseupVPN](https://ooni.io/nettest/riseupvpn/) verði fyrir hindrunum.\n\nNiðurstöðurnar þínar verða birtar í [OONI Explorer](https://explorer.ooni.org/) og [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
@@ -261,6 +261,7 @@
 "Modal.NoThanks" = "Nei takk";
 "Modal.Error.NoInternet" = "Ekki er hægt að keyra prófunina. Athugaðu nettenginguna þína.";
 "Modal.Error.CantDownloadURLs" = "Get ekki sótt lista yfir slóðir. Reyndu aftur.";
+"Modal.Error.TestAlreadyRunning" = "Please wait for the automated tests to finish running, before starting a new test.";
 "Modal.Error.NotificationNotEnabled" = "Heimildir til að birta tilkynningar eru nauðsynlegar. Virkjaðu þær í stillingum símans og síðan aftur í OONI Probe forritinu.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "Fara í stillingar";
 "Modal.Error.CantCloseScreen" = "Þessi skjár er læstur á meðan prófun er keyrð.";
@@ -333,9 +334,11 @@
 "Settings.Notifications.OnNews" = "Fréttastreymi";
 "Settings.AutomatedTesting.Label" = "Sjálfvirkar prófanir";
 "Settings.AutomatedTesting.RunAutomatically" = "Keyra prófanir sjálfvirkt";
+"Settings.AutomatedTesting.RunAutomatically.Number" = "Number of automated tests run: %@.";
+"Settings.AutomatedTesting.RunAutomatically.DateLast" = "Last automated test: %@.";
 "Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Aðeins keyra prófanir á WiFi";
 "Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Aðeins keyra prófanir þegar verið er í hleðslu";
-"Settings.AutomatedTesting.RunAutomatically.Footer" = "Með því að virkja sjálfvirkar prófanir, verða prófanir OONI Probe keyrðar sjálfvirkt með reglubundnum hætti (og þú þarft þá ekki að muna eftir að setja þær í gang).";
+"Settings.AutomatedTesting.RunAutomatically.Footer" = "By enabling automatic testing, OONI Probe tests will run automatically multiple times per day. Test results will automatically get published on OONI Explorer: https://explorer.ooni.org/";
 "Settings.Sharing.Label" = "Deiling";
 "Settings.Sharing.UploadResults" = "Sjálfvirk birting niðurstaðna";
 "Settings.Sharing.UploadResultsManually" = "Handvirk innsending niðurstaðna";
