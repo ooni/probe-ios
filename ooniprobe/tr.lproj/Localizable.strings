@@ -57,7 +57,7 @@
 "Dashboard.Middleboxes.Card.Description" = "Ağınızdaki ara kutuları bulun";
 "Dashboard.Middleboxes.Overview.Paragraph" = "İnternet Hizmeti Sağlayıcıları sıklıkla bazı ağ uygulamaları için (ön bellekleme gibi) çeşitli aygıtlar (ara kutular) kullanır. Bazen bu ara kutular İnternet sansürü ve izlemesi için kullanılır.\n\nOONI [HTTP Geçersiz İstek Hattı](https://ooni.io/nettest/http-invalid-request-line/) ve [HTTP Üst Bilgi Alanı Müdahalesi](https://ooni.io/nettest/http-header-field-manipulation/) sınamalarını kullanarak ara kutuları bulabilirsiniz.\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.io/world/) ve [OONI API](https://api.ooni.io/) üzerinde yayınlanır.";
 "Dashboard.InstantMessaging.Card.Description" = "Anlık ileti uygulamalarının engellenip engellenmediğini anlayın";
-"Dashboard.InstantMessaging.Overview.Paragraph" = "Check whether [WhatsApp](https://ooni.org/nettest/whatsapp/), [Facebook Messenger](https://ooni.org/nettest/facebook-messenger/), [Telegram](https://ooni.org/nettest/telegram/), and [Signal](https://ooni.org/nettest/signal) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.io/world/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.InstantMessaging.Overview.Paragraph" = "[WhatsApp](https://ooni.org/nettest/whatsapp/), [Facebook Messenger](https://ooni.org/nettest/facebook-messenger/), [Telegram](https://ooni.org/nettest/telegram/) ve [Signal](https://ooni.org/nettest/signal) uygulamalarının engellenip engellenmediğini kontrol edebilirsiniz.\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.io/world/) ve [OONI API](https://api.ooni.io/) üzerinde yayınlanır.";
 "Dashboard.Circumvention.Card.Description" = "Sansürü aşma araçları engellemesini sınayın";
 "Dashboard.Circumvention.Overview.Paragraph" = "[Psiphon](https://ooni.io/nettest/psiphon/) ve [Tor](https://ooni.io/nettest/tor/) ya da [RiseupVPN](https://ooni.io/nettest/riseupvpn/) engelleniyor mu öğrenin.\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.org/) ve [OONI API](https://api.ooni.io/) sayfasında yayınlanır.";
 "TestResults.Gbps" = "Gbit/s";
@@ -261,7 +261,7 @@
 "Modal.NoThanks" = "Hayır, teşekkürler";
 "Modal.Error.NoInternet" = "Sınama yapılamadı. Lütfen İnternet bağlantınızı denetleyin.";
 "Modal.Error.CantDownloadURLs" = "Adres listesi indirilemedi. Lütfen yeniden deneyin.";
-"Modal.Error.TestAlreadyRunning" = "Please wait for the automated tests to finish running, before starting a new test.";
+"Modal.Error.TestAlreadyRunning" = "Lütfen yeni bir sınama başlatmadan önce otomatik sınamaların tamamlanmasını bekleyin.";
 "Modal.Error.NotificationNotEnabled" = "Bildirim izinleri gerekli. Lütfen telefonunuzun ayarlar bölümünden gerekli izinleri verdikten sonra OONI Probe uygulamanızdan etkinleştirin.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "Ayarlar Bölümüne Gidin";
 "Modal.Error.CantCloseScreen" = "Bu ekran sınama sırasında kilitlidir.";
@@ -334,11 +334,11 @@
 "Settings.Notifications.OnNews" = "Haber Akışı";
 "Settings.AutomatedTesting.Label" = "Otomatik sınama";
 "Settings.AutomatedTesting.RunAutomatically" = "Sınamalar otomatik olarak yapılsın";
-"Settings.AutomatedTesting.RunAutomatically.Number" = "Number of automated tests run: %@.";
-"Settings.AutomatedTesting.RunAutomatically.DateLast" = "Last automated test: %@.";
-"Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Sınamalar yalnız Wi-Fi ile yapılsın";
-"Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Sınamalar yalnız şarj olurken yapılsın";
-"Settings.AutomatedTesting.RunAutomatically.Footer" = "By enabling automatic testing, OONI Probe tests will run automatically multiple times per day. Test results will automatically get published on OONI Explorer: https://explorer.ooni.org/";
+"Settings.AutomatedTesting.RunAutomatically.Number" = "Otomatik sınama sayısı: %@.";
+"Settings.AutomatedTesting.RunAutomatically.DateLast" = "Son otomatik sınama: %@.";
+"Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Yanlız Wi-Fi kullanılırken";
+"Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Yalnız şarj edilirken";
+"Settings.AutomatedTesting.RunAutomatically.Footer" = "Otomatik sınama etkinleştirildiğinde, her gün düzenli olarak otomatik OONI Probe sınamaları yapılır. Sınama sonuçlarınız otomatik olarak OONI Explorer: https://explorer.ooni.org/ üzerinde yayınlanır";
 "Settings.Sharing.Label" = "Paylaşım";
 "Settings.Sharing.UploadResults" = "Sonuçlar Otomatik Olarak Yayınlansın";
 "Settings.Sharing.UploadResultsManually" = "Sonuçları El ile Yükle ";
