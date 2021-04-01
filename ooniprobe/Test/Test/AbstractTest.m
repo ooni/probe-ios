@@ -27,6 +27,8 @@
         self = [[Telegram alloc] init];
     else if ([testName isEqualToString:@"facebook_messenger"])
         self = [[FacebookMessenger alloc] init];
+    else if ([testName isEqualToString:@"signal"])
+        self = [[Signal alloc] init];
     else if ([testName isEqualToString:@"http_invalid_request_line"])
         self = [[HttpInvalidRequestLine alloc] init];
     else if ([testName isEqualToString:@"http_header_field_manipulation"])

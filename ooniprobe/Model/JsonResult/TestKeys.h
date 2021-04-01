@@ -6,6 +6,7 @@
 #import "Server.h"
 #import "GatewayConnection.h"
 #define BLOCKED @"blocked"
+#define BLOCKING @"blocking"
 
 @interface TestKeys : NSObject
 @property (nonatomic, strong) NSString *blocking;
@@ -30,6 +31,8 @@
 @property (nonatomic, strong) NSNumber *telegram_http_blocking;
 @property (nonatomic, strong) NSNumber *telegram_tcp_blocking;
 @property (nonatomic, strong) NSString *telegram_web_status;
+@property (nonatomic, strong) NSString *signal_backend_status;
+@property (nonatomic, strong) NSString *signal_backend_failure;
 @property (nonatomic, strong) Simple *simple;
 @property (nonatomic, strong) Advanced *advanced;
 @property (nonatomic, strong) Summary *summary;

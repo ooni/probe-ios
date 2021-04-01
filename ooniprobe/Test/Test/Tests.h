@@ -10,3 +10,4 @@
 #import "Tor.h"
 #import "Psiphon.h"
 #import "RiseupVPN.h"
+#import "Signal.h"

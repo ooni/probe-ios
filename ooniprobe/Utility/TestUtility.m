@@ -23,7 +23,7 @@
 
 + (NSDictionary*)getTests{
     return @{@"websites": @[@"web_connectivity"],
-             @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger"],
+             @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger", @"signal"],
              @"circumvention": @[@"psiphon", @"tor", @"riseupvpn"],
              @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"]};
 }
