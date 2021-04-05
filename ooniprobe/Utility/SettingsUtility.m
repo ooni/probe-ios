@@ -6,13 +6,19 @@
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
-    return @[@"notifications", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"notifications", @"automated_testing", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
     //TODO NEWS reenable @"notifications_news"
     if ([categoryName isEqualToString:@"notifications"]) {
         return @[@"notifications_enabled"];
+    }
+    if ([categoryName isEqualToString:@"automated_testing"]) {
+        if ([SettingsUtility isAutomatedTestEnabled])
+            return @[@"automated_testing_enabled", @"automated_testing_wifionly", @"automated_testing_charging"];
+        else
+            return @[@"automated_testing_enabled"];
     }
     else if ([categoryName isEqualToString:@"privacy"]) {
         return @[@"upload_results", @"send_crash"];
@@ -157,6 +163,10 @@
 
 + (BOOL)isNotificationEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
+}
+
++ (BOOL)isAutomatedTestEnabled {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"automated_testing_enabled"] boolValue];
 }
 
 + (NSString*)getOrGenerateUUID4{

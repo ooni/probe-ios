@@ -93,7 +93,11 @@
         self.settings.options.max_runtime = max_runtime;
     }
     else
-        self.settings.options.max_runtime = MAX_RUNTIME_DISABLED;
+        [self disableMaxRuntime];
+}
+
+-(void)disableMaxRuntime {
+    self.settings.options.max_runtime = MAX_RUNTIME_DISABLED;
 }
 
 @end

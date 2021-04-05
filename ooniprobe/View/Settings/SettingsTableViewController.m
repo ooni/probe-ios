@@ -1,6 +1,7 @@
 #import "SettingsTableViewController.h"
 #import "ThirdPartyServices.h"
 #import "MBProgressHUD.h"
+#import "BackgroundTask.h"
 
 @interface SettingsTableViewController ()
 @end
@@ -73,6 +74,8 @@
     if (category != nil){
         if ([category isEqualToString:@"notifications"])
             return NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil);
+        else if ([category isEqualToString:@"automated_testing"])
+            return NSLocalizedString(@"Settings.AutomatedTesting.RunAutomatically.Footer", nil);
     }
     return nil;
 }
@@ -236,6 +239,12 @@
     }
     else if ([current isEqualToString:@"send_crash"]){
         [ThirdPartyServices reloadConsents];
+    }
+    else if ([current isEqualToString:@"automated_testing_enabled"]){
+        if (mySwitch.on)
+            [BackgroundTask scheduleCheckIn];
+        else
+            NSLog(@"TODO disable BackgroundTask");
     }
     else if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
