@@ -2,6 +2,10 @@
 #import "Engine.h"
 #import "VersionUtility.h"
 #import "SettingsUtility.h"
+#import "OONIApi.h"
+#import "TestUtility.h"
+#import "Suite.h"
+#import "Tests.h"
 
 @implementation BackgroundTask
 
@@ -9,14 +13,13 @@
     [[BGTaskScheduler sharedScheduler] registerForTaskWithIdentifier:taskID
                                                           usingQueue:nil
                                                        launchHandler:^(BGTask *task) {
-        [self scheduleLocalNotifications];
-        [self handleAppRefreshTask:task];
+        [self handleCheckInTask:task];
     }];
-    [self scheduleAppRefresh];
-}
-
-+ (void)scheduleLocalNotifications {
-    //do things
+    //TODO
+    /*
+    if ([SettingsUtility isAutomatedTestEnabled])
+        [self scheduleCheckIn];
+     */
 }
 
 /*
@@ -27,9 +30,9 @@
 
 //https://stackoverflow.com/questions/58149980/ios-13-objective-c-background-task-request
 //https://stackoverflow.com/questions/62026107/how-to-get-use-bgtask-in-objective-c-with-ios-13background-fetch
-+ (void)handleAppRefreshTask:(BGTask *)task {
++ (void)handleCheckInTask:(BGTask *)task {
     // Schedule a new refresh task
-    [self scheduleAppRefresh];
+    [self scheduleCheckIn];
     task.expirationHandler = ^{
       NSLog(@"WARNING: expired before finish was executed.");
     };
@@ -37,8 +40,9 @@
     [task setTaskCompletedWithSuccess:YES];
 }
 
-+ (void)scheduleAppRefresh {
++ (void)scheduleCheckIn {
     BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:taskID];
+    //TODO
     //request.requiresNetworkConnectivity = true;
     //request.requiresExternalPower = false;
     request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:2*60];
@@ -49,37 +53,22 @@
     }
 }
 
-+ (void) checkIn {
-    //Download urls and then alloc class
-    NSError *error;
-    PESession* session = [[PESession alloc] initWithConfig:
-                          [Engine getDefaultSessionConfigWithSoftwareName:SOFTWARE_NAME
-                                                          softwareVersion:[VersionUtility get_software_version]
-                                                                   logger:[LoggerArray new]]
-                                                                    error:&error];
-    if (error != nil) {
-        return;
-    }
-    // Updating resources with no timeout because we don't know for sure how much
-    // it will take to download them and choosing a timeout may prevent the operation
-    // to ever complete. (Ideally the user should be able to interrupt the process
-    // and there should be no timeout here.)
-    [session maybeUpdateResources:[session newContext] error:&error];
-    if (error != nil) {
-        return;
-    }
-    OONIContext *ooniContext = [session newContextWithTimeout:30];
-    OONICheckInConfig *config = [[OONICheckInConfig alloc] initWithSoftwareName:SOFTWARE_NAME
-                                                                softwareVersion:[VersionUtility get_software_version]
-                                                                     categories:[SettingsUtility getSitesCategoriesEnabled]];
-    OONICheckInResults *results = [session checkIn:ooniContext config:config error:&error];
-    if (error != nil) {
-        //[self onError:error];
-        return;
-    }    
-    for (OONIURLInfo* current in results.webConnectivity.urls){
-        NSLog(@"Got url %@", current.url);
-    }
++ (void)checkIn {
+    NSString *testName = @"web_connectivity";
+    NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
+    AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
+    AbstractTest *test = [[AbstractTest alloc] initTest:testName];
+    [test setAnnotation:YES];
+    [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
+
+    [OONIApi checkIn:^(NSArray *urls) {
+        if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
+            [(WebConnectivity*)test setUrls:urls];
+        [(WebConnectivity*)test disableMaxRuntime];
+    } onError:^(NSError *error) {
+        NSLog(@"Failed call checkIn API: %@",error);
+    }];
+    [testSuite runTestSuite];
 }
 
 /*
@@ -88,6 +77,5 @@
  - Enable background on enable preference.
  - Disable background on disable preference.
  - Be sure background works on phone reboot?
- - Function for checkin that also run test
  */
 @end

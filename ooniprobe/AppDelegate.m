@@ -7,6 +7,7 @@
 #import "SettingsUtility.h"
 #import "ThirdPartyServices.h"
 #import "ReachabilityManager.h"
+#import "BackgroundTask.h"
 
 @interface AppDelegate ()
 
@@ -34,6 +35,10 @@
     [ReachabilityManager sharedManager];
     application.statusBarStyle = UIStatusBarStyleLightContent;
     [SettingsUtility incrementAppOpenCount];
+    
+    [BackgroundTask configure];
+    //[BackgroundTask checkIn];
+
     return YES;
 }
 

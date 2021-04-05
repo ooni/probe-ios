@@ -30,6 +30,34 @@
                             onSuccess:successcb onError:errorcb];
 }
 
++ (void)checkIn:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
+    //Download urls and then alloc class
+    NSError *error;
+    PESession* session = [[PESession alloc] initWithConfig:
+                          [Engine getDefaultSessionConfigWithSoftwareName:SOFTWARE_NAME
+                                                          softwareVersion:[VersionUtility get_software_version]
+                                                                   logger:[LoggerArray new]]
+                                                                    error:&error];
+    if (error != nil) {
+        return;
+    }
+    // Updating resources with no timeout because we don't know for sure how much
+    // it will take to download them and choosing a timeout may prevent the operation
+    // to ever complete. (Ideally the user should be able to interrupt the process
+    // and there should be no timeout here.)
+    [session maybeUpdateResources:[session newContext] error:&error];
+    if (error != nil) {
+        return;
+    }
+    OONIContext *ooniContext = [session newContextWithTimeout:30];
+    OONICheckInConfig *config = [[OONICheckInConfig alloc] initWithSoftwareName:SOFTWARE_NAME
+                                                                softwareVersion:[VersionUtility get_software_version]
+                                                                     categories:[SettingsUtility getSitesCategoriesEnabled]];
+    OONICheckInResults *result = [session checkIn:ooniContext config:config error:&error];
+    [self checkInCallback:result error:error
+                            onSuccess:successcb onError:errorcb];
+}
+
 + (void)downloadUrlsCallback:(OONIURLListResult *)result
                     error:(NSError *)error
                     onSuccess:(void (^)(NSArray*))successcb
@@ -48,6 +76,28 @@
         //List for mk
         if (url != nil)
             [urls addObject:url.url];
+    }
+    if ([urls count] == 0){
+        errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
+                                    code:ERR_NO_VALID_URLS
+                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.NoValidUrls"
+                                           }]);
+        return;
+    }
+    successcb(urls);
+}
+
++ (void)checkInCallback:(OONICheckInResults *)result
+                    error:(NSError *)error
+                    onSuccess:(void (^)(NSArray*))successcb
+                    onError:(void (^)(NSError*))errorcb {
+    if (error != nil) {
+        errorcb(error);
+        return;
+    }
+    NSMutableArray *urls = [[NSMutableArray alloc] init];
+    for (OONIURLInfo* current in result.webConnectivity.urls){
+        [urls addObject:current.url];
     }
     if ([urls count] == 0){
         errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
