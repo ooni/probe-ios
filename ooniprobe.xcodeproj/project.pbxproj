@@ -108,6 +108,8 @@
 		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
 		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB33B7C21838824002CEC34 /* CustomURLViewController.m */; };
+		EDB3D64926203DC000724ECF /* ExperimentalSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3D64826203DC000724ECF /* ExperimentalSuite.m */; };
+		EDB3D64F26204C9300724ECF /* Experimental.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3D64E26204C9300724ECF /* Experimental.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
 		EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */; };
@@ -389,6 +391,10 @@
 		EDB252A920FA4D4F00B4EDE4 /* Tampering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tampering.m; sourceTree = "<group>"; };
 		EDB33B7C21838824002CEC34 /* CustomURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomURLViewController.m; path = Settings/CustomURLViewController.m; sourceTree = "<group>"; };
 		EDB33B7D21838824002CEC34 /* CustomURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomURLViewController.h; path = Settings/CustomURLViewController.h; sourceTree = "<group>"; };
+		EDB3D64726203DC000724ECF /* ExperimentalSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExperimentalSuite.h; sourceTree = "<group>"; };
+		EDB3D64826203DC000724ECF /* ExperimentalSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExperimentalSuite.m; sourceTree = "<group>"; };
+		EDB3D64D26204C9300724ECF /* Experimental.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Experimental.h; sourceTree = "<group>"; };
+		EDB3D64E26204C9300724ECF /* Experimental.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Experimental.m; sourceTree = "<group>"; };
 		EDB6F9B72023526300BDCB0B /* HeaderSwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderSwipeViewController.h; sourceTree = "<group>"; };
 		EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderSwipeViewController.m; sourceTree = "<group>"; };
 		EDB6F9BA202352D000BDCB0B /* Header1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header1ViewController.h; sourceTree = "<group>"; };
@@ -688,6 +694,8 @@
 				ED76B20725B6F13D00899EE7 /* RiseupVPN.m */,
 				ED4DF7B32607970C00521C5B /* Signal.h */,
 				ED4DF7B42607970C00521C5B /* Signal.m */,
+				EDB3D64D26204C9300724ECF /* Experimental.h */,
+				EDB3D64E26204C9300724ECF /* Experimental.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -708,6 +716,8 @@
 				ED2E067D21D487EA00E9B9EE /* PerformanceSuite.m */,
 				ED14B22F246540A4009AA906 /* CircumventionSuite.h */,
 				ED14B230246540A4009AA906 /* CircumventionSuite.m */,
+				EDB3D64726203DC000724ECF /* ExperimentalSuite.h */,
+				EDB3D64826203DC000724ECF /* ExperimentalSuite.m */,
 			);
 			path = Suite;
 			sourceTree = "<group>";
@@ -1373,6 +1383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB3D64F26204C9300724ECF /* Experimental.m in Sources */,
 				ED4DF7B52607970C00521C5B /* Signal.m in Sources */,
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.m in Sources */,
@@ -1439,6 +1450,7 @@
 				EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */,
 				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
 				EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */,
+				EDB3D64926203DC000724ECF /* ExperimentalSuite.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
 				ED14B2342465411E009AA906 /* Psiphon.m in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.m in Sources */,
