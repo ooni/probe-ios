@@ -54,6 +54,7 @@
 @property (nonatomic, strong) NSString *api_failure;
 @property (nonatomic, strong) NSNumber *ca_cert_status;
 @property (nonatomic, strong) NSArray *failing_gateways;
+@property (nonatomic, strong) NSDictionary *transport_status;
 
 - (NSString*)getJsonStr;
 
