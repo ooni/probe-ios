@@ -244,7 +244,7 @@
         if (mySwitch.on)
             [BackgroundTask scheduleCheckIn];
         else
-            NSLog(@"TODO disable BackgroundTask");
+            [BackgroundTask cancelCheckIn];
     }
     else if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];

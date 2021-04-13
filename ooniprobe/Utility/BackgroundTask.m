@@ -71,6 +71,10 @@
     [testSuite runTestSuite];
 }
 
++ (void)cancelCheckIn{
+    [[BGTaskScheduler sharedScheduler] cancelTaskRequestWithIdentifier:taskID];
+}
+
 /*
  TODO
  - Create preference to enable this

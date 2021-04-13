@@ -7,4 +7,5 @@ static NSString* taskID = @"org.openobservatory.ooniprobe.autotesting";
 + (void)configure;
 + (void)checkIn;
 + (void)scheduleCheckIn;
++ (void)cancelCheckIn;
 @end
