@@ -63,7 +63,7 @@
 
     [OONIApi checkIn:^(NSArray *urls) {
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
-            [(WebConnectivity*)test setUrls:urls];
+            [(WebConnectivity*)test setInputs:urls];
         [(WebConnectivity*)test disableMaxRuntime];
     } onError:^(NSError *error) {
         NSLog(@"Failed call checkIn API: %@",error);
