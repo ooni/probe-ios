@@ -75,6 +75,22 @@
         [self.detail2SubtitleLabel setText:[testKeys getFacebookMessengerDns]];
         [self.detail2SubtitleLabel setTextColor:[testKeys getFacebookMessengerDnsColor]];
     }
+    else if ([self.measurement.test_name isEqualToString:@"signal"]){
+        [self.detail1TitleLabel setText:@""];
+        [self.detail1SubtitleLabel setText:@""];
+        [self.detail2TitleLabel setText:@""];
+        [self.detail2SubtitleLabel setText:@""];
+        [self.detail3TitleLabel setText:@""];
+        [self.detail3SubtitleLabel setText:@""];
+        if (!super.measurement.is_anomaly){
+            [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Signal.Reachable.Hero.Title", nil)];
+            [self.textLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Signal.Reachable.Content.Paragraph", nil)];
+        }
+        else {
+            [self.titleLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Hero.Title", nil)];
+            [self.textLabel setText:NSLocalizedString(@"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Content.Paragraph", nil)];
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{

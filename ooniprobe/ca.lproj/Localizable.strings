@@ -57,7 +57,7 @@
 "Dashboard.Middleboxes.Card.Description" = "Detecta «middleboxes» de la vostra xarxa";
 "Dashboard.Middleboxes.Overview.Paragraph" = "Els proveïdors de serveis d'Internet sovint utilitzen dispositius de xarxa («middleboxes») per a diversos propòsits de xarxa (com l'emmagatzematge en memòria cau). De vegades, aquests «middleboxes» s'utilitzen per implementar la censura i/o vigilància d'Internet.\n\nTrobeu «middleboxes» en la vostra xarxa utilitzant les proves [HTTP Invalid Request Line](https://ooni.io/nettest/http-invalid-request-line/) i [HTTP Header Field Manipulation](https://ooni.io/nettest/http-header-field-manipulation/) d'OONI.\n\nEls vostres resultats es publicaran a l'[OONI Explorer](https://explorer.ooni.io/world/) i a l'[API d'OONI](https://api.ooni.io/).";
 "Dashboard.InstantMessaging.Card.Description" = "Prova el blocatge de les aplicacions de missatgeria instantània";
-"Dashboard.InstantMessaging.Overview.Paragraph" = "Comproveu si [WhatsApp](https://ooni.io/nettest/whatsapp/), [Facebook Messenger](https://ooni.io/nettest/facebook-messenger/) i [Telegram](https://ooni.io/nettest/telegram/) estan blocats.\n\nEls vostres resultats es publicaran a l'[OONI Explorer](https://explorer.ooni.io/world/) i a l'[API d'OONI](https://api.ooni.io/).";
+"Dashboard.InstantMessaging.Overview.Paragraph" = "Check whether [WhatsApp](https://ooni.org/nettest/whatsapp/), [Facebook Messenger](https://ooni.org/nettest/facebook-messenger/), [Telegram](https://ooni.org/nettest/telegram/), and [Signal](https://ooni.org/nettest/signal) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.io/world/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "Prova el blocatge d'eines d'elusió de la censura";
 "Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
@@ -261,6 +261,7 @@
 "Modal.NoThanks" = "No, gràcies";
 "Modal.Error.NoInternet" = "No s'ha pogut executar la prova. Verifiqueu la connexió a Internet.";
 "Modal.Error.CantDownloadURLs" = "No s'ha pogut baixar la llista d'URL. Torneu-ho a provar.";
+"Modal.Error.TestAlreadyRunning" = "Please wait for the automated tests to finish running, before starting a new test.";
 "Modal.Error.NotificationNotEnabled" = "Calen permisos de notificació. Activeu-los a la Configuració del telèfon i després activeu-los a l'aplicació OONI Probe.";
 "Modal.Error.NotificationNotEnabled.GoToSettings" = "Aneu a Configuració";
 "Modal.Error.CantCloseScreen" = "Aquesta pantalla està blocada mentre s'està executant una prova.";
@@ -333,9 +334,11 @@
 "Settings.Notifications.OnNews" = "Mur de notícies";
 "Settings.AutomatedTesting.Label" = "Prova automatitzada";
 "Settings.AutomatedTesting.RunAutomatically" = "Executa proves automàticament";
-"Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Run tests only on WiFi";
-"Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Run tests only while charging";
-"Settings.AutomatedTesting.RunAutomatically.Footer" = "By enabling automatic testing, OONI Probe tests will run automatically on a regular basis (and you don’t need to remember to manually run tests).";
+"Settings.AutomatedTesting.RunAutomatically.Number" = "Number of automated tests: %@.";
+"Settings.AutomatedTesting.RunAutomatically.DateLast" = "Last automated test: %@.";
+"Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Only on WiFi";
+"Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Only while charging";
+"Settings.AutomatedTesting.RunAutomatically.Footer" = "By enabling automatic testing, OONI Probe tests will run automatically multiple times per day. Your test results will automatically get published on OONI Explorer: https://explorer.ooni.org/";
 "Settings.Sharing.Label" = "Comparteix";
 "Settings.Sharing.UploadResults" = "Publica automàticament els resultats";
 "Settings.Sharing.UploadResultsManually" = "Pujada manual dels resultats";
@@ -373,6 +376,7 @@
 "Settings.InstantMessaging.TestWhatsApp" = "Prova el WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Prova el Telegram";
 "Settings.InstantMessaging.TestFacebookMessenger" = "Prova el Facebook Messenger";
+"Settings.InstantMessaging.TestSignal" = "Test Signal";
 "Settings.Middleboxes.TestHTTPInvalidRequestLine" = "Executa la prova «HTTP Invalid Request Line»";
 "Settings.Middleboxes.TestHTTPHeaderFieldManipulation" = "Executa la prova «HTTP Header Field Manipulation»";
 "Settings.Performance.TestNDT" = "Executa la prova de velocitat NDT";

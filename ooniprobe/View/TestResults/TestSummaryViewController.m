@@ -111,7 +111,8 @@
         [self performSegueWithIdentifier:@"toDashTestDetails" sender:self];
     else if ([segueObj.test_name isEqualToString:@"whatsapp"] ||
              [segueObj.test_name isEqualToString:@"telegram"] ||
-             [segueObj.test_name isEqualToString:@"facebook_messenger"])
+             [segueObj.test_name isEqualToString:@"facebook_messenger"] ||
+             [segueObj.test_name isEqualToString:@"signal"])
         [self performSegueWithIdentifier:@"toInstantMessagingTestDetails" sender:self];
     else if ([segueObj.test_name isEqualToString:@"http_invalid_request_line"] ||
              [segueObj.test_name isEqualToString:@"http_header_field_manipulation"])
@@ -154,7 +155,8 @@
     }
     else if ([[segue identifier] isEqualToString:@"toWebsitesTestDetails"] ||
              [[segue identifier] isEqualToString:@"toMiddleBoxesTestDetails"] ||
-             [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] || [[segue identifier] isEqualToString:@"toNdtTestDetails"] ||
+             [[segue identifier] isEqualToString:@"toInstantMessagingTestDetails"] ||
+             [[segue identifier] isEqualToString:@"toNdtTestDetails"] ||
              [[segue identifier] isEqualToString:@"toDashTestDetails"] ||
              [[segue identifier] isEqualToString:@"toFailedTestDetails"] ||
              [[segue identifier] isEqualToString:@"toCircumventionTestDetails"]){

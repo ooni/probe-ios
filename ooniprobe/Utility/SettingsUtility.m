@@ -138,6 +138,7 @@
         [settings addObject:@"test_whatsapp"];
         [settings addObject:@"test_telegram"];
         [settings addObject:@"test_facebook_messenger"];
+        [settings addObject:@"test_signal"];
     }
     else if ([testName isEqualToString:@"circumvention"]) {
         [settings addObject:@"test_psiphon"];

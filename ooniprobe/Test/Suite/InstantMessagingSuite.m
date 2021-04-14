@@ -19,6 +19,8 @@
             [self.testList addObject:[[Telegram alloc] init]];
         if ([SettingsUtility getSettingWithName:@"test_facebook_messenger"])
             [self.testList addObject:[[FacebookMessenger alloc] init]];
+        if ([SettingsUtility getSettingWithName:@"test_signal"])
+            [self.testList addObject:[[Signal alloc] init]];
     }
     return super.getTestList;
 }
