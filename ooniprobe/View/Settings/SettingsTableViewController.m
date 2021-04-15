@@ -241,9 +241,8 @@
         [ThirdPartyServices reloadConsents];
     }
     else if ([current isEqualToString:@"automated_testing_enabled"]){
-        if (mySwitch.on)
-            [BackgroundTask scheduleCheckIn];
-        else
+        //We schedule the task only on going to background
+        if (!mySwitch.on)
             [BackgroundTask cancelCheckIn];
     }
     else if (!mySwitch.on && ![self canSetSwitch]){

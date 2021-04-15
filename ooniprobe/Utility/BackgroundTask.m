@@ -15,11 +15,6 @@
                                                        launchHandler:^(BGTask *task) {
         [self handleCheckInTask:task];
     }];
-    //TODO
-    /*
-    if ([SettingsUtility isAutomatedTestEnabled])
-        [self scheduleCheckIn];
-     */
 }
 
 /*
@@ -34,7 +29,7 @@
 //https://uynguyen.github.io/2020/09/26/Best-practice-iOS-background-processing-Background-App-Refresh-Task/
 
 + (void)handleCheckInTask:(BGTask *)task  API_AVAILABLE(ios(13.0)){
-    // Schedule a new refresh task
+    // Schedule a new task
     [self scheduleCheckIn];
     task.expirationHandler = ^{
       NSLog(@"WARNING: expired before finish was executed.");
@@ -68,7 +63,8 @@
     [OONIApi checkIn:^(NSArray *urls) {
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
-        [(WebConnectivity*)test disableMaxRuntime];
+        [(WebConnectivity*)test setDefaultMaxRuntime];
+        //[(WebConnectivity*)test disableMaxRuntime];
     } onError:^(NSError *error) {
         NSLog(@"Failed call checkIn API: %@",error);
     }];
