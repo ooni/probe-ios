@@ -76,6 +76,9 @@
     else if ([result.test_group_name isEqualToString:@"circumvention"]){
         [self rowCircumvention:result];
     }
+    else if ([result.test_group_name isEqualToString:@"experimental"]){
+        [self rowExperimental];
+    }
 }
 
 -(void)rowWebsites:(Result*)result{
@@ -198,6 +201,11 @@
         [self.label1 setTextColor:[UIColor colorNamed:@"color_gray9"]];
         [self.image1 setTintColor:[UIColor colorNamed:@"color_gray9"]];
     }
+}
+
+-(void)rowExperimental{
+    [self.stackView2 setHidden:YES];
+    [self.stackView3 setHidden:YES];
 }
 
 -(void)setText:(NSString*)text forLabel:(UILabel*)label inStackView:(UIStackView*)stackView{

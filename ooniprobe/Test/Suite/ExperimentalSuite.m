@@ -13,8 +13,8 @@
 
 - (NSArray*)getTestList {
     if ([self.testList count] == 0){
-        [self.testList addObject:[[Experimental alloc] initTest:@"one"]];
-        [self.testList addObject:[[Experimental alloc] initTest:@"two"]];
+        [self.testList addObject:[[Experimental alloc] initTest:@"dnscheck"]];
+        [self.testList addObject:[[Experimental alloc] initTest:@"stunreachability"]];
     }
     return super.getTestList;
 }

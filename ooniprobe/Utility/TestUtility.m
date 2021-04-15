@@ -34,6 +34,7 @@
     [tests addObject:[[InstantMessagingSuite alloc] init]];
     [tests addObject:[[CircumventionSuite alloc] init]];
     [tests addObject:[[PerformanceSuite alloc] init]];
+    [tests addObject:[[ExperimentalSuite alloc] init]];
     return tests;
 }
 
@@ -87,6 +88,9 @@
     else if ([testName isEqualToString:@"circumvention"]){
         return [UIColor colorNamed:@"color_pink6"];
     }
+    else if ([testName isEqualToString:@"experimental"]){
+        return [UIColor colorNamed:@"color_gray7"];
+    }
     return [[UIColor colorNamed:@"color_blue5"] colorWithAlphaComponent:alpha];
 }
 
@@ -106,6 +110,10 @@
     else if ([testName isEqualToString:@"circumvention"]){
         return [UIColor colorNamed:@"color_pink5"];
     }
+    //TODO-EXP needed?
+    else if ([testName isEqualToString:@"experimental"]){
+        return [UIColor colorNamed:@"color_gray6"];
+    }
     return [UIColor colorNamed:@"color_blue5"];
 }
 
@@ -124,6 +132,10 @@
     }
     else if ([testName isEqualToString:@"circumvention"]){
         return [UIColor colorNamed:@"color_pink4"];
+    }
+    //TODO-EXP needed?
+    else if ([testName isEqualToString:@"experimental"]){
+        return [UIColor colorNamed:@"color_gray5"];
     }
     return [UIColor colorNamed:@"color_blue3"];
 }

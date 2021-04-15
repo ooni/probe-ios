@@ -50,6 +50,9 @@
     else if ([result.test_group_name isEqualToString:@"circumvention"]){
         [self rowInstantMessaging:measurement];
     }
+    else if ([result.test_group_name isEqualToString:@"experimental"]){
+        [self rowExperimental:measurement];
+    }
 }
 
 -(void)rowWebsites:(Measurement*)measurement{
@@ -157,6 +160,11 @@
         [self.statusImage setImage:[UIImage imageNamed:@"exclamation_point"]];
         [self.statusImage setTintColor:[UIColor colorNamed:@"color_yellow9"]];
     }
+}
+
+-(void)rowExperimental:(Measurement*)measurement{
+    [self.titleLabel setText:measurement.test_name];
+    [self.statusImage setImage:nil];
 }
 
 -(void)setText:(NSString*)text forLabel:(UILabel*)label inStackView:(UIStackView*)stackView{

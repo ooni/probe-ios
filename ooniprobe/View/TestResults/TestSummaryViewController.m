@@ -84,7 +84,8 @@
     if ([result.test_group_name isEqualToString:@"performance"])
         cell_id = @"Cell_per";
     //__deprecated
-    else if ([result.test_group_name isEqualToString:@"middle_boxes"])
+    else if ([result.test_group_name isEqualToString:@"middle_boxes"] ||
+             [result.test_group_name isEqualToString:@"experimental"])
          cell_id = @"Cell_mb";
     else
         cell_id = @"Cell";
