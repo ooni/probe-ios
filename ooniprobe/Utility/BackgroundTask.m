@@ -9,7 +9,7 @@
 
 @implementation BackgroundTask
 
-+ (void)configure {
++ (void)configure API_AVAILABLE(ios(13.0)) {
     [[BGTaskScheduler sharedScheduler] registerForTaskWithIdentifier:taskID
                                                           usingQueue:nil
                                                        launchHandler:^(BGTask *task) {
@@ -30,7 +30,10 @@
 
 //https://stackoverflow.com/questions/58149980/ios-13-objective-c-background-task-request
 //https://stackoverflow.com/questions/62026107/how-to-get-use-bgtask-in-objective-c-with-ios-13background-fetch
-+ (void)handleCheckInTask:(BGTask *)task {
+
+//https://uynguyen.github.io/2020/09/26/Best-practice-iOS-background-processing-Background-App-Refresh-Task/
+
++ (void)handleCheckInTask:(BGTask *)task  API_AVAILABLE(ios(13.0)){
     // Schedule a new refresh task
     [self scheduleCheckIn];
     task.expirationHandler = ^{
@@ -40,12 +43,13 @@
     [task setTaskCompletedWithSuccess:YES];
 }
 
-+ (void)scheduleCheckIn {
-    BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:taskID];
++ (void)scheduleCheckIn API_AVAILABLE(ios(13.0)) {
+    BGProcessingTaskRequest *request = [[BGProcessingTaskRequest alloc] initWithIdentifier:taskID];
+    //BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:taskID];
     //TODO
-    //request.requiresNetworkConnectivity = true;
-    //request.requiresExternalPower = false;
-    request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:2*60];
+    request.requiresNetworkConnectivity = true;
+    request.requiresExternalPower = false;
+    request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:10*60];
     NSError *error = NULL;
     BOOL success = [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error:&error];
     if (!success) {
@@ -71,7 +75,7 @@
     [testSuite runTestSuite];
 }
 
-+ (void)cancelCheckIn{
++ (void)cancelCheckIn API_AVAILABLE(ios(13.0)){
     [[BGTaskScheduler sharedScheduler] cancelTaskRequestWithIdentifier:taskID];
 }
 
