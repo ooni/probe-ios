@@ -204,6 +204,7 @@
 }
 
 -(void)rowExperimental{
+    [self.stackView1 setHidden:YES];
     [self.stackView2 setHidden:YES];
     [self.stackView3 setHidden:YES];
 }
