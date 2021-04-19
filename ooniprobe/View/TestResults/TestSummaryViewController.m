@@ -104,7 +104,9 @@
 }
 
 -(void)goToDetails{
-    if (segueObj.is_failed)
+    if ([result.test_group_name isEqualToString:@"experimental"])
+        [self performSegueWithIdentifier:@"toViewLog" sender:self];
+    else if (segueObj.is_failed)
         [self performSegueWithIdentifier:@"toFailedTestDetails" sender:self];
     else if ([segueObj.test_name isEqualToString:@"ndt"])
         [self performSegueWithIdentifier:@"toNdtTestDetails" sender:self];
@@ -179,6 +181,11 @@
         if ([testSuite getTestList] > 0 && [urls count] > 0)
             [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
         [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
+    }
+    else if ([[segue identifier] isEqualToString:@"toViewLog"]){
+        LogViewController *vc = (LogViewController *)segue.destinationViewController;
+        [vc setType:@"json"];
+        [vc setMeasurement:segueObj];
     }
 }
 

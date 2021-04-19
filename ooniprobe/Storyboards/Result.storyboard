@@ -588,10 +588,10 @@
                         <viewControllerLayoutGuide type="bottom" id="ebA-EZ-xo9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gEt-06-csL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-cC-vHE">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-cC-vHE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1086,6 +1086,7 @@
                         <segue destination="VkC-nS-DVC" kind="show" identifier="toWebsitesTestDetails" id="sz3-Dc-U8g"/>
                         <segue destination="3RT-Xy-GYH" kind="show" identifier="toFailedTestDetails" id="qu3-L7-bPR"/>
                         <segue destination="bat-oQ-kQ3" kind="show" identifier="toCircumventionTestDetails" id="jyU-5l-M5z"/>
+                        <segue destination="zYs-kh-5bZ" kind="show" identifier="toViewLog" id="Ldj-Wm-cjT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SuZ-jY-QMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2857,9 +2858,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="MH8-m4-vnH"/>
-        <segue reference="lZw-ES-A2m"/>
-        <segue reference="tou-XS-jO3"/>
+        <segue reference="aWV-Rl-1iH"/>
+        <segue reference="oiP-5B-ecH"/>
+        <segue reference="Ldj-Wm-cjT"/>
         <segue reference="KaA-PI-t2J"/>
     </inferredMetricsTieBreakers>
     <resources>
