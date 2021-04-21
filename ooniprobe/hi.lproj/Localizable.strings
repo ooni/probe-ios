@@ -60,6 +60,8 @@
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Check whether [WhatsApp](https://ooni.org/nettest/whatsapp/), [Facebook Messenger](https://ooni.org/nettest/facebook-messenger/), [Telegram](https://ooni.org/nettest/telegram/), and [Signal](https://ooni.org/nettest/signal) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.io/world/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "सेंसरशिप परिधि उपकरणों के अवरोधन का परीक्षण करें";
 "Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Card.Description" = "Run new experimental tests";
+"Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -78,6 +80,7 @@
 "TestResults.Overview.FilterTests.Performance" = "प्रदर्शन";
 "TestResults.Overview.FilterTests.InstantMessaging" = "तात्कालिक संदेशन";
 "TestResults.Overview.FilterTests.Circumvention" = "तरक़ीब";
+"TestResults.Overview.FilterTests.Experimental" = "Experimental";
 "TestResults.Overview.NoTestsHaveBeenRun" = "अभी तक कोई परीक्षण नहीं चला है। एक चलाने की कोशिश करो!";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ अवरुद्ध";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ अवरुद्ध";
@@ -249,6 +252,7 @@
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ अवरुद्ध";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ अवरुद्ध";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "ठीक है ";
+"TestResults.Details.Experimental.Hero.Title" = "This is an experimental test.";
 "Feed.Tab.Label" = "चारा";
 "Feed.Title" = "चारा";
 "Modal.OK" = "ठीक है ";
@@ -310,6 +314,7 @@
 "Test.Middleboxes.Fullname" = "मध्य बक्से";
 "Test.Performance.Fullname" = "प्रदर्शन";
 "Test.Circumvention.Fullname" = "तरक़ीब";
+"Test.Experimental.Fullname" = "Experimental";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP अवैध अनुरोध लाइन परीक्षण";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP हैडर फील्ड मैनिपुलेशन टेस्ट";
 "Test.WebConnectivity.Fullname" = "वेब कनेक्टिविटी टेस्ट";
@@ -355,6 +360,13 @@
 "Settings.DarkMode.Label" = "Dark Mode";
 "Settings.Advanced.DebugLogs" = "दोषमार्जन लॉग";
 "Settings.Advanced.UseDomainFronting" = "हमेशा डोमेन फ्रंटिंग का उपयोग करें";
+"Settings.Proxy.Label" = "OONI backend proxy";
+"Settings.Proxy.Enabled" = "Proxy";
+"Settings.Proxy.None" = "कोई नहीं";
+"Settings.Proxy.Psiphon" = "Psiphon";
+"Settings.Proxy.Custom" = "Custom Proxy";
+"Settings.Proxy.Custom.Value" = "Custom Proxy URL";
+"Settings.Proxy.Footer" = "Are you unable to use OONI Probe? Try enabling Psiphon (https://psiphon.ca/) to circumvent potential OONI Probe blocking. Alternatively, you can use a custom proxy.";
 "Settings.Websites.MaxRuntimeEnabled" = "परीक्षण अवधि सीमित करें";
 "Settings.Websites.MaxRuntime" = "परीक्षण अवधि";
 "Settings.Websites.Categories.Label" = "परीक्षण करने के लिए वेबसाइट श्रेणियां";

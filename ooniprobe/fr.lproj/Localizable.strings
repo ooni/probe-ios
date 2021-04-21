@@ -60,6 +60,8 @@
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Vérifiez si [WhatsApp](https://ooni.org/nettest/whatsapp/), [Facebook  Messenger](https://ooni.org/nettest/facebook-messenger/), [Telegram](https://ooni.org/nettest/telegram/) ou [Signal](https://ooni.org/nettest/signal) sont bloqués (pages en anglais)..\n\nVos résultats seront publiés dans l’[Explorateur OONI](https://explorer.ooni.io/world/) et [l’API OONI](https://api.ooni.io/) (pages en anglais).";
 "Dashboard.Circumvention.Card.Description" = "Testez le blocage des outils de contournement de la censure";
 "Dashboard.Circumvention.Overview.Paragraph" = "Vérifiez si [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) ou [RiseupVPN](https://ooni.io/nettest/riseupvpn/) sont bloqués (pages en anglais).\n\nVos résultats seront publiés dans l’[Explorateur OONI](https://explorer.ooni.org/) et l’[API OONI](https://api.ooni.io/) (pages en anglais).";
+"Dashboard.Experimental.Card.Description" = "Run new experimental tests";
+"Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -78,6 +80,7 @@
 "TestResults.Overview.FilterTests.Performance" = "Performances";
 "TestResults.Overview.FilterTests.InstantMessaging" = "Messagerie instantanée";
 "TestResults.Overview.FilterTests.Circumvention" = "Contournement";
+"TestResults.Overview.FilterTests.Experimental" = "Expérimental";
 "TestResults.Overview.NoTestsHaveBeenRun" = "Aucun test n’a encore été effectué. Essayez d’en lancer un !";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ bloqué";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ bloqués";
@@ -249,6 +252,7 @@
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ bloqué";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ bloqués";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "Valider";
+"TestResults.Details.Experimental.Hero.Title" = "This is an experimental test.";
 "Feed.Tab.Label" = "Flux";
 "Feed.Title" = "Flux";
 "Modal.OK" = "Valider";
@@ -310,6 +314,7 @@
 "Test.Middleboxes.Fullname" = "Boîtiers intermédiaires";
 "Test.Performance.Fullname" = "Performances";
 "Test.Circumvention.Fullname" = "Contournement";
+"Test.Experimental.Fullname" = "Expérimental";
 "Test.HTTPInvalidRequestLine.Fullname" = "Test HTTP Ligne de requête invalide";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "Test HTTP Manipulation champ d’en-tête";
 "Test.WebConnectivity.Fullname" = "Test de connectivité Web";
@@ -355,6 +360,13 @@
 "Settings.DarkMode.Label" = "Mode sombre";
 "Settings.Advanced.DebugLogs" = "Journaux de débogage";
 "Settings.Advanced.UseDomainFronting" = "Toujours utiliser un domaine-écran";
+"Settings.Proxy.Label" = "OONI backend proxy";
+"Settings.Proxy.Enabled" = "Mandataire";
+"Settings.Proxy.None" = "Aucune";
+"Settings.Proxy.Psiphon" = "Psiphon";
+"Settings.Proxy.Custom" = "Custom Proxy";
+"Settings.Proxy.Custom.Value" = "Custom Proxy URL";
+"Settings.Proxy.Footer" = "Are you unable to use OONI Probe? Try enabling Psiphon (https://psiphon.ca/) to circumvent potential OONI Probe blocking. Alternatively, you can use a custom proxy.";
 "Settings.Websites.MaxRuntimeEnabled" = "Limiter la durée du test";
 "Settings.Websites.MaxRuntime" = "Durée du test";
 "Settings.Websites.Categories.Label" = "Catégories de sites Web à tester";

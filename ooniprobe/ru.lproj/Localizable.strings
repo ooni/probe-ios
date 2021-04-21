@@ -60,6 +60,8 @@
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Check whether [WhatsApp](https://ooni.org/nettest/whatsapp/), [Facebook Messenger](https://ooni.org/nettest/facebook-messenger/), [Telegram](https://ooni.org/nettest/telegram/), and [Signal](https://ooni.org/nettest/signal) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.io/world/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "Протестируйте блокировку инструментов обхода цензуры";
 "Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) or [RiseupVPN](https://ooni.io/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Card.Description" = "Run new experimental tests";
+"Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Гбит/с";
 "TestResults.Mbps" = "Мбит/с";
 "TestResults.Kbps" = "кбит/с";
@@ -78,6 +80,7 @@
 "TestResults.Overview.FilterTests.Performance" = "Производительность";
 "TestResults.Overview.FilterTests.InstantMessaging" = "Мессенджеры";
 "TestResults.Overview.FilterTests.Circumvention" = "Обход блокировки Tor";
+"TestResults.Overview.FilterTests.Experimental" = "Experimental";
 "TestResults.Overview.NoTestsHaveBeenRun" = "Тесты еще не проводились. Попробуйте!";
 "TestResults.Overview.Websites.Blocked.Singular" = "Заблокировано: %@";
 "TestResults.Overview.Websites.Blocked.Plural" = "Заблокировано: %@";
@@ -249,6 +252,7 @@
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "Заблокировано: %@";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "Заблокировано: %@";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "OK";
+"TestResults.Details.Experimental.Hero.Title" = "This is an experimental test.";
 "Feed.Tab.Label" = "Лента";
 "Feed.Title" = "Лента";
 "Modal.OK" = "OK";
@@ -310,6 +314,7 @@
 "Test.Middleboxes.Fullname" = "Middleboxes";
 "Test.Performance.Fullname" = "Производительность";
 "Test.Circumvention.Fullname" = "Обход блокировки Tor";
+"Test.Experimental.Fullname" = "Experimental";
 "Test.HTTPInvalidRequestLine.Fullname" = "Тест HTTP Invalid Request Line";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "Тест HTTP Header Field Manipulation";
 "Test.WebConnectivity.Fullname" = "Тест веб-соединений";
@@ -355,6 +360,13 @@
 "Settings.DarkMode.Label" = "Dark Mode";
 "Settings.Advanced.DebugLogs" = "Журналы отладки";
 "Settings.Advanced.UseDomainFronting" = "Всегда использовать прикрытие доменом";
+"Settings.Proxy.Label" = "OONI backend proxy";
+"Settings.Proxy.Enabled" = "Прокси";
+"Settings.Proxy.None" = "Нет";
+"Settings.Proxy.Psiphon" = "Psiphon";
+"Settings.Proxy.Custom" = "Custom Proxy";
+"Settings.Proxy.Custom.Value" = "Custom Proxy URL";
+"Settings.Proxy.Footer" = "Are you unable to use OONI Probe? Try enabling Psiphon (https://psiphon.ca/) to circumvent potential OONI Probe blocking. Alternatively, you can use a custom proxy.";
 "Settings.Websites.MaxRuntimeEnabled" = "Ограничить продолжительность теста";
 "Settings.Websites.MaxRuntime" = "Продолжительность теста";
 "Settings.Websites.Categories.Label" = "Категории сайтов для тестирования";
