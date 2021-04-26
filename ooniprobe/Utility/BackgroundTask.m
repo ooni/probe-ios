@@ -53,6 +53,13 @@
 }
 
 + (void)checkIn {
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate date];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = @"Start CheckIn";
+    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+
     NSString *testName = @"web_connectivity";
     NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
     AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
@@ -61,6 +68,20 @@
     [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
 
     [OONIApi checkIn:^(NSArray *urls) {
+        NSMutableArray *urlsArray = [[NSMutableArray alloc] init];
+        for (OONIURLInfo* current in urls){
+            //List for database
+            Url *url = [Url
+                        checkExistingUrl:current.url
+                        categoryCode:current.category_code
+                        countryCode:current.country_code];
+            //List for mk
+            if (url != nil)
+                [urlsArray addObject:url.url];
+        }
+        if ([urls count] == 0){
+            return;
+        }
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
         [(WebConnectivity*)test setDefaultMaxRuntime];
