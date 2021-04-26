@@ -229,17 +229,17 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <outlet property="nextButton" destination="ESv-lT-nrn" id="MEn-w4-M62"/>
                         <outlet property="textLabel" destination="d3f-qb-Qml" id="vAE-1d-vpW"/>
                         <outlet property="titleLabel" destination="hvO-dw-gFn" id="eS9-tX-zJT"/>
-                        <segue destination="7O5-JB-Uds" kind="show" identifier="toOnboarding3" id="RRj-ie-chj"/>
+                        <segue destination="7O5-JB-Uds" kind="show" identifier="toOnboardingCrash" id="RRj-ie-chj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjF-ji-WHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2531.8840579710145" y="-1153.5326086956522"/>
         </scene>
-        <!--Onboarding3 View Controller-->
+        <!--Onboarding Crash View Controller-->
         <scene sceneID="Gyd-tp-5Oz">
             <objects>
-                <viewController storyboardIdentifier="onboarding_4" id="7O5-JB-Uds" customClass="Onboarding3ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboarding_crash" id="7O5-JB-Uds" customClass="OnboardingCrashViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2n7-hW-eQd"/>
                         <viewControllerLayoutGuide type="bottom" id="d3K-eH-7xm"/>
@@ -248,25 +248,19 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ldx-vN-fF3">
-                                <rect key="frame" x="20" y="274" width="374" height="39.666666666666686"/>
-                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Title"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crash Reporting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ldx-vN-fF3">
+                                <rect key="frame" x="20" y="274" width="374" height="41"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.Crash.Title"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hx8-bq-2PZ" customClass="RHMarkdownLabel">
-                                <rect key="frame" x="20" y="322.66666666666669" width="374" height="237.66666666666669"/>
-                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Paragraph"/>
-                                <string key="text">We will collect and publish:
+                                <rect key="frame" x="20" y="324" width="374" height="122.66666666666669"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.Crash.Paragraph"/>
+                                <string key="text">To improve OONI Probe we would like to collect anonymous crash reports when the app does not work properly.
 
-• Country code (e.g. IT for Italy)
-
-• Network information (including Autonomous System Number)
-
-• Time &amp; date of testing
-
-We do our best not to publish your IP address or any other potentially personally-identifiable information.</string>
+Would you like yo opt-in to submitting crash reports to the OONI development team?</string>
                                 <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -279,34 +273,33 @@ We do our best not to publish your IP address or any other potentially personall
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB1-sc-28S">
-                                <rect key="frame" x="102" y="603" width="210" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Button.Go"/>
+                                <rect key="frame" x="20" y="603" width="177" height="56"/>
+                                <color key="backgroundColor" red="0.0" green="0.10196078431372549" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.Crash.Button.No"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="hKr-9j-wZI"/>
-                                    <constraint firstAttribute="width" constant="210" id="iTV-dJ-yZs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="19"/>
-                                <state key="normal" title="LET'S GO">
-                                    <color key="titleColor" red="0.0" green="0.10196078431372549" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="configure:" destination="7O5-JB-Uds" eventType="touchUpInside" id="wBd-kD-2Xv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIj-ks-Nks">
-                                <rect key="frame" x="102" y="667" width="210" height="32"/>
-                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Button.Change"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="210" id="Tfy-hp-9qb"/>
-                                    <constraint firstAttribute="height" constant="32" id="hOd-vn-osz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
-                                <state key="normal" title="Change Defaults">
+                                <state key="normal" title="NO">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="configure:" destination="7O5-JB-Uds" eventType="touchUpInside" id="qr7-30-krh"/>
+                                    <action selector="refuseCrash" destination="7O5-JB-Uds" eventType="touchUpInside" id="uVo-uw-lxR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK7-oO-KcE">
+                                <rect key="frame" x="217" y="603" width="177" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.Crash.Button.Yes"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="JTH-zA-4DD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="19"/>
+                                <state key="normal" title="YES">
+                                    <color key="titleColor" red="0.0" green="0.1019607843" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="acceptCrash" destination="7O5-JB-Uds" eventType="touchUpInside" id="kos-V1-bpx"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dots_3" translatesAutoresizingMaskIntoConstraints="NO" id="JJU-ZD-DXx">
@@ -318,20 +311,23 @@ We do our best not to publish your IP address or any other potentially personall
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tr5-G1-oNN"/>
-                        <color key="backgroundColor" red="0.0" green="0.10196078431372549" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.10196078431372549" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2pt-ON-TYp" firstAttribute="top" secondItem="DEh-Zm-8aG" secondAttribute="top" id="5LH-fB-fYY"/>
                             <constraint firstItem="hx8-bq-2PZ" firstAttribute="top" secondItem="ldx-vN-fF3" secondAttribute="bottom" constant="9" id="6m9-JR-z82"/>
                             <constraint firstItem="d3K-eH-7xm" firstAttribute="top" secondItem="JJU-ZD-DXx" secondAttribute="bottom" constant="8" id="D3g-9Z-MI5"/>
-                            <constraint firstItem="eIj-ks-Nks" firstAttribute="top" secondItem="sB1-sc-28S" secondAttribute="bottom" constant="8" id="NVx-PR-Ygd"/>
-                            <constraint firstItem="eIj-ks-Nks" firstAttribute="centerX" secondItem="DEh-Zm-8aG" secondAttribute="centerX" id="Qee-LR-o3k"/>
+                            <constraint firstItem="FK7-oO-KcE" firstAttribute="leading" secondItem="sB1-sc-28S" secondAttribute="trailing" constant="20" id="H6s-ak-RIc"/>
+                            <constraint firstItem="FK7-oO-KcE" firstAttribute="width" secondItem="sB1-sc-28S" secondAttribute="width" id="KXu-5j-ldc"/>
+                            <constraint firstItem="FK7-oO-KcE" firstAttribute="trailing" secondItem="hx8-bq-2PZ" secondAttribute="trailing" id="MS6-6f-E0q"/>
+                            <constraint firstItem="sB1-sc-28S" firstAttribute="leading" secondItem="tr5-G1-oNN" secondAttribute="leading" constant="20" id="RIU-pV-4er"/>
                             <constraint firstItem="JJU-ZD-DXx" firstAttribute="centerX" secondItem="DEh-Zm-8aG" secondAttribute="centerX" id="SnE-kd-gHT"/>
                             <constraint firstItem="ldx-vN-fF3" firstAttribute="trailing" secondItem="DEh-Zm-8aG" secondAttribute="trailingMargin" id="Tew-rV-IMz"/>
                             <constraint firstItem="hx8-bq-2PZ" firstAttribute="trailing" secondItem="DEh-Zm-8aG" secondAttribute="trailingMargin" id="bLX-EI-xQm"/>
+                            <constraint firstItem="FK7-oO-KcE" firstAttribute="baseline" secondItem="sB1-sc-28S" secondAttribute="baseline" id="dFF-Vw-Uch"/>
                             <constraint firstItem="ldx-vN-fF3" firstAttribute="leading" secondItem="DEh-Zm-8aG" secondAttribute="leadingMargin" id="gfX-d0-e8v"/>
                             <constraint firstItem="sB1-sc-28S" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hx8-bq-2PZ" secondAttribute="bottom" constant="8" id="goA-hP-3zM"/>
+                            <constraint firstItem="tr5-G1-oNN" firstAttribute="trailing" secondItem="FK7-oO-KcE" secondAttribute="trailing" constant="20" id="hZ3-ai-6jp"/>
                             <constraint firstItem="hx8-bq-2PZ" firstAttribute="leading" secondItem="DEh-Zm-8aG" secondAttribute="leadingMargin" id="sIT-eQ-iZX"/>
-                            <constraint firstItem="sB1-sc-28S" firstAttribute="centerX" secondItem="DEh-Zm-8aG" secondAttribute="centerX" id="ssi-4v-vCo"/>
                             <constraint firstItem="2pt-ON-TYp" firstAttribute="trailing" secondItem="tr5-G1-oNN" secondAttribute="trailing" id="ub7-TB-zjb"/>
                             <constraint firstItem="2pt-ON-TYp" firstAttribute="leading" secondItem="tr5-G1-oNN" secondAttribute="leading" id="vvu-im-kDf"/>
                             <constraint firstItem="ldx-vN-fF3" firstAttribute="top" secondItem="2pt-ON-TYp" secondAttribute="bottom" constant="8" id="xKh-mh-bIs"/>
@@ -340,11 +336,12 @@ We do our best not to publish your IP address or any other potentially personall
                     </view>
                     <navigationItem key="navigationItem" id="dls-6Z-lfV"/>
                     <connections>
-                        <outlet property="changeButton" destination="eIj-ks-Nks" id="rcL-rg-Oul"/>
-                        <outlet property="goButton" destination="sB1-sc-28S" id="u3V-Gc-nLM"/>
-                        <outlet property="textLabel" destination="hx8-bq-2PZ" id="VPr-oC-708"/>
-                        <outlet property="titleLabel" destination="ldx-vN-fF3" id="eWj-pS-Yu4"/>
+                        <outlet property="noButton" destination="sB1-sc-28S" id="jdF-CY-t2E"/>
+                        <outlet property="textLabel" destination="hx8-bq-2PZ" id="5jP-81-QcI"/>
+                        <outlet property="titleLabel" destination="ldx-vN-fF3" id="C3r-IG-fJ7"/>
                         <outlet property="view" destination="DEh-Zm-8aG" id="3mS-5v-6KL"/>
+                        <outlet property="yesButton" destination="FK7-oO-KcE" id="SsX-iW-hom"/>
+                        <segue destination="Sng-qo-YBJ" kind="show" identifier="toOnboarding3" id="ewG-JG-nSN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="job-ql-sgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -625,12 +622,122 @@ Anyone monitoring your internet activity may be able to see that you are running
             </objects>
             <point key="canvasLocation" x="3458" y="-338"/>
         </scene>
+        <!--Onboarding3 View Controller-->
+        <scene sceneID="Cbl-n2-zCJ">
+            <objects>
+                <viewController storyboardIdentifier="onboarding_4" id="Sng-qo-YBJ" customClass="Onboarding3ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aBG-DH-aSF"/>
+                        <viewControllerLayoutGuide type="bottom" id="END-Gg-2jz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bdO-J4-jBr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Loq-bf-4xA">
+                                <rect key="frame" x="20" y="274" width="374" height="41"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Title"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zkv-zi-fQp" customClass="RHMarkdownLabel">
+                                <rect key="frame" x="20" y="324" width="374" height="245"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Paragraph"/>
+                                <string key="text">We will collect and publish:
+
+• Country code (e.g. IT for Italy)
+
+• Network information (including Autonomous System Number)
+
+• Time &amp; date of testing
+
+We do our best not to publish your IP address or any other potentially personally-identifiable information.</string>
+                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_3" translatesAutoresizingMaskIntoConstraints="NO" id="JZM-Qp-OMd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="266"/>
+                                <color key="backgroundColor" red="0.0" green="0.16862745100000001" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JZM-Qp-OMd" secondAttribute="height" multiplier="207:133" id="7fT-0d-oyG"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpW-ba-x4A">
+                                <rect key="frame" x="102" y="603" width="210" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Button.Go"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="r1g-F8-faO"/>
+                                    <constraint firstAttribute="height" constant="56" id="xoi-me-ONK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="19"/>
+                                <state key="normal" title="LET'S GO">
+                                    <color key="titleColor" red="0.0" green="0.1019607843" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="configure:" destination="Sng-qo-YBJ" eventType="touchUpInside" id="zM4-Ai-h0t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bi0-Xh-WJi">
+                                <rect key="frame" x="102" y="667" width="210" height="32"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.DefaultSettings.Button.Change"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="LDA-UK-X4M"/>
+                                    <constraint firstAttribute="height" constant="32" id="Tf7-p1-7Sm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
+                                <state key="normal" title="Change Defaults">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="configure:" destination="Sng-qo-YBJ" eventType="touchUpInside" id="fP3-bN-EVC"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dots_3" translatesAutoresizingMaskIntoConstraints="NO" id="w7u-JY-RgX">
+                                <rect key="frame" x="140" y="712" width="134" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="NLi-O3-NhN"/>
+                                    <constraint firstAttribute="width" constant="134" id="WHh-R3-xOD"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2BI-eH-uAO"/>
+                        <color key="backgroundColor" red="0.0" green="0.1019607843" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zkv-zi-fQp" firstAttribute="leading" secondItem="bdO-J4-jBr" secondAttribute="leadingMargin" id="0t8-eM-0NR"/>
+                            <constraint firstItem="Loq-bf-4xA" firstAttribute="trailing" secondItem="bdO-J4-jBr" secondAttribute="trailingMargin" id="2YZ-Zo-VM1"/>
+                            <constraint firstItem="END-Gg-2jz" firstAttribute="top" secondItem="rpW-ba-x4A" secondAttribute="bottom" constant="77" id="4EL-sc-37V"/>
+                            <constraint firstItem="rpW-ba-x4A" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zkv-zi-fQp" secondAttribute="bottom" constant="8" id="5a8-UP-E2b"/>
+                            <constraint firstItem="zkv-zi-fQp" firstAttribute="top" secondItem="Loq-bf-4xA" secondAttribute="bottom" constant="9" id="94w-8H-Err"/>
+                            <constraint firstItem="rpW-ba-x4A" firstAttribute="centerX" secondItem="bdO-J4-jBr" secondAttribute="centerX" id="9ve-S9-oac"/>
+                            <constraint firstItem="Loq-bf-4xA" firstAttribute="top" secondItem="JZM-Qp-OMd" secondAttribute="bottom" constant="8" id="Fod-ft-fyS"/>
+                            <constraint firstItem="Loq-bf-4xA" firstAttribute="leading" secondItem="bdO-J4-jBr" secondAttribute="leadingMargin" id="V8y-7I-kQf"/>
+                            <constraint firstItem="zkv-zi-fQp" firstAttribute="trailing" secondItem="bdO-J4-jBr" secondAttribute="trailingMargin" id="dEP-aq-rFA"/>
+                            <constraint firstItem="w7u-JY-RgX" firstAttribute="centerX" secondItem="bdO-J4-jBr" secondAttribute="centerX" id="hF9-eZ-hRl"/>
+                            <constraint firstItem="JZM-Qp-OMd" firstAttribute="top" secondItem="bdO-J4-jBr" secondAttribute="top" id="hkD-0h-i7M"/>
+                            <constraint firstItem="JZM-Qp-OMd" firstAttribute="trailing" secondItem="2BI-eH-uAO" secondAttribute="trailing" id="qls-hR-kR6"/>
+                            <constraint firstItem="bi0-Xh-WJi" firstAttribute="top" secondItem="rpW-ba-x4A" secondAttribute="bottom" constant="8" id="rPF-IF-ac8"/>
+                            <constraint firstItem="END-Gg-2jz" firstAttribute="top" secondItem="w7u-JY-RgX" secondAttribute="bottom" constant="8" id="rvE-ua-bNZ"/>
+                            <constraint firstItem="bi0-Xh-WJi" firstAttribute="centerX" secondItem="bdO-J4-jBr" secondAttribute="centerX" id="ryK-zd-P0a"/>
+                            <constraint firstItem="JZM-Qp-OMd" firstAttribute="leading" secondItem="2BI-eH-uAO" secondAttribute="leading" id="tBV-As-rK5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CDa-j9-7km"/>
+                    <connections>
+                        <outlet property="changeButton" destination="bi0-Xh-WJi" id="Q1Z-io-H81"/>
+                        <outlet property="goButton" destination="rpW-ba-x4A" id="34V-2B-4Fi"/>
+                        <outlet property="textLabel" destination="zkv-zi-fQp" id="f7V-9v-Sep"/>
+                        <outlet property="titleLabel" destination="Loq-bf-4xA" id="Um2-cm-PYF"/>
+                        <outlet property="view" destination="bdO-J4-jBr" id="2r1-OX-jzD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBf-ft-DYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4252" y="-1154"/>
+        </scene>
     </scenes>
-    <designables>
-        <designable name="hx8-bq-2PZ">
-            <size key="intrinsicContentSize" width="794.33333333333337" height="178.33333333333334"/>
-        </designable>
-    </designables>
     <resources>
         <image name="dots_1" width="135" height="16"/>
         <image name="dots_2" width="135" height="16"/>
@@ -639,10 +746,10 @@ Anyone monitoring your internet activity may be able to see that you are running
         <image name="onboarding_2" width="360" height="242"/>
         <image name="onboarding_3" width="361" height="232"/>
         <namedColor name="color_green7">
-            <color red="0.18400000035762787" green="0.62000000476837158" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.21568627450980393" green="0.69803921568627447" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="color_red7">
-            <color red="0.94099998474121094" green="0.24300000071525574" blue="0.24300000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94117647058823528" green="0.24313725490196078" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
