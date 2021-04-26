@@ -21,6 +21,10 @@
 "Onboarding.PopQuiz.2.Question" = "OONI Probe uygulamasını her çalıştırdığımda topladığım ağ verileri herkese açık olarak yayınlanır.";
 "Onboarding.PopQuiz.2.Wrong.Title" = "Uyarı";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "İnternet sansürü şeffaflığını sağlamak için tüm OONI Probe kullanıcılarının ağ verileri otomatik olarak yayınlanır (ayarlardan devre dışı bırakılmadıkça).";
+"Onboarding.Crash.Title" = "Crash Reporting";
+"Onboarding.Crash.Paragraph" = "To improve OONI Probe we would like to collect anonymous crash reports when the app does not work properly.\n\nWould you like yo opt-in to submitting crash reports to the OONI development team?";
+"Onboarding.Crash.Button.Yes" = "Evet";
+"Onboarding.Crash.Button.No" = "Hayır";
 "Onboarding.DefaultSettings.Title" = "Varsayılan Ayarlar";
 "Onboarding.DefaultSettings.Header" = "Toplanan ve yayınlanan veriler şunlardır:";
 "Onboarding.DefaultSettings.Bullet.1" = "Ülke kodu (örn: Türkiye için TR)";
@@ -60,8 +64,8 @@
 "Dashboard.InstantMessaging.Overview.Paragraph" = "[WhatsApp](https://ooni.org/nettest/whatsapp/), [Facebook Messenger](https://ooni.org/nettest/facebook-messenger/), [Telegram](https://ooni.org/nettest/telegram/) ve [Signal](https://ooni.org/nettest/signal) uygulamalarının engellenip engellenmediğini kontrol edebilirsiniz.\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.io/world/) ve [OONI API](https://api.ooni.io/) üzerinde yayınlanır.";
 "Dashboard.Circumvention.Card.Description" = "Sansürü aşma araçları engellemesini sınayın";
 "Dashboard.Circumvention.Overview.Paragraph" = "[Psiphon](https://ooni.io/nettest/psiphon/) ve [Tor](https://ooni.io/nettest/tor/) ya da [RiseupVPN](https://ooni.io/nettest/riseupvpn/) engelleniyor mu öğrenin.\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.org/) ve [OONI API](https://api.ooni.io/) sayfasında yayınlanır.";
-"Dashboard.Experimental.Card.Description" = "Run new experimental tests";
-"Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Card.Description" = "Yeni deneysel sınamaları yürüt";
+"Dashboard.Experimental.Overview.Paragraph" = "OONI ekibi tarafından geliştirilmiş yeni deneysel sınamaları yürütün:\n%@\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.org/) ve [OONI API](https://api.ooni.io/) üzerinde yayınlanacak.";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -80,7 +84,7 @@
 "TestResults.Overview.FilterTests.Performance" = "Performans";
 "TestResults.Overview.FilterTests.InstantMessaging" = "Anlık İleti";
 "TestResults.Overview.FilterTests.Circumvention" = "Sansür Atlatma";
-"TestResults.Overview.FilterTests.Experimental" = "Experimental";
+"TestResults.Overview.FilterTests.Experimental" = "Deneysel";
 "TestResults.Overview.NoTestsHaveBeenRun" = "Henüz bir sınama yapılmamış. Birini deneyin!";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ engellenmiş";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ engellenmiş";
@@ -252,7 +256,7 @@
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ engellenmiş";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ engellenmiş";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "Tamam";
-"TestResults.Details.Experimental.Hero.Title" = "This is an experimental test.";
+"TestResults.Details.Experimental.Hero.Title" = "Bu deneysel bir sınamadır.";
 "Feed.Tab.Label" = "Akış";
 "Feed.Title" = "Akış";
 "Modal.OK" = "Tamam";
@@ -314,7 +318,7 @@
 "Test.Middleboxes.Fullname" = "Ara Kutular";
 "Test.Performance.Fullname" = "Performans";
 "Test.Circumvention.Fullname" = "Sansür Atlatma";
-"Test.Experimental.Fullname" = "Experimental";
+"Test.Experimental.Fullname" = "Deneysel";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP Geçersiz İstek Hattı Sınaması";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP Üst Bilgi Müdahalesi Sınaması";
 "Test.WebConnectivity.Fullname" = "Web Bağlantı Sınaması";
@@ -360,13 +364,13 @@
 "Settings.DarkMode.Label" = "Karanlık Kip";
 "Settings.Advanced.DebugLogs" = "Hata ayıklama günlükleri";
 "Settings.Advanced.UseDomainFronting" = "Araya her zaman alan adı eklensin (Domain Fronting)";
-"Settings.Proxy.Label" = "OONI backend proxy";
+"Settings.Proxy.Label" = "OONI yönetim bölümü vekil sunucusu";
 "Settings.Proxy.Enabled" = "Vekil sunucu";
 "Settings.Proxy.None" = "Hiçbiri";
 "Settings.Proxy.Psiphon" = "Psiphon";
-"Settings.Proxy.Custom" = "Custom Proxy";
-"Settings.Proxy.Custom.Value" = "Custom Proxy URL";
-"Settings.Proxy.Footer" = "Are you unable to use OONI Probe? Try enabling Psiphon (https://psiphon.ca/) to circumvent potential OONI Probe blocking. Alternatively, you can use a custom proxy.";
+"Settings.Proxy.Custom" = "Özel Vekil Sunucu";
+"Settings.Proxy.Custom.Value" = "Özel Vekil Sunucu Adresi";
+"Settings.Proxy.Footer" = "OONI Probe uygulamasını kullanamıyor musunuz? Olası OONI Probe engellemesini aşmak için Psiphon (https://psiphon.ca/) kullanmayı deneyin. Alternatif olarak özel bir vekil sunucu kullanabilirsiniz.";
 "Settings.Websites.MaxRuntimeEnabled" = "Sınama süresi sınırlansın";
 "Settings.Websites.MaxRuntime" = "Sınama süresi";
 "Settings.Websites.Categories.Label" = "Sınanacak web sitesi kategorileri";
