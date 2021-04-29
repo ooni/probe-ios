@@ -110,7 +110,6 @@
     else if ([testName isEqualToString:@"circumvention"]){
         return [UIColor colorNamed:@"color_pink5"];
     }
-    //TODO-EXP needed?
     else if ([testName isEqualToString:@"experimental"]){
         return [UIColor colorNamed:@"color_gray7"];
     }
@@ -133,7 +132,6 @@
     else if ([testName isEqualToString:@"circumvention"]){
         return [UIColor colorNamed:@"color_pink4"];
     }
-    //TODO-EXP needed?
     else if ([testName isEqualToString:@"experimental"]){
         return [UIColor colorNamed:@"color_gray6"];
     }

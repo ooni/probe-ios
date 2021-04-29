@@ -57,7 +57,8 @@
     else if ([testName isEqualToString:@"circumvention"])
         return NSLocalizedString(@"Dashboard.Circumvention.Overview.Paragraph", nil);
     else if ([testName isEqualToString:@"experimental"])
-        return NSLocalizedString(@"Dashboard.Experimental.Overview.Paragraph", nil);
+        return NSLocalizedFormatString(@"Dashboard.Experimental.Overview.Paragraph",
+                                       @"\n\n* [stun-reachability](https://github.com/ooni/spec/blob/master/nettests/ts-025-stun-reachability.md)");
     return @"";
 }
 
