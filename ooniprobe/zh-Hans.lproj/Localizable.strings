@@ -21,6 +21,10 @@
 "Onboarding.PopQuiz.2.Question" = "每当我运行 OONI Probe，我收集的网络数据都将会被自动发布。";
 "Onboarding.PopQuiz.2.Wrong.Title" = "警告";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "为提升网络审查的透明度，所有 OONI Probe 用户的网络数据都将自动发布（除非在设置中选择退出）。";
+"Onboarding.Crash.Title" = "Crash Reporting";
+"Onboarding.Crash.Paragraph" = "To improve OONI Probe we would like to collect anonymous crash reports when the app does not work properly.\n\nWould you like yo opt-in to submitting crash reports to the OONI development team?";
+"Onboarding.Crash.Button.Yes" = "是";
+"Onboarding.Crash.Button.No" = "否";
 "Onboarding.DefaultSettings.Title" = "默认设置";
 "Onboarding.DefaultSettings.Header" = "我们收集并发布：";
 "Onboarding.DefaultSettings.Bullet.1" = "国家代码（例如，IT 指代意大利）";
@@ -60,6 +64,8 @@
 "Dashboard.InstantMessaging.Overview.Paragraph" = "Check whether [WhatsApp](https://ooni.org/nettest/whatsapp/), [Facebook Messenger](https://ooni.org/nettest/facebook-messenger/), [Telegram](https://ooni.org/nettest/telegram/), and [Signal](https://ooni.org/nettest/signal) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.io/world/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Circumvention.Card.Description" = "测试翻墙工具屏蔽状况";
 "Dashboard.Circumvention.Overview.Paragraph" = "测试[赛风](https://ooni.io/nettest/psiphon/)、[Tor](https://ooni.io/nettest/tor/)和[RiseupVPN](https://ooni.io/nettest/riseupvpn/)是否被屏蔽。\n\n你的测试结果将会在[OONI Explorer](https://explorer.ooni.org/) 和[OONI API](https://api.ooni.io/)上发布。";
+"Dashboard.Experimental.Card.Description" = "Run new experimental tests";
+"Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -78,6 +84,7 @@
 "TestResults.Overview.FilterTests.Performance" = "性能";
 "TestResults.Overview.FilterTests.InstantMessaging" = "即时通讯";
 "TestResults.Overview.FilterTests.Circumvention" = "翻墙";
+"TestResults.Overview.FilterTests.Experimental" = "试验性";
 "TestResults.Overview.NoTestsHaveBeenRun" = "还没有进行过测试。试着运行一个吧！";
 "TestResults.Overview.Websites.Blocked.Singular" = "%@ 个被屏蔽";
 "TestResults.Overview.Websites.Blocked.Plural" = "%@ 个被屏蔽";
@@ -249,6 +256,7 @@
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Singular" = "%@ 个被屏蔽";
 "TestResults.Overview.Circumvention.RiseupVPN.Blocked.Plural" = "%@ 个被屏蔽";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Okay" = "正常";
+"TestResults.Details.Experimental.Hero.Title" = "This is an experimental test.";
 "Feed.Tab.Label" = "Feed";
 "Feed.Title" = "Feed";
 "Modal.OK" = "确定";
@@ -310,6 +318,7 @@
 "Test.Middleboxes.Fullname" = "Middlebox";
 "Test.Performance.Fullname" = "性能";
 "Test.Circumvention.Fullname" = "翻墙";
+"Test.Experimental.Fullname" = "试验性";
 "Test.HTTPInvalidRequestLine.Fullname" = "HTTP Invalid Request Line 测试";
 "Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP Header Field Manipulation 测试";
 "Test.WebConnectivity.Fullname" = "Web Connectivity 测试";
@@ -355,6 +364,13 @@
 "Settings.DarkMode.Label" = "黑暗模式";
 "Settings.Advanced.DebugLogs" = "调试日志";
 "Settings.Advanced.UseDomainFronting" = "始终使用 domain fronting";
+"Settings.Proxy.Label" = "OONI backend proxy";
+"Settings.Proxy.Enabled" = "代理";
+"Settings.Proxy.None" = "无";
+"Settings.Proxy.Psiphon" = "Psiphon";
+"Settings.Proxy.Custom" = "Custom Proxy";
+"Settings.Proxy.Custom.Value" = "Custom Proxy URL";
+"Settings.Proxy.Footer" = "Are you unable to use OONI Probe? Try enabling Psiphon (https://psiphon.ca/) to circumvent potential OONI Probe blocking. Alternatively, you can use a custom proxy.";
 "Settings.Websites.MaxRuntimeEnabled" = "限制测试持续时间";
 "Settings.Websites.MaxRuntime" = "测试用时";
 "Settings.Websites.Categories.Label" = "要测试的网站类别";
