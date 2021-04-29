@@ -13,33 +13,6 @@
     return [[PEMKTask alloc] initWithTask:OonimkallStartTask(settings.serialization, error)];
 }
 
-/** resolveProbeCC returns the probeCC. */
-+ (NSString*) resolveProbeCCWithSoftwareName:(NSString*)softwareName
-                             softwareVersion:(NSString*)softwareVersion
-                                     timeout:(long)timeout
-                                       error:(NSError **)userError {
-    NSError *error;
-    PESession* session = [[PESession alloc] initWithConfig:
-                          [Engine getDefaultSessionConfigWithSoftwareName:softwareName
-                                                          softwareVersion:softwareVersion
-                                                                   logger:[LoggerNull new]]
-                                                                    error:&error];
-    if (error != nil) {
-        if (userError != nil) *userError = error;
-        return nil;
-    }
-    // Updating resources with no timeout because we don't know for sure how much
-    // it will take to download them and choosing a timeout may prevent the operation
-    // to ever complete. (Ideally the user should be able to interrupt the process
-    // and there should be no timeout here.)
-    [session maybeUpdateResources:[session newContext] error:&error];
-    if (error != nil) {
-        if (userError != nil) *userError = error;
-        return nil;
-    }
-    return [session geolocate:[session newContextWithTimeout:timeout] error:&error].country;
-}
-
 /** newSession returns a new OONISession instance. */
 + (PESession*) newSession:(OONISessionConfig*)config error:(NSError **)error {
     return [[PESession alloc] initWithConfig:config error:error];
