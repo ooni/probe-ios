@@ -6,7 +6,7 @@
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
-    return @[@"notifications", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"notifications", @"test_options", @"privacy", @"advanced", @"ooni_backend_proxy", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
