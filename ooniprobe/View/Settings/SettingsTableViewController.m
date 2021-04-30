@@ -128,6 +128,14 @@
         UITextField *textField = [self createTextField:@"string" :value];
         cell.accessoryView = textField;
     }
+    else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"checkmark"]){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
+        cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        else
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"button"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];

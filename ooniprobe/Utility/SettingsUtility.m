@@ -21,6 +21,9 @@
         //TODO DOMAIN FRONTING @"use_domain_fronting"
         return @[@"debug_logs", @"storage_usage"];
     }
+    else if ([categoryName isEqualToString:@"ooni_backend_proxy"]) {
+        return @[@"proxy_no", @"proxy_psiphon", @"proxy_custom"];
+    }
     else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];
     }
@@ -37,6 +40,8 @@
         return @"int";
     if ([setting isEqualToString:@"storage_usage"])
         return @"button";
+    else if ([setting isEqualToString:@"proxy_no"] || [setting isEqualToString:@"proxy_psiphon"] || [setting isEqualToString:@"proxy_custom"])
+        return @"checkmark";
     return @"bool";
 }
 
