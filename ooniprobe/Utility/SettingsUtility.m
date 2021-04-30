@@ -22,7 +22,10 @@
         return @[@"debug_logs", @"storage_usage"];
     }
     else if ([categoryName isEqualToString:@"ooni_backend_proxy"]) {
-        return @[@"proxy_no", @"proxy_psiphon", @"proxy_custom"];
+        return @[@"proxy_none", @"proxy_psiphon", @"proxy_custom"];
+    }
+    else if ([categoryName isEqualToString:@"proxy_custom"]) {
+        return @[@"proxy_custom_hostname", @"proxy_custom_value", @"proxy_custom_protocol", @"proxy_custom_port", @"proxy_custom_password"];
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];
@@ -36,14 +39,25 @@
 + (NSString*)getTypeForSetting:(NSString*)setting{
     if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
         return @"segue";
-    else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"])
+    else if ([setting isEqualToString:@"monthly_mobile_allowance"] ||
+             [setting isEqualToString:@"monthly_wifi_allowance"] ||
+             [setting isEqualToString:@"max_runtime"] ||
+             [setting isEqualToString:@"proxy_custom_port"])
         return @"int";
     if ([setting isEqualToString:@"storage_usage"])
         return @"button";
-    else if ([setting isEqualToString:@"proxy_no"] || [setting isEqualToString:@"proxy_psiphon"] || [setting isEqualToString:@"proxy_custom"])
+    else if ([setting isEqualToString:@"proxy_none"] ||
+             [setting isEqualToString:@"proxy_psiphon"] ||
+             [setting isEqualToString:@"proxy_custom"])
         return @"checkmark";
+    else if ([setting isEqualToString:@"proxy_custom_hostname"] ||
+             [setting isEqualToString:@"proxy_custom_value"] ||
+             [setting isEqualToString:@"proxy_custom_protocol"] ||
+             [setting isEqualToString:@"proxy_custom_password"])
+        return @"string";
     return @"bool";
 }
+
 
 + (NSArray*)getAutomaticTestsEnabled{
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"automatic_tests"];

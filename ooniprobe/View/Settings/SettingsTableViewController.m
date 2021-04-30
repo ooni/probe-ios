@@ -33,8 +33,11 @@
 }
 
 -(void)reloadSettings {
-    if (category != nil)
+    if (category != nil){
         items = [SettingsUtility getSettingsForCategory:category];
+        if ([category isEqualToString:@"ooni_backend_proxy"])
+            itemsExt = [SettingsUtility getSettingsForCategory:@"proxy_custom"];
+    }
     else if (testSuite != nil)
         items = [SettingsUtility getSettingsForTest:testSuite.name :YES];
     //hide rows smooth
@@ -56,35 +59,52 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (category != nil &&
+        [category isEqualToString:@"ooni_backend_proxy"] &&
+        [[[NSUserDefaults standardUserDefaults] objectForKey:@"proxy_enabled"] isEqualToString:@"proxy_custom"])
+        return 2;
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 1)
+        return [itemsExt count];
     return [items count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    if (category != nil &&
+        [category isEqualToString:@"ooni_backend_proxy"] &&
+        section == 0)
+        return NSLocalizedString(@"Settings.Proxy.Enabled", nil);
     return @"";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-    if (category != nil){
-        if ([category isEqualToString:@"notifications"])
+    if (category != nil &&
+        [category isEqualToString:@"notifications"])
             return NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil);
-    }
     return nil;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if (category != nil &&
+        [category isEqualToString:@"ooni_backend_proxy"] &&
+        section == 0)
+        return UITableViewAutomaticDimension;
     return CGFLOAT_MIN;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    NSString *current = [items objectAtIndex:indexPath.row];
+    NSString *current;
+    if (indexPath.section == 1)
+        current = [itemsExt objectAtIndex:indexPath.row];
+    else
+        current = [items objectAtIndex:indexPath.row];
     if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"bool"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
@@ -132,9 +152,12 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:current] boolValue])         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        else
+        cell.accessoryView = nil;
+        NSString *proxy_value = [[NSUserDefaults standardUserDefaults] objectForKey:@"proxy_enabled"];
+        if ([proxy_value isEqualToString:current])
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        else
+            cell.accessoryType = UITableViewCellAccessoryNone;
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"button"]){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
@@ -201,6 +224,8 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     UITableViewCell *cell = (UITableViewCell *)textField.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    if (indexPath.section == 1)
+        return;
     NSString *current = [items objectAtIndex:indexPath.row];
     if ([current isEqualToString:@"max_runtime"]){
         if ([textField.text integerValue] < 10){
@@ -330,10 +355,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *current = [items objectAtIndex:indexPath.row];
+    if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"] ||
+        [[SettingsUtility getTypeForSetting:current] isEqualToString:@"string"]){
+        return;
+    }
     if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"segue"]){
         [self performSegueWithIdentifier:current sender:self];
     }
-    [self.view endEditing:YES];
+    if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"checkmark"]){
+        [[NSUserDefaults standardUserDefaults] setObject:current forKey:@"proxy_enabled"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.tableView reloadData];
+    }
+    //[self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
