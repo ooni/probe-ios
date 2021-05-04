@@ -72,6 +72,7 @@
 		ED76B20825B6F13D00899EE7 /* RiseupVPN.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76B20725B6F13D00899EE7 /* RiseupVPN.m */; };
 		ED76B21725B7067100899EE7 /* GatewayConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76B21625B7067100899EE7 /* GatewayConnection.m */; };
 		ED7873A02448874500F92DDE /* NavigationBarUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED78739F2448874500F92DDE /* NavigationBarUtility.m */; };
+		ED78DCE92636C7DA00A39560 /* OnboardingCrashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED78DCE82636C7DA00A39560 /* OnboardingCrashViewController.m */; };
 		ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */; };
 		ED81BB97223FA9FF000AFA01 /* TestResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED81BB96223FA9FF000AFA01 /* TestResultsViewController.m */; };
 		ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */ = {isa = PBXBuildFile; fileRef = ED86D74E227DAB02007D93FB /* OONIProbe.db */; };
@@ -316,6 +317,8 @@
 		ED76B21625B7067100899EE7 /* GatewayConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayConnection.m; sourceTree = "<group>"; };
 		ED78739E2448874500F92DDE /* NavigationBarUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarUtility.h; sourceTree = "<group>"; };
 		ED78739F2448874500F92DDE /* NavigationBarUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarUtility.m; sourceTree = "<group>"; };
+		ED78DCE72636C7DA00A39560 /* OnboardingCrashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnboardingCrashViewController.h; sourceTree = "<group>"; };
+		ED78DCE82636C7DA00A39560 /* OnboardingCrashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnboardingCrashViewController.m; sourceTree = "<group>"; };
 		ED81BB92223F84C9000AFA01 /* UploadFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadFooterViewController.h; sourceTree = "<group>"; };
 		ED81BB93223F84C9000AFA01 /* UploadFooterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadFooterViewController.m; sourceTree = "<group>"; };
 		ED81BB95223FA9FF000AFA01 /* TestResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestResultsViewController.h; path = ooniprobe/View/TestResults/TestResultsViewController.h; sourceTree = SOURCE_ROOT; };
@@ -977,6 +980,8 @@
 				EDDB0B711FFF6C8B00EFD9C8 /* Onboarding1ViewController.m */,
 				EDDB0B651FFF6C8B00EFD9C8 /* Onboarding2ViewController.h */,
 				EDDB0B6B1FFF6C8B00EFD9C8 /* Onboarding2ViewController.m */,
+				ED78DCE72636C7DA00A39560 /* OnboardingCrashViewController.h */,
+				ED78DCE82636C7DA00A39560 /* OnboardingCrashViewController.m */,
 				EDDB0B681FFF6C8B00EFD9C8 /* Onboarding3ViewController.h */,
 				EDDB0B6D1FFF6C8B00EFD9C8 /* Onboarding3ViewController.m */,
 				EDDB0B661FFF6C8B00EFD9C8 /* PopQuizViewController.h */,
@@ -1498,6 +1503,7 @@
 				ED4ACEE924C4542700421FB9 /* ThirdPartyServices.m in Sources */,
 				EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */,
 				ED9CCED4252B2CC6004F8420 /* LoggerNull.m in Sources */,
+				ED78DCE92636C7DA00A39560 /* OnboardingCrashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
