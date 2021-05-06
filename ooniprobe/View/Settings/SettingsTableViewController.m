@@ -83,9 +83,13 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-    if (category != nil &&
-        [category isEqualToString:@"notifications"])
+    if (category != nil){
+        if ([category isEqualToString:@"notifications"])
             return NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil);
+        if ([category isEqualToString:@"ooni_backend_proxy"] &&
+            section == 0)
+            return NSLocalizedString(@"Settings.Proxy.Footer", nil);
+    }
     return nil;
 }
 
