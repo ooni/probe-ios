@@ -12,26 +12,29 @@
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
     //TODO NEWS reenable @"notifications_news"
     if ([categoryName isEqualToString:@"notifications"]) {
-        return @[@"notifications_enabled"];
+        return @[@[@"notifications_enabled"]];
     }
     else if ([categoryName isEqualToString:@"privacy"]) {
-        return @[@"upload_results", @"send_crash"];
+        return @[@[@"upload_results", @"send_crash"]];
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
-        return @[@"debug_logs", @"storage_usage"];
+        return @[@[@"debug_logs", @"storage_usage"]];
     }
     else if ([categoryName isEqualToString:@"ooni_backend_proxy"]) {
-        return @[@"proxy_none", @"proxy_psiphon", @"proxy_custom"];
-    }
-    else if ([categoryName isEqualToString:@"proxy_custom"]) {
-        return @[@"proxy_custom_hostname", @"proxy_custom_value", @"proxy_custom_protocol", @"proxy_custom_port", @"proxy_custom_password"];
+        NSString *proxy_value = [[NSUserDefaults standardUserDefaults] objectForKey:@"proxy_enabled"];
+        //TODO make functions
+        if ([proxy_value isEqualToString:@"proxy_custom"])
+            return @[@[@"proxy_none", @"proxy_psiphon", @"proxy_custom"], @[@"HTTP", @"SOCKS5"], @[@"proxy_custom_hostname", @"proxy_custom_value", @"proxy_custom_port", @"proxy_custom_password"], @[@"proxy_psiphon_over_custom"]];
+        else
+            return @[@[@"proxy_none", @"proxy_psiphon", @"proxy_custom"]];
+
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
-        return [TestUtility getTestTypes];
+        return @[[TestUtility getTestTypes]];
     }
     else if ([[TestUtility getTestTypes] containsObject:categoryName])
-        return [SettingsUtility getSettingsForTest:categoryName :YES];
+        return @[[SettingsUtility getSettingsForTest:categoryName :YES]];
     else
         return nil;
 }
@@ -48,7 +51,10 @@
         return @"button";
     else if ([setting isEqualToString:@"proxy_none"] ||
              [setting isEqualToString:@"proxy_psiphon"] ||
-             [setting isEqualToString:@"proxy_custom"])
+             [setting isEqualToString:@"proxy_custom"] ||
+             [setting isEqualToString:@"HTTP"] ||
+             [setting isEqualToString:@"SOCKS5"] ||
+             [setting isEqualToString:@"proxy_psiphon_over_custom"])
         return @"checkmark";
     else if ([setting isEqualToString:@"proxy_custom_hostname"] ||
              [setting isEqualToString:@"proxy_custom_value"] ||

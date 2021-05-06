@@ -8,7 +8,6 @@
 
 @interface SettingsTableViewController : UITableViewController <UITextFieldDelegate, UIAlertViewDelegate> {
     NSArray *items;
-    NSArray *itemsExt;
     UIToolbar *keyboardToolbar;
 }
 
