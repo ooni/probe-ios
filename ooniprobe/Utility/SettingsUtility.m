@@ -42,7 +42,6 @@
     return @"bool";
 }
 
-
 + (NSArray*)getAutomaticTestsEnabled{
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"automatic_tests"];
 }
