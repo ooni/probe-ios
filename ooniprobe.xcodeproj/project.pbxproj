@@ -50,6 +50,7 @@
 		ED3BF19E2260BF6B00F9A3B2 /* TestKeysTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3BF19D2260BF6B00F9A3B2 /* TestKeysTest.m */; };
 		ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED41D8B72089E9C500543191 /* WebsitesDetailsViewController.m */; };
 		ED49509D1F951F1E00344E42 /* MessageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49509C1F951F1D00344E42 /* MessageUtility.m */; };
+		ED4A00B526494F140083C8F6 /* ProxyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A00B426494F140083C8F6 /* ProxyViewController.m */; };
 		ED4ACEE924C4542700421FB9 /* ThirdPartyServices.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4ACEE824C4542700421FB9 /* ThirdPartyServices.m */; };
 		ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5C24629A860087B36D /* OONIApi.m */; };
 		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
@@ -265,6 +266,8 @@
 		ED459A2B1E5E124100EAE084 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED49509B1F951F1D00344E42 /* MessageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageUtility.h; path = Utility/MessageUtility.h; sourceTree = "<group>"; };
 		ED49509C1F951F1D00344E42 /* MessageUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MessageUtility.m; path = Utility/MessageUtility.m; sourceTree = "<group>"; };
+		ED4A00B326494F140083C8F6 /* ProxyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProxyViewController.h; path = Settings/ProxyViewController.h; sourceTree = "<group>"; };
+		ED4A00B426494F140083C8F6 /* ProxyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProxyViewController.m; path = Settings/ProxyViewController.m; sourceTree = "<group>"; };
 		ED4ACED624A1F20000421FB9 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED4ACED724A1F20800421FB9 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED4ACED824A1F20E00421FB9 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -956,6 +959,8 @@
 				EDB33B7C21838824002CEC34 /* CustomURLViewController.m */,
 				ED3932C21E3114740064CD11 /* AboutViewController.h */,
 				ED3932C31E3114740064CD11 /* AboutViewController.m */,
+				ED4A00B326494F140083C8F6 /* ProxyViewController.h */,
+				ED4A00B426494F140083C8F6 /* ProxyViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1463,6 +1468,7 @@
 				ED1CC7FF20158D630041089A /* ConfigureButton.m in Sources */,
 				ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */,
 				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.m in Sources */,
+				ED4A00B526494F140083C8F6 /* ProxyViewController.m in Sources */,
 				ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.m in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,

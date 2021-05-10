@@ -51,7 +51,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *current = [categories objectAtIndex:indexPath.row];
-    if ([current isEqualToString:@"about_ooni"]){
+    if ([current isEqualToString:@"about_ooni"] ||
+        [current isEqualToString:@"ooni_backend_proxy"]){
         [self performSegueWithIdentifier:current sender:self];
     }
     else if ([current isEqualToString:@"send_email"]){
