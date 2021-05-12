@@ -115,6 +115,7 @@
             options:NSJSONWritingPrettyPrinted error:&error];
     if (error != nil) return content;
     NSString *prettyPrintedJson = [NSString stringWithUTF8String:[prettyJsonData bytes]];
+    if (prettyPrintedJson == nil) return content;
     return prettyPrintedJson;
 }
 
