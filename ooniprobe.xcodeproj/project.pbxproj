@@ -68,6 +68,7 @@
 		ED6911D820BDC0130022DCFE /* websites.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D720BDC0130022DCFE /* websites.json */; };
 		ED6911DB20BDC04D0022DCFE /* instant_messaging.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911D920BDC04D0022DCFE /* instant_messaging.json */; };
 		ED6911DC20BDC04D0022DCFE /* performance.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6911DA20BDC04D0022DCFE /* performance.json */; };
+		ED75533A26283C3F00EF4AC9 /* experimental.json in Resources */ = {isa = PBXBuildFile; fileRef = ED75533926283C3F00EF4AC9 /* experimental.json */; };
 		ED76A78A1EF166F3004D9B5E /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76A7891EF166F3004D9B5E /* ReachabilityManager.m */; };
 		ED76B20825B6F13D00899EE7 /* RiseupVPN.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76B20725B6F13D00899EE7 /* RiseupVPN.m */; };
 		ED76B21725B7067100899EE7 /* GatewayConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76B21625B7067100899EE7 /* GatewayConnection.m */; };
@@ -110,6 +111,8 @@
 		EDB252A720FA46DB00B4EDE4 /* TestKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A520FA46DA00B4EDE4 /* TestKeys.m */; };
 		EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB252A920FA4D4F00B4EDE4 /* Tampering.m */; };
 		EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB33B7C21838824002CEC34 /* CustomURLViewController.m */; };
+		EDB3D64926203DC000724ECF /* ExperimentalSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3D64826203DC000724ECF /* ExperimentalSuite.m */; };
+		EDB3D64F26204C9300724ECF /* Experimental.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3D64E26204C9300724ECF /* Experimental.m */; };
 		EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */; };
 		EDB6F9BC202352D000BDCB0B /* Header1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BB202352D000BDCB0B /* Header1ViewController.m */; };
 		EDB6F9BF202352DC00BDCB0B /* Header2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB6F9BE202352DC00BDCB0B /* Header2ViewController.m */; };
@@ -308,6 +311,7 @@
 		ED6911D720BDC0130022DCFE /* websites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = websites.json; sourceTree = "<group>"; };
 		ED6911D920BDC04D0022DCFE /* instant_messaging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = instant_messaging.json; sourceTree = "<group>"; };
 		ED6911DA20BDC04D0022DCFE /* performance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = performance.json; sourceTree = "<group>"; };
+		ED75533926283C3F00EF4AC9 /* experimental.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = experimental.json; sourceTree = "<group>"; };
 		ED76A7881EF166F2004D9B5E /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
 		ED76A7891EF166F3004D9B5E /* ReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityManager.m; sourceTree = "<group>"; };
 		ED76B20625B6F13D00899EE7 /* RiseupVPN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RiseupVPN.h; sourceTree = "<group>"; };
@@ -395,6 +399,10 @@
 		EDB252A920FA4D4F00B4EDE4 /* Tampering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tampering.m; sourceTree = "<group>"; };
 		EDB33B7C21838824002CEC34 /* CustomURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomURLViewController.m; path = Settings/CustomURLViewController.m; sourceTree = "<group>"; };
 		EDB33B7D21838824002CEC34 /* CustomURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomURLViewController.h; path = Settings/CustomURLViewController.h; sourceTree = "<group>"; };
+		EDB3D64726203DC000724ECF /* ExperimentalSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExperimentalSuite.h; sourceTree = "<group>"; };
+		EDB3D64826203DC000724ECF /* ExperimentalSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExperimentalSuite.m; sourceTree = "<group>"; };
+		EDB3D64D26204C9300724ECF /* Experimental.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Experimental.h; sourceTree = "<group>"; };
+		EDB3D64E26204C9300724ECF /* Experimental.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Experimental.m; sourceTree = "<group>"; };
 		EDB6F9B72023526300BDCB0B /* HeaderSwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderSwipeViewController.h; sourceTree = "<group>"; };
 		EDB6F9B82023526300BDCB0B /* HeaderSwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderSwipeViewController.m; sourceTree = "<group>"; };
 		EDB6F9BA202352D000BDCB0B /* Header1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header1ViewController.h; sourceTree = "<group>"; };
@@ -694,6 +702,8 @@
 				ED76B20725B6F13D00899EE7 /* RiseupVPN.m */,
 				ED4DF7B32607970C00521C5B /* Signal.h */,
 				ED4DF7B42607970C00521C5B /* Signal.m */,
+				EDB3D64D26204C9300724ECF /* Experimental.h */,
+				EDB3D64E26204C9300724ECF /* Experimental.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -714,6 +724,8 @@
 				ED2E067D21D487EA00E9B9EE /* PerformanceSuite.m */,
 				ED14B22F246540A4009AA906 /* CircumventionSuite.h */,
 				ED14B230246540A4009AA906 /* CircumventionSuite.m */,
+				EDB3D64726203DC000724ECF /* ExperimentalSuite.h */,
+				EDB3D64826203DC000724ECF /* ExperimentalSuite.m */,
 			);
 			path = Suite;
 			sourceTree = "<group>";
@@ -924,6 +936,7 @@
 		EDC2C9EA1FD9939A00FF01D3 /* anim */ = {
 			isa = PBXGroup;
 			children = (
+				ED75533926283C3F00EF4AC9 /* experimental.json */,
 				EDC2C9EB1FD9939A00FF01D3 /* crossMark.json */,
 				EDC2C9EC1FD9939A00FF01D3 /* checkMark.json */,
 				ED6911D720BDC0130022DCFE /* websites.json */,
@@ -1232,6 +1245,7 @@
 				ED614794213DABDE00F35E07 /* TestUrls.plist in Resources */,
 				EDA17B05208A37BF00D46D0F /* Dashboard.storyboard in Resources */,
 				EDC2C9E21FD8061400FF01D3 /* FiraSans-Italic.otf in Resources */,
+				ED75533A26283C3F00EF4AC9 /* experimental.json in Resources */,
 				ED6911DC20BDC04D0022DCFE /* performance.json in Resources */,
 				EDC2C9E31FD8061400FF01D3 /* FiraSans-SemiBold.otf in Resources */,
 				EDC2C9EE1FD9947E00FF01D3 /* checkMark.json in Resources */,
@@ -1383,6 +1397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB3D64F26204C9300724ECF /* Experimental.m in Sources */,
 				ED4DF7B52607970C00521C5B /* Signal.m in Sources */,
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.m in Sources */,
@@ -1449,6 +1464,7 @@
 				EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */,
 				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
 				EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */,
+				EDB3D64926203DC000724ECF /* ExperimentalSuite.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
 				ED14B2342465411E009AA906 /* Psiphon.m in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.m in Sources */,
@@ -1753,7 +1769,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 104;
+				CURRENT_PROJECT_VERSION = 107;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1776,7 +1792,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2.11.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
 				PROVISIONING_PROFILE = "";
@@ -1801,7 +1817,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 104;
+				CURRENT_PROJECT_VERSION = 107;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1825,7 +1841,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2.11.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe;
 				PRODUCT_NAME = ooniprobe;
 				PROVISIONING_PROFILE = "";

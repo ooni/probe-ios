@@ -4,3 +4,4 @@
 #import "MiddleBoxesSuite.h"
 #import "PerformanceSuite.h"
 #import "CircumventionSuite.h"
+#import "ExperimentalSuite.h"
