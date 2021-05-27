@@ -34,4 +34,6 @@
 
 + (NSString*) getTempDir;
 
++ (NSString*) getTunnelDir;
+
 @end

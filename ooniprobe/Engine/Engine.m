@@ -66,4 +66,14 @@
     return NSTemporaryDirectory();
 }
 
+/**
+ * getTunnelDir returns the directory where to store persistent tunnel state.
+ */
++ (NSString*) getTunnelDir {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:
+            [NSString stringWithFormat:@"tunnel"]];;
+}
+
 @end
