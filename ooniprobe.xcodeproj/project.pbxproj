@@ -56,6 +56,7 @@
 		ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1E5F246315EF0087B36D /* BasicTableViewCell.m */; };
 		ED4D60561A7162C400777275 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED4D60541A7162C400777275 /* Localizable.strings */; };
 		ED4DF7B52607970C00521C5B /* Signal.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4DF7B42607970C00521C5B /* Signal.m */; };
+		ED4F77F5265E3C5A00C28AC0 /* ProxySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4F77F4265E3C5A00C28AC0 /* ProxySettings.m */; };
 		ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53842121597E950078C5C6 /* OoniRunViewController.m */; };
 		ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55C0C8203BD52900738260 /* Header1MBViewController.m */; };
 		ED58CF751FEBB77700E3C415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED58CF741FEBB77600E3C415 /* Main.storyboard */; };
@@ -285,6 +286,8 @@
 		ED4D60551A7162C400777275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED4DF7B32607970C00521C5B /* Signal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Signal.h; sourceTree = "<group>"; };
 		ED4DF7B42607970C00521C5B /* Signal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Signal.m; sourceTree = "<group>"; };
+		ED4F77F3265E3C5A00C28AC0 /* ProxySettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProxySettings.h; path = Utility/ProxySettings.h; sourceTree = "<group>"; };
+		ED4F77F4265E3C5A00C28AC0 /* ProxySettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProxySettings.m; path = Utility/ProxySettings.m; sourceTree = "<group>"; };
 		ED53841A2159757D0078C5C6 /* EventResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResult.h; sourceTree = "<group>"; };
 		ED53841D215975A70078C5C6 /* Value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Value.h; sourceTree = "<group>"; };
 		ED53842021597E950078C5C6 /* OoniRunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OoniRunViewController.h; sourceTree = "<group>"; };
@@ -776,6 +779,8 @@
 				EDE47C40241FC6BC0013A1CB /* NetworkSession.m */,
 				ED4ACEE724C4542700421FB9 /* ThirdPartyServices.h */,
 				ED4ACEE824C4542700421FB9 /* ThirdPartyServices.m */,
+				ED4F77F3265E3C5A00C28AC0 /* ProxySettings.h */,
+				ED4F77F4265E3C5A00C28AC0 /* ProxySettings.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1436,6 +1441,7 @@
 				ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
+				ED4F77F5265E3C5A00C28AC0 /* ProxySettings.m in Sources */,
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
 				ED9CCEFD252B3460004F8420 /* OONISubmitResults.m in Sources */,
 				EDF4ED162487BF39001A5406 /* PEMKTask.m in Sources */,

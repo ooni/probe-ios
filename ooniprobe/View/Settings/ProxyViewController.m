@@ -11,6 +11,7 @@
     [super viewDidLoad];
     keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
+    currentProxy = [[ProxySettings alloc] init];
     UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                       target:nil action:nil];
@@ -21,17 +22,23 @@
     [self reloadRows];
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [currentProxy saveProxy];
+}
+
 - (void)reloadRows{
-    NSString *proxy_value = [[NSUserDefaults standardUserDefaults] objectForKey:@"proxy_enabled"];
-    if ([proxy_value isEqualToString:@"proxy_custom"])
+    if ([currentProxy isCustom])
         items = @[
-        @[@"proxy_none", @"proxy_psiphon", @"proxy_custom"],
-        @[@"HTTP", @"SOCKS5"],
-        @[@"proxy_custom_hostname", @"proxy_custom_port"],
-        @[@"proxy_custom_username", @"proxy_custom_password"],
-        @[@"proxy_psiphon_over_custom"]];
+        @[[ProxySettings getProtocol:NONE],
+          [ProxySettings getProtocol:PSIPHON],
+          @"proxy_custom"],
+        @[[ProxySettings getProtocol:SOCKS5]],
+        @[@"proxy_hostname", @"proxy_port"]];
     else
-        items = @[@[@"proxy_none", @"proxy_psiphon", @"proxy_custom"]];
+        items = @[@[[ProxySettings getProtocol:NONE],
+                  [ProxySettings getProtocol:PSIPHON],
+                  @"proxy_custom"]];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
@@ -75,62 +82,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     NSString *current = [[items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    if (indexPath.section == 2 || indexPath.section == 3){
+    if (indexPath.section == 0 || indexPath.section == 1){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
+        cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
+        cell.accessoryView = nil;
+        //Proxy protocol
+        if ([current isEqualToString:[ProxySettings getProtocol:currentProxy.protocol]] ||
+            ([current isEqualToString:@"proxy_custom"] && [currentProxy isCustom]))
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        else
+            cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    else if (indexPath.section == 2){
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellField" forIndexPath:indexPath];
         UITextField *textField = (UITextField*)[cell viewWithTag:1];
         textField.textColor = [UIColor colorNamed:@"color_gray9"];
         textField.inputAccessoryView = keyboardToolbar;
         textField.placeholder = [LocalizationUtility getNameForSetting:current];
-        
-        if ([current isEqualToString:@"proxy_custom_port"]){
-            NSInteger value = [[NSUserDefaults standardUserDefaults] integerForKey:current];
-            if (value != 0)
-                textField.text = [NSString stringWithFormat:@"%ld", (long)value];
-        }
-        else {
-            NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:current];
-            textField.text = value;
-        }
-
-        if ([current isEqualToString:@"proxy_custom_port"])
+        if ([current isEqualToString:@"proxy_port"]){
+            textField.text = currentProxy.port;
             textField.keyboardType = UIKeyboardTypeNumberPad;
-        else if ([current isEqualToString:@"proxy_custom_hostname"])
+        }
+        else if ([current isEqualToString:@"proxy_hostname"]){
+            textField.text = currentProxy.hostname;
             textField.keyboardType = UIKeyboardTypeURL;
-        else
-            textField.keyboardType = UIKeyboardTypeDefault;
-        
-        if ([current isEqualToString:@"proxy_custom_password"])
-            textField.secureTextEntry = true;
-        else
-            textField.keyboardType = false;
-    }
-    else if (indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 4){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
-        cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
-        cell.accessoryView = nil;
-        if ([current isEqualToString:@"proxy_none"] ||
-            [current isEqualToString:@"proxy_psiphon"] ||
-            [current isEqualToString:@"proxy_custom"]){
-            NSString *proxy_value = [[NSUserDefaults standardUserDefaults] objectForKey:@"proxy_enabled"];
-            if ([proxy_value isEqualToString:current])
-                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            if ([self checkURL:currentProxy.hostname])
+                textField.textColor = [UIColor colorNamed:@"color_black"];
             else
-                cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        else if ([current isEqualToString:@"HTTP"] || [current isEqualToString:@"SOCKS5"]){
-            NSString *protocol_value = [[NSUserDefaults standardUserDefaults] objectForKey:@"proxy_custom_protocol"];
-            if ([protocol_value isEqualToString:current])
-                cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            else
-                cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        else {
-            BOOL value = [[NSUserDefaults standardUserDefaults] boolForKey:current];
-            if (value)
-                cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            else
-                cell.accessoryType = UITableViewCellAccessoryNone;
+                textField.textColor = [UIColor colorNamed:@"color_red8"];
         }
     }
     return cell;
@@ -138,43 +118,51 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *current = [[items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    if (indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 4){
-        if ([current isEqualToString:@"proxy_none"] ||
-            [current isEqualToString:@"proxy_psiphon"] ||
-            [current isEqualToString:@"proxy_custom"]){
-            [[NSUserDefaults standardUserDefaults] setObject:current forKey:@"proxy_enabled"];
-        }
-        else if ([current isEqualToString:@"HTTP"] || [current isEqualToString:@"SOCKS5"]){
-            [[NSUserDefaults standardUserDefaults] setObject:current forKey:@"proxy_custom_protocol"];
-        }
-        else {
-            BOOL value = [[NSUserDefaults standardUserDefaults] boolForKey:current];
-            [[NSUserDefaults standardUserDefaults] setBool:!value forKey:current];
-        }
-        [[NSUserDefaults standardUserDefaults] synchronize];
+    if (indexPath.section == 0){
+        if (indexPath.row == 0)
+            currentProxy.protocol = NONE;
+        else if (indexPath.row == 1)
+            currentProxy.protocol = PSIPHON;
+        if (indexPath.row == 2)
+            [self setCustom];
         [self reloadRows];
     }
     //[self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(void)setCustom {
+    currentProxy.protocol = SOCKS5;
+}
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    UITableViewCell *cell = (UITableViewCell *)textField.superview;
+    UITableViewCell *cell = (UITableViewCell *)textField.superview.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *current = [[items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    //TODO save in proxy object and save all
     NSString * str = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    if ([current isEqualToString:@"proxy_custom_port"]){
-        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-        f.numberStyle = NSNumberFormatterNoStyle;
-        [[NSUserDefaults standardUserDefaults] setObject:[f numberFromString:str] forKey:current];
+    if ([current isEqualToString:@"proxy_port"]){
+        currentProxy.port = str;
     }
-    else
-        [[NSUserDefaults standardUserDefaults] setObject:str forKey:current];
+    else if ([current isEqualToString:@"proxy_hostname"]){
+        currentProxy.hostname = str;
+        if ([self checkURL:currentProxy.hostname])
+            textField.textColor = [UIColor colorNamed:@"color_black"];
+        else
+            textField.textColor = [UIColor colorNamed:@"color_red8"];
+    }
     return YES;
 }
 
+//TODO not ideal function, maybe remove it
+-(BOOL)checkURL:(NSString*)urlString{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@",
+                                       [ProxySettings getProtocol:currentProxy.protocol],
+                                       urlString]];
+    if (url && url.scheme && url.host)
+        return true;
+    return false;
+}
 
 @end
