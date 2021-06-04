@@ -9,7 +9,7 @@
     if (self) {
         self.charging = true;
         self.onWiFi = true;
-        self.platform = @"android";
+        self.platform = @"iOS";
         self.runType = @"timed";
         self.softwareName = softwareName;
         self.softwareVersion = softwareVersion;

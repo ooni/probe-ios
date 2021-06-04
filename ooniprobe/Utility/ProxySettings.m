@@ -41,8 +41,7 @@
     if (self.protocol == PSIPHON)
         return @"psiphon://";
     if (self.protocol == SOCKS5) {
-        // Alright, we now need to construct a new SOCKS5 URL. We are going to defer
-        // doing that to the Java standard library (er, the Android stdlib).
+        // Alright, we now need to construct a new SOCKS5 URL.
         NSString *urlStr = [NSString stringWithFormat:@"socks5://%@:%@/", self.hostname, self.port];
         if ([ProxySettings isIPv6:self.hostname]) {
             urlStr = [NSString stringWithFormat:@"socks5://[%@]:%@/", self.hostname, self.port]; // IPv6 must be quoted in URLs
