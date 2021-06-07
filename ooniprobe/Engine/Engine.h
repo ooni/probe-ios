@@ -22,11 +22,6 @@
 
 + (PEMKTask*) startExperimentTaskWithSettings:(id<OONIMKTaskConfig>)settings error:(NSError **)error;
 
-+ (NSString*) resolveProbeCCWithSoftwareName:(NSString*)softwareName
-                             softwareVersion:(NSString*)softwareVersion
-                                     timeout:(long)timeout
-                                       error:(NSError **)error;
-
 + (PESession*) newSession:(OONISessionConfig*)config error:(NSError **)error;
 
 + (OONISessionConfig*) getDefaultSessionConfigWithSoftwareName:(NSString*)softwareName
@@ -38,5 +33,7 @@
 + (NSString*) getStateDir;
 
 + (NSString*) getTempDir;
+
++ (NSString*) getTunnelDir;
 
 @end

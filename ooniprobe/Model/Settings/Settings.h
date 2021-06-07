@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSString *temp_dir;
 @property (nonatomic, strong) NSNumber *version;
 @property (nonatomic, strong) Options *options;
+@property (nonatomic, strong) NSString *proxy;
+@property (nonatomic, strong) NSString *tunnel_dir;
 
 @end
 
