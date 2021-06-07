@@ -54,6 +54,8 @@
 }
 
 + (BOOL)isIPv6:(NSString*)hostname{
+    if ([hostname containsString:@"::"])
+        return true;
     return false;
 }
 
