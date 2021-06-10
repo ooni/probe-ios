@@ -114,7 +114,7 @@
     NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
             options:NSJSONWritingPrettyPrinted error:&error];
     if (error != nil) return content;
-    NSString *prettyPrintedJson = [NSString stringWithUTF8String:[prettyJsonData bytes]];
+    NSString *prettyPrintedJson = [[NSString alloc] initWithData:prettyJsonData encoding:NSUTF8StringEncoding];
     return prettyPrintedJson;
 }
 
@@ -126,7 +126,7 @@
     NSData *prettyJsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
             options:NSJSONWritingPrettyPrinted error:&error];
     if (error != nil) return jsonObject;
-    NSString *prettyPrintedJson = [NSString stringWithUTF8String:[prettyJsonData bytes]];
+    NSString *prettyPrintedJson = [[NSString alloc] initWithData:prettyJsonData encoding:NSUTF8StringEncoding];
     return prettyPrintedJson;
 }
 

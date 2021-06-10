@@ -1,8 +1,9 @@
 platform :ios, '9.0'
 use_frameworks!
 inhibit_all_warnings!
+
 target 'ooniprobe' do
-    pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2021.04.01-183645.podspec'
+    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.10.0-beta.3/oonimkall.podspec"
     pod 'Toast', '~> 4.0.0'
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
@@ -15,8 +16,9 @@ target 'ooniprobe' do
     pod 'Countly'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '6.1.4'
 end
+
 target 'OONIProbeUnitTests' do
-    pod 'oonimkall', :podspec => 'https://dl.bintray.com/ooni/ios/oonimkall-2021.04.01-183645.podspec'
+    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.10.0-beta.3/oonimkall.podspec"
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
     pod 'OCMapper', '2.0'
 end

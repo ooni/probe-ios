@@ -12,6 +12,8 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Result" bundle:nil];
         if ([result.test_group_name isEqualToString:@"middle_boxes"])
             _first = [sb instantiateViewControllerWithIdentifier:@"test_summary_header_mb"];
+        else if ([result.test_group_name isEqualToString:@"experimental"])
+            return nil;
         else
             _first = [sb instantiateViewControllerWithIdentifier:@"test_summary_header_1"];
         [_first setResult:result];
@@ -45,12 +47,20 @@
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
     self.pageViewController.dataSource = self;
-    viewControllers = [[NSArray alloc] initWithObjects:self.first, self.second, self.third, nil];
-    
-    [self.pageViewController setViewControllers:@[self.first]
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:YES
-                                     completion:nil];
+    if (self.first != nil) {
+        viewControllers = [[NSArray alloc] initWithObjects:self.first, self.second, self.third, nil];
+        [self.pageViewController setViewControllers:@[self.first]
+                                          direction:UIPageViewControllerNavigationDirectionForward
+                                           animated:YES
+                                         completion:nil];
+    }
+    else {
+        viewControllers = [[NSArray alloc] initWithObjects:self.second, self.third, nil];
+        [self.pageViewController setViewControllers:@[self.second]
+                                          direction:UIPageViewControllerNavigationDirectionForward
+                                           animated:YES
+                                         completion:nil];
+    }
     
     self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self addChildViewController:self.pageViewController];

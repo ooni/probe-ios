@@ -6,7 +6,7 @@
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
-    return @[@"notifications", @"automated_testing", @"test_options", @"privacy", @"advanced", @"send_email", @"about_ooni"];
+    return @[@"notifications", @"automated_testing", @"test_options", @"privacy", @"advanced", @"ooni_backend_proxy", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
@@ -39,7 +39,9 @@
 + (NSString*)getTypeForSetting:(NSString*)setting{
     if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
         return @"segue";
-    else if ([setting isEqualToString:@"monthly_mobile_allowance"] || [setting isEqualToString:@"monthly_wifi_allowance"] || [setting isEqualToString:@"max_runtime"])
+    else if ([setting isEqualToString:@"monthly_mobile_allowance"] ||
+             [setting isEqualToString:@"monthly_wifi_allowance"] ||
+             [setting isEqualToString:@"max_runtime"])
         return @"int";
     if ([setting isEqualToString:@"storage_usage"])
         return @"button";

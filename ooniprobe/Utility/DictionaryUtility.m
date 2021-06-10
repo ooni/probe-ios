@@ -2,7 +2,6 @@
 
 @implementation DictionaryUtility
 
-
 + (NSDictionary *)parseQueryString:(NSString *)query {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     NSArray *pairs = [query componentsSeparatedByString:@"&"];

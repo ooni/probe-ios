@@ -3,6 +3,7 @@
 #import "SettingsUtility.h"
 #import "InCodeMappingProvider.h"
 #import "Engine.h"
+#import "ProxySettings.h"
 
 @implementation Settings
 
@@ -17,6 +18,8 @@
         self.assets_dir = [Engine getAssetsDir];
         self.temp_dir = [Engine getTempDir];
         self.version = [NSNumber numberWithInt:1];
+        self.proxy = [[[ProxySettings alloc] init] getProxyString];
+        self.tunnel_dir = [Engine getTunnelDir];
     }
     return self;
 }
