@@ -119,4 +119,36 @@
         [view presentViewController:alert animated:YES completion:nil];
     });
 }
+
++ (void)autotestAlertinView:(UIViewController *)view
+{
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:NSLocalizedString(@"Modal.Autorun.Modal.Title", nil)
+                                 message:NSLocalizedString(@"Modal.Autorun.Modal.Text", nil)
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+        [SettingsUtility enableAutorun];
+    }];
+
+    UIAlertAction* cancelButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Modal.NoThanks", nil)
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction * action) {
+    }];
+    UIAlertAction* neverButton = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Modal.DontAskAgain", nil)
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:NOTIFICATION_AUTOTEST_DISABLE];
+    }];
+    [alert addAction:neverButton];
+    [alert addAction:cancelButton];
+    [alert addAction:okButton];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view presentViewController:alert animated:YES completion:nil];
+    });
+}
 @end

@@ -21,10 +21,17 @@
     if (![[NSUserDefaults standardUserDefaults] objectForKey:ONBOARDING_KEY]){
         [self performSegueWithIdentifier:@"showInformedConsent" sender:self];
     }
-    if ([SettingsUtility getAppOpenCount] % NOTIFICATION_POPUP_COUNT == 0
-             && ![SettingsUtility isNotificationEnabled]
-             && ![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_POPUP_DISABLE]){
+    if ([SettingsUtility getAppOpenCount] != 0 &&
+        [SettingsUtility getAppOpenCount] % NOTIFICATION_POPUP_COUNT == 0 &&
+        ![SettingsUtility isNotificationEnabled] &&
+        ![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_POPUP_DISABLE]){
         [MessageUtility notificationAlertinView:self];
+    }
+    else if ([SettingsUtility getAppOpenCount] != 0 &&
+        [SettingsUtility getAppOpenCount] % NOTIFICATION_POPUP_COUNT == 0 &&
+        ![SettingsUtility isAutomatedTestEnabled] &&
+        ![[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION_AUTOTEST_DISABLE]){
+        [MessageUtility autotestAlertinView:self];
     }
 }
 

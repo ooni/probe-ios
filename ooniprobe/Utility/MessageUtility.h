@@ -9,4 +9,5 @@
 + (void)alertWithTitle:(NSString *)title message:(NSString *)msg buttons:(NSArray*)buttons inView:(UIViewController *)view;
 + (void)alertWithTitle:(NSString *)title message:(NSString *)msg okButton:(UIAlertAction*)okButton cancelButton:(UIAlertAction*)cancelButton inView:(UIViewController *)view;
 + (void)notificationAlertinView:(UIViewController *)view;
++ (void)autotestAlertinView:(UIViewController *)view;
 @end
