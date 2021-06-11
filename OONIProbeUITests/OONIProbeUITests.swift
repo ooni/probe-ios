@@ -148,7 +148,7 @@ class OONIProbeUITests: XCTestCase {
         XCTAssertFalse(tablesQuery.cells.element(boundBy: 0).images["not_uploaded_icon"].exists)
         
         settingsButton.tap()
-        tablesQuery.cells.element(boundBy: 2).tap()
+        tablesQuery.cells.element(boundBy: 3).tap()
         let resultSwitch = tablesQuery.cells.element(boundBy: 0).children(matching: .switch).element
         
         if ((resultSwitch.value as? String) == "1"){
