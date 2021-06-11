@@ -6,6 +6,7 @@
 #import "TestUtility.h"
 #import "Suite.h"
 #import "Tests.h"
+#import "ReachabilityManager.h"
 
 @implementation BackgroundTask
 
@@ -13,6 +14,7 @@
     [[BGTaskScheduler sharedScheduler] registerForTaskWithIdentifier:taskID
                                                           usingQueue:nil
                                                        launchHandler:^(BGTask *task) {
+        [self scheduleLocalNotification];
         [self handleCheckInTask:task];
     }];
 }
@@ -41,9 +43,8 @@
 + (void)scheduleCheckIn API_AVAILABLE(ios(13.0)) {
     BGProcessingTaskRequest *request = [[BGProcessingTaskRequest alloc] initWithIdentifier:taskID];
     //BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:taskID];
-    //TODO
     request.requiresNetworkConnectivity = true;
-    request.requiresExternalPower = false;
+    request.requiresExternalPower = [SettingsUtility testChargingOnly];
     request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:10*60];
     NSError *error = NULL;
     BOOL success = [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error:&error];
@@ -53,42 +54,35 @@
 }
 
 + (void)checkIn {
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate date];
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.alertBody = @"Start CheckIn";
-    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
-    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    if ([SettingsUtility testWifiOnly] &&
+        ![[ReachabilityManager sharedManager] isWifi])
+    return;
+    
+    //Other two states: UIDeviceBatteryStateCharging and UIDeviceBatteryStateFull
+    if ([SettingsUtility testChargingOnly] &&
+        [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateUnplugged)
+        return;
 
     NSString *testName = @"web_connectivity";
     NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
     AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
+    [testSuite setStoreDB:NO];
     AbstractTest *test = [[AbstractTest alloc] initTest:testName];
+    [test setStoreDB:NO];
     [test setAnnotation:YES];
     [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
 
     [OONIApi checkIn:^(NSArray *urls) {
-        NSMutableArray *urlsArray = [[NSMutableArray alloc] init];
-        for (OONIURLInfo* current in urls){
-            //List for database
-            Url *url = [Url
-                        checkExistingUrl:current.url
-                        categoryCode:current.category_code
-                        countryCode:current.country_code];
-            //List for mk
-            if (url != nil)
-                [urlsArray addObject:url.url];
-        }
-        if ([urls count] == 0){
+        if ([urls count] == 0)
             return;
-        }
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
-        [(WebConnectivity*)test setDefaultMaxRuntime];
-        //[(WebConnectivity*)test disableMaxRuntime];
+        [(WebConnectivity*)test disableMaxRuntime];
     } onError:^(NSError *error) {
         NSLog(@"Failed call checkIn API: %@",error);
     }];
+    [SettingsUtility incrementAutorun];
+    [SettingsUtility updateAutorunDate];
     [testSuite runTestSuite];
 }
 
@@ -96,11 +90,13 @@
     [[BGTaskScheduler sharedScheduler] cancelTaskRequestWithIdentifier:taskID];
 }
 
-/*
- TODO
- - Create preference to enable this
- - Enable background on enable preference.
- - Disable background on disable preference.
- - Be sure background works on phone reboot?
- */
++ (void)scheduleLocalNotification{
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate date];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = @"Start CheckIn";
+    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+}
+
 @end

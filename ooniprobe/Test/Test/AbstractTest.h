@@ -27,6 +27,7 @@
 @property BOOL annotation;
 @property dispatch_queue_t serialQueue;
 @property id<OONIMKTask> task;
+@property BOOL storeDB;
 
 -(id)initTest:(NSString*)testName;
 -(Measurement*)createMeasurementObject;

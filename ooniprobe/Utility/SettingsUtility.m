@@ -198,4 +198,39 @@
     [ThirdPartyServices reloadConsents];
 }
 
++ (void)enableAutorun {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"automated_testing_enabled"];
+}
+
++ (BOOL)testWifiOnly {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"automated_testing_wifionly"] boolValue];
+}
+
++ (BOOL)testChargingOnly {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"automated_testing_charging"] boolValue];
+}
+
++ (NSInteger)getAutorun{
+    NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:@"autorun_count"];
+    if(count < 0) count = 0;
+    return count;
+}
+
++ (void)incrementAutorun{
+    [[NSUserDefaults standardUserDefaults] setInteger:[self getAutorun]+1 forKey:@"autorun_count"];
+}
+
++ (NSString*)getAutorunDate{
+    NSDate *lastDate = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"autorun_last_date"];
+    if (lastDate == nil)
+        return NSLocalizedString(@"TestResults.NotAvailable", nil);
+    NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+    return [dateformatter stringFromDate:lastDate];
+}
+
++ (void)updateAutorunDate{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"autorun_last_date"];
+}
+
 @end

@@ -28,6 +28,7 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultPreferences" ofType:@"plist"]]];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FiraSans-Regular" size:16],NSFontAttributeName, nil] forState:UIControlStateNormal];
+    [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
     [NavigationBarUtility setDefaults];
     [ThirdPartyServices reloadConsents];
 
@@ -70,6 +71,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [BackgroundTask cancelCheckIn];
     if ([SettingsUtility isAutomatedTestEnabled])
         [BackgroundTask scheduleCheckIn];
 }

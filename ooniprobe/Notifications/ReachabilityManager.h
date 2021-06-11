@@ -7,4 +7,5 @@
 + (ReachabilityManager *)sharedManager;
 - (NSString*)getStatus;
 - (BOOL)noInternetAccess;
+- (BOOL)isWifi;
 @end
