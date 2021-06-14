@@ -13,7 +13,6 @@
     self.goButton.layer.cornerRadius = 30;
     self.goButton.layer.masksToBounds = true;
 
-    [self.titleLabel setTextColor:[UIColor colorNamed:@"color_white"]];
     [self.titleLabel setText:NSLocalizedString(@"Onboarding.DefaultSettings.Title", nil)];
 
     NSString *defaultSettings = [NSString stringWithFormat:@"**%@**\n• %@\n• %@\n• %@\n\n%@", NSLocalizedString(@"Onboarding.DefaultSettings.Header", nil), NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.1", nil), NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.2", nil),

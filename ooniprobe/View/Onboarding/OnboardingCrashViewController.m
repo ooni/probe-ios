@@ -20,10 +20,8 @@
     [self.yesButton setTitle:NSLocalizedString(@"Onboarding.Crash.Button.Yes", nil)  forState:UIControlStateNormal];
     [self.noButton setTitle:NSLocalizedString(@"Onboarding.Crash.Button.No", nil)  forState:UIControlStateNormal];
 
-    [self.titleLabel setTextColor:[UIColor colorNamed:@"color_white"]];
     [self.titleLabel setText:NSLocalizedString(@"Onboarding.Crash.Title", nil)];
     
-    [self.textLabel setTextColor:[UIColor colorNamed:@"color_white"]];
     [self.textLabel setText:NSLocalizedString(@"Onboarding.Crash.Paragraph", nil)];
 }
 
