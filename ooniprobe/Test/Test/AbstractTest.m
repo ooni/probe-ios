@@ -160,11 +160,11 @@
             }
             else if ([event.key isEqualToString:@"failure.startup"] ||
                      [event.key isEqualToString:@"failure.resolver_lookup"]) {
-                self.result.failure_msg = event.value.failure;
+                [self.result setFailure_msg:event.value.failure];
+                [self.result save];
                 [ThirdPartyServices recordError:@"failure"
                                        reason:event.key
                                      userInfo:evinfo];
-                [self.result save];
             }
             else if ([event.key isEqualToString:@"bug.json_dump"]) {
                 [ThirdPartyServices recordError:@"json_dump"
