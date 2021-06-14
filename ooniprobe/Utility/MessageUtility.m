@@ -142,7 +142,7 @@
                                    actionWithTitle:NSLocalizedString(@"Modal.DontAskAgain", nil)
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
-        [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:NOTIFICATION_AUTOTEST_DISABLE];
+        [[NSUserDefaults standardUserDefaults] setObject:@"ok" forKey:AUTOTEST_POPUP_DISABLE];
     }];
     [alert addAction:neverButton];
     [alert addAction:cancelButton];
