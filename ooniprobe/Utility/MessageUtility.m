@@ -151,4 +151,14 @@
         [view presentViewController:alert animated:YES completion:nil];
     });
 }
+
++ (void)sendLocalNotification:(NSString*)text{
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate date];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = text;
+    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+}
+
 @end

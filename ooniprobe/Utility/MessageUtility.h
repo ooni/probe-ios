@@ -10,4 +10,5 @@
 + (void)alertWithTitle:(NSString *)title message:(NSString *)msg okButton:(UIAlertAction*)okButton cancelButton:(UIAlertAction*)cancelButton inView:(UIViewController *)view;
 + (void)notificationAlertinView:(UIViewController *)view;
 + (void)autotestAlertinView:(UIViewController *)view;
++ (void)sendLocalNotification:(NSString*)text;
 @end

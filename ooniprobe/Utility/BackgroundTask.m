@@ -14,7 +14,6 @@
     [[BGTaskScheduler sharedScheduler] registerForTaskWithIdentifier:taskID
                                                           usingQueue:nil
                                                        launchHandler:^(BGTask *task) {
-        [self scheduleLocalNotification];
         [self handleCheckInTask:task];
     }];
 }
@@ -88,15 +87,6 @@
 
 + (void)cancelCheckIn API_AVAILABLE(ios(13.0)){
     [[BGTaskScheduler sharedScheduler] cancelTaskRequestWithIdentifier:taskID];
-}
-
-+ (void)scheduleLocalNotification{
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate date];
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.alertBody = @"Start CheckIn";
-    [localNotification setApplicationIconBadgeNumber:[[UIApplication sharedApplication] applicationIconBadgeNumber] + 1];
-    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
 @end
