@@ -44,7 +44,7 @@
     //BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:taskID];
     request.requiresNetworkConnectivity = true;
     request.requiresExternalPower = [SettingsUtility testChargingOnly];
-    request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:10*60];
+    request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:60*60];
     NSError *error = NULL;
     BOOL success = [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error:&error];
     if (!success) {
