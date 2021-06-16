@@ -1,6 +1,7 @@
 #import "SettingsTableViewController.h"
 #import "ThirdPartyServices.h"
 #import "MBProgressHUD.h"
+#import "BackgroundTask.h"
 
 @interface SettingsTableViewController ()
 @end
@@ -73,6 +74,8 @@
     if (category != nil){
         if ([category isEqualToString:@"notifications"])
             return NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil);
+        else if ([category isEqualToString:@"automated_testing"])
+            return NSLocalizedString(@"Settings.AutomatedTesting.RunAutomatically.Footer", nil);
     }
     return nil;
 }
@@ -86,7 +89,15 @@
     UITableViewCell *cell;
     NSString *current = [items objectAtIndex:indexPath.row];
     if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"bool"]){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        if ([current isEqualToString:@"automated_testing_enabled"]){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
+            NSString *run_rimes = NSLocalizedFormatString(@"Settings.AutomatedTesting.RunAutomatically.Number", [NSString stringWithFormat:@"%ld", [SettingsUtility getAutorun]]);
+            NSString *last_run_date = NSLocalizedFormatString(@"Settings.AutomatedTesting.RunAutomatically.DateLast", [NSString stringWithFormat:@"%@", [SettingsUtility getAutorunDate]]);
+            [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@\n%@", run_rimes, last_run_date]];
+        }
+        else {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
         UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
@@ -236,6 +247,11 @@
     }
     else if ([current isEqualToString:@"send_crash"]){
         [ThirdPartyServices reloadConsents];
+    }
+    else if ([current isEqualToString:@"automated_testing_enabled"]){
+        //We schedule the task only on going to background
+        if (!mySwitch.on)
+            [BackgroundTask cancelCheckIn];
     }
     else if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];

@@ -26,6 +26,8 @@
 
 + (BOOL)isNotificationEnabled;
 
++ (BOOL)isAutomatedTestEnabled;
+
 + (NSString*)getOrGenerateUUID4;
 
 + (void)incrementAppOpenCount;
@@ -33,4 +35,19 @@
 + (NSInteger)getAppOpenCount;
 
 + (void)registeredForNotifications;
+
++ (void)enableAutorun;
+
++ (BOOL)testWifiOnly;
+
++ (BOOL)testChargingOnly;
+
++ (NSInteger)getAutorun;
+
++ (void)incrementAutorun;
+
++ (NSString*)getAutorunDate;
+
++ (void)updateAutorunDate;
+
 @end

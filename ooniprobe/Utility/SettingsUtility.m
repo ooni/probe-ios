@@ -6,13 +6,19 @@
 @implementation SettingsUtility
 
 + (NSArray*)getSettingsCategories{
-    return @[@"notifications", @"test_options", @"privacy", @"advanced", @"ooni_backend_proxy", @"send_email", @"about_ooni"];
+    return @[@"notifications", @"automated_testing", @"test_options", @"privacy", @"advanced", @"ooni_backend_proxy", @"send_email", @"about_ooni"];
 }
 
 + (NSArray*)getSettingsForCategory:(NSString*)categoryName{
     //TODO NEWS reenable @"notifications_news"
     if ([categoryName isEqualToString:@"notifications"]) {
         return @[@"notifications_enabled"];
+    }
+    if ([categoryName isEqualToString:@"automated_testing"]) {
+        if ([SettingsUtility isAutomatedTestEnabled])
+            return @[@"automated_testing_enabled", @"automated_testing_wifionly", @"automated_testing_charging"];
+        else
+            return @[@"automated_testing_enabled"];
     }
     else if ([categoryName isEqualToString:@"privacy"]) {
         return @[@"upload_results", @"send_crash"];
@@ -162,6 +168,10 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
 }
 
++ (BOOL)isAutomatedTestEnabled {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"automated_testing_enabled"] boolValue];
+}
+
 + (NSString*)getOrGenerateUUID4{
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] ||
         ![[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid4"] isKindOfClass:[NSString class]]){
@@ -174,11 +184,11 @@
 }
 
 + (void)incrementAppOpenCount{
-    [[NSUserDefaults standardUserDefaults] setInteger:[self getAppOpenCount]+1 forKey:NOTIFICATION_POPUP];
+    [[NSUserDefaults standardUserDefaults] setInteger:[self getAppOpenCount]+1 forKey:APP_OPEN_COUNT];
 }
 
 + (NSInteger)getAppOpenCount{
-    NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:NOTIFICATION_POPUP];
+    NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:APP_OPEN_COUNT];
     if(count < 0) count = 0;
     return count;
 }
@@ -186,6 +196,41 @@
 + (void)registeredForNotifications {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifications_enabled"];
     [ThirdPartyServices reloadConsents];
+}
+
++ (void)enableAutorun {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"automated_testing_enabled"];
+}
+
++ (BOOL)testWifiOnly {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"automated_testing_wifionly"] boolValue];
+}
+
++ (BOOL)testChargingOnly {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"automated_testing_charging"] boolValue];
+}
+
++ (NSInteger)getAutorun{
+    NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:@"autorun_count"];
+    if(count < 0) count = 0;
+    return count;
+}
+
++ (void)incrementAutorun{
+    [[NSUserDefaults standardUserDefaults] setInteger:[self getAutorun]+1 forKey:@"autorun_count"];
+}
+
++ (NSString*)getAutorunDate{
+    NSDate *lastDate = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"autorun_last_date"];
+    if (lastDate == nil)
+        return NSLocalizedString(@"TestResults.NotAvailable", nil);
+    NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+    return [dateformatter stringFromDate:lastDate];
+}
+
++ (void)updateAutorunDate{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"autorun_last_date"];
 }
 
 @end

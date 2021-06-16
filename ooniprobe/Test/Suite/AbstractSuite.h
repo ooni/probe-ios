@@ -14,6 +14,7 @@
 @property int measurementIdx;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property BOOL interrupted;
+@property BOOL storeDB;
 
 -(id)initSuite:(NSString*)testSuite;
 -(void)testEnded:(AbstractTest*)test;

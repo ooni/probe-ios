@@ -19,9 +19,11 @@
 #define NSLocalizedFormatString(fmt, ...) [NSString stringWithFormat:NSLocalizedString(fmt, nil), __VA_ARGS__]
 
 #define ONBOARDING_KEY @"first_run"
-#define NOTIFICATION_POPUP @"notification_popup"
-#define NOTIFICATION_POPUP_COUNT 5
+#define APP_OPEN_COUNT @"notification_popup"
+#define NOTIFICATION_POPUP_COUNT 7
 #define NOTIFICATION_POPUP_DISABLE @"notification_popup_disable"
+#define AUTOTEST_POPUP_COUNT 5
+#define AUTOTEST_POPUP_DISABLE @"autotest_popup_disable"
 #define SOFTWARE_NAME @"ooniprobe-ios"
 #define DEFAULT_TIMEOUT 30
 #define ERR_JSON_EMPTY 100

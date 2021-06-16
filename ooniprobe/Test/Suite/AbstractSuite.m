@@ -7,6 +7,7 @@
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.testList = [[NSMutableArray alloc] init];
+        self.storeDB = YES;
     }
     return self;
 }
@@ -97,6 +98,8 @@
 }
 
 -(void)newResult {
+    if (self.storeDB == false)
+        return;
     //For rerun measurement result is set by the view controller
     if (self.result == nil){
         self.result = [Result new];

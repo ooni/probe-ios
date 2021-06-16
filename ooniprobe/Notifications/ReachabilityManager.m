@@ -55,4 +55,8 @@
     return ([[self getStatus] isEqualToString:@"no_internet"]);
 }
 
+- (BOOL)isWifi{
+    return ([[self getStatus] isEqualToString:@"wifi"]);
+}
+
 @end

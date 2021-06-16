@@ -14,6 +14,7 @@
     if (self) {
         self.backgroundTask = UIBackgroundTaskInvalid;
         self.measurements = [[NSMutableDictionary alloc] init];
+        self.storeDB = YES;
     }
     return self;
 }
@@ -41,6 +42,8 @@
 }
 
 - (Measurement*)createMeasurementObject{
+    if (self.storeDB == false)
+        return nil;
     Measurement *measurement = [Measurement new];
     if (self.result != NULL)
         [measurement setResult_id:self.result];
@@ -61,11 +64,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTest) name:@"interruptTest" object:nil];
     if(self.annotation)
         [self.settings.annotations setObject:@"ooni-run" forKey:@"origin"];
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }];
     dispatch_async(_serialQueue, ^{
+        self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+            [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+            self.backgroundTask = UIBackgroundTaskInvalid;
+        }];
         NSError *error;
         self.task = [Engine startExperimentTaskWithSettings:self.settings error:&error];
         //TODO refactor this part. This is not a result error but a measurement error.
@@ -100,11 +103,13 @@
                     break;
                 }
                 Measurement *measurement = [self createMeasurementObject];
-                if ([event.value.input length] != 0){
-                    measurement.url_id = [Url getUrl:event.value.input];
-                    [measurement save];
+                if (measurement != nil){
+                    if ([event.value.input length] != 0){
+                        measurement.url_id = [Url getUrl:event.value.input];
+                        [measurement save];
+                    }
+                    [self.measurements setObject:measurement forKey:event.value.idx];
                 }
-                [self.measurements setObject:measurement forKey:event.value.idx];
             }
             else if ([event.key isEqualToString:@"status.geoip_lookup"]) {
                 //Save Network info
