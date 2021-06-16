@@ -140,7 +140,6 @@
     UITableViewCell *cell = (UITableViewCell *)textField.superview.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *current = [[items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    //TODO save in proxy object and save all
     NSString * str = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if ([current isEqualToString:@"proxy_port"]){
         currentProxy.port = str;
