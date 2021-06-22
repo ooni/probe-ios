@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-4o-FNz">
-                                <rect key="frame" x="16" y="684" width="343" height="17"/>
+                                <rect key="frame" x="16" y="684" width="343" height="43"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -98,6 +98,28 @@
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="cancelTest:" destination="4q0-13-6dh" eventType="touchUpInside" id="BXH-F2-crf"/>
+                                    <action selector="minimize:" destination="4q0-13-6dh" eventType="touchUpInside" id="Fhs-wl-LPa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLK-6a-JYw" customClass="ConfigureButton">
+                                <rect key="frame" x="142.66666666666666" y="735" width="90" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.ChooseWebsites"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="WzE-4Z-SwN"/>
+                                    <constraint firstAttribute="height" constant="35" id="sOT-ai-XTw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Stop Test">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="ConfigureButton"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelTest:" destination="4q0-13-6dh" eventType="touchUpInside" id="uoK-eG-4yF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -122,10 +144,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="gFp-74-K9L" secondAttribute="trailing" constant="-3" id="ayM-0M-4Sf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xcv-iy-zO9" secondAttribute="trailing" constant="42" id="bYL-ZC-Lwu"/>
                             <constraint firstItem="vNz-6C-NZt" firstAttribute="centerX" secondItem="WHK-n4-vcV" secondAttribute="centerX" id="bzy-ub-c7d"/>
+                            <constraint firstItem="gLK-6a-JYw" firstAttribute="centerX" secondItem="WHK-n4-vcV" secondAttribute="centerX" id="iTt-dL-1aq"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="WHK-n4-vcV" secondAttribute="trailingMargin" id="jWR-19-gZI"/>
-                            <constraint firstItem="iDt-w7-KI4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RdD-4o-FNz" secondAttribute="bottom" constant="8" id="n0C-O4-NVK"/>
+                            <constraint firstItem="iDt-w7-KI4" firstAttribute="top" secondItem="gLK-6a-JYw" secondAttribute="bottom" constant="8" id="n0C-O4-NVK"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="trailing" secondItem="RdD-4o-FNz" secondAttribute="trailing" id="oXZ-td-EGv"/>
                             <constraint firstItem="Z6n-n1-GOS" firstAttribute="top" secondItem="Xcv-iy-zO9" secondAttribute="bottom" constant="17" id="u1z-aa-XoP"/>
+                            <constraint firstItem="gLK-6a-JYw" firstAttribute="top" secondItem="RdD-4o-FNz" secondAttribute="bottom" constant="8" id="uXD-BU-cuG"/>
                             <constraint firstItem="ujL-eR-yvm" firstAttribute="top" secondItem="tHi-Ui-7Hp" secondAttribute="bottom" constant="38" id="wEj-f3-WcR"/>
                             <constraint firstItem="gFp-74-K9L" firstAttribute="top" secondItem="tHi-Ui-7Hp" secondAttribute="bottom" constant="4" id="yhz-4P-rBe"/>
                         </constraints>
@@ -134,8 +158,9 @@
                     <connections>
                         <outlet property="animationView" destination="vNz-6C-NZt" id="JQW-fA-qT0"/>
                         <outlet property="etaLabel" destination="i6u-M1-RsK" id="azk-Eu-1dk"/>
-                        <outlet property="interruptButton" destination="gFp-74-K9L" id="HQ5-vw-jeK"/>
+                        <outlet property="interruptButton" destination="gLK-6a-JYw" id="PdO-DU-yxM"/>
                         <outlet property="logLabel" destination="RdD-4o-FNz" id="shq-hP-h7u"/>
+                        <outlet property="minimizeButton" destination="gFp-74-K9L" id="Ckq-5t-a3N"/>
                         <outlet property="progressBar" destination="Xcv-iy-zO9" id="uVT-jL-gM0"/>
                         <outlet property="runningTestsLabel" destination="ujL-eR-yvm" id="moE-gb-1FB"/>
                         <outlet property="testNameLabel" destination="WHM-pS-oxG" id="e7G-6H-H0m"/>
@@ -164,7 +189,7 @@
                                 <color key="backgroundColor" name="color_white"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="SN2-LH-aBR" customClass="DashboardTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="104"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="375" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SN2-LH-aBR" id="KQ9-lO-7zQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
@@ -536,13 +561,8 @@
             <point key="canvasLocation" x="151" y="-311"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="OAM-pX-4th">
-            <size key="intrinsicContentSize" width="39.333333333333336" height="18.666666666666668"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="aC9-zV-N73"/>
+        <segue reference="Get-FV-hMZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="close" width="14" height="14"/>
@@ -551,10 +571,10 @@
         <image name="tab_dashboard" width="26" height="21"/>
         <image name="websites" width="100" height="100"/>
         <namedColor name="color_base">
-            <color red="0.019999999552965164" green="0.53299999237060547" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.019607843137254902" green="0.53333333333333333" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="color_gray9">
-            <color red="0.1289999932050705" green="0.14499999582767487" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.12941176470588237" green="0.14509803921568629" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="color_white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
