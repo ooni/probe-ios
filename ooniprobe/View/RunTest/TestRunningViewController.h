@@ -22,6 +22,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *logLabel;
 @property (strong, nonatomic) IBOutlet UIButton *interruptButton;
 @property (strong, nonatomic) IBOutlet UIButton *minimizeButton;
+@property (strong, nonatomic) IBOutlet UIStackView *proxyView;
+@property (strong, nonatomic) IBOutlet UILabel *proxyLabel;
 @property (assign) bool presenting;
 
 @end

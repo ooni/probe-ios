@@ -1,5 +1,6 @@
 #import "TestRunningViewController.h"
 #import "Suite.h"
+#import "ProxySettings.h"
 
 @interface TestRunningViewController ()
 @end
@@ -12,10 +13,16 @@
 
     self.progressBar.layer.cornerRadius = 7.5;
     self.progressBar.layer.masksToBounds = YES;
+    self.proxyView.layer.cornerRadius = 10;
+    self.proxyView.layer.masksToBounds = YES;
     [self.progressBar setTrackTintColor:[[UIColor colorNamed:@"color_white"] colorWithAlphaComponent:0.2f]];
     [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Running", nil)];
     [self.etaLabel setText:NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)];
     [self.interruptButton setTitle:NSLocalizedString(@"Notification.StopTest", nil) forState:UIControlStateNormal];
+    [self.proxyLabel setText:NSLocalizedString(@"Dashboard.Running.ProxyInUse", nil)];
+    if ([[[[ProxySettings alloc] init] getProxyString] isEqualToString:@""])
+        [self.proxyView setHidden:YES];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testStarted:) name:@"testStarted" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setRuntime) name:@"updateRuntime" object:nil];
