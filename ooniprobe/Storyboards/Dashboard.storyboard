@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-6C-NZt">
-                                <rect key="frame" x="-15.666666666666657" y="169" width="406.33333333333326" height="406"/>
+                                <rect key="frame" x="-13.666666666666657" y="173" width="402.33333333333326" height="402"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vNz-6C-NZt" secondAttribute="height" multiplier="1:1" id="zb5-6t-7Ks"/>
@@ -122,11 +122,11 @@
                                     <action selector="cancelTest:" destination="4q0-13-6dh" eventType="touchUpInside" id="uoK-eG-4yF"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="5YP-9k-ipZ">
-                                <rect key="frame" x="132.33333333333334" y="141" width="110.66666666666666" height="20"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5YP-9k-ipZ">
+                                <rect key="frame" x="125.33333333333331" y="141" width="124.66666666666669" height="24"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circumvention" translatesAutoresizingMaskIntoConstraints="NO" id="win-th-HSk">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <rect key="frame" x="6.0000000000000142" y="2" width="20" height="20"/>
                                         <color key="tintColor" name="color_gray7"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="FvS-0H-Oa0"/>
@@ -134,13 +134,14 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proxy in use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-ZP-d1K">
-                                        <rect key="frame" x="23.000000000000007" y="0.0" width="87.666666666666686" height="20"/>
+                                        <rect key="frame" x="31.000000000000007" y="2" width="87.666666666666686" height="20"/>
                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
                                         <color key="textColor" name="color_gray7"/>
                                         <color key="highlightedColor" name="color_gray7"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" name="color_gray4"/>
+                                <edgeInsets key="layoutMargins" top="2" left="6" bottom="2" right="6"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -184,6 +185,8 @@
                         <outlet property="logLabel" destination="RdD-4o-FNz" id="shq-hP-h7u"/>
                         <outlet property="minimizeButton" destination="gFp-74-K9L" id="Ckq-5t-a3N"/>
                         <outlet property="progressBar" destination="Xcv-iy-zO9" id="uVT-jL-gM0"/>
+                        <outlet property="proxyLabel" destination="cLT-ZP-d1K" id="42f-Ym-vQL"/>
+                        <outlet property="proxyView" destination="5YP-9k-ipZ" id="G3Z-j1-3rB"/>
                         <outlet property="runningTestsLabel" destination="ujL-eR-yvm" id="moE-gb-1FB"/>
                         <outlet property="testNameLabel" destination="WHM-pS-oxG" id="e7G-6H-H0m"/>
                         <outlet property="timeLabel" destination="Z6n-n1-GOS" id="cwK-Qj-YAc"/>
