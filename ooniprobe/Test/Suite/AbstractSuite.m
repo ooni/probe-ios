@@ -1,4 +1,5 @@
 #import "Suite.h"
+#import "RunningTest.h"
 
 @implementation AbstractSuite
 
@@ -36,6 +37,8 @@
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     //prepare measurements
+    [[RunningTest currentTest] setTestSuite:self];
+    [RunningTest currentTest].isTestRunning = true;
     for (AbstractTest *current in [self getTestList]){
         [current setDelegate:self];
         [current setSerialQueue:serialQueue];
@@ -74,6 +77,7 @@
         //Resetting class values
         self.result = nil;
         self.measurementIdx = 0;
+        [RunningTest currentTest].isTestRunning = false;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;

@@ -59,14 +59,12 @@
         }
     }
     if ([urlArray count] > 0) {
-        if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable){
+        if ([TestUtility checkConnectivity:self] &&
+            [TestUtility checkTestRunning:self]) {
             [self performSegueWithIdentifier:@"toTestRun" sender:sender];
             [self.navigationController popToRootViewControllerAnimated:NO];
             self.urlsList = nil;
         }
-        else
-            [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
-                                   message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
     }
     else
         [MessageUtility showToast:NSLocalizedString(@"Settings.Websites.CustomURL.NoURLEntered", nil)

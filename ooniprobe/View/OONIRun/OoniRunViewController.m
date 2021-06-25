@@ -213,11 +213,9 @@
 
 
 -(IBAction)runTest {
-    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
+    if ([TestUtility checkConnectivity:self] &&
+        [TestUtility checkTestRunning:self])
         [self performSegueWithIdentifier:@"toTestRun" sender:self];
-    else
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
-                               message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -11,6 +11,7 @@ static RunningTest *currentTest = nil;
         if (currentTest == nil)
         {
             currentTest = [[RunningTest alloc] init];
+            currentTest.isTestRunning = false;
         }
     }
     return currentTest;

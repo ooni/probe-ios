@@ -5,6 +5,8 @@
 #import "OONIApi.h"
 #define delete_json_delay 86400
 #define delete_json_key @"deleteUploadedJsons"
+#import "RunningTest.h"
+#import "ReachabilityManager.h"
 
 @implementation TestUtility
 
@@ -299,6 +301,24 @@
         return [[Tampering alloc] initWithValue:currentNode];
     }];
     return [mapper objectFromSource:jsonDic toInstanceOfClass:[JsonResult class]];
+}
+
++ (BOOL)checkConnectivity:(UIViewController *)view{
+    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] == NotReachable){
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                               message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:view];
+        return false;
+    }
+    return true;
+}
+
++ (BOOL)checkTestRunning:(UIViewController *)view{
+    if ([RunningTest currentTest].isTestRunning){
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
+                               message:NSLocalizedString(@"Modal.Error.TestAlreadyRunning", nil) inView:view];
+        return false;
+    }
+    return true;
 }
 
 @end
