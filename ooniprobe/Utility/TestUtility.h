@@ -29,4 +29,7 @@
 + (JsonResult*)jsonResultfromDic:(NSDictionary*)json_str;
 + (uint64_t)storageUsed;
 + (void)cleanUp;
++ (BOOL)checkConnectivity:(UIViewController *)view;
++ (BOOL)checkTestRunning:(UIViewController *)view;
+
 @end

@@ -2,6 +2,7 @@
 #import "DashboardTableViewCell.h"
 #import "ThirdPartyServices.h"
 #import "Suite.h"
+#import "RunningTest.h"
 
 @interface DashboardTableViewController ()
 
@@ -92,16 +93,15 @@
 }
 
 -(IBAction)run:(id)sender{
-    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable){
-        [self performSegueWithIdentifier:@"toTestRun" sender:sender];
-    }
-    else
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
-                               message:NSLocalizedString(@"Modal.Error.NoInternet", nil) inView:self];
+    if ([TestUtility checkConnectivity:self] &&
+        [TestUtility checkTestRunning:self])
+    [self performSegueWithIdentifier:@"toTestRun" sender:sender];
 }
 
 -(IBAction)runAll{
-    [self performSegueWithIdentifier:@"toTestRunAll" sender:self];
+    if ([TestUtility checkConnectivity:self] &&
+        [TestUtility checkTestRunning:self])
+        [self performSegueWithIdentifier:@"toTestRunAll" sender:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
