@@ -135,6 +135,7 @@
 		EDC5A0D425F00CB600F86720 /* OONIURLListResult.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC5A0D325F00CB600F86720 /* OONIURLListResult.m */; };
 		EDCB9D911CB3F9ED00BBA3BC /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */; };
 		EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCD73D12180F014003B56D9 /* Header3ViewController.m */; };
+		EDD771FD268116B300184C06 /* RunningTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD771FC268116B300184C06 /* RunningTest.m */; };
 		EDD79DE221D6421D00B11078 /* TestDetailsFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD79DE121D6421D00B11078 /* TestDetailsFooterViewController.m */; };
 		EDDB0B521FFD36D700EFD9C8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */; };
 		EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB0B541FFF2C5300EFD9C8 /* SettingsUtility.m */; };
@@ -441,6 +442,8 @@
 		EDCB9D901CB3F9ED00BBA3BC /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		EDCD73D02180F014003B56D9 /* Header3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header3ViewController.h; sourceTree = "<group>"; };
 		EDCD73D12180F014003B56D9 /* Header3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header3ViewController.m; sourceTree = "<group>"; };
+		EDD771FB268116B300184C06 /* RunningTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunningTest.h; sourceTree = "<group>"; };
+		EDD771FC268116B300184C06 /* RunningTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunningTest.m; sourceTree = "<group>"; };
 		EDD79DE021D6421D00B11078 /* TestDetailsFooterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDetailsFooterViewController.h; sourceTree = "<group>"; };
 		EDD79DE121D6421D00B11078 /* TestDetailsFooterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDetailsFooterViewController.m; sourceTree = "<group>"; };
 		EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
@@ -671,6 +674,8 @@
 		ED2E065421D4867B00E9B9EE /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				EDD771FB268116B300184C06 /* RunningTest.h */,
+				EDD771FC268116B300184C06 /* RunningTest.m */,
 				ED2E066921D4867B00E9B9EE /* Suite */,
 				ED2E065521D4867B00E9B9EE /* Test */,
 			);
@@ -1510,6 +1515,7 @@
 				EDF4ED27248A9A64001A5406 /* Simple.m in Sources */,
 				EDF4ECF4248549BD001A5406 /* Engine.m in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
+				EDD771FD268116B300184C06 /* RunningTest.m in Sources */,
 				ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */,
 				ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */,
 				ED2E067321D4867B00E9B9EE /* Telegram.m in Sources */,
