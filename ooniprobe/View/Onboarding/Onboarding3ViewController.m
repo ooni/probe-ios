@@ -18,7 +18,13 @@
     NSString *defaultSettings = [NSString stringWithFormat:@"**%@**\n• %@\n• %@\n• %@\n\n%@", NSLocalizedString(@"Onboarding.DefaultSettings.Header", nil), NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.1", nil), NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.2", nil),
         NSLocalizedString(@"Onboarding.DefaultSettings.Bullet.3", nil),
         NSLocalizedString(@"Onboarding.DefaultSettings.Paragraph", nil)];
-    [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:17]];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        if(result.height < 670)
+            [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:15]];
+        else
+            [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:17]];
+    }
     NSMutableDictionary* linkAttrs = [NSMutableDictionary dictionaryWithDictionary:self.textLabel.linkAttributes];
     [linkAttrs setObject:[NSNumber numberWithBool:YES] forKey:(NSString*)kCTUnderlineStyleAttributeName];
     self.textLabel.linkAttributes = linkAttrs;
