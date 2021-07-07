@@ -167,11 +167,23 @@
 
 -(void)validateURLs{
     for (NSString *url in [testArguments objectForKey:@"urls"]){
-        if ([url length] < 2083){
+        if ([url length] < 2083 && [self validateLink:url]){
             [Url checkExistingUrl:url];
             [urls addObject:url];
         }
     }
+}
+
+/*
+ This regex tests whether the URL starts with http:// or https://,
+ then checks for at least 1 character, then checks for a dot, and then again checks for at least 1 character.
+ No spaces allowed.
+ */
+- (BOOL)validateLink:(NSString *)link
+{
+    NSString *regex = @"(?i)(http|https)(:\\/\\/)([^ .]+)(\\.)([^ \n]+)";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [predicate evaluateWithObject:link];
 }
 
 #pragma mark - Table view data source
@@ -210,7 +222,6 @@
     cell.textLabel.text = current;
     return cell;
 }
-
 
 -(IBAction)runTest {
     if ([TestUtility checkConnectivity:self] &&
