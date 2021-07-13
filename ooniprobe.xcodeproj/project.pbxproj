@@ -29,6 +29,7 @@
 		ED1CC80220159D970041089A /* TestRunningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1CC80120159D970041089A /* TestRunningViewController.m */; };
 		ED1EC171204E9B61000DEB9F /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1EC170204E9B61000DEB9F /* LogViewController.m */; };
 		ED20966A209791C40028BEA3 /* PaddingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED209669209791C40028BEA3 /* PaddingLabel.m */; };
+		ED21D092269C93B900BB09D8 /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED21D091269C93B900BB09D8 /* ProgressViewController.m */; };
 		ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065921D4867B00E9B9EE /* HttpHeaderFieldManipulation.m */; };
 		ED2E066D21D4867B00E9B9EE /* WebConnectivity.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065A21D4867B00E9B9EE /* WebConnectivity.m */; };
 		ED2E066E21D4867B00E9B9EE /* AbstractTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2E065B21D4867B00E9B9EE /* AbstractTest.m */; };
@@ -225,6 +226,8 @@
 		ED1EC170204E9B61000DEB9F /* LogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
 		ED209668209791C40028BEA3 /* PaddingLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaddingLabel.h; sourceTree = "<group>"; };
 		ED209669209791C40028BEA3 /* PaddingLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaddingLabel.m; sourceTree = "<group>"; };
+		ED21D090269C93B900BB09D8 /* ProgressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
+		ED21D091269C93B900BB09D8 /* ProgressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		ED2E065621D4867B00E9B9EE /* HttpInvalidRequestLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpInvalidRequestLine.h; sourceTree = "<group>"; };
 		ED2E065721D4867B00E9B9EE /* AbstractTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractTest.h; sourceTree = "<group>"; };
 		ED2E065821D4867B00E9B9EE /* WebConnectivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebConnectivity.h; sourceTree = "<group>"; };
@@ -641,6 +644,8 @@
 				ED1CC80120159D970041089A /* TestRunningViewController.m */,
 				ED0D8D6E20186742003DDF23 /* TestOverviewViewController.h */,
 				ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */,
+				ED21D090269C93B900BB09D8 /* ProgressViewController.h */,
+				ED21D091269C93B900BB09D8 /* ProgressViewController.m */,
 			);
 			path = RunTest;
 			sourceTree = "<group>";
@@ -1503,6 +1508,7 @@
 				ED4DF7DA2609F0ED00521C5B /* BackgroundTask.m in Sources */,
 				ED4A00B526494F140083C8F6 /* ProxyViewController.m in Sources */,
 				ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */,
+				ED21D092269C93B900BB09D8 /* ProgressViewController.m in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.m in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
 				ED9CCF27252B4A13004F8420 /* LoggerArray.m in Sources */,
