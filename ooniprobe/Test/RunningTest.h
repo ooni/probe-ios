@@ -8,6 +8,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (RunningTest *) currentTest;
 @property (nonatomic, strong) AbstractSuite *testSuite;
+@property (nonatomic, strong) AbstractTest *testRunning;
 @property (nonatomic) BOOL isTestRunning;
 
 @end

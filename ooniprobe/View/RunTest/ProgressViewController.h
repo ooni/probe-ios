@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import "RunningTest.h"
 
 @interface ProgressViewController : UIViewController
 

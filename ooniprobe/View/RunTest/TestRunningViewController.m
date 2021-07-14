@@ -67,7 +67,6 @@
     testSuite = [testSuites objectAtIndex:0];
     [self testStart];
     [testSuite runTestSuite];
-    totalTests = [testSuite.testList count];
     [self setRuntime];
 }
 
@@ -121,6 +120,7 @@
     NSNumber *prog = [userInfo objectForKey:@"prog"];
     //TODO-2.1 this doesn't take in consideration different test runtimes, only the total
     //But still fixes https://github.com/ooni/probe/issues/805
+    float totalTests = testSuite.totalTests;
     int index = testSuite.measurementIdx;
     float prevProgress = index/totalTests;
     float progress = ([prog floatValue]/totalTests)+prevProgress;

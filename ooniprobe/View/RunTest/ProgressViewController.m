@@ -8,17 +8,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testStarted:) name:@"testStarted" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
+    [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Running", nil)];
+    [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
+    self.progressBar.layer.cornerRadius = 0;
+    self.progressBar.layer.masksToBounds = YES;
+    [self.progressBar setProgress:0 animated:YES];
+    [self updateView];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self updateView];
 }
-*/
+
+-(void)testStarted:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *name = [userInfo objectForKey:@"name"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.testNameLabel setText:[LocalizationUtility getNameForTest:name]];
+    });
+    [self updateView];
+}
+
+
+-(void)updateProgress:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    NSNumber *prog = [userInfo objectForKey:@"prog"];
+    float totalTests = [RunningTest currentTest].testSuite.totalTests;
+    int index = [RunningTest currentTest].testSuite.measurementIdx;
+    float prevProgress = index/totalTests;
+    float progress = ([prog floatValue]/totalTests)+prevProgress;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.progressBar setProgress:progress animated:YES];
+    });
+}
+
+-(void)networkTestEnded{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.progressBar setProgress:0 animated:YES];
+    });
+    [self updateView];
+}
+
+-(void)updateView{
+    if ([RunningTest currentTest].isTestRunning){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.testNameLabel setText:[LocalizationUtility getNameForTest:[RunningTest currentTest].testRunning.name]];
+            [self.view setHidden:NO];
+        });
+    }
+    else
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.view setHidden:YES];
+        });
+}
 
 @end

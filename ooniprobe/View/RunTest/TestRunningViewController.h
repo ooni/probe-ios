@@ -6,7 +6,6 @@
 #import "Engine.h"
 
 @interface TestRunningViewController : UIViewController {
-    float totalTests;
     LOTAnimationView *animation;
     int totalRuntime;
     AbstractSuite *testSuite;

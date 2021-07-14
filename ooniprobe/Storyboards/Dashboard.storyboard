@@ -644,19 +644,21 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="6" id="eim-RM-don"/>
                                 </constraints>
-                                <color key="progressTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="trackTintColor" red="0.29803921570000003" green="0.43137254899999999" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="progressTintColor" name="color_base"/>
+                                <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" name="color_black"/>
                         <constraints>
                             <constraint firstItem="iN0-By-gR8" firstAttribute="top" secondItem="nLi-fO-N1k" secondAttribute="top" id="0Dg-04-Cxr"/>
+                            <constraint firstItem="iN0-By-gR8" firstAttribute="leading" secondItem="nLi-fO-N1k" secondAttribute="leading" id="0bS-dv-FXj"/>
                             <constraint firstAttribute="bottom" secondItem="g8f-gH-ESV" secondAttribute="bottom" constant="12" id="7AE-0Y-dYV"/>
                             <constraint firstAttribute="trailing" secondItem="iN0-By-gR8" secondAttribute="trailing" id="C8C-NL-9RX"/>
                             <constraint firstItem="g8f-gH-ESV" firstAttribute="leading" secondItem="nLi-fO-N1k" secondAttribute="leading" constant="16" id="Xme-O2-suv"/>
                             <constraint firstItem="g8f-gH-ESV" firstAttribute="top" secondItem="iN0-By-gR8" secondAttribute="bottom" constant="12" id="bt7-jc-mIV"/>
                             <constraint firstItem="iN0-By-gR8" firstAttribute="leading" secondItem="nLi-fO-N1k" secondAttribute="leading" id="di1-UB-GBM"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g8f-gH-ESV" secondAttribute="trailing" constant="16" id="pc1-Np-5ZC"/>
+                            <constraint firstAttribute="trailing" secondItem="iN0-By-gR8" secondAttribute="trailing" id="wSs-Ak-Tqr"/>
                         </constraints>
                     </view>
                     <connections>

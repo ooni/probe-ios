@@ -29,6 +29,7 @@
 
 -(void)runTestSuite {
     self.interrupted = false;
+    self.totalTests = [self.testList count];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTest) name:@"interruptTest" object:nil];
     [self newResult];
     dispatch_queue_t serialQueue = dispatch_queue_create("org.openobservatory.queue", DISPATCH_QUEUE_SERIAL);
@@ -50,6 +51,7 @@
 -(void)runNextMeasurement{
     if ([self.testList count] > 0){
         AbstractTest *current = [self.testList objectAtIndex:0];
+        [RunningTest currentTest].testRunning = current;
         [current runTest];
     }
 }
