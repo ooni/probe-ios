@@ -5,13 +5,9 @@
 #import "Suite.h"
 #import "Engine.h"
 
-@interface TestRunningViewController : UIViewController {
-    LOTAnimationView *animation;
-    int totalRuntime;
-    AbstractSuite *testSuite;
-}
+@interface TestRunningViewController : UIViewController
 
-@property (nonatomic, strong) NSMutableArray *testSuites;
+@property (strong, nonatomic) LOTAnimationView *animation;
 @property (strong, nonatomic) IBOutlet UILabel *runningTestsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *testNameLabel;
 @property (strong, nonatomic) IBOutlet UIView *animationView;
@@ -24,5 +20,6 @@
 @property (strong, nonatomic) IBOutlet UIStackView *proxyView;
 @property (strong, nonatomic) IBOutlet UILabel *proxyLabel;
 @property (assign) bool presenting;
+@property (assign) int totalRuntime;
 
 @end

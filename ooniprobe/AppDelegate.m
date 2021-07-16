@@ -99,7 +99,7 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEndedUI" object:nil];
 }
 
 //Called when you tap on a notification

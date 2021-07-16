@@ -5,6 +5,7 @@
 #import "MessageUtility.h"
 #import "TestRunningViewController.h"
 #import "ReachabilityManager.h"
+#import "RunningTest.h"
 
 @interface OoniRunViewController ()
 
@@ -239,7 +240,7 @@
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
-        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
         [vc setPresenting:YES];
     }
 }

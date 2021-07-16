@@ -22,7 +22,7 @@
     [self.headerView setBackgroundColor:[UIColor colorNamed:@"color_blue5"]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"uploadFinished" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQueryNoFilter) name:@"networkTestEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQueryNoFilter) name:@"networkTestEndedUI" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadQuery) name:@"reloadHeader" object:nil];
 
     self.dropdownMenu.tintColor = [UIColor colorNamed:@"color_gray9"];

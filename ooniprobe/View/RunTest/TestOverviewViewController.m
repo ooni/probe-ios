@@ -1,5 +1,6 @@
 #import "TestOverviewViewController.h"
 #import "ThirdPartyServices.h"
+#import "RunningTest.h"
 
 @interface TestOverviewViewController ()
 
@@ -10,7 +11,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEndedUI" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingsChanged) name:@"settingsChanged" object:nil];
 
     [self.testNameLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
@@ -99,8 +100,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
     }
     else if ([[segue identifier] isEqualToString:@"toTestSettings"]){
         SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
