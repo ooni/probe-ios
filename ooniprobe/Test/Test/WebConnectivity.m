@@ -15,6 +15,7 @@
 }
 
 -(void) runTest {
+    self.isPreparing = true;
     [super prepareRun];
     dispatch_async(self.serialQueue, ^{
         if (self.inputs == nil || [self.inputs count] == 0){
@@ -22,6 +23,7 @@
             [OONIApi downloadUrls:^(NSArray *urls) {
                 [self setUrls:urls];
                 [self setDefaultMaxRuntime];
+                self.isPreparing = false;
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRuntime" object:nil];
                 [super runTest];
             } onError:^(NSError *error) {

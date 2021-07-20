@@ -5,6 +5,7 @@
 #import "UploadFooterViewController.h"
 #import "ReachabilityManager.h"
 #import "ThirdPartyServices.h"
+#import "RunningTest.h"
 
 @interface TestDetailsViewController ()
 
@@ -154,7 +155,6 @@
         [vc setMeasurement:measurement];
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
         NSString *testSuiteName = self.measurement.result_id.test_group_name;
         AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
         AbstractTest *test = [[AbstractTest alloc] initTest:self.measurement.test_name];
@@ -163,7 +163,7 @@
         if ([testSuiteName isEqualToString:@"websites"])
             [(WebConnectivity*)test setInputs:[NSArray arrayWithObject:self.measurement.url_id.url]];
         [self.measurement setReRun];
-        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
     }
     else if ([[segue identifier] isEqualToString:@"footer_upload"]){
         UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;

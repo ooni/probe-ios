@@ -1,6 +1,7 @@
 #import "CustomURLViewController.h"
 #import "ReachabilityManager.h"
 #import <QuartzCore/QuartzCore.h>
+#import "RunningTest.h"
 
 @interface CustomURLViewController ()
 
@@ -168,12 +169,11 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
         WebConnectivity *test = [[WebConnectivity alloc] init];
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         [test setInputs:urlArray];
-        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
     }
 }
 @end

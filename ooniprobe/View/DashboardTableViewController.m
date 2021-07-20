@@ -18,7 +18,7 @@
     [super viewDidLoad];
     [self setShadowRunButton];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTests) name:@"settingsChanged" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEndedUI" object:nil];
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     [self loadTests];
     [self reloadLastMeasurement];
@@ -108,13 +108,11 @@
     if ([[segue identifier] isEqualToString:@"toTestRun"]){
         UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
-        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
-        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
     }
     else if ([[segue identifier] isEqualToString:@"toTestRunAll"]){
-        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
-        [vc setTestSuites:[NSMutableArray arrayWithArray:items]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:items]];
     }
     else if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];

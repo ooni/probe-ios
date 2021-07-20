@@ -3,6 +3,7 @@
 #import "Tests.h"
 #import "UploadFooterViewController.h"
 #import "TestSummaryTableViewCell.h"
+#import "RunningTest.h"
 
 @interface TestSummaryViewController ()
 
@@ -173,14 +174,13 @@
         [vc setUpload_all:true];
     }
     else if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        TestRunningViewController *vc = (TestRunningViewController *)segue.destinationViewController;
         WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
         NSMutableArray *urls = [NSMutableArray new];
         for (Measurement *m in self.measurements)
             [urls addObject:m.url_id.url];
         if ([testSuite getTestList] > 0 && [urls count] > 0)
             [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
-        [vc setTestSuites:[NSMutableArray arrayWithObject:testSuite]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
     }
     else if ([[segue identifier] isEqualToString:@"toViewLog"]){
         LogViewController *vc = (LogViewController *)segue.destinationViewController;

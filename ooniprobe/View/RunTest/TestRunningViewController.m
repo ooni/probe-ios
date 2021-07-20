@@ -1,13 +1,13 @@
 #import "TestRunningViewController.h"
 #import "Suite.h"
 #import "ProxySettings.h"
+#import "RunningTest.h"
 
 @interface TestRunningViewController ()
 @end
 
 @implementation TestRunningViewController
 
-@synthesize testSuites;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -26,14 +26,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testStarted:) name:@"testStarted" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProgress:) name:@"updateProgress" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setRuntime) name:@"updateRuntime" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEnded) name:@"networkTestEnded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkTestEndedUI) name:@"networkTestEndedUI" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLog:) name:@"updateLog" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError) name:@"showError" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptTestUI) name:@"interruptTestUI" object:nil];
-    [self runTest];
 
     //Keep screen on
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    if ([RunningTest currentTest].isTestRunning)
+        [self testStart];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -42,18 +43,22 @@
 }
 
 -(void)testStart{
-    if (animation)
-        [animation removeFromSuperview];
+    if (self.animation)
+        [self.animation removeFromSuperview];
     [self.logLabel setText:@""];
     [self.progressBar setProgress:0 animated:YES];
-    [self.view setBackgroundColor:[TestUtility getBackgroundColorForTest:testSuite.name]];
+    [self.view setBackgroundColor:[TestUtility getBackgroundColorForTest:[RunningTest currentTest].testSuite.name]];
     [self.timeLabel setText:NSLocalizedString(@"Dashboard.Running.CalculatingETA", nil)];
-    [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
+    if ([RunningTest currentTest].testRunning.isPreparing)
+        [self.testNameLabel setText:NSLocalizedString(@"Dashboard.Running.PreparingTest", nil)];
+    else
+        [self.testNameLabel setText:[LocalizationUtility getNameForTest:[RunningTest currentTest].testRunning.name]];
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.isViewLoaded && self.view.window) {
             [self addAnimation];
         }
     });
+    [self setRuntime];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -61,45 +66,35 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
--(void)runTest{
-    if ([testSuites count] == 0)
-        return;
-    testSuite = [testSuites objectAtIndex:0];
-    [self testStart];
-    [testSuite runTestSuite];
-    totalTests = [testSuite.testList count];
-    [self setRuntime];
-}
-
 -(void)setRuntime{
     dispatch_async(dispatch_get_main_queue(), ^{
-        totalRuntime = [testSuite getRuntime];
+        self.totalRuntime = [[RunningTest currentTest].testSuite getRuntime];
         //We don't want to show -1 seconds before downloading the URL list
-        if (totalRuntime <= [MAX_RUNTIME_DISABLED intValue])
+        if (self.totalRuntime <= [MAX_RUNTIME_DISABLED intValue])
             return;
-        NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", totalRuntime]);
+        NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", self.totalRuntime]);
         [self.timeLabel setText:time];
     });
 }
 
 -(void)addAnimation{
-    if (testSuite == nil)
+    if ([RunningTest currentTest].testSuite == nil)
         return;
-    animation = [LOTAnimationView animationNamed:testSuite.name];
-    animation.contentMode = UIViewContentModeScaleAspectFit;
+    self.animation = [LOTAnimationView animationNamed:[RunningTest currentTest].testSuite.name];
+    self.animation.contentMode = UIViewContentModeScaleAspectFit;
     CGRect c = self.animationView.bounds;
-    animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
+    self.animation.frame = CGRectMake(0, 0, c.size.width, c.size.height);
     [self.animationView setNeedsLayout];
     [self.animationView setClipsToBounds:YES];
-    [self.animationView addSubview:animation];
-    [animation setLoopAnimation:YES];
-    [animation play];
+    [self.animationView addSubview:self.animation];
+    [self.animation setLoopAnimation:YES];
+    [self.animation play];
 }
 
 -(void)updateLog:(NSNotification *)notification{
     NSDictionary *userInfo = notification.userInfo;
     NSString *log = [userInfo objectForKey:@"log"];
-    if (!testSuite.interrupted)
+    if (![RunningTest currentTest].testSuite.interrupted)
         [self.logLabel setText:log];
 }
 
@@ -121,12 +116,13 @@
     NSNumber *prog = [userInfo objectForKey:@"prog"];
     //TODO-2.1 this doesn't take in consideration different test runtimes, only the total
     //But still fixes https://github.com/ooni/probe/issues/805
-    int index = testSuite.measurementIdx;
+    float totalTests = [RunningTest currentTest].testSuite.totalTests;
+    int index = [RunningTest currentTest].testSuite.measurementIdx;
     float prevProgress = index/totalTests;
     float progress = ([prog floatValue]/totalTests)+prevProgress;
-    long eta = totalRuntime;
+    long eta = self.totalRuntime;
     if (progress > 0) {
-        eta = lroundf(totalRuntime - progress * totalRuntime);
+        eta = lroundf(self.totalRuntime - progress * self.totalRuntime);
     }
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -135,13 +131,12 @@
         [self.timeLabel setText:time];
 
     });
-    [animation playWithCompletion:^(BOOL animationFinished) {}];
+    [self.animation playWithCompletion:^(BOOL animationFinished) {}];
 
 }
 
--(void)networkTestEnded{
-    [self.testSuites removeObject:testSuite];
-    if ([testSuites count] == 0){
+-(void)networkTestEndedUI{
+    if ([[RunningTest currentTest].testSuites count] == 0){
         dispatch_async(dispatch_get_main_queue(), ^{
             if (_presenting){
                 [self.presentingViewController.presentingViewController dismissViewControllerAnimated:TRUE completion:^{
@@ -155,8 +150,6 @@
             }
         });
     }
-    else
-        [self runTest];
 }
 
 -(void)showError{
