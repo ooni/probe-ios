@@ -18,10 +18,8 @@
     [super viewDidLoad];
     [self setShadowRunButton];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTests) name:@"settingsChanged" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLastMeasurement) name:@"networkTestEndedUI" object:nil];
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     [self loadTests];
-    [self reloadLastMeasurement];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeConstraints) name:@"networkTestEndedUI" object:nil];
 }
 
@@ -50,6 +48,7 @@
             }
         }
         [self.tableView reloadData];
+        [self reloadLastMeasurement];
     });
 }
 
