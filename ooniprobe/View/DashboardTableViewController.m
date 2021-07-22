@@ -22,16 +22,35 @@
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     [self loadTests];
     [self reloadLastMeasurement];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeConstraints) name:@"networkTestEndedUI" object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    [self changeConstraints];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+}
+
+-(void)changeConstraints{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([RunningTest currentTest].isTestRunning){
+            self.tableFooterConstraint.constant = 64;
+            [self.tableView setNeedsUpdateConstraints];
+        }
+        else {
+            //If this number is > 0 there are still test running
+            if ([[RunningTest currentTest].testSuites count] == 0){
+                self.tableFooterConstraint.constant = 0;
+                [self.tableView setNeedsUpdateConstraints];
+            }
+        }
+        [self.tableView reloadData];
+    });
 }
 
 -(void)setShadowRunButton{
