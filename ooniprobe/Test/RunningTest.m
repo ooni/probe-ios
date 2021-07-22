@@ -46,6 +46,8 @@ static RunningTest *currentTest = nil;
     if ([currentTest.testSuites count] == 0){
         [currentTest clearSuites];
     }
+    else
+        [self runTest];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"networkTestEndedUI" object:nil];
 }
 
