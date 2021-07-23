@@ -20,13 +20,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTests) name:@"settingsChanged" object:nil];
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     [self loadTests];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeConstraints) name:@"networkTestEndedUI" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadConstraints) name:@"networkTestEndedUI" object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-    [self changeConstraints];
+    [self reloadConstraints];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -34,7 +34,7 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
--(void)changeConstraints{
+-(void)reloadConstraints{
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([RunningTest currentTest].isTestRunning){
             self.tableFooterConstraint.constant = 64;
