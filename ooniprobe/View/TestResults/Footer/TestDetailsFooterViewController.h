@@ -16,6 +16,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *countryDetailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *runtimeLabel;
 @property (nonatomic, strong) IBOutlet UILabel *runtimeDetailLabel;
-@property (nonatomic, strong) IBOutlet UIButton *methodologyButton;
+@property (nonatomic, strong) IBOutlet UIButton *dataButton;
+@property (nonatomic, strong) IBOutlet UIButton *explorerButton;
+@property (nonatomic, strong) IBOutlet UIButton *logButton;
 
 @end

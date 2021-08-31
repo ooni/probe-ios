@@ -10,11 +10,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.methodologyButton.layer.cornerRadius = self.methodologyButton.bounds.size.height/2;
-    self.methodologyButton.layer.masksToBounds = YES;
-    self.methodologyButton.layer.borderWidth = 0.5f;
-    self.methodologyButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    [self.methodologyButton setTitle:NSLocalizedString(@"TestResults.Details.Methodology", nil) forState:UIControlStateNormal];
+    self.dataButton.layer.cornerRadius = self.dataButton.bounds.size.height/2;
+    self.dataButton.layer.masksToBounds = YES;
+    self.dataButton.layer.borderWidth = 0.5f;
+    self.dataButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    //[self.dataButton setTitle:NSLocalizedString(@"TestResults.Details.Methodology", nil) forState:UIControlStateNormal];
+
+    self.explorerButton.layer.cornerRadius = self.explorerButton.bounds.size.height/2;
+    self.explorerButton.layer.masksToBounds = YES;
+    self.explorerButton.layer.borderWidth = 0.5f;
+    self.explorerButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    //[self.explorerButton setTitle:NSLocalizedString(@"TestResults.Details.Methodology", nil) forState:UIControlStateNormal];
 
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
