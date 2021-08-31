@@ -559,11 +559,10 @@
                                 <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <state key="normal" title="Data"/>
                                 <connections>
-                                    <action selector="openMethodology:" destination="kpi-Hz-icC" eventType="touchUpInside" id="uAU-f8-NvP"/>
-                                    <action selector="reRun" destination="3RT-Xy-GYH" eventType="touchUpInside" id="jEt-Pg-YbR"/>
+                                    <action selector="rawData" destination="kpi-Hz-icC" eventType="touchUpInside" id="4xR-mX-a2m"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9A-BF-NmO">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9A-BF-NmO">
                                 <rect key="frame" x="20" y="32" width="86" height="20"/>
                                 <accessibility key="accessibilityConfiguration" identifier="TestResults.Details.Methodology"/>
                                 <constraints>
@@ -574,11 +573,10 @@
                                 <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <state key="normal" title="View Log"/>
                                 <connections>
-                                    <action selector="openMethodology:" destination="kpi-Hz-icC" eventType="touchUpInside" id="DKf-tY-dpi"/>
-                                    <action selector="reRun" destination="3RT-Xy-GYH" eventType="touchUpInside" id="Md9-YF-He7"/>
+                                    <action selector="viewLogs" destination="kpi-Hz-icC" eventType="touchUpInside" id="0wT-Df-jts"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-Jy-Tla">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-Jy-Tla">
                                 <rect key="frame" x="184" y="72" width="210" height="30"/>
                                 <accessibility key="accessibilityConfiguration" identifier="TestResults.Details.Methodology"/>
                                 <constraints>
@@ -589,8 +587,7 @@
                                 <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <state key="normal" title="Show on OONI Explorer"/>
                                 <connections>
-                                    <action selector="openMethodology:" destination="kpi-Hz-icC" eventType="touchUpInside" id="u9B-H8-Y38"/>
-                                    <action selector="reRun" destination="3RT-Xy-GYH" eventType="touchUpInside" id="yIL-C6-cke"/>
+                                    <action selector="openExplorerUrl:" destination="kpi-Hz-icC" eventType="touchUpInside" id="82p-3T-TNm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -623,6 +620,7 @@
                         <outlet property="networkNameLabel" destination="tMN-Jf-qPX" id="4m8-ok-T1y"/>
                         <outlet property="runtimeDetailLabel" destination="eFy-KQ-16b" id="FQf-35-jJX"/>
                         <outlet property="runtimeLabel" destination="Oxs-Af-fYN" id="zhh-Vf-x8T"/>
+                        <segue destination="zYs-kh-5bZ" kind="show" identifier="toViewLog" id="FtN-YH-Pif"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="suQ-3I-WjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -638,11 +636,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ebA-EZ-xo9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gEt-06-csL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqF-cC-vHE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="117"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1412,9 +1410,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVP-hr-xld">
-                                        <rect key="frame" x="0.0" y="78" width="414" height="190"/>
+                                        <rect key="frame" x="0.0" y="78" width="414" height="210"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="190" id="bPg-VT-akG"/>
+                                            <constraint firstAttribute="height" constant="210" id="bPg-VT-akG"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="s2g-vJ-G8a"/>
@@ -1830,9 +1828,9 @@
                                 <rect key="frame" x="0.0" y="130" width="414" height="550"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHl-pg-lKX">
-                                        <rect key="frame" x="0.0" y="78" width="414" height="190"/>
+                                        <rect key="frame" x="0.0" y="78" width="414" height="210"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="190" id="XqE-xN-wfw"/>
+                                            <constraint firstAttribute="height" constant="210" id="XqE-xN-wfw"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="kLm-87-EDM"/>
@@ -1950,16 +1948,16 @@
                                 <rect key="frame" x="0.0" y="130" width="414" height="550"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTJ-5W-rPQ">
-                                        <rect key="frame" x="0.0" y="109" width="414" height="190"/>
+                                        <rect key="frame" x="0.0" y="109" width="414" height="210"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="190" id="kXt-V5-rqI"/>
+                                            <constraint firstAttribute="height" constant="210" id="kXt-V5-rqI"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="J9y-Mo-lFQ"/>
                                         </connections>
                                     </containerView>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPa-F1-nzV">
-                                        <rect key="frame" x="206.5" y="0.0" width="1" height="329"/>
+                                        <rect key="frame" x="206.5" y="0.0" width="1" height="349"/>
                                         <color key="backgroundColor" name="color_white"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="4C2-nK-jkF"/>
@@ -2140,9 +2138,9 @@
                                 <rect key="frame" x="0.0" y="130" width="414" height="550"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIh-Ta-JOz">
-                                        <rect key="frame" x="0.0" y="164" width="414" height="190"/>
+                                        <rect key="frame" x="0.0" y="164" width="414" height="210"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="190" id="fen-96-hbY"/>
+                                            <constraint firstAttribute="height" constant="210" id="fen-96-hbY"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="W2G-dT-8gJ"/>
@@ -2532,9 +2530,9 @@
                                 <rect key="frame" x="0.0" y="130" width="414" height="550"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMm-N5-llI">
-                                        <rect key="frame" x="0.0" y="90" width="414" height="190"/>
+                                        <rect key="frame" x="0.0" y="90" width="414" height="210"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="190" id="TzS-TF-WZ6"/>
+                                            <constraint firstAttribute="height" constant="210" id="TzS-TF-WZ6"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="KaA-PI-t2J"/>
@@ -2668,7 +2666,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some not uploaded" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED5-OR-lnb">
-                                        <rect key="frame" x="20" y="14" width="123.5" height="17"/>
+                                        <rect key="frame" x="20" y="14" width="125" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="tkp-MQ-syY"/>
                                         </constraints>
@@ -2677,7 +2675,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAc-uQ-ytw">
-                                        <rect key="frame" x="309" y="10" width="85" height="25"/>
+                                        <rect key="frame" x="308" y="10" width="86" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Ykl-FF-urD"/>
                                         </constraints>
@@ -2741,9 +2739,9 @@
                                 <rect key="frame" x="0.0" y="130" width="414" height="550"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blD-Ys-PBr">
-                                        <rect key="frame" x="0.0" y="134.5" width="414" height="190"/>
+                                        <rect key="frame" x="0.0" y="134.5" width="414" height="210"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="190" id="TiY-Su-ZH3"/>
+                                            <constraint firstAttribute="height" constant="210" id="TiY-Su-ZH3"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="kpi-Hz-icC" kind="embed" identifier="footer" id="CWr-fW-hdO"/>
@@ -2907,19 +2905,11 @@
             <point key="canvasLocation" x="959" y="1436"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="ClB-o9-dM6">
-            <size key="intrinsicContentSize" width="111.5" height="18"/>
-        </designable>
-        <designable name="bfy-ju-zWV">
-            <size key="intrinsicContentSize" width="111.5" height="18"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="9gk-Ya-ZB7"/>
-        <segue reference="oiP-5B-ecH"/>
-        <segue reference="ZUU-cg-RD1"/>
-        <segue reference="W8b-mn-owz"/>
+        <segue reference="8H7-Wx-xm2"/>
+        <segue reference="lZw-ES-A2m"/>
+        <segue reference="FtN-YH-Pif"/>
+        <segue reference="CWr-fW-hdO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="delete_forever" width="17" height="21"/>

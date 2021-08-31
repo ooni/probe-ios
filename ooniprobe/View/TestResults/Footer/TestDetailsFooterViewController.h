@@ -2,7 +2,9 @@
 #import "Result.h"
 #import "Measurement.h"
 
-@interface TestDetailsFooterViewController : UIViewController
+@interface TestDetailsFooterViewController : UIViewController {
+    NSString *segueType;
+}
 
 @property (nonatomic, strong) Result *result;
 @property (nonatomic, strong) Measurement *measurement;
