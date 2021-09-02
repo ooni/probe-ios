@@ -1,5 +1,6 @@
 #import "TestDetailsFooterViewController.h"
 #import "ThirdPartyServices.h"
+#import "LogViewController.h"
 
 @interface TestDetailsFooterViewController ()
 
@@ -10,11 +11,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.methodologyButton.layer.cornerRadius = self.methodologyButton.bounds.size.height/2;
-    self.methodologyButton.layer.masksToBounds = YES;
-    self.methodologyButton.layer.borderWidth = 0.5f;
-    self.methodologyButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    [self.methodologyButton setTitle:NSLocalizedString(@"TestResults.Details.Methodology", nil) forState:UIControlStateNormal];
+    self.dataButton.layer.cornerRadius = self.dataButton.bounds.size.height/2;
+    self.dataButton.layer.masksToBounds = YES;
+    self.dataButton.layer.borderWidth = 0.5f;
+    self.dataButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.dataButton setTitle:NSLocalizedString(@"TestResults.Details.RawData", nil) forState:UIControlStateNormal];
+
+    self.explorerButton.layer.cornerRadius = self.explorerButton.bounds.size.height/2;
+    self.explorerButton.layer.masksToBounds = YES;
+    self.explorerButton.layer.borderWidth = 0.5f;
+    self.explorerButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.explorerButton setTitle:NSLocalizedString(@"TestResults.Details.ShowInExplorer", nil) forState:UIControlStateNormal];
+
+    [self.logButton setTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil) forState:UIControlStateNormal];
 
     [self.networkLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.Network", nil)];
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
@@ -36,12 +45,49 @@
     [self.countryDetailLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     [self.runtimeLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     [self.runtimeDetailLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+    
+    if ([self.measurement hasLogFile])
+        [self.logButton setHidden:NO];
+    if (self.measurement.report_id != NULL && ![self.measurement.report_id isEqualToString:@""]){
+        [self.explorerButton setHidden:NO];
+    }
 }
 
 -(IBAction)openMethodology:(id)sender{
     NSString *url = [LocalizationUtility getUrlForTest:measurement.test_name];
     if (url != nil)
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
+-(IBAction)openExplorerUrl:(id)sender{
+    NSString *url = [self getExplorerUrl];
+    if (url != nil)
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
+-(NSString*)getExplorerUrl{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"https://explorer.ooni.io/measurement/%@", self.measurement.report_id];
+    if ([self.measurement.test_name isEqualToString:@"web_connectivity"])
+        [url appendFormat:@"?input=%@", self.measurement.url_id.url];
+    return url;
+}
+
+- (IBAction)viewLogs{
+    segueType = @"log";
+    [self performSegueWithIdentifier:@"toViewLog" sender:self];
+}
+
+- (IBAction)rawData{
+    segueType = @"json";
+    [self performSegueWithIdentifier:@"toViewLog" sender:self];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toViewLog"]){
+        LogViewController *vc = (LogViewController *)segue.destinationViewController;
+        [vc setType:segueType];
+        [vc setMeasurement:measurement];
+    }
 }
 
 @end

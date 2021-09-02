@@ -2,7 +2,9 @@
 #import "Result.h"
 #import "Measurement.h"
 
-@interface TestDetailsFooterViewController : UIViewController
+@interface TestDetailsFooterViewController : UIViewController {
+    NSString *segueType;
+}
 
 @property (nonatomic, strong) Result *result;
 @property (nonatomic, strong) Measurement *measurement;
@@ -16,6 +18,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *countryDetailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *runtimeLabel;
 @property (nonatomic, strong) IBOutlet UILabel *runtimeDetailLabel;
-@property (nonatomic, strong) IBOutlet UIButton *methodologyButton;
+@property (nonatomic, strong) IBOutlet UIButton *dataButton;
+@property (nonatomic, strong) IBOutlet UIButton *explorerButton;
+@property (nonatomic, strong) IBOutlet UIButton *logButton;
 
 @end

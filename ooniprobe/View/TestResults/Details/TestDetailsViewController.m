@@ -22,9 +22,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFooter) name:@"uploadFinished" object:nil];
     self.scrollView.alwaysBounceVertical = NO;
 
-    UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(advancedScreens)];
-    //assign button to navigationbar
-    self.navigationItem.rightBarButtonItem = moreButton;
     [self reloadFooter];
     isInExplorer = ![self.measurement hasReportFile];
     if ([self.measurement hasReportFile]){
@@ -36,8 +33,13 @@
             isInExplorer = FALSE;
         }];
     }
+    [self addShareButton];
 }
 
+-(void)addShareButton{
+    if (isInExplorer)
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareExplorerUrl)];
+}
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
@@ -47,73 +49,11 @@
     }
 }
 
-- (void)advancedScreens{
-    UIAlertAction* rawDataButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"TestResults.Details.RawData", nil)
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction * action) {
-        if ([[ReachabilityManager sharedManager] noInternetAccess] && isInExplorer){
-                [MessageUtility
-                 alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
-                 message:NSLocalizedString(@"Modal.Error.RawDataNoInternet", nil) inView:self];
-                return;
-            }
-            [self rawData];
-        }];
-    
-    UIAlertAction* logButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"TestResults.Details.ViewLog", nil)
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction * action) {
-        [self viewLogs];
-    }];
-    
-    UIAlertAction* shareExplorerURLButton = [UIAlertAction
-                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.ShareExplorerURL", nil)
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action) {
-        [self shareExplorerUrl];
-    }];
-
-    UIAlertAction* copyExplorerURLButton = [UIAlertAction
-                                    actionWithTitle:NSLocalizedString(@"TestResults.Details.CopyExplorerURL", nil)
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action) {
-        [self copyExplorerUrl];
-    }];
-
-    NSMutableArray *buttons = [NSMutableArray new];
-    [buttons addObject:rawDataButton];
-    if ([self.measurement hasLogFile])
-        [buttons addObject:logButton];
-    if (self.measurement.report_id != NULL && ![self.measurement.report_id isEqualToString:@""]){
-        [buttons addObject:shareExplorerURLButton];
-        [buttons addObject:copyExplorerURLButton];
-    }
-    [MessageUtility alertWithTitle:nil message:nil buttons:buttons inView:self];
-}
-
-- (IBAction)viewLogs{
-    segueType = @"log";
-    [self performSegueWithIdentifier:@"toViewLog" sender:self];
-}
-
-- (IBAction)rawData{
-    segueType = @"json";
-    [self performSegueWithIdentifier:@"toViewLog" sender:self];
-}
-
 -(NSString*)getExplorerUrl{
     NSMutableString *url = [NSMutableString stringWithFormat:@"https://explorer.ooni.io/measurement/%@", self.measurement.report_id];
     if ([self.measurement.test_name isEqualToString:@"web_connectivity"])
         [url appendFormat:@"?input=%@", self.measurement.url_id.url];
     return url;
-}
-
--(IBAction)copyExplorerUrl{
-    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = [self getExplorerUrl];
-    [MessageUtility showToast:NSLocalizedString(@"Toast.CopiedToClipboard", nil) inView:self.view];
 }
 
 -(IBAction)shareExplorerUrl{
