@@ -45,18 +45,16 @@
     [self.countryDetailLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     [self.runtimeLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     [self.runtimeDetailLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
-    
+    [self.methodologyLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+
+    NSString *url = [LocalizationUtility getUrlForTest:self.measurement.test_name];
+    [self.methodologyLabel setMarkdown:NSLocalizedFormatString(@"TestResults.Details.Methodology.Paragraph", url)];
+
     if ([self.measurement hasLogFile])
         [self.logButton setHidden:NO];
     if (self.measurement.report_id != NULL && ![self.measurement.report_id isEqualToString:@""]){
         [self.explorerButton setHidden:NO];
     }
-}
-
--(IBAction)openMethodology:(id)sender{
-    NSString *url = [LocalizationUtility getUrlForTest:measurement.test_name];
-    if (url != nil)
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 -(IBAction)openExplorerUrl:(id)sender{

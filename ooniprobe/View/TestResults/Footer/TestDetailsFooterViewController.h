@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "Result.h"
 #import "Measurement.h"
+#import "RHMarkdownLabel.h"
 
 @interface TestDetailsFooterViewController : UIViewController {
     NSString *segueType;
@@ -21,5 +22,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *dataButton;
 @property (nonatomic, strong) IBOutlet UIButton *explorerButton;
 @property (nonatomic, strong) IBOutlet UIButton *logButton;
+@property (nonatomic, strong) IBOutlet RHMarkdownLabel *methodologyLabel;
 
 @end
