@@ -47,13 +47,7 @@
 - (void)initHarpy{
     [[Harpy sharedInstance] setPresentingViewController:_window.rootViewController];
     [[Harpy sharedInstance] setAppName:@"OONI Probe"];
-    
     /* By default, Harpy is configured to use HarpyAlertTypeOption for all version updates */
-    //TODO remove
-    [[Harpy sharedInstance] setPatchUpdateAlertType:HarpyAlertTypeOption];
-    [[Harpy sharedInstance] setMinorUpdateAlertType:HarpyAlertTypeOption];
-    [[Harpy sharedInstance] setMajorUpdateAlertType:HarpyAlertTypeOption];
-    
     [[Harpy sharedInstance] checkVersion];
 }
 
