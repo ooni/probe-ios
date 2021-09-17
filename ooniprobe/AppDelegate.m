@@ -8,6 +8,7 @@
 #import "ThirdPartyServices.h"
 #import "ReachabilityManager.h"
 #import "BackgroundTask.h"
+#import "Harpy.h"
 
 @interface AppDelegate ()
 
@@ -39,7 +40,15 @@
     
     [BackgroundTask configure];
 
+    [self initHarpy];
     return YES;
+}
+
+- (void)initHarpy{
+    [[Harpy sharedInstance] setPresentingViewController:_window.rootViewController];
+    [[Harpy sharedInstance] setAppName:@"OONI Probe"];
+    /* By default, Harpy is configured to use HarpyAlertTypeOption for all version updates */
+    [[Harpy sharedInstance] checkVersion];
 }
 
 -(BOOL)isUITestingEnabled{
@@ -92,6 +101,7 @@
     if ([TestUtility canCallDeleteJson])
         [TestUtility deleteUploadedJsons];
     [TestUtility deleteOldLogs];
+    [[Harpy sharedInstance] checkVersionDaily];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
