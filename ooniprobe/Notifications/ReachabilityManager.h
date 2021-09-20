@@ -8,4 +8,5 @@
 - (NSString*)getStatus;
 - (BOOL)noInternetAccess;
 - (BOOL)isWifi;
+- (BOOL)isVPNConnected;
 @end
