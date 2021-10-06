@@ -2,6 +2,7 @@
 #import "Suite.h"
 #import "ProxySettings.h"
 #import "RunningTest.h"
+#import "ReachabilityManager.h"
 
 @interface TestRunningViewController ()
 @end
@@ -48,6 +49,9 @@
 }
 
 -(void)testStart{
+    if ([[ReachabilityManager sharedManager] isVPNConnected])
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.DisableVPN.Title", nil)
+                               message:NSLocalizedString(@"Modal.DisableVPN.Message", nil) inView:self];
     if (self.animation)
         [self.animation removeFromSuperview];
     [self.logLabel setText:@""];
