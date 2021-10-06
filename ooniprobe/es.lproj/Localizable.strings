@@ -158,7 +158,7 @@
 "TestResults.Details.Failed.Title" = "Falló";
 "TestResults.Details.Failed.Paragraph" = "Puedes ejecutar esta prueba de nuevo";
 "TestResults.Details.Failed.TryAgain" = "Intenta otra vez";
-"TestResults.Details.Methodology.Paragraph" = "Learn how this test works [here](%@).";
+"TestResults.Details.Methodology.Paragraph" = "Aprende cómo funciona esta prueba [aquí](%@).";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accesible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ es accesible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablemente bloqueado";
@@ -280,6 +280,9 @@
 "Modal.ResultsNotUploaded.Paragraph" = "Algunos de los resultados de tus pruebas no han sido subidos a los servidores OONI. Si te gustaría contribuir al conjunto de datos de OONI, por favor súbelos.";
 "Modal.ResultsNotUploaded.Button.Upload" = "Subir";
 "Modal.ResultsNotUploaded.Uploading" = "Subiendo %@ ...";
+"Modal.Autorun.BatteryOptimization" = "OONI Probe no se puede ejecutar automáticamente sin optimización de batería. ¿Quieres intentarlo de nuevo?";
+"Modal.DisableVPN.Title" = "Por favor deshabilita tu conexión VPN.";
+"Modal.DisableVPN.Message" = "Si ejecutas OONI Probe con una VPN habilitada, los resultados de la prueba podrían aparecer como proviniendo desde el país incorrecto. Por favor deshabilita tu conexión VPN.";
 "Toast.ResultsUploaded" = "Subida exitosa";
 "Modal.DisplayFailureLog" = "Mostrar registro de fallos";
 "Modal.EnableNotifications.Title" = "Obtiene actualizaciones sobre censura en Internet";
@@ -347,7 +350,7 @@
 "Settings.AutomatedTesting.RunAutomatically.DateLast" = "Última prueba automatizada: %@.";
 "Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Sólo sobre WiFi";
 "Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Sólo cuando se está cargando";
-"Settings.AutomatedTesting.RunAutomatically.Footer" = "By enabling automatic testing, OONI Probe tests will run automatically multiple times per day. Your test results will automatically get published on OONI Explorer: https://explorer.ooni.org/ \n\nImportant: If you have a VPN enabled, OONI Probe will not run tests automatically. Please turn off your VPN for automated OONI Probe testing. Learn more: https://ooni.org/support/faq/#can-i-run-ooni-probe-over-a-vpn";
+"Settings.AutomatedTesting.RunAutomatically.Footer" = "Al habilitar pruebas automáticas, OONI Probe las ejecutará automáticamente múltiples veces por día. Los resultados de tus pruebas serán automáticamente publicados en el Explorador OONI: https://explorer.ooni.org/\n\nImportante: Si tienes una VPN habilitada, OONI Probe no ejecutará pruebas automáticamente. Por favor desactiva tu VPN para efectuar pruebas automatizadas con OONI Probe. Aprende más: https://ooni.org/support/faq/#can-i-run-ooni-probe-over-a-vpn";
 "Settings.Sharing.Label" = "Compartir";
 "Settings.Sharing.UploadResults" = "Publicar resultados automáticamente";
 "Settings.Sharing.UploadResultsManually" = "Subida Manual de Resultado";
