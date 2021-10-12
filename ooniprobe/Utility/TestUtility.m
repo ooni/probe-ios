@@ -3,6 +3,7 @@
 #import "SettingsUtility.h"
 #import "Suite.h"
 #import "OONIApi.h"
+#define delete_logs_delay 604800
 #define delete_json_delay 86400
 #define delete_json_key @"deleteUploadedJsons"
 #import "RunningTest.h"
@@ -161,13 +162,13 @@
 
 + (void)deleteOldLogs{
     for (Measurement *measurement in [Measurement measurementsWithLog]) {
-        [TestUtility removeLogAfterADay:measurement];
+        [TestUtility removeLogAfterAWeek:measurement];
     }
 }
 
-+ (void)removeLogAfterADay:(Measurement*)measurement{
++ (void)removeLogAfterAWeek:(Measurement*)measurement{
     NSTimeInterval timeSinceTest = [[NSDate date] timeIntervalSinceDate:measurement.start_time];
-    if (timeSinceTest > delete_json_delay){
+    if (timeSinceTest > delete_logs_delay){
         [TestUtility removeFile:[measurement getLogFile]];
     }
 }
