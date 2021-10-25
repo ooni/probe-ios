@@ -29,6 +29,11 @@
     [self reloadConstraints];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self showHideVPNToast];
+}
+
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
@@ -50,6 +55,22 @@
         [self.tableView reloadData];
         [self reloadLastMeasurement];
     });
+}
+
+-(void)showHideVPNToast{
+    if (![[ReachabilityManager sharedManager] isVPNConnected]){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
+            style.messageColor = [UIColor whiteColor];
+            style.backgroundColor = [UIColor colorNamed:@"color_red7"];
+            [self.view makeToast:NSLocalizedString(@"Modal.DisableVPN.Title", nil)
+                        duration:10
+                        position:CSToastPositionBottom
+                           style:style];
+        });
+    }
+    else
+        [self.view hideAllToasts];
 }
 
 -(void)setShadowRunButton{

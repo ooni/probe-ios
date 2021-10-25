@@ -61,7 +61,10 @@
     if ([SettingsUtility testChargingOnly] &&
         [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateUnplugged)
         return;
-
+    
+    if ([[ReachabilityManager sharedManager] isVPNConnected])
+        return;
+    
     NSString *testName = @"web_connectivity";
     NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
     AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
