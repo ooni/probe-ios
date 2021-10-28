@@ -102,7 +102,7 @@
     }];
 
     UIAlertAction* cancelButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Modal.NoThanks", nil)
+                                   actionWithTitle:NSLocalizedString(@"Modal.NotNow", nil)
                                    style:UIAlertActionStyleCancel
                                    handler:^(UIAlertAction * action) {
     }];
@@ -134,7 +134,7 @@
     }];
 
     UIAlertAction* cancelButton = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Modal.NoThanks", nil)
+                                   actionWithTitle:NSLocalizedString(@"Modal.NotNow", nil)
                                    style:UIAlertActionStyleCancel
                                    handler:^(UIAlertAction * action) {
     }];
