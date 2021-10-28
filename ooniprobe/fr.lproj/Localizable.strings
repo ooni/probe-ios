@@ -21,6 +21,8 @@
 "Onboarding.PopQuiz.2.Question" = "Chaque fois que j’exécute OONI Probe, les données réseau que je recueille seront publiées automatiquement.";
 "Onboarding.PopQuiz.2.Wrong.Title" = "Avertissement";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "Afin d’accroître la transparence de la censure d’Internet, les données réseau de tous les utilisateurs d’OONI Probe sont publiées automatiquement (à moins qu’ils ne décident de ne pas y participer dans les paramètres).";
+"Onboarding.AutomatedTesting.Title" = "Test automatisé";
+"Onboarding.AutomatedTesting.Paragraph" = "To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.\n\nDon't worry, we'll be mindful of battery usage. \n\nYou can disable automated testing from the settings at any time.";
 "Onboarding.Crash.Title" = "Signalement de plantage";
 "Onboarding.Crash.Paragraph" = "Afin d’améliorer OONI Probe, nous souhaitons recueillir des rapports de plantage anonymes quand l’appli ne fonctionne pas correctement. Acceptez-vous d’envoyer des rapports de plantage à l’équipe de développement d’OONI ?";
 "Onboarding.Crash.Button.Yes" = "Oui";
@@ -66,7 +68,7 @@
 "Dashboard.Circumvention.Card.Description" = "Testez le blocage des outils de contournement de la censure";
 "Dashboard.Circumvention.Overview.Paragraph" = "Vérifiez si [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) ou [RiseupVPN](https://ooni.org/nettest/riseupvpn/) sont bloqués (site en anglais).\n\nVos résultats seront publiés dans l’[Explorateur OONI](https://explorer.ooni.org/) et l’[API d’OONI](https://api.ooni.io/) (site en anglais).";
 "Dashboard.Experimental.Card.Description" = "Effectuer les nouveaux tests expérimentaux";
-"Dashboard.Experimental.Overview.Paragraph" = "Effectuer les nouveaux tests expérimentaux suivants conçus par l'équipe d’OONI:\n%@\n\nVos résultats seront publiés dans l’[Explorateur OONI](https://explorer.ooni.org/) et l’[API d’OONI](https://api.ooni.io/) (site en anglais).";
+"Dashboard.Experimental.Overview.Paragraph" = "Effectuer les nouveaux tests expérimentaux suivants conçus par l’équipe d’OONI :\n%@\n\nVos résultats seront publiés dans l’[Explorateur OONI](https://explorer.ooni.org/) et l’[API d’OONI](https://api.ooni.io/) (site en anglais).";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -158,7 +160,7 @@
 "TestResults.Details.Failed.Title" = "Échec";
 "TestResults.Details.Failed.Paragraph" = "Vous pouvez essayer de relancer ce test";
 "TestResults.Details.Failed.TryAgain" = "Réessayer";
-"TestResults.Details.Methodology.Paragraph" = "Learn how this test works [here](%@).";
+"TestResults.Details.Methodology.Paragraph" = "Apprenez [ici](%@) comment ce test fonctionne.";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Accessible";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "%@ est accessible.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Probablement bloqué";
@@ -263,12 +265,13 @@
 "Feed.Title" = "Flux";
 "Modal.OK" = "Valider";
 "Modal.Cancel" = "Annuler";
-"Modal.DontAskAgain" = "Ne plus demander";
+"Modal.DontAskAgain" = "No, don't ask again";
 "Modal.Delete" = "Supprimer";
 "Modal.Error" = "Erreur";
 "Modal.Retry" = "Réessayer";
 "Modal.SoundsGreat" = "C’est parfait";
 "Modal.NoThanks" = "Non, merci";
+"Modal.NotNow" = "Not now";
 "Modal.Error.NoInternet" = "Impossible d’effectuer le test. Veuillez vérifier votre connexion à Internet.";
 "Modal.Error.CantDownloadURLs" = "Impossible de télécharger la liste des URL. Veuillez réessayer.";
 "Modal.Error.TestAlreadyRunning" = "Veuillez attendre la fin du test en cours avant de lancer un nouveau test.";
@@ -280,9 +283,9 @@
 "Modal.ResultsNotUploaded.Paragraph" = "Certains de vos résultats de test n’ont pas été téléversés vers les serveurs de l’OONI. Si vous souhaitez contribuer à l’ensemble de données de l’OONI, veuillez les téléverser.";
 "Modal.ResultsNotUploaded.Button.Upload" = "Téléversement";
 "Modal.ResultsNotUploaded.Uploading" = "Téléversement de %@…";
-"Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
-"Modal.DisableVPN.Title" = "Please disable your VPN connection.";
-"Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.Autorun.BatteryOptimization" = "OONI Probe ne peut pas fonctionner automatiquement sans optimisation de la pile. Voulez-vous réessayer ?";
+"Modal.DisableVPN.Title" = "Veuillez désactiver votre connexion RPV.";
+"Modal.DisableVPN.Message" = "Si vous exécutez OONI Probe alors qu’un RPV (réseau privé virtuel) est activé, les résultats des tests pourraient sembler provenir du mauvais pays. Veuillez désactiver votre connexion RPV.";
 "Toast.ResultsUploaded" = "Téléversement réussi";
 "Modal.DisplayFailureLog" = "Afficher le journal des échecs";
 "Modal.EnableNotifications.Title" = "Obtenez des mises à jour sur la censure d’Internet";
@@ -309,7 +312,8 @@
 "Modal.InterruptTest.Title" = "Voulez-vous interrompre ce test ?";
 "Modal.InterruptTest.Paragraph" = "Le test en cours sera interrompu à partir de maintenant.";
 "Modal.Autorun.Modal.Title" = "Voulez-vous effectuer les tests manuellement ?";
-"Modal.Autorun.Modal.Text" = "En activant les tests automatiques, les tests d’OONI Probe auront lieu automatiquement et périodiquement (et vous n’aurez pas à vous rappeler de les effectuer manuellement).";
+"Modal.Autorun.Modal.Text" = "By enabling automated testing, you will contribute OONI measurements on a regular basis.";
+"Modal.Autorun.Modal.Text.Android" = "Please allow the app to run in the background.";
 "Modal.Autorun.Modal.Button.RemindLater" = "Me rappeler plus tard";
 "Toast.CopiedToClipboard" = "Copié dans le presse-papiers";
 "Snackbar.ResultsNotUploaded.Text" = "N’a pas été téléversé";
@@ -350,7 +354,7 @@
 "Settings.AutomatedTesting.RunAutomatically.DateLast" = "Dernier test automatisé : %@.";
 "Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Seulement par Wi-Fi";
 "Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Seulement pendant la charge";
-"Settings.AutomatedTesting.RunAutomatically.Footer" = "By enabling automatic testing, OONI Probe tests will run automatically multiple times per day. Your test results will automatically get published on OONI Explorer: https://explorer.ooni.org/ \n\nImportant: If you have a VPN enabled, OONI Probe will not run tests automatically. Please turn off your VPN for automated OONI Probe testing. Learn more: https://ooni.org/support/faq/#can-i-run-ooni-probe-over-a-vpn";
+"Settings.AutomatedTesting.RunAutomatically.Footer" = "En activant les tests automatiques, les tests d’OONI Probe auront lieu automatiquement plusieurs fois par jour. Les résultats de vos tests seront publiés automatiquement sur l’Explorateur OONI : https://explorer.ooni.org/ (site en anglais)\n\nImportant : Si vous utilisez un RPV et qu’il est activé, OONI Probe n’effectuera pas de test automatique. Afin que les tests automatisés d’OONI Probe aient lieu, veuillez désactiver votre RPV. Apprenez-en davantage : https://ooni.org/support/faq/#can-i-run-ooni-probe-over-a-vpn (site en anglais)";
 "Settings.Sharing.Label" = "Partage";
 "Settings.Sharing.UploadResults" = "Publier automatiquement les résultats";
 "Settings.Sharing.UploadResultsManually" = "Téléversement manuel des résultats";

@@ -21,6 +21,8 @@
 "Onboarding.PopQuiz.2.Question" = "Bei jedem Start von OONI Probe werden die von mir gesammelten Netzwerkdaten automatisch veröffentlicht.";
 "Onboarding.PopQuiz.2.Wrong.Title" = "Warnung";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "Um Transparenz im Hinblick auf Internetzensur zu erhöhen, werden die Netzwerkdaten aller OONI Probe-Benutzer automatisch veröffentlicht (sofern dies nicht in den Einstellungen deaktiviert wird).";
+"Onboarding.AutomatedTesting.Title" = "Automatisches Testen";
+"Onboarding.AutomatedTesting.Paragraph" = "To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.\n\nDon't worry, we'll be mindful of battery usage. \n\nYou can disable automated testing from the settings at any time.";
 "Onboarding.Crash.Title" = "Absturz-Berichterstattung";
 "Onboarding.Crash.Paragraph" = "Um OONI Probe zu verbessern, würden wir gerne anonyme Absturzberichte sammeln, wenn die App nicht richtig funktioniert.\n\nMöchtest du dich für das Einsenden von Absturzberichten an das OONI-Entwicklungsteam entscheiden?";
 "Onboarding.Crash.Button.Yes" = "Ja";
@@ -263,12 +265,13 @@
 "Feed.Title" = "Feed";
 "Modal.OK" = "OK";
 "Modal.Cancel" = "Abbrechen";
-"Modal.DontAskAgain" = "Nicht erneut nachfragen";
+"Modal.DontAskAgain" = "No, don't ask again";
 "Modal.Delete" = "Entfernen";
 "Modal.Error" = "Fehler";
 "Modal.Retry" = "Versuche erneut";
 "Modal.SoundsGreat" = "Hört sich toll an";
 "Modal.NoThanks" = "Nein, danke";
+"Modal.NotNow" = "Not now";
 "Modal.Error.NoInternet" = "Test konnte nicht ausgeführt werden. Bitte überprüfe deine Internetverbindung.";
 "Modal.Error.CantDownloadURLs" = "URL-Liste kann nicht heruntergeladen werden. Bitte versuche es erneut.";
 "Modal.Error.TestAlreadyRunning" = "Bitte warte, bis die laufenden Tests beendet sind, bevor du einen neuen Test startest.";
@@ -280,9 +283,9 @@
 "Modal.ResultsNotUploaded.Paragraph" = "Manche deiner Testergebnisse wurden nicht auf OONI-Server hochgeladen. Wenn du zu OONIs Datensatz beitragen möchtest, lade sie bitte hoch.";
 "Modal.ResultsNotUploaded.Button.Upload" = "Hochladen";
 "Modal.ResultsNotUploaded.Uploading" = "Hochladen von %@ ...";
-"Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
-"Modal.DisableVPN.Title" = "Please disable your VPN connection.";
-"Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.Autorun.BatteryOptimization" = "OONI Probe kann nicht automatisch ohne Batterieoptimierung laufen. Möchtest du es noch einmal versuchen?";
+"Modal.DisableVPN.Title" = "Bitte deaktiviere deine VPN-Verbindung.";
+"Modal.DisableVPN.Message" = "Wenn du OONI Probe mit aktiviertem VPN ausführst, kann es sein, dass die Testergebnisse aus dem falschen Land stammen. Bitte deaktiviere deine VPN-Verbindung.";
 "Toast.ResultsUploaded" = "Hochladen war erfolgreich";
 "Modal.DisplayFailureLog" = "Fehlerlog anzeigen";
 "Modal.EnableNotifications.Title" = "Aktuelle Informationen zur Internetzensur";
@@ -309,7 +312,8 @@
 "Modal.InterruptTest.Title" = "Möchten Sie diesen Test unterbrechen?";
 "Modal.InterruptTest.Paragraph" = "Dies wird den laufenden Test ab diesem Zeitpunkt unterbrechen.";
 "Modal.Autorun.Modal.Title" = "Möchtest du Tests automatisch ausführen lassen?";
-"Modal.Autorun.Modal.Text" = "Wenn du automatische Tests aktivierst, werden die Tests der OONI-Sonde regelmässig automatisch ausgeführt (und Du musst nicht daran denken, Tests manuell auszuführen).";
+"Modal.Autorun.Modal.Text" = "By enabling automated testing, you will contribute OONI measurements on a regular basis.";
+"Modal.Autorun.Modal.Text.Android" = "Please allow the app to run in the background.";
 "Modal.Autorun.Modal.Button.RemindLater" = "Später erinnern";
 "Toast.CopiedToClipboard" = "In Zwischenablage kopiert";
 "Snackbar.ResultsNotUploaded.Text" = "Nicht hochgeladen";

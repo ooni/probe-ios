@@ -21,6 +21,8 @@
 "Onboarding.PopQuiz.2.Question" = "Cada vez que ejecute OONI Probe, los datos de red que recopile serán automáticamente publicados.";
 "Onboarding.PopQuiz.2.Wrong.Title" = "Advertencia";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "Para incrementar la transparencia de la censura en Internet, los datos de red de todos los usuarios de OONI Probe son automáticamente publicados (a menos que opten por no hacerlo en las configuraciones).";
+"Onboarding.AutomatedTesting.Title" = "Pruebas automatizadas";
+"Onboarding.AutomatedTesting.Paragraph" = "To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.\n\nDon't worry, we'll be mindful of battery usage. \n\nYou can disable automated testing from the settings at any time.";
 "Onboarding.Crash.Title" = "Informes de error";
 "Onboarding.Crash.Paragraph" = "Para mejorar OONI Probe nos gustaría recolectar informes de error anónimos cuando la aplicación no funcione apropiadamente.\n\n¿Te gustaría optar por enviar informes de error al equipo de desarrollo de OONI?";
 "Onboarding.Crash.Button.Yes" = "Sí";
@@ -263,12 +265,13 @@
 "Feed.Title" = "Lista de suscripciones";
 "Modal.OK" = "Aceptar";
 "Modal.Cancel" = "Cancelar";
-"Modal.DontAskAgain" = "No preguntar de nuevo";
+"Modal.DontAskAgain" = "No, don't ask again";
 "Modal.Delete" = "Borrar";
 "Modal.Error" = "Error";
 "Modal.Retry" = "Intentar de nuevo";
 "Modal.SoundsGreat" = "Suena genial";
 "Modal.NoThanks" = "No, gracias";
+"Modal.NotNow" = "Not now";
 "Modal.Error.NoInternet" = "Incapaz de ejecutar la prueba. Por favor comprueba tu conectividad de Internet.";
 "Modal.Error.CantDownloadURLs" = "Incapaz de descargar la lista de URL. Por favor intenta de nuevo.";
 "Modal.Error.TestAlreadyRunning" = "Por favor espera hasta que las pruebas en ejecución terminen, antes de iniciar una nueva.";
@@ -309,7 +312,8 @@
 "Modal.InterruptTest.Title" = "¿Deseas interrumpir esta prueba?";
 "Modal.InterruptTest.Paragraph" = "Esto interrumpirá la prueba actual a partir de este momento.";
 "Modal.Autorun.Modal.Title" = "¿Desearías ejecutar pruebas automáticamente?";
-"Modal.Autorun.Modal.Text" = "Al habilitar las pruebas automáticas, OONI Probe las ejecutará automáticamente en forma regular (y no necesitarás recordar ejecutarlas manualmente).";
+"Modal.Autorun.Modal.Text" = "By enabling automated testing, you will contribute OONI measurements on a regular basis.";
+"Modal.Autorun.Modal.Text.Android" = "Please allow the app to run in the background.";
 "Modal.Autorun.Modal.Button.RemindLater" = "Recordármelo más tarde";
 "Toast.CopiedToClipboard" = "Se ha copiado al portapapeles";
 "Snackbar.ResultsNotUploaded.Text" = "No subido";

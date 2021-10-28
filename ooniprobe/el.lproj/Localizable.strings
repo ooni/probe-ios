@@ -21,6 +21,8 @@
 "Onboarding.PopQuiz.2.Question" = "Κάθε φορά που τρέχω το OONI Probe, τα δικτυακά δεδομένα που συλλέγω δημοσιεύονται.";
 "Onboarding.PopQuiz.2.Wrong.Title" = "Προσοχή";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "Για να αυξηθεί η διαφάνεια της λογοκρισίας στο Διαδίκτυο, τα δεδομένα δικτύου όλων των χρηστών του OONI Probe δημοσιεύονται αυτόματα (εκτός αν απενεργοποιήθουν οι σχετικές ρυθμίσεις).";
+"Onboarding.AutomatedTesting.Title" = "Αυτοματοποιημένες δοκιμές";
+"Onboarding.AutomatedTesting.Paragraph" = "To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.\n\nDon't worry, we'll be mindful of battery usage. \n\nYou can disable automated testing from the settings at any time.";
 "Onboarding.Crash.Title" = "Αναφορά σφαλμάτων";
 "Onboarding.Crash.Paragraph" = "Για να βελτιώσουμε το OONI Probe, θα θέλαμε να συλλέγουμε ανώνυμες αναφορές σφαλμάτων και κρασαρίσματος όταν η εφαρμογή δεν λειτουργεί σωστά.\n\nΕπιθυμείς να υποβάλλεις αναφορές σφαλμάτων στην ομάδα ανάπτυξης του OONI;";
 "Onboarding.Crash.Button.Yes" = "Ναι";
@@ -263,12 +265,13 @@
 "Feed.Title" = "Feed";
 "Modal.OK" = "Εντάξει";
 "Modal.Cancel" = "Άκυρο";
-"Modal.DontAskAgain" = "Μη ρωτήσεις ξανά";
+"Modal.DontAskAgain" = "No, don't ask again";
 "Modal.Delete" = "Διαγραφή";
 "Modal.Error" = "Σφάλμα";
 "Modal.Retry" = "Ξαναδοκίμασε";
 "Modal.SoundsGreat" = "Ναι, αμέ!";
 "Modal.NoThanks" = "Όχι, ευχαριστώ";
+"Modal.NotNow" = "Not now";
 "Modal.Error.NoInternet" = "Δεν είναι δυνατή η εκτέλεση της δοκιμής. Έλεγξε τη σύνδεσή σου στο Διαδίκτυο.";
 "Modal.Error.CantDownloadURLs" = "Δεν είναι δυνατή η λήψη της λίστας ιστοσελιδών. Παρακαλώ προσπάθησε ξανά.";
 "Modal.Error.TestAlreadyRunning" = "Παρακαλώ περίμενε μέχρι να τελειώσουν οι δοκιμές που εκτελούνται τώρα, πριν ξεκινήσεις μια νέα δοκιμή.";
@@ -309,7 +312,8 @@
 "Modal.InterruptTest.Title" = "Θέλεις να διακόψεις αυτή τη δοκιμή;";
 "Modal.InterruptTest.Paragraph" = "Αυτό θα διακόψει την τρέχουσα δοκιμή από αυτή τη στιγμή.";
 "Modal.Autorun.Modal.Title" = "Θέλεις να τρέχεις δοκιμές αυτοματοποιημένα;";
-"Modal.Autorun.Modal.Text" = "Ενεργοποιώντας τις αυτοματοποιημένες δοκιμές, οι δοκιμές του OONI Probe θα εκτελούνται αυτόματα σε τακτά χρονικά διαστήματα (και δεν θα χρειάζεται να θυμάσαι να τις τρέξεις χειροκίνητα).";
+"Modal.Autorun.Modal.Text" = "By enabling automated testing, you will contribute OONI measurements on a regular basis.";
+"Modal.Autorun.Modal.Text.Android" = "Please allow the app to run in the background.";
 "Modal.Autorun.Modal.Button.RemindLater" = "Υπενθύμιση αργότερα";
 "Toast.CopiedToClipboard" = "Αντιγράφηκε στο πρόχειρο";
 "Snackbar.ResultsNotUploaded.Text" = "Δεν ανέβηκαν";

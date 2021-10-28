@@ -21,6 +21,8 @@
 "Onboarding.PopQuiz.2.Question" = "Kila wakati ninapoendesha OONI Probe, data ya mtandao ninayokusanya itachapishwa kiatomati.";
 "Onboarding.PopQuiz.2.Wrong.Title" = "Onyo";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "Ili kuongeza uwazi wa udhibiti wa mtandao, data ya mtandao ya watumiaji wote wa OONI Probe inachapishwa kiatomati (isipokuwa wata chagua katika mipangilio).";
+"Onboarding.AutomatedTesting.Title" = "Upimaji wa kiotomatiki";
+"Onboarding.AutomatedTesting.Paragraph" = "To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.\n\nDon't worry, we'll be mindful of battery usage. \n\nYou can disable automated testing from the settings at any time.";
 "Onboarding.Crash.Title" = "Taarifa ya Ajali";
 "Onboarding.Crash.Paragraph" = "Ili kuboresha OONI Probe tungependa kukusanya ripoti zisizojulikana za ajali wakati programu haifanyi kazi vizuri.\n\nJe! Ungependa kuchagua kutuma ripoti za ajali kwa timu ya maendeleo ya OONI?";
 "Onboarding.Crash.Button.Yes" = "Ndio";
@@ -263,12 +265,13 @@
 "Feed.Title" = "Kulisha  ";
 "Modal.OK" = "sawa";
 "Modal.Cancel" = "Cancel";
-"Modal.DontAskAgain" = "usiulize tena ";
+"Modal.DontAskAgain" = "No, don't ask again";
 "Modal.Delete" = "Futa";
 "Modal.Error" = "kosa";
 "Modal.Retry" = "Kujaribu";
 "Modal.SoundsGreat" = "Inasikika sana";
 "Modal.NoThanks" = "Hapana, asante";
+"Modal.NotNow" = "Not now";
 "Modal.Error.NoInternet" = "Imeshindwa kutekeleza jaribio. Tafadhali angalia muunganisho wako wa mtandao.";
 "Modal.Error.CantDownloadURLs" = "Imeshindwa kupakua orodha ya URL. Tafadhali jaribu tena.";
 "Modal.Error.TestAlreadyRunning" = "Tafadhali subiri majaribio ya sasa ya kukimbia kumaliza, kabla ya kuanza jaribio jipya.";
@@ -309,7 +312,8 @@
 "Modal.InterruptTest.Title" = "Je! Unataka kukatisha jaribio hili?";
 "Modal.InterruptTest.Paragraph" = "Hii itakatisha jaribio la sasa kutoka wakati huu.";
 "Modal.Autorun.Modal.Title" = "Je! Ungependa kujaribu vipimo moja kwa moja?";
-"Modal.Autorun.Modal.Text" = "Kwa kuwezesha upimaji wa moja kwa moja, vipimo vya OONI Probe vitaendesha kiatomati mara kwa mara (na hauitaji kukumbuka kuendesha vipimo kwa mikono).";
+"Modal.Autorun.Modal.Text" = "By enabling automated testing, you will contribute OONI measurements on a regular basis.";
+"Modal.Autorun.Modal.Text.Android" = "Please allow the app to run in the background.";
 "Modal.Autorun.Modal.Button.RemindLater" = "Nikumbushe baadaye";
 "Toast.CopiedToClipboard" = "Imenakiliwa kwenye ubao wa kunakili";
 "Snackbar.ResultsNotUploaded.Text" = "Haijapakiwa";

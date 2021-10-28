@@ -21,6 +21,8 @@
 "Onboarding.PopQuiz.2.Question" = "هر بار که OONI Probe را اجرا می‌کنم، داده‌های شبکه‌ای که جمع‌آوری می‌کنم به طور خودکار منتشر می‌شوند.";
 "Onboarding.PopQuiz.2.Wrong.Title" = "هشدار";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "برای افزایش شفافیت سانسور اینترنت، داده‌های شبکه‌ی تمامی کاربران OONI Probe به طور خودکار منتشر می‌شود (مگر آنکه در تنظیمات انصراف دهند).";
+"Onboarding.AutomatedTesting.Title" = "آزمایش خودکار";
+"Onboarding.AutomatedTesting.Paragraph" = "To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.\n\nDon't worry, we'll be mindful of battery usage. \n\nYou can disable automated testing from the settings at any time.";
 "Onboarding.Crash.Title" = "گزارش خرابی";
 "Onboarding.Crash.Paragraph" = "به منظور بهبود عملکرد OONI Probe، زمانی که برنامه به درستی کار نمی‌کند نیاز به جمع‌آوری گزارش‌های خرابی به صورت ناشناس خواهیم داشت.\n\nآیا علاقه به مشارکت در ارسال گزارش‌های خرابی به تیم توسعه OONI دارید؟";
 "Onboarding.Crash.Button.Yes" = "بله";
@@ -263,12 +265,13 @@
 "Feed.Title" = "خوراک";
 "Modal.OK" = "باشه";
 "Modal.Cancel" = "لغو";
-"Modal.DontAskAgain" = "دیگر نپرس";
+"Modal.DontAskAgain" = "No, don't ask again";
 "Modal.Delete" = "حذف";
 "Modal.Error" = "خطا";
 "Modal.Retry" = "تلاش دوباره";
 "Modal.SoundsGreat" = "به نظر عالی میاد";
 "Modal.NoThanks" = "نه، ممنون";
+"Modal.NotNow" = "Not now";
 "Modal.Error.NoInternet" = "اجرای تست امکان‌پذیر نبود. لطفا ارتباط اینترنت خود را چک کنید.";
 "Modal.Error.CantDownloadURLs" = "بارگیری لیست آدرس اینترنتی امکان‌پذیر نبود. لطفا  دوباره تلاش کنید.";
 "Modal.Error.TestAlreadyRunning" = "Please wait for the current running tests to finish, before starting a new test.";
@@ -309,7 +312,8 @@
 "Modal.InterruptTest.Title" = "آیا می‌خواهید این آزمون را قطع کنید؟";
 "Modal.InterruptTest.Paragraph" = "این کار آزمون فعلی را از این لحظه قطع خواهد کرد.";
 "Modal.Autorun.Modal.Title" = "آیا مایل به اجرای خودکار تست‌ها هستید؟";
-"Modal.Autorun.Modal.Text" = "با فعالسازی آزمون خودکار، آزمون‌های OONI Probe به صورت خودکار و در بازه‌های مشخص انجام خواهند شد (و شما نیاز به خاطر سپردن انجام آزمون نیستید).";
+"Modal.Autorun.Modal.Text" = "By enabling automated testing, you will contribute OONI measurements on a regular basis.";
+"Modal.Autorun.Modal.Text.Android" = "Please allow the app to run in the background.";
 "Modal.Autorun.Modal.Button.RemindLater" = "بعدا یاداوری کن";
 "Toast.CopiedToClipboard" = "در حافظه‌ی موقت کپی شد";
 "Snackbar.ResultsNotUploaded.Text" = "بارگذاری نشدند";

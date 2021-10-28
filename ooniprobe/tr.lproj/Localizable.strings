@@ -21,6 +21,8 @@
 "Onboarding.PopQuiz.2.Question" = "OONI Probe uygulamasını her çalıştırdığımda topladığım ağ verileri herkese açık olarak yayınlanır.";
 "Onboarding.PopQuiz.2.Wrong.Title" = "Uyarı";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "İnternet sansürü şeffaflığını sağlamak için tüm OONI Probe kullanıcılarının ağ verileri otomatik olarak yayınlanır (ayarlardan devre dışı bırakılmadıkça).";
+"Onboarding.AutomatedTesting.Title" = "Otomatik sınama";
+"Onboarding.AutomatedTesting.Paragraph" = "To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.\n\nDon't worry, we'll be mindful of battery usage. \n\nYou can disable automated testing from the settings at any time.";
 "Onboarding.Crash.Title" = "Çökme Bildirimleri";
 "Onboarding.Crash.Paragraph" = "OONI Probe uygulamasını iyileştirmek için, sorun çıktığında kişisel veri içermeyen anonim çökme bildirimleri almak istiyoruz.\n\nÇökme bildirimlerinin OONI geliştirme ekibine gönderilmesini ister misiniz?";
 "Onboarding.Crash.Button.Yes" = "Evet";
@@ -263,12 +265,13 @@
 "Feed.Title" = "Akış";
 "Modal.OK" = "Tamam";
 "Modal.Cancel" = "İptal";
-"Modal.DontAskAgain" = "Tekrar sorma";
+"Modal.DontAskAgain" = "No, don't ask again";
 "Modal.Delete" = "Sil";
 "Modal.Error" = "Hata";
 "Modal.Retry" = "Yeniden Dene";
 "Modal.SoundsGreat" = "Harika görünüyor";
 "Modal.NoThanks" = "Hayır, teşekkürler";
+"Modal.NotNow" = "Not now";
 "Modal.Error.NoInternet" = "Sınama yapılamadı. Lütfen İnternet bağlantınızı denetleyin.";
 "Modal.Error.CantDownloadURLs" = "Adres listesi indirilemedi. Lütfen yeniden deneyin.";
 "Modal.Error.TestAlreadyRunning" = "Lütfen yeni bir sınama başlatmadan önce yapılmakta olan sınamaların tamamlanmasını bekleyin.";
@@ -309,7 +312,8 @@
 "Modal.InterruptTest.Title" = "Bu sınamayı durdurmak istediğinize emin misiniz?";
 "Modal.InterruptTest.Paragraph" = "Bu işlem şu anda yapılmakta olan sınamayı durduracak.";
 "Modal.Autorun.Modal.Title" = "Sınamalar otomatik olarak yürütülsün mü?";
-"Modal.Autorun.Modal.Text" = "Otomatik sınama etkinleştirildiğinde, düzenli olarak otomatik OONI Probe sınamaları yapılır (sınamaları el ile yapmayı anımsamanız gerekmez).";
+"Modal.Autorun.Modal.Text" = "By enabling automated testing, you will contribute OONI measurements on a regular basis.";
+"Modal.Autorun.Modal.Text.Android" = "Please allow the app to run in the background.";
 "Modal.Autorun.Modal.Button.RemindLater" = "Beni hatırla";
 "Toast.CopiedToClipboard" = "Panoya kopyalandı";
 "Snackbar.ResultsNotUploaded.Text" = "Yüklenmemiş";

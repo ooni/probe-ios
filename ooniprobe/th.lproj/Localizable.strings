@@ -21,6 +21,8 @@
 "Onboarding.PopQuiz.2.Question" = "ทุกครั้งที่ฉันเรียกใช้ OONI Probe ข้อมูลเครือข่ายที่ฉันเก็บรวบรวมจะถูกเผยแพร่โดยอัตโนมัติ";
 "Onboarding.PopQuiz.2.Wrong.Title" = "คำเตือน";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "เพื่อเพิ่มความโปร่งใสของการปิดกั้นอินเทอร์เน็ต ข้อมูลเครือข่ายของผู้ใช้ OONI Probe ทุกรายจะถูกเผยแพร่โดยอัตโนมัติ (เว้นเสียแต่ว่าพวกเขาได้เลือก ไม่เข้าร่วม ในการตั้งค่า)";
+"Onboarding.AutomatedTesting.Title" = "การทดสอบอัตโนมัติ";
+"Onboarding.AutomatedTesting.Paragraph" = "To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.\n\nDon't worry, we'll be mindful of battery usage. \n\nYou can disable automated testing from the settings at any time.";
 "Onboarding.Crash.Title" = "รายงานแอปพัง";
 "Onboarding.Crash.Paragraph" = "เพื่อปรับปรุง OONI Probe เราอยากรวบรวมรายงานการพังของแอป เมื่อแอปไม่ทำงานตามปกติ\n\nคุณอยากสมัครใจส่งรายงานการพังของแอปให้กับทีมพัฒนาของ OONI หรือไม่?";
 "Onboarding.Crash.Button.Yes" = "ใช่";
@@ -263,12 +265,13 @@
 "Feed.Title" = "ฟีด";
 "Modal.OK" = "ตกลง";
 "Modal.Cancel" = "ยกเลิก";
-"Modal.DontAskAgain" = "ไม่ต้องถามอีก";
+"Modal.DontAskAgain" = "No, don't ask again";
 "Modal.Delete" = "ลบ";
 "Modal.Error" = "ข้อผิดพลาด";
 "Modal.Retry" = "ลองใหม่อีกครั้ง";
 "Modal.SoundsGreat" = "น่าจะดี";
 "Modal.NoThanks" = "ไม่เอา ขอบคุณ";
+"Modal.NotNow" = "Not now";
 "Modal.Error.NoInternet" = "ไม่สามารถทำการทดสอบได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณ";
 "Modal.Error.CantDownloadURLs" = "ไม่สามารถดาวน์โหลดรายการที่อยู่เว็บได้ กรุณาลองอีกครั้ง";
 "Modal.Error.TestAlreadyRunning" = "Please wait for the current running tests to finish, before starting a new test.";
@@ -309,7 +312,8 @@
 "Modal.InterruptTest.Title" = "คุณต้องการหยุดการทดสอบนี้กลางคันหรือไม่?";
 "Modal.InterruptTest.Paragraph" = "นี่จะขัดจังหวะการทดสอบปัจจุบัน นับจากจุดนี้";
 "Modal.Autorun.Modal.Title" = "คุณต้องการดำเนินการทดสอบโดยอัตโนมัติหรือไม่?";
-"Modal.Autorun.Modal.Text" = "เมื่อเปิดการใช้การทดสอบอัตโนมัติ OONI Probe จะทดสอบโดยอัตโนมัติเป็นปกติ (เเละคุณไม่ต้องจำแล้วว่าต้องทำการทดสอบด้วยตนเอง)";
+"Modal.Autorun.Modal.Text" = "By enabling automated testing, you will contribute OONI measurements on a regular basis.";
+"Modal.Autorun.Modal.Text.Android" = "Please allow the app to run in the background.";
 "Modal.Autorun.Modal.Button.RemindLater" = "แล้วค่อยเตือนฉัน";
 "Toast.CopiedToClipboard" = "คัดลอกไปคลิปบอร์ดแล้ว";
 "Snackbar.ResultsNotUploaded.Text" = "ไม่ถูกอัปโหลด";
