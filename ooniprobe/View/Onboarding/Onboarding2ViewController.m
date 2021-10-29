@@ -29,7 +29,7 @@
 {
     question_number = qn;
     if (qn == 3){
-        [self performSegueWithIdentifier:@"toOnboardingCrash" sender:self];
+        [self performSegueWithIdentifier:@"toOnboardingAutoTest" sender:self];
     }
 }
 

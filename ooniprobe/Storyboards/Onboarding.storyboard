@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -229,7 +229,7 @@ The data that you can collect through this app can serve as evidence of censorsh
                         <outlet property="nextButton" destination="ESv-lT-nrn" id="MEn-w4-M62"/>
                         <outlet property="textLabel" destination="d3f-qb-Qml" id="vAE-1d-vpW"/>
                         <outlet property="titleLabel" destination="hvO-dw-gFn" id="eS9-tX-zJT"/>
-                        <segue destination="7O5-JB-Uds" kind="show" identifier="toOnboardingCrash" id="RRj-ie-chj"/>
+                        <segue destination="BWx-Wt-P5r" kind="show" identifier="toOnboardingAutoTest" id="bpK-SG-EPb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjF-ji-WHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -346,7 +346,7 @@ Would you like yo opt-in to submitting crash reports to the OONI development tea
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="job-ql-sgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3456.521739130435" y="-1151.9021739130435"/>
+            <point key="canvasLocation" x="4072" y="-1154"/>
         </scene>
         <!--Pop Quiz View Controller-->
         <scene sceneID="EHE-eH-LNP">
@@ -735,9 +735,134 @@ We do our best not to publish your IP address or any other potentially personall
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBf-ft-DYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4252" y="-1154"/>
+            <point key="canvasLocation" x="4980" y="-1154"/>
+        </scene>
+        <!--Onboarding Auto Test View Controller-->
+        <scene sceneID="nEE-hM-Wh9">
+            <objects>
+                <viewController storyboardIdentifier="onboarding_autotest" id="BWx-Wt-P5r" customClass="OnboardingAutoTestViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GSx-wC-Zda"/>
+                        <viewControllerLayoutGuide type="bottom" id="k46-sf-2I2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LgY-aR-Jwm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automated testing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-9T-9Ts">
+                                <rect key="frame" x="20" y="274" width="374" height="41"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.Crash.Title"/>
+                                <fontDescription key="fontDescription" name="FiraSans-Light" family="Fira Sans" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cKL-3U-8ch" customClass="RHMarkdownLabel">
+                                <rect key="frame" x="20" y="324" width="374" height="163.33333333333337"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.Crash.Paragraph"/>
+                                <string key="text">To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.
+
+Don't worry, we'll be mindful of battery usage. 
+
+You can disable automated testing from the settings at any time.</string>
+                                <fontDescription key="fontDescription" name="FiraSans-SemiBold" family="Fira Sans" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_3" translatesAutoresizingMaskIntoConstraints="NO" id="iKv-fc-PR9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="266"/>
+                                <color key="backgroundColor" red="0.0" green="0.16862745100000001" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iKv-fc-PR9" secondAttribute="height" multiplier="207:133" id="nSS-Ks-b8N"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgE-zw-cAg">
+                                <rect key="frame" x="20" y="603" width="177" height="56"/>
+                                <color key="backgroundColor" red="0.0" green="0.1019607843" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.Crash.Button.No"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Ygs-ir-2No"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="19"/>
+                                <state key="normal" title="NO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="refuseAutoTest" destination="BWx-Wt-P5r" eventType="touchUpInside" id="wR1-Tg-fCr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0m8-Sh-bEO">
+                                <rect key="frame" x="217" y="603" width="177" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Onboarding.Crash.Button.Yes"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="w6E-jg-d0f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="19"/>
+                                <state key="normal" title="YES">
+                                    <color key="titleColor" red="0.0" green="0.1019607843" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="acceptAutoTest" destination="BWx-Wt-P5r" eventType="touchUpInside" id="70k-gi-sPx"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dots_3" translatesAutoresizingMaskIntoConstraints="NO" id="zkD-um-L7t">
+                                <rect key="frame" x="140" y="712" width="134" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="134" id="6Ib-jO-Myy"/>
+                                    <constraint firstAttribute="height" constant="16" id="Ike-Zh-Bls"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mds-K4-kAX"/>
+                        <color key="backgroundColor" red="0.0" green="0.1019607843" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mds-K4-kAX" firstAttribute="trailing" secondItem="0m8-Sh-bEO" secondAttribute="trailing" constant="20" id="6PZ-1l-9vV"/>
+                            <constraint firstItem="0m8-Sh-bEO" firstAttribute="baseline" secondItem="fgE-zw-cAg" secondAttribute="baseline" id="7bg-tx-SOo"/>
+                            <constraint firstItem="cKL-3U-8ch" firstAttribute="leading" secondItem="LgY-aR-Jwm" secondAttribute="leadingMargin" id="7o1-4s-2ln"/>
+                            <constraint firstItem="cKL-3U-8ch" firstAttribute="top" secondItem="mF2-9T-9Ts" secondAttribute="bottom" constant="9" id="Bee-m1-0li"/>
+                            <constraint firstItem="mF2-9T-9Ts" firstAttribute="trailing" secondItem="LgY-aR-Jwm" secondAttribute="trailingMargin" id="IMw-FX-0Nc"/>
+                            <constraint firstItem="zkD-um-L7t" firstAttribute="centerX" secondItem="LgY-aR-Jwm" secondAttribute="centerX" id="Ky3-MU-tg1"/>
+                            <constraint firstItem="mF2-9T-9Ts" firstAttribute="leading" secondItem="LgY-aR-Jwm" secondAttribute="leadingMargin" id="MJ9-rM-MS0"/>
+                            <constraint firstItem="k46-sf-2I2" firstAttribute="top" secondItem="fgE-zw-cAg" secondAttribute="bottom" constant="77" id="QmD-lx-030"/>
+                            <constraint firstItem="iKv-fc-PR9" firstAttribute="leading" secondItem="Mds-K4-kAX" secondAttribute="leading" id="R9O-0s-o5b"/>
+                            <constraint firstItem="fgE-zw-cAg" firstAttribute="leading" secondItem="Mds-K4-kAX" secondAttribute="leading" constant="20" id="U7G-NJ-vpp"/>
+                            <constraint firstItem="k46-sf-2I2" firstAttribute="top" secondItem="zkD-um-L7t" secondAttribute="bottom" constant="8" id="UMO-gg-gZd"/>
+                            <constraint firstItem="iKv-fc-PR9" firstAttribute="trailing" secondItem="Mds-K4-kAX" secondAttribute="trailing" id="cC7-I9-hXc"/>
+                            <constraint firstItem="0m8-Sh-bEO" firstAttribute="trailing" secondItem="cKL-3U-8ch" secondAttribute="trailing" id="cSs-XO-tWn"/>
+                            <constraint firstItem="0m8-Sh-bEO" firstAttribute="leading" secondItem="fgE-zw-cAg" secondAttribute="trailing" constant="20" id="dfa-mH-QDa"/>
+                            <constraint firstItem="cKL-3U-8ch" firstAttribute="trailing" secondItem="LgY-aR-Jwm" secondAttribute="trailingMargin" id="g6L-7E-TQm"/>
+                            <constraint firstItem="0m8-Sh-bEO" firstAttribute="width" secondItem="fgE-zw-cAg" secondAttribute="width" id="ps9-Pe-tWS"/>
+                            <constraint firstItem="iKv-fc-PR9" firstAttribute="top" secondItem="LgY-aR-Jwm" secondAttribute="top" id="qoa-wQ-GHz"/>
+                            <constraint firstItem="mF2-9T-9Ts" firstAttribute="top" secondItem="iKv-fc-PR9" secondAttribute="bottom" constant="8" id="sCu-uw-Yrw"/>
+                            <constraint firstItem="fgE-zw-cAg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cKL-3U-8ch" secondAttribute="bottom" constant="8" id="zT0-3K-B1Q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7AK-lD-LLK"/>
+                    <connections>
+                        <outlet property="noButton" destination="fgE-zw-cAg" id="oR2-2f-2Pn"/>
+                        <outlet property="textLabel" destination="cKL-3U-8ch" id="y8o-xg-TpV"/>
+                        <outlet property="titleLabel" destination="mF2-9T-9Ts" id="ssc-Lv-OVX"/>
+                        <outlet property="view" destination="LgY-aR-Jwm" id="rCo-4w-dCp"/>
+                        <outlet property="yesButton" destination="0m8-Sh-bEO" id="Jia-hG-QVp"/>
+                        <segue destination="7O5-JB-Uds" kind="show" identifier="toOnboardingCrash" id="oKg-2Z-jWV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="08y-Yk-Xzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3332" y="-1154"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="cKL-3U-8ch">
+            <size key="intrinsicContentSize" width="940.66666666666663" height="102.33333333333333"/>
+        </designable>
+        <designable name="hx8-bq-2PZ">
+            <size key="intrinsicContentSize" width="863.66666666666663" height="61.333333333333336"/>
+        </designable>
+        <designable name="zkv-zi-fQp">
+            <size key="intrinsicContentSize" width="823" height="183.66666666666666"/>
+        </designable>
+    </designables>
     <resources>
         <image name="dots_1" width="135" height="16"/>
         <image name="dots_2" width="135" height="16"/>
