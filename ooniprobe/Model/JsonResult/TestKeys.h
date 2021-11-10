@@ -6,7 +6,6 @@
 #import "Server.h"
 #import "GatewayConnection.h"
 #define BLOCKED @"blocked"
-#define BLOCKING @"blocking"
 
 @interface TestKeys : NSObject
 @property (nonatomic, strong) NSString *blocking;

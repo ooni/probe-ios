@@ -17,7 +17,7 @@
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
     measurement.is_failed = [json.test_keys.signal_backend_status length] == 0;
-    measurement.is_anomaly = [json.test_keys.signal_backend_status isEqualToString:BLOCKING];
+    measurement.is_anomaly = [json.test_keys.signal_backend_status isEqualToString:BLOCKED];
     [super onEntry:json obj:measurement];
 }
 
