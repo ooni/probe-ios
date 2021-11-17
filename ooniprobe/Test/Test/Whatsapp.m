@@ -23,7 +23,7 @@
     if (json.test_keys.whatsapp_endpoints_status == NULL || json.test_keys.whatsapp_web_status == NULL || json.test_keys.registration_server_status == NULL)
         [measurement setIs_failed:true];
     else
-        measurement.is_anomaly = [json.test_keys.whatsapp_endpoints_status isEqualToString:@"blocked"] || [json.test_keys.whatsapp_web_status isEqualToString:@"blocked"] || [json.test_keys.registration_server_status isEqualToString:@"blocked"];
+        measurement.is_anomaly = [json.test_keys.whatsapp_endpoints_status isEqualToString:BLOCKED] || [json.test_keys.whatsapp_web_status isEqualToString:BLOCKED] || [json.test_keys.registration_server_status isEqualToString:BLOCKED];
     [super onEntry:json obj:measurement];
 }
 
