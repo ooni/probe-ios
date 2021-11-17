@@ -16,7 +16,7 @@
 }
 
 -(void)onEntry:(JsonResult*)json obj:(Measurement*)measurement{
-    bool isTransportBlocked = [json.test_keys.transport_status[@"openvpn"]  isEqual: @"blocked"] || [json.test_keys.transport_status[@"obfs4"]  isEqual: @"blocked"];
+    bool isTransportBlocked = [json.test_keys.transport_status[@"openvpn"]  isEqualToString:BLOCKED] || [json.test_keys.transport_status[@"obfs4"]  isEqualToString:BLOCKED];
 
     measurement.is_anomaly = !json.test_keys.ca_cert_status.boolValue || json.test_keys.api_failure != nil || isTransportBlocked;
     [super onEntry:json obj:measurement];
