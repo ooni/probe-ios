@@ -58,7 +58,7 @@
 }
 
 -(void)showHideVPNToast{
-    if (![[ReachabilityManager sharedManager] isVPNConnected]){
+    if ([[ReachabilityManager sharedManager] isVPNConnected]){
         dispatch_async(dispatch_get_main_queue(), ^{
             CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
             style.messageColor = [UIColor whiteColor];
