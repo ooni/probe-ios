@@ -9,4 +9,5 @@
 - (BOOL)noInternetAccess;
 - (BOOL)isWifi;
 - (BOOL)isVPNConnected;
+- (float)getBatteryLevel;
 @end
