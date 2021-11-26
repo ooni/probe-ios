@@ -65,7 +65,8 @@
     if ([[ReachabilityManager sharedManager] isVPNConnected])
         return;
     
-    if ([[ReachabilityManager sharedManager] getBatteryLevel] < 20)
+    if ([[ReachabilityManager sharedManager] getBatteryLevel] < 20 &&
+        [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateUnplugged)
         return;
     
     NSString *testName = @"web_connectivity";
