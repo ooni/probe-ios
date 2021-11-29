@@ -36,6 +36,9 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     if ([RunningTest currentTest].isTestRunning)
         [self testStart];
+    if ([[ReachabilityManager sharedManager] isVPNConnected])
+        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.DisableVPN.Title", nil)
+                               message:NSLocalizedString(@"Modal.DisableVPN.Message", nil) inView:self];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -49,9 +52,6 @@
 }
 
 -(void)testStart{
-    if ([[ReachabilityManager sharedManager] isVPNConnected])
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.DisableVPN.Title", nil)
-                               message:NSLocalizedString(@"Modal.DisableVPN.Message", nil) inView:self];
     if (self.animation)
         [self.animation removeFromSuperview];
     [self.logLabel setText:@""];
@@ -152,6 +152,11 @@
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"goToResults" object:nil];
                 }];
             }
+        });
+    }
+    else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self testStart];
         });
     }
 }
