@@ -20,6 +20,6 @@ jobs:
           DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
       - run: |
           set -o pipefail
-          xcodebuild clean build test -workspace ooniprobe.xcworkspace -sdk iphonesimulator -scheme ooniprobe -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=15.2'
+          xcodebuild clean build test -workspace ooniprobe.xcworkspace -sdk iphonesimulator -scheme ooniprobe -destination 'platform=Simulator'
         env:
           DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
