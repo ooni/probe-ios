@@ -66,8 +66,11 @@
     if ([[ReachabilityManager sharedManager] isVPNConnected])
         return;
     
-    NSMutableArray *tests = [[NSMutableArray alloc] init];
+    if ([[ReachabilityManager sharedManager] getBatteryLevel] < 20 &&
+        [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateUnplugged)
+        return;
 
+    NSMutableArray *tests = [[NSMutableArray alloc] init];
     NSString *testName = @"web_connectivity";
     NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
     AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];

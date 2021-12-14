@@ -61,24 +61,15 @@ and its dependencies and install the frameworks inside the Xcode Workspace.
 Then open the xcode workspace (not the xcode project!)  located in
 `ooniprobe.xcworkspace` and click on run to build it.
 
-### How to complile a specific version of measurement-kit for an Xcode project.
+### How to complile a specific version of oonimkall for an Xcode project.
 
-You can use a specific version of [measurement-kit](https://github.com/measurement-kit/measurement-kit) it in your project by adding this line in your Podfile:
+The most important dependency is `oonimkall`. This dependency contains
+the network measurement engine. Its sources are at
+[ooni/probe-cli](https://github.com/ooni/probe-cli). We fetch the `oonimkall`
+framework directly from `ooni/probe-cli` releases.
 
-    pod 'measurement_kit',
-      :git => 'https://github.com/measurement-kit/measurement-kit.git'
-
-You can use a specific branch, e.g.:
-
-    pod 'measurement_kit',
-      :git => 'https://github.com/measurement-kit/measurement-kit.git',
-      :branch => 'branch-name'
-
-Similarly, you can use a specific tag, e.g.:
-
-    pod 'measurement_kit', 
-      :git => 'https://github.com/measurement-kit/measurement-kit.git',
-      :tag => 'v0.x.y'
+You can use a specific version of `oonimkall` it in your project by
+changing the release to which it points to in the `Podfile`.
 
 Then type `pod install` and open `.xcworkspace` file (beware not to open the
 `.xcodeproj` file instead, because that alone won't compile).
