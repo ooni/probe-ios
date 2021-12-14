@@ -14,7 +14,7 @@ jobs:
       - run: pod install
       - run: |
           set -o pipefail
-          xcodebuild clean build test -workspace ooniprobe.xcworkspace/ -sdk iphonesimulator \
-            -scheme ooniprobe -destination 'name=iPhone 11 Pro Max' | xcpretty
+          xcodebuild clean build test -workspace ooniprobe.xcworkspace -sdk iphonesimulator \
+            -scheme ooniprobe -destination 'name=iPhone 13 mini' | xcpretty
         env:
           DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
