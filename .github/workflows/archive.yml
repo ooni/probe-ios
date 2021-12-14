@@ -1,11 +1,11 @@
-name: tests
+name: archive
 on:
   pull_request:
   push:
   schedule:
     - cron: "0 2 * * */2"
 jobs:
-  test:
+  archive:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,7 +14,7 @@ jobs:
       - run: pod install
       - run: |
           set -o pipefail
-          xcodebuild clean build test -workspace ooniprobe.xcworkspace -sdk iphonesimulator \
-            -scheme ooniprobe -destination 'name=iPhone 11 Pro Max' | xcpretty
+          xcodebuild -workspace ooniprobe.xcworkspace -scheme ooniprobe \
+            -destination='name=Any iOS Device' -sdk iphoneos archive CODE_SIGNING_ALLOWED="NO" | xcpretty
         env:
           DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
