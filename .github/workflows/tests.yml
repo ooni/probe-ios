@@ -12,6 +12,7 @@ jobs:
       - run: bundle install
       - run: pod repo update
       - run: pod install
+      - run: xcrun simctl list --json devices available
       - run: |
           set -o pipefail
           xcodebuild clean build test -verbose -workspace ooniprobe.xcworkspace -sdk iphonesimulator \
