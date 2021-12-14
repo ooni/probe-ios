@@ -12,7 +12,9 @@ jobs:
       - run: bundle install
       - run: pod repo update
       - run: pod install
-      - run: xcrun simctl list --json devices available
+      - run: xcodebuild -showsdks
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
       - run: |
           set -o pipefail
           xcodebuild clean build test -verbose -workspace ooniprobe.xcworkspace -sdk iphonesimulator \
