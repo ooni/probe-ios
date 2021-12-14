@@ -18,9 +18,6 @@ jobs:
       - run: xcrun simctl list --json devices available
         env:
           DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
-      - run: xcrun instruments -w "*"
-        env:
-          DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
       - run: |
           set -o pipefail
           xcodebuild clean build test -workspace ooniprobe.xcworkspace -sdk iphonesimulator -scheme ooniprobe -destination 'platform=iOS Simulator'
