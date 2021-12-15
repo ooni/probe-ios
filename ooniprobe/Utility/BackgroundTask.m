@@ -7,6 +7,7 @@
 #import "Suite.h"
 #import "Tests.h"
 #import "ReachabilityManager.h"
+#import "RunningTest.h"
 
 @implementation BackgroundTask
 
@@ -68,7 +69,8 @@
     if ([[ReachabilityManager sharedManager] getBatteryLevel] < 20 &&
         [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateUnplugged)
         return;
-    
+
+    NSMutableArray *tests = [[NSMutableArray alloc] init];
     NSString *testName = @"web_connectivity";
     NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
     AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
@@ -77,6 +79,7 @@
     [test setStoreDB:NO];
     [test setAnnotation:YES];
     [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
+    [tests addObject:testSuite];
 
     [OONIApi checkIn:^(NSArray *urls) {
         if ([urls count] == 0)
@@ -89,7 +92,14 @@
     }];
     [SettingsUtility incrementAutorun];
     [SettingsUtility updateAutorunDate];
-    [testSuite runTestSuite];
+    
+    InstantMessagingSuite *imTest = [[InstantMessagingSuite alloc] init];
+    [imTest setStoreDB:NO];
+    [tests addObject:imTest];
+    CircumventionSuite *cTest = [[CircumventionSuite alloc] init];
+    [cTest setStoreDB:NO];
+    [tests addObject:cTest];
+    [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:tests]];
 }
 
 + (void)cancelCheckIn API_AVAILABLE(ios(13.0)){
