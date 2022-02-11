@@ -17,8 +17,6 @@
             [self.testList addObject:[[Psiphon alloc] init]];
         if ([SettingsUtility getSettingWithName:@"test_tor"])
             [self.testList addObject:[[Tor alloc] init]];
-        if ([SettingsUtility getSettingWithName:@"test_riseupvpn"])
-            [self.testList addObject:[[RiseupVPN alloc] init]];
     }
     return super.getTestList;
 }
