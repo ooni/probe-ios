@@ -23,8 +23,8 @@
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "Afin d’accroître la transparence de la censure d’Internet, les données réseau de tous les utilisateurs d’OONI Probe sont publiées automatiquement (à moins qu’ils ne décident de ne pas y participer dans les paramètres).";
 "Onboarding.AutomatedTesting.Title" = "Test automatisé";
 "Onboarding.AutomatedTesting.Paragraph" = "Pour mesurer la censure d’Internet tous les jours, veuillez activer les tests automatisés afin qu’OONI Probe puisse effectuer des tests régulièrement. Ne vous inquiétez pas, nous ferons attention à l’utilisation de la pile. Vous pouvez désactiver les tests automatisés n’importe quand dans les paramètres.";
-"Onboarding.Crash.Title" = "Signalement de plantage";
-"Onboarding.Crash.Paragraph" = "Afin d’améliorer OONI Probe, nous souhaitons recueillir des rapports de plantage anonymes quand l’appli ne fonctionne pas correctement. Acceptez-vous d’envoyer des rapports de plantage à l’équipe de développement d’OONI ?";
+"Onboarding.Crash.Title" = "Signaler un plantage";
+"Onboarding.Crash.Paragraph" = "Afin d’améliorer OONI Probe, nous souhaitons recueillir des relevés anonymes de plantage quand l’appli ne fonctionne pas correctement. Acceptez-vous d’envoyer des rapports de plantage à l’équipe de développement d’OONI ?";
 "Onboarding.Crash.Button.Yes" = "Oui";
 "Onboarding.Crash.Button.No" = "Non";
 "Onboarding.DefaultSettings.Title" = "Paramètres par défaut";
@@ -33,7 +33,7 @@
 "Onboarding.DefaultSettings.Bullet.2" = "Des renseignements sur le réseau (dont le numéro de système autonome)";
 "Onboarding.DefaultSettings.Bullet.3" = "L’estampille temporelle du test";
 "Onboarding.DefaultSettings.Paragraph" = "Nous faisons de notre mieux pour ne publier ni votre adresse IP ni aucun autre renseignement qui pourrait vous identifier.\n\nApprenez-en davantage dans la [Politique sur les données de l’OONI](https://ooni.org/about/data-policy/) (page en anglais).";
-"Onboarding.DefaultSettings.Paragraph.1" = "En touchant « Valider », vous partagerez les rapports de plantage afin de nous aider à améliorer OONI Probe.";
+"Onboarding.DefaultSettings.Paragraph.1" = "En touchant « Valider », vous partagerez les relevés de plantage afin de nous aider à améliorer OONI Probe.";
 "Onboarding.DefaultSettings.Button.Go" = "Allons-y";
 "Onboarding.DefaultSettings.Button.Change" = "Modifier les paramètres";
 "Dashboard.Tab.Label" = "Tableau de bord";
@@ -201,9 +201,9 @@
 "TestResults.Details.InstantMessaging.FacebookMessenger.DNS.Label.Failed" = "Échec";
 "TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Hero.Title" = "Fonctionne";
 "TestResults.Details.InstantMessaging.FacebookMessenger.Reachable.Content.Paragraph" = "Ce test s’est connecté avec succès aux extrémités de Facebook et a été résolu avec des adresses IP de Facebook.";
-"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Hero.Title" = "Probablement bloqué";
-"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph" = "Facebook Messenger semble être bloqué.";
-"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Hero.Title" = "Probablement bloqué";
+"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Hero.Title" = "Probablement bloquée";
+"TestResults.Details.InstantMessaging.FacebookMessenger.LikelyBlocked.Content.Paragraph" = "Facebook Messenger semble être bloquée.";
+"TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Hero.Title" = "Probablement bloquée";
 "TestResults.Details.InstantMessaging.Signal.LikelyBlocked.Content.Paragraph" = "Signal semble être bloquée.";
 "TestResults.Details.InstantMessaging.Signal.Reachable.Hero.Title" = "Fonctionne";
 "TestResults.Details.InstantMessaging.Signal.Reachable.Content.Paragraph" = "Ce test s’est connecté avec succès aux extrémités de Signal.";
@@ -272,6 +272,8 @@
 "Modal.SoundsGreat" = "C’est parfait";
 "Modal.NoThanks" = "Non, merci";
 "Modal.NotNow" = "Pas maintenant";
+"Modal.RunAnyway" = "Lancer quand même";
+"Modal.DisableVPN" = "Désactiver le RPV";
 "Modal.Error.NoInternet" = "Impossible d’effectuer le test. Veuillez vérifier votre connexion à Internet.";
 "Modal.Error.CantDownloadURLs" = "Impossible de télécharger la liste des URL. Veuillez réessayer.";
 "Modal.Error.TestAlreadyRunning" = "Veuillez attendre la fin du test en cours avant de lancer un nouveau test.";
@@ -343,6 +345,8 @@
 "Settings.About.Label" = "À propos de l’OONI";
 "Settings.About.Content.Paragraph" = "L’observatoire ouvert des interférences réseau (« Open Observatory of Network Interference » OONI) est un projet de logiciel libre, dans le cadre du projet Tor, qui vise à accroître la transparence de la censure d’Internet dans le monde entier.\n\nDepuis 2012, la communauté internationale de l’OONI prend des mesures des réseaux dans plus de 200 pays. Certaines de ces mesures servent de preuve de censure d’Internet.";
 "Settings.About.Content.LearnMore" = "En apprendre davantage";
+"Settings.About.Content.Blog" = "Blogue";
+"Settings.About.Content.Reports" = "Relevés";
 "Settings.About.Content.DataPolicy" = "OONI Politique sur les données";
 "Settings.Notifications.Label" = "Notifications";
 "Settings.Notifications.Enabled" = "Activées";
@@ -446,9 +450,9 @@
 "OONIRun.Update" = "Mettre à jour";
 "OONIRun.Close" = "Fermer";
 "OONIRun.InvalidParameter" = "Un paramètre est invalide";
-"OONIRun.InvalidParameter.Msg" = "Soit le lien OONI Run est malformé soit votre appli n’est pas à jour.";
+"OONIRun.InvalidParameter.Msg" = "Soit le lien OONI Run est malformé soit votre appli n’est pas à jour.";
 "OONIRun.RandomSamplingOfURLs" = "Vous testerez un échantillon aléatoire de sites Web.";
-"OONIRun.TestRunningError" = "Veuillez attendre la fin du test avant d’ouvrir un lien OONI Run.";
+"OONIRun.TestRunningError" = "Veuillez attendre la fin du test avant d’ouvrir un lien OONI Run.";
 "CategoryCode.ALDR.Name" = "Drogues et alcool";
 "CategoryCode.REL.Name" = "Religion";
 "CategoryCode.PORN.Name" = "Pornographie";
