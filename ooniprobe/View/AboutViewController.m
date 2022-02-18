@@ -26,19 +26,34 @@
     [self.ppButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Settings.About.Content.DataPolicy", nil)] forState:UIControlStateNormal];
     [self.ppButton setTitleColor:[UIColor colorNamed:@"color_blue4"]
                         forState:UIControlStateNormal];
-    
+
+    [self.blogButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Settings.About.Content.Blog", nil)] forState:UIControlStateNormal];
+    [self.blogButton setTitleColor:[UIColor colorNamed:@"color_blue4"]
+                        forState:UIControlStateNormal];
+
+    [self.reportsButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Settings.About.Content.Reports", nil)] forState:UIControlStateNormal];
+    [self.reportsButton setTitleColor:[UIColor colorNamed:@"color_blue4"]
+                        forState:UIControlStateNormal];
+
     [self.versionLabel setText:[NSString stringWithFormat:@"OONI Probe: %@", [VersionUtility get_software_version]]];
     [self.versionLabel setTextColor:[UIColor whiteColor]];
 }
 
 
 -(IBAction)learnMore:(id)sender{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.io/"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.org/"]  options:@{} completionHandler:nil];
 }
 
+- (IBAction)blog:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.org/blog/"] options:@{} completionHandler:nil];
+}
+
+- (IBAction)reports:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.org/reports/"] options:@{} completionHandler:nil];
+}
 
 -(IBAction)privacyPolicy:(id)sender{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.io/about/data-policy/"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://ooni.org/about/data-policy/"]  options:@{} completionHandler:nil];
 }
 
 
