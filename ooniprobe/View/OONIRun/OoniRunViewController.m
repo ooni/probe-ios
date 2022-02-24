@@ -168,9 +168,13 @@
 
 -(void)validateURLs{
     for (NSString *url in [testArguments objectForKey:@"urls"]){
-        if ([url length] < 2083 && [self validateLink:url]){
-            [Url checkExistingUrl:url];
-            [urls addObject:url];
+        @try {
+            if ([url length] < 2083 && [self validateLink:url]){
+                [Url checkExistingUrl:url];
+                [urls addObject:url];
+            }
+        } @catch (NSException *exception){
+            NSLog(@"OoniRunViewError: %@", exception);
         }
     }
 }
