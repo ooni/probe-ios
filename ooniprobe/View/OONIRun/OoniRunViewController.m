@@ -140,7 +140,7 @@
         if ([testArguments isKindOfClass:[NSDictionary class]]){
         id urlsObj = [testArguments objectForKey:@"urls"];
             if ([urlsObj isKindOfClass:[NSArray class]] && [(NSArray*)urlsObj count] > 0){
-                [self validateURLs];
+                [self validateAndAddURLs];
             }
         }
         //then load view
@@ -166,7 +166,10 @@
     }
 }
 
--(void)validateURLs{
+/**
+ * Goes though `testArguments` and add valid urls to the `urls` array.
+ */
+-(void)validateAndAddURLs{
     for (NSString *url in [testArguments objectForKey:@"urls"]){
         @try {
             if ([url length] < 2083 && [self validateLink:url]){
@@ -174,7 +177,7 @@
                 [urls addObject:url];
             }
         } @catch (NSException *exception){
-            NSLog(@"OoniRunViewError: %@", exception);
+            NSLog(@"OoniRunViewControllerError: %@", exception);
         }
     }
 }
