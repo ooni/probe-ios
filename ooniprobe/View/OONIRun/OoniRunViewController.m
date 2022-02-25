@@ -178,6 +178,7 @@
             }
         } @catch (NSException *exception){
             NSLog(@"OoniRunViewControllerError: %@", exception);
+            [ThirdPartyServices recordError:@"failure"  reason:exception.reason userInfo:exception.userInfo];
         }
     }
 }
