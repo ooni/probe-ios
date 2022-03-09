@@ -135,13 +135,23 @@
     }
 }
 
+-(void)reRunTests{
+    WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
+    NSMutableArray *urls = [NSMutableArray new];
+    for (Measurement *m in self.measurements)
+        [urls addObject:m.url_id.url];
+    if ([testSuite getTestList] > 0 && [urls count] > 0)
+        [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
+    [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
+}
+
 -(void)reRunWebsites{
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.ReRun.Websites.Run", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
                                    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
-                                       [self performSegueWithIdentifier:@"toTestRun" sender:self];
+                                       [self reRunTests];
                                }];
     NSString *title = NSLocalizedFormatString(@"Modal.ReRun.Websites.Title",
                                               [NSString stringWithFormat:@"%ld", self.measurements.count]);
@@ -172,15 +182,6 @@
         UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;
         [vc setResult:result];
         [vc setUpload_all:true];
-    }
-    else if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
-        NSMutableArray *urls = [NSMutableArray new];
-        for (Measurement *m in self.measurements)
-            [urls addObject:m.url_id.url];
-        if ([testSuite getTestList] > 0 && [urls count] > 0)
-            [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
     }
     else if ([[segue identifier] isEqualToString:@"toViewLog"]){
         LogViewController *vc = (LogViewController *)segue.destinationViewController;
