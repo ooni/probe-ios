@@ -142,7 +142,7 @@
         [urls addObject:m.url_id.url];
     if ([testSuite getTestList] > 0 && [urls count] > 0)
         [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
-    [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
+    [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
 }
 
 -(void)reRunWebsites{

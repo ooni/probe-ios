@@ -36,9 +36,6 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     if ([RunningTest currentTest].isTestRunning)
         [self testStart];
-    if ([[ReachabilityManager sharedManager] isVPNConnected])
-        [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.DisableVPN.Title", nil)
-                               message:NSLocalizedString(@"Modal.DisableVPN.Message", nil) inView:self];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

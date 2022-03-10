@@ -137,7 +137,7 @@
         UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
         [self reloadConstraints];
     }
 }
@@ -145,7 +145,7 @@
 -(IBAction)runAll{
     if ([TestUtility checkConnectivity:self] &&
         [TestUtility checkTestRunning:self]){
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:items]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:items] inView: self];
         [self reloadConstraints];
     }
 }
