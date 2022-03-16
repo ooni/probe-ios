@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) AbstractSuite *testSuite;
 @property (nonatomic, strong) AbstractTest *testRunning;
 @property (nonatomic) BOOL isTestRunning;
+@property (nonatomic) NSMutableArray *iTestSuites;
 
 @end
 

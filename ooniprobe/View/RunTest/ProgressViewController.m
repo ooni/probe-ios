@@ -46,10 +46,23 @@
 -(void)updateProgress:(NSNotification *)notification{
     NSDictionary *userInfo = notification.userInfo;
     NSNumber *prog = [userInfo objectForKey:@"prog"];
+    int totalRuntime = 0;
+    for (AbstractSuite *n in [RunningTest currentTest].iTestSuites) {
+        totalRuntime += n.getRuntime;
+    }
+
+    float previousProgress = 0;
+    for (AbstractSuite *n in [RunningTest currentTest].iTestSuites) {
+        if (![[RunningTest currentTest].testSuites containsObject:n]) {
+            previousProgress += n.getRuntime;
+        }
+    }
     float totalTests = [RunningTest currentTest].testSuite.totalTests;
     int index = [RunningTest currentTest].testSuite.measurementIdx;
     float prevProgress = index/totalTests;
+    float ratio = [RunningTest currentTest].testSuite.getRuntime/(float)totalRuntime;
     float progress = ([prog floatValue]/totalTests)+prevProgress;
+    progress = ((previousProgress/(float)totalRuntime)+(progress*ratio));
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.progressBar setProgress:progress animated:YES];
     });
