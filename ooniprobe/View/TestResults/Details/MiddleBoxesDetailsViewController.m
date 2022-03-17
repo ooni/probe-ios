@@ -1,4 +1,5 @@
 #import "MiddleBoxesDetailsViewController.h"
+#import "RunningTest.h"
 
 @interface MiddleBoxesDetailsViewController ()
 
@@ -10,7 +11,8 @@
     [super viewDidLoad];
     [self.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     [self.statusImage setImage:[UIImage imageNamed:@"middle_boxes"]];
-    
+    [self reloadConstraints];
+
     [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
                                     color:[TestUtility getBackgroundColorForTest:self.result.test_group_name]];
     [self.headerView setBackgroundColor:[TestUtility getBackgroundColorForTest:self.result.test_group_name]];
@@ -35,5 +37,20 @@
             [self.textLabel setText:NSLocalizedString(@"TestResults.Details.Middleboxes.HTTPHeaderFieldManipulation.Found.Content.Paragraph", nil)];
         }
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self reloadConstraints];
+}
+
+-(void)reloadConstraints{
+    CGFloat uploadConstraint = 0;
+    if ([RunningTest currentTest].isTestRunning){
+        uploadConstraint += 64;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.uploadBarFooterConstraint.constant = uploadConstraint;
+    });
 }
 @end
