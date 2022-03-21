@@ -28,7 +28,7 @@ static RunningTest *currentTest = nil;
 }
 
 - (void)setAndRun:(NSMutableArray *)testSuites inView:(UIViewController *)view {
-    if (view != nil && [[ReachabilityManager sharedManager] isVPNConnected]) {
+    if (view != nil && [[ReachabilityManager sharedManager] isVPNConnected] && [SettingsUtility isWarnVPNInUse]) {
         [MessageUtility alertVpnWithTitle:NSLocalizedString(@"Modal.DisableVPN.Title", nil)
                                   message:NSLocalizedString(@"Modal.DisableVPN.Message", nil)
                                    inView:view
@@ -38,7 +38,14 @@ static RunningTest *currentTest = nil;
                                      [currentTest runTest];
                                  }
                              }
-                         disableVPNAction:nil
+                runAlwaysVPNAction:^(UIAlertAction *action) {
+                    @synchronized (self) {
+                        [SettingsUtility disableWarnVPNInUse];
+                        currentTest.testSuites = testSuites;
+                        [currentTest runTest];
+                    }
+                }
+                  disableVPNAction:nil
 
         ];
     } else {

@@ -5,7 +5,7 @@
 
 + (void)showToast:(NSString*)msg inView:(UIView*)view;
 
-+ (void)alertVpnWithTitle:(NSString *)title message:(NSString *)msg inView:(UIViewController *)view runVPNAction:(void (^)(UIAlertAction *))runVpnAction disableVPNAction:(void (^)(UIAlertAction *))disableVpnAction;
++ (void)alertVpnWithTitle:(NSString *)title message:(NSString *)msg inView:(UIViewController *)view runVPNAction:(void (^)(UIAlertAction *))runVpnAction runAlwaysVPNAction:(void (^)(UIAlertAction *))runAlwaysVPNAction disableVPNAction:(void (^)(UIAlertAction *))disableVpnAction;
 
 + (void)alertWithTitle:(NSString *)title message:(NSString *)msg inView:(UIViewController *)view;
 + (void)alertWithTitle:(NSString *)title message:(NSString *)msg okButton:(UIAlertAction*)okButton inView:(UIViewController *)view;

@@ -16,6 +16,7 @@
 + (void)alertVpnWithTitle:(NSString *)title message:(NSString *)msg
                    inView:(UIViewController *)view
              runVPNAction: (void (^ __nullable)(UIAlertAction *action))runVPNAction
+        runAlwaysVPNAction: (void (^ __nullable)(UIAlertAction *action))runAlwaysVPNAction
              disableVPNAction: (void (^ __nullable)(UIAlertAction *action))disableVPNAction
 {
     UIAlertController * alert = [UIAlertController
@@ -26,12 +27,17 @@
             actionWithTitle:NSLocalizedString(@"Modal.DisableVPN", nil)
                       style:UIAlertActionStyleDefault
                     handler:disableVPNAction];
+    UIAlertAction* alwaysRun = [UIAlertAction
+            actionWithTitle:NSLocalizedString(@"Modal.AlwaysRun", nil)
+                      style:UIAlertActionStyleDefault
+                    handler:runAlwaysVPNAction];
     UIAlertAction* runAnyway = [UIAlertAction
             actionWithTitle:NSLocalizedString(@"Modal.RunAnyway", nil)
                       style:UIAlertActionStyleDefault
                     handler:runVPNAction];
-    [alert addAction:runAnyway];
     [alert addAction:disableVPN];
+    [alert addAction:alwaysRun];
+    [alert addAction:runAnyway];
     dispatch_async(dispatch_get_main_queue(), ^{
         [view presentViewController:alert animated:YES completion:nil];
     });
