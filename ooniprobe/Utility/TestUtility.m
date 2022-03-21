@@ -92,7 +92,7 @@
         return [UIColor colorNamed:@"color_pink6"];
     }
     else if ([testName isEqualToString:@"experimental"]){
-        return [UIColor colorNamed:@"color_gray7"];
+        return [UIColor colorNamed:@"color_gray7_1"];
     }
     return [[UIColor colorNamed:@"color_blue5"] colorWithAlphaComponent:alpha];
 }
@@ -114,7 +114,7 @@
         return [UIColor colorNamed:@"color_pink5"];
     }
     else if ([testName isEqualToString:@"experimental"]){
-        return [UIColor colorNamed:@"color_gray7"];
+        return [UIColor colorNamed:@"color_gray7_1"];
     }
     return [UIColor colorNamed:@"color_blue5"];
 }
