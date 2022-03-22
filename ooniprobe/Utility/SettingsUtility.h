@@ -42,6 +42,8 @@
 
 + (BOOL)testChargingOnly;
 
++ (NSArray *)currentLanguage;
+
 + (NSInteger)getAutorun;
 
 + (void)incrementAutorun;

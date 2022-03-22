@@ -25,7 +25,7 @@
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
-        return @[@"debug_logs", @"storage_usage"];
+        return @[@"AppleLanguages", @"debug_logs", @"storage_usage"];
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];
@@ -43,7 +43,7 @@
              [setting isEqualToString:@"monthly_wifi_allowance"] ||
              [setting isEqualToString:@"max_runtime"])
         return @"int";
-    if ([setting isEqualToString:@"storage_usage"])
+    if ([setting isEqualToString:@"storage_usage"] || [setting isEqualToString:@"AppleLanguages"])
         return @"button";
     return @"bool";
 }
@@ -208,6 +208,10 @@
 
 + (BOOL)testChargingOnly {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"automated_testing_charging"] boolValue];
+}
+
++ (NSArray *)currentLanguage {
+    return (NSArray *)[NSUserDefaults.standardUserDefaults objectForKey:@"AppleLanguages"];
 }
 
 + (NSInteger)getAutorun{
