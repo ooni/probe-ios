@@ -7,5 +7,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *subtitleLabel;
 @property (nonatomic, strong) IBOutlet UIButton *tryAgainButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *uploadBarFooterConstraint;
 
 @end

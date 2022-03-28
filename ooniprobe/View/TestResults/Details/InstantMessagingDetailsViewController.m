@@ -1,4 +1,5 @@
 #import "InstantMessagingDetailsViewController.h"
+#import "RunningTest.h"
 
 @interface InstantMessagingDetailsViewController ()
 
@@ -10,6 +11,7 @@
     [super viewDidLoad];
     TestKeys *testKeys = [self.measurement testKeysObj];
     [self.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+    [self reloadConstraints];
 
     if (!super.measurement.is_anomaly){
         [self.headerView setBackgroundColor:[UIColor colorNamed:@"color_green7"]];
@@ -95,6 +97,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self reloadConstraints];
     if (!super.measurement.is_anomaly){
         [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
                                         color:[UIColor colorNamed:@"color_green7"]];
@@ -105,4 +108,13 @@
     }
 }
 
+-(void)reloadConstraints{
+    CGFloat uploadConstraint = 0;
+    if ([RunningTest currentTest].isTestRunning){
+        uploadConstraint += 64;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.uploadBarFooterConstraint.constant = uploadConstraint;
+    });
+}
 @end

@@ -13,5 +13,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *delayTitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *delayValueLabel;
 @property (nonatomic, strong) IBOutlet UILabel *delayUnitLabel;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *uploadBarFooterConstraint;
 
 @end
