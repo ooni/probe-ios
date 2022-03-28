@@ -240,7 +240,7 @@
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView:self];
         [vc setPresenting:YES];
     }
 }

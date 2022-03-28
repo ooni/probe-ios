@@ -66,7 +66,7 @@
             WebConnectivity *test = [[WebConnectivity alloc] init];
             [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
             [test setInputs:urlArray];
-            [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
+            [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
             [self.navigationController popToRootViewControllerAnimated:NO];
             self.urlsList = nil;
         }
