@@ -130,20 +130,22 @@
     float totalTests = [RunningTest currentTest].testSuite.totalTests;
     int index = [RunningTest currentTest].testSuite.measurementIdx;
     float prevProgress = index/totalTests;
-    float ratio = [RunningTest currentTest].testSuite.getRuntime/(float)self.totalRuntime;
-    float progress = ([prog floatValue]/totalTests)+prevProgress;
-    progress = ((previousProgress/(float)self.totalRuntime)+(progress*ratio));
-    long eta = self.totalRuntime;
-    if (progress > 0) {
-        eta = lroundf(self.totalRuntime - progress * self.totalRuntime);
+    if (self.totalRuntime > 0){
+        float ratio = [RunningTest currentTest].testSuite.getRuntime/(float)self.totalRuntime;
+        float progress = ([prog floatValue]/totalTests)+prevProgress;
+        progress = ((previousProgress/(float)self.totalRuntime)+(progress*ratio));
+        long eta = self.totalRuntime;
+        if (progress > 0) {
+            eta = lroundf(self.totalRuntime - progress * self.totalRuntime);
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.progressBar setProgress:progress animated:YES];
+            NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%ld", eta]);
+            [self.timeLabel setText:time];
+
+        });
     }
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.progressBar setProgress:progress animated:YES];
-        NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%ld", eta]);
-        [self.timeLabel setText:time];
-
-    });
     [self.animation playWithCompletion:^(BOOL animationFinished) {}];
 
 }

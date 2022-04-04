@@ -60,12 +60,14 @@
     float totalTests = [RunningTest currentTest].testSuite.totalTests;
     int index = [RunningTest currentTest].testSuite.measurementIdx;
     float prevProgress = index/totalTests;
-    float ratio = [RunningTest currentTest].testSuite.getRuntime/(float)totalRuntime;
-    float progress = ([prog floatValue]/totalTests)+prevProgress;
-    progress = ((previousProgress/(float)totalRuntime)+(progress*ratio));
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.progressBar setProgress:progress animated:YES];
-    });
+    if (totalRuntime > 0){
+        float ratio = [RunningTest currentTest].testSuite.getRuntime/(float)totalRuntime;
+        float progress = ([prog floatValue]/totalTests)+prevProgress;
+        progress = ((previousProgress/(float)totalRuntime)+(progress*ratio));
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.progressBar setProgress:progress animated:YES];
+        });
+    }
 }
 
 -(void)networkTestEndedUI{
