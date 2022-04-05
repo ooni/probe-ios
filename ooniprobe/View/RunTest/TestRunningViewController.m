@@ -16,6 +16,7 @@
     self.progressBar.layer.masksToBounds = YES;
     self.proxyView.layer.cornerRadius = 10;
     self.proxyView.layer.masksToBounds = YES;
+    self.minimizeButton.TintColor = UIColor.whiteColor;
     [self.progressBar setTrackTintColor:[[UIColor colorNamed:@"color_white"] colorWithAlphaComponent:0.2f]];
     [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Running", nil)];
     [self.etaLabel setText:NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)];

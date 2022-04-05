@@ -1,4 +1,5 @@
 #import "WebsitesDetailsViewController.h"
+#import "RunningTest.h"
 
 @interface WebsitesDetailsViewController ()
 
@@ -38,10 +39,12 @@
             [[UIApplication sharedApplication] openURL:url];
         }];
     }
+    [self reloadConstraints];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self reloadConstraints];
     if (!super.measurement.is_anomaly){
         [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
                                         color:[UIColor colorNamed:@"color_green7"]];
@@ -50,6 +53,16 @@
         [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
                                         color:[UIColor colorNamed:@"color_yellow9"]];
     }
+}
+
+-(void)reloadConstraints{
+    CGFloat uploadConstraint = 0;
+    if ([RunningTest currentTest].isTestRunning){
+        uploadConstraint += 64;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.uploadBarFooterConstraint.constant = uploadConstraint;
+    });
 }
 
 @end
