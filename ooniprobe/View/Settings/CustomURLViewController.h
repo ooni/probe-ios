@@ -11,5 +11,6 @@
 @property (strong, nonatomic) NSMutableArray *urlsList;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet RunButton *runButton;
+@property (strong, nonatomic) IBOutlet RunButton *loadFromTemplateButton;
 
 @end
