@@ -17,6 +17,7 @@
     self.navigationController.navigationBar.topItem.title = @"";
     
     [self.runButton setTitle:NSLocalizedString(@"Settings.Websites.CustomURL.Run", nil) forState:UIControlStateNormal];
+    [self.loadFromTemplateButton setTitle:NSLocalizedString(@"Settings.Websites.CustomURL.LoadFromTemplate", nil) forState:UIControlStateNormal];
 
     //hack to override back button action
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backArrow"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
@@ -52,42 +53,51 @@
     hud.backgroundView.style = UIBlurEffectStyleRegular;
     [MBProgressHUD HUDForView:self.navigationController.view].label.text =
             NSLocalizedFormatString(@"OONIBrowser.Loading",nil);
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        [OONIApi downloadUrls:^(NSArray *urls) {
-            for (NSString *url in urls){
-                [self.urlsList addObject:url];
-            }
+    @try {
 
-            dispatch_async(dispatch_get_main_queue(), ^(void){
-                [self.tableView reloadData];
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            [OONIApi downloadUrls:^(NSArray *urls) {
+                for (NSString *url in urls){
+                    [self.urlsList addObject:url];
+                }
 
-                CGPoint offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height);
-                [self.tableView setContentOffset:offset animated:YES];
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    [self.tableView reloadData];
 
-                self.loadFromTemplateButton.hidden = YES;
+                    CGPoint offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height);
+                    [self.tableView setContentOffset:offset animated:YES];
 
-                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                    self.loadFromTemplateButton.hidden = YES;
 
-                [self.runButton.superview addConstraint:[NSLayoutConstraint
-                        constraintWithItem:self.runButton.superview
-                                 attribute:NSLayoutAttributeCenterX
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.runButton
-                                 attribute:NSLayoutAttributeCenterX
-                                multiplier:1.0
-                                  constant:0.0]];
-                [self.runButton setNeedsUpdateConstraints];
+                    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
 
-            });
-        } onError:^(NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^(void){
-                [ThirdPartyServices recordError:@"downloadUrls_error"
-                                         reason:@"downloadUrls failed due to an error"
-                                       userInfo:[error dictionary]];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
-            });
-        }];
-    });
+                    [self.runButton.superview addConstraint:[NSLayoutConstraint
+                            constraintWithItem:self.runButton.superview
+                                     attribute:NSLayoutAttributeCenterX
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:self.runButton
+                                     attribute:NSLayoutAttributeCenterX
+                                    multiplier:1.0
+                                      constant:0.0]];
+                    [self.runButton setNeedsUpdateConstraints];
+
+                });
+            } onError:^(NSError *error) {
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+
+                    [ThirdPartyServices recordError:@"downloadUrls_error"
+                                             reason:@"downloadUrls failed due to an error"
+                                           userInfo:[error dictionary]];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
+                });
+            }];
+        });
+    } @catch (NSException *exception){
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        });
+    }
 }
 
 -(IBAction)run:(id)sender{
