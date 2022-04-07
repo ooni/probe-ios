@@ -27,6 +27,7 @@ static RunningTest *currentTest = nil;
 }
 
 -(void)setAndRun:(NSMutableArray*)testSuites {
+    self.iTestSuites= [testSuites mutableCopy];
     @synchronized(self)
     {
         currentTest.testSuites = testSuites;
