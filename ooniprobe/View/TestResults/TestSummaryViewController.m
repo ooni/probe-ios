@@ -40,18 +40,16 @@
     CGFloat tableConstraint = 0;
     CGFloat uploadConstraint = 0;
     if ([RunningTest currentTest].isTestRunning){
-        tableConstraint += 64;
         uploadConstraint += 64;
     }
+    if ([result isEveryMeasurementUploaded]){
+        tableConstraint = -45 + tableConstraint;
+    }
+    else {
+        tableConstraint = 64 + tableConstraint;
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([result isEveryMeasurementUploaded]){
-            self.tableFooterConstraint.constant = -45 + tableConstraint;
-            [self.tableView setNeedsUpdateConstraints];
-        }
-        else {
-            self.tableFooterConstraint.constant = 0 + tableConstraint;
-            [self.tableView setNeedsUpdateConstraints];
-        }
+        self.tableFooterConstraint.constant = tableConstraint;
         self.uploadBarFooterConstraint.constant = uploadConstraint;
         [self.tableView setNeedsUpdateConstraints];
         [self.tableView reloadData];
