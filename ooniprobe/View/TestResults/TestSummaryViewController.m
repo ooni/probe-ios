@@ -40,18 +40,16 @@
     CGFloat tableConstraint = 0;
     CGFloat uploadConstraint = 0;
     if ([RunningTest currentTest].isTestRunning){
-        tableConstraint += 64;
         uploadConstraint += 64;
     }
+    if ([result isEveryMeasurementUploaded]){
+        tableConstraint = -45 + tableConstraint;
+    }
+    else {
+        tableConstraint = 64 + tableConstraint;
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([result isEveryMeasurementUploaded]){
-            self.tableFooterConstraint.constant = -45 + tableConstraint;
-            [self.tableView setNeedsUpdateConstraints];
-        }
-        else {
-            self.tableFooterConstraint.constant = 0 + tableConstraint;
-            [self.tableView setNeedsUpdateConstraints];
-        }
+        self.tableFooterConstraint.constant = tableConstraint;
         self.uploadBarFooterConstraint.constant = uploadConstraint;
         [self.tableView setNeedsUpdateConstraints];
         [self.tableView reloadData];
@@ -152,13 +150,24 @@
     }
 }
 
+-(void)reRunTests{
+    WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
+    NSMutableArray *urls = [NSMutableArray new];
+    for (Measurement *m in self.measurements)
+        [urls addObject:m.url_id.url];
+    if ([testSuite getTestList] > 0 && [urls count] > 0)
+        [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
+    [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
+    [self reloadMeasurements];
+}
+
 -(void)reRunWebsites{
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"Modal.ReRun.Websites.Run", nil)
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
                                    if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
-                                       [self performSegueWithIdentifier:@"toTestRun" sender:self];
+                                       [self reRunTests];
                                }];
     NSString *title = NSLocalizedFormatString(@"Modal.ReRun.Websites.Title",
                                               [NSString stringWithFormat:@"%ld", self.measurements.count]);
@@ -189,15 +198,6 @@
         UploadFooterViewController *vc = (UploadFooterViewController * )segue.destinationViewController;
         [vc setResult:result];
         [vc setUpload_all:true];
-    }
-    else if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
-        NSMutableArray *urls = [NSMutableArray new];
-        for (Measurement *m in self.measurements)
-            [urls addObject:m.url_id.url];
-        if ([testSuite getTestList] > 0 && [urls count] > 0)
-            [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
     }
     else if ([[segue identifier] isEqualToString:@"toViewLog"]){
         LogViewController *vc = (LogViewController *)segue.destinationViewController;

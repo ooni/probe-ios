@@ -62,7 +62,11 @@
     if ([urlArray count] > 0) {
         if ([TestUtility checkConnectivity:self] &&
             [TestUtility checkTestRunning:self]) {
-            [self performSegueWithIdentifier:@"toTestRun" sender:sender];
+            WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
+            WebConnectivity *test = [[WebConnectivity alloc] init];
+            [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
+            [test setInputs:urlArray];
+            [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
             [self.navigationController popToRootViewControllerAnimated:NO];
             self.urlsList = nil;
         }
@@ -167,13 +171,4 @@
     return YES;
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
-        WebConnectivity *test = [[WebConnectivity alloc] init];
-        [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
-        [test setInputs:urlArray];
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
-    }
-}
 @end

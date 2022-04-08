@@ -99,7 +99,7 @@
     CircumventionSuite *cTest = [[CircumventionSuite alloc] init];
     [cTest setStoreDB:NO];
     [tests addObject:cTest];
-    [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:tests]];
+    [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:tests]  inView: nil];
 }
 
 + (void)cancelCheckIn API_AVAILABLE(ios(13.0)){
