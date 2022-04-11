@@ -274,6 +274,7 @@
 "Modal.NotNow" = "Ekki núna";
 "Modal.RunAnyway" = "Keyra samt";
 "Modal.DisableVPN" = "Gera VPN óvirkt";
+"Modal.AlwaysRun" = "Alltaf keyra";
 "Modal.Error.NoInternet" = "Ekki er hægt að keyra prófunina. Athugaðu nettenginguna þína.";
 "Modal.Error.CantDownloadURLs" = "Get ekki sótt lista yfir slóðir. Reyndu aftur.";
 "Modal.Error.TestAlreadyRunning" = "Bíddu eftir að fyrirliggjandi prófunum ljúki áður en þú framkvæmir nýja prófun.";
@@ -288,6 +289,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe getur ekki keyrt á þess að rafhlöðunotkun sé bestuð. Viltu prófa aftur?";
 "Modal.DisableVPN.Title" = "Gerðu VPN-tenginguna þína óvirka.";
 "Modal.DisableVPN.Message" = "Ef þú keyrir OONI Probe með virku VPN, geta niðurstöður prófana litið út fyrir að koma frá röngu landi. Gerðu VPN-tenginguna þína óvirka.";
+"Modal.UploadVPNResults.Title" = "Sumar mælingar fóru fram yfir VPN.";
+"Modal.UploadVPNResults.Message" = "Ef þú sendir inn mælingar á meðan VPN er virkt, geta niðurstöður prófunar litið út fyrir að koma frá röngu landi.";
 "Toast.ResultsUploaded" = "Innsending tókst";
 "Modal.DisplayFailureLog" = "Birta mistakaskrá";
 "Modal.EnableNotifications.Title" = "Fáðu vísbendingar um ritskoðun internetsins";
@@ -374,6 +377,8 @@
 "Settings.Advanced.Label" = "Ítarlegra";
 "Settings.DarkMode.Label" = "Dökkur hamur";
 "Settings.Advanced.DebugLogs" = "Villuskrár";
+"Settings.Advanced.LanguageSettings.Title" = "Tungumálastillingar";
+"Settings.Advanced.LanguageSettings.PopUp" = "Veldu tungumál";
 "Settings.Advanced.UseDomainFronting" = "Alltaf nota lénaframhlið (domain fronting)";
 "Settings.Proxy.Label" = "Milliþjónn OONI-bakenda";
 "Settings.Proxy.Enabled" = "Milliþjónn";
@@ -425,6 +430,7 @@
 "Settings.Circumvention.TestPsiphon" = "Prófa Psiphon";
 "Settings.Circumvention.TestTor" = "Prófa Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Prófa RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Aðvara þegar VPN er í notkun";
 "Settings.SendEmail.Label" = "Senda tölvupóst til að fá aðstoð";
 "Settings.SendEmail.Message" = "Lýstu hvaða vandamál þú átt við að eiga:";
 "Settings.SendEmail.Error" = "Sentu tölvupóst til bugs@openobservatory.org með upplýsingum um forritið og útgáfu þína af iOS. Ýttu á \"Afrita á klippispjald\" hér fyrir neðan til að afrita tölvupóstfangið okkar.";
