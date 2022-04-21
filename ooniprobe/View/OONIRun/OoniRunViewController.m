@@ -20,6 +20,15 @@
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[UIColor colorNamed:@"color_gray2"]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
+    @try {
+        NSLog(@"[NSUserDefaults valueForKey:@'incomingURL']");
+        NSUserDefaults * usrInfo = [[NSUserDefaults alloc] initWithSuiteName:@"group.org.openobservatory.ooniprobe"];
+        NSLog([usrInfo valueForKey:@"incomingURL"]);
+    }
+    @catch (NSException *e){
+
+    }
+
     [self handleUrlScheme];
 }
 
