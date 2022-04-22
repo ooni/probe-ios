@@ -20,14 +20,6 @@
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[UIColor colorNamed:@"color_gray2"]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
-    @try {
-        NSLog(@"[NSUserDefaults valueForKey:@'incomingURL']");
-        NSUserDefaults * usrInfo = [[NSUserDefaults alloc] initWithSuiteName:@"group.org.openobservatory.ooniprobe"];
-        NSLog([usrInfo valueForKey:@"incomingURL"]);
-    }
-    @catch (NSException *e){
-
-    }
 
     [self handleUrlScheme];
 }
@@ -58,27 +50,35 @@
      NSLog(@"dict: %@", dict);
     
     NSString *action;
-    if ([[url host] isEqualToString:@"run.ooni.io"])
+    NSUserDefaults *usrInfo = [[NSUserDefaults alloc] initWithSuiteName:@"group.org.openobservatory.ooniprobe"];
+
+    if ([[url host] isEqualToString:@"run.ooni.io"]) {
         action = [[url path] substringFromIndex:1];
-    else
+    } else if ([[[usrInfo dictionaryRepresentation] allKeys] containsObject:@"incomingURL"] && dict[@"tn"] == nil) {
+        action = @"nettest";
+        NSLog([usrInfo valueForKey:@"incomingURL"]);
+        [self setTestName:@"web_connectivity"];
+        [self setTestArguments:@{
+                @"urls": @[[usrInfo valueForKey:@"incomingURL"]]
+        }];
+
+    } else if ([url.host isEqualToString:@"nettest"]) {
         action = [url host];
-    if ([action isEqualToString:@"nettest"]){
-        //creating parameters dict
         NSDictionary *parameters = [DictionaryUtility getParametersFromDict:dict];
         NSLog(@"parameters: %@", parameters);
-        if ([self checkMv:parameters]){
-            if ([parameters objectForKey:@"tn"] && [TestUtility getCategoryForTest:[parameters objectForKey:@"tn"]]){
+        if ([self checkMv:parameters]) {
+            if ([parameters objectForKey:@"tn"] && [TestUtility getCategoryForTest:[parameters objectForKey:@"tn"]]) {
                 [self setTestName:[parameters objectForKey:@"tn"]];
                 if ([parameters objectForKey:@"ta"])
                     [self setTestArguments:[parameters objectForKey:@"ta"]];
-                [self showTestScreen];
-            }
-            else {
+            } else {
                 [self showErrorScreen];
             }
         }
     }
-    else {
+    if ([action isEqualToString:@"nettest"]) {
+        [self showTestScreen];
+    } else {
         [self showErrorScreen];
     }
 }
@@ -147,7 +147,7 @@
         urls = [[NSMutableArray alloc] init];
         //First validate urls
         if ([testArguments isKindOfClass:[NSDictionary class]]){
-        id urlsObj = [testArguments objectForKey:@"urls"];
+            id urlsObj = testArguments[@"urls"];
             if ([urlsObj isKindOfClass:[NSArray class]] && [(NSArray*)urlsObj count] > 0){
                 [self validateAndAddURLs];
             }
