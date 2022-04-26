@@ -55,7 +55,11 @@
 
 -(void)testFilter:(SRKQuery*)newQuery{
     query = newQuery;
-    results = [query fetch];
+    totalResults = 0;
+    [keys removeAllObjects];
+    [resultsDic removeAllObjects];
+    totalResults = [query count];
+    results = [[query limit:8] fetch];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"yyyy-MM";
@@ -77,7 +81,7 @@
         }
     }
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO selector:@selector(localizedStandardCompare:)];
-    keys = [[dic allKeys] sortedArrayUsingDescriptors:@[ descriptor ]];
+    keys = [[[dic allKeys] sortedArrayUsingDescriptors:@[descriptor]] mutableCopy];
     resultsDic = dic;
     [self reloadConstraints];
 }
@@ -94,7 +98,7 @@
     NSString *text = NSLocalizedString(@"TestResults.Overview.NoTestsHaveBeenRun", nil);
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"FiraSans-Regular" size:16],
                                  NSForegroundColorAttributeName:[UIColor colorNamed:@"color_gray5"]};
-    
+
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
@@ -125,13 +129,49 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     TestResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[TestResultTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
-    [cell setResult:current];
+    @try {
+        Result *current = [[resultsDic objectForKey:[keys objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        [cell setResult:current];
+    }@catch (NSException *e){
+
+    }
+
+    if (indexPath.row==keys.count -1){
+        self.loadMore;
+    }
     return cell;
+}
+
+- (void) loadMore {
+    results = [[[query offset:(int) keys.count] limit:8] fetch];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"yyyy-MM";
+    for (Result *current in results){
+        NSMutableArray *arr = [[NSMutableArray alloc] init];
+        NSString *key = [df stringFromDate:current.start_time];
+        if (key == nil){
+            //reporting error and delete test
+            [ThirdPartyServices recordError:@"key_nil"
+                                     reason:@"testFilter key is null"
+                                   userInfo:[current dictionary]];
+            [current deleteObject];
+        }
+        else {
+            if ([dic objectForKey:key])
+                arr = [[dic objectForKey:key] mutableCopy];
+            [arr addObject:current];
+            [dic setObject:arr forKey:key];
+        }
+    }
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"" ascending:NO selector:@selector(localizedStandardCompare:)];
+    [keys addObjectsFromArray: [[dic allKeys] sortedArrayUsingDescriptors:@[descriptor]]];
+    [resultsDic addEntriesFromDictionary:dic];
+    [self reloadConstraints];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

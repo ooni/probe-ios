@@ -8,9 +8,10 @@
 #import "TestResultTableViewCell.h"
 
 @interface TestResultsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ReloadFilterDelegate> {
-    NSArray *keys;
-    NSDictionary *resultsDic;
+    NSMutableArray *keys;
+    NSMutableDictionary *resultsDic;
     SRKQuery *query;
+    uint64_t totalResults;
 }
 
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableFooterConstraint;
@@ -18,4 +19,5 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) SRKResultSet* results;
 
+- (void)loadMore;
 @end

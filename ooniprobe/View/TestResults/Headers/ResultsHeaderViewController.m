@@ -42,9 +42,9 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         SRKQuery *query;
         if ([filter length] > 0)
-            query = [[[Result query] where:[NSString stringWithFormat:@"test_group_name = '%@'", filter]] orderByDescending:@"start_time"];
+            query = [[[[Result query] where:[NSString stringWithFormat:@"test_group_name = '%@'", filter]] limit:10] orderByDescending:@"start_time"];
         else
-            query = [[Result query] orderByDescending:@"start_time"];
+            query = [[[Result query] limit:10] orderByDescending:@"start_time"];
         
         [self.delegate testFilter:query];
 
