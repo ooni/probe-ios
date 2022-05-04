@@ -56,7 +56,7 @@
         action = [[url path] substringFromIndex:1];
     } else if ([[[usrInfo dictionaryRepresentation] allKeys] containsObject:@"incomingURL"] && dict[@"tn"] == nil) {
         action = @"nettest";
-        NSLog([usrInfo valueForKey:@"incomingURL"]);
+        NSLog(@"%@", [usrInfo valueForKey:@"incomingURL"]);
         [self setTestName:@"web_connectivity"];
         [self setTestArguments:@{
                 @"urls": @[[usrInfo valueForKey:@"incomingURL"]]
