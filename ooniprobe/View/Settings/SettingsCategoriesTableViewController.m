@@ -1,3 +1,5 @@
+@import Flutter;
+#import "AppDelegate.h"
 #import "SettingsCategoriesTableViewController.h"
 #import "UIDevice-DeviceInfo.h"
 
@@ -51,9 +53,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *current = [categories objectAtIndex:indexPath.row];
-    if ([current isEqualToString:@"about_ooni"] ||
-        [current isEqualToString:@"ooni_backend_proxy"]){
+    if ([current isEqualToString:@"ooni_backend_proxy"]){
         [self performSegueWithIdentifier:current sender:self];
+    }
+    else if ([current isEqualToString:@"about_ooni"] ){
+         FlutterEngine *flutterEngine =
+        ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
+    FlutterViewController *flutterViewController =
+        [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
+    [self presentViewController:flutterViewController animated:YES completion:nil];
     }
     else if ([current isEqualToString:@"send_email"]){
         [self sendEmail];

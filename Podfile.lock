@@ -4,6 +4,11 @@ PODS:
   - Countly/Core (20.11.1)
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
+  - Flutter (1.0.0)
+  - FlutterPluginRegistrant (0.0.1):
+    - Flutter
+    - shared_preferences_ios
+    - url_launcher_ios
   - Harpy (4.1.14)
   - lottie-ios (2.5.3)
   - MBProgressHUD (1.2.0)
@@ -16,15 +21,23 @@ PODS:
   - Sentry (6.1.4):
     - Sentry/Core (= 6.1.4)
   - Sentry/Core (6.1.4)
+  - shared (0.0.1):
+    - Flutter
+  - shared_preferences_ios (0.0.1):
+    - Flutter
   - SharkORM (2.3.67)
   - Toast (4.0.0)
   - TTTAttributedLabel (2.0.0)
+  - url_launcher_ios (0.0.1):
+    - Flutter
   - XNGMarkdownParser (0.3.2)
 
 DEPENDENCIES:
   - Countly
   - DateTools
   - DZNEmptyDataSet
+  - Flutter (from `../shared/.ios/Flutter/engine`)
+  - FlutterPluginRegistrant (from `../shared/.ios/Flutter/FlutterPluginRegistrant`)
   - Harpy
   - lottie-ios (= 2.5.3)
   - MBProgressHUD
@@ -33,8 +46,11 @@ DEPENDENCIES:
   - oonimkall (from `https://github.com/ooni/probe-cli/releases/download/v3.14.1/oonimkall.podspec`)
   - RHMarkdownLabel
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `6.1.4`)
+  - shared (from `../shared/.ios/Flutter`)
+  - shared_preferences_ios (from `../shared/.ios/.symlinks/plugins/shared_preferences_ios/ios`)
   - SharkORM (from `https://github.com/sharksync/sharkorm`, tag `v2.3.67`)
   - Toast (~> 4.0.0)
+  - url_launcher_ios (from `../shared/.ios/.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
   trunk:
@@ -52,14 +68,24 @@ SPEC REPOS:
     - XNGMarkdownParser
 
 EXTERNAL SOURCES:
+  Flutter:
+    :path: "../shared/.ios/Flutter/engine"
+  FlutterPluginRegistrant:
+    :path: "../shared/.ios/Flutter/FlutterPluginRegistrant"
   oonimkall:
     :podspec: https://github.com/ooni/probe-cli/releases/download/v3.14.1/oonimkall.podspec
   Sentry:
     :git: https://github.com/getsentry/sentry-cocoa.git
     :tag: 6.1.4
+  shared:
+    :path: "../shared/.ios/Flutter"
+  shared_preferences_ios:
+    :path: "../shared/.ios/.symlinks/plugins/shared_preferences_ios/ios"
   SharkORM:
     :git: https://github.com/sharksync/sharkorm
     :tag: v2.3.67
+  url_launcher_ios:
+    :path: "../shared/.ios/.symlinks/plugins/url_launcher_ios/ios"
 
 CHECKOUT OPTIONS:
   Sentry:
@@ -73,6 +99,8 @@ SPEC CHECKSUMS:
   Countly: df8dcfbbb6979e6ef31f7407d61d24fcbbbdaddf
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Flutter: bdfa2e8fe0e2880a2c6a58a0b1a8675c262a07af
+  FlutterPluginRegistrant: fcb3ef73fef08439b581b8a1dc56453e0d86c417
   Harpy: b2fbe6819f6a8932df32d7cd2fb20f442df86bbc
   lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
@@ -81,11 +109,14 @@ SPEC CHECKSUMS:
   oonimkall: 1de2d8616af8a3904e03988e426fdab96d85a1e1
   RHMarkdownLabel: 81d6772768e621be57302b7fd5212ad4f78fb0bd
   Sentry: 9d055e2de30a77685e86b219acf02e59b82091fc
+  shared: d8ca498d7d82ed726b5ad64c9998c92927699d2e
+  shared_preferences_ios: aef470a42dc4675a1cdd50e3158b42e3d1232b32
   SharkORM: 252e4411923110ac1b524a993ee2b3fa13eed7c4
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  url_launcher_ios: 02f1989d4e14e998335b02b67a7590fa34f971af
   XNGMarkdownParser: aed98c14f0c0eb20064184ddf9bac26c482722b2
 
-PODFILE CHECKSUM: a75c0f0061e73038b75b6b5f62c4873a60927ec4
+PODFILE CHECKSUM: 9178dacc1654a936d82ce05d006ac348fbe15884
 
 COCOAPODS: 1.11.3

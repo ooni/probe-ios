@@ -1,3 +1,4 @@
+#import <FlutterPluginRegistrant/GeneratedPluginRegistrant.h>
 #import "AppDelegate.h"
 #import "DictionaryUtility.h"
 #import "OoniRunViewController.h"
@@ -41,11 +42,16 @@
     [BackgroundTask configure];
 
     [self initHarpy];
-    return YES;
+    self.flutterEngine = [[FlutterEngine alloc] initWithName:@"my flutter engine"];
+    // Runs the default Dart entrypoint with a default Flutter route.
+    [self.flutterEngine run];
+    // Used to connect plugins (only if you have plugins with iOS platform code).
+    [GeneratedPluginRegistrant registerWithRegistry:self.flutterEngine];
+    return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (void)initHarpy{
-    [[Harpy sharedInstance] setPresentingViewController:_window.rootViewController];
+    [[Harpy sharedInstance] setPresentingViewController:self.window.rootViewController];
     [[Harpy sharedInstance] setAppName:@"OONI Probe"];
     /* By default, Harpy is configured to use HarpyAlertTypeOption for all version updates */
     [[Harpy sharedInstance] checkVersion];
