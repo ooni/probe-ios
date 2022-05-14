@@ -3,7 +3,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 # TODO(aanorbel): fix to appropriate url or use mono-repo
-flutter_application_path = '../shared'
+flutter_application_path = '../'
 load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 
 target 'ooniprobe' do

@@ -39,22 +39,22 @@ DEPENDENCIES:
   - Countly
   - DateTools
   - DZNEmptyDataSet
-  - Flutter (from `../shared/.ios/Flutter/engine`)
-  - FlutterPluginRegistrant (from `../shared/.ios/Flutter/FlutterPluginRegistrant`)
+  - Flutter (from `../.ios/Flutter/engine`)
+  - FlutterPluginRegistrant (from `../.ios/Flutter/FlutterPluginRegistrant`)
   - Harpy
   - lottie-ios (= 2.5.3)
   - MBProgressHUD
   - MKDropdownMenu
   - OCMapper (= 2.0)
   - oonimkall (from `https://github.com/ooni/probe-cli/releases/download/v3.14.1/oonimkall.podspec`)
-  - probe_shared (from `../shared/.ios/.symlinks/plugins/probe_shared/ios`)
+  - probe_shared (from `../.ios/.symlinks/plugins/probe_shared/ios`)
   - RHMarkdownLabel
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `6.1.4`)
-  - shared (from `../shared/.ios/Flutter`)
-  - shared_preferences_ios (from `../shared/.ios/.symlinks/plugins/shared_preferences_ios/ios`)
+  - shared (from `../.ios/Flutter`)
+  - shared_preferences_ios (from `../.ios/.symlinks/plugins/shared_preferences_ios/ios`)
   - SharkORM (from `https://github.com/sharksync/sharkorm`, tag `v2.3.67`)
   - Toast (~> 4.0.0)
-  - url_launcher_ios (from `../shared/.ios/.symlinks/plugins/url_launcher_ios/ios`)
+  - url_launcher_ios (from `../.ios/.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
   trunk:
@@ -73,25 +73,25 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: "../shared/.ios/Flutter/engine"
+    :path: "../.ios/Flutter/engine"
   FlutterPluginRegistrant:
-    :path: "../shared/.ios/Flutter/FlutterPluginRegistrant"
+    :path: "../.ios/Flutter/FlutterPluginRegistrant"
   oonimkall:
     :podspec: https://github.com/ooni/probe-cli/releases/download/v3.14.1/oonimkall.podspec
   probe_shared:
-    :path: "../shared/.ios/.symlinks/plugins/probe_shared/ios"
+    :path: "../.ios/.symlinks/plugins/probe_shared/ios"
   Sentry:
     :git: https://github.com/getsentry/sentry-cocoa.git
     :tag: 6.1.4
   shared:
-    :path: "../shared/.ios/Flutter"
+    :path: "../.ios/Flutter"
   shared_preferences_ios:
-    :path: "../shared/.ios/.symlinks/plugins/shared_preferences_ios/ios"
+    :path: "../.ios/.symlinks/plugins/shared_preferences_ios/ios"
   SharkORM:
     :git: https://github.com/sharksync/sharkorm
     :tag: v2.3.67
   url_launcher_ios:
-    :path: "../shared/.ios/.symlinks/plugins/url_launcher_ios/ios"
+    :path: "../.ios/.symlinks/plugins/url_launcher_ios/ios"
 
 CHECKOUT OPTIONS:
   Sentry:
@@ -124,6 +124,6 @@ SPEC CHECKSUMS:
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
   XNGMarkdownParser: aed98c14f0c0eb20064184ddf9bac26c482722b2
 
-PODFILE CHECKSUM: ad715b8d246ba36c889c4034ed76a460af84d517
+PODFILE CHECKSUM: 54fe347a6540731fcdaa49f2c32e3e1326c50a7a
 
 COCOAPODS: 1.11.3
