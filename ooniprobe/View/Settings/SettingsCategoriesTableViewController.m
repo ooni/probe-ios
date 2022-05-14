@@ -56,12 +56,12 @@
     if ([current isEqualToString:@"ooni_backend_proxy"]){
         [self performSegueWithIdentifier:current sender:self];
     }
-    else if ([current isEqualToString:@"about_ooni"] ){
-         FlutterEngine *flutterEngine =
-        ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
-    FlutterViewController *flutterViewController =
-        [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
-    [self presentViewController:flutterViewController animated:YES completion:nil];
+    else if ([current isEqualToString:@"about_ooni"]) {
+        FlutterEngine *flutterEngine =
+                ((AppDelegate *) UIApplication.sharedApplication.delegate).flutterEngine;
+        FlutterViewController *flutterViewController =  [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
+        [flutterViewController setModalPresentationStyle:UIModalPresentationFullScreen];
+        [self presentViewController:flutterViewController animated:YES completion:nil];
     }
     else if ([current isEqualToString:@"send_email"]){
         [self sendEmail];
