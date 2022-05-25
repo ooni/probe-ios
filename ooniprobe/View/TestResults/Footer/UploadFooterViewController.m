@@ -69,6 +69,10 @@
     }
 }
 
+- (void)cancelUpload:(id)sender {
+    self.canceled = YES;
+}
+
 //SRKResultSet is a subclass of NSArray
 -(void)uploadMeasurements:(NSArray *)notUploaded{
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -81,6 +85,10 @@
             hud.mode = MBProgressHUDModeAnnularDeterminate;
             hud.bezelView.color = [UIColor lightGrayColor];
             hud.backgroundView.style = UIBlurEffectStyleRegular;
+
+            [hud.button setTitle:NSLocalizedFormatString(@"Modal.Cancel",nil) forState:UIControlStateNormal];
+            [hud.button addTarget:self action:@selector(cancelUpload:) forControlEvents:UIControlEventTouchUpInside];
+
         });
         NSUInteger errors = 0;
         if ([notUploaded count] == 0) return;
@@ -105,6 +113,9 @@
             return;
         }
         while (i < [notUploaded count]){
+            if (_canceled){
+                break;
+            }
             Measurement *currentMeasurement = [notUploaded objectAtIndex:i];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD HUDForView:self.navigationController.view].label.text =
@@ -120,6 +131,7 @@
                 [MBProgressHUD HUDForView:self.navigationController.view].progress = progress;
             });
         }
+        _canceled = NO;
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         });
