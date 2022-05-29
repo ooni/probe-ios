@@ -274,6 +274,7 @@
 "Modal.NotNow" = "Not now";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "无法运行测试。请复查您的因特网连接。";
 "Modal.Error.CantDownloadURLs" = "无法下载 URL 列表。请重试。";
 "Modal.Error.TestAlreadyRunning" = "请等待当前运行的测试完成后再开始新的测试。";
@@ -288,6 +289,8 @@
 "Modal.Autorun.BatteryOptimization" = "如果没有优化电池，OONI无法自动运行。你想再试一次吗";
 "Modal.DisableVPN.Title" = "请关闭您的VPN连接。";
 "Modal.DisableVPN.Message" = "如果您在启用VPN的情况下运行OONI，测试结果可能看起来来自错误的国家。请关闭您的VPN连接。";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "上传成功";
 "Modal.DisplayFailureLog" = "显示失败日志";
 "Modal.EnableNotifications.Title" = "获取网络审查的动态";
@@ -374,6 +377,8 @@
 "Settings.Advanced.Label" = "高级";
 "Settings.DarkMode.Label" = "黑暗模式";
 "Settings.Advanced.DebugLogs" = "调试日志";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "选择语言";
 "Settings.Advanced.UseDomainFronting" = "始终使用 domain fronting";
 "Settings.Proxy.Label" = "OONI backend proxy";
 "Settings.Proxy.Enabled" = "代理";
@@ -425,6 +430,7 @@
 "Settings.Circumvention.TestPsiphon" = "测试赛风";
 "Settings.Circumvention.TestTor" = "测试 Tor";
 "Settings.Circumvention.TestRiseupVPN" = "测试 RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "发送邮件给支持团队";
 "Settings.SendEmail.Message" = "Please describe the problem you are experiencing:";
 "Settings.SendEmail.Error" = "请将应用和 iOS 版本号通过邮件发送至 bugs@openobservatory.org。点击下方“复制到剪贴板”来复制我们邮箱地址。";

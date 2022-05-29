@@ -274,6 +274,7 @@
 "Modal.NotNow" = "Pas maintenant";
 "Modal.RunAnyway" = "Lancer quand même";
 "Modal.DisableVPN" = "Désactiver le RPV";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "Impossible d’effectuer le test. Veuillez vérifier votre connexion à Internet.";
 "Modal.Error.CantDownloadURLs" = "Impossible de télécharger la liste des URL. Veuillez réessayer.";
 "Modal.Error.TestAlreadyRunning" = "Veuillez attendre la fin du test en cours avant de lancer un nouveau test.";
@@ -288,6 +289,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe ne peut pas fonctionner automatiquement sans optimisation de la pile. Voulez-vous réessayer ?";
 "Modal.DisableVPN.Title" = "Veuillez désactiver votre connexion RPV.";
 "Modal.DisableVPN.Message" = "Si vous exécutez OONI Probe alors qu’un RPV (réseau privé virtuel) est activé, les résultats des tests pourraient sembler provenir du mauvais pays. Veuillez désactiver votre connexion RPV.";
+"Modal.UploadVPNResults.Title" = "Certaines mesures ont été prises connecté à un RPV.";
+"Modal.UploadVPNResults.Message" = "Si vous téléversez des mesures prises alors qu’un RPV est activé, les résultats du test pourraient sembler provenir du mauvais pays.";
 "Toast.ResultsUploaded" = "Téléversement réussi";
 "Modal.DisplayFailureLog" = "Afficher le journal des échecs";
 "Modal.EnableNotifications.Title" = "Obtenez des mises à jour sur la censure d’Internet";
@@ -374,6 +377,8 @@
 "Settings.Advanced.Label" = "Avancés";
 "Settings.DarkMode.Label" = "Mode sombre";
 "Settings.Advanced.DebugLogs" = "Journaux de débogage";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "Sélectionner une langue";
 "Settings.Advanced.UseDomainFronting" = "Toujours utiliser un domaine-écran";
 "Settings.Proxy.Label" = "Mandataire vers la dorsale d’OONI";
 "Settings.Proxy.Enabled" = "Mandataire";
@@ -425,6 +430,7 @@
 "Settings.Circumvention.TestPsiphon" = "Test de Psiphon";
 "Settings.Circumvention.TestTor" = "Test de Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Tester RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "Envoyer un courriel à l’assistance";
 "Settings.SendEmail.Message" = "Veuillez décrire le problème que vous rencontrez :";
 "Settings.SendEmail.Error" = "Veuillez envoyer un courriel à bugs@openobservatory.org avec des renseignements sur la version de l’appli et d’iOS. Touchez « Copier dans le presse-papiers » ci-dessous pour copier votre adresse courriel.";

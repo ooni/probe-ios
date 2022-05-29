@@ -140,7 +140,7 @@
         if ([testArguments isKindOfClass:[NSDictionary class]]){
         id urlsObj = [testArguments objectForKey:@"urls"];
             if ([urlsObj isKindOfClass:[NSArray class]] && [(NSArray*)urlsObj count] > 0){
-                [self validateURLs];
+                [self validateAndAddURLs];
             }
         }
         //then load view
@@ -166,11 +166,19 @@
     }
 }
 
--(void)validateURLs{
+/**
+ * Goes though `testArguments` and add valid urls to the `urls` array.
+ */
+-(void)validateAndAddURLs{
     for (NSString *url in [testArguments objectForKey:@"urls"]){
-        if ([url length] < 2083 && [self validateLink:url]){
-            [Url checkExistingUrl:url];
-            [urls addObject:url];
+        @try {
+            if ([url length] < 2083 && [self validateLink:url]){
+                [Url checkExistingUrl:url];
+                [urls addObject:url];
+            }
+        } @catch (NSException *exception){
+            NSLog(@"OoniRunViewControllerError: %@", exception);
+            [ThirdPartyServices recordError: @"Invalid URL" reason: exception.reason  userInfo: @{ @"url": url} ];
         }
     }
 }
@@ -240,7 +248,7 @@
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView:self];
         [vc setPresenting:YES];
     }
 }

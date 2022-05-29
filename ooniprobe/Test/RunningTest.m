@@ -1,4 +1,5 @@
 #import "RunningTest.h"
+#import "ReachabilityManager.h"
 
 @implementation RunningTest
 
@@ -26,11 +27,26 @@ static RunningTest *currentTest = nil;
     }
 }
 
--(void)setAndRun:(NSMutableArray*)testSuites {
-    @synchronized(self)
-    {
-        currentTest.testSuites = testSuites;
-        [currentTest runTest];
+- (void)setAndRun:(NSMutableArray *)testSuites inView:(UIViewController *)view {
+    self.iTestSuites= [testSuites mutableCopy];
+    if (view != nil && [[ReachabilityManager sharedManager] isVPNConnected]) {
+        [MessageUtility alertVpnWithTitle:NSLocalizedString(@"Modal.DisableVPN.Title", nil)
+                                  message:NSLocalizedString(@"Modal.DisableVPN.Message", nil)
+                                   inView:view
+                             runVPNAction:^(UIAlertAction *action) {
+                                 @synchronized (self) {
+                                     currentTest.testSuites = testSuites;
+                                     [currentTest runTest];
+                                 }
+                             }
+                         disableVPNAction:nil
+
+        ];
+    } else {
+        @synchronized (self) {
+            currentTest.testSuites = testSuites;
+            [currentTest runTest];
+        }
     }
 }
 

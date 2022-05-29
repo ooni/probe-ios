@@ -32,5 +32,6 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *mssTitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *mssValueLabel;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *uploadBarFooterConstraint;
 
 @end

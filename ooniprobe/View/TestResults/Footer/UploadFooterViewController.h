@@ -21,4 +21,7 @@
 @property (nonatomic, strong) LoggerArray* logger;
 
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
+
+@property (atomic, assign) BOOL canceled;
+
 @end

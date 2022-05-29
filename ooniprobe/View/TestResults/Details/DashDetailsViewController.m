@@ -1,4 +1,5 @@
 #import "DashDetailsViewController.h"
+#import "RunningTest.h"
 
 @interface DashDetailsViewController ()
 
@@ -10,6 +11,7 @@
     [super viewDidLoad];
     TestKeys *testKeys = [self.measurement testKeysObj];
     NSString *rendering = NSLocalizedFormatString(@"TestResults.Details.Performance.Dash.VideoWithoutBuffering", [testKeys getVideoQuality:NO]);
+    [self reloadConstraints];
     [self.titleLabel setText:[testKeys getVideoQuality:YES]];
     [self.subtitleLabel setText:rendering];
     
@@ -27,5 +29,18 @@
     [self.delayUnitLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self reloadConstraints];
+}
 
+-(void)reloadConstraints{
+    CGFloat uploadConstraint = 0;
+    if ([RunningTest currentTest].isTestRunning){
+        uploadConstraint += 64;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.uploadBarFooterConstraint.constant = uploadConstraint;
+    });
+}
 @end

@@ -13,6 +13,29 @@
     });
 }
 
++ (void)alertVpnWithTitle:(NSString *)title message:(NSString *)msg
+                   inView:(UIViewController *)view
+             runVPNAction:(void (^ __nullable)(UIAlertAction *action))runVPNAction
+         disableVPNAction:(void (^ __nullable)(UIAlertAction *action))disableVPNAction {
+    UIAlertController *alert = [UIAlertController
+            alertControllerWithTitle:title
+                             message:msg
+                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* disableVPN = [UIAlertAction
+            actionWithTitle:NSLocalizedString(@"Modal.DisableVPN", nil)
+                      style:UIAlertActionStyleDefault
+                    handler:disableVPNAction];
+    UIAlertAction* runAnyway = [UIAlertAction
+            actionWithTitle:NSLocalizedString(@"Modal.RunAnyway", nil)
+                      style:UIAlertActionStyleDefault
+                    handler:runVPNAction];
+    [alert addAction:runAnyway];
+    [alert addAction:disableVPN];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view presentViewController:alert animated:YES completion:nil];
+    });
+}
+
 + (void)alertWithTitle:(NSString *)title message:(NSString *)msg inView:(UIViewController *)view
 {
     UIAlertController * alert = [UIAlertController

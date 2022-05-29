@@ -133,27 +133,25 @@
 
 -(IBAction)run:(id)sender{
     if ([TestUtility checkConnectivity:self] &&
-        [TestUtility checkTestRunning:self])
-    [self performSegueWithIdentifier:@"toTestRun" sender:sender];
+        [TestUtility checkTestRunning:self]){
+        UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
+        NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
+        AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
+        [self reloadConstraints];
+    }
 }
 
 -(IBAction)runAll{
     if ([TestUtility checkConnectivity:self] &&
-        [TestUtility checkTestRunning:self])
-        [self performSegueWithIdentifier:@"toTestRunAll" sender:self];
+        [TestUtility checkTestRunning:self]){
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:items] inView: self];
+        [self reloadConstraints];
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
-        NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
-        AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
-    }
-    else if ([[segue identifier] isEqualToString:@"toTestRunAll"]){
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:items]];
-    }
-    else if ([[segue identifier] isEqualToString:@"toTestOverview"]){
+    if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         TestOverviewViewController *vc = (TestOverviewViewController * )segue.destinationViewController;
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];

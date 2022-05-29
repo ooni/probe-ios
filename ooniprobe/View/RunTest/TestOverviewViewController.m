@@ -110,16 +110,15 @@
 
 -(IBAction)run:(id)sender{
     if ([TestUtility checkConnectivity:self] &&
-        [TestUtility checkTestRunning:self])
-        [self performSegueWithIdentifier:@"toTestRun" sender:sender];
+        [TestUtility checkTestRunning:self]){
+        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
+        [self changeConstraints];
+    }
 }
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite]];
-    }
-    else if ([[segue identifier] isEqualToString:@"toTestSettings"]){
+    if ([[segue identifier] isEqualToString:@"toTestSettings"]){
         SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
         [vc setTestSuite:testSuite];
     }
