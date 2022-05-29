@@ -183,13 +183,27 @@
 
 -(IBAction)selectLanguage:(id)sender{
 
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Settings.Advanced.LanguageSettings.Title", nil) message:NSLocalizedString(@"Settings.Advanced.LanguageSettings.PopUp", nil) preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Settings.Advanced.LanguageSettings.Title", nil)
+                                                                   message:NSLocalizedString(@"Settings.Advanced.LanguageSettings.PopUp", nil)
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
 
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:cancel];
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Languages" ofType:@"plist"];
+    // TODO(aanorbel): add translation
+    [alert addAction:[UIAlertAction actionWithTitle:@"Automatic" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"AppleLanguages"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.view makeToast:@"Please restart the app for apply changes."
+                    duration:10
+                    position:CSToastPositionBottom];
+    }]];
     NSMutableDictionary *languages = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
-    for (id languageKey in languages) {
+    NSArray * languageKeys = [languages keysSortedByValueUsingComparator:
+                    ^NSComparisonResult(id obj1, id obj2) {
+                        return [obj1 compare:obj2];
+                    }];
+    for (NSString *languageKey in languageKeys) {
         [alert addAction:[UIAlertAction actionWithTitle:languages[languageKey] style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
             [[NSUserDefaults standardUserDefaults] setObject:@[languageKey] forKey:@"AppleLanguages"];
             [[NSUserDefaults standardUserDefaults] synchronize];
