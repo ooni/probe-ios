@@ -30,7 +30,7 @@
 }
 
 /* This test will get a measurement detail then try to download the related json */
-- (void)testExisting {
+- (void)skipped_testExisting {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testExisting"];
     [OONIApi getExplorerUrl:CLIENT_URL
                   report_id:EXISTING_REPORT_ID
@@ -53,7 +53,7 @@
     }];
 }
 
-- (void)testNonExisting {
+- (void)skipped_testNonExisting {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testNonExisting"];
     [OONIApi getExplorerUrl:CLIENT_URL
                   report_id:NONEXISTING_REPORT_ID
