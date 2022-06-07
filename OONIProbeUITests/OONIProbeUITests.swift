@@ -115,6 +115,7 @@ class OONIProbeUITests: XCTestCase {
         XCTAssertTrue(resultsButton.waitForExistence(timeout: 50))
 
         resultsButton.tap()
+        XCTAssertFalse(tablesQuery.cells.element(boundBy: 0).images["exclamation_point"].waitForExistence(timeout: 10))
         tablesQuery.cells.element(boundBy: 0).tap()
         
         //Taps on ooni.io row
@@ -165,6 +166,8 @@ class OONIProbeUITests: XCTestCase {
         let runButton = app.buttons["Run"]
         XCTAssertTrue(runButton.exists)
         runButton.tap()
+
+        app.navigationBars.buttons.element(boundBy: 0).tap()
 
         XCTAssertTrue(resultsButton.waitForExistence(timeout: 50))
 
