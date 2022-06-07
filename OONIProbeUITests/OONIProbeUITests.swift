@@ -173,7 +173,7 @@ class OONIProbeUITests: XCTestCase {
 
         //Check results
         resultsButton.tap()
-        XCTAssertTrue(tablesQuery.cells.element(boundBy: 0).images["not_uploaded_icon"].exists)
+        XCTAssertTrue(tablesQuery.cells.element(boundBy: 0).images["not_uploaded_icon"].waitForExistence(timeout: 90))
 
     }
 }
