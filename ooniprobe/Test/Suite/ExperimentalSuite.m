@@ -16,10 +16,9 @@
         if (self.autoRUn) {
             [self.testList addObject:[[Experimental alloc] initWithName:@"torsf"]];
             [self.testList addObject:[[Experimental alloc] initWithName:@"vanilla_tor"]];
-        } else {
-            [self.testList addObject:[[Experimental alloc] initWithName:@"stunreachability"]];
-            [self.testList addObject:[[Experimental alloc] initWithName:@"dnscheck"]];
         }
+        [self.testList addObject:[[Experimental alloc] initWithName:@"stunreachability"]];
+        [self.testList addObject:[[Experimental alloc] initWithName:@"dnscheck"]];
     }
     return super.getTestList;
 }
