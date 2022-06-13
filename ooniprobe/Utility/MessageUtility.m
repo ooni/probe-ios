@@ -15,11 +15,10 @@
 
 + (void)alertVpnWithTitle:(NSString *)title message:(NSString *)msg
                    inView:(UIViewController *)view
-             runVPNAction: (void (^ __nullable)(UIAlertAction *action))runVPNAction
+             runVPNAction:(void (^ __nullable)(UIAlertAction *action))runVPNAction
         runAlwaysVPNAction: (void (^ __nullable)(UIAlertAction *action))runAlwaysVPNAction
-             disableVPNAction: (void (^ __nullable)(UIAlertAction *action))disableVPNAction
-{
-    UIAlertController * alert = [UIAlertController
+        disableVPNAction:(void (^ __nullable)(UIAlertAction *action))disableVPNAction {
+    UIAlertController *alert = [UIAlertController
             alertControllerWithTitle:title
                              message:msg
                       preferredStyle:UIAlertControllerStyleAlert];

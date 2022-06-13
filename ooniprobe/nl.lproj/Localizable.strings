@@ -274,6 +274,7 @@
 "Modal.NotNow" = "Not now";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "De test kan niet wordt uitgevoerd. Controleer uw internetverbinding.";
 "Modal.Error.CantDownloadURLs" = "Kan de URL-lijst niet downloaden. Probeer het opnieuw.";
 "Modal.Error.TestAlreadyRunning" = "Wacht tot de huidige lopende tests zijn voltooid voordat u een nieuwe test start.";
@@ -288,6 +289,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
 "Modal.DisableVPN.Title" = "Please disable your VPN connection.";
 "Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "Succesvol geupload";
 "Modal.DisplayFailureLog" = "Storingslogboek weergeven";
 "Modal.EnableNotifications.Title" = "Ontvang updates over internetcensuur";
@@ -374,6 +377,8 @@
 "Settings.Advanced.Label" = "Geavanceerd";
 "Settings.DarkMode.Label" = "Donkere Modus";
 "Settings.Advanced.DebugLogs" = "Debug-logs";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "Selecteer taal";
 "Settings.Advanced.UseDomainFronting" = "Gebruik altijd domeinfronting";
 "Settings.Proxy.Label" = "OONI-backend-proxy";
 "Settings.Proxy.Enabled" = "Proxy";
@@ -425,6 +430,7 @@
 "Settings.Circumvention.TestPsiphon" = "Psiphon Testen";
 "Settings.Circumvention.TestTor" = "Tor Testen";
 "Settings.Circumvention.TestRiseupVPN" = "RiseupVPN Testen";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "Stuur een e-mail naar ondersteuning";
 "Settings.SendEmail.Message" = "Beschrijf het probleem dat u ondervindt:";
 "Settings.SendEmail.Error" = "Stuur een e-mail naar bugs@openobservatory.org met informatie over de app en iOS-versie. Tik hieronder op 'Kopiëren naar klembord' om ons e-mailadres te kopiëren.";

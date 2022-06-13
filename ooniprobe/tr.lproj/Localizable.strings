@@ -274,6 +274,7 @@
 "Modal.NotNow" = "Şimdi değil";
 "Modal.RunAnyway" = "Yine de çalıştır";
 "Modal.DisableVPN" = "VPN kullanılmasın";
+"Modal.AlwaysRun" = "Her zaman çalışsın";
 "Modal.Error.NoInternet" = "Sınama yapılamadı. Lütfen İnternet bağlantınızı denetleyin.";
 "Modal.Error.CantDownloadURLs" = "Adres listesi indirilemedi. Lütfen yeniden deneyin.";
 "Modal.Error.TestAlreadyRunning" = "Lütfen yeni bir sınama başlatmadan önce sürmekte olan sınamaların tamamlanmasını bekleyin.";
@@ -288,6 +289,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe, pil iyileştirmesi olmadan otomatik olarak çalışamaz. Yeniden denemek ister misiniz?";
 "Modal.DisableVPN.Title" = "Lütfen VPN bağlantınızı kapatın.";
 "Modal.DisableVPN.Message" = "OONI Probe uygulamasını VPN açıkken çalıştırırsanız, sınama sonuçları yanlış ülkeden geliyormuş gibi görünebilir. Lütfen VPN bağlantınızı kapatın.";
+"Modal.UploadVPNResults.Title" = "Bazı ölçümler VPN üzerinden alınmıştır.";
+"Modal.UploadVPNResults.Message" = "VPN etkinken alınan ölçümleri yüklerseniz, sınama sonuçları yanlış ülkeden geliyormuş gibi görünebilir.";
 "Toast.ResultsUploaded" = "Yüklendi";
 "Modal.DisplayFailureLog" = "Hata günlüğünü görüntüle";
 "Modal.EnableNotifications.Title" = "İnternet sansürleri hakkında güncel bilgileri alın";
@@ -374,6 +377,8 @@
 "Settings.Advanced.Label" = "Gelişmiş";
 "Settings.DarkMode.Label" = "Koyu kip";
 "Settings.Advanced.DebugLogs" = "Hata ayıklama günlükleri";
+"Settings.Advanced.LanguageSettings.Title" = "Dil ayarı";
+"Settings.Advanced.LanguageSettings.PopUp" = "Dil seçin";
 "Settings.Advanced.UseDomainFronting" = "Araya her zaman etki alanı eklensin (domain fronting)";
 "Settings.Proxy.Label" = "OONI yönetim bölümü vekil sunucusu";
 "Settings.Proxy.Enabled" = "Vekil sunucu";
@@ -425,6 +430,7 @@
 "Settings.Circumvention.TestPsiphon" = "Psiphon sınaması";
 "Settings.Circumvention.TestTor" = "Tor sınaması";
 "Settings.Circumvention.TestRiseupVPN" = "RiseupVPN sınaması";
+"Settings.WarmVPNInUse.Label" = "VPN kullanılırken uyarılsın";
 "Settings.SendEmail.Label" = "Destek ekibine e-posta gönderin";
 "Settings.SendEmail.Message" = "Lütfen yaşadığınız sorunu anlatın:";
 "Settings.SendEmail.Error" = "Lütfen uygulama hakkındaki bilgiler ve iOS sürümünü yazarak bugs@openobservatory.org adresine bir e-posta gönderin. E-posta adresimizi kopyalamak için aşağıdaki \"Panoya kopyala\" seçeneğine dokunun.";

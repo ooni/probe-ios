@@ -16,6 +16,7 @@
     self.progressBar.layer.masksToBounds = YES;
     self.proxyView.layer.cornerRadius = 10;
     self.proxyView.layer.masksToBounds = YES;
+    self.minimizeButton.TintColor = UIColor.whiteColor;
     [self.progressBar setTrackTintColor:[[UIColor colorNamed:@"color_white"] colorWithAlphaComponent:0.2f]];
     [self.runningTestsLabel setText:NSLocalizedString(@"Dashboard.Running.Running", nil)];
     [self.etaLabel setText:NSLocalizedString(@"Dashboard.Running.EstimatedTimeLeft", nil)];
@@ -69,7 +70,11 @@
 
 -(void)setRuntime{
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.totalRuntime = [[RunningTest currentTest].testSuite getRuntime];
+        int sum = 0;
+        for (AbstractSuite *n in [RunningTest currentTest].iTestSuites) {
+            sum += n.getRuntime;
+        }
+        self.totalRuntime = sum;
         //We don't want to show -1 seconds before downloading the URL list
         if (self.totalRuntime <= [MAX_RUNTIME_DISABLED intValue])
             return;
@@ -117,21 +122,31 @@
     NSNumber *prog = [userInfo objectForKey:@"prog"];
     //TODO-2.1 this doesn't take in consideration different test runtimes, only the total
     //But still fixes https://github.com/ooni/probe/issues/805
+    float previousProgress = 0;
+    for (AbstractSuite *n in [RunningTest currentTest].iTestSuites) {
+        if (![[RunningTest currentTest].testSuites containsObject:n]) {
+            previousProgress += n.getRuntime;
+        }
+    }
     float totalTests = [RunningTest currentTest].testSuite.totalTests;
     int index = [RunningTest currentTest].testSuite.measurementIdx;
     float prevProgress = index/totalTests;
-    float progress = ([prog floatValue]/totalTests)+prevProgress;
-    long eta = self.totalRuntime;
-    if (progress > 0) {
-        eta = lroundf(self.totalRuntime - progress * self.totalRuntime);
+    if (self.totalRuntime > 0){
+        float ratio = [RunningTest currentTest].testSuite.getRuntime/(float)self.totalRuntime;
+        float progress = ([prog floatValue]/totalTests)+prevProgress;
+        progress = ((previousProgress/(float)self.totalRuntime)+(progress*ratio));
+        long eta = self.totalRuntime;
+        if (progress > 0) {
+            eta = lroundf(self.totalRuntime - progress * self.totalRuntime);
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.progressBar setProgress:progress animated:YES];
+            NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%ld", eta]);
+            [self.timeLabel setText:time];
+
+        });
     }
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.progressBar setProgress:progress animated:YES];
-        NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%ld", eta]);
-        [self.timeLabel setText:time];
-
-    });
     [self.animation playWithCompletion:^(BOOL animationFinished) {}];
 
 }
@@ -160,11 +175,11 @@
 
 -(void)showError{
     UIAlertAction* okButton = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction * action) {
-                                   [self dismissViewControllerAnimated:YES completion:nil];
-                               }];
+            actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                      style:UIAlertActionStyleDefault
+                    handler:^(UIAlertAction * action) {
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.Error", nil)
                            message:NSLocalizedString(@"Modal.Error.CantDownloadURLs", nil)
                           okButton:okButton
@@ -174,11 +189,11 @@
 
 -(IBAction)cancelTest:(id)sender{
     UIAlertAction* okButton = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction * action) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"interruptTest" object:nil];
-    }];
+            actionWithTitle:NSLocalizedString(@"Modal.OK", nil)
+                      style:UIAlertActionStyleDefault
+                    handler:^(UIAlertAction * action) {
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"interruptTest" object:nil];
+                    }];
     [MessageUtility alertWithTitle:NSLocalizedString(@"Modal.InterruptTest.Title", nil)
                            message:NSLocalizedString(@"Modal.InterruptTest.Paragraph", nil)
                           okButton:okButton

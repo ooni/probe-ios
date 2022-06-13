@@ -1,6 +1,7 @@
 #import "FailedTestDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ReachabilityManager.h"
+#import "RunningTest.h"
 
 @interface FailedTestDetailsViewController ()
 
@@ -22,6 +23,12 @@
     self.tryAgainButton.layer.masksToBounds = YES;
     self.tryAgainButton.layer.borderWidth = 0.5f;
     self.tryAgainButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self reloadConstraints];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self reloadConstraints];
 }
 
 -(IBAction)reRun{
@@ -30,4 +37,13 @@
         [self performSegueWithIdentifier:@"toTestRun" sender:self];
 }
 
+-(void)reloadConstraints{
+    CGFloat uploadConstraint = 0;
+    if ([RunningTest currentTest].isTestRunning){
+        uploadConstraint += 64;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.uploadBarFooterConstraint.constant = uploadConstraint;
+    });
+}
 @end

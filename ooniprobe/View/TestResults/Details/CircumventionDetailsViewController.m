@@ -1,4 +1,5 @@
 #import "CircumventionDetailsViewController.h"
+#import "RunningTest.h"
 
 @interface CircumventionDetailsViewController ()
 
@@ -14,6 +15,7 @@
     [linkAttributes setObject:[NSNumber numberWithBool:YES] forKey:(NSString *)kCTUnderlineStyleAttributeName];
     [linkAttributes setObject:[UIColor colorNamed:@"color_base"] forKey:(NSString *)kCTForegroundColorAttributeName];
     self.textLabel.linkAttributes = [NSDictionary dictionaryWithDictionary:linkAttributes];
+    [self reloadConstraints];
 
     if (!super.measurement.is_anomaly){
         [self.headerView setBackgroundColor:[UIColor colorNamed:@"color_green7"]];
@@ -75,6 +77,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self reloadConstraints];
     if (!super.measurement.is_anomaly){
         [NavigationBarUtility setBarTintColor:self.navigationController.navigationBar
                                         color:[UIColor colorNamed:@"color_green7"]];
@@ -85,4 +88,13 @@
     }
 }
 
+-(void)reloadConstraints{
+    CGFloat uploadConstraint = 0;
+    if ([RunningTest currentTest].isTestRunning){
+        uploadConstraint += 64;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.uploadBarFooterConstraint.constant = uploadConstraint;
+    });
+}
 @end

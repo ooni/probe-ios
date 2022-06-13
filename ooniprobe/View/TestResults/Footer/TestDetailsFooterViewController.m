@@ -49,7 +49,9 @@
 
     NSString *url = [LocalizationUtility getUrlForTest:self.measurement.test_name];
     [self.methodologyLabel setMarkdown:NSLocalizedFormatString(@"TestResults.Details.Methodology.Paragraph", url)];
-
+    [self.methodologyLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+    }];
     if ([self.measurement hasLogFile])
         [self.logButton setHidden:NO];
     if (self.measurement.report_id != NULL && ![self.measurement.report_id isEqualToString:@""]){

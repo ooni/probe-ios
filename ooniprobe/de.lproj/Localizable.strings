@@ -274,6 +274,7 @@
 "Modal.NotNow" = "Nicht jetzt";
 "Modal.RunAnyway" = "Trotzdem ausführen";
 "Modal.DisableVPN" = "VPN deaktivieren";
+"Modal.AlwaysRun" = "Immer gestartet";
 "Modal.Error.NoInternet" = "Test konnte nicht ausgeführt werden. Bitte überprüfe deine Internetverbindung.";
 "Modal.Error.CantDownloadURLs" = "URL-Liste kann nicht heruntergeladen werden. Bitte versuche es erneut.";
 "Modal.Error.TestAlreadyRunning" = "Bitte warte, bis die laufenden Tests beendet sind, bevor du einen neuen Test startest.";
@@ -288,6 +289,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe kann nicht automatisch ohne Batterieoptimierung laufen. Möchtest du es noch einmal versuchen?";
 "Modal.DisableVPN.Title" = "Bitte deaktiviere deine VPN-Verbindung.";
 "Modal.DisableVPN.Message" = "Wenn du OONI Probe mit aktiviertem VPN ausführst, kann es sein, dass die Testergebnisse aus dem falschen Land stammen. Bitte deaktiviere deine VPN-Verbindung.";
+"Modal.UploadVPNResults.Title" = "Einige Messungen wurden über VPN durchgeführt.";
+"Modal.UploadVPNResults.Message" = "Wenn du Messungen hochlädst, die bei aktiviertem VPN gemacht wurden, kann es sein, dass die Testergebnisse aus dem falschen Land stammen.";
 "Toast.ResultsUploaded" = "Hochladen war erfolgreich";
 "Modal.DisplayFailureLog" = "Fehlerlog anzeigen";
 "Modal.EnableNotifications.Title" = "Aktuelle Informationen zur Internetzensur";
@@ -374,6 +377,8 @@
 "Settings.Advanced.Label" = "Erweitert";
 "Settings.DarkMode.Label" = "Dunkelmodus";
 "Settings.Advanced.DebugLogs" = "Fehlerprotokolle";
+"Settings.Advanced.LanguageSettings.Title" = "Spracheinstellung";
+"Settings.Advanced.LanguageSettings.PopUp" = "Sprache auswählen";
 "Settings.Advanced.UseDomainFronting" = "Immer Domain Fronting benutzen";
 "Settings.Proxy.Label" = "OONI Backend Proxy";
 "Settings.Proxy.Enabled" = "Proxy";
@@ -425,6 +430,7 @@
 "Settings.Circumvention.TestPsiphon" = "Psiphon testen";
 "Settings.Circumvention.TestTor" = "Tor Testen";
 "Settings.Circumvention.TestRiseupVPN" = "Teste RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warnen, wenn VPN in Gebrauch ist";
 "Settings.SendEmail.Label" = "E-Mail an den Support senden";
 "Settings.SendEmail.Message" = "Beschreibe bitte das Problem, das bei dir auftritt:";
 "Settings.SendEmail.Error" = "Bitte senden Sie eine E-Mail an bugs@openobservatory.org mit Informationen zur App und iOS-Version. Tippen Sie unten auf \"In Zwischenablage kopieren\", um unsere E-Mail Adresse zu kopieren.";

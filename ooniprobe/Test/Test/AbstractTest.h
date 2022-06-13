@@ -36,5 +36,6 @@
 -(void)prepareRun;
 -(void)runTest;
 -(int)getRuntime;
+-(void)testStarted;
 -(void)testEnded;
 @end

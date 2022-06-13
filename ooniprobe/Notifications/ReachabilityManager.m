@@ -42,7 +42,9 @@
 - (NSString*)getStatus{
     NetworkStatus status = [self.reachability currentReachabilityStatus];
     NSString *networkType;
-    if (status == ReachableViaWiFi)
+    if ([self isVPNConnected])
+        networkType = @"vpn";
+    else if (status == ReachableViaWiFi)
         networkType = @"wifi";
     else if (status == ReachableViaWWAN)
         networkType = @"mobile";

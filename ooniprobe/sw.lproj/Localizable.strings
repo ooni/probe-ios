@@ -274,6 +274,7 @@
 "Modal.NotNow" = "Not now";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "Imeshindwa kutekeleza jaribio. Tafadhali angalia muunganisho wako wa mtandao.";
 "Modal.Error.CantDownloadURLs" = "Imeshindwa kupakua orodha ya URL. Tafadhali jaribu tena.";
 "Modal.Error.TestAlreadyRunning" = "Tafadhali subiri majaribio ya sasa ya kukimbia kumaliza, kabla ya kuanza jaribio jipya.";
@@ -288,6 +289,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
 "Modal.DisableVPN.Title" = "Please disable your VPN connection.";
 "Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "Kupakia kumefanikiwa ";
 "Modal.DisplayFailureLog" = "Onyesha kumbukumbu ya kutofaulu";
 "Modal.EnableNotifications.Title" = "Pata sasisho juu ya udhibiti wa mtandao";
@@ -374,6 +377,8 @@
 "Settings.Advanced.Label" = "Iliyoboreshwa";
 "Settings.DarkMode.Label" = "Njia Nyeusi";
 "Settings.Advanced.DebugLogs" = "Magogo ya utatuzi";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "Chagua Lugha";
 "Settings.Advanced.UseDomainFronting" = "Daima tumia utangulizi wa kikoa";
 "Settings.Proxy.Label" = "Wakala wa nyuma wa OONI";
 "Settings.Proxy.Enabled" = "Wakala";
@@ -425,6 +430,7 @@
 "Settings.Circumvention.TestPsiphon" = "Jaribu Psiphon";
 "Settings.Circumvention.TestTor" = "Jaribu Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Jaribu RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "Tuma barua pepe kwa msaada";
 "Settings.SendEmail.Message" = "Tafadhali eleza shida unayopata:";
 "Settings.SendEmail.Error" = "Tafadhali tuma barua pepe kwa bugs@openobservatory.org na habari juu ya programu na toleo la iOS. Gonga \"Nakili kwenye clipboard\" hapa chini ili kunakili anwani yetu ya barua pepe.";
