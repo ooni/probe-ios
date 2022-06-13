@@ -6,7 +6,7 @@
 #define EXISTING_REPORT_ID_2 @"20190702T000027Z_AS5413_6FT78sjp5qnESDVWlFlm6bfxxwOEqR08ySAwigTF6C8PFCbMsM"
 #define NONEXISTING_REPORT_ID @"EMPTY"
 #define NON_PARSABLE_URL @"https://\t"
-#define CLIENT_URL @"ams-pg.ooni.org"
+#define CLIENT_URL @"api.ooni.io"
 
 @interface APITest : XCTestCase
 
@@ -35,20 +35,14 @@
     [OONIApi getExplorerUrl:CLIENT_URL
                   report_id:EXISTING_REPORT_ID
                     withUrl:nil
-                  onSuccess:^(NSString *measurement_url){
-        [OONIApi downloadJson:measurement_url
-                        onSuccess:^(NSDictionary *urls) {
-                            XCTAssert(true);
-                            [expectation fulfill];
-                        } onError:^(NSError *error) {
-                            XCTAssert(false);
-                            [expectation fulfill];
-                        }];
+                  onSuccess:^(NSDictionary *measurement_url){
+                      XCTAssert(true);
+                      [expectation fulfill];
     } onError:^(NSError *error){
         XCTAssert(false);
         [expectation fulfill];
     }];
-    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
+    [self waitForExpectationsWithTimeout:60.0 handler:^(NSError *err) {
         XCTAssert(err == nil);
     }];
 }
@@ -58,14 +52,14 @@
     [OONIApi getExplorerUrl:CLIENT_URL
                   report_id:NONEXISTING_REPORT_ID
                     withUrl:nil
-                  onSuccess:^(NSString *measurement_url){
+                  onSuccess:^(NSDictionary *measurement_url){
         XCTAssert(false);
         [expectation fulfill];
     } onError:^(NSError *error){
         XCTAssert(true);
         [expectation fulfill];
     }];
-    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
+    [self waitForExpectationsWithTimeout:60.0 handler:^(NSError *err) {
         XCTAssert(err == nil);
     }];
 }
