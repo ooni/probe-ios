@@ -274,6 +274,7 @@
 "Modal.NotNow" = "Not now";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "Δεν είναι δυνατή η εκτέλεση της δοκιμής. Έλεγξε τη σύνδεσή σου στο Διαδίκτυο.";
 "Modal.Error.CantDownloadURLs" = "Δεν είναι δυνατή η λήψη της λίστας ιστοσελιδών. Παρακαλώ προσπάθησε ξανά.";
 "Modal.Error.TestAlreadyRunning" = "Παρακαλώ περίμενε μέχρι να τελειώσουν οι δοκιμές που εκτελούνται τώρα, πριν ξεκινήσεις μια νέα δοκιμή.";
@@ -288,6 +289,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
 "Modal.DisableVPN.Title" = "Please disable your VPN connection.";
 "Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "Επιτυχές ανέβασμα";
 "Modal.DisplayFailureLog" = "Προβολή αρχείου καταγραφής αποτυχιών";
 "Modal.EnableNotifications.Title" = "Ειδοποιήσεις για λογοκρισία στο διαδίκτυο";
@@ -374,6 +377,8 @@
 "Settings.Advanced.Label" = "Ρυθμίσεις για προχωρημένους/ες";
 "Settings.DarkMode.Label" = "Σκοτεινό θέμα";
 "Settings.Advanced.DebugLogs" = "Αρχεία καταγραφής σφαλμάτων";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "Επιλογή Γλώσσας";
 "Settings.Advanced.UseDomainFronting" = "Πάντα να χρησιμοποιείται domain fronting";
 "Settings.Proxy.Label" = "Backend proxy του OONI";
 "Settings.Proxy.Enabled" = "Proxy";
@@ -425,6 +430,7 @@
 "Settings.Circumvention.TestPsiphon" = "Δοκιμή του Psiphon";
 "Settings.Circumvention.TestTor" = "Δοκιμή του Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Δοκιμή του RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "Αποστολή email στην υποστήριξη";
 "Settings.SendEmail.Message" = "Παρακαλούμε να περιγράψεις μας το πρόβλημα που αντιμετωπίζεις:";
 "Settings.SendEmail.Error" = "Παρακαλούμε στείλε ένα email στη διεύθυνση bugs@openobservatory.org με πληροφορίες σχετικά με την έκδοση της εφαρμογής και του iOS. Πάτα \"Αντιγραφή στο πρόχειρο\" παρακάτω για να αντιγράψεις τη διεύθυνση email μας.";

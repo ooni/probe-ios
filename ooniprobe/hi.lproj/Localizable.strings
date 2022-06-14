@@ -274,6 +274,7 @@
 "Modal.NotNow" = "Not now";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "परीक्षण चलाने में असमर्थ। कृपया अपनी इंटरनेट कनेक्टिविटी की जांच करें।";
 "Modal.Error.CantDownloadURLs" = "यूआरएल सूची डाउनलोड करने में असमर्थ। कृपया पुन: प्रयास करें।";
 "Modal.Error.TestAlreadyRunning" = "नया परीक्षण शुरू करने से पहले, कृपया वर्तमान चल रहे परीक्षणों के समाप्त होने की प्रतीक्षा करें।";
@@ -288,6 +289,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
 "Modal.DisableVPN.Title" = "Please disable your VPN connection.";
 "Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "अपलोड सफल रहा।";
 "Modal.DisplayFailureLog" = "विफलता लॉग प्रदर्शित करें";
 "Modal.EnableNotifications.Title" = "इंटरनेट सेंसरशिप पर नई जानकारी प्राप्त करें";
@@ -374,6 +377,8 @@
 "Settings.Advanced.Label" = "उन्नत";
 "Settings.DarkMode.Label" = "डार्क मोड";
 "Settings.Advanced.DebugLogs" = "दोषमार्जन लॉग";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "Select Language";
 "Settings.Advanced.UseDomainFronting" = "हमेशा डोमेन फ्रंटिंग का उपयोग करें";
 "Settings.Proxy.Label" = "OONI बैकएंड प्रॉक्सी";
 "Settings.Proxy.Enabled" = "Proxy";
@@ -425,6 +430,7 @@
 "Settings.Circumvention.TestPsiphon" = "Psiphon का परीक्षण करें";
 "Settings.Circumvention.TestTor" = "टेस्ट Tor";
 "Settings.Circumvention.TestRiseupVPN" = "RiseupVPN जांचे";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "Send email to support";
 "Settings.SendEmail.Message" = "कृपया उस समस्या का वर्णन करें जिसका आप अनुभव कर रहे हैं:";
 "Settings.SendEmail.Error" = "कृपया iOS संस्करण और एप्लिकेशन की जानकारी के साथ bugs@openobservatory.org को एक ईमेल भेजें। हमारा  ईमेल पता कॉपी करने के लिए \"क्लिपबोर्ड पर कॉपी करें\" पर टैप करें।";
