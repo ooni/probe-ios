@@ -91,7 +91,7 @@
         XCTAssert(false);
         [expectation fulfill];
     }];
-    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
+    [self waitForExpectationsWithTimeout:60.0 handler:^(NSError *err) {
         XCTAssert(err == nil);
     }];
 }
