@@ -109,35 +109,6 @@
     successcb(urls);
 }
 
-+ (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
-    onError:(void (^)(NSError*))errorcb {
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
-                                          dataTaskWithURL:url
-                                          completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                              [self downloadJsonCallback:data response:response error:error
-                                                               onSuccess:successcb onError:errorcb];
-                                          }];
-    [downloadTask resume];
-}
-
-+ (void)downloadJsonCallback:(NSData *)data
-                    response:(NSURLResponse *)response
-                       error:(NSError *)error
-                   onSuccess:(void (^)(NSDictionary*))successcb
-                     onError:(void (^)(NSError*))errorcb {
-    if (error != nil) {
-        errorcb(error);
-        return;
-    }
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if (error != nil) {
-        errorcb(error);
-        return;
-    }
-    successcb(dic);
-}
-
 + (void)getExplorerUrl:(NSString*)baseURl
              report_id:(NSString*)report_id
                withUrl:(NSString*)measurement_url

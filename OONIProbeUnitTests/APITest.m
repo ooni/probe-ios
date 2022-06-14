@@ -96,21 +96,6 @@
     }];
 }
 
-- (void)testMalformedURL {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testMalformedURL"];
-    [OONIApi downloadJson:NON_PARSABLE_URL
-                    onSuccess:^(NSDictionary *urls) {
-                        XCTAssert(false);
-                        [expectation fulfill];
-                    } onError:^(NSError *error) {
-                        XCTAssert(true);
-                        [expectation fulfill];
-                    }];
-    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
-        XCTAssert(err == nil);
-    }];
-}
-
 -(Measurement*)addMeasurement:(NSString*)report_id writeFile:(BOOL)report{
     //Simulating measurement done and uploaded
     Measurement *measurement = [Measurement new];
