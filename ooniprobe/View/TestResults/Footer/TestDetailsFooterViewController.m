@@ -29,9 +29,12 @@
     [self.runtimeLabel setText:NSLocalizedString(@"TestResults.Details.Hero.Runtime", nil)];
     [self.dateLabel setText:NSLocalizedString(@"TestResults.Summary.Hero.DateAndTime", nil)];
     [self.dateDetailLabel setText:[measurement getLocalizedStartTime]];
-    [self.networkNameLabel setText:[result getNetworkName]];
-    [self.networkAsnLabel setText:[NSString stringWithFormat:@"%@ (%@)", [result getAsn], [result getLocalizedNetworkType]]];
-    NSString *country = [result getCountry];
+    NSString *country = measurement.rerun_network[@"country_code"] ?: [result getCountry];
+    NSString *networkName = measurement.rerun_network[@"network_name"] ?: [result getNetworkName];
+    NSString *asn =measurement.rerun_network[@"asn"] ?: [result getAsn];
+    NSString *networkType = measurement.rerun_network[@"network_type"] ?: [result getLocalizedNetworkType];
+    [self.networkNameLabel setText:networkName];
+    [self.networkAsnLabel setText:[NSString stringWithFormat:@"%@ (%@)", asn, networkType]];
     [self.countryDetailLabel setText:country];
     
     [self.runtimeDetailLabel setText:[NSString stringWithFormat:@"%.02f sec", measurement.runtime]];

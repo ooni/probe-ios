@@ -98,6 +98,7 @@
         NSString *testSuiteName = self.measurement.result_id.test_group_name;
         AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
         AbstractTest *test = [[AbstractTest alloc] initTest:self.measurement.test_name];
+        test.is_rerun = true;
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         [testSuite setResult:self.measurement.result_id];
         if ([testSuiteName isEqualToString:@"websites"])
