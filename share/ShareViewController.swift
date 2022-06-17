@@ -17,7 +17,6 @@ class ShareViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // 1
         guard let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem,
               let itemProvider = extensionItem.attachments?.first else {
             self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
