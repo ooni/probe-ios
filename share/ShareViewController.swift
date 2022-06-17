@@ -46,7 +46,6 @@ class ShareViewController: UIViewController {
                             options: [],
                             range: NSRange(location: 0, length: text.utf16.count)
                     )
-                    // 2.2
                     if let firstMatch = matches.first, let range = Range(firstMatch.range, in: text) {
                         self.saveURLString(String(text[range]))
                     }
