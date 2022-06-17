@@ -19,6 +19,7 @@
 @property BOOL is_upload_failed;
 @property NSString *upload_failure_msg;
 @property BOOL is_rerun;
+@property NSDictionary* rerun_network;
 @property NSString *report_id;
 @property Url *url_id;
 @property BOOL is_anomaly;
