@@ -2,9 +2,6 @@
 //  ShareViewController.swift
 //  share
 //
-//  Created by aanorbel on 4/21/22.
-//  Copyright © 2022 OONI. All rights reserved.
-//
 
 import UIKit
 import Social
