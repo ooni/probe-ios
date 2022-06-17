@@ -39,7 +39,7 @@ class ShareViewController: UIViewController {
 
 
             if let text = item as? String {
-                do {// 2.1
+                do {
                     let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
                     let matches = detector.matches(
                             in: text,
