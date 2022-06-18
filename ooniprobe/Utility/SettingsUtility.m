@@ -25,7 +25,7 @@
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
-        return @[@"AppleLanguages", @"debug_logs", @"storage_usage"];
+        return @[@"AppleLanguages", @"debug_logs", @"storage_usage" , @"warn_vpn_in_use"];
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];
@@ -162,6 +162,14 @@
 
 + (BOOL)isSendCrashEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue];
+}
+
++ (BOOL)isWarnVPNInUse {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"warn_vpn_in_use"] boolValue];
+}
+
++ (void)disableWarnVPNInUse {
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"warn_vpn_in_use"];
 }
 
 + (BOOL)isNotificationEnabled {

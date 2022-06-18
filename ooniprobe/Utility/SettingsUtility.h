@@ -24,6 +24,10 @@
 
 + (BOOL)isSendCrashEnabled;
 
++ (BOOL)isWarnVPNInUse;
+
++ (void)disableWarnVPNInUse;
+
 + (BOOL)isNotificationEnabled;
 
 + (BOOL)isAutomatedTestEnabled;
