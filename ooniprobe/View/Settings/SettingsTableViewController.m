@@ -143,14 +143,27 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellSub" forIndexPath:indexPath];
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
-        UIButton *cleanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [cleanButton setTitle:NSLocalizedString(@"Settings.Storage.Clear", nil) forState:UIControlStateNormal];
-        [cleanButton sizeToFit];
-        [cleanButton addTarget:self
-                        action:@selector(removeAllTests:) forControlEvents:UIControlEventTouchDown];
-        cell.accessoryView = cleanButton;
-        NSString *subtitle = [NSByteCountFormatter stringFromByteCount:[TestUtility storageUsed] countStyle:NSByteCountFormatterCountStyleFile];
-        [cell.detailTextLabel setText:subtitle];
+
+        if ([current isEqualToString:@"storage_usage"]){
+            UIButton *cleanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [cleanButton setTitle:NSLocalizedString(@"Settings.Storage.Clear", nil) forState:UIControlStateNormal];
+            [cleanButton sizeToFit];
+            [cleanButton addTarget:self
+                            action:@selector(removeAllTests:) forControlEvents:UIControlEventTouchDown];
+            cell.accessoryView = cleanButton;
+            NSString *subtitle = [NSByteCountFormatter stringFromByteCount:[TestUtility storageUsed] countStyle:NSByteCountFormatterCountStyleFile];
+            [cell.detailTextLabel setText:subtitle];
+        }
+        if ([current isEqualToString:@"AppleLanguages"]){
+            [cell.detailTextLabel setText:(NSString *)[SettingsUtility currentLanguage][0]];
+
+            UIButton *cleanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [cleanButton setTitle:NSLocalizedString(@"Settings.Advanced.LanguageSettings.PopUp", nil) forState:UIControlStateNormal];
+            [cleanButton sizeToFit];
+            [cleanButton addTarget:self
+                            action:@selector(selectLanguage:) forControlEvents:UIControlEventTouchDown];
+            cell.accessoryView = cleanButton;
+        }
     }
     return cell;
 }
@@ -166,6 +179,40 @@
                            message:NSLocalizedString(@"Modal.DoYouWantToDeleteAllTests", nil)
                           okButton:okButton
                             inView:self];
+}
+
+-(IBAction)selectLanguage:(id)sender{
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Settings.Advanced.LanguageSettings.Title", nil)
+                                                                   message:NSLocalizedString(@"Settings.Advanced.LanguageSettings.PopUp", nil)
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancel];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Languages" ofType:@"plist"];
+    // TODO(aanorbel): add translation
+    [alert addAction:[UIAlertAction actionWithTitle:@"Automatic" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"AppleLanguages"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.view makeToast:@"Please restart the app for apply changes."
+                    duration:10
+                    position:CSToastPositionBottom];
+    }]];
+    NSMutableDictionary *languages = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
+    NSArray * languageKeys = [languages keysSortedByValueUsingComparator:
+                    ^NSComparisonResult(id obj1, id obj2) {
+                        return [obj1 compare:obj2];
+                    }];
+    for (NSString *languageKey in languageKeys) {
+        [alert addAction:[UIAlertAction actionWithTitle:languages[languageKey] style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
+            [[NSUserDefaults standardUserDefaults] setObject:@[languageKey] forKey:@"AppleLanguages"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self.view makeToast:@"Please restart the app for apply changes."
+                        duration:10
+                        position:CSToastPositionBottom];
+        }]];
+    }
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void)deleteAll{
