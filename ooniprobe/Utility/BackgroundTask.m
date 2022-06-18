@@ -99,6 +99,10 @@
     CircumventionSuite *cTest = [[CircumventionSuite alloc] init];
     [cTest setStoreDB:NO];
     [tests addObject:cTest];
+    ExperimentalSuite *eTest = [[ExperimentalSuite alloc] init];
+    [eTest setStoreDB:NO];
+    [eTest setAutoRUn:YES];
+    [tests addObject:eTest];
     [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:tests]  inView: nil];
 }
 

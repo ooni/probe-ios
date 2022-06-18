@@ -72,19 +72,14 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         });
-        [self.measurement getExplorerUrl:^(NSString *measurement_url){
-            [OONIApi downloadJson:measurement_url
-                            onSuccess:^(NSDictionary *measurementJson) {
-                                dispatch_async(dispatch_get_main_queue(), ^{
-                                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-                                    self.text = [self prettyPrintedJsonfromObject:measurementJson];
-                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                        [self.textView setText:self.text];
-                                    });
-                                });
-                            } onError:^(NSError *error) {
-                                [self onError:error];
-                            }];
+        [self.measurement getExplorerUrl:^(NSDictionary *measurementJson){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                self.text = [self prettyPrintedJsonfromObject:measurementJson];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.textView setText:self.text];
+                });
+            });
         } onError:^(NSError *error){
             [self onError:error];
         }];

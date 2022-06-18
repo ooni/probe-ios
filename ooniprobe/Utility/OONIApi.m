@@ -109,44 +109,15 @@
     successcb(urls);
 }
 
-+ (void)downloadJson:(NSString*)urlStr onSuccess:(void (^)(NSDictionary*))successcb
-    onError:(void (^)(NSError*))errorcb {
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLSessionDataTask *downloadTask = [[NetworkSession getSession]
-                                          dataTaskWithURL:url
-                                          completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                              [self downloadJsonCallback:data response:response error:error
-                                                               onSuccess:successcb onError:errorcb];
-                                          }];
-    [downloadTask resume];
-}
-
-+ (void)downloadJsonCallback:(NSData *)data
-                    response:(NSURLResponse *)response
-                       error:(NSError *)error
-                   onSuccess:(void (^)(NSDictionary*))successcb
-                     onError:(void (^)(NSError*))errorcb {
-    if (error != nil) {
-        errorcb(error);
-        return;
-    }
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if (error != nil) {
-        errorcb(error);
-        return;
-    }
-    successcb(dic);
-}
-
 + (void)getExplorerUrl:(NSString*)baseURl
              report_id:(NSString*)report_id
                withUrl:(NSString*)measurement_url
-             onSuccess:(void (^)(NSString*))successcb
+             onSuccess:(void (^)(NSDictionary*))successcb
                onError:(void (^)(NSError*))errorcb {
     NSURLComponents *components = [[NSURLComponents alloc] init];
     components.scheme = @"https";
     components.host = baseURl;
-    components.path = @"/api/v1/measurements";
+    components.path = @"/api/v1/raw_measurement";
     NSURLQueryItem *reportIdItem = [NSURLQueryItem
                                     queryItemWithName:@"report_id"
                                     value:report_id];
@@ -172,7 +143,7 @@
 
 + (void)getExplorerUrl:(NSString*)report_id
                withUrl:(NSString*)measurement_url
-             onSuccess:(void (^)(NSString*))successcb
+             onSuccess:(void (^)(NSDictionary*))successcb
                onError:(void (^)(NSError*))errorcb {
     [self getExplorerUrl:OONI_API_BASE_URL
                report_id:report_id
@@ -184,31 +155,19 @@
 + (void)getExplorerUrlCallback:(NSData *)data
                     response:(NSURLResponse *)response
                        error:(NSError *)error
-                   onSuccess:(void (^)(NSString*))successcb
+                   onSuccess:(void (^)(NSDictionary*))successcb
                      onError:(void (^)(NSError*))errorcb {
     if (error != nil) {
         errorcb(error);
         return;
     }
+
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error != nil) {
         errorcb(error);
         return;
     }
-    NSArray *resultsArray = [dic objectForKey:@"results"];
-    /*
-     Checking if the array is longer than 1.
-     https://github.com/ooni/probe-ios/pull/293#discussion_r302136014
-     */
-    if ([resultsArray count] != 1 ||
-        ![[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]) {
-        errorcb([NSError errorWithDomain:@"io.ooni.api"
-                                    code:ERR_JSON_EMPTY
-                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.JsonEmpty"
-                                           }]);
-        return;
-    }
-    successcb([[resultsArray objectAtIndex:0] objectForKey:@"measurement_url"]);
+    successcb(dic);
 }
 
 + (void)checkReportId:(NSString*)baseUrl
