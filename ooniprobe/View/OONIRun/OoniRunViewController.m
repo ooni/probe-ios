@@ -50,20 +50,14 @@
      NSLog(@"dict: %@", dict);
     
     NSString *action;
-    NSUserDefaults *usrInfo = [[NSUserDefaults alloc] initWithSuiteName:@"group.org.openobservatory.ooniprobe"];
-
     if ([[url host] isEqualToString:@"run.ooni.io"]) {
         action = [[url path] substringFromIndex:1];
-    } else if ([[[usrInfo dictionaryRepresentation] allKeys] containsObject:@"incomingURL"] && dict[@"tn"] == nil) {
-        action = @"nettest";
-        NSLog(@"%@", [usrInfo valueForKey:@"incomingURL"]);
-        [self setTestName:@"web_connectivity"];
-        [self setTestArguments:@{
-                @"urls": @[[usrInfo valueForKey:@"incomingURL"]]
-        }];
-
-    } else if ([url.host isEqualToString:@"nettest"]) {
+    } else {
         action = [url host];
+    }
+
+    if ([action isEqualToString:@"nettest"]) {
+        //creating parameters dict
         NSDictionary *parameters = [DictionaryUtility getParametersFromDict:dict];
         NSLog(@"parameters: %@", parameters);
         if ([self checkMv:parameters]) {
@@ -76,6 +70,17 @@
             }
         }
     }
+
+    NSUserDefaults *usrInfo = [[NSUserDefaults alloc] initWithSuiteName:@"group.org.openobservatory.ooniprobe"];
+    if ([[[usrInfo dictionaryRepresentation] allKeys] containsObject:@"incomingURL"] && dict[@"tn"] == nil) {
+        action = @"nettest";
+        NSLog(@"%@", [usrInfo valueForKey:@"incomingURL"]);
+        [self setTestName:@"web_connectivity"];
+        [self setTestArguments:@{
+                @"urls": @[[usrInfo valueForKey:@"incomingURL"]]
+        }];
+    }
+
     if ([action isEqualToString:@"nettest"]) {
         [self showTestScreen];
     } else {
