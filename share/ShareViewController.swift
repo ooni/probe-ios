@@ -9,7 +9,6 @@ class ShareViewController: UIViewController {
     private let typeText = String(kUTTypeText)
     private let typeURL = String(kUTTypeURL)
     private let appURL = "ooni://nettest"
-    private let urlDefaultName = "incomingURL"
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
