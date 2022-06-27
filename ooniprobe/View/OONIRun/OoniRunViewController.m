@@ -49,10 +49,6 @@
      NSLog(@"url path: %@", [url path]);
      NSLog(@"dict: %@", dict);
 
-    /// Case #1: OONI run link
-    /// - https://run.ooni.io/nettest?... is the URL you receive when the app does not correctly handle deeplinks
-    /// - ooni://nettest?... is the URL you receive when the app correctly handles deeplinks
-    /// Empirically, the `https://run.ooni.io/...` case could happen.
     NSString *action;
     if ([[url host] isEqualToString:@"run.ooni.io"]) {
         action = [[url path] substringFromIndex:1];
@@ -73,21 +69,9 @@
             } else {
                 [self showErrorScreen];
             }
-            return;
         }
     }
-
-    /// case #2: the user shares a link with the OONI app, so we are
-    /// going to test the user-provided URL using webconnectivity
-    NSUserDefaults *usrInfo = [[NSUserDefaults alloc] initWithSuiteName:@"group.org.openobservatory.ooniprobe"];
-    if ([[[usrInfo dictionaryRepresentation] allKeys] containsObject:@"incomingURL"] && dict[@"tn"] == nil) {
-        NSLog(@"%@", [usrInfo valueForKey:@"incomingURL"]);
-        [self setTestName:@"web_connectivity"];
-        [self setTestArguments:@{
-                @"urls": @[[usrInfo valueForKey:@"incomingURL"]]
-        }];
-        [self showTestScreen];
-    } else {
+    else {
         [self showErrorScreen];
     }
 }

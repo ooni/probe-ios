@@ -8,8 +8,7 @@ class ShareViewController: UIViewController {
 
     private let typeText = String(kUTTypeText)
     private let typeURL = String(kUTTypeURL)
-    private let appURL = "ooni://"
-    private let groupName = "group.org.openobservatory.ooniprobe"
+    private let appURL = "ooni://nettest"
     private let urlDefaultName = "incomingURL"
 
     override func viewDidAppear(_ animated: Bool) {
@@ -44,14 +43,12 @@ class ShareViewController: UIViewController {
                             range: NSRange(location: 0, length: text.utf16.count)
                     )
                     if let firstMatch = matches.first, let range = Range(firstMatch.range, in: text) {
-                        self.saveURLString(String(text[range]))
+                        self.openMainApp(String(text[range]))
                     }
                 } catch let error {
                     print("Do-Try Error: \(error.localizedDescription)")
                 }
             }
-
-            self.openMainApp()
         }
     }
 
@@ -60,22 +57,38 @@ class ShareViewController: UIViewController {
             if let error = error { print("URL-Error: \(error.localizedDescription)") }
 
             if let url = item as? NSURL, let urlString = url.absoluteString {
-                self.saveURLString(urlString)
+                self.openMainApp(urlString)
             }
 
-            self.openMainApp()
         }
     }
 
-    private func saveURLString(_ urlString: String) {
-        UserDefaults(suiteName: self.groupName)?.set(urlString, forKey: self.urlDefaultName)
-    }
 
-    private func openMainApp() {
-        self.extensionContext?.completeRequest(returningItems: nil, completionHandler: { _ in
-            guard let url = URL(string: self.appURL) else { return }
-            _ = self.openURL(url)
-        })
+    private func openMainApp(_ urlString: String) {
+
+        let dict: NSDictionary = [
+            "urls": [
+                urlString
+            ],
+        ]
+        do {
+            let data = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
+
+            let json = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+            let queryItems = [
+                URLQueryItem(name: "mv", value: "1.2.0"),
+                URLQueryItem(name: "tn", value: "web_connectivity"),
+                URLQueryItem(name: "ta", value: json as String?)
+            ]
+            var urlComps = URLComponents(string: appURL)!
+            urlComps.queryItems = queryItems
+            let result = urlComps.url!
+            self.extensionContext?.completeRequest(returningItems: nil, completionHandler: { _ in
+                self.openURL(result)
+            })
+        } catch {
+            print("something went wrong with parsing json")
+        }
     }
 
     // Courtesy: https://stackoverflow.com/a/44499222/13363449 👇🏾
