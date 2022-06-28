@@ -85,8 +85,8 @@ class ShareViewController: UIViewController {
             self.extensionContext?.completeRequest(returningItems: nil, completionHandler: { _ in
                 self.openURL(result)
             })
-        } catch {
-            NSLog("something went wrong with parsing json")
+        } catch let error  {
+            NSLog("something went wrong with parsing json",error.localizedDescription)
         }
     }
 

@@ -49,6 +49,10 @@
      NSLog(@"url path: %@", [url path]);
      NSLog(@"dict: %@", dict);
 
+    /// OONI run link
+    /// - https://run.ooni.io/nettest?... is the URL you receive when the app does not correctly handle deeplinks
+    /// - ooni://nettest?... is the URL you receive when the app correctly handles deeplinks
+    /// Empirically, the `https://run.ooni.io/...` case could happen.
     NSString *action;
     if ([[url host] isEqualToString:@"run.ooni.io"]) {
         action = [[url path] substringFromIndex:1];
