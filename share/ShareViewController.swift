@@ -23,14 +23,14 @@ class ShareViewController: UIViewController {
         } else if itemProvider.hasItemConformingToTypeIdentifier(typeURL) {
             handleIncomingURL(itemProvider: itemProvider)
         } else {
-            print("Error: No url or text found")
+            NSLog("Error: No url or text found")
             self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
         }
     }
 
     private func handleIncomingText(itemProvider: NSItemProvider) {
         itemProvider.loadItem(forTypeIdentifier: typeText, options: nil) { (item, error) in
-            if let error = error { print("Text-Error: \(error.localizedDescription)") }
+            if let error = error { NSLog("Text-Error: \(error.localizedDescription)") }
 
 
             if let text = item as? String {
@@ -45,7 +45,7 @@ class ShareViewController: UIViewController {
                         self.openMainApp(String(text[range]))
                     }
                 } catch let error {
-                    print("Do-Try Error: \(error.localizedDescription)")
+                    NSLog("Do-Try Error: \(error.localizedDescription)")
                 }
             }
         }
@@ -53,7 +53,7 @@ class ShareViewController: UIViewController {
 
     private func handleIncomingURL(itemProvider: NSItemProvider) {
         itemProvider.loadItem(forTypeIdentifier: typeURL, options: nil) { (item, error) in
-            if let error = error { print("URL-Error: \(error.localizedDescription)") }
+            if let error = error { NSLog("URL-Error: \(error.localizedDescription)") }
 
             if let url = item as? NSURL, let urlString = url.absoluteString {
                 self.openMainApp(urlString)
@@ -86,7 +86,7 @@ class ShareViewController: UIViewController {
                 self.openURL(result)
             })
         } catch {
-            print("something went wrong with parsing json")
+            NSLog("something went wrong with parsing json")
         }
     }
 
