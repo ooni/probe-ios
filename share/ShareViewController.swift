@@ -32,7 +32,6 @@ class ShareViewController: UIViewController {
         itemProvider.loadItem(forTypeIdentifier: typeText, options: nil) { (item, error) in
             if let error = error { print("Text-Error: \(error.localizedDescription)") }
 
-
             if let text = item as? String {
                 do {
                     let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
