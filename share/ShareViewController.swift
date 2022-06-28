@@ -2,8 +2,8 @@ import UIKit
 import Social
 import CoreServices
 
-/// Share controller, handles action of receiving share action and
-/// launching the app with appropriate arguments ,``incomingURL``.
+/// Share controller handles action of receiving share action and
+/// launching the app with appropriate arguments ``incomingURL``.
 class ShareViewController: UIViewController {
 
     private let typeText = String(kUTTypeText)
@@ -32,7 +32,6 @@ class ShareViewController: UIViewController {
         itemProvider.loadItem(forTypeIdentifier: typeText, options: nil) { (item, error) in
             if let error = error { NSLog("Text-Error: \(error.localizedDescription)") }
 
-
             if let text = item as? String {
                 do {
                     let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
@@ -58,7 +57,6 @@ class ShareViewController: UIViewController {
             if let url = item as? NSURL, let urlString = url.absoluteString {
                 self.openMainApp(urlString)
             }
-
         }
     }
 
