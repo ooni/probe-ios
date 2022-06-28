@@ -58,7 +58,6 @@ class ShareViewController: UIViewController {
             if let url = item as? NSURL, let urlString = url.absoluteString {
                 self.openMainApp(urlString)
             }
-
         }
     }
 
