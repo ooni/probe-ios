@@ -3,7 +3,7 @@ import Social
 import CoreServices
 
 /// Share controller, handles action of receiving share action and
-/// launching the app with appropriate arguments ,``incomingURL``.
+/// launching the app with appropriate arguments ``incomingURL``.
 class ShareViewController: UIViewController {
 
     private let typeText = String(kUTTypeText)
