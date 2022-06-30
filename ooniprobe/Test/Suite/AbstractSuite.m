@@ -102,9 +102,7 @@
 -(NSArray*)getTestList {
     if (self.autoRUn){
         for (int i = 0; i < [self.testList count]; ++i) {
-            AbstractTest *current = self.testList[(NSUInteger) i];
-            current.autoRUn = YES;
-            self.testList[(NSUInteger) i] = current;
+            self.testList[(NSUInteger) i].autoRUn = YES;
         }
     }
     return self.testList;
