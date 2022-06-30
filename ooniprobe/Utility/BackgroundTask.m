@@ -77,9 +77,8 @@
     [testSuite setStoreDB:NO];
     AbstractTest *test = [[AbstractTest alloc] initTest:testName];
     [test setStoreDB:NO];
-    [test setAutoRUn:YES];
+    [test setAutoRun:YES];
     [test setAnnotation:YES];
-    test.settings.annotations[@"origin"] = @"autorun";
     [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
     [tests addObject:testSuite];
 
@@ -97,15 +96,15 @@
     
     InstantMessagingSuite *imTest = [[InstantMessagingSuite alloc] init];
     [imTest setStoreDB:NO];
-    [imTest setAutoRUn:YES];
+    [imTest setAutoRun:YES];
     [tests addObject:imTest];
     CircumventionSuite *cTest = [[CircumventionSuite alloc] init];
     [cTest setStoreDB:NO];
-    [cTest setAutoRUn:YES];
+    [cTest setAutoRun:YES];
     [tests addObject:cTest];
     ExperimentalSuite *eTest = [[ExperimentalSuite alloc] init];
     [eTest setStoreDB:NO];
-    [eTest setAutoRUn:YES];
+    [eTest setAutoRun:YES];
     [tests addObject:eTest];
     [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:tests]  inView: nil];
 }
