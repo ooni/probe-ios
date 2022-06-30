@@ -30,6 +30,7 @@
 @property dispatch_queue_t serialQueue;
 @property id<OONIMKTask> task;
 @property BOOL storeDB;
+@property BOOL autoRUn;
 @property BOOL isPreparing;
 
 -(id)initTest:(NSString*)testName;

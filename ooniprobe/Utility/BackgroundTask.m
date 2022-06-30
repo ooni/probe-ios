@@ -45,7 +45,7 @@
     //BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:taskID];
     request.requiresNetworkConnectivity = true;
     request.requiresExternalPower = [SettingsUtility testChargingOnly];
-    request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:60*60];
+    request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:0];
     NSError *error = NULL;
     BOOL success = [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error:&error];
     if (!success) {
@@ -77,7 +77,9 @@
     [testSuite setStoreDB:NO];
     AbstractTest *test = [[AbstractTest alloc] initTest:testName];
     [test setStoreDB:NO];
+    [test setAutoRUn:YES];
     [test setAnnotation:YES];
+    test.settings.annotations[@"origin"] = @"autorun";
     [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
     [tests addObject:testSuite];
 
@@ -95,9 +97,11 @@
     
     InstantMessagingSuite *imTest = [[InstantMessagingSuite alloc] init];
     [imTest setStoreDB:NO];
+    [imTest setAutoRUn:YES];
     [tests addObject:imTest];
     CircumventionSuite *cTest = [[CircumventionSuite alloc] init];
     [cTest setStoreDB:NO];
+    [cTest setAutoRUn:YES];
     [tests addObject:cTest];
     ExperimentalSuite *eTest = [[ExperimentalSuite alloc] init];
     [eTest setStoreDB:NO];

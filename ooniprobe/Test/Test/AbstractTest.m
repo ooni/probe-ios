@@ -57,6 +57,11 @@
 
 -(void)prepareRun{
     self.settings = [Settings new];
+    if (self.autoRUn){
+        self.settings.annotations[@"origin"] = @"autorun";
+        self.settings.options.software_name = [NSString stringWithFormat:@"%@%@",SOFTWARE_NAME,@"-unattended"];
+        NSLog(self.settings.annotations[@"origin"]);
+    }
     self.settings.name = self.name;
 }
 
