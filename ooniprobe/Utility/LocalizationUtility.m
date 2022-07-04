@@ -58,10 +58,12 @@
         return NSLocalizedString(@"Dashboard.Circumvention.Overview.Paragraph", nil);
     else if ([testName isEqualToString:@"experimental"])
         return NSLocalizedFormatString(@"Dashboard.Experimental.Overview.Paragraph",
-                                       @"\n\n- [STUN Reachability](https://github.com/ooni/spec/blob/master/nettests/ts-025-stun-reachability.md) "
-                                        "\n\n- [DNS Check](https://github.com/ooni/spec/blob/master/nettests/ts-028-dnscheck.md) "
-                                        "\n\n- [Tor Snowflake](https://ooni.org/nettest/tor-snowflake/) "
-                                        "\n\n- [Vanilla Tor](https://github.com/ooni/spec/blob/master/nettests/ts-016-vanilla-tor.md) ");
+                [NSString stringWithFormat:@"%@ %@ %@", @"\n\n- [STUN Reachability](https://github.com/ooni/spec/blob/master/nettests/ts-025-stun-reachability.md) "
+                                                        "\n\n- [DNS Check](https://github.com/ooni/spec/blob/master/nettests/ts-028-dnscheck.md) "
+                                                        "\n\n",
+                                NSLocalizedString(@"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting", nil),
+                                @"\n\n- [Tor Snowflake](https://ooni.org/nettest/tor-snowflake/) "
+                                "\n\n- [Vanilla Tor](https://github.com/ooni/spec/blob/master/nettests/ts-016-vanilla-tor.md) "]);
     return @"";
 }
 
