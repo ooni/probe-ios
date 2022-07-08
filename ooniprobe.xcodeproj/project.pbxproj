@@ -12,6 +12,9 @@
 		17E7EDC021BFEE0C001961C7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */; };
 		526C702A25C99AB200C7A164 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526C702925C99AB100C7A164 /* Colors.xcassets */; };
 		58E18F9EBF4FAD4EFCE020F3 /* Pods_ooniprobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */; };
+		7940AA8B28117E9000C0EB5D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7940AA8A28117E9000C0EB5D /* ShareViewController.swift */; };
+		7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */; };
+		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		79780FCF27E9F18E002A38B1 /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79780FCE27E9F18E002A38B1 /* Languages.plist */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.m */; };
@@ -177,6 +180,13 @@
 			remoteGlobalIDString = D4A2F5D81A6C3244001B8460;
 			remoteInfo = ooniprobe;
 		};
+		7940AA9028117E9000C0EB5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4A2F5D11A6C3244001B8460 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7940AA8728117E9000C0EB5D;
+			remoteInfo = share;
+		};
 		EDF23EF02225258100B97520 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D4A2F5D11A6C3244001B8460 /* Project object */;
@@ -186,6 +196,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7940AA9328117E9000C0EB5D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		010F0318C9DE0AC1684DA7D6 /* Pods-ooniprobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ooniprobe.debug.xcconfig"; path = "Target Support Files/Pods-ooniprobe/Pods-ooniprobe.debug.xcconfig"; sourceTree = "<group>"; };
 		17E7EDB521BFEDD1001961C7 /* OONIProbeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OONIProbeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +218,11 @@
 		17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		526C702925C99AB100C7A164 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		588219FACC9F793A15BDEA33 /* Pods_OONIProbeUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OONIProbeUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7940AA8828117E9000C0EB5D /* share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7940AA8A28117E9000C0EB5D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		7940AA8D28117E9000C0EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7940AA8F28117E9000C0EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7940AA972811840900C0EB5D /* share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = share.entitlements; sourceTree = "<group>"; };
 		79780FCE27E9F18E002A38B1 /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
 		AC948DA31A71FB931BBB1BB3 /* Pods-OONIProbeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ooniprobe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -514,6 +543,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7940AA8528117E9000C0EB5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4A2F5D61A6C3244001B8460 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -544,6 +580,17 @@
 			path = OONIProbeUITests;
 			sourceTree = "<group>";
 		};
+		7940AA8928117E9000C0EB5D /* share */ = {
+			isa = PBXGroup;
+			children = (
+				7940AA972811840900C0EB5D /* share.entitlements */,
+				7940AA8A28117E9000C0EB5D /* ShareViewController.swift */,
+				7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */,
+				7940AA8F28117E9000C0EB5D /* Info.plist */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
 		A226141514CB239FFA382514 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +608,7 @@
 				D4A2F5DB1A6C3244001B8460 /* ooniprobe */,
 				17E7EDB621BFEDD1001961C7 /* OONIProbeUITests */,
 				EDF23EEC2225258100B97520 /* OONIProbeUnitTests */,
+				7940AA8928117E9000C0EB5D /* share */,
 				D4A2F5DA1A6C3244001B8460 /* Products */,
 				F4F15431D4412F561191270F /* Frameworks */,
 				A226141514CB239FFA382514 /* Pods */,
@@ -573,6 +621,7 @@
 				D4A2F5D91A6C3244001B8460 /* ooniprobe.app */,
 				17E7EDB521BFEDD1001961C7 /* OONIProbeUITests.xctest */,
 				EDF23EEB2225258100B97520 /* OONIProbeUnitTests.xctest */,
+				7940AA8828117E9000C0EB5D /* share.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1132,6 +1181,23 @@
 			productReference = 17E7EDB521BFEDD1001961C7 /* OONIProbeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7940AA8728117E9000C0EB5D /* share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7940AA9628117E9000C0EB5D /* Build configuration list for PBXNativeTarget "share" */;
+			buildPhases = (
+				7940AA8428117E9000C0EB5D /* Sources */,
+				7940AA8528117E9000C0EB5D /* Frameworks */,
+				7940AA8628117E9000C0EB5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = share;
+			productName = share;
+			productReference = 7940AA8828117E9000C0EB5D /* share.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D4A2F5D81A6C3244001B8460 /* ooniprobe */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4A2F5FC1A6C3244001B8460 /* Build configuration list for PBXNativeTarget "ooniprobe" */;
@@ -1141,10 +1207,12 @@
 				D4A2F5D61A6C3244001B8460 /* Frameworks */,
 				D4A2F5D71A6C3244001B8460 /* Resources */,
 				DEC07925044B3B26BB1E9FF3 /* [CP] Embed Pods Frameworks */,
+				7940AA9328117E9000C0EB5D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7940AA9128117E9000C0EB5D /* PBXTargetDependency */,
 			);
 			name = ooniprobe;
 			productName = NetProbe;
@@ -1177,7 +1245,7 @@
 		D4A2F5D11A6C3244001B8460 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = OONI;
 				TargetAttributes = {
@@ -1186,6 +1254,11 @@
 						DevelopmentTeam = MADPSAYN6T;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D4A2F5D81A6C3244001B8460;
+					};
+					7940AA8728117E9000C0EB5D = {
+						CreatedOnToolsVersion = 13.2.1;
+						DevelopmentTeam = MADPSAYN6T;
+						ProvisioningStyle = Automatic;
 					};
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -1250,6 +1323,7 @@
 				D4A2F5D81A6C3244001B8460 /* ooniprobe */,
 				17E7EDB421BFEDD1001961C7 /* OONIProbeUITests */,
 				EDF23EEA2225258100B97520 /* OONIProbeUnitTests */,
+				7940AA8728117E9000C0EB5D /* share */,
 			);
 		};
 /* End PBXProject section */
@@ -1259,6 +1333,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7940AA8628117E9000C0EB5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1428,6 +1510,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7940AA8428117E9000C0EB5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7940AA8B28117E9000C0EB5D /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4A2F5D51A6C3244001B8460 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1574,6 +1664,11 @@
 			target = D4A2F5D81A6C3244001B8460 /* ooniprobe */;
 			targetProxy = 17E7EDBA21BFEDD1001961C7 /* PBXContainerItemProxy */;
 		};
+		7940AA9128117E9000C0EB5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7940AA8728117E9000C0EB5D /* share */;
+			targetProxy = 7940AA9028117E9000C0EB5D /* PBXContainerItemProxy */;
+		};
 		EDF23EF12225258100B97520 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D4A2F5D81A6C3244001B8460 /* ooniprobe */;
@@ -1582,6 +1677,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7940AA8D28117E9000C0EB5D /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1682,6 +1785,83 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ooniprobe;
+				VALID_ARCHS = arm64;
+			};
+			name = Release;
+		};
+		7940AA9428117E9000C0EB5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = share/share.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MADPSAYN6T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = share/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = share;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 OONI. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 x86_64";
+			};
+			name = Debug;
+		};
+		7940AA9528117E9000C0EB5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = share/share.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MADPSAYN6T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = share/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = share;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 OONI. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openobservatory.ooniprobe.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = arm64;
 			};
 			name = Release;
@@ -1811,6 +1991,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 010F0318C9DE0AC1684DA7D6 /* Pods-ooniprobe.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1858,6 +2039,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D6B3AA31114A8BF91FF33069 /* Pods-ooniprobe.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1973,6 +2155,15 @@
 			buildConfigurations = (
 				17E7EDBC21BFEDD1001961C7 /* Debug */,
 				17E7EDBD21BFEDD1001961C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7940AA9628117E9000C0EB5D /* Build configuration list for PBXNativeTarget "share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7940AA9428117E9000C0EB5D /* Debug */,
+				7940AA9528117E9000C0EB5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
