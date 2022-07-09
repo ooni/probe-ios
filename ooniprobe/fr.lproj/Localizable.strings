@@ -1,5 +1,5 @@
 "General.AppName" = "OONI Probe";
-"Onboarding.WhatIsOONIProbe.Title" = "Qu’est-ce qu’OONI Probe ?";
+"Onboarding.WhatIsOONIProbe.Title" = "Qu’est-ce qu’OONI Probe ?";
 "Onboarding.WhatIsOONIProbe.Paragraph" = "Votre appli pour mesurer la censure d’Internet. \n\nLes sites Web et les applis de médias sociaux sont-ils bloqués ? Votre connexion Internet est-elle anormalement lente ?\n\nLancez OONI Probe pour le savoir !";
 "Onboarding.WhatIsOONIProbe.GotIt" = "D’accord";
 "Onboarding.ThingsToKnow.Title" = "À savoir !";
@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Vérifiez si [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) ou [RiseupVPN](https://ooni.org/nettest/riseupvpn/) sont bloqués (site en anglais).\n\nVos résultats seront publiés dans l’[Explorateur OONI](https://explorer.ooni.org/) et l’[API d’OONI](https://api.ooni.io/) (site en anglais).";
 "Dashboard.Experimental.Card.Description" = "Effectuer les nouveaux tests expérimentaux";
 "Dashboard.Experimental.Overview.Paragraph" = "Effectuer les nouveaux tests expérimentaux suivants conçus par l’équipe d’OONI :\n%@\n\nVos résultats seront publiés dans l’[Explorateur OONI](https://explorer.ooni.org/) et l’[API d’OONI](https://api.ooni.io/) (site en anglais).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "Les tests suivants ne seront exécutés que dans le cadre des tests automatisés :";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -274,7 +275,7 @@
 "Modal.NotNow" = "Pas maintenant";
 "Modal.RunAnyway" = "Lancer quand même";
 "Modal.DisableVPN" = "Désactiver le RPV";
-"Modal.AlwaysRun" = "Always Run";
+"Modal.AlwaysRun" = "Toujours exécuter";
 "Modal.Error.NoInternet" = "Impossible d’effectuer le test. Veuillez vérifier votre connexion à Internet.";
 "Modal.Error.CantDownloadURLs" = "Impossible de télécharger la liste des URL. Veuillez réessayer.";
 "Modal.Error.TestAlreadyRunning" = "Veuillez attendre la fin du test en cours avant de lancer un nouveau test.";
@@ -316,7 +317,7 @@
 "Modal.Error.JsonEmpty" = "Le JSON est vide";
 "Modal.InterruptTest.Title" = "Voulez-vous interrompre ce test ?";
 "Modal.InterruptTest.Paragraph" = "Le test en cours sera interrompu à partir de maintenant.";
-"Modal.Autorun.Modal.Title" = "Voulez-vous effectuer les tests manuellement ?";
+"Modal.Autorun.Modal.Title" = "Voulez-vous effectuer les tests automatiquement ?";
 "Modal.Autorun.Modal.Text" = "En activant les tests automatisés, vous enverrez des mesures OONI sur une base régulière.";
 "Modal.Autorun.Modal.Text.Android" = "Veuillez autoriser l’appli à fonctionner en arrière-plan.";
 "Modal.Autorun.Modal.Button.RemindLater" = "Me rappeler plus tard";
@@ -377,7 +378,7 @@
 "Settings.Advanced.Label" = "Avancés";
 "Settings.DarkMode.Label" = "Mode sombre";
 "Settings.Advanced.DebugLogs" = "Journaux de débogage";
-"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.Title" = "Paramètres de langue";
 "Settings.Advanced.LanguageSettings.PopUp" = "Sélectionner une langue";
 "Settings.Advanced.UseDomainFronting" = "Toujours utiliser un domaine-écran";
 "Settings.Proxy.Label" = "Mandataire vers la dorsale d’OONI";
@@ -412,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Aucune URL n’a été saisie";
 "Settings.Websites.CustomURL.Run" = "Lancer";
 "Settings.Websites.CustomURL.Add" = "Ajouter le site Web";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Charger d’un modèle";
 "Settings.Websites.TestCount" = "Nombre de sites Web testés (0 signifie tout)";
 "Settings.InstantMessaging.TestWhatsApp" = "Tester WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Tester Telegram";
@@ -430,7 +432,7 @@
 "Settings.Circumvention.TestPsiphon" = "Test de Psiphon";
 "Settings.Circumvention.TestTor" = "Test de Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Tester RiseupVPN";
-"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
+"Settings.WarmVPNInUse.Label" = "Avertir quand un RPV est utilisé";
 "Settings.SendEmail.Label" = "Envoyer un courriel à l’assistance";
 "Settings.SendEmail.Message" = "Veuillez décrire le problème que vous rencontrez :";
 "Settings.SendEmail.Error" = "Veuillez envoyer un courriel à bugs@openobservatory.org avec des renseignements sur la version de l’appli et d’iOS. Touchez « Copier dans le presse-papiers » ci-dessous pour copier votre adresse courriel.";
