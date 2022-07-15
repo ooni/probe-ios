@@ -240,13 +240,7 @@
 
 -(IBAction)runTest {
     if ([TestUtility checkConnectivity:self] &&
-        [TestUtility checkTestRunning:self])
-        [self performSegueWithIdentifier:@"toTestRun" sender:self];
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
+            [TestUtility checkTestRunning:self]) {
         NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
         AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
         AbstractTest *test = [[AbstractTest alloc] initTest:testName];
@@ -254,7 +248,39 @@
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView:self];
+
+        if ([[ReachabilityManager sharedManager] isVPNConnected] && [SettingsUtility isWarnVPNInUse]) {
+            [MessageUtility alertVpnWithTitle:NSLocalizedString(@"Modal.DisableVPN.Title", nil)
+                                      message:NSLocalizedString(@"Modal.DisableVPN.Message", nil)
+                                       inView:self
+                                 runVPNAction:^(UIAlertAction *action) {
+                                     @synchronized (self) {
+                                         [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView:nil];
+                                         [self performSegueWithIdentifier:@"toTestRun" sender:self];
+                                     }
+                                 }
+                           runAlwaysVPNAction:^(UIAlertAction *action) {
+                               @synchronized (self) {
+                                   [SettingsUtility disableWarnVPNInUse];
+                                   [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView:nil];
+                                   [self performSegueWithIdentifier:@"toTestRun" sender:self];
+                               }
+                           }
+                             disableVPNAction:nil
+
+            ];
+        } else {
+            @synchronized (self) {
+                [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView:nil];
+                [self performSegueWithIdentifier:@"toTestRun" sender:self];
+            }
+        }
+    }
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toTestRun"]){
+        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
         [vc setPresenting:YES];
     }
 }
