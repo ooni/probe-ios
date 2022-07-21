@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) or [RiseupVPN](https://ooni.org/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Executar novos testes experimentais";
 "Dashboard.Experimental.Overview.Paragraph" = "Execute os seguintes novos testes experimentais desenvolvidos pela equipe OONI:\n%@\n\nSeus resultados serão publicados em [OONI Explorer](https://explorer.ooni.org/) e [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -274,7 +275,7 @@
 "Modal.NotNow" = "Agora não";
 "Modal.RunAnyway" = "Execute mesmo assim";
 "Modal.DisableVPN" = "Desativar VPN";
-"Modal.AlwaysRun" = "Always Run";
+"Modal.AlwaysRun" = "Sempre executar";
 "Modal.Error.NoInternet" = "Não foi possível executar o teste. Por favor, verifique sua conexão com a Internet.";
 "Modal.Error.CantDownloadURLs" = "Não foi possível baixar a lista de URL's. Por favor, tente novamente.";
 "Modal.Error.TestAlreadyRunning" = "Aguarde a conclusão dos testes em execução antes de iniciar um novo teste.";
@@ -289,8 +290,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe não pode ser executado automaticamente sem a otimização da bateria. Você quer tentar novamente?";
 "Modal.DisableVPN.Title" = "Por favor, desative sua conexão VPN.";
 "Modal.DisableVPN.Message" = "Se você executar OONI Probe com uma VPN habilitada, os resultados do teste podem parecer que vêm do país errado. Por favor, desabilite sua conexão VPN.";
-"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
-"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
+"Modal.UploadVPNResults.Title" = "Algumas medições foram feitas sobre VPN.";
+"Modal.UploadVPNResults.Message" = "Se você carregar as medições feitas com a VPN habilitada, os resultados do teste podem parecer vir do país errado.";
 "Toast.ResultsUploaded" = "Carregamento bem-sucedido";
 "Modal.DisplayFailureLog" = "Exibir log de falhas";
 "Modal.EnableNotifications.Title" = "Receba atualizações sobre censura na internet";
@@ -377,7 +378,7 @@
 "Settings.Advanced.Label" = "Avançado";
 "Settings.DarkMode.Label" = "Modo escuro";
 "Settings.Advanced.DebugLogs" = "Registros de depuração";
-"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.Title" = "Configuração de idioma";
 "Settings.Advanced.LanguageSettings.PopUp" = "Selecionar idioma";
 "Settings.Advanced.UseDomainFronting" = "Sempre usar \"domain fronting\"";
 "Settings.Proxy.Label" = "Proxy de back-end do OONI";
@@ -412,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Nenhuma URL inserida";
 "Settings.Websites.CustomURL.Run" = "Rodar";
 "Settings.Websites.CustomURL.Add" = "Adicionar website";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "Número de sites testados (0 significa todos)";
 "Settings.InstantMessaging.TestWhatsApp" = "Teste do WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Teste do Telegram";
@@ -430,7 +432,7 @@
 "Settings.Circumvention.TestPsiphon" = "Teste Psiphon";
 "Settings.Circumvention.TestTor" = "Teste Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Testar o RiseupVPN";
-"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
+"Settings.WarmVPNInUse.Label" = "Avise quando a VPN estiver em uso";
 "Settings.SendEmail.Label" = "Enviar e-mail para suporte";
 "Settings.SendEmail.Message" = "Descreva o problema que você está enfrentando:";
 "Settings.SendEmail.Error" = "Por favor, envie um e-mail para bugs@openobservatory.org com informações sobre o aplicativo e a versão do iOS. Toque em \"Copiar para área de transferência,\" abaixo, para copiar nosso endereço de e-mail.";
