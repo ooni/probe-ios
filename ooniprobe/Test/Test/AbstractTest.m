@@ -167,6 +167,9 @@
                 if (measurement != nil){
                     measurement.is_done = true;
                     [measurement save];
+                    if (measurement.is_uploaded) {
+                        [TestUtility removeFile:[measurement getReportFile]];
+                    }
                 }
             }
             else if ([event.key isEqualToString:@"status.end"]) {
