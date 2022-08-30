@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "[Psiphon](https://ooni.org/nettest/psiphon/) ve [Tor](https://ooni.org/nettest/tor/) ya da [RiseupVPN](https://ooni.org/nettest/riseupvpn/) engelleniyor mu öğrenin.\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.org/) ve [OONI API](https://api.ooni.io/) sayfasında yayınlanır.";
 "Dashboard.Experimental.Card.Description" = "Yeni deneysel sınamaları yürüt";
 "Dashboard.Experimental.Overview.Paragraph" = "OONI ekibi tarafından geliştirilmiş yeni deneysel sınamaları yürütün:\n%@\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.org/) ve [OONI API](https://api.ooni.io/) üzerinde yayınlanır.";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "Şu sınamalar yalnızca otomatik sınamanın bir parçası olarak yürütülecek:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -274,6 +275,7 @@
 "Modal.NotNow" = "Şimdi değil";
 "Modal.RunAnyway" = "Yine de çalıştır";
 "Modal.DisableVPN" = "VPN kullanılmasın";
+"Modal.AlwaysRun" = "Her zaman çalışsın";
 "Modal.Error.NoInternet" = "Sınama yapılamadı. Lütfen İnternet bağlantınızı denetleyin.";
 "Modal.Error.CantDownloadURLs" = "Adres listesi indirilemedi. Lütfen yeniden deneyin.";
 "Modal.Error.TestAlreadyRunning" = "Lütfen yeni bir sınama başlatmadan önce sürmekte olan sınamaların tamamlanmasını bekleyin.";
@@ -288,6 +290,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe, pil iyileştirmesi olmadan otomatik olarak çalışamaz. Yeniden denemek ister misiniz?";
 "Modal.DisableVPN.Title" = "Lütfen VPN bağlantınızı kapatın.";
 "Modal.DisableVPN.Message" = "OONI Probe uygulamasını VPN açıkken çalıştırırsanız, sınama sonuçları yanlış ülkeden geliyormuş gibi görünebilir. Lütfen VPN bağlantınızı kapatın.";
+"Modal.UploadVPNResults.Title" = "Bazı ölçümler VPN üzerinden alınmıştır.";
+"Modal.UploadVPNResults.Message" = "VPN etkinken alınan ölçümleri yüklerseniz, sınama sonuçları yanlış ülkeden geliyormuş gibi görünebilir.";
 "Toast.ResultsUploaded" = "Yüklendi";
 "Modal.DisplayFailureLog" = "Hata günlüğünü görüntüle";
 "Modal.EnableNotifications.Title" = "İnternet sansürleri hakkında güncel bilgileri alın";
@@ -374,6 +378,8 @@
 "Settings.Advanced.Label" = "Gelişmiş";
 "Settings.DarkMode.Label" = "Koyu kip";
 "Settings.Advanced.DebugLogs" = "Hata ayıklama günlükleri";
+"Settings.Advanced.LanguageSettings.Title" = "Dil ayarı";
+"Settings.Advanced.LanguageSettings.PopUp" = "Dil seçin";
 "Settings.Advanced.UseDomainFronting" = "Araya her zaman etki alanı eklensin (domain fronting)";
 "Settings.Proxy.Label" = "OONI yönetim bölümü vekil sunucusu";
 "Settings.Proxy.Enabled" = "Vekil sunucu";
@@ -384,7 +390,7 @@
 "Settings.Proxy.Custom.Protocol" = "Özel vekil sunucu iletişim kuralı";
 "Settings.Proxy.Custom.Connection" = "Bağlantı";
 "Settings.Proxy.Custom.Hostname" = "Sunucu adı";
-"Settings.Proxy.Custom.Port" = "Kapı no";
+"Settings.Proxy.Custom.Port" = "Bağlantı noktası";
 "Settings.Proxy.Custom.Credentials" = "Kimlik doğrulama bilgileri (isteğe bağlı)";
 "Settings.Proxy.Custom.Username" = "Kullanıcı adı";
 "Settings.Proxy.Custom.Password" = "Parola";
@@ -407,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Herhangi bir adres yazılmamış";
 "Settings.Websites.CustomURL.Run" = "Çalıştır";
 "Settings.Websites.CustomURL.Add" = "Web sitesi ekle";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Kalıptan yükle";
 "Settings.Websites.TestCount" = "Sınanan web sitesi sayısı (tümü için 0 yazın)";
 "Settings.InstantMessaging.TestWhatsApp" = "WhatsApp sınaması";
 "Settings.InstantMessaging.TestTelegram" = "Telegram sınaması";
@@ -417,14 +424,15 @@
 "Settings.Performance.TestNDT" = "NDT hız testini yürüt";
 "Settings.Performance.NDTAutomaticServerSelection" = "NDT sunucusu otomatik olarak seçilsin";
 "Settings.Performance.NDTServerAddress" = "NDT sunucusu adresi";
-"Settings.Performance.NDTServerPort" = "NDT sunucusu kapı numarası";
+"Settings.Performance.NDTServerPort" = "NDT sunucusu bağlantı noktası";
 "Settings.Performance.TestDash" = "DASH akış sınamasını yürüt";
 "Settings.Performance.DashAutomaticServerSelection" = "DASH sunucusu otomatik olarak seçilsin";
 "Settings.Performance.DashServerAddress" = "DASH sunucusu";
-"Settings.Performance.DashServerPort" = "DASH sunucusu kapı numarası";
+"Settings.Performance.DashServerPort" = "DASH sunucusu bağlantı noktası";
 "Settings.Circumvention.TestPsiphon" = "Psiphon sınaması";
 "Settings.Circumvention.TestTor" = "Tor sınaması";
 "Settings.Circumvention.TestRiseupVPN" = "RiseupVPN sınaması";
+"Settings.WarmVPNInUse.Label" = "VPN kullanılırken uyarılsın";
 "Settings.SendEmail.Label" = "Destek ekibine e-posta gönderin";
 "Settings.SendEmail.Message" = "Lütfen yaşadığınız sorunu anlatın:";
 "Settings.SendEmail.Error" = "Lütfen uygulama hakkındaki bilgiler ve iOS sürümünü yazarak bugs@openobservatory.org adresine bir e-posta gönderin. E-posta adresimizi kopyalamak için aşağıdaki \"Panoya kopyala\" seçeneğine dokunun.";

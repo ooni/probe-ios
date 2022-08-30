@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "ตรวจสอบว่า [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) และ [RiseupVPN](https://ooni.io/nettest/riseupvpn/) ถูกปิดกั้นหรือไม่\n\nผลทดสอบของคุณจะถูกเผยเเพร่บน [OONI Explorer](https://explorer.ooni.org/) เเละ [OONI API](https://api.ooni.io/)";
 "Dashboard.Experimental.Card.Description" = "เริ่มการทดสอบขั้นทดลองตัวใหม่";
 "Dashboard.Experimental.Overview.Paragraph" = "ดำเนินการทดสอบชุดใหม่ ซึ่งยังอยู่ในขั้นทดลองโดยทีมงาน OONI ดังนี้:\n%@\n\nผลทดสอบของคุณจะถูกเผยแพร่บน [OONI Explorer](https://explorer.ooni.org/) และ [OONI API](https://api.ooni.io/)";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "จิกะบิต/วิ";
 "TestResults.Mbps" = "เมกะบิต/วิ";
 "TestResults.Kbps" = "กิโลบิต/วิ";
@@ -274,6 +275,7 @@
 "Modal.NotNow" = "Not now";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "ไม่สามารถทำการทดสอบได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณ";
 "Modal.Error.CantDownloadURLs" = "ไม่สามารถดาวน์โหลดรายการที่อยู่เว็บได้ กรุณาลองอีกครั้ง";
 "Modal.Error.TestAlreadyRunning" = "Please wait for the current running tests to finish, before starting a new test.";
@@ -288,6 +290,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
 "Modal.DisableVPN.Title" = "Please disable your VPN connection.";
 "Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "อัปโหลดสำเร็จ";
 "Modal.DisplayFailureLog" = "แสดงปูมความล้มเหลว";
 "Modal.EnableNotifications.Title" = "รับข่าวสารเกี่ยวกับการปิดกั้นอินเทอร์เน็ต";
@@ -374,6 +378,8 @@
 "Settings.Advanced.Label" = "ขั้นสูง";
 "Settings.DarkMode.Label" = "โหมดมืด";
 "Settings.Advanced.DebugLogs" = "ปูมดีบัก";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "Select Language";
 "Settings.Advanced.UseDomainFronting" = "ใช้การบังหน้าโดเมน (domain fronting) เสมอ";
 "Settings.Proxy.Label" = "พร็อกซีหลังบ้าน OONI";
 "Settings.Proxy.Enabled" = "พร็อกซี";
@@ -407,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "ไม่มีที่อยู่เว็บถูกใส่เข้ามา";
 "Settings.Websites.CustomURL.Run" = "เริ่ม";
 "Settings.Websites.CustomURL.Add" = "เพิ่มเว็บไซต์";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "จำนวนเว็บไซต์ที่ได้ทดสอบ (0 หมายถึงทั้งหมด)";
 "Settings.InstantMessaging.TestWhatsApp" = "ทดสอบ WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "ทดสอบ Telegram";
@@ -425,6 +432,7 @@
 "Settings.Circumvention.TestPsiphon" = "ทดสอบ Psiphon";
 "Settings.Circumvention.TestTor" = "ทดสอบ Tor";
 "Settings.Circumvention.TestRiseupVPN" = "ทดสอบ RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "ส่งอีเมลขอความช่วยเหลือ";
 "Settings.SendEmail.Message" = "โปรดอธิบายปัญหาที่คุณประสบอยู่:";
 "Settings.SendEmail.Error" = "กรุณาส่งอีเมลไปที่ bugs@openobservatory.org พร้อมกับข้อมูลจากแอปและรุ่นของ iOS แตะ \"คัดลอกไปยังคลิปบอร์ด\" ด้านล่างเพื่อคัดลอกที่อยู่อีเมลของเรา";

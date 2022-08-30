@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) or [RiseupVPN](https://ooni.org/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Run new experimental tests";
 "Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -274,6 +275,7 @@
 "Modal.NotNow" = "Not now";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "無法執行測試，請檢查網路連線是否正常。";
 "Modal.Error.CantDownloadURLs" = "無法下載 URL 清單，請再試一次。";
 "Modal.Error.TestAlreadyRunning" = "Please wait for the current running tests to finish, before starting a new test.";
@@ -288,6 +290,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
 "Modal.DisableVPN.Title" = "Please disable your VPN connection.";
 "Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "成功上傳";
 "Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.Title" = "取得最新網路審查動態";
@@ -374,6 +378,8 @@
 "Settings.Advanced.Label" = "進階的";
 "Settings.DarkMode.Label" = "Dark Mode";
 "Settings.Advanced.DebugLogs" = "調試記錄";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "選取語言";
 "Settings.Advanced.UseDomainFronting" = "皆使用域名前列";
 "Settings.Proxy.Label" = "OONI backend proxy";
 "Settings.Proxy.Enabled" = "代理伺服器";
@@ -407,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "未輸入URL";
 "Settings.Websites.CustomURL.Run" = "執行";
 "Settings.Websites.CustomURL.Add" = "新增網站";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "測試 WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "測試 Telegram";
@@ -425,6 +432,7 @@
 "Settings.Circumvention.TestPsiphon" = "測試Psiphon";
 "Settings.Circumvention.TestTor" = "測試Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "寄求助郵件";
 "Settings.SendEmail.Message" = "Please describe the problem you are experiencing:";
 "Settings.SendEmail.Error" = "請將應用程式與  iOS 相關資訊寄送到此信箱 bugs@openobservatory.org ，下方的\"複製到剪貼簿\"分頁可直接複此電子郵址。 ";

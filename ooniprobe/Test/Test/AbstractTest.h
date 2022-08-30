@@ -24,10 +24,13 @@
 @property (nonatomic, strong) NSMutableDictionary *measurements;
 @property id<MKNetworkTestDelegate> delegate;
 @property Settings *settings;
+@property NSDictionary *network;
 @property BOOL annotation;
+@property BOOL is_rerun;
 @property dispatch_queue_t serialQueue;
 @property id<OONIMKTask> task;
 @property BOOL storeDB;
+@property BOOL autoRun;
 @property BOOL isPreparing;
 
 -(id)initTest:(NSString*)testName;

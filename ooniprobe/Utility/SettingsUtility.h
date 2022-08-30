@@ -24,6 +24,10 @@
 
 + (BOOL)isSendCrashEnabled;
 
++ (BOOL)isWarnVPNInUse;
+
++ (void)disableWarnVPNInUse;
+
 + (BOOL)isNotificationEnabled;
 
 + (BOOL)isAutomatedTestEnabled;
@@ -41,6 +45,8 @@
 + (BOOL)testWifiOnly;
 
 + (BOOL)testChargingOnly;
+
++ (NSArray *)currentLanguage;
 
 + (NSInteger)getAutorun;
 

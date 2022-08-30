@@ -57,6 +57,10 @@
 
 -(void)prepareRun{
     self.settings = [Settings new];
+    if (self.autoRun) {
+        self.settings.annotations[@"origin"] = @"autorun";
+        self.settings.options.software_name = [NSString stringWithFormat:@"%@%@",SOFTWARE_NAME,@"-unattended"];
+    }
     self.settings.name = self.name;
 }
 
@@ -112,6 +116,16 @@
                 }
             }
             else if ([event.key isEqualToString:@"status.geoip_lookup"]) {
+                self.network=nil;
+                if (self.is_rerun){
+                    self.network = @{
+                            @"network_name":event.value.probe_network_name,
+                            @"asn":event.value.probe_asn,
+                            @"ip" :event.value.probe_ip,
+                            @"country_code":  event.value.probe_cc,
+                            @"network_type": [[ReachabilityManager sharedManager] getStatus],
+                    };
+                }
                 //Save Network info
                 [self saveNetworkInfo:event.value];
             }
@@ -287,6 +301,9 @@
         }
         [TestUtility writeString:str toFile:[TestUtility getFileNamed:[measurement getReportFile]]];
         [self onEntry:[TestUtility jsonResultfromDic:jsonDic] obj:measurement];
+        if (self.network!=nil){
+            measurement.rerun_network = self.network;
+        }
         [measurement save];
         [self.result save];
     }

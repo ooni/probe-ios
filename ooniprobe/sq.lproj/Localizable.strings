@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) or [RiseupVPN](https://ooni.org/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Run new experimental tests";
 "Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -274,6 +275,7 @@
 "Modal.NotNow" = "Not now";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "E pamundur për t'u bërë testi. Ju lutem kontrolli lidhjen tuaj të internetit.";
 "Modal.Error.CantDownloadURLs" = "E pamundur për të shkarkuar listën e URL. Ju lutem përvoni përsëri.";
 "Modal.Error.TestAlreadyRunning" = "Please wait for the current running tests to finish, before starting a new test.";
@@ -288,6 +290,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
 "Modal.DisableVPN.Title" = "Please disable your VPN connection.";
 "Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "Ngarkimi i sukseshëm";
 "Modal.DisplayFailureLog" = "Display failure log";
 "Modal.EnableNotifications.Title" = "Get updates on internet censorship";
@@ -374,6 +378,8 @@
 "Settings.Advanced.Label" = "Të mëtejshme";
 "Settings.DarkMode.Label" = "Dark Mode";
 "Settings.Advanced.DebugLogs" = "Kontrollo regjistrat për gabime";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "Përzgjidhni Gjuhë";
 "Settings.Advanced.UseDomainFronting" = "Gjithmonë përdor front domain";
 "Settings.Proxy.Label" = "OONI backend proxy";
 "Settings.Proxy.Enabled" = "Ndërmjetës";
@@ -407,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Nuk është vendosur asnjë URL";
 "Settings.Websites.CustomURL.Run" = "Përdor";
 "Settings.Websites.CustomURL.Add" = "Shto faqe";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "Testo WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Testo Telegram";
@@ -425,6 +432,7 @@
 "Settings.Circumvention.TestPsiphon" = "Test Psiphon";
 "Settings.Circumvention.TestTor" = "Test Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "Dërgo email tek ndihmuesi";
 "Settings.SendEmail.Message" = "Please describe the problem you are experiencing:";
 "Settings.SendEmail.Error" = "Ju lutem dërgoni email tek bugs@openobservatory.org me informacionin e app dhe versionin e iOS. Zgjidh \"Kopjo në tabelën-mbledhëse\" më poshtë për të kopjuar adresën tonë të email.";

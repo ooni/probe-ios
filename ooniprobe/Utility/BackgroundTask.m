@@ -77,6 +77,7 @@
     [testSuite setStoreDB:NO];
     AbstractTest *test = [[AbstractTest alloc] initTest:testName];
     [test setStoreDB:NO];
+    [test setAutoRun:YES];
     [test setAnnotation:YES];
     [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
     [tests addObject:testSuite];
@@ -95,10 +96,16 @@
     
     InstantMessagingSuite *imTest = [[InstantMessagingSuite alloc] init];
     [imTest setStoreDB:NO];
+    [imTest setAutoRun:YES];
     [tests addObject:imTest];
     CircumventionSuite *cTest = [[CircumventionSuite alloc] init];
     [cTest setStoreDB:NO];
+    [cTest setAutoRun:YES];
     [tests addObject:cTest];
+    ExperimentalSuite *eTest = [[ExperimentalSuite alloc] init];
+    [eTest setStoreDB:NO];
+    [eTest setAutoRun:YES];
+    [tests addObject:eTest];
     [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:tests]  inView: nil];
 }
 

@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) or [RiseupVPN](https://ooni.org/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Run new experimental tests";
 "Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -274,6 +275,7 @@
 "Modal.NotNow" = "Not now";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "No s'ha pogut executar la prova. Verifiqueu la connexió a Internet.";
 "Modal.Error.CantDownloadURLs" = "No s'ha pogut baixar la llista d'URL. Torneu-ho a provar.";
 "Modal.Error.TestAlreadyRunning" = "Please wait for the current running tests to finish, before starting a new test.";
@@ -288,6 +290,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
 "Modal.DisableVPN.Title" = "Please disable your VPN connection.";
 "Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "S'ha pujat amb èxit";
 "Modal.DisplayFailureLog" = "Mostra el registre d'errors";
 "Modal.EnableNotifications.Title" = "Obtingueu actualitzacions sobre la censura a Internet";
@@ -374,6 +378,8 @@
 "Settings.Advanced.Label" = "Avançat";
 "Settings.DarkMode.Label" = "Dark Mode";
 "Settings.Advanced.DebugLogs" = "Registres de depuració";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "Selecciona una llengua";
 "Settings.Advanced.UseDomainFronting" = "Utilitza sempre el camuflatge del domini";
 "Settings.Proxy.Label" = "OONI backend proxy";
 "Settings.Proxy.Enabled" = "Servidor intermediari";
@@ -407,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "No s'ha introduït cap URL";
 "Settings.Websites.CustomURL.Run" = "Inicia";
 "Settings.Websites.CustomURL.Add" = "Afegeix lloc web";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "Número de llocs web provats (0 significa tots)";
 "Settings.InstantMessaging.TestWhatsApp" = "Prova el WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Prova el Telegram";
@@ -425,6 +432,7 @@
 "Settings.Circumvention.TestPsiphon" = "Prova el Psiphon";
 "Settings.Circumvention.TestTor" = "Prova el Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Test RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "Envia un correu per donar suport";
 "Settings.SendEmail.Message" = "Please describe the problem you are experiencing:";
 "Settings.SendEmail.Error" = "Envieu un correu a bugs@openobservatory.org amb informació sobre l'aplicació i la versió d'iOS. Toqueu «Copia al porta-retalls» a continuació per copiar la nostra adreça de correu.";

@@ -15,6 +15,7 @@
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property BOOL interrupted;
 @property BOOL storeDB;
+@property BOOL autoRun;
 @property float totalTests;
 
 -(id)initSuite:(NSString*)testSuite;

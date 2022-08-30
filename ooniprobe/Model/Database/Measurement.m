@@ -5,7 +5,7 @@
 #import "OONIApi.h"
 
 @implementation Measurement
-@dynamic test_name, start_time, runtime, is_done, is_uploaded, is_failed, failure_msg, is_upload_failed, upload_failure_msg, is_rerun, report_id, url_id, test_keys, is_anomaly, result_id;
+@dynamic test_name, start_time, runtime, is_done, is_uploaded, is_failed, failure_msg, is_upload_failed, upload_failure_msg, is_rerun, rerun_network, report_id, url_id, test_keys, is_anomaly, result_id;
 
 @synthesize testKeysObj = _testKeysObj;
 
@@ -119,7 +119,7 @@
     [self remove];
 }
 
--(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb {
+-(void)getExplorerUrl:(void (^)(NSDictionary*))successcb onError:(void (^)(NSError*))errorcb {
     [OONIApi getExplorerUrl:self.report_id
                     withUrl:((self.url_id != nil) ? self.url_id.url : nil)
                   onSuccess:successcb

@@ -11,11 +11,14 @@
     return self;
 }
 
-- (NSArray*)getTestList {
-    if ([self.testList count] == 0){
+- (NSArray *)getTestList {
+    if ([self.testList count] == 0) {
+        if (self.autoRun) {
+            [self.testList addObject:[[Experimental alloc] initWithName:@"torsf"]];
+            [self.testList addObject:[[Experimental alloc] initWithName:@"vanilla_tor"]];
+        }
         [self.testList addObject:[[Experimental alloc] initWithName:@"stunreachability"]];
         [self.testList addObject:[[Experimental alloc] initWithName:@"dnscheck"]];
-        [self.testList addObject:[[Experimental alloc] initWithName:@"torsf"]];
     }
     return super.getTestList;
 }

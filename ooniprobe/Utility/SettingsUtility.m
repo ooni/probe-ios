@@ -25,7 +25,7 @@
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
-        return @[@"debug_logs", @"storage_usage"];
+        return @[@"AppleLanguages", @"debug_logs", @"storage_usage" , @"warn_vpn_in_use"];
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];
@@ -43,7 +43,7 @@
              [setting isEqualToString:@"monthly_wifi_allowance"] ||
              [setting isEqualToString:@"max_runtime"])
         return @"int";
-    if ([setting isEqualToString:@"storage_usage"])
+    if ([setting isEqualToString:@"storage_usage"] || [setting isEqualToString:@"AppleLanguages"])
         return @"button";
     return @"bool";
 }
@@ -164,6 +164,14 @@
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"send_crash"] boolValue];
 }
 
++ (BOOL)isWarnVPNInUse {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"warn_vpn_in_use"] boolValue];
+}
+
++ (void)disableWarnVPNInUse {
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"warn_vpn_in_use"];
+}
+
 + (BOOL)isNotificationEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
 }
@@ -208,6 +216,10 @@
 
 + (BOOL)testChargingOnly {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"automated_testing_charging"] boolValue];
+}
+
++ (NSArray *)currentLanguage {
+    return (NSArray *)[NSUserDefaults.standardUserDefaults objectForKey:@"AppleLanguages"];
 }
 
 + (NSInteger)getAutorun{

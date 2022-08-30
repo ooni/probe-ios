@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "تحققوا من حجب [Psiphon](https://ooni.io/nettest/psiphon/) و [تور](https://ooni.io/nettest/tor/).\n\nستنشر نتائج اختبارك على [متصفح OONI](https://explorer.ooni.org/) و على [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "إجراء الاختبارات التجريبيّة الجديدة";
 "Dashboard.Experimental.Overview.Paragraph" = "يمكنكم إجراء بعض الاختبارات التجريبيّة الجديدة المطوّرة من قبل فريق OONI: \n%@\n\nسيتم نشر نتائج اختباراتكم على كل من [مكتشف OONI](https://explorer.ooni.org) و [واجهة تطبيق OONI](https://api.ooni.io/)";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "غيغابت/ثا";
 "TestResults.Mbps" = "ميغابت/ثا";
 "TestResults.Kbps" = "كيلوبت/ثا";
@@ -271,9 +272,10 @@
 "Modal.Retry" = "حاول مجددا";
 "Modal.SoundsGreat" = "رائع ! ";
 "Modal.NoThanks" = "لا، شكراً";
-"Modal.NotNow" = "Not now";
+"Modal.NotNow" = "في وقت آخر";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "التطبيق غير قادر على إجراء الاختبار. من فضلك تحقق من اتصال الإنترنت.";
 "Modal.Error.CantDownloadURLs" = "التطبيق غير قادر على تحميل قائمة المواقع. من فضلك حاول مرة أخرى.";
 "Modal.Error.TestAlreadyRunning" = "Please wait for the current running tests to finish, before starting a new test.";
@@ -288,6 +290,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
 "Modal.DisableVPN.Title" = "Please disable your VPN connection.";
 "Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "تم التحميل بنجاح";
 "Modal.DisplayFailureLog" = "عرض سجل الإخفاق";
 "Modal.EnableNotifications.Title" = "احصل.ي على تحديثات حول الرّقابة على الانترنت ";
@@ -374,6 +378,8 @@
 "Settings.Advanced.Label" = "متقدم";
 "Settings.DarkMode.Label" = "الثيمة المعتمة ";
 "Settings.Advanced.DebugLogs" = "أظهر سجلات التصحيح";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "اختر اللغة";
 "Settings.Advanced.UseDomainFronting" = "دائمًا استخدم وسيط في اتصال النطاق Domain Fronting";
 "Settings.Proxy.Label" = "بروكسي في خلفيّة OONI ";
 "Settings.Proxy.Enabled" = "بروكسي";
@@ -407,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "لم يتم إدخال أي روابط";
 "Settings.Websites.CustomURL.Run" = "ابدأ";
 "Settings.Websites.CustomURL.Add" = "أضف موقعًا";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "عدد المواقع المختبرة (0 يعني الكل)";
 "Settings.InstantMessaging.TestWhatsApp" = "اختبر واتساب";
 "Settings.InstantMessaging.TestTelegram" = "اختبر تيليجرام";
@@ -425,6 +432,7 @@
 "Settings.Circumvention.TestPsiphon" = "إختبار Psiphon";
 "Settings.Circumvention.TestTor" = "إختبار Tor";
 "Settings.Circumvention.TestRiseupVPN" = "اختبار RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "إرسال إيميل لفريق الدعم ";
 "Settings.SendEmail.Message" = "يرجى وصف المشكلة التي تواجهونها: ";
 "Settings.SendEmail.Error" = "من فضلك أرسل رسالة إلكترونية إلى bugs@openobservatory.org تحتوى على معلومات عن اصدار البرنامج وإصدار iOS. اضغط على \"نسخ إلى الحافظة\" فى الأسفل لنسخ عنوان بريدنا الإلكتروني.";

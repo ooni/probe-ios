@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Cek apakah [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) atau [RiseupVPN](https://ooni.org/nettest/riseupvpn/) diblokir.\n\nHasil Anda akan dipublikasikan di [OONI Explorer](https://explorer.ooni.org/) dan [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Jalankan tes percobaan baru";
 "Dashboard.Experimental.Overview.Paragraph" = "Jalankan tes eksperimen baru ini yang dikembangkan oleh tim OONI:\n%@\n\nHasil Anda akan dipubikasikan di [OONI Explorer](https://explorer.ooni.org/) dan [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -274,6 +275,7 @@
 "Modal.NotNow" = "Tidak sekarang";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
+"Modal.AlwaysRun" = "Always Run";
 "Modal.Error.NoInternet" = "Tidak bisa menjalankan tes. Mohon cek konektivitas internet Anda.";
 "Modal.Error.CantDownloadURLs" = "Gagal mengunduh daftar URL. Coba lagi.";
 "Modal.Error.TestAlreadyRunning" = "Mohon tunggu tes yang sedang berlangsung untuk selesai sebelum memulai tes yang baru.";
@@ -288,6 +290,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe tidak dapat berjalan dengan otomatis tanpa pengoptimalan baterai. Apakah Anda ingin mencoba lagi?";
 "Modal.DisableVPN.Title" = "Mohon nonaktifkan koneksi VPN Anda.";
 "Modal.DisableVPN.Message" = "Jika Anda menjalankan tes OONI Probe dengan VPN yang diaktifkan, hasil tes akan terlihat berasal dari negara yang salah. Mohon nonaktifkan koneksi VPN.";
+"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
+"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
 "Toast.ResultsUploaded" = "Unggahan berhasil";
 "Modal.DisplayFailureLog" = "Tampilkan log kesalahan";
 "Modal.EnableNotifications.Title" = "Dapatkan informasi terbaru mengenai penyensoran Internet";
@@ -329,7 +333,7 @@
 "Test.Circumvention.Fullname" = "Pengelakan";
 "Test.Experimental.Fullname" = "Experimental ";
 "Test.HTTPInvalidRequestLine.Fullname" = "Tes Permintaan HTTP yang Tidak Sahih";
-"Test.HTTPHeaderFieldManipulation.Fullname" = "HTTP Header Field Manipulation Test";
+"Test.HTTPHeaderFieldManipulation.Fullname" = "Tes Manipulasi Bidang Header HTTP";
 "Test.WebConnectivity.Fullname" = "Tes Konektivitas Web";
 "Test.NDT.Fullname" = "Tes Kecepatan NDT";
 "Test.Dash.Fullname" = "Tes Arus DASH";
@@ -374,6 +378,8 @@
 "Settings.Advanced.Label" = "Advanced ";
 "Settings.DarkMode.Label" = "Mode Gelap";
 "Settings.Advanced.DebugLogs" = "Log Debug";
+"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.LanguageSettings.PopUp" = "Pilih Bahasa";
 "Settings.Advanced.UseDomainFronting" = "Always use domain fronting";
 "Settings.Proxy.Label" = "OONI backend proxy";
 "Settings.Proxy.Enabled" = "Proksi";
@@ -407,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "URL belum dimasukkan";
 "Settings.Websites.CustomURL.Run" = "Jalankan";
 "Settings.Websites.CustomURL.Add" = "Tambah laman";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "Jumlah laman yang sudah dites (0 artinya semua)";
 "Settings.InstantMessaging.TestWhatsApp" = "Tes WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Tes Telegram";
@@ -425,6 +432,7 @@
 "Settings.Circumvention.TestPsiphon" = "Tes Psiphon";
 "Settings.Circumvention.TestTor" = "Tes Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Tes RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
 "Settings.SendEmail.Label" = "Kirim surel ke pendukung";
 "Settings.SendEmail.Message" = "Silakan deskripsikan masalah yang Anda alami:";
 "Settings.SendEmail.Error" = "Please send an email to bugs@openobservatory.org with information on the app and iOS version. Tap \"Copy to clipboard\" below to copy our email address.";

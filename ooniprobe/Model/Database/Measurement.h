@@ -19,6 +19,7 @@
 @property BOOL is_upload_failed;
 @property NSString *upload_failure_msg;
 @property BOOL is_rerun;
+@property NSDictionary* rerun_network;
 @property NSString *report_id;
 @property Url *url_id;
 @property BOOL is_anomaly;
@@ -41,6 +42,6 @@
 -(void)save;
 -(void)setReRun;
 -(void)deleteObject;
--(void)getExplorerUrl:(void (^)(NSString*))successcb onError:(void (^)(NSError*))errorcb;
+-(void)getExplorerUrl:(void (^)(NSDictionary*))successcb onError:(void (^)(NSError*))errorcb;
 -(void)checkPublished:(void (^)(BOOL))successcb onError:(void (^)(NSError*))errorcb;
 @end

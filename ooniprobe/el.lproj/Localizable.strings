@@ -22,7 +22,7 @@
 "Onboarding.PopQuiz.2.Wrong.Title" = "Προσοχή";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "Για να αυξηθεί η διαφάνεια της λογοκρισίας στο Διαδίκτυο, τα δεδομένα δικτύου όλων των χρηστών του OONI Probe δημοσιεύονται αυτόματα (εκτός αν απενεργοποιήθουν οι σχετικές ρυθμίσεις).";
 "Onboarding.AutomatedTesting.Title" = "Αυτοματοποιημένες δοκιμές";
-"Onboarding.AutomatedTesting.Paragraph" = "To measure internet censorship every day, please enable automated testing so that OONI Probe can run tests periodically.\n\nDon't worry, we'll be mindful of battery usage. \n\nYou can disable automated testing from the settings at any time.";
+"Onboarding.AutomatedTesting.Paragraph" = "Για καθημερινές μετρήσεις λογοκρισίας στο διαδίκτυο, παρακαλούμε ενεργοποίησε τις αυτοματοποιημένες δοκιμές, ώστε το OONI Probe να μπορεί να εκτελεί περιοδικά τις δοκιμές.\n\nΜην ανησυχείς, υπάρχει πρόνοια για τη κατανάλωση μπαταρίας. \n\nΜπορείς να απενεργοποιήσεις τις αυτόματες δοκιμές ανά πάσα στιγμή μέσω των ρυθμίσεων.";
 "Onboarding.Crash.Title" = "Αναφορά σφαλμάτων";
 "Onboarding.Crash.Paragraph" = "Για να βελτιώσουμε το OONI Probe, θα θέλαμε να συλλέγουμε ανώνυμες αναφορές σφαλμάτων και κρασαρίσματος όταν η εφαρμογή δεν λειτουργεί σωστά.\n\nΕπιθυμείς να υποβάλλεις αναφορές σφαλμάτων στην ομάδα ανάπτυξης του OONI;";
 "Onboarding.Crash.Button.Yes" = "Ναι";
@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Δες αν το [Psiphon](https://ooni.org/nettest/psiphon/), το [Tor](https://ooni.org/nettest/tor/) ή το [RiseupVPN](https://ooni.org/nettest/riseupvpn/) έχουν μπλοκαριστεί.\n\nΤα αποτελέσματα θα δημοσιευτούν στο [OONI Explorer] (https://explorer.ooni.org/) και στο [OONI API] (https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Εκτέλεση νέων πειραματικών δοκιμών";
 "Dashboard.Experimental.Overview.Paragraph" = "Εκτέλεσε τις παρακάτω νέες πειραματικές δοκιμές που αναπτύχθηκαν από την ομάδα του OONI:\n%@\n\nΤα αποτελέσματά σου θα δημοσιευθούν στο [OONI Explorer](https://explorer.ooni.org/) και στο [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -160,7 +161,7 @@
 "TestResults.Details.Failed.Title" = "Απέτυχε";
 "TestResults.Details.Failed.Paragraph" = "Μπορείς να επανεκτελέσεις αυτή τη δοκιμή";
 "TestResults.Details.Failed.TryAgain" = "Προσπάθησε ξανά";
-"TestResults.Details.Methodology.Paragraph" = "Learn how this test works [here](%@).";
+"TestResults.Details.Methodology.Paragraph" = "Μάθε πως λειτουργεί αυτή η δοκιμή [εδώ](%@).";
 "TestResults.Details.Websites.Reachable.Hero.Title" = "Προσβάσιμη";
 "TestResults.Details.Websites.Reachable.Content.Paragraph" = "Η ιστοσελίδα %@ είναι προσβάσιμη.";
 "TestResults.Details.Websites.LikelyBlocked.Hero.Title" = "Πιθανή λογοκρισία";
@@ -265,15 +266,16 @@
 "Feed.Title" = "Feed";
 "Modal.OK" = "Εντάξει";
 "Modal.Cancel" = "Άκυρο";
-"Modal.DontAskAgain" = "No, don't ask again";
+"Modal.DontAskAgain" = "Όχι, να μην ερωτηθώ ξανά";
 "Modal.Delete" = "Διαγραφή";
 "Modal.Error" = "Σφάλμα";
 "Modal.Retry" = "Ξαναδοκίμασε";
 "Modal.SoundsGreat" = "Ναι, αμέ!";
 "Modal.NoThanks" = "Όχι, ευχαριστώ";
-"Modal.NotNow" = "Not now";
-"Modal.RunAnyway" = "Run anyways";
-"Modal.DisableVPN" = "Disable VPN";
+"Modal.NotNow" = "Όχι τώρα";
+"Modal.RunAnyway" = "Να εκτελείται πάντα";
+"Modal.DisableVPN" = "Απενεργοποίηση VPN";
+"Modal.AlwaysRun" = "Να εκτελείται πάντα";
 "Modal.Error.NoInternet" = "Δεν είναι δυνατή η εκτέλεση της δοκιμής. Έλεγξε τη σύνδεσή σου στο Διαδίκτυο.";
 "Modal.Error.CantDownloadURLs" = "Δεν είναι δυνατή η λήψη της λίστας ιστοσελιδών. Παρακαλώ προσπάθησε ξανά.";
 "Modal.Error.TestAlreadyRunning" = "Παρακαλώ περίμενε μέχρι να τελειώσουν οι δοκιμές που εκτελούνται τώρα, πριν ξεκινήσεις μια νέα δοκιμή.";
@@ -285,9 +287,11 @@
 "Modal.ResultsNotUploaded.Paragraph" = "Μερικά από τα αποτελέσματά σου δεν έχουν ανέβει στους διακομιστές του OONI. Αν θέλεις να συνεισφέρεις στη βάση δεδομένων του OONI, παρακαλούμε να τα ανεβάσεις.";
 "Modal.ResultsNotUploaded.Button.Upload" = "Ανέβασμα";
 "Modal.ResultsNotUploaded.Uploading" = "Ανεβαίνει το %@ ...";
-"Modal.Autorun.BatteryOptimization" = "OONI Probe cannot run automatically without battery optimization. Do you want to try again?";
-"Modal.DisableVPN.Title" = "Please disable your VPN connection.";
-"Modal.DisableVPN.Message" = "If you run OONI Probe with a VPN enabled, the test results may appear to come from the wrong country. Please disable your VPN connection.";
+"Modal.Autorun.BatteryOptimization" = "Το OONI Probe δεν μπορεί να εκτελείται αυτόματα χωρίς τη βελτιστοποίηση μπαταρίας. Θέλεις να προσπαθήσεις ξανά;";
+"Modal.DisableVPN.Title" = "Παρακαλούμε απενεργοποίησε τη σύνδεση στο VPN.";
+"Modal.DisableVPN.Message" = "Αν εκτελείς το OONI Probe με ενεργοποιημένο VPN, τότε τα αποτελέσματα των δοκιμών θα φαίνεται σαν να προέρχονται από λάθος χώρα. Παρακαλούμε απενεργοποίησε τη σύνδεση στο VPN.";
+"Modal.UploadVPNResults.Title" = "Κάποιες μετρήσεις πάρθηκαν μέσω VPN.";
+"Modal.UploadVPNResults.Message" = "Αν ανεβάσεις τις μετρήσεις που πάρθηκαν με ενεργοποιημένο το VPN, τα αποτελέσματα των μετρήσεων θα φαίνεται σαν να προέρχονται από λάθος χώρα.";
 "Toast.ResultsUploaded" = "Επιτυχές ανέβασμα";
 "Modal.DisplayFailureLog" = "Προβολή αρχείου καταγραφής αποτυχιών";
 "Modal.EnableNotifications.Title" = "Ειδοποιήσεις για λογοκρισία στο διαδίκτυο";
@@ -314,8 +318,8 @@
 "Modal.InterruptTest.Title" = "Θέλεις να διακόψεις αυτή τη δοκιμή;";
 "Modal.InterruptTest.Paragraph" = "Αυτό θα διακόψει την τρέχουσα δοκιμή από αυτή τη στιγμή.";
 "Modal.Autorun.Modal.Title" = "Θέλεις να τρέχεις δοκιμές αυτοματοποιημένα;";
-"Modal.Autorun.Modal.Text" = "By enabling automated testing, you will contribute OONI measurements on a regular basis.";
-"Modal.Autorun.Modal.Text.Android" = "Please allow the app to run in the background.";
+"Modal.Autorun.Modal.Text" = "Ενεργοποιώντας τις αυτόματες δοκιμές, θα συνεισφέρεις στις μετρήσεις του OONI σε τακτική βάση.";
+"Modal.Autorun.Modal.Text.Android" = "Παρακαλούμε δώσε άδεια στην εφαρμογή να εκτελείται στο υπόβαθρο.";
 "Modal.Autorun.Modal.Button.RemindLater" = "Υπενθύμιση αργότερα";
 "Toast.CopiedToClipboard" = "Αντιγράφηκε στο πρόχειρο";
 "Snackbar.ResultsNotUploaded.Text" = "Δεν ανέβηκαν";
@@ -358,7 +362,7 @@
 "Settings.AutomatedTesting.RunAutomatically.DateLast" = "Τελευταία αυτοματοποιημένη δοκιμή: %@.";
 "Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Μόνο μέσω WiFi";
 "Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Μόνο όταν φορτίζει";
-"Settings.AutomatedTesting.RunAutomatically.Footer" = "By enabling automatic testing, OONI Probe tests will run automatically multiple times per day. Your test results will automatically get published on OONI Explorer: https://explorer.ooni.org/ \n\nImportant: If you have a VPN enabled, OONI Probe will not run tests automatically. Please turn off your VPN for automated OONI Probe testing. Learn more: https://ooni.org/support/faq/#can-i-run-ooni-probe-over-a-vpn";
+"Settings.AutomatedTesting.RunAutomatically.Footer" = "Ενεργοποιώντας τις αυτόματες δοκιμές, οι δοκιμές του OONI Probe θα εκτελούνται αυτόματα πολλαπλές φορές ανά ημέρα. Τα αποτελέσματα των δοκιμών θα δημοσιεύονται αυτόματα στο OONI Explorer: https://explorer.ooni.org/ \n\nΣημαντικό: Αν έχεις ενεργοποιημένο κάποιο VPN, τότε το OONI Probe δεν θα εκτελεί τις δοκιμές αυτόματα. Παρακαλούμε απενεργοποίησε το VPN για αυτοματοποιημένες δοκιμές του OONI Probe. Μάθε περισσότερα: https://ooni.org/support/faq/#can-i-run-ooni-probe-over-a-vpn";
 "Settings.Sharing.Label" = "Κοινή χρήση";
 "Settings.Sharing.UploadResults" = "Αυτόματη δημοσίευση αποτελεσμάτων";
 "Settings.Sharing.UploadResultsManually" = "Χειροκίνητο ανέβασμα αποτελεσμάτων";
@@ -374,6 +378,8 @@
 "Settings.Advanced.Label" = "Ρυθμίσεις για προχωρημένους/ες";
 "Settings.DarkMode.Label" = "Σκοτεινό θέμα";
 "Settings.Advanced.DebugLogs" = "Αρχεία καταγραφής σφαλμάτων";
+"Settings.Advanced.LanguageSettings.Title" = "Ρυθμίσεις γλώσσας";
+"Settings.Advanced.LanguageSettings.PopUp" = "Επιλογή γλώσσας";
 "Settings.Advanced.UseDomainFronting" = "Πάντα να χρησιμοποιείται domain fronting";
 "Settings.Proxy.Label" = "Backend proxy του OONI";
 "Settings.Proxy.Enabled" = "Proxy";
@@ -407,6 +413,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Δεν έχουν εισαχθεί URL";
 "Settings.Websites.CustomURL.Run" = "Εκτέλεση";
 "Settings.Websites.CustomURL.Add" = "Προσθήκη ιστοσελίδας";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "Αριθμός δοκιμασμένων ιστοσελίδων (0 σημαίνει όλες)";
 "Settings.InstantMessaging.TestWhatsApp" = "Δοκιμή του WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Δοκιμή του Telegram";
@@ -425,6 +432,7 @@
 "Settings.Circumvention.TestPsiphon" = "Δοκιμή του Psiphon";
 "Settings.Circumvention.TestTor" = "Δοκιμή του Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Δοκιμή του RiseupVPN";
+"Settings.WarmVPNInUse.Label" = "Προειδοποίηση όταν χρησιμοποιείται VPN";
 "Settings.SendEmail.Label" = "Αποστολή email στην υποστήριξη";
 "Settings.SendEmail.Message" = "Παρακαλούμε να περιγράψεις μας το πρόβλημα που αντιμετωπίζεις:";
 "Settings.SendEmail.Error" = "Παρακαλούμε στείλε ένα email στη διεύθυνση bugs@openobservatory.org με πληροφορίες σχετικά με την έκδοση της εφαρμογής και του iOS. Πάτα \"Αντιγραφή στο πρόχειρο\" παρακάτω για να αντιγράψεις τη διεύθυνση email μας.";
