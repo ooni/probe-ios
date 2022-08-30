@@ -104,7 +104,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *month = [keys objectAtIndex:section];
+    // TODO (aanorbel): `NSRangeException`
+    NSString *month = keys[section];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"yyyy-MM";
     NSDate *convertedDate = [df dateFromString:month];
@@ -141,7 +142,7 @@
     }
 
     if (indexPath.row==keys.count -1){
-        self.loadMore;
+        [self loadMore];
     }
     return cell;
 }
