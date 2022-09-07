@@ -6,6 +6,8 @@
 #import "TestRunningViewController.h"
 #import "ReachabilityManager.h"
 #import "RunningTest.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface OoniRunViewController ()
 
@@ -64,6 +66,7 @@
         //creating parameters dict
         NSDictionary *parameters = [DictionaryUtility getParametersFromDict:dict];
         NSLog(@"parameters: %@", parameters);
+        DDLogInfo(@"parameters: %@", parameters);
         if ([self checkMv:parameters]) {
             if ([parameters objectForKey:@"tn"] && [TestUtility getCategoryForTest:[parameters objectForKey:@"tn"]]) {
                 [self setTestName:[parameters objectForKey:@"tn"]];
@@ -184,6 +187,7 @@
             }
         } @catch (NSException *exception){
             NSLog(@"OoniRunViewControllerError: %@", exception);
+            DDLogError(@"OoniRunViewControllerError: %@", exception);
             [ThirdPartyServices recordError: @"Invalid URL" reason: exception.reason  userInfo: @{ @"url": url} ];
         }
     }

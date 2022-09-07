@@ -5,6 +5,8 @@
 #import "EventResult.h"
 #import "TestUtility.h"
 #define CLIENT_URL @"https://ams-pg.ooni.org"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface WebConnectivityTest : XCTestCase
 
@@ -43,6 +45,7 @@ id<OONIMKTask> task;
             break;
         }
         NSLog(@"Got event: %@", evinfo);
+        DDLogInfo(@"Got event: %@", evinfo);
         InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
         ObjectMapper *mapper = [[ObjectMapper alloc] init];
         mapper.mappingProvider = mappingProvider;
@@ -77,6 +80,7 @@ id<OONIMKTask> task;
         }
         else {
             NSLog(@"unused event: %@", evinfo);
+            DDLogInfo(@"unused event: %@", evinfo);
         }
     }
     XCTAssertTrue([report_id_1 isEqualToString:report_id_2]);

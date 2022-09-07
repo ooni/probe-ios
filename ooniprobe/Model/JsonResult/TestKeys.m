@@ -1,5 +1,7 @@
 #import "TestKeys.h"
 #import "JsonResult.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @implementation TestKeys
 
@@ -10,6 +12,7 @@
                                                          error:&error];
     if (error){
         NSLog(@"%@",[error description]);
+        DDLogError(@"%@",[error description]);
         return @"";
     }
     //Nsdictionary - to - string

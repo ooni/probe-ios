@@ -16,6 +16,8 @@
 		7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */; };
 		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		79780FCF27E9F18E002A38B1 /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79780FCE27E9F18E002A38B1 /* Languages.plist */; };
+		79878E3A28C7861900D470AB /* UIForLumberjack.m in Sources */ = {isa = PBXBuildFile; fileRef = 79878E3928C7861900D470AB /* UIForLumberjack.m */; };
+		79878E4028C78E0A00D470AB /* CocoaLumberjackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79878E3F28C78E0A00D470AB /* CocoaLumberjackViewController.m */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.m */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
@@ -224,6 +226,10 @@
 		7940AA8F28117E9000C0EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7940AA972811840900C0EB5D /* share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = share.entitlements; sourceTree = "<group>"; };
 		79780FCE27E9F18E002A38B1 /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
+		79878E3828C7861900D470AB /* UIForLumberjack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIForLumberjack.h; path = Settings/UIForLumberjack.h; sourceTree = "<group>"; };
+		79878E3928C7861900D470AB /* UIForLumberjack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UIForLumberjack.m; path = Settings/UIForLumberjack.m; sourceTree = "<group>"; };
+		79878E3E28C78E0A00D470AB /* CocoaLumberjackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CocoaLumberjackViewController.h; path = Settings/CocoaLumberjackViewController.h; sourceTree = "<group>"; };
+		79878E3F28C78E0A00D470AB /* CocoaLumberjackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CocoaLumberjackViewController.m; path = Settings/CocoaLumberjackViewController.m; sourceTree = "<group>"; };
 		AC948DA31A71FB931BBB1BB3 /* Pods-OONIProbeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ooniprobe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFF8CF760913F0065D0615D /* Pods-OONIProbeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.release.xcconfig"; path = "Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1051,6 +1057,10 @@
 				ED3932C31E3114740064CD11 /* AboutViewController.m */,
 				ED4A00B326494F140083C8F6 /* ProxyViewController.h */,
 				ED4A00B426494F140083C8F6 /* ProxyViewController.m */,
+				79878E3828C7861900D470AB /* UIForLumberjack.h */,
+				79878E3928C7861900D470AB /* UIForLumberjack.m */,
+				79878E3E28C78E0A00D470AB /* CocoaLumberjackViewController.h */,
+				79878E3F28C78E0A00D470AB /* CocoaLumberjackViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1443,6 +1453,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ooniprobe/Pods-ooniprobe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
 				"${BUILT_PRODUCTS_DIR}/Harpy/Harpy.framework",
@@ -1459,6 +1470,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Harpy.framework",
@@ -1527,6 +1539,7 @@
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.m in Sources */,
 				ED76B21725B7067100899EE7 /* GatewayConnection.m in Sources */,
+				79878E3A28C7861900D470AB /* UIForLumberjack.m in Sources */,
 				ED9CCF09252B35B3004F8420 /* PELoggerAdapter.m in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
 				ED14B231246540A4009AA906 /* CircumventionSuite.m in Sources */,
@@ -1535,6 +1548,7 @@
 				ED90A9192198B8AB00204B46 /* DashboardTableViewCell.m in Sources */,
 				EDA17B01208A312C00D46D0F /* NdtDetailsViewController.m in Sources */,
 				ED9CCF21252B4A06004F8420 /* LoggeriOS.m in Sources */,
+				79878E4028C78E0A00D470AB /* CocoaLumberjackViewController.m in Sources */,
 				ED2E067221D4867B00E9B9EE /* Dash.m in Sources */,
 				EDDB0B551FFF2C5300EFD9C8 /* SettingsUtility.m in Sources */,
 				EDA764602153090800C24688 /* NSDictionary+Safety.m in Sources */,

@@ -9,6 +9,9 @@
 #import "ReachabilityManager.h"
 #import "BackgroundTask.h"
 #import "Harpy.h"
+#import "UIForLumberjack.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface AppDelegate ()
 
@@ -20,6 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Default is WAL https://www.sqlite.org/wal.html
     SharkORM.settings.sqliteJournalingMode = @"DELETE";
+    [self initializeLoggers];
 
     if ([self isUITestingEnabled])
         [self copyDBTesting];
@@ -42,6 +46,17 @@
 
     [self initHarpy];
     return YES;
+}
+
+- (void) initializeLoggers {
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+//    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:LOG_FLAG_VERBOSE];
+
+    [DDLog addLogger:[UIForLumberjack sharedInstance]];
+
+    DDLogInfo(@"All loggers added successfully");
 }
 
 - (void)initHarpy{
@@ -167,6 +182,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 // database delegates
 - (void)databaseError:(SRKError *)error {
     NSLog(@"DB error: %@", error.errorMessage);
+    DDLogError(@"DB error: %@", error.errorMessage);
 }
 
 @end

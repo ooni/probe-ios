@@ -1,5 +1,7 @@
 #import "Suite.h"
 #import "RunningTest.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @implementation AbstractSuite
 
@@ -58,6 +60,7 @@
 
 - (void)interruptTest{
     NSLog(@"interruptTest AbstractSuite %@", self.name);
+    DDLogInfo(@"interruptTest AbstractSuite %@", self.name);
     self.interrupted = true;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"interruptTest" object:nil];
 }

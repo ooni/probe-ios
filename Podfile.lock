@@ -1,4 +1,7 @@
 PODS:
+  - CocoaLumberjack (3.7.4):
+    - CocoaLumberjack/Core (= 3.7.4)
+  - CocoaLumberjack/Core (3.7.4)
   - Countly (20.11.1):
     - Countly/Core (= 20.11.1)
   - Countly/Core (20.11.1)
@@ -22,6 +25,7 @@ PODS:
   - XNGMarkdownParser (0.3.2)
 
 DEPENDENCIES:
+  - CocoaLumberjack
   - Countly
   - DateTools
   - DZNEmptyDataSet
@@ -38,6 +42,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - CocoaLumberjack
     - Countly
     - DateTools
     - DZNEmptyDataSet
@@ -70,6 +75,7 @@ CHECKOUT OPTIONS:
     :tag: v2.3.67
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   Countly: df8dcfbbb6979e6ef31f7407d61d24fcbbbdaddf
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -86,6 +92,6 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   XNGMarkdownParser: aed98c14f0c0eb20064184ddf9bac26c482722b2
 
-PODFILE CHECKSUM: 1f02e10209a855ec173331004beccff9cd3e18fc
+PODFILE CHECKSUM: d6377306626ffaf02993776002fa529fd1a00e6e
 
 COCOAPODS: 1.11.3

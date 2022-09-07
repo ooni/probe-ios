@@ -16,6 +16,7 @@ target 'ooniprobe' do
     pod 'Countly'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '6.1.4'
     pod 'Harpy'
+    pod 'CocoaLumberjack'
 end
 
 target 'OONIProbeUnitTests' do

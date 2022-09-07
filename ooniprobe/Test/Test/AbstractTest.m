@@ -6,6 +6,8 @@
 #import "EventResult.h"
 #import "ThirdPartyServices.h"
 #import "Engine.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @implementation AbstractTest
 
@@ -92,6 +94,7 @@
                 break;
             }
             NSLog(@"Got event: %@", evinfo);
+            DDLogInfo(@"Got event: %@", evinfo);
             InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
             ObjectMapper *mapper = [[ObjectMapper alloc] init];
             mapper.mappingProvider = mappingProvider;
@@ -200,6 +203,7 @@
             }
             else {
                 NSLog(@"unused event: %@", evinfo);
+                DDLogInfo(@"unused event: %@", evinfo);
             }
         }
         // Notify the main thread that the task is now complete
@@ -225,6 +229,7 @@
 
 - (void)interruptTest{
     NSLog(@"interruptTest AbstractTest %@", self.name);
+    DDLogInfo(@"interruptTest AbstractTest %@", self.name);
     if ([self.task canInterrupt]){
         [self.task interrupt];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"interruptTestUI" object:nil];
@@ -295,6 +300,7 @@
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         if (error != nil) {
             NSLog(@"Error parsing JSON: %@", error);
+            DDLogInfo(@"Error parsing JSON: %@", error);
             [measurement setIs_failed:true];
             [measurement save];
             return;
