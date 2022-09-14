@@ -60,7 +60,9 @@ static RunningTest *currentTest = nil;
 -(void)runTest{
     if ([currentTest.testSuites count] == 0)
         return;
-    currentTest.testSuite = [currentTest.testSuites objectAtIndex:0];
+    currentTest.testSuite = currentTest.testSuites[0];
+    if ([currentTest.testSuite.getTestList count] == 0)
+        return;
     [currentTest.testSuite runTestSuite];
 }
 

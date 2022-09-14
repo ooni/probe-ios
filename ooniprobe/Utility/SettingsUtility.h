@@ -30,6 +30,8 @@
 
 + (BOOL)isNotificationEnabled;
 
++ (BOOL)isExperimentalTestEnabled;
+
 + (BOOL)isAutomatedTestEnabled;
 
 + (NSString*)getOrGenerateUUID4;

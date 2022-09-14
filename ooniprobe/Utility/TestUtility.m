@@ -28,7 +28,9 @@
     return @{@"websites": @[@"web_connectivity"],
              @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger", @"signal"],
              @"circumvention": @[@"psiphon", @"tor", @"riseupvpn"],
-             @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"]};
+             @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"],
+             @"experimental": @[]
+    };
 }
 
 + (NSMutableArray*)getTestObjects{
@@ -175,7 +177,7 @@
 
 + (BOOL)canCallDeleteJson{
     NSDate *lastCalled =  (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:delete_json_key];
-    
+
     if (lastCalled == nil){
         return YES;
     }

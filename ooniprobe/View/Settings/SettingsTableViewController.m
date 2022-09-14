@@ -98,6 +98,9 @@
         else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         }
+        if ([[TestUtility getTestTypes] containsObject:current]){
+            cell.imageView.image = [UIImage imageNamed:current];
+        }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
         UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
@@ -119,6 +122,7 @@
         }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
+        cell.accessoryView = nil;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"]){

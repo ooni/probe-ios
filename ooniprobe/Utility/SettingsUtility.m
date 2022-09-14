@@ -37,7 +37,9 @@
 }
 
 + (NSString*)getTypeForSetting:(NSString*)setting{
-    if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
+    if ([setting isEqualToString:@"experimental"])
+        return @"bool";
+    else if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] ||
              [setting isEqualToString:@"monthly_wifi_allowance"] ||
@@ -174,6 +176,10 @@
 
 + (BOOL)isNotificationEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
+}
+
++ (BOOL)isExperimentalTestEnabled {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"experimental"] boolValue];
 }
 
 + (BOOL)isAutomatedTestEnabled {
