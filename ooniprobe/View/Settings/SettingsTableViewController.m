@@ -76,6 +76,8 @@
             return NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil);
         else if ([category isEqualToString:@"automated_testing"])
             return NSLocalizedString(@"Settings.AutomatedTesting.RunAutomatically.Footer", nil);
+      else if ([category isEqualToString:@"test_options"])
+            return NSLocalizedString(@"Settings.TestOptions.Footer", nil);
     }
     return nil;
 }
