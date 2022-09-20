@@ -155,6 +155,9 @@
         [settings addObject:@"run_http_invalid_request_line"];
         [settings addObject:@"run_http_header_field_manipulation"];
     }
+    else if ([testName isEqualToString:@"experimental_x"]) {
+        [settings addObject:@"experimental"];
+    }
     return settings;
 }
 
