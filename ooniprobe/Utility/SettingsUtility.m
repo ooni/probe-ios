@@ -37,7 +37,7 @@
 }
 
 + (NSString*)getTypeForSetting:(NSString*)setting{
-    if ([setting isEqualToString:@"experimental"])
+    if ([setting isEqualToString:@"experimental"] || [setting isEqualToString:@"long_running_tests_in_foreground"])
         return @"bool";
     else if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
         return @"segue";
@@ -183,6 +183,9 @@
 
 + (BOOL)isExperimentalTestEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"experimental"] boolValue];
+}
++ (BOOL)isLongRunningTestsInForegroundEnabled {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"long_running_tests_in_foreground"] boolValue];
 }
 
 + (BOOL)isAutomatedTestEnabled {

@@ -29,7 +29,8 @@
              @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger", @"signal"],
              @"circumvention": @[@"psiphon", @"tor", @"riseupvpn"],
              @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"],
-             @"experimental_x": @[@"experimental"]
+             @"experimental_x": @[@"experimental"],
+             @"long_running_tests_in_foreground": @[]
     };
 }
 

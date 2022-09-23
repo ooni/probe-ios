@@ -32,6 +32,8 @@
 
 + (BOOL)isExperimentalTestEnabled;
 
++ (BOOL)isLongRunningTestsInForegroundEnabled;
+
 + (BOOL)isAutomatedTestEnabled;
 
 + (NSString*)getOrGenerateUUID4;
