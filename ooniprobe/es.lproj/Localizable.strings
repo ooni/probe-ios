@@ -22,10 +22,10 @@
 "Onboarding.PopQuiz.2.Wrong.Title" = "Advertencia";
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "Para incrementar la transparencia de la censura en Internet, los datos de red de todos los usuarios de OONI Probe son automáticamente publicados (a menos que opten por no hacerlo en las configuraciones).";
 "Onboarding.AutomatedTesting.Title" = "Pruebas automatizadas";
-"Onboarding.AutomatedTesting.Paragraph" = "Para medir la censura en Internet todos los días, por favor habilita las pruebas automáticas, de manera que OONI Probe pueda ejecutar pruebas periódicamente.\n\nNo te preocupes, estaremos muy conscientes del uso de la batería. \n\nPuedes deshabilitar las pryebas automáticas desde la configuración en cualquier momento.";
+"Onboarding.AutomatedTesting.Paragraph" = "Para medir la censura en Internet todos los días, por favor habilita las pruebas automáticas, de manera que OONI Probe pueda ejecutar pruebas periódicamente.\n\nNo te preocupes, estaremos muy conscientes del uso de la batería. \n\nPuedes deshabilitar las pruebas automáticas desde la configuración en cualquier momento.";
 "Onboarding.Crash.Title" = "Informes de error";
 "Onboarding.Crash.Paragraph" = "Para mejorar OONI Probe nos gustaría recolectar informes de error anónimos cuando la aplicación no funcione apropiadamente.\n\n¿Te gustaría optar por enviar informes de error al equipo de desarrollo de OONI?";
-"Onboarding.Crash.Button.Yes" = "Sí";
+"Onboarding.Crash.Button.Yes" = "Si";
 "Onboarding.Crash.Button.No" = "No";
 "Onboarding.DefaultSettings.Title" = "Configuración predeterminada";
 "Onboarding.DefaultSettings.Header" = "Recopilamos y publicamos:";
@@ -69,7 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Comprueba si [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) o [RiseupVPN](https://ooni.org/nettest/riseupvpn/) están bloqueados.\n\nTus resultados serán publicados en [Explorador OONI] (https://explorer.ooni.org/) y [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Ejecutar nuevas pruebas experimentales";
 "Dashboard.Experimental.Overview.Paragraph" = "Ejecutar las siguientes nuevas pruebas experimentales desarrolladas por el equipo OONI:\n%@\n\nTus resultados serán publicados en el [Explorador OONI](https://explorer.ooni.org/) y el [API OONI](https://api.ooni.io/).";
-"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "Las siguientes pruebas solo se ejecutarán como parte de las pruebas automatizadas:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -275,7 +275,7 @@
 "Modal.NotNow" = "Ahora no";
 "Modal.RunAnyway" = "Ejecutar de todos modos";
 "Modal.DisableVPN" = "Deshabilitar VPN";
-"Modal.AlwaysRun" = "Always Run";
+"Modal.AlwaysRun" = "Siempre corre";
 "Modal.Error.NoInternet" = "Incapaz de ejecutar la prueba. Por favor comprueba tu conectividad de Internet.";
 "Modal.Error.CantDownloadURLs" = "Incapaz de descargar la lista de URL. Por favor intenta de nuevo.";
 "Modal.Error.TestAlreadyRunning" = "Por favor espera hasta que las pruebas en ejecución terminen, antes de iniciar una nueva.";
@@ -290,8 +290,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe no se puede ejecutar automáticamente sin optimización de batería. ¿Quieres intentarlo de nuevo?";
 "Modal.DisableVPN.Title" = "Por favor deshabilita tu conexión VPN.";
 "Modal.DisableVPN.Message" = "Si ejecutas OONI Probe con una VPN habilitada, los resultados de la prueba podrían aparecer como proviniendo desde el país incorrecto. Por favor deshabilita tu conexión VPN.";
-"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
-"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
+"Modal.UploadVPNResults.Title" = "Algunas mediciones fueron tomadas sobre VPN.";
+"Modal.UploadVPNResults.Message" = "Si se suben mediciones tomadas cuando el VPN está activado, los resultados de las pruebas pueden parecer procedentes de un país equivocado.";
 "Toast.ResultsUploaded" = "Subida exitosa";
 "Modal.DisplayFailureLog" = "Mostrar registro de fallos";
 "Modal.EnableNotifications.Title" = "Obtiene actualizaciones sobre censura en Internet";
@@ -373,12 +373,16 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Esta información (ej., IT por Italia) es requerida para identificar desde qué país son recopiladas las mediciones. ¿Estás seguro que quieres deshabilitar esta opción?";
 "Settings.Sharing.Footer" = "Al publicar resultados, estás incrementando la transparencia de la interferencia de red y apoyando a la comunidad de OONI.\n\nCierta información de red (ej., Número de Sistema Autónomo, ASN) es requerida para identificar a Proveedores de Servicio de Internet.";
 "Settings.TestOptions.Label" = "Opciones de la prueba";
+"Settings.TestOptions.Footer" = "Lo que configure a través de los ajustes de prueba anteriores (por ejemplo, desactivar la prueba de WhatsApp) se aplicará a las pruebas ejecutadas manualmente, así como a las pruebas ejecutadas automáticamente (cuando las pruebas automatizadas están activadas).\n";
+"Settings.TestOptions.LongRunningTest" = "Prueba de larga duración";
+"Settings.TestOptions.RunLongRunningTests" = " ¿Ejecutar pruebas de larga duración en primer plano?";
 "Settings.Privacy.Label" = "Privacidad";
 "Settings.Privacy.SendCrashReports" = "Enviar informes de errores";
 "Settings.Advanced.Label" = "Avanzado";
 "Settings.DarkMode.Label" = "Modo Oscuro";
 "Settings.Advanced.DebugLogs" = "Registros de depuración";
-"Settings.Advanced.LanguageSettings.Title" = "Language Setting";
+"Settings.Advanced.RecentLogs" = "Opción A: (Traducción literal)\n\nVer registros recientes\n\nOpción B: (más apegada a la estructura de OONI):\nVer logs recientes";
+"Settings.Advanced.LanguageSettings.Title" = "Configuración de Idioma";
 "Settings.Advanced.LanguageSettings.PopUp" = "Seleccionar idioma";
 "Settings.Advanced.UseDomainFronting" = "Usar siempre Domain Fronting";
 "Settings.Proxy.Label" = "Proxy de trabajo de OONI";
@@ -413,7 +417,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "No se han introducido URLs";
 "Settings.Websites.CustomURL.Run" = "Ejecutar";
 "Settings.Websites.CustomURL.Add" = "Añadir sitio web";
-"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Cargar desde plantilla";
 "Settings.Websites.TestCount" = "Número de sitios web probados (0 significa todos)";
 "Settings.InstantMessaging.TestWhatsApp" = "Probar WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Probar Telegram";
@@ -432,7 +436,7 @@
 "Settings.Circumvention.TestPsiphon" = "Probar Psiphon";
 "Settings.Circumvention.TestTor" = "Probar Tor";
 "Settings.Circumvention.TestRiseupVPN" = "Probar RiseupVPN";
-"Settings.WarmVPNInUse.Label" = "Warn when VPN is in use";
+"Settings.WarmVPNInUse.Label" = "Avisar cuando la VPN está en uso";
 "Settings.SendEmail.Label" = "Enviar correo electrónico al soporte";
 "Settings.SendEmail.Message" = "Por favor describe el problema que estás experimentando:";
 "Settings.SendEmail.Error" = "Por favor envíe un correo electrónico a bugs@openobservatory.org con información sobre la aplicación y versión de iOS. Pulse \"Copiar al portapapeles\" abajo para copiar nuestro correo electrónico.";
