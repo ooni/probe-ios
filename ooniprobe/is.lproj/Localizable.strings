@@ -69,7 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Athugaðu hvort [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) eða [RiseupVPN](https://ooni.org/nettest/riseupvpn/) verði fyrir hindrunum.\n\nNiðurstöðurnar þínar verða birtar í [OONI Explorer](https://explorer.ooni.org/) og [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Keyra nýjar prófanir á tilraunastigi";
 "Dashboard.Experimental.Overview.Paragraph" = "Keyrðu eftirfarandi tilraunaprófanir sem þróaðar hafa verið af OONI-teyminu:\n%@\n\nNiðurstöðurnar þínar verða birtar í [OONI Explorer](https://explorer.ooni.org/) og [OONI API](https://api.ooni.io/).";
-"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "Eftirfarandi prófanir eru einungis keyrðar sem hluti af sjálfvirkum prófunum:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -373,11 +373,15 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Þessar upplýsingar (t.d. IT fyrir Ítalía) eru nauðsynlegar til að auðkenna landið þaðan sem upplýsingunum er safnað. Ertu viss um að þú viljir gera þetta óvirkt?";
 "Settings.Sharing.Footer" = "Með því að birta niðurstöðurnar ertu að auka gegnsæi á íhlutanir í netkerfi og styður þannig OONI-samfélagið. \n\nNetkerfisupplýsingar (þ.e.a.s. Autonomous System Number) eru nauðsynlegar til að auðkenna netþjónustur (ISP - Internet Service Providers).";
 "Settings.TestOptions.Label" = "Valkostir prófunar";
+"Settings.TestOptions.Footer" = "Það sem þú stillir í ofangreindum prófunarstillingum (t.d. gerir WhatsApp-prófið óvirkt) mun eiga við handkeyrðar prófanir, auk sjálfvirkra prófana (þegar þær eru virkar).";
+"Settings.TestOptions.LongRunningTest" = "Lang-keyrslu prófun";
+"Settings.TestOptions.RunLongRunningTests" = "Keyra lang-keyrslu prófanir í forgrunni?";
 "Settings.Privacy.Label" = "Friðhelgi";
 "Settings.Privacy.SendCrashReports" = "Senda hrunskýrslur";
 "Settings.Advanced.Label" = "Ítarlegra";
 "Settings.DarkMode.Label" = "Dökkur hamur";
 "Settings.Advanced.DebugLogs" = "Villuskrár";
+"Settings.Advanced.RecentLogs" = "Skoða nýlegar atvikaskrár";
 "Settings.Advanced.LanguageSettings.Title" = "Tungumálastillingar";
 "Settings.Advanced.LanguageSettings.PopUp" = "Veldu tungumál";
 "Settings.Advanced.UseDomainFronting" = "Alltaf nota lénaframhlið (domain fronting)";
@@ -413,7 +417,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Engar slóðir settar inn";
 "Settings.Websites.CustomURL.Run" = "Keyra";
 "Settings.Websites.CustomURL.Add" = "Bæta við vefsvæði";
-"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Hlaða inn úr sniðmáti";
 "Settings.Websites.TestCount" = "Fjöldi prófaðra vefsvæða (0 þýðir allt)";
 "Settings.InstantMessaging.TestWhatsApp" = "Prófa WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Prófa Telegram";
