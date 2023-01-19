@@ -30,6 +30,9 @@
 
 //https://uynguyen.github.io/2020/09/26/Best-practice-iOS-background-processing-Background-App-Refresh-Task/
 
+// https://stackoverflow.com/questions/28275415/how-long-does-apple-permit-a-background-task-to-run
+// https://medium.com/swlh/handling-background-tasks-in-ios-13-67f717d94b3d
+
 + (void)handleCheckInTask:(BGTask *)task  API_AVAILABLE(ios(13.0)){
     // Schedule a new task
     [self scheduleCheckIn];
