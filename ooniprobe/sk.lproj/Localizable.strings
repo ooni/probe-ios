@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) or [RiseupVPN](https://ooni.org/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Run new experimental tests";
 "Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -372,11 +373,15 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Táto informácia (napr. IT pre Taliansko) sa vyžaduje na identifikáciu krajiny, z ktorej boli zhromažďované merania. Si si istý/istá, že chceš vypnúť túto možnosť?";
 "Settings.Sharing.Footer" = "Uverejňovaním výsledkov zvyšuješ transparentnosť zásahov do sietí a podporuješ komunitu OONI. \n\nInformácie o sieti (t.j. číslo autonómneho systému) sa vyžadujú na identifikáciu poskytovateľov internetového pripojenia.";
 "Settings.TestOptions.Label" = "Možnosti testu";
+"Settings.TestOptions.Footer" = "What you configure through the above test settings (e.g. disabling the WhatsApp test) will apply to tests run manually, as well as to tests run automatically (when automated testing is enabled).";
+"Settings.TestOptions.LongRunningTest" = "Long running test";
+"Settings.TestOptions.RunLongRunningTests" = "Run long running tests in foreground?";
 "Settings.Privacy.Label" = "Súkromie";
 "Settings.Privacy.SendCrashReports" = "Odosielať správy o zlyhaní";
 "Settings.Advanced.Label" = "Rozšírené";
 "Settings.DarkMode.Label" = "Dark Mode";
 "Settings.Advanced.DebugLogs" = "Denníky ladenia";
+"Settings.Advanced.RecentLogs" = "See recent logs";
 "Settings.Advanced.LanguageSettings.Title" = "Language Setting";
 "Settings.Advanced.LanguageSettings.PopUp" = "Select Language";
 "Settings.Advanced.UseDomainFronting" = "Vždy používať domain fronting";
@@ -412,6 +417,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Neboli zadané URL adresy";
 "Settings.Websites.CustomURL.Run" = "Spustiť";
 "Settings.Websites.CustomURL.Add" = "Pridať webovú stránku";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "Testovať WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Testovať Telegram";

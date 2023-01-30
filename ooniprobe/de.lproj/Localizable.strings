@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Prüfe, ob [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) oder [RiseupVPN](https://ooni.org/nettest/riseupvpn/) blockiert sind.\n\nDeine Ergebnisse werden auf dem [OONI Explorer](https://explorer.ooni.org/) und [OONI API](https://api.ooni.io/) veröffentlicht.";
 "Dashboard.Experimental.Card.Description" = "Neue experimentelle Tests durchführen";
 "Dashboard.Experimental.Overview.Paragraph" = "Führe die folgenden neuen, vom OONI-Team entwickelten experimentellen Tests durch:\n%@\n\nDeine Ergebnisse werden im [OONI Explorer] veröffentlicht.(https://explorer.ooni.org/) und [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "Die folgenden Tests werden nur im Rahmen von automatisierten Tests durchgeführt:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -372,11 +373,15 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Diese Information (z. B. IT für Italien) ist notwendig um festzustellen von welchem Land die Messung durchgeführt wurde. Bist du dir sicher, dass du diese Option deaktivieren möchtest?";
 "Settings.Sharing.Footer" = "Mit der Veröffentlichung von Ergebnissen erhöhst du die Transparenz um Netzwerkbeeinflussung und unterstützt die OONI Gemeinschaft.\n\nNetzwerkinformationen sind notwendig (z. B. die Autonomous System Nummer) um den Internetanbieter zu identifizieren.\n";
 "Settings.TestOptions.Label" = "Testoptionen";
+"Settings.TestOptions.Footer" = "Was du in den obigen Testeinstellungen konfigurierst (z. B. die Deaktivierung des WhatsApp-Tests), gilt sowohl für manuell durchgeführte Tests als auch für automatisch durchgeführte Tests (wenn automatisierte Tests aktiviert sind).";
+"Settings.TestOptions.LongRunningTest" = "Langzeittest";
+"Settings.TestOptions.RunLongRunningTests" = "Langzeittests im Vordergrund ausführen?";
 "Settings.Privacy.Label" = "Privatsphäre";
 "Settings.Privacy.SendCrashReports" = "Sende Absturzberichte";
 "Settings.Advanced.Label" = "Erweitert";
 "Settings.DarkMode.Label" = "Dunkelmodus";
 "Settings.Advanced.DebugLogs" = "Fehlerprotokolle";
+"Settings.Advanced.RecentLogs" = "Aktuelle Protokolle anzeigen";
 "Settings.Advanced.LanguageSettings.Title" = "Spracheinstellung";
 "Settings.Advanced.LanguageSettings.PopUp" = "Sprache auswählen";
 "Settings.Advanced.UseDomainFronting" = "Immer Domain Fronting benutzen";
@@ -412,6 +417,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Keine URLs eingegeben";
 "Settings.Websites.CustomURL.Run" = "Ausführen";
 "Settings.Websites.CustomURL.Add" = " Webseite hinzufügen";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Aus Vorlage laden";
 "Settings.Websites.TestCount" = "Anzahl der getesteten Websites (0 bedeutet alle)";
 "Settings.InstantMessaging.TestWhatsApp" = "WhatsApp testen";
 "Settings.InstantMessaging.TestTelegram" = "Telegram testen";

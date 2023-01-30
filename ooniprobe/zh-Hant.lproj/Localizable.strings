@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Check whether [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) or [RiseupVPN](https://ooni.org/nettest/riseupvpn/) are blocked.\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Run new experimental tests";
 "Dashboard.Experimental.Overview.Paragraph" = "Run the following new experimental tests developed by the OONI team:\n%@\n\nYour results will be published on [OONI Explorer](https://explorer.ooni.org/) and [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -271,7 +272,7 @@
 "Modal.Retry" = "重試";
 "Modal.SoundsGreat" = "聽起來不錯";
 "Modal.NoThanks" = "不用，謝謝";
-"Modal.NotNow" = "Not now";
+"Modal.NotNow" = "暂不";
 "Modal.RunAnyway" = "Run anyways";
 "Modal.DisableVPN" = "Disable VPN";
 "Modal.AlwaysRun" = "Always Run";
@@ -372,11 +373,15 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "需要這類資訊（例如 IT 代表義大利）以辨別網路計量是自哪個國家收集。是否要關閉此選項？";
 "Settings.Sharing.Footer" = "出版評量結果，參與者共同提高了網路干涉的透明度與對 OONI  社群的支持。\n\n辬識網路連線服務商需要有網路資訊（例如網路自治系統編號 ASN）。";
 "Settings.TestOptions.Label" = "測試選項";
+"Settings.TestOptions.Footer" = "What you configure through the above test settings (e.g. disabling the WhatsApp test) will apply to tests run manually, as well as to tests run automatically (when automated testing is enabled).";
+"Settings.TestOptions.LongRunningTest" = "Long running test";
+"Settings.TestOptions.RunLongRunningTests" = "Run long running tests in foreground?";
 "Settings.Privacy.Label" = "隱私";
 "Settings.Privacy.SendCrashReports" = "送出出錯崩潰報告";
 "Settings.Advanced.Label" = "進階的";
-"Settings.DarkMode.Label" = "Dark Mode";
+"Settings.DarkMode.Label" = "黑暗模式";
 "Settings.Advanced.DebugLogs" = "調試記錄";
+"Settings.Advanced.RecentLogs" = "See recent logs";
 "Settings.Advanced.LanguageSettings.Title" = "Language Setting";
 "Settings.Advanced.LanguageSettings.PopUp" = "選取語言";
 "Settings.Advanced.UseDomainFronting" = "皆使用域名前列";
@@ -412,6 +417,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "未輸入URL";
 "Settings.Websites.CustomURL.Run" = "執行";
 "Settings.Websites.CustomURL.Add" = "新增網站";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "Number of tested websites (0 means all)";
 "Settings.InstantMessaging.TestWhatsApp" = "測試 WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "測試 Telegram";

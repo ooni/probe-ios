@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "ตรวจสอบว่า [Psiphon](https://ooni.io/nettest/psiphon/), [Tor](https://ooni.io/nettest/tor/) และ [RiseupVPN](https://ooni.io/nettest/riseupvpn/) ถูกปิดกั้นหรือไม่\n\nผลทดสอบของคุณจะถูกเผยเเพร่บน [OONI Explorer](https://explorer.ooni.org/) เเละ [OONI API](https://api.ooni.io/)";
 "Dashboard.Experimental.Card.Description" = "เริ่มการทดสอบขั้นทดลองตัวใหม่";
 "Dashboard.Experimental.Overview.Paragraph" = "ดำเนินการทดสอบชุดใหม่ ซึ่งยังอยู่ในขั้นทดลองโดยทีมงาน OONI ดังนี้:\n%@\n\nผลทดสอบของคุณจะถูกเผยแพร่บน [OONI Explorer](https://explorer.ooni.org/) และ [OONI API](https://api.ooni.io/)";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "จิกะบิต/วิ";
 "TestResults.Mbps" = "เมกะบิต/วิ";
 "TestResults.Kbps" = "กิโลบิต/วิ";
@@ -372,11 +373,15 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "ข้อมูลนี้ (เช่น IT สำหรับอิตาลี) ต้องใช้เพื่อระบุว่าการตรวจวัดนั้นถูกเก็บมาจากประเทศใด คุณแน่ใจหรือไม่ที่จะปิดใช้ตัวเลือกนี้?";
 "Settings.Sharing.Footer" = "เมื่อเผยแพร่ผลทดสอบ คุณจะช่วยเพิ่มความเข้าใจต่อการแทรกแซงเครือข่ายและช่วยสนับสนุนชุมชน OONI\n\nข้อมูลเครือข่าย (หรือ Autonomous System Number) นั้นจำเป็นต่อการระบุผู้ให้บริการอินเทอร์เน็ต";
 "Settings.TestOptions.Label" = "ตัวเลือกการทดสอบ";
+"Settings.TestOptions.Footer" = "What you configure through the above test settings (e.g. disabling the WhatsApp test) will apply to tests run manually, as well as to tests run automatically (when automated testing is enabled).";
+"Settings.TestOptions.LongRunningTest" = "Long running test";
+"Settings.TestOptions.RunLongRunningTests" = "Run long running tests in foreground?";
 "Settings.Privacy.Label" = "ความเป็นส่วนตัว";
 "Settings.Privacy.SendCrashReports" = "ส่งรายงานการพังของแอป";
 "Settings.Advanced.Label" = "ขั้นสูง";
 "Settings.DarkMode.Label" = "โหมดมืด";
 "Settings.Advanced.DebugLogs" = "ปูมดีบัก";
+"Settings.Advanced.RecentLogs" = "See recent logs";
 "Settings.Advanced.LanguageSettings.Title" = "Language Setting";
 "Settings.Advanced.LanguageSettings.PopUp" = "Select Language";
 "Settings.Advanced.UseDomainFronting" = "ใช้การบังหน้าโดเมน (domain fronting) เสมอ";
@@ -412,6 +417,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "ไม่มีที่อยู่เว็บถูกใส่เข้ามา";
 "Settings.Websites.CustomURL.Run" = "เริ่ม";
 "Settings.Websites.CustomURL.Add" = "เพิ่มเว็บไซต์";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "จำนวนเว็บไซต์ที่ได้ทดสอบ (0 หมายถึงทั้งหมด)";
 "Settings.InstantMessaging.TestWhatsApp" = "ทดสอบ WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "ทดสอบ Telegram";

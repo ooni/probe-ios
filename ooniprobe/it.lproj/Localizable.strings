@@ -69,6 +69,7 @@
 "Dashboard.Circumvention.Overview.Paragraph" = "Controlla se [Psiphon](https://ooni.org/nettest/psiphon/), [Tor](https://ooni.org/nettest/tor/) o [RiseupVPN](https://ooni.org/nettest/riseupvpn/) sono bloccati.\n\nI tuoi risultati saranno pubblicati in [OONI Explorer](https://explorer.ooni.org/) e [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Card.Description" = "Esegui nuovi test sperimentali";
 "Dashboard.Experimental.Overview.Paragraph" = "Esegui i seguenti nuovi test sperimentali sviluppati dal team di OONI:\n%@\n\nI risultati saranno pubblicati su [OONI Explorer](https://explorer.ooni.org/) e [OONI API](https://api.ooni.io/).";
+"Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -372,11 +373,15 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Tali informazioni (es. IT per Italia) sono necessarie per determinare da quale Paese provengono le misurazioni. Sei sicuro di voler disabilitare quest'opzione?";
 "Settings.Sharing.Footer" = "Pubblicando i risultati, contribuisci alla trasparenza sulle interferenze di rete e dai supporto alla comunità di OONI.\n\nLe informazioni sulla rete (i.e. l'Autonomous System Number) sono necessarie per poter identificare i provider di servizi internet (ISP).";
 "Settings.TestOptions.Label" = "Opzioni dei test";
+"Settings.TestOptions.Footer" = "What you configure through the above test settings (e.g. disabling the WhatsApp test) will apply to tests run manually, as well as to tests run automatically (when automated testing is enabled).";
+"Settings.TestOptions.LongRunningTest" = "Long running test";
+"Settings.TestOptions.RunLongRunningTests" = "Run long running tests in foreground?";
 "Settings.Privacy.Label" = "Privacy";
 "Settings.Privacy.SendCrashReports" = "Manda rapporto sui crash";
 "Settings.Advanced.Label" = "Avanzate";
 "Settings.DarkMode.Label" = "Modo scuro";
 "Settings.Advanced.DebugLogs" = "Log di debug";
+"Settings.Advanced.RecentLogs" = "See recent logs";
 "Settings.Advanced.LanguageSettings.Title" = "Language Setting";
 "Settings.Advanced.LanguageSettings.PopUp" = "Seleziona lingua";
 "Settings.Advanced.UseDomainFronting" = "Usa sempre il domain fronting";
@@ -412,6 +417,7 @@
 "Settings.Websites.CustomURL.NoURLEntered" = "Nessun URL inserito";
 "Settings.Websites.CustomURL.Run" = "Esegui";
 "Settings.Websites.CustomURL.Add" = "Aggiungi sito web";
+"Settings.Websites.CustomURL.LoadFromTemplate" = "Load from template";
 "Settings.Websites.TestCount" = "Numero di siti web da misurare (0 significa tutti)";
 "Settings.InstantMessaging.TestWhatsApp" = "Testa WhatsApp";
 "Settings.InstantMessaging.TestTelegram" = "Testa Telegram";
