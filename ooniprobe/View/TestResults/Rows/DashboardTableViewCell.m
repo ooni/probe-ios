@@ -43,8 +43,17 @@
 -(void)setTestSuite:(AbstractSuite*)testSuite{
     [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
     [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
-    [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]] startColor:[TestUtility getGradientColorForTest:testSuite.name] endColor:[TestUtility getColorForTest:testSuite.name]]];
-    [self.cardbackgroundView setBackgroundColor:[UIColor colorNamed:@"color_gray0"]];
+    if (testSuite.getTestList.count <= 0) {
+        [self.titleLabel setTextColor:[UIColor colorNamed:@"disabled_test_text"]];
+        [self.descLabel setTextColor:[UIColor colorNamed:@"disabled_test_text"]];
+        [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]] startColor:[UIColor colorNamed:@"disabled_test_text"] endColor:[UIColor colorNamed:@"disabled_test_text"]]];
+        [self.cardbackgroundView setBackgroundColor:[UIColor colorNamed:@"disabled_test_background"]];
+    } else {
+        [self.titleLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+        [self.descLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
+        [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]] startColor:[TestUtility getGradientColorForTest:testSuite.name] endColor:[TestUtility getColorForTest:testSuite.name]]];
+        [self.cardbackgroundView setBackgroundColor:[UIColor colorNamed:@"color_gray0"]];
+    }
 }
 
 -(void)setRoundedView{
