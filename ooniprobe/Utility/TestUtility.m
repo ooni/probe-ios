@@ -41,7 +41,9 @@
     [tests addObject:[[CircumventionSuite alloc] init]];
     [tests addObject:[[PerformanceSuite alloc] init]];
     [tests addObject:[[ExperimentalSuite alloc] init]];
-    return tests;
+    return [[tests sortedArrayUsingComparator:^NSComparisonResult(AbstractSuite *a, AbstractSuite *b) {
+        return (NSComparisonResult) ((a.getTestList.count <= 0) == (b.getTestList.count >= 0));
+    }] mutableCopy];;
 }
 
 //Used by dropdown
