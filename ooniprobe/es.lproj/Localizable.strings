@@ -275,7 +275,7 @@
 "Modal.NotNow" = "Ahora no";
 "Modal.RunAnyway" = "Ejecutar de todos modos";
 "Modal.DisableVPN" = "Deshabilitar VPN";
-"Modal.AlwaysRun" = "Always Run";
+"Modal.AlwaysRun" = "Siempre corre";
 "Modal.Error.NoInternet" = "Incapaz de ejecutar la prueba. Por favor comprueba tu conectividad de Internet.";
 "Modal.Error.CantDownloadURLs" = "Incapaz de descargar la lista de URL. Por favor intenta de nuevo.";
 "Modal.Error.TestAlreadyRunning" = "Por favor espera hasta que las pruebas en ejecución terminen, antes de iniciar una nueva.";
@@ -291,7 +291,7 @@
 "Modal.DisableVPN.Title" = "Por favor deshabilita tu conexión VPN.";
 "Modal.DisableVPN.Message" = "Si ejecutas OONI Probe con una VPN habilitada, los resultados de la prueba podrían aparecer como proviniendo desde el país incorrecto. Por favor deshabilita tu conexión VPN.";
 "Modal.UploadVPNResults.Title" = "Algunas mediciones fueron tomadas sobre VPN.";
-"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
+"Modal.UploadVPNResults.Message" = "Si se suben mediciones tomadas cuando el VPN está activado, los resultados de las pruebas pueden parecer procedentes de un país equivocado.";
 "Toast.ResultsUploaded" = "Subida exitosa";
 "Modal.DisplayFailureLog" = "Mostrar registro de fallos";
 "Modal.EnableNotifications.Title" = "Obtiene actualizaciones sobre censura en Internet";
@@ -373,14 +373,15 @@
 "Settings.Sharing.IncludeCountryCode.PopUp" = "Esta información (ej., IT por Italia) es requerida para identificar desde qué país son recopiladas las mediciones. ¿Estás seguro que quieres deshabilitar esta opción?";
 "Settings.Sharing.Footer" = "Al publicar resultados, estás incrementando la transparencia de la interferencia de red y apoyando a la comunidad de OONI.\n\nCierta información de red (ej., Número de Sistema Autónomo, ASN) es requerida para identificar a Proveedores de Servicio de Internet.";
 "Settings.TestOptions.Label" = "Opciones de la prueba";
-"Settings.TestOptions.Footer" = "What you configure through the above test settings (e.g. disabling the WhatsApp test) will apply to tests run manually, as well as to tests run automatically (when automated testing is enabled).";
-"Settings.TestOptions.LongRunningTest" = "Long running test";
-"Settings.TestOptions.RunLongRunningTests" = "Run long running tests in foreground?";
+"Settings.TestOptions.Footer" = "Lo que configure a través de los ajustes de prueba anteriores (por ejemplo, desactivar la prueba de WhatsApp) se aplicará a las pruebas ejecutadas manualmente, así como a las pruebas ejecutadas automáticamente (cuando las pruebas automatizadas están activadas).\n";
+"Settings.TestOptions.LongRunningTest" = "Prueba de larga duración";
+"Settings.TestOptions.RunLongRunningTests" = " ¿Ejecutar pruebas de larga duración en primer plano?";
 "Settings.Privacy.Label" = "Privacidad";
 "Settings.Privacy.SendCrashReports" = "Enviar informes de errores";
 "Settings.Advanced.Label" = "Avanzado";
 "Settings.DarkMode.Label" = "Modo Oscuro";
 "Settings.Advanced.DebugLogs" = "Registros de depuración";
+"Settings.Advanced.RecentLogs" = "Opción A: (Traducción literal)\n\nVer registros recientes\n\nOpción B: (más apegada a la estructura de OONI):\nVer logs recientes";
 "Settings.Advanced.LanguageSettings.Title" = "Configuración de Idioma";
 "Settings.Advanced.LanguageSettings.PopUp" = "Seleccionar idioma";
 "Settings.Advanced.UseDomainFronting" = "Usar siempre Domain Fronting";

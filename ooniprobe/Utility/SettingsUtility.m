@@ -91,7 +91,6 @@
              @"IGO",
              @"LGBT",
              @"MMED",
-             @"MISC",
              @"NEWS",
              @"DATE",
              @"POLR",
