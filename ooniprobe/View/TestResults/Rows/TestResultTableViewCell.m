@@ -55,7 +55,7 @@
         [self setBackgroundColor:[UIColor clearColor]];
     
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    [self.testAsnLabel setText:[NSString stringWithFormat:@"%@ - %@", [result getAsn], [result getNetworkName]]];
+    [self.testAsnLabel setText:[NSString stringWithFormat:@"%@, %@ (%@)", [result getNetworkName],[result getCountry] , [result getAsn]]];
     [self.stackView1 setAlpha:1.0f];
     [self.stackView2 setAlpha:1.0f];
     [self.stackView3 setAlpha:1.0f];
