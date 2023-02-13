@@ -37,8 +37,40 @@
 }
 
 -(void)addShareButton{
-    if (isInExplorer)
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareExplorerUrl)];
+    UIBarButtonItem *explorerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareExplorerUrl)];
+    UIBarButtonItem *reRunButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reRunWebsites)];
+    if (isInExplorer && ([self.measurement is_anomaly] && [self.measurement.test_name isEqualToString:@"web_connectivity"])){
+        self.navigationItem.rightBarButtonItems = @[reRunButton,explorerButton];
+    }else if (isInExplorer && ![self.measurement is_anomaly]) {
+        self.navigationItem.rightBarButtonItem = explorerButton;
+    } else if ([self.measurement is_anomaly] && [self.measurement.test_name isEqualToString:@"web_connectivity"]) {
+        self.navigationItem.rightBarButtonItem = reRunButton;
+    }
+}
+
+-(void)reRunWebsites {
+    UIAlertAction* okButton = [UIAlertAction
+            actionWithTitle:NSLocalizedString(@"Modal.ReRun.Websites.Run", nil)
+                      style:UIAlertActionStyleDefault
+                    handler:^(UIAlertAction * action) {
+                        if ([[ReachabilityManager sharedManager].reachability currentReachabilityStatus] != NotReachable)
+                            [self reRunTests];
+                    }];
+    NSString *title = NSLocalizedFormatString(@"Modal.ReRun.Title",nil);
+    [MessageUtility alertWithTitle:title
+                           message:nil
+                          okButton:okButton
+                            inView:self];
+}
+
+-(void)reRunTests{
+    WebsitesSuite *testSuite = [[WebsitesSuite alloc] init];
+    NSMutableArray *urls = [NSMutableArray new];
+    [urls addObject:measurement.url_id.url];
+    if ([testSuite getTestList] > 0 && [urls count] > 0)
+        [(WebConnectivity*)[[testSuite getTestList] objectAtIndex:0] setInputs:urls];
+    [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
+    [self reloadFooter];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
