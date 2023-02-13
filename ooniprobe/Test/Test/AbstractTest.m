@@ -72,6 +72,7 @@
         self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
             [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
             self.backgroundTask = UIBackgroundTaskInvalid;
+            [self interruptTest];
         }];
         NSError *error;
         self.task = [Engine startExperimentTaskWithSettings:self.settings error:&error];
