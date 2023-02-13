@@ -98,8 +98,6 @@
     //Called in case the user disable notifications from iOS panel
     if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"notifications_enabled"];
-    if ([TestUtility canCallDeleteJson])
-        [TestUtility deleteUploadedJsons];
     [TestUtility deleteOldLogs];
     [[Harpy sharedInstance] checkVersionDaily];
 }
