@@ -154,9 +154,11 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         OoniRunViewController *rvc = (OoniRunViewController*)[nvc.viewControllers objectAtIndex:0];
         NSString *fixedURL = [url.absoluteString stringByReplacingOccurrencesOfString:@"+" withString:@"%20"];
         [rvc setUrl:[NSURL URLWithString:fixedURL]];
-        if (self.window.rootViewController.view.window != nil)
+        if (self.window.rootViewController.view.window != nil){
             //only main view controller is visible
+            [nvc setModalPresentationStyle:UIModalPresentationFullScreen];
             [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+        }
         else {
             //main view controller is not in the window hierarchy, so overlay window was presented already, reloading parameters
             [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTest" object:nil userInfo:[NSDictionary dictionaryWithObject:url forKey:@"url"]];
