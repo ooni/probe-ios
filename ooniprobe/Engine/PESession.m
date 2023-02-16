@@ -15,10 +15,6 @@
     return (r != nil) ? ([[OONIGeolocateResults alloc] initWithResults:r]) : nil;
 }
 
-- (void) maybeUpdateResources:(OONIContext*) ctx error:(NSError **)error{
-    [self.session maybeUpdateResources:ctx.ctx error:error];
-}
-
 - (OONIContext*) newContext{
     return [self newContextWithTimeout:-1];
 }
@@ -37,11 +33,6 @@
 - (OONICheckInResults*) checkIn:(OONIContext*) ctx config:(OONICheckInConfig*) config error:(NSError **)error {
     OonimkallCheckInInfo *r = [self.session checkIn:ctx.ctx config:[config toOonimkallCheckInConfig] error:error];
     return (r != nil) ? ([[OONICheckInResults alloc] initWithResults:r]) : nil;
-}
-
-- (OONIURLListResult*) fetchURLList:(OONIContext*) ctx config:(OONIURLListConfig*) config error:(NSError **)error {
-    OonimkallURLListResult *r = [self.session fetchURLList:ctx.ctx config:[config toOonimkallURLListConfig] error:(NSError * _Nullable __autoreleasing * _Nullable)error];
-    return (r != nil) ? ([[OONIURLListResult alloc] initWithResults:r]) : nil;
 }
 
 @end

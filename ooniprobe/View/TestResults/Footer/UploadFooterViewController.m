@@ -104,14 +104,6 @@
         if (error != nil) {
             return;
         }
-        // Updating resources with no timeout because we don't know for sure how much
-        // it will take to download them and choosing a timeout may prevent the operation
-        // to ever complete. (Ideally the user should be able to interrupt the process
-        // and there should be no timeout here.)
-        [session maybeUpdateResources:[session newContext] error:&error];
-        if (error != nil) {
-            return;
-        }
         while (i < [notUploaded count]){
             if (_canceled){
                 break;
