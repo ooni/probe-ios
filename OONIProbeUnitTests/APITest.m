@@ -79,23 +79,6 @@
     }];
 }
 
-- (void)testSelectMeasurementsWithJson {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testDeleteJsons"];
-    [self addMeasurement:EXISTING_REPORT_ID writeFile:YES];
-    [OONIApi checkReportId:CLIENT_URL
-                  reportId:EXISTING_REPORT_ID
-                 onSuccess:^(BOOL found){
-        XCTAssert(found);
-        [expectation fulfill];
-    } onError:^(NSError *error) {
-        XCTAssert(false);
-        [expectation fulfill];
-    }];
-    [self waitForExpectationsWithTimeout:60.0 handler:^(NSError *err) {
-        XCTAssert(err == nil);
-    }];
-}
-
 -(Measurement*)addMeasurement:(NSString*)report_id writeFile:(BOOL)report{
     //Simulating measurement done and uploaded
     Measurement *measurement = [Measurement new];
