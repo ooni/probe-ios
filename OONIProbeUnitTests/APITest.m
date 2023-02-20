@@ -67,7 +67,7 @@
 -(void)testDownloadUrls{
     //TODO test downloadUrlsCallback with custom NSData
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDownloadUrls"];
-    [OONIApi downloadUrls:^(NSArray *urls) {
+    [OONIApi checkIn:^(NSArray *urls) {
         XCTAssert(true);
         [expectation fulfill];
     } onError:^(NSError *error) {
