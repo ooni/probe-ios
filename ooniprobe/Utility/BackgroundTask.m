@@ -8,6 +8,8 @@
 #import "Tests.h"
 #import "ReachabilityManager.h"
 #import "RunningTest.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @implementation BackgroundTask
 
@@ -38,6 +40,7 @@
     [self scheduleCheckIn];
     task.expirationHandler = ^{
       NSLog(@"WARNING: expired before finish was executed.");
+      DDLogInfo(@"WARNING: expired before finish was executed.");
     };
     [self checkIn];
     [task setTaskCompletedWithSuccess:YES];
@@ -53,6 +56,7 @@
     BOOL success = [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error:&error];
     if (!success) {
         NSLog(@"Failed to submit request: %@",error);
+        DDLogError(@"Failed to submit request: %@",error);
     }
 }
 
@@ -93,6 +97,7 @@
         [(WebConnectivity*)test disableMaxRuntime];
     } onError:^(NSError *error) {
         NSLog(@"Failed call checkIn API: %@",error);
+        DDLogError(@"Failed call checkIn API: %@",error);
     }];
     [SettingsUtility incrementAutorun];
     [SettingsUtility updateAutorunDate];

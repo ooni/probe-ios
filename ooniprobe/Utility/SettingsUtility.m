@@ -25,7 +25,7 @@
     }
     else if ([categoryName isEqualToString:@"advanced"]) {
         //TODO DOMAIN FRONTING @"use_domain_fronting"
-        return @[@"AppleLanguages", @"debug_logs", @"storage_usage" , @"warn_vpn_in_use"];
+        return @[@"AppleLanguages", @"debug_logs", @"view_debug_logs", @"storage_usage" , @"warn_vpn_in_use"];
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
         return [TestUtility getTestTypes];
@@ -37,7 +37,7 @@
 }
 
 + (NSString*)getTypeForSetting:(NSString*)setting{
-    if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
+    if ([setting isEqualToString:@"website_categories"] ||[setting isEqualToString:@"view_debug_logs"] || [[TestUtility getTestTypes] containsObject:setting])
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] ||
              [setting isEqualToString:@"monthly_wifi_allowance"] ||

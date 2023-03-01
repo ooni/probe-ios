@@ -8,6 +8,8 @@
 #define delete_json_key @"deleteUploadedJsons"
 #import "RunningTest.h"
 #import "ReachabilityManager.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @implementation TestUtility
 
@@ -194,10 +196,12 @@
     BOOL success = [fileManager removeItemAtPath:filePath error:&error];
     if (success) {
         NSLog(@"File %@ deleted", fileName);
+        DDLogInfo(@"File %@ deleted", fileName);
     }
     else
     {
         NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
+        DDLogInfo(@"Could not delete file -:%@ ",[error localizedDescription]);
     }
     return success;
 }

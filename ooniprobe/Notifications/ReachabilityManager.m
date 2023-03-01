@@ -1,4 +1,6 @@
 #import "ReachabilityManager.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @implementation ReachabilityManager
 
@@ -35,6 +37,7 @@
 
 - (void)reachabilityDidChange:(NSNotification *)notification {
     NSLog(@"reachabilityDidChange %@", notification);
+    DDLogInfo(@"reachabilityDidChange %@", notification);
     //Interrupt test if network changed
     [[NSNotificationCenter defaultCenter] postNotificationName:@"interruptTest" object:nil];
 }
