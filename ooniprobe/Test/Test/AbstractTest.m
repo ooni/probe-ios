@@ -74,6 +74,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
         self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
             [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
             self.backgroundTask = UIBackgroundTaskInvalid;
+            [self interruptTest];
         }];
         NSError *error;
         self.task = [Engine startExperimentTaskWithSettings:self.settings error:&error];
@@ -170,6 +171,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
                 if (measurement != nil){
                     measurement.is_done = true;
                     [measurement save];
+                    if (measurement.is_uploaded) {
+                        [TestUtility removeFile:[measurement getReportFile]];
+                    }
                 }
             }
             else if ([event.key isEqualToString:@"status.end"]) {

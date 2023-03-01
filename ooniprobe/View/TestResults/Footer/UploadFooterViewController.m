@@ -124,6 +124,8 @@
             });
             if (![self uploadMeasurement:currentMeasurement session:session]){
                 errors++;
+            } else {
+                [TestUtility removeFile:[currentMeasurement getReportFile]];
             }
             progress += measurementValue;
             i++;
