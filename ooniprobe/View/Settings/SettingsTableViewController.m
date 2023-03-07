@@ -306,6 +306,12 @@
         if (!mySwitch.on)
             [BackgroundTask cancelCheckIn];
     }
+    else if ([current isEqualToString:@"long_running_tests_in_foreground"]){
+
+        [self.view makeToast:@"Please restart the app for apply changes."
+                    duration:10
+                    position:CSToastPositionBottom];
+    }
     else if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];
         [MessageUtility alertWithTitle:nil
