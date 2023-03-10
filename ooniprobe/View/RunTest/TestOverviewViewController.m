@@ -37,6 +37,10 @@
     [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]]];
     defaultColor = [TestUtility getBackgroundColorForTest:testSuite.name];
     [self.runButton setTitleColor:defaultColor forState:UIControlStateNormal];
+    if (testSuite.getTestList.count <= 0) {
+        self.runButton.userInteractionEnabled = NO;
+        [self.runButton setTitleColor:[UIColor colorNamed:@"color_gray3"] forState:UIControlStateNormal];
+    }
     [self.backgroundView setBackgroundColor:defaultColor];
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:defaultColor];
     self.navigationController.navigationBar.topItem.title = @"";

@@ -37,7 +37,9 @@
 }
 
 + (NSString*)getTypeForSetting:(NSString*)setting{
-    if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
+    if ([setting isEqualToString:@"experimental"] || [setting isEqualToString:@"long_running_tests_in_foreground"])
+        return @"bool";
+    else if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] ||
              [setting isEqualToString:@"monthly_wifi_allowance"] ||
@@ -152,6 +154,9 @@
         [settings addObject:@"run_http_invalid_request_line"];
         [settings addObject:@"run_http_header_field_manipulation"];
     }
+    else if ([testName isEqualToString:@"experimental_x"]) {
+        [settings addObject:@"experimental"];
+    }
     return settings;
 }
 
@@ -173,6 +178,13 @@
 
 + (BOOL)isNotificationEnabled {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:@"notifications_enabled"] boolValue];
+}
+
++ (BOOL)isExperimentalTestEnabled {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"experimental"] boolValue];
+}
++ (BOOL)isLongRunningTestsInForegroundEnabled {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"long_running_tests_in_foreground"] boolValue];
 }
 
 + (BOOL)isAutomatedTestEnabled {

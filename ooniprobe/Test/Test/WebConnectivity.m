@@ -28,11 +28,15 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRuntime" object:nil];
                 [super runTest];
             } onError:^(NSError *error) {
-                [ThirdPartyServices recordError:@"downloadUrls_error"
-                                       reason:@"downloadUrls failed due to an error"
-                                     userInfo:[error dictionary]];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
-                [super testEnded];
+                @try {
+                    // Causes Object mapper exception
+                    [ThirdPartyServices recordError:@"downloadUrls_error"
+                                             reason:@"downloadUrls failed due to an error"
+                                           userInfo:[error dictionary]];
+                } @finally {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
+                    [super testEnded];
+                }
             }];
         }
         else {

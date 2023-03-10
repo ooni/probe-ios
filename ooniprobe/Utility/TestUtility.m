@@ -28,7 +28,10 @@
     return @{@"websites": @[@"web_connectivity"],
              @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger", @"signal"],
              @"circumvention": @[@"psiphon", @"tor", @"riseupvpn"],
-             @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"]};
+             @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"],
+             @"experimental_x": @[@"experimental"],
+             @"long_running_tests_in_foreground": @[]
+    };
 }
 
 + (NSMutableArray*)getTestObjects{
@@ -38,7 +41,9 @@
     [tests addObject:[[CircumventionSuite alloc] init]];
     [tests addObject:[[PerformanceSuite alloc] init]];
     [tests addObject:[[ExperimentalSuite alloc] init]];
-    return tests;
+    return [[tests sortedArrayUsingComparator:^NSComparisonResult(AbstractSuite *a, AbstractSuite *b) {
+        return (NSComparisonResult) ((a.getTestList.count <= 0) == (b.getTestList.count >= 0));
+    }] mutableCopy];;
 }
 
 //Used by dropdown
@@ -175,7 +180,7 @@
 
 + (BOOL)canCallDeleteJson{
     NSDate *lastCalled =  (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:delete_json_key];
-    
+
     if (lastCalled == nil){
         return YES;
     }

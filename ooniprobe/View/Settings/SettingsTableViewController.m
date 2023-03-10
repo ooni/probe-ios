@@ -76,6 +76,8 @@
             return NSLocalizedString(@"Modal.EnableNotifications.Paragraph", nil);
         else if ([category isEqualToString:@"automated_testing"])
             return NSLocalizedString(@"Settings.AutomatedTesting.RunAutomatically.Footer", nil);
+      else if ([category isEqualToString:@"test_options"])
+            return NSLocalizedString(@"Settings.TestOptions.Footer", nil);
     }
     return nil;
 }
@@ -98,6 +100,9 @@
         else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         }
+        if ([[TestUtility getTestTypes] containsObject:current]){
+            cell.imageView.image = [UIImage imageNamed:current];
+        }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
         UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
@@ -119,6 +124,7 @@
         }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
+        cell.accessoryView = nil;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if ([[SettingsUtility getTypeForSetting:current] isEqualToString:@"int"]){
@@ -299,6 +305,12 @@
         //We schedule the task only on going to background
         if (!mySwitch.on)
             [BackgroundTask cancelCheckIn];
+    }
+    else if ([current isEqualToString:@"long_running_tests_in_foreground"]){
+
+        [self.view makeToast:@"Please restart the app for apply changes."
+                    duration:10
+                    position:CSToastPositionBottom];
     }
     else if (!mySwitch.on && ![self canSetSwitch]){
         [mySwitch setOn:TRUE];

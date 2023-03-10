@@ -14,9 +14,9 @@
 
 - (NSArray*)getTestList {
     if ([self.testList count] == 0){
-        if ([SettingsUtility getSettingWithName:@"run_ndt"])
+        if ([SettingsUtility getSettingWithName:@"run_ndt"]  && !self.autoRun)
             [self.testList addObject:[[NdtTest alloc] init]];
-        if ([SettingsUtility getSettingWithName:@"run_dash"])
+        if ([SettingsUtility getSettingWithName:@"run_dash"]  && !self.autoRun)
             [self.testList addObject:[[Dash alloc] init]];
         if ([SettingsUtility getSettingWithName:@"run_http_invalid_request_line"])
             [self.testList addObject:[[HttpInvalidRequestLine alloc] init]];
