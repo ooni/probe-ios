@@ -23,11 +23,11 @@
 "Onboarding.PopQuiz.2.Wrong.Paragraph" = "İnternet sansürü şeffaflığını sağlamak için tüm OONI Probe kullanıcılarının ağ verileri otomatik olarak yayınlanır (ayarlardan devre dışı bırakılmadıkça).";
 "Onboarding.AutomatedTesting.Title" = "Otomatik sınama";
 "Onboarding.AutomatedTesting.Paragraph" = "Lütfen İnternet sansürünün OONI Probe tarafından günlük olarak ölçülebilmesi için otomatik sınamayı etkinleştirin.\n\nEndişelenmeyin, pil kullanımına dikkat edeceğiz.\n\nOtomatik sınamayı istediğiniz zaman ayarlardan devre dışı bırakabilirsiniz.";
-"Onboarding.Crash.Title" = "Çökme Bildirimleri";
+"Onboarding.Crash.Title" = "Çökme bildirimleri";
 "Onboarding.Crash.Paragraph" = "OONI Probe uygulamasını iyileştirmek için, sorun çıktığında kişisel veri içermeyen anonim çökme bildirimleri almak istiyoruz.\n\nÇökme bildirimlerinin OONI geliştirme ekibine gönderilmesini ister misiniz?";
 "Onboarding.Crash.Button.Yes" = "Evet";
 "Onboarding.Crash.Button.No" = "Hayır";
-"Onboarding.DefaultSettings.Title" = "Varsayılan Ayarlar";
+"Onboarding.DefaultSettings.Title" = "Varsayılan ayarlar";
 "Onboarding.DefaultSettings.Header" = "Toplanan ve yayınlanan veriler şunlardır:";
 "Onboarding.DefaultSettings.Bullet.1" = "Ülke kodu (Örnek: Türkiye için TR)";
 "Onboarding.DefaultSettings.Bullet.2" = "Ağ bilgileri (otonom sistem numarası ile)";
@@ -38,7 +38,7 @@
 "Onboarding.DefaultSettings.Button.Change" = "Varsayılanları değiştir";
 "Dashboard.Tab.Label" = "Pano";
 "Dashboard.Card.Run" = "Çalıştır";
-"Dashboard.Overview.LastRun.Never" = "YOK";
+"Dashboard.Overview.LastRun.Never" = "Yok";
 "Dashboard.Overview.Run" = "Çalıştır";
 "Dashboard.Overview.LatestTest" = "Son sınama:";
 "Dashboard.Overview.Estimated" = "Yaklaşık:";
@@ -70,6 +70,7 @@
 "Dashboard.Experimental.Card.Description" = "Yeni deneysel sınamaları yürüt";
 "Dashboard.Experimental.Overview.Paragraph" = "OONI ekibi tarafından geliştirilmiş yeni deneysel sınamaları yürütün:\n%@\n\nSonuçlarınız [OONI Explorer](https://explorer.ooni.org/) ve [OONI API](https://api.ooni.io/) üzerinde yayınlanır.";
 "Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "Şu sınamalar yalnızca otomatik sınamanın bir parçası olarak yürütülecek:";
+"Dashboard.DisabledTests.Label" = "Devre dışı bırakılmış sınamalar";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -325,7 +326,7 @@
 "Snackbar.ResultsNotUploaded.Text" = "Yüklenmemiş";
 "Snackbar.ResultsNotUploaded.Upload" = "Yükle";
 "Snackbar.ResultsSomeNotUploaded.Text" = "Bazıları yüklenmemiş";
-"Snackbar.ResultsSomeNotUploaded.UploadAll" = "Tümünü Yyükle";
+"Snackbar.ResultsSomeNotUploaded.UploadAll" = "Tümünü yükle";
 "Test.Websites.Fullname" = "Web siteleri";
 "Test.InstantMessaging.Fullname" = "Anlık ileti";
 "Test.Middleboxes.Fullname" = "Ara kutular";
@@ -361,7 +362,7 @@
 "Settings.AutomatedTesting.RunAutomatically.Number" = "Otomatik sınama sayısı: %@.";
 "Settings.AutomatedTesting.RunAutomatically.DateLast" = "Son otomatik sınama: %@.";
 "Settings.AutomatedTesting.RunAutomatically.WiFiOnly" = "Yanlız Wi-Fi kullanılırken";
-"Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Yalnız şarj edilirken";
+"Settings.AutomatedTesting.RunAutomatically.ChargingOnly" = "Yalnızca şarj edilirken";
 "Settings.AutomatedTesting.RunAutomatically.Footer" = "Otomatik sınama etkinleştirildiğinde, OONI Prob sınamaları günde birkaç kez otomatik olarak çalışır. Sınama sonuçlarınız otomatik olarak OONI Explorer üzerinde yayınlanır: https://explorer.ooni.org/\n\nÖnemli: Etkinleştirilmiş bir VPN bağlantınız varsa, OONI Probe sınamaları otomatik olarak çalıştırmaz. Otomatik OONI Probe sınaması için lütfen VPN bağlantınızı kapatın. Ayrıntılı bilgi alın: https://ooni.org/support/faq/#can-i-run-ooni-probe-over-a-vpn";
 "Settings.Sharing.Label" = "Paylaşım";
 "Settings.Sharing.UploadResults" = "Sonuçlar otomatik olarak yayınlansın";
