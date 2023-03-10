@@ -15,7 +15,7 @@
         self.softwareVersion = softwareVersion;
         self.webConnectivity = [[OonimkallCheckInConfigWebConnectivity alloc] init];
         for (NSString* category in categories) {
-            [self.webConnectivity add:category];
+            [self.webConnectivity addCategory:category];
         }
     }
     return self;

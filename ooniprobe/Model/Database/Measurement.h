@@ -43,5 +43,4 @@
 -(void)setReRun;
 -(void)deleteObject;
 -(void)getExplorerUrl:(void (^)(NSDictionary*))successcb onError:(void (^)(NSError*))errorcb;
--(void)checkPublished:(void (^)(BOOL))successcb onError:(void (^)(NSError*))errorcb;
 @end

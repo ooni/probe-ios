@@ -99,11 +99,6 @@
 
 -(void)save{
     [self commit];
-    /*
-    NSLog(@"---- START LOGGING MEASUREMENT OBJECT----");
-    NSLog(@"%@", self);
-    NSLog(@"---- END LOGGING MEASUREMENT OBJECT----");
-     */
 }
 
 -(void)setReRun{
@@ -124,12 +119,6 @@
                     withUrl:((self.url_id != nil) ? self.url_id.url : nil)
                   onSuccess:successcb
                     onError:errorcb];
-}
-
--(void)checkPublished:(void (^)(BOOL))successcb onError:(void (^)(NSError*))errorcb{
-    [OONIApi checkReportId:self.report_id
-                 onSuccess:successcb
-                   onError:errorcb];
 }
 
 @end

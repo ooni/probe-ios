@@ -67,7 +67,7 @@
 -(void)testDownloadUrls{
     //TODO test downloadUrlsCallback with custom NSData
     XCTestExpectation *expectation = [self expectationWithDescription:@"testDownloadUrls"];
-    [OONIApi downloadUrls:^(NSArray *urls) {
+    [OONIApi checkIn:^(NSArray *urls) {
         XCTAssert(true);
         [expectation fulfill];
     } onError:^(NSError *error) {
@@ -75,23 +75,6 @@
         [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err) {
-        XCTAssert(err == nil);
-    }];
-}
-
-- (void)testSelectMeasurementsWithJson {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testDeleteJsons"];
-    [self addMeasurement:EXISTING_REPORT_ID writeFile:YES];
-    [OONIApi checkReportId:CLIENT_URL
-                  reportId:EXISTING_REPORT_ID
-                 onSuccess:^(BOOL found){
-        XCTAssert(found);
-        [expectation fulfill];
-    } onError:^(NSError *error) {
-        XCTAssert(false);
-        [expectation fulfill];
-    }];
-    [self waitForExpectationsWithTimeout:60.0 handler:^(NSError *err) {
         XCTAssert(err == nil);
     }];
 }

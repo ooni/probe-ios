@@ -4,8 +4,6 @@
 #import "OONISubmitResults.h"
 #import "OONICheckInResults.h"
 #import "OONICheckInConfig.h"
-#import "OONIURLListConfig.h"
-#import "OONIURLListResult.h"
 
 /**
  * OONISession contains shared state for running experiments and/or other
@@ -16,9 +14,6 @@
 @protocol OONISession
 /** geolocate returns the probe geolocation. */
 - (OONIGeolocateResults*) geolocate:(OONIContext*) ctx error:(NSError **)error;
-
-/** maybeUpdateResources updates resources if needed. */
-- (void) maybeUpdateResources:(OONIContext*) ctx error:(NSError **)error;
 
 /** newContext creates a new OONIContext instance. */
 - (OONIContext*) newContext;
@@ -38,8 +33,5 @@
  * Returns the list of tests to run and the URLs, on success, or an explanatory error, in case of failure.
  */
 - (OONICheckInResults*) checkIn:(OONIContext*) ctx config:(OONICheckInConfig*) config error:(NSError **)error;
-
-/** fetchURLList fetches the list of URLs to test */
-- (OONIURLListResult*) fetchURLList:(OONIContext*) ctx config:(OONIURLListConfig*) config error:(NSError **)error;
 
 @end

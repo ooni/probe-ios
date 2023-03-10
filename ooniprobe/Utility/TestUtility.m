@@ -154,12 +154,7 @@
 
 + (void)deleteUploadedJsons{
     for (NSString *report_id in [Measurement getReportsUploaded]) {
-        [OONIApi checkReportId:report_id onSuccess:^(BOOL found){
-            if (found)
-                [self deleteMeasurementWithReportId:report_id];
-        } onError:^(NSError *error) {
-            /* NOTHING */
-        }];
+        [self deleteMeasurementWithReportId:report_id];
     }
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:delete_json_key];
     [[NSUserDefaults standardUserDefaults] synchronize];

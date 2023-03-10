@@ -21,7 +21,8 @@
         if (self.inputs == nil || [self.inputs count] == 0){
             [super testStarted];
             //Download urls and then alloc class
-            [OONIApi downloadUrls:^(NSArray *urls) {
+            // TODO(aanorbel): please double check how I adapted this code
+            [OONIApi checkIn:^(NSArray *urls) {
                 [self setUrls:urls];
                 [self setDefaultMaxRuntime];
                 self.isPreparing = false;

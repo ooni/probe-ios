@@ -25,13 +25,9 @@
     [self reloadFooter];
     isInExplorer = ![self.measurement hasReportFile];
     if ([self.measurement hasReportFile]){
-        [self.measurement checkPublished:^(BOOL found){
-            isInExplorer = found;
-            if (found && self.measurement.report_id != NULL)
-                [TestUtility deleteMeasurementWithReportId:self.measurement.report_id];
-        } onError:^(NSError *error) {
-            isInExplorer = FALSE;
-        }];
+        isInExplorer = YES;
+        if (self.measurement.report_id != NULL)
+            [TestUtility deleteMeasurementWithReportId:self.measurement.report_id];
     }
     [self addShareButton];
 }
