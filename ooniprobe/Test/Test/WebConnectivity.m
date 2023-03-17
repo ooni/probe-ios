@@ -20,8 +20,7 @@
     dispatch_async(self.serialQueue, ^{
         if (self.inputs == nil || [self.inputs count] == 0){
             [super testStarted];
-            //Download urls and then alloc class
-            // TODO(aanorbel): please double check how I adapted this code
+            // Download URLs and then alloc class
             [OONIApi checkIn:^(NSArray *urls) {
                 [self setUrls:urls];
                 [self setDefaultMaxRuntime];

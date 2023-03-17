@@ -24,8 +24,10 @@
                                                                 softwareVersion:[VersionUtility get_software_version]
                                                                      categories:[SettingsUtility getSitesCategoriesEnabled]];
     // TODO(aanorbel): here we need to configure whether we're running
-    // using battery power and whether we're on WiFi.
+    // using battery power, whether we're on WiFi, and the runType.
     OONICheckInResults *result = [session checkIn:ooniContext config:config error:&error];
+    // TODO(bassosimone, aanorbel): we should not call a callback given
+    // that the above call is a synchronous function call.
     [self checkInCallback:result error:error
                             onSuccess:successcb onError:errorcb];
 }
@@ -39,7 +41,11 @@
         return;
     }
     NSMutableArray *urls = [[NSMutableArray alloc] init];
-    for (OONIURLInfo* current in result.webConnectivity.urls){
+    for (OONIURLInfo* current in result.webConnectivity.urls) {
+        // TODO(aanorbel): here we should reinstate previous code that
+        // we used to run when invoking the URL lists API.
+        //
+        // See https://github.com/ooni/probe-ios/pull/510/files#diff-778171c3ece2309e94151a02eca6a0c7e42070d7bdaf691618f8806f52baefeeL72
         [urls addObject:current.url];
     }
     if ([urls count] == 0){

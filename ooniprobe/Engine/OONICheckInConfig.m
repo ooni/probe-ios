@@ -7,9 +7,12 @@
                  categories:(NSArray*)categories {
     self = [super init];
     if (self) {
+        // TODO(aanorbel): we should avoid always setting charging
+        // to true and onWiFi to true
         self.charging = true;
         self.onWiFi = true;
         self.platform = @"iOS";
+        // TODO(aanorbel): we should avoid always setting runType to timed
         self.runType = @"timed";
         self.softwareName = softwareName;
         self.softwareVersion = softwareVersion;
