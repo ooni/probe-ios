@@ -40,7 +40,14 @@
     }
     NSMutableArray *urls = [[NSMutableArray alloc] init];
     for (OONIURLInfo* current in result.webConnectivity.urls){
-        [urls addObject:current.url];
+        //List for database
+        Url *url = [Url
+                checkExistingUrl:current.url
+                    categoryCode:current.category_code
+                     countryCode:current.country_code];
+        //List for mk
+        if (url != nil)
+            [urls addObject:url.url];
     }
     if ([urls count] == 0){
         errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
