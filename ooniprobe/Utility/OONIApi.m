@@ -41,12 +41,15 @@
         return;
     }
     NSMutableArray *urls = [[NSMutableArray alloc] init];
-    for (OONIURLInfo* current in result.webConnectivity.urls) {
-        // TODO(aanorbel): here we should reinstate previous code that
-        // we used to run when invoking the URL lists API.
-        //
-        // See https://github.com/ooni/probe-ios/pull/510/files#diff-778171c3ece2309e94151a02eca6a0c7e42070d7bdaf691618f8806f52baefeeL72
-        [urls addObject:current.url];
+    for (OONIURLInfo* current in result.webConnectivity.urls){
+        //List for database
+        Url *url = [Url
+                checkExistingUrl:current.url
+                    categoryCode:current.category_code
+                     countryCode:current.country_code];
+        //List for mk
+        if (url != nil)
+            [urls addObject:url.url];
     }
     if ([urls count] == 0){
         errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
