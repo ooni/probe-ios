@@ -4,13 +4,13 @@
 
 - (id) initWithSoftwareName:(NSString*)softwareName
             softwareVersion:(NSString*)softwareVersion
-                 categories:(NSArray*)categories {
+                 categories:(NSArray*)categories
+                   charging:(BOOL)charging
+                     onWifi:(BOOL)onWifi {
     self = [super init];
     if (self) {
-        // TODO(aanorbel): we should avoid always setting charging
-        // to true and onWiFi to true
-        self.charging = true;
-        self.onWiFi = true;
+        self.charging = charging;
+        self.onWiFi = onWifi;
         self.platform = @"iOS";
         // TODO(aanorbel): we should avoid always setting runType to timed
         self.runType = @"timed";

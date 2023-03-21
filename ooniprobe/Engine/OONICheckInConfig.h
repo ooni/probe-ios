@@ -29,7 +29,9 @@
 
 - (id) initWithSoftwareName:(NSString*)softwareName
             softwareVersion:(NSString*)softwareVersion
-                 categories:(NSArray*)categories;
+                 categories:(NSArray*)categories
+                   charging:(BOOL)charging
+                     onWifi:(BOOL)onWifi ;
 
 - (OonimkallCheckInConfig*) toOonimkallCheckInConfig;
 

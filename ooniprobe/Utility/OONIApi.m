@@ -24,10 +24,10 @@
     OONIContext *ooniContext = [session newContextWithTimeout:30];
     OONICheckInConfig *config = [[OONICheckInConfig alloc] initWithSoftwareName:SOFTWARE_NAME
                                                                 softwareVersion:[VersionUtility get_software_version]
-                                                                     categories:[SettingsUtility getSitesCategoriesEnabled]];
+                                                                     categories:[SettingsUtility getSitesCategoriesEnabled]
+                                                                       charging:[[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging
+                                                                         onWifi:[[ReachabilityManager sharedManager] isWifi]];
 
-    config.charging = [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging;
-    config.onWiFi = [[ReachabilityManager sharedManager] isWifi];
     OONICheckInResults *result = [session checkIn:ooniContext config:config error:&error];
 
     if (error != nil) {
