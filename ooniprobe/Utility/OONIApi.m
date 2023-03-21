@@ -4,6 +4,8 @@
 #import "NetworkSession.h"
 #import "Url.h"
 #import "VersionUtility.h"
+#import "ReachabilityManager.h"
+
 #define OONI_API_BASE_URL @"api.ooni.io"
 
 @implementation OONIApi
@@ -23,8 +25,9 @@
     OONICheckInConfig *config = [[OONICheckInConfig alloc] initWithSoftwareName:SOFTWARE_NAME
                                                                 softwareVersion:[VersionUtility get_software_version]
                                                                      categories:[SettingsUtility getSitesCategoriesEnabled]];
-    // TODO(aanorbel): here we need to configure whether we're running
-    // using battery power, whether we're on WiFi, and the runType.
+
+    config.charging = [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging;
+    config.onWiFi = [[ReachabilityManager sharedManager] isWifi];
     OONICheckInResults *result = [session checkIn:ooniContext config:config error:&error];
     // TODO(bassosimone, aanorbel): we should not call a callback given
     // that the above call is a synchronous function call.
