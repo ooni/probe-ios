@@ -29,16 +29,7 @@
     config.charging = [[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging;
     config.onWiFi = [[ReachabilityManager sharedManager] isWifi];
     OONICheckInResults *result = [session checkIn:ooniContext config:config error:&error];
-    // TODO(bassosimone, aanorbel): we should not call a callback given
-    // that the above call is a synchronous function call.
-    [self checkInCallback:result error:error
-                            onSuccess:successcb onError:errorcb];
-}
 
-+ (void)checkInCallback:(OONICheckInResults *)result
-                    error:(NSError *)error
-                    onSuccess:(void (^)(NSArray*))successcb
-                    onError:(void (^)(NSError*))errorcb {
     if (error != nil) {
         errorcb(error);
         return;
