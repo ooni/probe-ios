@@ -6,14 +6,14 @@
             softwareVersion:(NSString*)softwareVersion
                  categories:(NSArray*)categories
                    charging:(BOOL)charging
-                     onWifi:(BOOL)onWifi {
+                     onWifi:(BOOL)onWifi
+                    runType:(NSString*)runType {
     self = [super init];
     if (self) {
         self.charging = charging;
         self.onWiFi = onWifi;
         self.platform = @"iOS";
-        // TODO(aanorbel): we should avoid always setting runType to timed
-        self.runType = @"timed";
+        self.runType = runType;
         self.softwareName = softwareName;
         self.softwareVersion = softwareVersion;
         self.webConnectivity = [[OonimkallCheckInConfigWebConnectivity alloc] init];

@@ -31,7 +31,8 @@
             softwareVersion:(NSString*)softwareVersion
                  categories:(NSArray*)categories
                    charging:(BOOL)charging
-                     onWifi:(BOOL)onWifi ;
+                     onWifi:(BOOL)onWifi
+                    runType:(NSString*)runType;
 
 - (OonimkallCheckInConfig*) toOonimkallCheckInConfig;
 

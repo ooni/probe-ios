@@ -85,7 +85,7 @@
     [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
     [tests addObject:testSuite];
 
-    [OONIApi checkIn:^(NSArray *urls) {
+    [OONIApi checkIn:@"timed" onSuccess:^(NSArray *urls) {
         if ([urls count] == 0)
             return;
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)

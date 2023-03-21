@@ -10,7 +10,7 @@
 
 @implementation OONIApi
 
-+ (void)checkIn:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
++ (void)checkIn:(NSString*)runType onSuccess: (void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
     //Download urls and then alloc class
     NSError *error;
     PESession* session = [[PESession alloc] initWithConfig:
@@ -26,7 +26,8 @@
                                                                 softwareVersion:[VersionUtility get_software_version]
                                                                      categories:[SettingsUtility getSitesCategoriesEnabled]
                                                                        charging:[[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging
-                                                                         onWifi:[[ReachabilityManager sharedManager] isWifi]];
+                                                                         onWifi:[[ReachabilityManager sharedManager] isWifi]
+                                                                        runType:runType];
 
     OONICheckInResults *result = [session checkIn:ooniContext config:config error:&error];
 
