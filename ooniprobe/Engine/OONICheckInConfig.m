@@ -4,13 +4,16 @@
 
 - (id) initWithSoftwareName:(NSString*)softwareName
             softwareVersion:(NSString*)softwareVersion
-                 categories:(NSArray*)categories {
+                 categories:(NSArray*)categories
+                   charging:(BOOL)charging
+                     onWifi:(BOOL)onWifi
+                    runType:(NSString*)runType {
     self = [super init];
     if (self) {
-        self.charging = true;
-        self.onWiFi = true;
+        self.charging = charging;
+        self.onWiFi = onWifi;
         self.platform = @"iOS";
-        self.runType = @"timed";
+        self.runType = runType;
         self.softwareName = softwareName;
         self.softwareVersion = softwareVersion;
         self.webConnectivity = [[OonimkallCheckInConfigWebConnectivity alloc] init];

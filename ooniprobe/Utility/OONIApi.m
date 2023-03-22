@@ -4,11 +4,13 @@
 #import "NetworkSession.h"
 #import "Url.h"
 #import "VersionUtility.h"
+#import "ReachabilityManager.h"
+
 #define OONI_API_BASE_URL @"api.ooni.io"
 
 @implementation OONIApi
 
-+ (void)checkIn:(void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
++ (void)checkIn:(NSString*)runType onSuccess: (void (^)(NSArray*))successcb onError:(void (^)(NSError*))errorcb {
     //Download urls and then alloc class
     NSError *error;
     PESession* session = [[PESession alloc] initWithConfig:
@@ -22,25 +24,27 @@
     OONIContext *ooniContext = [session newContextWithTimeout:30];
     OONICheckInConfig *config = [[OONICheckInConfig alloc] initWithSoftwareName:SOFTWARE_NAME
                                                                 softwareVersion:[VersionUtility get_software_version]
-                                                                     categories:[SettingsUtility getSitesCategoriesEnabled]];
-    // TODO(aanorbel): here we need to configure whether we're running
-    // using battery power and whether we're on WiFi.
-    OONICheckInResults *result = [session checkIn:ooniContext config:config error:&error];
-    [self checkInCallback:result error:error
-                            onSuccess:successcb onError:errorcb];
-}
+                                                                     categories:[SettingsUtility getSitesCategoriesEnabled]
+                                                                       charging:[[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateCharging
+                                                                         onWifi:[[ReachabilityManager sharedManager] isWifi]
+                                                                        runType:runType];
 
-+ (void)checkInCallback:(OONICheckInResults *)result
-                    error:(NSError *)error
-                    onSuccess:(void (^)(NSArray*))successcb
-                    onError:(void (^)(NSError*))errorcb {
+    OONICheckInResults *result = [session checkIn:ooniContext config:config error:&error];
+
     if (error != nil) {
         errorcb(error);
         return;
     }
     NSMutableArray *urls = [[NSMutableArray alloc] init];
     for (OONIURLInfo* current in result.webConnectivity.urls){
-        [urls addObject:current.url];
+        //List for database
+        Url *url = [Url
+                checkExistingUrl:current.url
+                    categoryCode:current.category_code
+                     countryCode:current.country_code];
+        //List for mk
+        if (url != nil)
+            [urls addObject:url.url];
     }
     if ([urls count] == 0){
         errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
