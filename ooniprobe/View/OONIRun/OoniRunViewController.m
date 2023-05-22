@@ -17,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[UIColor colorNamed:@"color_gray2"]];
+    [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[UIColor colorNamed:@"color_gray2_1"]];
+    self.view.backgroundColor=[UIColor colorNamed:@"color_gray2_1"];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
 
