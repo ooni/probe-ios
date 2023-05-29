@@ -78,8 +78,7 @@
         //We don't want to show -1 seconds before downloading the URL list
         if (self.totalRuntime <= [MAX_RUNTIME_DISABLED intValue])
             return;
-        NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%d", self.totalRuntime]);
-        [self.timeLabel setText:time];
+        [self.timeLabel setText:[NSString stringWithFormat:@"%dm %ds", self.totalRuntime/60, self.totalRuntime%60]];
     });
 }
 
@@ -142,8 +141,7 @@
 
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.progressBar setProgress:progress animated:YES];
-            NSString *time = NSLocalizedFormatString(@"Dashboard.Running.Seconds", [NSString stringWithFormat:@"%ld", eta]);
-            [self.timeLabel setText:time];
+            [self.timeLabel setText:[NSString stringWithFormat:@"%ldm %lds", eta/60, eta%60]];
 
         });
     }
