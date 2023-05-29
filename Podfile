@@ -23,3 +23,13 @@ target 'OONIProbeUnitTests' do
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
     pod 'OCMapper', '2.0'
 end
+
+post_install do |installer|
+    installer.generated_projects.each do |project|
+        project.targets.each do |target|
+            target.build_configurations.each do |config|
+                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+            end
+        end
+    end
+end
