@@ -7,7 +7,10 @@
     NSDictionary *stringDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     if ([stringDict objectForKey:testName])
         return NSLocalizedString([stringDict objectForKey:testName], nil);
-    return NSLocalizedString(@"TestResults.Overview.Hero.Tests", nil);
+    else if (testName == nil)
+        return NSLocalizedString(@"TestResults.Overview.Hero.Tests", nil);
+    else
+        return testName;
 }
 
 + (NSString*)getFilterNameForTest:(NSString*)testName {
