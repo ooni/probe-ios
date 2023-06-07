@@ -7,12 +7,13 @@
 #import "ReachabilityManager.h"
 #import "RHMarkdownLabel.h"
 #import "Suite.h"
+#import "TestDescriptor.h"
 
 @interface TestOverviewViewController : UIViewController {
     UIColor *defaultColor;
 }
 
-@property (nonatomic, strong) AbstractSuite *testSuite;
+@property (nonatomic, strong) TestDescriptor *testSuite;
 
 @property (strong, nonatomic) IBOutlet UIImageView *testImage;
 @property (strong, nonatomic) IBOutlet UILabel *testNameLabel;

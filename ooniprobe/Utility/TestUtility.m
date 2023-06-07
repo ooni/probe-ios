@@ -8,6 +8,7 @@
 #define delete_json_key @"deleteUploadedJsons"
 #import "RunningTest.h"
 #import "ReachabilityManager.h"
+#import "TestDescriptor.h"
 
 @implementation TestUtility
 
@@ -44,6 +45,46 @@
     return [[tests sortedArrayUsingComparator:^NSComparisonResult(AbstractSuite *a, AbstractSuite *b) {
         return (NSComparisonResult) ((a.getTestList.count <= 0) == (b.getTestList.count >= 0));
     }] mutableCopy];;
+}
+
++ (NSMutableArray*)getRunDescriptors{
+    NSMutableArray *tests = [[NSMutableArray alloc] init];
+
+    TestDescriptor *webConnectivity = [[TestDescriptor alloc] init];
+    webConnectivity.name = NSLocalizedString(@"Test.Websites.Fullname", nil);
+    webConnectivity.short_description = NSLocalizedString(@"Dashboard.Websites.Card.Description", nil);
+    webConnectivity.full_description = NSLocalizedString(@"Dashboard.Websites.Overview.Paragraph", nil);
+    webConnectivity.icon = @"websites";
+    [tests addObject:webConnectivity];
+
+    TestDescriptor *performance = [[TestDescriptor alloc] init];
+    performance.name = NSLocalizedString(@"Test.Performance.Fullname", nil);
+    performance.short_description = NSLocalizedString(@"Dashboard.Performance.Card.Description", nil);
+    performance.full_description = NSLocalizedString(@"Dashboard.Performance.Overview.Paragraph", nil);
+    performance.icon = @"performance";
+    [tests addObject:performance];
+
+    TestDescriptor *instantMessaging = [[TestDescriptor alloc] init];
+    instantMessaging.name = NSLocalizedString(@"Test.InstantMessaging.Fullname", nil);
+    instantMessaging.short_description = NSLocalizedString(@"Dashboard.InstantMessaging.Card.Description", nil);
+    instantMessaging.full_description = NSLocalizedString(@"Dashboard.InstantMessaging.Overview.Paragraph", nil);
+    instantMessaging.icon = @"instant_messaging";
+    [tests addObject:instantMessaging];
+
+    TestDescriptor *circumvention = [[TestDescriptor alloc] init];
+    circumvention.name = NSLocalizedString(@"Test.Circumvention.Fullname", nil);
+    circumvention.short_description = NSLocalizedString(@"Dashboard.Circumvention.Card.Description", nil);
+    circumvention.full_description = NSLocalizedString(@"Dashboard.Circumvention.Overview.Paragraph", nil);
+    circumvention.icon = @"circumvention";
+    [tests addObject:circumvention];
+
+    TestDescriptor *experimental = [[TestDescriptor alloc] init];
+    experimental.name = NSLocalizedString(@"Test.Experimental.Fullname", nil);
+    experimental.short_description = NSLocalizedString(@"Dashboard.Experimental.Card.Description", nil);
+    experimental.full_description = NSLocalizedString(@"Dashboard.Experimental.Overview.Paragraph", nil);
+    experimental.icon = @"experimental";
+    [tests addObject:experimental];
+    return tests;
 }
 
 //Used by dropdown

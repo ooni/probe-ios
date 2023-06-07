@@ -15,8 +15,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingsChanged) name:@"settingsChanged" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeConstraints) name:@"networkTestEndedUI" object:nil];
 
-    [self.testNameLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
-    NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:testSuite.name];
+    [self.testNameLabel setText:testSuite.name];
+    NSString *testLongDesc = testSuite.full_description;
     [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
     [self.testDescriptionLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     NSMutableDictionary *linkAttributes = [NSMutableDictionary dictionary];
@@ -28,16 +28,16 @@
         [[UIApplication sharedApplication] openURL:url];
     }];
     [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Run", nil)] forState:UIControlStateNormal];
-    if ([testSuite.name isEqualToString:@"websites"])
+    if ([testSuite.icon isEqualToString:@"websites"])
         [self.websitesButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.ChooseWebsites", nil)] forState:UIControlStateNormal];
     else
         [self.websitesButton setHidden:YES];
 
     [self reloadLastMeasurement];
-    [self.testImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]]];
-    defaultColor = [TestUtility getBackgroundColorForTest:testSuite.name];
+    [self.testImage setImage:[UIImage imageNamed:testSuite.icon]];
+    defaultColor = [TestUtility getBackgroundColorForTest:testSuite.icon];
     [self.runButton setTitleColor:defaultColor forState:UIControlStateNormal];
-    if (testSuite.getTestList.count <= 0) {
+    if (!testSuite.enabled) {
         self.runButton.userInteractionEnabled = NO;
         [self.runButton setTitleColor:[UIColor colorNamed:@"color_gray3"] forState:UIControlStateNormal];
     }
@@ -72,14 +72,14 @@
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.estimatedLabel setText:NSLocalizedString(@"Dashboard.Overview.Estimated", nil)];
-        [self.estimatedDetailLabel setText:
+        /*[self.estimatedDetailLabel setText:
          [NSString stringWithFormat:@"%@ %@",
           testSuite.dataUsage,
-          [LocalizationUtility getReadableRuntime:[testSuite getRuntime]]]];
+          [LocalizationUtility getReadableRuntime:[testSuite getRuntime]]]];*/
         [self.lastrunLabel setText:NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)];
         
         NSString *ago;
-        SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"test_group_name = '%@'", testSuite.name]] orderByDescending:@"start_time"] fetch];
+        SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"test_group_name = '%@'", testSuite.icon]] orderByDescending:@"start_time"] fetch];
         if ([results count] > 0){
             ago = [[[results objectAtIndex:0] start_time] timeAgoSinceNow];
         }
@@ -90,8 +90,8 @@
 }
 
 -(void)settingsChanged{
-    [testSuite.testList removeAllObjects];
-    [testSuite getTestList];
+    // [testSuite.testList removeAllObjects];
+    // [testSuite getTestList];
     [self reloadLastMeasurement];
 }
 

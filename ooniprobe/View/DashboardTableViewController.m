@@ -3,6 +3,7 @@
 #import "ThirdPartyServices.h"
 #import "Suite.h"
 #import "RunningTest.h"
+#import "TestDescriptor.h"
 
 @interface DashboardTableViewController ()
 
@@ -88,7 +89,7 @@
 }
 
 -(void)loadTests{
-    items = [TestUtility getTestObjects];
+    items = [TestUtility getRunDescriptors];
     [self.tableView reloadData];
 }
 
@@ -120,7 +121,7 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DashboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    AbstractSuite *test = [items objectAtIndex:indexPath.row];
+    TestDescriptor *test = [items objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[DashboardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
@@ -136,7 +137,7 @@
         [TestUtility checkTestRunning:self]){
         UITableViewCell* cell = (UITableViewCell*)[[[sender superview] superview] superview];
         NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
-        AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
+        TestDescriptor *testSuite = [items objectAtIndex:indexPath.row];
         [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
         [self reloadConstraints];
     }
@@ -154,7 +155,7 @@
     if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         TestOverviewViewController *vc = (TestOverviewViewController * )segue.destinationViewController;
-        AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
+        TestDescriptor *testSuite = [items objectAtIndex:indexPath.row];
         [vc setTestSuite:testSuite];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }    
