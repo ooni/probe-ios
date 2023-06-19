@@ -78,7 +78,7 @@
         //We don't want to show -1 seconds before downloading the URL list
         if (self.totalRuntime <= [MAX_RUNTIME_DISABLED intValue])
             return;
-        [self.timeLabel setText:[NSString stringWithFormat:@"%dm %ds", self.totalRuntime/60, self.totalRuntime%60]];
+        [self.timeLabel setText:[NSString stringWithFormat:@"%ldm %lds", self.totalRuntime/60, self.totalRuntime%60]];
     });
 }
 
