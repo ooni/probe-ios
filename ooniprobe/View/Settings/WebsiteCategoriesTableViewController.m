@@ -62,5 +62,22 @@
     NSString *current = [categories objectAtIndex:indexPath.row];
     categories_disabled = [SettingsUtility addRemoveSitesCategory:current];
 }
+- (IBAction)showListActions:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Options"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Modal.Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancel];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Settings.Websites.Categories.Selection.All", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
+        [SettingsUtility updateAllWebsiteCategories:true];
+        [self.navigationController popViewControllerAnimated:YES];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Settings.Websites.Categories.Selection.None", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
+        [SettingsUtility updateAllWebsiteCategories:false];
+        [self.navigationController popViewControllerAnimated:YES];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 @end

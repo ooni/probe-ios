@@ -129,6 +129,14 @@
     return categories_disabled;
 }
 
++ (void) updateAllWebsiteCategories:(BOOL) enableAll {
+    if (enableAll)
+        [[NSUserDefaults standardUserDefaults] setObject:[[NSMutableArray alloc] init] forKey:@"categories_disabled"];
+    else
+        [[NSUserDefaults standardUserDefaults] setObject:[self getSitesCategories] forKey:@"categories_disabled"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 + (NSArray*)getSettingsForTest:(NSString*)testName :(BOOL)includeAll{
     NSMutableArray *settings = [[NSMutableArray alloc] init];
     if ([testName isEqualToString:@"websites"]) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +22,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="settings_categories" id="niC-0T-rEj" customClass="SettingsCategoriesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="JnL-kh-4ft">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -70,7 +70,7 @@
             <objects>
                 <navigationController storyboardIdentifier="settings_nav" id="yY3-Mv-07H" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EXC-vy-P2m">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="color_blue5"/>
@@ -91,7 +91,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="settings" hidesBottomBarWhenPushed="YES" id="FL9-zG-Wm0" customClass="SettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="Dy1-hT-LWV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -169,7 +169,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="site_categories" id="FSd-Zs-3Da" customClass="WebsiteCategoriesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="aDi-MB-5MH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -205,7 +205,13 @@
                             <outlet property="delegate" destination="FSd-Zs-3Da" id="6ie-wq-VnL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Categories" id="Ymv-rA-e0O"/>
+                    <navigationItem key="navigationItem" title="Categories" id="Ymv-rA-e0O">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="advanced" id="WZG-tJ-VZi">
+                            <connections>
+                                <action selector="showListActions:" destination="FSd-Zs-3Da" id="9aR-87-RMz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFu-uW-ipx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,11 +362,11 @@
                         <viewControllerLayoutGuide type="bottom" id="HIX-ry-9k4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DhG-za-ka8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3N7-0b-kY4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-C4-Iuo" userLabel="contentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="540"/>
@@ -584,7 +590,7 @@ measurement-kit: x.y.z</string>
             <objects>
                 <tableViewController storyboardIdentifier="proxy" hidesBottomBarWhenPushed="YES" id="vV8-ik-8Nv" userLabel="Proxy" customClass="ProxyViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="BBL-7t-7mf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -658,6 +664,7 @@ measurement-kit: x.y.z</string>
         </scene>
     </scenes>
     <resources>
+        <image name="advanced" width="30" height="30"/>
         <image name="minus_circle" width="18" height="18"/>
         <image name="ooni_logo" width="184" height="52"/>
         <image name="tab_settings" width="23" height="23"/>

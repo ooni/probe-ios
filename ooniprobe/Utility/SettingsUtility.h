@@ -18,6 +18,8 @@
 + (NSArray*)addRemoveSitesCategory:(NSString*)categoryName;
 + (long)getNumberCategoriesEnabled;
 
++ (void) updateAllWebsiteCategories: (BOOL) enable;
+
 + (NSArray*)getSettingsForTest:(NSString*)testName :(BOOL)includeAll;
 
 + (BOOL)getSettingWithName:(NSString*)settingName;
