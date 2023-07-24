@@ -17,4 +17,4 @@ jobs:
           xcodebuild clean build test -workspace ooniprobe.xcworkspace -sdk iphonesimulator \
             -scheme ooniprobe -destination 'name=iPhone 14' | xcpretty
         env:
--          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
