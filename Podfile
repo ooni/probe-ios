@@ -3,7 +3,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'ooniprobe' do
-    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.17.5/oonimkall.podspec"
+    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.18.1/oonimkall.podspec"
     pod 'Toast', '~> 4.0.0'
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
@@ -19,7 +19,7 @@ target 'ooniprobe' do
 end
 
 target 'OONIProbeUnitTests' do
-    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.17.5/oonimkall.podspec"
+    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.18.1/oonimkall.podspec"
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
     pod 'OCMapper', '2.0'
 end

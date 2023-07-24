@@ -16,6 +16,8 @@
 		7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */; };
 		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		79780FCF27E9F18E002A38B1 /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79780FCE27E9F18E002A38B1 /* Languages.plist */; };
+		7AED19812A6EC9A2003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19802A6EC9A2003B265A /* libresolv.tbd */; };
+		7AED19832A6EC9C7003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19822A6EC9C7003B265A /* libresolv.tbd */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
 		D4A2F5E21A6C3244001B8460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5E11A6C3244001B8460 /* AppDelegate.m */; };
 		D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2F5E91A6C3244001B8460 /* Images.xcassets */; };
@@ -222,6 +224,8 @@
 		7940AA8F28117E9000C0EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7940AA972811840900C0EB5D /* share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = share.entitlements; sourceTree = "<group>"; };
 		79780FCE27E9F18E002A38B1 /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
+		7AED19802A6EC9A2003B265A /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		7AED19822A6EC9C7003B265A /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
 		AC948DA31A71FB931BBB1BB3 /* Pods-OONIProbeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ooniprobe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFF8CF760913F0065D0615D /* Pods-OONIProbeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.release.xcconfig"; path = "Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -548,6 +552,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AED19812A6EC9A2003B265A /* libresolv.tbd in Frameworks */,
 				ED3582321FE948580078CCEE /* libsqlite3.tbd in Frameworks */,
 				58E18F9EBF4FAD4EFCE020F3 /* Pods_ooniprobe.framework in Frameworks */,
 			);
@@ -557,6 +562,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AED19832A6EC9C7003B265A /* libresolv.tbd in Frameworks */,
 				03D47FE8406C42B41DF540D0 /* Pods_OONIProbeUnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1143,6 +1149,8 @@
 		F4F15431D4412F561191270F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7AED19802A6EC9A2003B265A /* libresolv.tbd */,
+				7AED19822A6EC9C7003B265A /* libresolv.tbd */,
 				ED3582311FE948580078CCEE /* libsqlite3.tbd */,
 				588219FACC9F793A15BDEA33 /* Pods_OONIProbeUnitTests.framework */,
 				BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */,

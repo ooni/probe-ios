@@ -8,7 +8,7 @@ jobs:
   archive:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: bundle install
       - run: pod repo update
       - run: pod install
@@ -17,4 +17,4 @@ jobs:
           xcodebuild -workspace ooniprobe.xcworkspace -scheme ooniprobe \
             -destination='name=Any iOS Device' -sdk iphoneos archive CODE_SIGNING_ALLOWED="NO" | xcpretty
         env:
-          DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
