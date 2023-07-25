@@ -21,6 +21,12 @@
     if (error != nil) {
         return;
     }
+    
+    if ([SettingsUtility getNumberCategoriesEnabled] <= 0){
+        errorcb(error);
+        return;
+    }
+    
     OONIContext *ooniContext = [session newContextWithTimeout:30];
     OONICheckInConfig *config = [[OONICheckInConfig alloc] initWithSoftwareName:SOFTWARE_NAME
                                                                 softwareVersion:[VersionUtility get_software_version]
