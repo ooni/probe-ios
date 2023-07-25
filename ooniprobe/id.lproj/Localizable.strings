@@ -70,7 +70,7 @@
 "Dashboard.Experimental.Card.Description" = "Jalankan tes percobaan baru";
 "Dashboard.Experimental.Overview.Paragraph" = "Jalankan tes eksperimen baru ini yang dikembangkan oleh tim OONI:\n%@\n\nHasil Anda akan dipubikasikan di [OONI Explorer](https://explorer.ooni.org/) dan [OONI API](https://api.ooni.io/).";
 "Dashboard.Experimental.Overview.Paragraph.AutomatedTesting" = "The following tests will only be run as part of automated testing:";
-"Dashboard.DisabledTests.Label" = "Disabled Tests";
+"Dashboard.DisabledTests.Label" = "Tes Dimatikan";
 "TestResults.Gbps" = "Gbit/s";
 "TestResults.Mbps" = "Mbit/s";
 "TestResults.Kbps" = "kbit/s";
@@ -253,8 +253,8 @@
 "TestResults.Details.Circumvention.Tor.Table.Header.Handshake" = "Handshake";
 "TestResults.Details.Circumvention.RiseupVPN.Blocked.Hero.Title" = "Diblok juga";
 "TestResults.Details.Circumvention.RiseupVPN.Reachable.Hero.Title" = "Bekerja";
-"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) appears to be blocked.";
-"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "We were able to successfully connect to RiseupVPN\'s bootstrap server and VPN gateways. This means that [RiseupVPN](https://riseup.net/vpn) should work.";
+"TestResults.Details.Circumvention.RiseupVPN.Blocked.Content.Paragraph" = "[RiseupVPN](https://riseup.net/vpn) sepertinya diblokir.";
+"TestResults.Details.Circumvention.RiseupVPN.Reachable.Content.Paragraph" = "Kami berhasil terhubung ke server dan gateway VPN dari RiseupVPN. Ini menunjukan bahwa [RiseupVPN](https://riseup.net/vpn) berfungsi.";
 "TestResults.Details.Circumvention.RiseupVPN.Table.Header.Api" = "Bootstrap server";
 "TestResults.Details.Circumvention.RiseupVPN.Table.Header.Openvpn" = "Koneksi OpenVPN";
 "TestResults.Details.Circumvention.RiseupVPN.Table.Header.Bridge" = "Bridged connections";
@@ -291,8 +291,8 @@
 "Modal.Autorun.BatteryOptimization" = "OONI Probe tidak dapat berjalan dengan otomatis tanpa pengoptimalan baterai. Apakah Anda ingin mencoba lagi?";
 "Modal.DisableVPN.Title" = "Mohon nonaktifkan koneksi VPN Anda.";
 "Modal.DisableVPN.Message" = "Jika Anda menjalankan tes OONI Probe dengan VPN yang diaktifkan, hasil tes akan terlihat berasal dari negara yang salah. Mohon nonaktifkan koneksi VPN.";
-"Modal.UploadVPNResults.Title" = "Some measurements were taken over VPN.";
-"Modal.UploadVPNResults.Message" = "If you upload measurements taken when VPN enabled, the test results may appear to come from the wrong country.";
+"Modal.UploadVPNResults.Title" = "Beberapa hasil pengecekan diambil dari koneksi VPN";
+"Modal.UploadVPNResults.Message" = "Jika anda melakukan pengecekan dengan VPN, hasil tes akan terlihat datang dari negara yang berbeda.";
 "Toast.ResultsUploaded" = "Unggahan berhasil";
 "Modal.DisplayFailureLog" = "Tampilkan log kesalahan";
 "Modal.EnableNotifications.Title" = "Dapatkan informasi terbaru mengenai penyensoran Internet";
