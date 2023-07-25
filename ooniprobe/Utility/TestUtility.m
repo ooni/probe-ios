@@ -48,7 +48,7 @@
 
 //Used by dropdown
 + (NSArray*)getTestTypes{
-    return [[self getTests] allKeys];
+    return @[@"websites", @"instant_messaging", @"circumvention", @"performance", @"experimental"];
 }
 
 //used by ooni run
