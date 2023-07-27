@@ -23,7 +23,10 @@
     }
     
     if ([SettingsUtility getNumberCategoriesEnabled] <= 0){
-        errorcb(error);
+        errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
+                                    code:ERR_NO_VALID_URLS
+                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.NoValidUrls"
+                                }]);
         return;
     }
     

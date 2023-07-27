@@ -81,7 +81,14 @@
     NSError *error = [NSError errorWithDomain:title
                                          code:-1001
                                      userInfo:userInfo];
-    [SentrySDK captureError:error];
+    @try {
+        [SentrySDK captureError:error];
+    }@catch(NSException *e) {
+
+    }@finally {
+        NSLog(@"Failed reporting error");
+    }
+
 }
 
 @end
