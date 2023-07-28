@@ -50,7 +50,7 @@
         [testSuite.testList removeAllObjects];
         [testSuite getTestList];
     }
-    if (testSuite != nil || [[TestUtility getTestTypes] containsObject:category])
+    if (testSuite != nil || [[TestUtility getTestOptionTypes] containsObject:category])
         [[NSNotificationCenter defaultCenter] postNotificationName:@"settingsChanged" object:nil];
 }
 
@@ -100,7 +100,7 @@
         else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         }
-        if ([[TestUtility getTestTypes] containsObject:current]){
+        if ([[TestUtility getTestOptionTypes] containsObject:current]){
             cell.imageView.image = [UIImage imageNamed:current];
         }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
@@ -119,7 +119,7 @@
         }
         else
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        if ([[TestUtility getTestTypes] containsObject:current]){
+        if ([[TestUtility getTestOptionTypes] containsObject:current]){
             cell.imageView.image = [UIImage imageNamed:current];
         }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
@@ -405,7 +405,7 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[TestUtility getTestTypes] containsObject:[segue identifier]]){
+    if ([[TestUtility getTestOptionTypes] containsObject:[segue identifier]]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
         NSString *current = [items objectAtIndex:indexPath.row];

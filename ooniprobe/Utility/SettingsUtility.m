@@ -28,9 +28,9 @@
         return @[@"AppleLanguages", @"debug_logs", @"storage_usage" , @"warn_vpn_in_use"];
     }
     else if ([categoryName isEqualToString:@"test_options"]) {
-        return [TestUtility getTestTypes];
+        return [TestUtility getTestOptionTypes];
     }
-    else if ([[TestUtility getTestTypes] containsObject:categoryName])
+    else if ([[TestUtility getTestOptionTypes] containsObject:categoryName])
         return [SettingsUtility getSettingsForTest:categoryName :YES];
     else
         return nil;
@@ -39,7 +39,7 @@
 + (NSString*)getTypeForSetting:(NSString*)setting{
     if ([setting isEqualToString:@"experimental"] || [setting isEqualToString:@"long_running_tests_in_foreground"])
         return @"bool";
-    else if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestTypes] containsObject:setting])
+    else if ([setting isEqualToString:@"website_categories"] || [[TestUtility getTestOptionTypes] containsObject:setting])
         return @"segue";
     else if ([setting isEqualToString:@"monthly_mobile_allowance"] ||
              [setting isEqualToString:@"monthly_wifi_allowance"] ||

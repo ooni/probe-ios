@@ -28,10 +28,19 @@
     return @{@"websites": @[@"web_connectivity"],
              @"instant_messaging": @[@"whatsapp", @"telegram", @"facebook_messenger", @"signal"],
              @"circumvention": @[@"psiphon", @"tor", @"riseupvpn"],
-             @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"],
-             @"experimental_x": @[@"experimental"],
-             @"long_running_tests_in_foreground": @[]
-    };
+             @"performance": @[@"ndt", @"dash", @"http_invalid_request_line", @"http_header_field_manipulation"]};
+}
+
+/**
+ * Complete list of items needed to build the Settings Screen for test options
+ *
+ * @return  `NSDictionary` of items used in the Test Options Screen
+ */
++ (NSDictionary*)getTestOptions{
+    NSMutableDictionary *testOptions = [self.getTests mutableCopy];
+    [testOptions addEntriesFromDictionary:@{@"experimental_x": @[@"experimental"]}];
+    [testOptions addEntriesFromDictionary:@{@"long_running_tests_in_foreground": @[]}];
+    return testOptions;
 }
 
 + (NSMutableArray*)getTestObjects{
@@ -48,11 +57,16 @@
 
 //Used by dropdown
 + (NSArray*)getTestTypes{
-    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[self getTests] allKeys]];
-    [mutableArray addObject:@"experimental"];
-    [mutableArray removeObject:@"experimental_x"];
-    [mutableArray removeObject:@"long_running_tests_in_foreground"];
-    return [NSArray arrayWithArray:mutableArray];
+    return [[self getTests] allKeys];
+}
+
+/**
+ * Used in the Settings Screen to determine the top level items of the test options preferences
+ *
+ * @return `NSArray` of `NSStrings`
+ */
++ (NSArray*)getTestOptionTypes{
+    return [[self getTestOptions] allKeys];
 }
 
 //used by ooni run

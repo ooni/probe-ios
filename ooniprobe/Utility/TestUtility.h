@@ -8,8 +8,10 @@
 
 + (NSString*)getFileNamed:(NSString*)name;
 + (NSDictionary*)getTests;
++ (NSDictionary*)getTestOptions;
 + (NSMutableArray*)getTestObjects;
 + (NSArray*)getTestTypes;
++ (NSArray*)getTestOptionTypes;
 + (NSArray*)getTestsArray;
 + (NSString*)getCategoryForTest:(NSString*)testName;
 + (UIColor*)getColorForTest:(NSString*)testName;
