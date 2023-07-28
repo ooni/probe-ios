@@ -48,7 +48,11 @@
 
 //Used by dropdown
 + (NSArray*)getTestTypes{
-    return @[@"websites", @"instant_messaging", @"circumvention", @"performance", @"experimental"];
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[self getTests] allKeys]];
+    [mutableArray addObject:@"experimental"];
+    [mutableArray removeObject:@"experimental_x"];
+    [mutableArray removeObject:@"long_running_tests_in_foreground"];
+    return [NSArray arrayWithArray:mutableArray];
 }
 
 //used by ooni run
