@@ -217,12 +217,6 @@
     if (components.host == nil) {
         return NO;
     }
-    // Convert the NSURLComponents object to an NSURL object
-    NSURL *URL = components.URL;
-    // Check if the NSURL object is nil, indicating that the URL is not valid
-    if (URL == nil) {
-        return NO;
-    }
     // If all checks pass, the URL is valid
     return YES;
 }
