@@ -12,7 +12,7 @@
 }
 
 - (NSArray*)getTestList {
-    if ([self.testList count] == 0){
+    if ([self.testList count] == 0 && [SettingsUtility getNumberCategoriesEnabled] > 0){
         [self.testList addObject:[[WebConnectivity alloc] init]];
     }
     return super.getTestList;

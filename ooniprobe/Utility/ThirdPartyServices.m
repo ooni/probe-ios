@@ -81,7 +81,14 @@
     NSError *error = [NSError errorWithDomain:title
                                          code:-1001
                                      userInfo:userInfo];
-    [SentrySDK captureError:error];
+    // TODO (aanorbel) Call to `SentrySDK` fails causing the app to crash.
+    //  Still to properly investigate and fix.
+    @try {
+        [SentrySDK captureError:error];
+    } @catch(NSException *e) {
+        NSLog(@"Failed reporting error");
+    }
+
 }
 
 @end

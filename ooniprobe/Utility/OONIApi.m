@@ -21,6 +21,15 @@
     if (error != nil) {
         return;
     }
+    
+    if ([SettingsUtility getNumberCategoriesEnabled] <= 0){
+        errorcb([NSError errorWithDomain:@"io.ooni.orchestrate"
+                                    code:ERR_NO_VALID_URLS
+                                userInfo:@{NSLocalizedDescriptionKey:@"Modal.Error.NoValidUrls"
+                                }]);
+        return;
+    }
+    
     OONIContext *ooniContext = [session newContextWithTimeout:30];
     OONICheckInConfig *config = [[OONICheckInConfig alloc] initWithSoftwareName:SOFTWARE_NAME
                                                                 softwareVersion:[VersionUtility get_software_version]
