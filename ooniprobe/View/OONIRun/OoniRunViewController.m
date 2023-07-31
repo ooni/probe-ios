@@ -161,6 +161,14 @@
                 [self.tableView reloadData];
             });
         }
+        // This condition will only be true if a test arguments were passed to the app
+        // but could not be processed to extract URLs
+        else if (testArguments != nil) {
+            [self.randomlistLabel setHidden:YES];
+            [self.runButton removeTarget:self
+                               action:@selector(runTest) forControlEvents:UIControlEventTouchUpInside];
+            [self showErrorScreen];
+        }
         else {
             [self.tableView setHidden:YES];
             [self.randomlistLabel setText:NSLocalizedString(@"OONIRun.RandomSamplingOfURLs", nil)];
