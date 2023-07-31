@@ -197,10 +197,6 @@
  * @return YES if the input string is a valid URL; otherwise, NO.
  */
 - (BOOL)validateLink:(NSString *)urlString {
-    // Check if the length of the input string is greater than 2083 characters; if so, the URL is not valid
-    if (urlString.length > 2083) {
-        return NO;
-    }
     // Create an NSURLComponents object from the input string
     NSURLComponents *components = [NSURLComponents componentsWithString:urlString];
     // Check if the NSURLComponents object is nil, indicating that the string is not a valid URL
