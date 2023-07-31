@@ -179,7 +179,7 @@
 -(void)validateAndAddURLs{
     for (NSString *url in [testArguments objectForKey:@"urls"]){
         @try {
-            if ([url length] < 2083 && [self validateLink:url]){
+            if ([self validateLink:url]){
                 [Url checkExistingUrl:url];
                 [urls addObject:url];
             }
@@ -190,16 +190,31 @@
     }
 }
 
-/*
- This regex tests whether the URL starts with http:// or https://,
- then checks for at least 1 character, then checks for a dot, and then again checks for at least 1 character.
- No spaces allowed.
+/**
+ * Checks if the input string is a valid URL with a maximum length of 2083 characters and enforces that the scheme is only "http" or "https".
+ *
+ * @param urlString The input string to check if it is a valid URL.
+ * @return YES if the input string is a valid URL; otherwise, NO.
  */
-- (BOOL)validateLink:(NSString *)link
-{
-    NSString *regex = @"(?i)(http|https)(:\\/\\/)([^ .]+)(\\.)([^ \n]+)";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    return [predicate evaluateWithObject:link];
+- (BOOL)validateLink:(NSString *)urlString {
+    // Create an NSURLComponents object from the input string
+    NSURLComponents *components = [NSURLComponents componentsWithString:urlString];
+    // Check if the NSURLComponents object is nil, indicating that the string is not a valid URL
+    if (components == nil) {
+        return NO;
+    }
+    // Get the scheme from the NSURLComponents object and convert it to lowercase
+    NSString *scheme = components.scheme.lowercaseString;
+    // Check if the scheme is "http" or "https"; if not, the URL is not valid
+    if (![scheme isEqualToString:@"http"] && ![scheme isEqualToString:@"https"]) {
+        return NO;
+    }
+    // Check if the host property of the NSURLComponents object is nil; if so, the URL is not valid
+    if (components.host == nil) {
+        return NO;
+    }
+    // If all checks pass, the URL is valid
+    return YES;
 }
 
 #pragma mark - Table view data source
