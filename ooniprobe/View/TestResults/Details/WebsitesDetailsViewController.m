@@ -56,10 +56,7 @@
 }
 
 -(void)reloadConstraints{
-    CGFloat uploadConstraint = 0;
-    if ([RunningTest currentTest].isTestRunning){
-        uploadConstraint += 64;
-    }
+    CGFloat uploadConstraint = 64;
     dispatch_async(dispatch_get_main_queue(), ^{
         self.uploadBarFooterConstraint.constant = uploadConstraint;
     });
