@@ -6,6 +6,7 @@
 #import "TestRunningViewController.h"
 #import "ReachabilityManager.h"
 #import "RunningTest.h"
+#import "VersionUtility.h"
 
 @interface OoniRunViewController ()
 
@@ -75,6 +76,27 @@
                 [self showErrorScreen];
             }
         }
+    } else if ([action isEqualToString:@"runv2"]) {
+        NSLog(url.pathComponents[url.pathComponents.count - 1]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSError *error;
+            PESession* session = [[PESession alloc] initWithConfig:
+                            [Engine getDefaultSessionConfigWithSoftwareName:SOFTWARE_NAME
+                                                            softwareVersion:[VersionUtility get_software_version]
+                                                                     logger:[LoggerArray new]]
+                                                             error:&error];
+            if (error != nil) {
+                return;
+            }
+            DescriptorResponse *responseData = [session ooniRunFetch:session.newContext id:297500125102L error:&error];
+            if (error != nil) {
+                return;
+            }
+
+            NSLog(@"%@", responseData.descriptor.author);
+
+        });
+        [self showErrorScreen];
     }
     else {
         [self showErrorScreen];

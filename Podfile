@@ -12,7 +12,7 @@ target 'ooniprobe' do
     pod 'MKDropdownMenu'
     pod 'RHMarkdownLabel'
     pod 'DateTools'
-    pod 'OCMapper', '2.0'
+    pod 'OCMapper', '2.1'
     pod 'Countly'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '6.1.4'
     pod 'Harpy'
@@ -21,7 +21,7 @@ end
 target 'OONIProbeUnitTests' do
     pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.18.1/oonimkall.podspec"
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
-    pod 'OCMapper', '2.0'
+    pod 'OCMapper', '2.1'
 end
 
 post_install do |installer|
