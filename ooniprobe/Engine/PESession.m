@@ -38,6 +38,7 @@
 - (DescriptorResponse *)ooniRunFetch:(OONIContext *)ctx id:(long)runId error:(NSError **)error {
     NSString *response = [self.session ooniRunFetch:ctx.ctx ID:runId error:error];
 
+    // TODOD (aanorbel) : Fix error handling
     NSData *jsonData = [response dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:error];
 
