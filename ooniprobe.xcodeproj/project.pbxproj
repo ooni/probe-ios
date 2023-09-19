@@ -13,6 +13,7 @@
 		526C702A25C99AB200C7A164 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526C702925C99AB100C7A164 /* Colors.xcassets */; };
 		58E18F9EBF4FAD4EFCE020F3 /* Pods_ooniprobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */; };
 		793F4E792AB445CE00D3BE46 /* DescriptorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 793F4E782AB445CE00D3BE46 /* DescriptorResponse.m */; };
+		793F4EB32AB85B5100D3BE46 /* TestDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 793F4EB22AB85B5100D3BE46 /* TestDescriptor.m */; };
 		7940AA8B28117E9000C0EB5D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7940AA8A28117E9000C0EB5D /* ShareViewController.swift */; };
 		7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */; };
 		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -221,6 +222,8 @@
 		588219FACC9F793A15BDEA33 /* Pods_OONIProbeUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OONIProbeUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		793F4E772AB445CE00D3BE46 /* DescriptorResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DescriptorResponse.h; path = Engine/DescriptorResponse.h; sourceTree = "<group>"; };
 		793F4E782AB445CE00D3BE46 /* DescriptorResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DescriptorResponse.m; path = Engine/DescriptorResponse.m; sourceTree = "<group>"; };
+		793F4EB12AB85B5100D3BE46 /* TestDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDescriptor.h; sourceTree = "<group>"; };
+		793F4EB22AB85B5100D3BE46 /* TestDescriptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDescriptor.m; sourceTree = "<group>"; };
 		7940AA8828117E9000C0EB5D /* share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7940AA8A28117E9000C0EB5D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		7940AA8D28117E9000C0EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -894,6 +897,8 @@
 				ED90A91B2198DE5000204B46 /* Network.m */,
 				ED90A9212198DE5000204B46 /* Url.h */,
 				ED90A91D2198DE5000204B46 /* Url.m */,
+				793F4EB12AB85B5100D3BE46 /* TestDescriptor.h */,
+				793F4EB22AB85B5100D3BE46 /* TestDescriptor.m */,
 			);
 			name = Database;
 			path = Model/Database;
@@ -1573,6 +1578,7 @@
 				ED9CCF30252B4B9D004F8420 /* LoggerComposed.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,
 				ED90A92B2198DE5100204B46 /* Measurement.m in Sources */,
+				793F4EB32AB85B5100D3BE46 /* TestDescriptor.m in Sources */,
 				EDDB0B751FFF6C8B00EFD9C8 /* WrongAnswerViewController.m in Sources */,
 				EDB252AA20FA4D4F00B4EDE4 /* Tampering.m in Sources */,
 				ED0D35BE1DD72825005C863F /* RunButton.m in Sources */,
