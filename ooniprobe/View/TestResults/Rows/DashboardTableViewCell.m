@@ -54,6 +54,15 @@
         [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]] startColor:[TestUtility getGradientColorForTest:testSuite.name] endColor:[TestUtility getColorForTest:testSuite.name]]];
         [self.cardbackgroundView setBackgroundColor:[UIColor colorNamed:@"color_gray0"]];
     }
+
+    if ([testSuite.name isEqualToString:@"ooni-run"]) {
+        // cast testsuite to OONIRunSuite
+        OONIRunSuite *ooniRunSuite = (OONIRunSuite *)testSuite;
+        [self.titleLabel setText:ooniRunSuite.descriptor.name];
+        [self.descLabel setText:ooniRunSuite.descriptor.shortDescription];
+        [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:@"about_ooni"] startColor:[UIColor colorNamed:@"color_gray6"] endColor:[UIColor colorNamed:@"color_gray6"]]];
+
+    }
 }
 
 -(void)setRoundedView{

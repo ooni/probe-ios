@@ -7,6 +7,8 @@
 #import "ReachabilityManager.h"
 #import "RunningTest.h"
 #import "VersionUtility.h"
+#import "TestDescriptorManager.h"
+#import "TestDescriptor.h"
 
 @interface OoniRunViewController ()
 
@@ -79,24 +81,15 @@
     } else if ([action isEqualToString:@"runv2"]) {
         long runId = url.pathComponents[url.pathComponents.count - 1].longLongValue;
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error;
-            PESession *session = [[PESession alloc] initWithConfig:
-                            [Engine getDefaultSessionConfigWithSoftwareName:SOFTWARE_NAME
-                                                            softwareVersion:[VersionUtility get_software_version]
-                                                                     logger:[LoggerArray new]]
-                                                             error:&error];
-            if (error != nil) {
-                return;
-            }
-            DescriptorResponse *responseData = [session
-                    ooniRunFetch:session.newContext
-                              id:runId
-                           error:&error];
-            if (error != nil) {
-                return;
-            }
-            [self showTestScreen:responseData];
-
+            [TestDescriptorManager
+                    fetchDescriptorFromRunId:runId
+                                   onSuccess:^(TestDescriptor *descriptor) {
+                                       [self showTestScreen:descriptor];
+                                   }
+                                     onError:^(NSError *error) {
+                                         NSLog(@"Failed call checkIn API: %@", error);
+                                         [self showErrorScreen];
+                                     }];
         });
         [self showErrorScreen];
     } else {
@@ -146,11 +139,11 @@
     [self.footerImage setImage:[UIImage imageNamed:@"question_mark"]];
 }
 
-- (void)showTestScreen:(DescriptorResponse *)response  {
-    [self.titleLabel setText:response.descriptor.name];
-    [self.subtitleLabel setText:response.descriptor.iDescription];
+- (void)showTestScreen:(TestDescriptor *)descriptor {
+    [self.titleLabel setText:descriptor.name];
+    [self.subtitleLabel setText:descriptor.iDescription];
     urls = [[NSMutableArray alloc] init];
-    for (Nettest  *nettest in response.descriptor.nettests) {
+    for (Nettest *nettest in descriptor.getNettests) {
         @try {
             [urls addObject:nettest.testName];
         } @catch (NSException *exception) {

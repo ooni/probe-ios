@@ -24,6 +24,15 @@
     [linkAttributes setObject:[UIColor colorNamed:@"color_base"] forKey:(NSString *)kCTForegroundColorAttributeName];
     self.testDescriptionLabel.linkAttributes = [NSDictionary dictionaryWithDictionary:linkAttributes];
     [self.testDescriptionLabel setMarkdown:testLongDesc];
+    if ([testSuite.name isEqualToString:@"ooni-run"]) {
+        // cast testsuite to OONIRunSuite
+        OONIRunSuite *ooniRunSuite = (OONIRunSuite *)testSuite;
+        [self.testImage setImage:[UIImage imageNamed:@"about_ooni"]];
+
+        [self.testNameLabel setText:ooniRunSuite.descriptor.name];
+        [self.testDescriptionLabel setMarkdown:ooniRunSuite.descriptor.iDescription];
+
+    }
     [self.testDescriptionLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
     }];

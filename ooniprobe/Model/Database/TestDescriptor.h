@@ -1,8 +1,10 @@
 #import <SharkORM/SharkORM.h>
+#import "DescriptorResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TestDescriptor : SRKObject
+@property long runId;
 @property NSString *name;
 @property NSDictionary *nameIntl;
 @property NSString *shortDescription;
@@ -17,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSDate *creationTime;
 @property NSDate *translationCreationTime;
 @property NSArray<NSDictionary *> *nettests;
+
+- (id)initWithDescriptorResponse:(DescriptorResponse *)response;
+- (NSArray<Nettest *> *)getNettests;
++ (NSArray *)uniquePropertiesForClass;
 @end
 
 NS_ASSUME_NONNULL_END

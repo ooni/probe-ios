@@ -11,9 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger archived;
 @property (nonatomic, strong) Descriptor *descriptor;
-@property (nonatomic, copy)   NSString *descriptorCreationTime;
+@property (nonatomic, copy)   NSDate *descriptorCreationTime;
 @property (nonatomic, assign) BOOL isMine;
-@property (nonatomic, copy)   NSString *translationCreationTime;
+@property (nonatomic, copy)   NSDate *translationCreationTime;
 @property (nonatomic, assign) NSInteger v;
 
 @end

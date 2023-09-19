@@ -12,6 +12,8 @@
 		17E7EDC021BFEE0C001961C7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */; };
 		526C702A25C99AB200C7A164 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526C702925C99AB100C7A164 /* Colors.xcassets */; };
 		58E18F9EBF4FAD4EFCE020F3 /* Pods_ooniprobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */; };
+		790C12A12AB979490024392B /* TestDescriptorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 790C12A02AB979490024392B /* TestDescriptorManager.m */; };
+		7925243D2AB9C47D005B2303 /* OONIRunSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = 7925243C2AB9C47D005B2303 /* OONIRunSuite.m */; };
 		793F4E792AB445CE00D3BE46 /* DescriptorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 793F4E782AB445CE00D3BE46 /* DescriptorResponse.m */; };
 		793F4EB32AB85B5100D3BE46 /* TestDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 793F4EB22AB85B5100D3BE46 /* TestDescriptor.m */; };
 		7940AA8B28117E9000C0EB5D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7940AA8A28117E9000C0EB5D /* ShareViewController.swift */; };
@@ -220,6 +222,10 @@
 		17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		526C702925C99AB100C7A164 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		588219FACC9F793A15BDEA33 /* Pods_OONIProbeUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OONIProbeUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		790C129F2AB979490024392B /* TestDescriptorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDescriptorManager.h; sourceTree = "<group>"; };
+		790C12A02AB979490024392B /* TestDescriptorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDescriptorManager.m; sourceTree = "<group>"; };
+		7925243B2AB9C47D005B2303 /* OONIRunSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OONIRunSuite.h; sourceTree = "<group>"; };
+		7925243C2AB9C47D005B2303 /* OONIRunSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OONIRunSuite.m; sourceTree = "<group>"; };
 		793F4E772AB445CE00D3BE46 /* DescriptorResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DescriptorResponse.h; path = Engine/DescriptorResponse.h; sourceTree = "<group>"; };
 		793F4E782AB445CE00D3BE46 /* DescriptorResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DescriptorResponse.m; path = Engine/DescriptorResponse.m; sourceTree = "<group>"; };
 		793F4EB12AB85B5100D3BE46 /* TestDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDescriptor.h; sourceTree = "<group>"; };
@@ -685,6 +691,8 @@
 			children = (
 				ED53842021597E950078C5C6 /* OoniRunViewController.h */,
 				ED53842121597E950078C5C6 /* OoniRunViewController.m */,
+				790C129F2AB979490024392B /* TestDescriptorManager.h */,
+				790C12A02AB979490024392B /* TestDescriptorManager.m */,
 			);
 			path = OONIRun;
 			sourceTree = "<group>";
@@ -805,6 +813,8 @@
 				ED14B230246540A4009AA906 /* CircumventionSuite.m */,
 				EDB3D64726203DC000724ECF /* ExperimentalSuite.h */,
 				EDB3D64826203DC000724ECF /* ExperimentalSuite.m */,
+				7925243B2AB9C47D005B2303 /* OONIRunSuite.h */,
+				7925243C2AB9C47D005B2303 /* OONIRunSuite.m */,
 			);
 			path = Suite;
 			sourceTree = "<group>";
@@ -1619,9 +1629,11 @@
 				ED3932C41E3114740064CD11 /* AboutViewController.m in Sources */,
 				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.m in Sources */,
 				ED4DF7DA2609F0ED00521C5B /* BackgroundTask.m in Sources */,
+				790C12A12AB979490024392B /* TestDescriptorManager.m in Sources */,
 				ED4A00B526494F140083C8F6 /* ProxyViewController.m in Sources */,
 				ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */,
 				ED21D092269C93B900BB09D8 /* ProgressViewController.m in Sources */,
+				7925243D2AB9C47D005B2303 /* OONIRunSuite.m in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.m in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
 				ED9CCF27252B4A13004F8420 /* LoggerArray.m in Sources */,
