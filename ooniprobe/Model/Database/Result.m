@@ -2,7 +2,7 @@
 #import "TestUtility.h"
 
 @implementation Result
-@dynamic test_group_name, start_time, network_id, is_viewed, is_done, data_usage_up, data_usage_down, failure_msg;
+@dynamic test_group_name, start_time, network_id, descriptor_id, is_viewed, is_done, data_usage_up, data_usage_down, failure_msg;
 
 + (NSDictionary *)defaultValuesForEntity {
     return @{@"start_time": [NSDate date]};

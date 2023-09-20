@@ -11,9 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger archived;
 @property (nonatomic, strong) Descriptor *descriptor;
-@property (nonatomic, copy)   NSDate *descriptorCreationTime;
-@property (nonatomic, assign) BOOL isMine;
-@property (nonatomic, copy)   NSDate *translationCreationTime;
+@property (nonatomic, copy)   NSDate *descriptor_creation_time;
+@property (nonatomic, assign) BOOL is_mine;
+@property (nonatomic, copy)   NSDate *translation_creation_time;
 @property (nonatomic, assign) NSInteger v;
 
 @end
@@ -21,24 +21,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Descriptor : NSObject
 @property (nonatomic, copy)   NSString *author;
-@property (nonatomic, copy)   NSString *iDescription;
-@property (nonatomic, weak)   NSDictionary *descriptionIntl;
+@property (nonatomic, copy)   NSString *i_description;
+@property (nonatomic, weak)   NSDictionary *description_intl;
 @property (nonatomic, copy)   NSString *icon;
 @property (nonatomic, copy)   NSString *name;
-@property (nonatomic, weak)   NSDictionary *nameIntl;
+@property (nonatomic, weak)   NSDictionary *name_intl;
 @property (nonatomic, copy)   NSArray<Nettest *> *nettests;
-@property (nonatomic, copy)   NSString *shortDescription;
-@property (nonatomic, weak)   NSDictionary *shortDescriptionIntl;
+@property (nonatomic, copy)   NSString *short_description;
+@property (nonatomic, weak)   NSDictionary *short_description_intl;
 @end
 
 
 @interface Nettest : NSObject
-@property (nonatomic, weak)   NSDictionary *backendOptions;
+@property (nonatomic, weak)   NSDictionary *backend_options;
 @property (nonatomic, copy)   NSArray<NSString *> *inputs;
-@property (nonatomic, assign) BOOL isBackgroundRunEnabled;
-@property (nonatomic, assign) BOOL isManualRunEnabled;
+@property (nonatomic, assign) BOOL is_background_run_enabled;
+@property (nonatomic, assign) BOOL is_manual_run_enabled;
 @property (nonatomic, weak)   NSDictionary *options;
-@property (nonatomic, copy)   NSString *testName;
+@property (nonatomic, copy)   NSString *test_name;
 @end
 
 NS_ASSUME_NONNULL_END

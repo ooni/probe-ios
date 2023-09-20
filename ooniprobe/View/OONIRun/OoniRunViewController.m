@@ -145,7 +145,7 @@
     urls = [[NSMutableArray alloc] init];
     for (Nettest *nettest in descriptor.getNettests) {
         @try {
-            [urls addObject:nettest.testName];
+            [urls addObject:nettest.test_name];
         } @catch (NSException *exception) {
             NSLog(@"OoniRunViewControllerError: %@", exception);
             [ThirdPartyServices recordError:@"Invalid URL" reason:exception.reason userInfo:@{@"url": url}];

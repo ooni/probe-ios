@@ -51,10 +51,10 @@
                                  forClass:DescriptorResponse.class
                           withTransformer:^id(id currentNode, id parentNode) {
                               Descriptor *descriptor = [mapper objectFromSource:currentNode toInstanceOfClass:Descriptor.class];
-                              descriptor.iDescription = currentNode[@"description"];
-                              descriptor.nameIntl = currentNode[@"name_intl"];
-                              descriptor.descriptionIntl = currentNode[@"description_intl"];
-                              descriptor.shortDescriptionIntl = currentNode[@"short_description_intl"];
+                              descriptor.i_description = currentNode[@"description"];
+                              descriptor.name_intl = currentNode[@"name_intl"];
+                              descriptor.description_intl = currentNode[@"description_intl"];
+                              descriptor.short_description_intl = currentNode[@"short_description_intl"];
                               return descriptor;
                           }];
     return [mapper objectFromSource:dictionary toInstanceOfClass:DescriptorResponse.class];

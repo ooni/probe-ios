@@ -8,6 +8,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) TestDescriptor *descriptor;
 
 - (id)initWithDescriptor:(TestDescriptor *)descriptor;
+
+-(void)newResult;
+
 @end
 
 NS_ASSUME_NONNULL_END
