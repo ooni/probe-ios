@@ -91,7 +91,7 @@
             result = @"proxy_psiphon";
             break;
         case SOCKS5:
-            result = @"SOCKS5";
+            result = @"socks5";
             break;
         case HTTP:
             result = @"http";
