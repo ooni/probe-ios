@@ -183,7 +183,11 @@
             }
             else if ([event.key isEqualToString:@"failure.startup"] ||
                      [event.key isEqualToString:@"failure.resolver_lookup"]) {
-                [self.result setFailure_msg:event.value.failure];
+                if([self.result failure_msg] == nil){
+                    [self.result setFailure_msg:event.value.failure];
+                } else {
+                    [self.result setFailure_msg:[NSString stringWithFormat:@"%@\n\n%@", [self.result failure_msg], event.value.failure]];
+                }
                 [self.result save];
                 [ThirdPartyServices recordError:@"failure"
                                        reason:event.key
