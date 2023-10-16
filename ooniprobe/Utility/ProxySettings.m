@@ -12,6 +12,10 @@
             self.protocol = PSIPHON;
         } else if ([protocol isEqualToString:[ProxySettings getProtocol:SOCKS5]]) {
             self.protocol = SOCKS5;
+        } else if ([protocol isEqualToString:[ProxySettings getProtocol:HTTP]]) {
+            self.protocol = HTTP;
+        } else if ([protocol isEqualToString:[ProxySettings getProtocol:HTTPS]]) {
+            self.protocol = HTTPS;
         } else {
             // This is where we will extend the code to add support for
             // more proxies, e.g., HTTP proxies.
@@ -30,7 +34,7 @@
 }
 
 - (BOOL)isCustom{
-    if (self.protocol == SOCKS5)
+    if (self.protocol == SOCKS5 || self.protocol == HTTP || self.protocol == HTTPS)
         return true;
     return false;
 }
@@ -45,6 +49,24 @@
         NSString *urlStr = [NSString stringWithFormat:@"socks5://%@:%@/", self.hostname, self.port];
         if ([ProxySettings isIPv6:self.hostname]) {
             urlStr = [NSString stringWithFormat:@"socks5://[%@]:%@/", self.hostname, self.port]; // IPv6 must be quoted in URLs
+        }
+        //URI url = new URI(urlStr);
+        return urlStr;
+    }
+    if (self.protocol == HTTP) {
+        // Alright, we now need to construct a new SOCKS5 URL.
+        NSString *urlStr = [NSString stringWithFormat:@"http://%@:%@/", self.hostname, self.port];
+        if ([ProxySettings isIPv6:self.hostname]) {
+            urlStr = [NSString stringWithFormat:@"http://[%@]:%@/", self.hostname, self.port]; // IPv6 must be quoted in URLs
+        }
+        //URI url = new URI(urlStr);
+        return urlStr;
+    }
+    if (self.protocol == HTTPS) {
+        // Alright, we now need to construct a new SOCKS5 URL.
+        NSString *urlStr = [NSString stringWithFormat:@"https://%@:%@/", self.hostname, self.port];
+        if ([ProxySettings isIPv6:self.hostname]) {
+            urlStr = [NSString stringWithFormat:@"https://[%@]:%@/", self.hostname, self.port]; // IPv6 must be quoted in URLs
         }
         //URI url = new URI(urlStr);
         return urlStr;
@@ -70,6 +92,12 @@
             break;
         case SOCKS5:
             result = @"SOCKS5";
+            break;
+        case HTTP:
+            result = @"http";
+            break;
+        case HTTPS:
+            result = @"https";
             break;
         default:
             result = @"unknown";
