@@ -3,7 +3,12 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'ooniprobe' do
-    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.3/oonimkall.podspec"
+    pod "libcrypto", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libcrypto.podspec"
+    pod "libevent", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libevent.podspec"
+    pod "libssl", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libssl.podspec"
+    pod "libtor", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libtor.podspec"
+    pod "libz", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libz.podspec"
+    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/oonimkall.podspec"
     pod 'Toast', '~> 4.0.0'
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
@@ -19,7 +24,12 @@ target 'ooniprobe' do
 end
 
 target 'OONIProbeUnitTests' do
-    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.3/oonimkall.podspec"
+    pod "libcrypto", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libcrypto.podspec"
+    pod "libevent", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libevent.podspec"
+    pod "libssl", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libssl.podspec"
+    pod "libtor", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libtor.podspec"
+    pod "libz", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/libz.podspec"
+    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.0-alpha.4/oonimkall.podspec"
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
     pod 'OCMapper', '2.0'
 end
