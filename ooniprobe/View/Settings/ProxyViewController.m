@@ -33,7 +33,11 @@
         @[[ProxySettings getProtocol:NONE],
           [ProxySettings getProtocol:PSIPHON],
           @"proxy_custom"],
-        @[[ProxySettings getProtocol:SOCKS5]],
+        @[
+                [ProxySettings getProtocol:SOCKS5],
+                [ProxySettings getProtocol:HTTP],
+                [ProxySettings getProtocol:HTTPS]
+        ],
         @[@"proxy_hostname", @"proxy_port"]];
     else
         items = @[@[[ProxySettings getProtocol:NONE],
@@ -124,15 +128,23 @@
         else if (indexPath.row == 1)
             currentProxy.protocol = PSIPHON;
         if (indexPath.row == 2)
-            [self setCustom];
+            [self setCustom:SOCKS5];
+        [self reloadRows];
+    } else if (indexPath.section == 1){
+        if (indexPath.row == 0)
+            [self setCustom:SOCKS5];
+        else if (indexPath.row == 1)
+            [self setCustom:HTTP];
+        else if (indexPath.row == 2)
+            [self setCustom:HTTPS];
         [self reloadRows];
     }
     //[self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
--(void)setCustom {
-    currentProxy.protocol = SOCKS5;
+- (void)setCustom:(enum ProxyProtocol)protocol {
+    currentProxy.protocol = protocol;
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

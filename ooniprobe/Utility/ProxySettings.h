@@ -3,7 +3,9 @@
 typedef NS_ENUM(NSInteger, ProxyProtocol) {
   NONE,
   PSIPHON,
-  SOCKS5
+  SOCKS5,
+  HTTP,
+  HTTPS
 };
 
 @interface ProxySettings : NSObject
