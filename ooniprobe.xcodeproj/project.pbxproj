@@ -224,6 +224,8 @@
 		7940AA8F28117E9000C0EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7940AA972811840900C0EB5D /* share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = share.entitlements; sourceTree = "<group>"; };
 		79780FCE27E9F18E002A38B1 /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
+		79AA093C2A86E44400C23E27 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		79AA093D2A86E47600C23E27 /* my */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = my; path = my.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7AED19802A6EC9A2003B265A /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		7AED19822A6EC9C7003B265A /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
 		AC948DA31A71FB931BBB1BB3 /* Pods-OONIProbeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OONIProbeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-OONIProbeUnitTests/Pods-OONIProbeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1312,6 +1314,8 @@
 				ro,
 				nl,
 				sw,
+				vi,
+				my,
 			);
 			mainGroup = D4A2F5D01A6C3244001B8460;
 			productRefGroup = D4A2F5DA1A6C3244001B8460 /* Products */;
@@ -1715,6 +1719,8 @@
 				ED4ACEDA24A1F22000421FB9 /* ro */,
 				EDF3B9A326EFA2F700E5F72F /* nl */,
 				EDF3B9A426EFA30300E5F72F /* sw */,
+				79AA093C2A86E44400C23E27 /* vi */,
+				79AA093D2A86E47600C23E27 /* my */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
