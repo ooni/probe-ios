@@ -77,7 +77,7 @@
         [self rowCircumvention:result];
     }
     else if ([result.test_group_name isEqualToString:@"experimental"]){
-        [self rowExperimental];
+        [self rowExperimental:result];
     }
 }
 
@@ -203,9 +203,13 @@
     }
 }
 
--(void)rowExperimental{
+-(void)rowExperimental:(Result*)result{
+    long totalMeasurements = [result totalMeasurements];
+    [self.label2 setText:[NSString stringWithFormat:@"%@ %@", @(totalMeasurements), @"measured"]];
+    [self.label2 setTextColor:[UIColor colorNamed:@"color_gray9"]];
+    [self.image2 setImage:[UIImage imageNamed:@"tab_test_results"]];
     [self.stackView1 setHidden:YES];
-    [self.stackView2 setHidden:YES];
+    [self.stackView2 setHidden:NO];
     [self.stackView3 setHidden:YES];
 }
 
