@@ -54,7 +54,7 @@
         return urlStr;
     }
     if (self.protocol == HTTP) {
-        // Alright, we now need to construct a new SOCKS5 URL.
+        // Alright, we now need to construct a new HTTP URL.
         NSString *urlStr = [NSString stringWithFormat:@"http://%@:%@/", self.hostname, self.port];
         if ([ProxySettings isIPv6:self.hostname]) {
             urlStr = [NSString stringWithFormat:@"http://[%@]:%@/", self.hostname, self.port]; // IPv6 must be quoted in URLs
