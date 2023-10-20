@@ -50,25 +50,22 @@
         if ([ProxySettings isIPv6:self.hostname]) {
             urlStr = [NSString stringWithFormat:@"socks5://[%@]:%@/", self.hostname, self.port]; // IPv6 must be quoted in URLs
         }
-        //URI url = new URI(urlStr);
         return urlStr;
     }
     if (self.protocol == HTTP) {
-        // Alright, we now need to construct a new SOCKS5 URL.
+        // Alright, we now need to construct a new HTTP URL.
         NSString *urlStr = [NSString stringWithFormat:@"http://%@:%@/", self.hostname, self.port];
         if ([ProxySettings isIPv6:self.hostname]) {
             urlStr = [NSString stringWithFormat:@"http://[%@]:%@/", self.hostname, self.port]; // IPv6 must be quoted in URLs
         }
-        //URI url = new URI(urlStr);
         return urlStr;
     }
     if (self.protocol == HTTPS) {
-        // Alright, we now need to construct a new SOCKS5 URL.
+        // Alright, we now need to construct a new HTTPS URL.
         NSString *urlStr = [NSString stringWithFormat:@"https://%@:%@/", self.hostname, self.port];
         if ([ProxySettings isIPv6:self.hostname]) {
             urlStr = [NSString stringWithFormat:@"https://[%@]:%@/", self.hostname, self.port]; // IPv6 must be quoted in URLs
         }
-        //URI url = new URI(urlStr);
         return urlStr;
     }
     return @"";
