@@ -50,7 +50,6 @@
         if ([ProxySettings isIPv6:self.hostname]) {
             urlStr = [NSString stringWithFormat:@"socks5://[%@]:%@/", self.hostname, self.port]; // IPv6 must be quoted in URLs
         }
-        //URI url = new URI(urlStr);
         return urlStr;
     }
     if (self.protocol == HTTP) {
