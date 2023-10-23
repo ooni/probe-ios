@@ -124,7 +124,7 @@
 -(IBAction)run:(id)sender{
     if ([TestUtility checkConnectivity:self] &&
         [TestUtility checkTestRunning:self]){
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithObject:testSuite] inView: self];
+        [[RunningTest currentTest] setAndRun:[@[testSuite] mutableCopy] inView:self];
         [self changeConstraints];
     }
 }

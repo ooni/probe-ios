@@ -107,6 +107,14 @@
             self.testList[(NSUInteger) i] = current;
         }
     }
+    if ([self.name isEqualToString:@"ooni-run"]) {
+        for (int i = 0; i < [self.testList count]; ++i) {
+            AbstractTest *current = self.testList[(NSUInteger) i];
+            // cast testsuite to OONIRunSuite
+            OONIRunSuite *ooniRunSuite = (OONIRunSuite *)self;
+            current.runId = ooniRunSuite.descriptor.runId;
+        }
+    }
     return self.testList;
 }
 

@@ -155,6 +155,11 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView setHidden:NO];
     [self.randomlistLabel setHidden:YES];
+
+    [self.runButton setTitle:NSLocalizedString(@"OONIRun.Run", nil) forState:UIControlStateNormal];
+    [self.runButton addTarget:self
+                       action:@selector(runTest) forControlEvents:UIControlEventTouchUpInside];
+
     //reloading the view with new parameters.
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -185,17 +190,23 @@
             if ([urlsObj isKindOfClass:[NSArray class]] && [(NSArray *) urlsObj count] > 0) {
                 [self validateAndAddURLs];
             }
-        }
-        //then load view
-        if ([urls count] > 0) {
-            self.tableView.estimatedRowHeight = 44.0;
-            self.tableView.rowHeight = UITableViewAutomaticDimension;
-            [self.tableView setHidden:NO];
-            [self.randomlistLabel setHidden:YES];
-            //reloading the view with new parameters.
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-            });
+
+            //then load view
+            if ([urls count] > 0){
+                self.tableView.estimatedRowHeight = 44.0;
+                self.tableView.rowHeight = UITableViewAutomaticDimension;
+                [self.tableView setHidden:NO];
+                [self.randomlistLabel setHidden:YES];
+                //reloading the view with new parameters.
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                });
+            } else {
+                [self.tableView setHidden:YES];
+                [self.randomlistLabel setText:NSLocalizedString(@"OONIRun.RandomSamplingOfURLs", nil)];
+                [self.randomlistLabel setHidden:NO];
+            }
+
         }
             // This condition will only be true if a test arguments were passed to the app
             // but could not be processed to extract URLs

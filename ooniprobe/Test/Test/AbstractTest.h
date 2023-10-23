@@ -31,6 +31,7 @@
 @property id<OONIMKTask> task;
 @property BOOL storeDB;
 @property BOOL autoRun;
+@property long runId;
 @property BOOL isPreparing;
 
 -(id)initTest:(NSString*)testName;

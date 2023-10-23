@@ -82,28 +82,29 @@
 }
 
 //From https://stackoverflow.com/questions/8098130/how-can-i-tint-a-uiimage-with-gradient
--(UIImage *)imageWithGradient:(UIImage *)img startColor:(UIColor *)color1 endColor:(UIColor *)color2 {
-    UIGraphicsBeginImageContextWithOptions(img.size, NO, img.scale);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(context, 0, img.size.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
+- (UIImage *)imageWithGradient:(UIImage *)img startColor:(UIColor *)color1 endColor:(UIColor *)color2 {
+    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:img.size];
 
-    CGContextSetBlendMode(context, kCGBlendModeNormal);
-    CGRect rect = CGRectMake(0, 0, img.size.width, img.size.height);
+    UIImage *gradientImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
+        CGContextRef context = rendererContext.CGContext;
+        CGContextTranslateCTM(context, 0, img.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
 
-    // Create gradient
-    NSArray *colors = [NSArray arrayWithObjects:(id)color2.CGColor, (id)color1.CGColor, nil];
-    CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
-    CGGradientRef gradient = CGGradientCreateWithColors(space, (__bridge CFArrayRef)colors, NULL);
+        CGContextSetBlendMode(context, kCGBlendModeNormal);
+        CGRect rect = CGRectMake(0, 0, img.size.width, img.size.height);
 
-    // Apply gradient
-    CGContextClipToMask(context, rect, img.CGImage);
-    CGContextDrawLinearGradient(context, gradient, CGPointMake(0,0), CGPointMake(0, img.size.height), 0);
-    UIImage *gradientImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+        // Create gradient
+        NSArray *colors = @[(id)color2.CGColor, (id)color1.CGColor];
+        CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+        CGGradientRef gradient = CGGradientCreateWithColors(space, (__bridge CFArrayRef)colors, NULL);
 
-    CGGradientRelease(gradient);
-    CGColorSpaceRelease(space);
+        // Apply gradient
+        CGContextClipToMask(context, rect, img.CGImage);
+        CGContextDrawLinearGradient(context, gradient, CGPointMake(0,0), CGPointMake(0, img.size.height), 0);
+
+        CGGradientRelease(gradient);
+        CGColorSpaceRelease(space);
+    }];
 
     return gradientImage;
 }

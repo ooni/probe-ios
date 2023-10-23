@@ -105,7 +105,7 @@
             [self.scrollView setNeedsUpdateConstraints];
         }
         else {
-            self.scrollViewFooterConstraint.constant = 0;
+            self.scrollViewFooterConstraint.constant = 64;
             [self.scrollView setNeedsUpdateConstraints];
         }
     });
