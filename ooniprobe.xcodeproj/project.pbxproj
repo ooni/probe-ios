@@ -224,11 +224,6 @@
 		7940AA8F28117E9000C0EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7940AA972811840900C0EB5D /* share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = share.entitlements; sourceTree = "<group>"; };
 		79780FCE27E9F18E002A38B1 /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
-		7A8CB0932ADDDAC1005AB2BC /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libcrypto.xcframework; path = Pods/libcrypto/libcrypto.xcframework; sourceTree = "<group>"; };
-		7A8CB0942ADDDAC1005AB2BC /* libevent.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libevent.xcframework; path = Pods/libevent/libevent.xcframework; sourceTree = "<group>"; };
-		7A8CB0952ADDDAC1005AB2BC /* libssl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libssl.xcframework; path = Pods/libssl/libssl.xcframework; sourceTree = "<group>"; };
-		7A8CB0962ADDDAC1005AB2BC /* libtor.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libtor.xcframework; path = Pods/libtor/libtor.xcframework; sourceTree = "<group>"; };
-		7A8CB0972ADDDAC1005AB2BC /* libz.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libz.xcframework; path = Pods/libz/libz.xcframework; sourceTree = "<group>"; };
 		79AA093C2A86E44400C23E27 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		79AA093D2A86E47600C23E27 /* my */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = my; path = my.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7A8CB0932ADDDAC1005AB2BC /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libcrypto.xcframework; path = Pods/libcrypto/libcrypto.xcframework; sourceTree = "<group>"; };
@@ -2017,7 +2012,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = 129;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -2066,7 +2061,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = 129;
 				DEVELOPMENT_TEAM = MADPSAYN6T;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
