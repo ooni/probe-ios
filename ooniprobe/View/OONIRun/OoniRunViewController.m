@@ -6,6 +6,9 @@
 #import "TestRunningViewController.h"
 #import "ReachabilityManager.h"
 #import "RunningTest.h"
+#import "VersionUtility.h"
+#import "TestDescriptorManager.h"
+#import "TestDescriptor.h"
 
 @interface OoniRunViewController ()
 
@@ -18,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:[UIColor colorNamed:@"color_gray2_1"]];
-    self.view.backgroundColor=[UIColor colorNamed:@"color_gray2_1"];
+    self.view.backgroundColor = [UIColor colorNamed:@"color_gray2_1"];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTest:) name:@"reloadTest" object:nil];
 
@@ -26,7 +29,7 @@
 }
 
 
--(void)reloadTest:(NSNotification *)notification{
+- (void)reloadTest:(NSNotification *)notification {
     urls = nil;
     testName = nil;
     testArguments = nil;
@@ -37,18 +40,18 @@
     [self handleUrlScheme];
 }
 
--(IBAction)close:(id)sender{
+- (IBAction)close:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)handleUrlScheme{
+- (void)handleUrlScheme {
     NSDictionary *dict = [DictionaryUtility parseQueryString:[url query]];
-     //Logging
-     NSLog(@"url recieved: %@", url);
-     NSLog(@"query string: %@", [url query]);
-     NSLog(@"host: %@", [url host]);
-     NSLog(@"url path: %@", [url path]);
-     NSLog(@"dict: %@", dict);
+    //Logging
+    NSLog(@"url recieved: %@", url);
+    NSLog(@"query string: %@", [url query]);
+    NSLog(@"host: %@", [url host]);
+    NSLog(@"url path: %@", [url path]);
+    NSLog(@"dict: %@", dict);
 
     /// OONI run link
     /// - https://run.ooni.io/nettest?... is the URL you receive when the app does not correctly handle deeplinks
@@ -75,31 +78,42 @@
                 [self showErrorScreen];
             }
         }
-    }
-    else {
+    } else if ([action isEqualToString:@"runv2"]) {
+        long runId = url.pathComponents[url.pathComponents.count - 1].longLongValue;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [TestDescriptorManager
+                    fetchDescriptorFromRunId:runId
+                                   onSuccess:^(TestDescriptor *descriptor) {
+                                       [self showTestScreen:descriptor];
+                                   }
+                                     onError:^(NSError *error) {
+                                         NSLog(@"Failed call checkIn API: %@", error);
+                                         [self showErrorScreen];
+                                     }];
+        });
+        [self showErrorScreen];
+    } else {
         [self showErrorScreen];
     }
 }
 
-- (BOOL)checkMv:(NSDictionary*)parameters{
+- (BOOL)checkMv:(NSDictionary *)parameters {
     NSString *minimum_version = [parameters objectForKey:@"mv"];
-    if (minimum_version != nil){
+    if (minimum_version != nil) {
         if ([minimum_version compare:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] options:NSNumericSearch] == NSOrderedDescending) {
             //actualVersion is lower than the requiredVersion
             [self showUpdateScreen];
             return NO;
-        }
-        else {
+        } else {
             return YES;
         }
-    }
-    else {
+    } else {
         [self showErrorScreen];
         return NO;
     }
 }
 
-- (void)showUpdateScreen{
+- (void)showUpdateScreen {
     [self.titleLabel setText:NSLocalizedString(@"OONIRun.OONIProbeOutOfDate", nil)];
     [self.subtitleLabel setText:NSLocalizedString(@"OONIRun.OONIProbeNewerVersion", nil)];
     [self.runButton setTitle:NSLocalizedString(@"OONIRun.Update", nil) forState:UIControlStateNormal];
@@ -109,12 +123,12 @@
     [self.footerImage setImage:[UIImage imageNamed:@"update"]];
 }
 
-- (void)updateApp{
+- (void)updateApp {
     NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id1199566366?mt=8";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
 }
 
-- (void)showErrorScreen{
+- (void)showErrorScreen {
     [self.titleLabel setText:NSLocalizedString(@"OONIRun.InvalidParameter", nil)];
     [self.subtitleLabel setText:NSLocalizedString(@"OONIRun.InvalidParameter.Msg", nil)];
     [self.runButton setTitle:NSLocalizedString(@"OONIRun.Close", nil)
@@ -125,28 +139,55 @@
     [self.footerImage setImage:[UIImage imageNamed:@"question_mark"]];
 }
 
-- (void)showTestScreen{
+- (void)showTestScreen:(TestDescriptor *)descriptor {
+    [self.titleLabel setText:descriptor.name];
+    [self.subtitleLabel setText:descriptor.iDescription];
+    urls = [[NSMutableArray alloc] init];
+    for (Nettest *nettest in descriptor.getNettests) {
+        @try {
+            [urls addObject:nettest.test_name];
+        } @catch (NSException *exception) {
+            NSLog(@"OoniRunViewControllerError: %@", exception);
+            [ThirdPartyServices recordError:@"Invalid URL" reason:exception.reason userInfo:@{@"url": url}];
+        }
+    }
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    [self.tableView setHidden:NO];
+    [self.randomlistLabel setHidden:YES];
+
+    [self.runButton setTitle:NSLocalizedString(@"OONIRun.Run", nil) forState:UIControlStateNormal];
+    [self.runButton addTarget:self
+                       action:@selector(runTest) forControlEvents:UIControlEventTouchUpInside];
+
+    //reloading the view with new parameters.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
+
+- (void)showTestScreen {
     [self.titleLabel setText:[LocalizationUtility getNameForTest:self.testName]];
-    
+
     if (testDescription != nil)
         [self.subtitleLabel setText:[NSString stringWithFormat:@"%@", testDescription]];
     else
         [self.subtitleLabel setText:NSLocalizedString(@"OONIRun.YouAreAboutToRun", nil)];
-    
+
     [self.runButton setTitle:NSLocalizedString(@"OONIRun.Run", nil) forState:UIControlStateNormal];
     [self.runButton addTarget:self
                        action:@selector(runTest) forControlEvents:UIControlEventTouchUpInside];
-    
+
     [self.headerImage setImage:[UIImage imageNamed:[TestUtility getCategoryForTest:self.testName]]];
     [self.footerImage setImage:[UIImage imageNamed:[TestUtility getCategoryForTest:self.testName]]];
 
     //reset the arrays: we may be called more than once for the same screen
-    if ([testName isEqualToString:@"web_connectivity"]){
+    if ([testName isEqualToString:@"web_connectivity"]) {
         urls = [[NSMutableArray alloc] init];
         //First validate urls
-        if ([testArguments isKindOfClass:[NSDictionary class]]){
+        if ([testArguments isKindOfClass:[NSDictionary class]]) {
             id urlsObj = testArguments[@"urls"];
-            if ([urlsObj isKindOfClass:[NSArray class]] && [(NSArray*)urlsObj count] > 0){
+            if ([urlsObj isKindOfClass:[NSArray class]] && [(NSArray *) urlsObj count] > 0) {
                 [self validateAndAddURLs];
             }
 
@@ -167,21 +208,19 @@
             }
 
         }
-        // This condition will only be true if a test arguments were passed to the app
-        // but could not be processed to extract URLs
+            // This condition will only be true if a test arguments were passed to the app
+            // but could not be processed to extract URLs
         else if (testArguments != nil) {
             [self.randomlistLabel setHidden:YES];
             [self.runButton removeTarget:self
-                               action:@selector(runTest) forControlEvents:UIControlEventTouchUpInside];
+                                  action:@selector(runTest) forControlEvents:UIControlEventTouchUpInside];
             [self showErrorScreen];
-        }
-        else {
+        } else {
             [self.tableView setHidden:YES];
             [self.randomlistLabel setText:NSLocalizedString(@"OONIRun.RandomSamplingOfURLs", nil)];
             [self.randomlistLabel setHidden:NO];
         }
-    }
-    else {
+    } else {
         [self.tableView setHidden:YES];
         [self.randomlistLabel setHidden:YES];
     }
@@ -190,16 +229,16 @@
 /**
  * Goes though `testArguments` and add valid urls to the `urls` array.
  */
--(void)validateAndAddURLs{
-    for (NSString *url in [testArguments objectForKey:@"urls"]){
+- (void)validateAndAddURLs {
+    for (NSString *url in [testArguments objectForKey:@"urls"]) {
         @try {
-            if ([self validateLink:url]){
+            if ([self validateLink:url]) {
                 [Url checkExistingUrl:url];
                 [urls addObject:url];
             }
-        } @catch (NSException *exception){
+        } @catch (NSException *exception) {
             NSLog(@"OoniRunViewControllerError: %@", exception);
-            [ThirdPartyServices recordError: @"Invalid URL" reason: exception.reason  userInfo: @{ @"url": url} ];
+            [ThirdPartyServices recordError:@"Invalid URL" reason:exception.reason userInfo:@{@"url": url}];
         }
     }
 }
@@ -242,18 +281,16 @@
 }
 
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return NSLocalizedFormatString(@"OONIRun.URLs", [NSString stringWithFormat:@"%ld", [urls count]]);
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 40;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
-    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *) view;
     header.backgroundView.backgroundColor = [UIColor clearColor];
     header.textLabel.font = [UIFont fontWithName:@"FiraSans-Regular" size:18];
     [header.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
@@ -268,7 +305,7 @@
     return cell;
 }
 
--(IBAction)runTest {
+- (IBAction)runTest {
     if ([TestUtility checkConnectivity:self] &&
             [TestUtility checkTestRunning:self]) {
         NSString *testSuiteName = [TestUtility getCategoryForTest:testName];
@@ -277,7 +314,7 @@
         [test setAnnotation:YES];
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
-            [(WebConnectivity*)test setInputs:urls];
+            [(WebConnectivity *) test setInputs:urls];
 
         if ([[ReachabilityManager sharedManager] isVPNConnected] && [SettingsUtility isWarnVPNInUse]) {
             [MessageUtility alertVpnWithTitle:NSLocalizedString(@"Modal.DisableVPN.Title", nil)
@@ -308,9 +345,9 @@
     }
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"toTestRun"]){
-        TestRunningViewController *vc = (TestRunningViewController * )segue.destinationViewController;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toTestRun"]) {
+        TestRunningViewController *vc = (TestRunningViewController *) segue.destinationViewController;
         [vc setPresenting:YES];
     }
 }

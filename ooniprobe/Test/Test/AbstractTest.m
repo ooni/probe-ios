@@ -61,6 +61,9 @@
         self.settings.annotations[@"origin"] = @"autorun";
         self.settings.options.software_name = [NSString stringWithFormat:@"%@%@",SOFTWARE_NAME,@"-unattended"];
     }
+    if (self.runId!= 0) {
+        self.settings.annotations[@"ooni_run_link_id"] = [NSString stringWithFormat:@"%ld", self.runId];
+    }
     self.settings.name = self.name;
 }
 

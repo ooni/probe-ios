@@ -5,3 +5,4 @@
 #import "PerformanceSuite.h"
 #import "CircumventionSuite.h"
 #import "ExperimentalSuite.h"
+#import "OONIRunSuite.h"

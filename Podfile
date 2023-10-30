@@ -17,7 +17,7 @@ target 'ooniprobe' do
     pod 'MKDropdownMenu'
     pod 'RHMarkdownLabel'
     pod 'DateTools'
-    pod 'OCMapper', '2.0'
+    pod 'OCMapper', '2.0' # 2.1 can't be used because it doesnt support optional camel case conversion. see https://github.com/aryaxt/OCMapper/issues/62
     pod 'Countly'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '6.1.4'
     pod 'Harpy'

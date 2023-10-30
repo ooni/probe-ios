@@ -8,6 +8,7 @@
 #define delete_json_key @"deleteUploadedJsons"
 #import "RunningTest.h"
 #import "ReachabilityManager.h"
+#import "TestDescriptorManager.h"
 
 @implementation TestUtility
 
@@ -50,6 +51,10 @@
     [tests addObject:[[CircumventionSuite alloc] init]];
     [tests addObject:[[PerformanceSuite alloc] init]];
     [tests addObject:[[ExperimentalSuite alloc] init]];
+    NSArray *v2Descriptors = TestDescriptorManager.getTestObjects;
+    for (TestDescriptor *testDescriptor in v2Descriptors) {
+        [tests addObject:[[OONIRunSuite alloc] initWithDescriptor:testDescriptor]];
+    }
     return [[tests sortedArrayUsingComparator:^NSComparisonResult(AbstractSuite *a, AbstractSuite *b) {
         return (NSComparisonResult) ((a.getTestList.count <= 0) == (b.getTestList.count >= 0));
     }] mutableCopy];;

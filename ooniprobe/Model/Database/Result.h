@@ -2,6 +2,7 @@
 #import <SharkORM/SharkORM.h>
 #import "JsonResult.h"
 #import "Measurement.h"
+#import "TestDescriptor.h"
 #define BASIC_QUERY @"is_rerun = 0 AND is_done = 1"
 #define REPORT_QUERY @"(is_uploaded = 1 || report_id IS NOT NULL)"
 #define NOT_UPLOADED_QUERY [NSString stringWithFormat:@"%@ AND (is_uploaded = 0 || report_id IS NULL)", BASIC_QUERY]
@@ -16,6 +17,7 @@
 @property long data_usage_up;
 @property long data_usage_down;
 @property Network *network_id;
+@property TestDescriptor *descriptor_id;
 @property NSString *failure_msg;
 
 - (long)totalMeasurements;
