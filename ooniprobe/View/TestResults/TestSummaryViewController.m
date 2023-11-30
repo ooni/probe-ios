@@ -157,14 +157,12 @@
         } else {
             cell.accessoryView = nil;
         }
-
+        cell.backgroundColor = [UIColor colorNamed:@"color_white"];
     } else {
         Measurement *current = self.groupedMeasurements[indexPath.section][indexPath.row - 1];
         [cell setResult:result andMeasurement:current];
         cell.accessoryView = nil;
-        // Set the left margin for the cell
-        CGFloat leftMargin = 200.0;
-        cell.frame = UIEdgeInsetsInsetRect(cell.frame, UIEdgeInsetsMake(0, leftMargin, 0, 0));
+        cell.backgroundColor = [UIColor colorNamed:@"color_gray0"];
     }
     return cell;
 }
