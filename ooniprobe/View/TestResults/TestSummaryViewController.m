@@ -87,8 +87,8 @@
         if (!groupedMeasurements[testName]) {
             groupedMeasurements[testName] = [NSMutableArray arrayWithObject:measurement];
         }
-            // If this test_name is already a key in the dictionary, append the current
-            // measurement to the existing array
+        // If this test_name is already a key in the dictionary, append the current
+        // measurement to the existing array
         else {
             [groupedMeasurements[testName] addObject:measurement];
         }
