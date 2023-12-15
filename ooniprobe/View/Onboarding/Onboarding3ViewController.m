@@ -29,6 +29,15 @@
     [linkAttrs setObject:[NSNumber numberWithBool:YES] forKey:(NSString*)kCTUnderlineStyleAttributeName];
     self.textLabel.linkAttributes = linkAttrs;
     [self.textLabel setMarkdown:defaultSettings];
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
+        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.view.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft) {
+            self.textLabel.textAlignment = NSTextAlignmentRight;
+        }
+    } else {
+        if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+            self.textLabel.textAlignment = NSTextAlignmentRight;
+        }
+    }
     [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
     }];

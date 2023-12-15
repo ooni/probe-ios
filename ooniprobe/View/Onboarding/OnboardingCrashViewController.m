@@ -23,6 +23,15 @@
     [self.titleLabel setText:NSLocalizedString(@"Onboarding.Crash.Title", nil)];
     
     [self.textLabel setText:NSLocalizedString(@"Onboarding.Crash.Paragraph", nil)];
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
+        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.view.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft) {
+            self.textLabel.textAlignment = NSTextAlignmentRight;
+        }
+    } else {
+        if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+            self.textLabel.textAlignment = NSTextAlignmentRight;
+        }
+    }
 }
 
 -(IBAction)acceptCrash{
