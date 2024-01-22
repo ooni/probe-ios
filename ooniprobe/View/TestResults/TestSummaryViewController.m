@@ -66,6 +66,9 @@
 
 - (void)resultUpdated:(NSNotification *)notification
 {
+    if (result.Id != ((Result *) [notification object]).Id) {
+        return;
+    }
     result = [notification object];
     [self reloadMeasurements];
 }
