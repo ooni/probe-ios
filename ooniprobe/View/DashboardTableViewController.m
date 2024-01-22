@@ -14,6 +14,11 @@
 @implementation DashboardTableViewController
 @synthesize items;
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.title = NSLocalizedString(@"Dashboard.Tab.Label", nil);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setShadowRunButton];
@@ -27,6 +32,8 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
     [self reloadConstraints];
+    self.title = @"";
+    self.title = NSLocalizedString(@"Dashboard.Tab.Label", nil);
 }
 
 -(void)viewDidAppear:(BOOL)animated{

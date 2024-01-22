@@ -20,6 +20,15 @@
     NSString *thingsToKnow = [NSString stringWithFormat:@"• %@\n• %@\n• %@", NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.1", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.2", nil), NSLocalizedString(@"Onboarding.ThingsToKnow.Bullet.3", nil)];
     
     [self.textLabel setText:thingsToKnow];
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
+        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.view.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft) {
+            self.textLabel.textAlignment = NSTextAlignmentRight;
+        }
+    } else {
+        if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+            self.textLabel.textAlignment = NSTextAlignmentRight;
+        }
+    }
     [self.nextButton setTitle:NSLocalizedString(@"Onboarding.ThingsToKnow.Button", nil) forState:UIControlStateNormal];
     [self.nextButton setTitleColor:[UIColor colorNamed:@"color_blue8"]
                                forState:UIControlStateNormal];

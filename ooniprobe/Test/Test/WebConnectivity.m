@@ -39,10 +39,15 @@
 }
 
 -(void)onError:(NSError*)error{
-    [ThirdPartyServices recordError:@"downloadUrls_error"
-                           reason:@"downloadUrls failed due to an error"
-                         userInfo:[error dictionary]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
+    @try {
+        [ThirdPartyServices recordError:@"downloadUrls_error"
+                                 reason:@"downloadUrls failed due to an error"
+                               userInfo:[error dictionary]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showError" object:nil];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+    }
     [super testEnded];
 }
 
@@ -63,7 +68,7 @@
  if the option max_runtime is already set in the option and is not MAX_RUNTIME_DISABLED let's use it
  else if the input are sets we calculate 5 seconds per input
  at last we check if max_runtime is enabled, in  that case we use the value in the settings
- 
+
  first two cases : test is already running and with options and/or URL s
  last two cases : get max_runtime saved in the preference
  */

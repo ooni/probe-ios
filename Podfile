@@ -2,13 +2,22 @@ platform :ios, '9.0'
 use_frameworks!
 inhibit_all_warnings!
 
+
+
+def ooni_pods
+    ooni_version = "v3.20.0"
+    ooni_pods_location = "https://github.com/ooni/probe-cli/releases/download/#{ooni_version}"
+
+    pod "libcrypto", :podspec => "#{ooni_pods_location}/libcrypto.podspec"
+    pod "libevent", :podspec => "#{ooni_pods_location}/libevent.podspec"
+    pod "libssl", :podspec => "#{ooni_pods_location}/libssl.podspec"
+    pod "libtor", :podspec => "#{ooni_pods_location}/libtor.podspec"
+    pod "libz", :podspec => "#{ooni_pods_location}/libz.podspec"
+    pod "oonimkall", :podspec => "#{ooni_pods_location}/oonimkall.podspec"
+end
+
 target 'ooniprobe' do
-    pod "libcrypto", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libcrypto.podspec"
-    pod "libevent", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libevent.podspec"
-    pod "libssl", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libssl.podspec"
-    pod "libtor", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libtor.podspec"
-    pod "libz", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libz.podspec"
-    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/oonimkall.podspec"
+    ooni_pods
     pod 'Toast', '~> 4.0.0'
     pod 'MBProgressHUD'
     pod 'DZNEmptyDataSet'
@@ -24,12 +33,7 @@ target 'ooniprobe' do
 end
 
 target 'OONIProbeUnitTests' do
-    pod "libcrypto", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libcrypto.podspec"
-    pod "libevent", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libevent.podspec"
-    pod "libssl", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libssl.podspec"
-    pod "libtor", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libtor.podspec"
-    pod "libz", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/libz.podspec"
-    pod "oonimkall", :podspec => "https://github.com/ooni/probe-cli/releases/download/v3.19.1/oonimkall.podspec"
+    ooni_pods
     pod 'SharkORM', :git => 'https://github.com/sharksync/sharkorm', :tag => 'v2.3.67'
     pod 'OCMapper', '2.0'
 end
