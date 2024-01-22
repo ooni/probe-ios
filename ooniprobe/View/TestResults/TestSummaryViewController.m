@@ -173,7 +173,7 @@
     // Check if it's a parent row
     if (indexPath.row == 0) {
         if (group.count == 1) {
-            // This is a parent with no children. Add your click listener code here.
+            // This is a parent with no children. Adding our click listener code.
             segueObj = group[0];
             [self goToDetails];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
