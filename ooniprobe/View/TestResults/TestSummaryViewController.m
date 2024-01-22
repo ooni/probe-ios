@@ -193,7 +193,7 @@
             [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
     } else {
-        // This is a child. Add your click listener code here.
+        // This is a child. Adding our click listener code.
         segueObj = group[indexPath.row - 1];
         [self goToDetails];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
