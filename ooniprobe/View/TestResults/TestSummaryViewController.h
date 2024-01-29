@@ -17,5 +17,5 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) Result* result;
 @property (nonatomic, strong) SRKResultSet *measurements;
-@property (nonatomic, strong) NSArray *groupedMeasurements;
+@property (nonatomic, strong) NSArray<NSArray<Measurement *> *> *groupedMeasurements;
 @end
