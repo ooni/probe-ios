@@ -88,7 +88,7 @@
  * where each array of measurements contains only one measurement.
  */
 - (void)groupMeasurements {
-// Create a mutable dictionary to hold the grouped measurements
+    // Create a mutable dictionary to hold the grouped measurements
     NSMutableDictionary *groupedMeasurements = [NSMutableDictionary new];
 
     // Iterate over each measurement
@@ -101,9 +101,9 @@
         if (!groupedMeasurements[testName]) {
             groupedMeasurements[testName] = [@[measurement] mutableCopy];
         }
+        else {
             // If this test_name is already a key in the dictionary, append the current
             // measurement to the existing array
-        else {
             [groupedMeasurements[testName] addObject:measurement];
         }
     }
