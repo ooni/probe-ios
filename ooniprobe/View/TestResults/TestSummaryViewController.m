@@ -74,6 +74,20 @@
 
 - (void)reloadMeasurements {
     self.measurements = result.measurementsSorted;
+    [self groupMeasurements];
+    [self reloadConstraints];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
+
+/**
+ * The table takes an array of arrays of measurements.
+ * Each array of measurements is a group of measurements with the same test_name.
+ * If there is only one test_name, it creates an array of arrays of measurements
+ * where each array of measurements contains only one measurement.
+ */
+- (void)groupMeasurements {
     // Create a mutable dictionary to hold the grouped measurements
     NSMutableDictionary *groupedMeasurements = [NSMutableDictionary new];
 
@@ -85,22 +99,32 @@
         // If this test_name is not already a key in the dictionary, add it
         // with the current measurement as the value in an array
         if (!groupedMeasurements[testName]) {
-            groupedMeasurements[testName] = [NSMutableArray arrayWithObject:measurement];
+            groupedMeasurements[testName] = [@[measurement] mutableCopy];
         }
-        // If this test_name is already a key in the dictionary, append the current
-        // measurement to the existing array
         else {
+            // If this test_name is already a key in the dictionary, append the current
+            // measurement to the existing array
             [groupedMeasurements[testName] addObject:measurement];
         }
     }
 
-    // Replace the measurements array with the grouped measurements
-    self.groupedMeasurements = [groupedMeasurements allValues];
-
-    [self reloadConstraints];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
+    // If there is only one test name in the dictionary
+    if (groupedMeasurements.count == 1) {
+        // Create a new array to store groups of measurements
+        NSMutableArray *groups = [[NSMutableArray alloc] init];
+        // Iterate over all measurements for the single test name
+        for (Measurement *measurement in groupedMeasurements.allValues[0]) {
+            // Create a new array for each measurement and add it to the groups array
+            // Set the groupedMeasurements property to the groups array
+            NSMutableArray *measurements = [[NSMutableArray alloc] init];
+            [measurements addObject:measurement];
+            [groups addObject:measurements];
+        }
+        self.groupedMeasurements = [NSArray arrayWithArray:groups];
+    } else {
+        // Replace the measurements array with the grouped measurements
+        self.groupedMeasurements = [groupedMeasurements allValues];
+    }
 }
 
 #pragma mark - Table view data source
