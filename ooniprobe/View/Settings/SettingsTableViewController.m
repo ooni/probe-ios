@@ -11,10 +11,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (category != nil)
-        self.title = [LocalizationUtility getNameForSetting:category];
-    else if (testSuite != nil)
-        self.title = [LocalizationUtility getNameForTest:testSuite.name];
+    [self updateTitle];
     self.navigationController.navigationBar.topItem.title = @"";
 
     keyboardToolbar = [[UIToolbar alloc] init];
@@ -30,14 +27,30 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self updateTitle];
     [self reloadSettings];
 }
 
+/**
+ * Update the title of the view controller.
+ * If the view controller is for a category(enumerated in ``SettingsUtility/getSettingsCategories``), the title is the name of the category.
+ * If the view controller is for a test suite, the title is the name of the test suite.
+ */
+- (void)updateTitle {
+    self.title = @"";
+    if (category != nil) {
+        self.title = [LocalizationUtility getNameForSetting:category];
+    } else if (testSuite != nil) {
+        self.title = [LocalizationUtility getNameForTest:testSuite.name];
+    }
+}
+
 -(void)reloadSettings {
-    if (category != nil)
+    if (category != nil) {
         items = [SettingsUtility getSettingsForCategory:category];
-    else if (testSuite != nil)
+    } else if (testSuite != nil) {
         items = [SettingsUtility getSettingsForTest:testSuite.name :YES];
+    }
     //hide rows smooth
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
