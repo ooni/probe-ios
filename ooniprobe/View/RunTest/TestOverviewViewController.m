@@ -24,6 +24,15 @@
     [linkAttributes setObject:[UIColor colorNamed:@"color_base"] forKey:(NSString *)kCTForegroundColorAttributeName];
     self.testDescriptionLabel.linkAttributes = [NSDictionary dictionaryWithDictionary:linkAttributes];
     [self.testDescriptionLabel setMarkdown:testLongDesc];
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
+        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.view.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft) {
+            self.testDescriptionLabel.textAlignment = NSTextAlignmentRight;
+        }
+    } else {
+        if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+            self.testDescriptionLabel.textAlignment = NSTextAlignmentRight;
+        }
+    }
     [self.testDescriptionLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
         [[UIApplication sharedApplication] openURL:url];
     }];
