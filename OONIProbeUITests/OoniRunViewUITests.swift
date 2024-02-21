@@ -191,7 +191,7 @@ class OoniRunViewUITests: XCTestCase {
 
         safari.textFields["Address"].tap()
 
-        let keyboardTutorialButton = safari.buttons["Continue"]
+        let keyboardTutorialButton = safari.buttons["Continue"].firstMatch
 
         if keyboardTutorialButton.exists {
 
