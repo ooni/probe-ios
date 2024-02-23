@@ -28,10 +28,10 @@
                         <viewControllerLayoutGuide type="bottom" id="iDt-w7-KI4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WHK-n4-vcV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-6C-NZt">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="vNz-6C-NZt">
                                 <rect key="frame" x="-58" y="129" width="530" height="530"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -57,7 +57,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Estimated Time Remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6u-M1-RsK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated Time Remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6u-M1-RsK">
                                 <rect key="frame" x="20" y="686" width="374" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="vwo-8o-T3A"/>
@@ -66,7 +66,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6n-n1-GOS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6n-n1-GOS">
                                 <rect key="frame" x="20" y="703" width="374" height="34"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Dashboard.Running.ETA"/>
                                 <constraints>
@@ -76,14 +76,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-4o-FNz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-4o-FNz">
                                 <rect key="frame" x="20" y="768" width="374" height="77"/>
                                 <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" tag="6" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xcv-iy-zO9">
-                                <rect key="frame" x="62" y="671" width="290" height="4"/>
+                            <progressView opaque="NO" tag="6" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xcv-iy-zO9">
+                                <rect key="frame" x="62" y="671" width="290" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="DPL-8E-j6a"/>
                                 </constraints>
@@ -101,7 +101,7 @@
                                     <action selector="minimize:" destination="4q0-13-6dh" eventType="touchUpInside" id="Fhs-wl-LPa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="6" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLK-6a-JYw" customClass="ConfigureButton">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLK-6a-JYw" customClass="ConfigureButton">
                                 <rect key="frame" x="162" y="853" width="90" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Dashboard.Overview.ChooseWebsites"/>
@@ -123,10 +123,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5YP-9k-ipZ">
-                                <rect key="frame" x="145" y="97" width="124.5" height="104"/>
+                                <rect key="frame" x="145" y="97" width="124.5" height="24"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circumvention" translatesAutoresizingMaskIntoConstraints="NO" id="win-th-HSk">
-                                        <rect key="frame" x="6" y="2" width="20" height="100"/>
+                                        <rect key="frame" x="6" y="2" width="20" height="20"/>
                                         <color key="tintColor" name="color_gray7"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="FvS-0H-Oa0"/>
@@ -134,7 +134,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proxy in use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-ZP-d1K">
-                                        <rect key="frame" x="31" y="2" width="87.5" height="100"/>
+                                        <rect key="frame" x="31" y="2" width="87.5" height="20"/>
                                         <fontDescription key="fontDescription" name="FiraSans-Regular" family="Fira Sans" pointSize="16"/>
                                         <color key="textColor" name="color_gray7"/>
                                         <color key="highlightedColor" name="color_gray7"/>
@@ -685,7 +685,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="D7Q-WU-3gS"/>
-        <segue reference="tRy-qU-e0n"/>
+        <segue reference="Get-FV-hMZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="70"/>

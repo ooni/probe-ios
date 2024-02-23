@@ -9,6 +9,7 @@
 #import "ReachabilityManager.h"
 #import "BackgroundTask.h"
 #import "Harpy.h"
+#import "ooniprobe-Swift.h"
 
 @interface AppDelegate ()
 
@@ -153,9 +154,16 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         NSString *fixedURL = [url.absoluteString stringByReplacingOccurrencesOfString:@"+" withString:@"%20"];
         [rvc setUrl:[NSURL URLWithString:fixedURL]];
         if (self.window.rootViewController.view.window != nil){
-            //only main view controller is visible
-            [nvc setModalPresentationStyle:UIModalPresentationFullScreen];
-            [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+            if ([[url host] isEqualToString:@"run.test.ooni.org"] || [[url host] isEqualToString:@"runv2"]){
+                UIViewController *vc = [LaunchScreenViewFactory createWithUrl:url.absoluteString];
+                [vc setModalPresentationStyle:UIModalPresentationFullScreen];
+                [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+            }
+            else {
+                //only main view controller is visible
+                [nvc setModalPresentationStyle:UIModalPresentationFullScreen];
+                [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
+            }
         }
         else {
             //main view controller is not in the window hierarchy, so overlay window was presented already, reloading parameters
