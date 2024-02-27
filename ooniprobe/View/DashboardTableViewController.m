@@ -3,6 +3,7 @@
 #import "ThirdPartyServices.h"
 #import "Suite.h"
 #import "RunningTest.h"
+#import "ooniprobe-Swift.h"
 
 @interface DashboardTableViewController ()
 
@@ -83,6 +84,10 @@
 -(void)setShadowRunButton{
     self.runButton.layer.cornerRadius = 20;
     self.runButton.layer.masksToBounds = YES;
+    [self.runButton setImage:[self resizeImage:[UIImage imageNamed:@"timer"] newWidth:23 newHeight:25] forState:UIControlStateNormal];
+    self.runButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.runButton.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    self.runButton.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
     [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Card.Run", nil)] forState:UIControlStateNormal];
 
     self.viewForShadowRunButton.backgroundColor = [UIColor clearColor];
@@ -134,6 +139,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"OONI TESTS";
+    }
+    return @"";
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20;
+}
+
+
 -(IBAction)run:(id)sender{
     if ([TestUtility checkConnectivity:self] &&
         [TestUtility checkTestRunning:self]){
@@ -160,7 +177,7 @@
         AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
         [vc setTestSuite:testSuite];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }    
+    }
 }
 
 
