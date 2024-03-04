@@ -120,7 +120,11 @@
         else
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         if ([[TestUtility getTestOptionTypes] containsObject:current]){
-            cell.imageView.image = [UIImage imageNamed:current];
+            if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+                cell.imageView.image = [self imageWithImage:[UIImage imageNamed:current] convertToSize:CGSizeMake(32, 32)];
+            } else {
+                cell.imageView.image = [UIImage imageNamed:current];
+            }
         }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
@@ -172,6 +176,24 @@
         }
     }
     return cell;
+}
+
+
+/**
+ * This method is used to resize an image to a given size.
+ * There is loss of original image color when resizing. Improvement required.
+ * @see https://stackoverflow.com/a/4712537
+ *
+ * @param image
+ * @param size
+ * @return
+ */
+- (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return destImage;
 }
 
 -(IBAction)removeAllTests:(id)sender{

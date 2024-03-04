@@ -18,6 +18,15 @@
         [self.textLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
         [self.textLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
         [self.textLabel setMarkdown:paragraph];
+        if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
+            if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.view.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft) {
+                self.textLabel.textAlignment = NSTextAlignmentRight;
+            }
+        } else {
+            if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+                self.textLabel.textAlignment = NSTextAlignmentRight;
+            }
+        }
         [self.textLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
             [[UIApplication sharedApplication] openURL:url];
         }];
