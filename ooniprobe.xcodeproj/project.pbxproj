@@ -12,6 +12,11 @@
 		17E7EDC021BFEE0C001961C7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */; };
 		526C702A25C99AB200C7A164 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526C702925C99AB100C7A164 /* Colors.xcassets */; };
 		58E18F9EBF4FAD4EFCE020F3 /* Pods_ooniprobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */; };
+		793587C22B8885C800038F88 /* DescriptorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 793587C12B8885C800038F88 /* DescriptorResponse.m */; };
+		793587C52B88901300038F88 /* TestDescriptorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 793587C42B88901300038F88 /* TestDescriptorManager.m */; };
+		793588152B91B69200038F88 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793588142B91B69200038F88 /* LaunchScreenController.swift */; };
+		7935881B2B91C2D100038F88 /* OONIRunV2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7935881A2B91C2D100038F88 /* OONIRunV2.storyboard */; };
+		7935881D2B91D3A600038F88 /* AddDescriptorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935881C2B91D3A600038F88 /* AddDescriptorController.swift */; };
 		7940AA8B28117E9000C0EB5D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7940AA8A28117E9000C0EB5D /* ShareViewController.swift */; };
 		7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */; };
 		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -218,6 +223,14 @@
 		17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		526C702925C99AB100C7A164 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		588219FACC9F793A15BDEA33 /* Pods_OONIProbeUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OONIProbeUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		793587BB2B87C7F600038F88 /* ooniprobe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ooniprobe-Bridging-Header.h"; sourceTree = "<group>"; };
+		793587C02B8885C800038F88 /* DescriptorResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DescriptorResponse.h; path = Engine/DescriptorResponse.h; sourceTree = "<group>"; };
+		793587C12B8885C800038F88 /* DescriptorResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DescriptorResponse.m; path = Engine/DescriptorResponse.m; sourceTree = "<group>"; };
+		793587C32B88901300038F88 /* TestDescriptorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestDescriptorManager.h; path = Utility/TestDescriptorManager.h; sourceTree = "<group>"; };
+		793587C42B88901300038F88 /* TestDescriptorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TestDescriptorManager.m; path = Utility/TestDescriptorManager.m; sourceTree = "<group>"; };
+		793588142B91B69200038F88 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchScreenController.swift; path = v2/LaunchScreenController.swift; sourceTree = "<group>"; };
+		7935881A2B91C2D100038F88 /* OONIRunV2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = OONIRunV2.storyboard; path = Storyboards/OONIRunV2.storyboard; sourceTree = "<group>"; };
+		7935881C2B91D3A600038F88 /* AddDescriptorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddDescriptorController.swift; path = v2/AddDescriptorController.swift; sourceTree = "<group>"; };
 		7940AA8828117E9000C0EB5D /* share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7940AA8A28117E9000C0EB5D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		7940AA8D28117E9000C0EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -651,6 +664,7 @@
 				526C702925C99AB100C7A164 /* Colors.xcassets */,
 				D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */,
 				D4A2F5DC1A6C3244001B8460 /* Supporting Files */,
+				793587BB2B87C7F600038F88 /* ooniprobe-Bridging-Header.h */,
 			);
 			path = ooniprobe;
 			sourceTree = "<group>";
@@ -686,6 +700,8 @@
 			children = (
 				ED53842021597E950078C5C6 /* OoniRunViewController.h */,
 				ED53842121597E950078C5C6 /* OoniRunViewController.m */,
+				793588142B91B69200038F88 /* LaunchScreenController.swift */,
+				7935881C2B91D3A600038F88 /* AddDescriptorController.swift */,
 			);
 			path = OONIRun;
 			sourceTree = "<group>";
@@ -860,6 +876,8 @@
 				ED4DF7D92609F0ED00521C5B /* BackgroundTask.m */,
 				ED4F77F3265E3C5A00C28AC0 /* ProxySettings.h */,
 				ED4F77F4265E3C5A00C28AC0 /* ProxySettings.m */,
+				793587C32B88901300038F88 /* TestDescriptorManager.h */,
+				793587C42B88901300038F88 /* TestDescriptorManager.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1013,6 +1031,7 @@
 				EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */,
 				EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */,
 				ED0A6200200B52C000235E70 /* OONIRun.storyboard */,
+				7935881A2B91C2D100038F88 /* OONIRunV2.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -1149,6 +1168,8 @@
 				ED9CCF02252B356D004F8420 /* PESession.m */,
 				EDC5A0C325F00C4B00F86720 /* OONIURLInfo.h */,
 				EDC5A0C425F00C4B00F86720 /* OONIURLInfo.m */,
+				793587C02B8885C800038F88 /* DescriptorResponse.h */,
+				793587C12B8885C800038F88 /* DescriptorResponse.m */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -1273,6 +1294,7 @@
 					D4A2F5D81A6C3244001B8460 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = MADPSAYN6T;
+						LastSwiftMigration = 1520;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1389,6 +1411,7 @@
 				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
 				ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */,
+				7935881B2B91C2D100038F88 /* OONIRunV2.storyboard in Resources */,
 				ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
 			);
@@ -1538,6 +1561,7 @@
 				ED4DF7B52607970C00521C5B /* Signal.m in Sources */,
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.m in Sources */,
+				793587C52B88901300038F88 /* TestDescriptorManager.m in Sources */,
 				ED76B21725B7067100899EE7 /* GatewayConnection.m in Sources */,
 				ED9CCF09252B35B3004F8420 /* PELoggerAdapter.m in Sources */,
 				ED90A92C2198DE5100204B46 /* Settings.m in Sources */,
@@ -1625,6 +1649,7 @@
 				ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */,
 				ED21D092269C93B900BB09D8 /* ProgressViewController.m in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.m in Sources */,
+				7935881D2B91D3A600038F88 /* AddDescriptorController.swift in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
 				ED9CCF27252B4A13004F8420 /* LoggerArray.m in Sources */,
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
@@ -1632,11 +1657,13 @@
 				ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */,
 				EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
+				793588152B91B69200038F88 /* LaunchScreenController.swift in Sources */,
 				ED2E066D21D4867B00E9B9EE /* WebConnectivity.m in Sources */,
 				EDF4ED27248A9A64001A5406 /* Simple.m in Sources */,
 				EDF4ECF4248549BD001A5406 /* Engine.m in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,
 				EDD771FD268116B300184C06 /* RunningTest.m in Sources */,
+				793587C22B8885C800038F88 /* DescriptorResponse.m in Sources */,
 				ED12BA30224E5BDE004949E4 /* TestSummaryTableViewCell.m in Sources */,
 				ED53842221597E950078C5C6 /* OoniRunViewController.m in Sources */,
 				ED2E067321D4867B00E9B9EE /* Telegram.m in Sources */,
@@ -1741,6 +1768,7 @@
 		17E7EDBC21BFEDD1001961C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1773,6 +1801,7 @@
 		17E7EDBD21BFEDD1001961C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2008,6 +2037,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2041,6 +2071,9 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "ooniprobe/ooniprobe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 x86_64";
@@ -2056,6 +2089,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ooniprobe/ooniprobe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2091,6 +2125,8 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "ooniprobe/ooniprobe-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = arm64;
@@ -2101,6 +2137,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AC948DA31A71FB931BBB1BB3 /* Pods-OONIProbeUnitTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2132,6 +2169,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CAFF8CF760913F0065D0615D /* Pods-OONIProbeUnitTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
