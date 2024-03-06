@@ -12,11 +12,11 @@
 		17E7EDC021BFEE0C001961C7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */; };
 		526C702A25C99AB200C7A164 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526C702925C99AB100C7A164 /* Colors.xcassets */; };
 		58E18F9EBF4FAD4EFCE020F3 /* Pods_ooniprobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */; };
-		793587BD2B87C7F700038F88 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793587BC2B87C7F700038F88 /* LaunchScreen.swift */; };
-		793587BF2B88242500038F88 /* SwiftUIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793587BE2B88242500038F88 /* SwiftUIViewFactory.swift */; };
 		793587C22B8885C800038F88 /* DescriptorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 793587C12B8885C800038F88 /* DescriptorResponse.m */; };
 		793587C52B88901300038F88 /* TestDescriptorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 793587C42B88901300038F88 /* TestDescriptorManager.m */; };
-		793587C92B8897DB00038F88 /* AddDescriptorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793587C82B8897DB00038F88 /* AddDescriptorScreen.swift */; };
+		793588152B91B69200038F88 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793588142B91B69200038F88 /* LaunchScreenController.swift */; };
+		7935881B2B91C2D100038F88 /* OONIRunV2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7935881A2B91C2D100038F88 /* OONIRunV2.storyboard */; };
+		7935881D2B91D3A600038F88 /* AddDescriptorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935881C2B91D3A600038F88 /* AddDescriptorController.swift */; };
 		7940AA8B28117E9000C0EB5D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7940AA8A28117E9000C0EB5D /* ShareViewController.swift */; };
 		7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */; };
 		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -224,13 +224,13 @@
 		526C702925C99AB100C7A164 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		588219FACC9F793A15BDEA33 /* Pods_OONIProbeUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OONIProbeUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		793587BB2B87C7F600038F88 /* ooniprobe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ooniprobe-Bridging-Header.h"; sourceTree = "<group>"; };
-		793587BC2B87C7F700038F88 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchScreen.swift; path = View/OONIRun/v2/LaunchScreen.swift; sourceTree = "<group>"; };
-		793587BE2B88242500038F88 /* SwiftUIViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewFactory.swift; sourceTree = "<group>"; };
 		793587C02B8885C800038F88 /* DescriptorResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DescriptorResponse.h; path = Engine/DescriptorResponse.h; sourceTree = "<group>"; };
 		793587C12B8885C800038F88 /* DescriptorResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DescriptorResponse.m; path = Engine/DescriptorResponse.m; sourceTree = "<group>"; };
 		793587C32B88901300038F88 /* TestDescriptorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestDescriptorManager.h; path = Utility/TestDescriptorManager.h; sourceTree = "<group>"; };
 		793587C42B88901300038F88 /* TestDescriptorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TestDescriptorManager.m; path = Utility/TestDescriptorManager.m; sourceTree = "<group>"; };
-		793587C82B8897DB00038F88 /* AddDescriptorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddDescriptorScreen.swift; path = v2/AddDescriptorScreen.swift; sourceTree = "<group>"; };
+		793588142B91B69200038F88 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchScreenController.swift; path = v2/LaunchScreenController.swift; sourceTree = "<group>"; };
+		7935881A2B91C2D100038F88 /* OONIRunV2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = OONIRunV2.storyboard; path = Storyboards/OONIRunV2.storyboard; sourceTree = "<group>"; };
+		7935881C2B91D3A600038F88 /* AddDescriptorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddDescriptorController.swift; path = v2/AddDescriptorController.swift; sourceTree = "<group>"; };
 		7940AA8828117E9000C0EB5D /* share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7940AA8A28117E9000C0EB5D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		7940AA8D28117E9000C0EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -664,9 +664,7 @@
 				526C702925C99AB100C7A164 /* Colors.xcassets */,
 				D4A2F5EB1A6C3244001B8460 /* LaunchScreen.xib */,
 				D4A2F5DC1A6C3244001B8460 /* Supporting Files */,
-				793587BC2B87C7F700038F88 /* LaunchScreen.swift */,
 				793587BB2B87C7F600038F88 /* ooniprobe-Bridging-Header.h */,
-				793587BE2B88242500038F88 /* SwiftUIViewFactory.swift */,
 			);
 			path = ooniprobe;
 			sourceTree = "<group>";
@@ -702,7 +700,8 @@
 			children = (
 				ED53842021597E950078C5C6 /* OoniRunViewController.h */,
 				ED53842121597E950078C5C6 /* OoniRunViewController.m */,
-				793587C82B8897DB00038F88 /* AddDescriptorScreen.swift */,
+				793588142B91B69200038F88 /* LaunchScreenController.swift */,
+				7935881C2B91D3A600038F88 /* AddDescriptorController.swift */,
 			);
 			path = OONIRun;
 			sourceTree = "<group>";
@@ -1032,6 +1031,7 @@
 				EDBCB08F1FD5BD9B00FA4838 /* Onboarding.storyboard */,
 				EDDB0B511FFD36D700EFD9C8 /* Settings.storyboard */,
 				ED0A6200200B52C000235E70 /* OONIRun.storyboard */,
+				7935881A2B91C2D100038F88 /* OONIRunV2.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -1411,6 +1411,7 @@
 				EDC2C9ED1FD9947B00FF01D3 /* crossMark.json in Resources */,
 				ED4D60561A7162C400777275 /* Localizable.strings in Resources */,
 				ED86D74F227DAB02007D93FB /* OONIProbe.db in Resources */,
+				7935881B2B91C2D100038F88 /* OONIRunV2.storyboard in Resources */,
 				ED997D0C207BCEE400C97B1F /* Strings.plist in Resources */,
 				D4A2F5EA1A6C3244001B8460 /* Images.xcassets in Resources */,
 			);
@@ -1617,13 +1618,11 @@
 				ED997D0A207BB7C400C97B1F /* LocalizationUtility.m in Sources */,
 				EDF4ED2C248A9FA7001A5406 /* Summary.m in Sources */,
 				ED55C0C9203BD52900738260 /* Header1MBViewController.m in Sources */,
-				793587BF2B88242500038F88 /* SwiftUIViewFactory.swift in Sources */,
 				ED90A9282198DE5100204B46 /* Network.m in Sources */,
 				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
 				EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */,
-				793587BD2B87C7F700038F88 /* LaunchScreen.swift in Sources */,
 				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
 				EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */,
 				EDB3D64926203DC000724ECF /* ExperimentalSuite.m in Sources */,
@@ -1637,7 +1636,6 @@
 				ED2E066C21D4867B00E9B9EE /* HttpHeaderFieldManipulation.m in Sources */,
 				ED2E067E21D487EA00E9B9EE /* PerformanceSuite.m in Sources */,
 				ED9CCF03252B356D004F8420 /* PESession.m in Sources */,
-				793587C92B8897DB00038F88 /* AddDescriptorScreen.swift in Sources */,
 				ED2E068121D487F500E9B9EE /* WebsitesSuite.m in Sources */,
 				ED2E067B21D487DD00E9B9EE /* MiddleBoxesSuite.m in Sources */,
 				EDE47C41241FC6BC0013A1CB /* NetworkSession.m in Sources */,
@@ -1651,6 +1649,7 @@
 				ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */,
 				ED21D092269C93B900BB09D8 /* ProgressViewController.m in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.m in Sources */,
+				7935881D2B91D3A600038F88 /* AddDescriptorController.swift in Sources */,
 				EDDB0B781FFF6C8B00EFD9C8 /* Onboarding1ViewController.m in Sources */,
 				ED9CCF27252B4A13004F8420 /* LoggerArray.m in Sources */,
 				EDCD73D22180F014003B56D9 /* Header3ViewController.m in Sources */,
@@ -1658,6 +1657,7 @@
 				ED81BB94223F84C9000AFA01 /* UploadFooterViewController.m in Sources */,
 				EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
+				793588152B91B69200038F88 /* LaunchScreenController.swift in Sources */,
 				ED2E066D21D4867B00E9B9EE /* WebConnectivity.m in Sources */,
 				EDF4ED27248A9A64001A5406 /* Simple.m in Sources */,
 				EDF4ECF4248549BD001A5406 /* Engine.m in Sources */,

@@ -148,18 +148,21 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 -(void)showOONIRun:(NSURL*)url{
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
-        UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"oonirun_nav"];
-        OoniRunViewController *rvc = (OoniRunViewController*)[nvc.viewControllers objectAtIndex:0];
-        NSString *fixedURL = [url.absoluteString stringByReplacingOccurrencesOfString:@"+" withString:@"%20"];
-        [rvc setUrl:[NSURL URLWithString:fixedURL]];
         if (self.window.rootViewController.view.window != nil){
             if ([[url host] isEqualToString:@"run.test.ooni.org"] || [[url host] isEqualToString:@"runv2"]){
-                UIViewController *vc = [LaunchScreenViewFactory createWithUrl:url.absoluteString];
-                [vc setModalPresentationStyle:UIModalPresentationFullScreen];
-                [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OONIRunV2" bundle: nil];
+                UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"oonirun_v2_nav"];
+                LaunchScreenController *viewController = (LaunchScreenController*) navigationController.viewControllers[0];
+                [viewController setRunIdWithUrl:url];
+                [navigationController setModalPresentationStyle:UIModalPresentationFullScreen];
+                [self.window.rootViewController presentViewController:navigationController animated:YES completion:nil];
             }
             else {
+                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"OONIRun" bundle: nil];
+                UINavigationController *nvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"oonirun_nav"];
+                OoniRunViewController *rvc = (OoniRunViewController*) nvc.viewControllers[0];
+                NSString *fixedURL = [url.absoluteString stringByReplacingOccurrencesOfString:@"+" withString:@"%20"];
+                [rvc setUrl:[NSURL URLWithString:fixedURL]];
                 //only main view controller is visible
                 [nvc setModalPresentationStyle:UIModalPresentationFullScreen];
                 [self.window.rootViewController presentViewController:nvc animated:YES completion:nil];
