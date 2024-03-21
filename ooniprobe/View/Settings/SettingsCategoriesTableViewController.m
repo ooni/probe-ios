@@ -73,7 +73,7 @@
         NSString *device = [NSString stringWithFormat:@"%@\n\n\napp_version %@\ndevice_model %@\nos_version %@",
                             NSLocalizedString(@"Settings.SendEmail.Message", nil),
                             [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"],
-                            [UIDevice currentDevice].modelIdentifier,
+                            [UIDevice currentDevice].modelName,
                             [UIDevice currentDevice].systemVersion];
         [mailer setMessageBody:device isHTML:NO];
         [[mailer navigationBar] setTranslucent:NO];
