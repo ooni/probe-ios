@@ -10,6 +10,7 @@
 + (NSDictionary*)getTests;
 + (NSDictionary*)getTestOptions;
 + (NSMutableArray*)getTestObjects;
++ (NSMutableArray*)getRunDescriptors;
 + (NSArray*)getTestTypes;
 + (NSArray*)getTestOptionTypes;
 + (NSArray*)getTestsArray;

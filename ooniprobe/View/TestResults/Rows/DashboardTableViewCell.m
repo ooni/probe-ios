@@ -1,4 +1,5 @@
 #import "DashboardTableViewCell.h"
+#import "TestDescriptor.h"
 
 @implementation DashboardTableViewCell
 
@@ -40,18 +41,18 @@
     }
 }
 
--(void)setTestSuite:(AbstractSuite*)testSuite{
-    [self.titleLabel setText:[LocalizationUtility getNameForTest:testSuite.name]];
-    [self.descLabel setText:[LocalizationUtility getDescriptionForTest:testSuite.name]];
-    if (testSuite.getTestList.count <= 0) {
+-(void)setTestSuite:(TestDescriptor*)testSuite{
+    [self.titleLabel setText:testSuite.name];
+    [self.descLabel setText:testSuite.short_description];
+    if (!testSuite.enabled) {
         [self.titleLabel setTextColor:[UIColor colorNamed:@"disabled_test_text"]];
         [self.descLabel setTextColor:[UIColor colorNamed:@"disabled_test_text"]];
-        [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]] startColor:[UIColor colorNamed:@"disabled_test_text"] endColor:[UIColor colorNamed:@"disabled_test_text"]]];
+        [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.icon]] startColor:[UIColor colorNamed:@"disabled_test_text"] endColor:[UIColor colorNamed:@"disabled_test_text"]]];
         [self.cardbackgroundView setBackgroundColor:[UIColor colorNamed:@"disabled_test_background"]];
     } else {
         [self.titleLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
         [self.descLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
-        [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.name]] startColor:[TestUtility getGradientColorForTest:testSuite.name] endColor:[TestUtility getColorForTest:testSuite.name]]];
+        [self.testLogo setImage:[self imageWithGradient:[UIImage imageNamed:[NSString stringWithFormat:@"%@", testSuite.icon]] startColor:[TestUtility getGradientColorForTest:testSuite.icon] endColor:[TestUtility getColorForTest:testSuite.icon]]];
         [self.cardbackgroundView setBackgroundColor:[UIColor colorNamed:@"color_gray0"]];
     }
 }
