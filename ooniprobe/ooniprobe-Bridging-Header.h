@@ -4,3 +4,5 @@
 
 #import "DescriptorResponse.h"
 #import "TestDescriptorManager.h"
+#import "TestDescriptor.h"
+#import "DashboardTableViewController.h"

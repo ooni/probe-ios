@@ -4,7 +4,8 @@
 #import "Engine.h"
 
 @implementation TestDescriptorManager
-+ (void)fetchDescriptorFromRunId:(long)runId onSuccess:(void (^)(DescriptorResponse *))successcb onError:(void (^)(NSError *))errorcb {
+
++ (void)fetchDescriptorFromRunId:(long)runId onSuccess:(void (^)(OONIRunDescriptor *))successcb onError:(void (^)(NSError *))errorcb {
     NSError *error;
 
     PESession *session = [[PESession alloc] initWithConfig:
@@ -16,7 +17,7 @@
         errorcb(error);
     }
     @try {
-        DescriptorResponse *responseData = [session
+        OONIRunDescriptor *responseData = [session
                 ooniRunFetch:session.newContext
                           id:runId
                        error:&error];

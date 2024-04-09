@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 
 struct CircularProgressView: View {
+
     let progress: Double
 
     var body: some View {
@@ -72,7 +73,7 @@ class LaunchScreenController: UIViewController {
 
     public var runId: CLong = 0
 
-    private var descriptorResponse: DescriptorResponse?
+    private var descriptorResponse: OONIRunDescriptor?
 
     @objc func setRunId(url: URL) {
 
@@ -109,7 +110,7 @@ class LaunchScreenController: UIViewController {
         DispatchQueue.global().async {
             TestDescriptorManager.fetchDescriptor(
                     fromRunId: self.runId, onSuccess: {
-                (response: DescriptorResponse) in
+                (response: OONIRunDescriptor) in
                 DispatchQueue.main.async {
                     self.descriptorResponse = response
                     self.performSegue(withIdentifier: "add_descriptor", sender: self)

@@ -3,6 +3,7 @@
 #import "ObjectMappingInfo.h"
 #import "InCodeMappingProvider.h"
 #import "DescriptorResponse.h"
+#import <oonimkall/Oonimkall.h>
 
 @implementation PESession
 
@@ -34,8 +35,16 @@
     return (r != nil) ? ([[OONISubmitResults alloc] initWithResults:r]) : nil;
 }
 
-- (DescriptorResponse *)ooniRunFetch:(OONIContext *)ctx id:(long)runId error:(NSError **)error {
-    NSString *response = [self.session ooniRunFetch:ctx.ctx ID:runId error:error];
+- (OONIRunDescriptor *)ooniRunFetch:(OONIContext *)ctx id:(long)runId error:(NSError **)error {
+
+    
+    OonimkallHTTPRequest *httpRequest = [[OonimkallHTTPRequest alloc] init];
+    httpRequest.url = [NSString stringWithFormat:@"https://api.dev.ooni.io/api/v2/oonirun/links/%ld", runId];
+    httpRequest.method = @"GET";
+    
+    OonimkallHTTPResponse *httpResponse = [self.session httpDo:ctx.ctx jreq:httpRequest error:error];
+
+    NSString *response = httpResponse.body;
 
     // TODOD (aanorbel) : Fix error handling
     NSData *jsonData = [response dataUsingEncoding:NSUTF8StringEncoding];
@@ -44,19 +53,10 @@
     InCodeMappingProvider *mappingProvider = [[InCodeMappingProvider alloc] init];
     ObjectMapper *mapper = [[ObjectMapper alloc] init];
     mapper.mappingProvider = mappingProvider;
+    
+    [mappingProvider mapFromDictionaryKey:@"description" toPropertyKey:@"i_description" forClass:OONIRunDescriptor.class];
 
-    [mappingProvider mapFromDictionaryKey:@"descriptor"
-                            toPropertyKey:@"descriptor"
-                                 forClass:DescriptorResponse.class
-                          withTransformer:^id(id currentNode, id parentNode) {
-                              Descriptor *descriptor = [mapper objectFromSource:currentNode toInstanceOfClass:Descriptor.class];
-                              descriptor.i_description = currentNode[@"description"];
-                              descriptor.name_intl = currentNode[@"name_intl"];
-                              descriptor.description_intl = currentNode[@"description_intl"];
-                              descriptor.short_description_intl = currentNode[@"short_description_intl"];
-                              return descriptor;
-                          }];
-    return [mapper objectFromSource:dictionary toInstanceOfClass:DescriptorResponse.class];
+    return [mapper objectFromSource:dictionary toInstanceOfClass:OONIRunDescriptor.class];
 }
 
 - (OONICheckInResults *)checkIn:(OONIContext *)ctx config:(OONICheckInConfig *)config error:(NSError **)error {

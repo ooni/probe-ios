@@ -21,6 +21,7 @@
 		7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */; };
 		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		79780FCF27E9F18E002A38B1 /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79780FCE27E9F18E002A38B1 /* Languages.plist */; };
+		797C34542BBE0E520067BB8A /* TestDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 797C34532BBE0E520067BB8A /* TestDescriptor.m */; };
 		7AED19812A6EC9A2003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19802A6EC9A2003B265A /* libresolv.tbd */; };
 		7AED19832A6EC9C7003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19822A6EC9C7003B265A /* libresolv.tbd */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
@@ -237,6 +238,8 @@
 		7940AA8F28117E9000C0EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7940AA972811840900C0EB5D /* share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = share.entitlements; sourceTree = "<group>"; };
 		79780FCE27E9F18E002A38B1 /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
+		797C34522BBE0E520067BB8A /* TestDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDescriptor.h; sourceTree = "<group>"; };
+		797C34532BBE0E520067BB8A /* TestDescriptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDescriptor.m; sourceTree = "<group>"; };
 		79AA093C2A86E44400C23E27 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		79AA093D2A86E47600C23E27 /* my */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = my; path = my.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7A8CB0932ADDDAC1005AB2BC /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libcrypto.xcframework; path = Pods/libcrypto/libcrypto.xcframework; sourceTree = "<group>"; };
@@ -916,6 +919,8 @@
 				ED90A91B2198DE5000204B46 /* Network.m */,
 				ED90A9212198DE5000204B46 /* Url.h */,
 				ED90A91D2198DE5000204B46 /* Url.m */,
+				797C34522BBE0E520067BB8A /* TestDescriptor.h */,
+				797C34532BBE0E520067BB8A /* TestDescriptor.m */,
 			);
 			name = Database;
 			path = Model/Database;
@@ -1601,6 +1606,7 @@
 				EDDB0B741FFF6C8B00EFD9C8 /* Onboarding2ViewController.m in Sources */,
 				ED9CCEFD252B3460004F8420 /* OONISubmitResults.m in Sources */,
 				EDF4ED162487BF39001A5406 /* PEMKTask.m in Sources */,
+				797C34542BBE0E520067BB8A /* TestDescriptor.m in Sources */,
 				EDB6F9B92023526300BDCB0B /* HeaderSwipeViewController.m in Sources */,
 				ED9CCF30252B4B9D004F8420 /* LoggerComposed.m in Sources */,
 				EDA17AFE208A310300D46D0F /* DashDetailsViewController.m in Sources */,

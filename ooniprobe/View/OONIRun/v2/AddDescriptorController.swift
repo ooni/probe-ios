@@ -3,7 +3,7 @@ import SwiftUI
 
 struct AddDescriptorView: View {
 
-    var descriptor: DescriptorResponse
+    var descriptor: OONIRunDescriptor
     var onInstallLink: () -> Void
     var onCancel: () -> Void
 
@@ -25,15 +25,15 @@ struct AddDescriptorView: View {
                 HStack(spacing: 0) {
                     Image(systemName: "doc.text.fill")
                             .padding(.trailing, 10)
-                    Text(descriptor.descriptor.name)
+                    Text(descriptor.name)
                             .bold()
                             .font(.system(size: 18))
                     Spacer()
                 }
                         .padding(.bottom, 10)
-                Text(String(format: "Created by %@ ", descriptor.descriptor.author))
+                Text(String(format: "Created by %@ ", descriptor.author))
                         .padding(.bottom, 10)
-                Text(descriptor.descriptor.i_description)
+                Text(descriptor.i_description)
                         .lineLimit(3)
                         .padding(.bottom, 10)
                 HStack {
@@ -57,7 +57,7 @@ struct AddDescriptorView: View {
                 }
                         .padding(.bottom, 10)
 
-                ForEach(descriptor.descriptor.nettests, id: \.self) { nettest in
+                ForEach(descriptor.nettests, id: \.self) { nettest in
                     VStack(alignment: .leading) {
 
                         HStack {
@@ -99,16 +99,17 @@ struct AddDescriptorView: View {
 
 class AddDescriptorController: UIViewController {
 
-    var descriptorResponse: DescriptorResponse?
-
+    var descriptorResponse: OONIRunDescriptor?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let descriptor = descriptorResponse as? DescriptorResponse {
+        if let descriptor = descriptorResponse as? OONIRunDescriptor {
 
             let controller = UIHostingController(
                     rootView: AddDescriptorView(descriptor: descriptor, onInstallLink: {
-                        print("Install Link")
+                        let testDescriptor = TestDescriptor.init(descriptorResponse: descriptor)
+                        testDescriptor.commit()
+                        self.dismiss(animated: true)
                     }, onCancel: {
                         self.dismiss(animated: true)
                     })
@@ -127,8 +128,6 @@ class AddDescriptorController: UIViewController {
         } else {
             dismiss(animated: true)
         }
-
-
     }
 
 }

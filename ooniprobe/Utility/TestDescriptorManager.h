@@ -4,7 +4,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TestDescriptorManager : NSObject
-+ (void)fetchDescriptorFromRunId:(long)runId onSuccess:(void (^)(DescriptorResponse *))successcb onError:(void (^)(NSError *))errorcb;
+
++ (void)fetchDescriptorFromRunId:(long)runId onSuccess:(void (^)(OONIRunDescriptor *))successcb onError:(void (^)(NSError *))errorcb;
+
 + (NSArray*)getTestObjects;
 
 @end

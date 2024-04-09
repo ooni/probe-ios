@@ -10,7 +10,7 @@
 
 - (OONIContext*) newContext;
 
-- (DescriptorResponse*) ooniRunFetch:(OONIContext*) ctx id:(long) id error:(NSError **)error;
+- (OONIRunDescriptor*) ooniRunFetch:(OONIContext*) ctx id:(long) id error:(NSError **)error;
 
 @property (nonatomic, strong) OonimkallSession* session;
 
