@@ -28,7 +28,7 @@ struct CircularProgressView: View {
 }
 
 struct LoadingView: View {
-    let controller: UIViewController
+    var onCancel: () -> Void
     @State private var progress = 0.0
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
@@ -54,9 +54,7 @@ struct LoadingView: View {
                     }
                     Spacer()
                             .frame(height: 30)
-                    Button(action: {
-                        controller.dismiss(animated: true)
-                    }) {
+                    Button(action: onCancel) {
                         Text("Cancel")
                                 .foregroundColor(Color("color_white"))
                     }
@@ -92,7 +90,10 @@ class LaunchScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        let controller = UIHostingController(rootView: LoadingView(controller: self))
+        let controller = UIHostingController(rootView: LoadingView(onCancel: {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addDescriptorCanceled"), object: nil)
+            self.dismiss(animated: true)
+        }))
         addChild(controller)
         controller.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(controller.view)

@@ -6,3 +6,7 @@
 #import "TestDescriptorManager.h"
 #import "TestDescriptor.h"
 #import "DashboardTableViewController.h"
+#import "AbstractSuite.h"
+#import "Tests.h"
+#import "TestDescriptor.h"
+#import "UIView+Toast.h"

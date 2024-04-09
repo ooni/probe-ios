@@ -20,6 +20,7 @@
 		7940AA8B28117E9000C0EB5D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7940AA8A28117E9000C0EB5D /* ShareViewController.swift */; };
 		7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */; };
 		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7969FF2B2BC58C5E002647F1 /* OONIDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969FF2A2BC58C5E002647F1 /* OONIDescriptor.swift */; };
 		79780FCF27E9F18E002A38B1 /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79780FCE27E9F18E002A38B1 /* Languages.plist */; };
 		797C34542BBE0E520067BB8A /* TestDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 797C34532BBE0E520067BB8A /* TestDescriptor.m */; };
 		7AED19812A6EC9A2003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19802A6EC9A2003B265A /* libresolv.tbd */; };
@@ -237,6 +238,7 @@
 		7940AA8D28117E9000C0EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7940AA8F28117E9000C0EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7940AA972811840900C0EB5D /* share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = share.entitlements; sourceTree = "<group>"; };
+		7969FF2A2BC58C5E002647F1 /* OONIDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OONIDescriptor.swift; path = Model/OONIDescriptor.swift; sourceTree = "<group>"; };
 		79780FCE27E9F18E002A38B1 /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
 		797C34522BBE0E520067BB8A /* TestDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDescriptor.h; sourceTree = "<group>"; };
 		797C34532BBE0E520067BB8A /* TestDescriptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDescriptor.m; sourceTree = "<group>"; };
@@ -739,6 +741,7 @@
 				ED90A91A2198DE5000204B46 /* Database */,
 				ED90A9232198DE5000204B46 /* Settings */,
 				EDB252A120FA46DA00B4EDE4 /* JsonResult */,
+				7969FF2A2BC58C5E002647F1 /* OONIDescriptor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1563,6 +1566,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB3D64F26204C9300724ECF /* Experimental.m in Sources */,
+				7969FF2B2BC58C5E002647F1 /* OONIDescriptor.swift in Sources */,
 				ED4DF7B52607970C00521C5B /* Signal.m in Sources */,
 				ED365217223A40480093180B /* FailedTestDetailsViewController.m in Sources */,
 				ED1CC80220159D970041089A /* TestRunningViewController.m in Sources */,

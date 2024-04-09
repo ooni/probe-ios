@@ -3,6 +3,7 @@
 #import "ThirdPartyServices.h"
 #import "Suite.h"
 #import "RunningTest.h"
+#import "ooniprobe-Swift.h"
 
 @interface DashboardTableViewController ()
 
@@ -26,6 +27,17 @@
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar];
     [self loadTests];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadConstraints) name:@"networkTestEndedUI" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addDescriptorCanceled) name:@"addDescriptorCanceled" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addDescriptorCompleted) name:@"addDescriptorCompleted" object:nil];
+}
+
+- (void)addDescriptorCanceled {
+    [self.view makeToast:@"Link installation cancelled" duration:5.0 position: CSToastPositionBottom];
+}
+
+- (void)addDescriptorCompleted {
+    [self.view makeToast:@"Link installed" duration:5.0 position: CSToastPositionBottom];
+    [self loadTests];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -95,7 +107,7 @@
 }
 
 -(void)loadTests{
-    items = [TestUtility getTestObjects];
+    items = [[OONIDescriptor getOONIDescriptors] mutableCopy];
     [self.tableView reloadData];
 }
 
@@ -127,7 +139,7 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DashboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    AbstractSuite *test = [items objectAtIndex:indexPath.row];
+    OONIDescriptor *test = [items objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[DashboardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }

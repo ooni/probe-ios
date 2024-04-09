@@ -109,8 +109,10 @@ class AddDescriptorController: UIViewController {
                     rootView: AddDescriptorView(descriptor: descriptor, onInstallLink: {
                         let testDescriptor = TestDescriptor.init(descriptorResponse: descriptor)
                         testDescriptor.commit()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addDescriptorCompleted"), object: nil)
                         self.dismiss(animated: true)
                     }, onCancel: {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addDescriptorCanceled"), object: nil)
                         self.dismiss(animated: true)
                     })
             )
