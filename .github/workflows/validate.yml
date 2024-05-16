@@ -19,8 +19,8 @@ jobs:
           xcodebuild -workspace ooniprobe.xcworkspace -scheme ooniprobe \
             -destination='name=Any iOS Device' -sdk iphoneos archive CODE_SIGNING_ALLOWED="NO" | xcpretty
 
-  unit-test:
-    name: Run unit tests
+  test:
+    name: Run tests
     needs: [ build ]
     runs-on: macos-latest
     steps:
