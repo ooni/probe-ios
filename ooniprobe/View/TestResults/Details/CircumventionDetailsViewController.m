@@ -73,6 +73,15 @@
         [self.detail2SubtitleLabel setText:[testKeys getRiseupVPNOpenvpnGatewayStatus]];
         [self.detail3SubtitleLabel setText:[testKeys getRiseupVPNBridgedGatewayStatus]];
     }
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
+        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.view.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft) {
+            self.textLabel.textAlignment = NSTextAlignmentRight;
+        }
+    } else {
+        if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+            self.textLabel.textAlignment = NSTextAlignmentRight;
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
