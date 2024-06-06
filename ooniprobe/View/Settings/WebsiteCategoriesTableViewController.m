@@ -77,6 +77,13 @@
         [SettingsUtility updateAllWebsiteCategories:false];
         [self.navigationController popViewControllerAnimated:YES];
     }]];
+
+    // Check if the device is an iPad
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        alert.popoverPresentationController.sourceView = self.view;
+        alert.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0);
+    }
+
     [self presentViewController:alert animated:YES completion:nil];
 }
 
