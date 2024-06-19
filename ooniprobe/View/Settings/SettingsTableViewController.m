@@ -11,10 +11,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (category != nil)
-        self.title = [LocalizationUtility getNameForSetting:category];
-    else if (testSuite != nil)
-        self.title = [LocalizationUtility getNameForTest:testSuite.name];
+    [self updateTitle];
     self.navigationController.navigationBar.topItem.title = @"";
 
     keyboardToolbar = [[UIToolbar alloc] init];
@@ -30,14 +27,30 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self updateTitle];
     [self reloadSettings];
 }
 
+/**
+ * Update the title of the view controller.
+ * If the view controller is for a category(enumerated in ``SettingsUtility/getSettingsCategories``), the title is the name of the category.
+ * If the view controller is for a test suite, the title is the name of the test suite.
+ */
+- (void)updateTitle {
+    self.title = @"";
+    if (category != nil) {
+        self.title = [LocalizationUtility getNameForSetting:category];
+    } else if (testSuite != nil) {
+        self.title = [LocalizationUtility getNameForTest:testSuite.name];
+    }
+}
+
 -(void)reloadSettings {
-    if (category != nil)
+    if (category != nil) {
         items = [SettingsUtility getSettingsForCategory:category];
-    else if (testSuite != nil)
+    } else if (testSuite != nil) {
         items = [SettingsUtility getSettingsForTest:testSuite.name :YES];
+    }
     //hide rows smooth
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
@@ -120,7 +133,11 @@
         else
             cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         if ([[TestUtility getTestOptionTypes] containsObject:current]){
-            cell.imageView.image = [UIImage imageNamed:current];
+            if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+                cell.imageView.image = [self imageWithImage:[UIImage imageNamed:current] convertToSize:CGSizeMake(32, 32)];
+            } else {
+                cell.imageView.image = [UIImage imageNamed:current];
+            }
         }
         cell.textLabel.text = [LocalizationUtility getNameForSetting:current];
         cell.textLabel.textColor = [UIColor colorNamed:@"color_gray9"];
@@ -172,6 +189,24 @@
         }
     }
     return cell;
+}
+
+
+/**
+ * This method is used to resize an image to a given size.
+ * There is loss of original image color when resizing. Improvement required.
+ * @see https://stackoverflow.com/a/4712537
+ *
+ * @param image
+ * @param size
+ * @return
+ */
+- (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return destImage;
 }
 
 -(IBAction)removeAllTests:(id)sender{
