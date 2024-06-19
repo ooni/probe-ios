@@ -3,6 +3,7 @@
 #import "ThirdPartyServices.h"
 #import "Suite.h"
 #import "RunningTest.h"
+#import "ooniprobe-Swift.h"
 
 @interface DashboardTableViewController ()
 
@@ -95,7 +96,7 @@
 }
 
 -(void)loadTests{
-    items = [TestUtility getTestObjects];
+    items = [[OONIDescriptor getOONIDescriptors] mutableCopy];
     [self.tableView reloadData];
 }
 
@@ -127,11 +128,11 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DashboardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    AbstractSuite *test = [items objectAtIndex:indexPath.row];
+    OONIDescriptor *test = [items objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[DashboardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
-    [cell setTestSuite:test];
+    [cell setDescriptor:test];
     return cell;
 }
 
@@ -152,7 +153,12 @@
 -(IBAction)runAll{
     if ([TestUtility checkConnectivity:self] &&
         [TestUtility checkTestRunning:self]){
-        [[RunningTest currentTest] setAndRun:[NSMutableArray arrayWithArray:items] inView: self];
+        // convert items to DynamicTestSuite
+        NSMutableArray *testSuites = [[NSMutableArray alloc] init];
+        for (OONIDescriptor *decriptor in self.items){
+            [testSuites addObject:[[DynamicTestSuite alloc] initWithDescriptor:decriptor]];
+        }
+        [[RunningTest currentTest] setAndRun:testSuites inView: self];
         [self reloadConstraints];
     }
 }
@@ -161,8 +167,8 @@
     if ([[segue identifier] isEqualToString:@"toTestOverview"]){
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         TestOverviewViewController *vc = (TestOverviewViewController * )segue.destinationViewController;
-        AbstractSuite *testSuite = [items objectAtIndex:indexPath.row];
-        [vc setTestSuite:testSuite];
+        OONIDescriptor *test = [items objectAtIndex:indexPath.row];
+        [vc setDescriptor:test];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }    
 }
