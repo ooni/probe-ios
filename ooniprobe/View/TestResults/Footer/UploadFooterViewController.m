@@ -162,7 +162,7 @@
     {
         [ThirdPartyServices recordError:@"uploadMeasurement_failed"
                                reason:@"measurement failed to upload"
-                             userInfo:[error dictionary]];
+                               userInfo:@{}];
     }
     return error == nil;
 }
