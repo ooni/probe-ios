@@ -253,6 +253,14 @@
                         position:CSToastPositionBottom];
         }]];
     }
+
+    // Check if the device is an iPad
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        alert.popoverPresentationController.sourceView = self.view;
+        alert.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width, self.view.bounds.size.height, 1.0, 1.0);
+        alert.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    }
+
     [self presentViewController:alert animated:YES completion:nil];
 }
 
