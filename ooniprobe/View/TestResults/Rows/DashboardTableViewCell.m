@@ -5,39 +5,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setRoundedView];
-    [self setShadow];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
-}
-
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
-    [super setHighlighted:highlighted animated:animated];
-    if (highlighted) {
-        [UIView
-            animateWithDuration:0.3f
-            delay:0
-            options:UIViewAnimationOptionCurveEaseOut
-            animations:^{
-                self.contentView.layer.shadowOpacity = 0;
-                self.contentView.alpha = 0.7f;
-            }
-            completion: NULL
-         ];
-    } else {
-        [UIView
-         animateWithDuration:0.8f
-         delay:0.5f
-         options:UIViewAnimationOptionCurveEaseInOut
-         animations:^{
-             self.contentView.layer.shadowOpacity = 0.6f;
-             self.contentView.alpha = 1.f;
-         }
-         completion: NULL
-        ];
-    }
 }
 
 -(void)setDescriptor:(OONIDescriptor*)descriptor{
@@ -50,19 +22,10 @@
 }
 
 -(void)setRoundedView{
-    self.cardbackgroundView.layer.cornerRadius = 5;
+    self.cardbackgroundView.layer.cornerRadius = 8;
     self.cardbackgroundView.layer.masksToBounds = YES;
-}
-
--(void)setShadow{
-    self.backgroundColor = [UIColor clearColor];
-    self.contentView.backgroundColor = [UIColor clearColor];
-    
-    self.contentView.layer.shadowRadius  = 5;
-    self.contentView.layer.shadowColor   = [[UIColor blackColor] colorWithAlphaComponent:0.8f].CGColor;
-    self.contentView.layer.shadowOffset  = CGSizeMake(0.0f, 1);
-    self.contentView.layer.shadowOpacity = 0.6f;
-    self.contentView.layer.masksToBounds = NO;
+    self.cardbackgroundView.layer.borderColor = [UIColor colorNamed:@"color_gray3"].CGColor;
+    self.cardbackgroundView.layer.borderWidth = 2.0;
 }
 
 //From https://stackoverflow.com/questions/8098130/how-can-i-tint-a-uiimage-with-gradient
