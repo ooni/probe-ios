@@ -21,8 +21,8 @@
     [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
     [self.testDescriptionLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     NSMutableDictionary *linkAttributes = [NSMutableDictionary dictionary];
-    [linkAttributes setObject:[NSNumber numberWithBool:YES] forKey:(NSString *)kCTUnderlineStyleAttributeName];
-    [linkAttributes setObject:[UIColor colorNamed:@"color_base"] forKey:(NSString *)kCTForegroundColorAttributeName];
+    linkAttributes[(NSString *) kCTUnderlineStyleAttributeName] = @YES;
+    linkAttributes[(NSString *) kCTForegroundColorAttributeName] = [UIColor colorNamed:@"color_base"];
     self.testDescriptionLabel.linkAttributes = [NSDictionary dictionaryWithDictionary:linkAttributes];
     [self.testDescriptionLabel setMarkdown:testLongDesc];
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
@@ -78,14 +78,13 @@
 -(void)reloadLastMeasurement{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.estimatedLabel setText:NSLocalizedString(@"Dashboard.Overview.Estimated", nil)];
-//        [self.estimatedDetailLabel setText:
-//         [NSString stringWithFormat:@"%@ %@",
-//          testSuite.dataUsage,
-//          [LocalizationUtility getReadableRuntime:[testSuite getRuntime]]]];
+        [self.estimatedDetailLabel setText:
+         [NSString stringWithFormat:@"%@ %@", [self->descriptor performSelector:@selector(dataUsage)],
+          [LocalizationUtility getReadableRuntime:[[[DynamicTestSuite alloc] initWithDescriptor:self->descriptor] getRuntime]]]];
         [self.lastrunLabel setText:NSLocalizedString(@"Dashboard.Overview.LatestTest", nil)];
         
         NSString *ago;
-        SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"test_group_name = '%@'", [descriptor performSelector:@selector(name)]]] orderByDescending:@"start_time"] fetch];
+        SRKResultSet *results = [[[[[Result query] limit:1] where:[NSString stringWithFormat:@"test_group_name = '%@'", [self->descriptor performSelector:@selector(name)]]] orderByDescending:@"start_time"] fetch];
         if ([results count] > 0){
             ago = [[[results objectAtIndex:0] start_time] timeAgoSinceNow];
         }
@@ -96,8 +95,7 @@
 }
 
 -(void)settingsChanged{
-//    [testSuite.testList removeAllObjects];
-//    [testSuite getTestList];
+    // NOTE(aanorbel): Reload the descriptor when the settings change.
     [self reloadLastMeasurement];
 }
 
@@ -127,10 +125,12 @@
 }
 
 
+/// NOTE(aanorbel): `performSegueWithIdentifier:@"toTestSettings"` is never called in the codebase thus, this method is not used.
+/// I would like to remove it but needs to be sure of the impact.
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toTestSettings"]){
         SettingsTableViewController *vc = (SettingsTableViewController * )segue.destinationViewController;
-        //[vc setTestSuite:testSuite];
+        [vc setTestSuite:[[DynamicTestSuite alloc] initWithDescriptor:descriptor]];
     }
 }
 

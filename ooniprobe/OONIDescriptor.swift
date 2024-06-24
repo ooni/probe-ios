@@ -144,7 +144,7 @@ public class OONIDescriptor: NSObject {
                     icon: "instant_messaging",
                     color: UIColor(named: "color_indigo5")!,
                     animation: "instant_messaging",
-                    dataUsage: NSLocalizedString("small.datausage", comment: ""),
+                    dataUsage: "< 1 MB",
                     nettest: [
                         Nettest(name: NettestName.whatsapp.rawValue, inputs: []),
                         Nettest(name: NettestName.telegram.rawValue, inputs: []),
@@ -162,7 +162,7 @@ public class OONIDescriptor: NSObject {
                     icon: "circumvention",
                     color: UIColor(named: "color_indigo2")!,
                     animation: "circumvention",
-                    dataUsage: NSLocalizedString("small.datausage", comment: ""),
+                    dataUsage: "< 1 MB",
                     nettest: [
                         Nettest(name: NettestName.psiphon.rawValue, inputs: []),
                         Nettest(name: NettestName.tor.rawValue, inputs: [])
@@ -178,7 +178,7 @@ public class OONIDescriptor: NSObject {
                     icon: "performance",
                     color: UIColor(named: "color_indigo4")!,
                     animation: "performance",
-                    dataUsage: NSLocalizedString("performance.datausage", comment: ""),
+                    dataUsage: "5 - 200 MB",
                     nettest: [
                         Nettest(name: NettestName.ndt.rawValue, inputs: []),
                         Nettest(name: NettestName.dash.rawValue, inputs: []),
