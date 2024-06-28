@@ -50,7 +50,11 @@
     [self.backgroundView setBackgroundColor:defaultColor];
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:defaultColor];
     self.navigationController.navigationBar.topItem.title = @"";
+
+    [self loadSwiftUIViews];
 }
+
+- (void)loadSwiftUIViews{}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -63,13 +67,11 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([RunningTest currentTest].isTestRunning){
             self.tableFooterConstraint.constant = 64;
-            [self.scrollView setNeedsUpdateConstraints];
         }
         else {
             //If this number is > 0 there are still test running
             if ([[RunningTest currentTest].testSuites count] == 0){
                 self.tableFooterConstraint.constant = 0;
-                [self.scrollView setNeedsUpdateConstraints];
             }
         }
     });

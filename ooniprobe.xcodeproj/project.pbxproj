@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,13 +12,14 @@
 		17E7EDC021BFEE0C001961C7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */; };
 		526C702A25C99AB200C7A164 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526C702925C99AB100C7A164 /* Colors.xcassets */; };
 		58E18F9EBF4FAD4EFCE020F3 /* Pods_ooniprobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB32DF3D6FC174AA1AF76009 /* Pods_ooniprobe.framework */; };
-		793587D32B8E081600038F88 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793587D22B8E081600038F88 /* Utils.swift */; };
 		793587BA2B852EDD00038F88 /* OoniRunViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793587B92B852EDD00038F88 /* OoniRunViewUITests.swift */; };
+		793587D32B8E081600038F88 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793587D22B8E081600038F88 /* Utils.swift */; };
 		7940AA8B28117E9000C0EB5D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7940AA8A28117E9000C0EB5D /* ShareViewController.swift */; };
 		7940AA8E28117E9000C0EB5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7940AA8C28117E9000C0EB5D /* MainInterface.storyboard */; };
 		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7945903D2C21BFB1008116BF /* OONIDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7945903C2C21BFB1008116BF /* OONIDescriptor.swift */; };
 		79780FCF27E9F18E002A38B1 /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79780FCE27E9F18E002A38B1 /* Languages.plist */; };
+		79DB62342C2D8F020076FA0C /* TestOverviewViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DB62332C2D8F020076FA0C /* TestOverviewViewController+TableView.swift */; };
 		7AED19812A6EC9A2003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19802A6EC9A2003B265A /* libresolv.tbd */; };
 		7AED19832A6EC9C7003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19822A6EC9C7003B265A /* libresolv.tbd */; };
 		D4A2F5DF1A6C3244001B8460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2F5DE1A6C3244001B8460 /* main.m */; };
@@ -221,8 +222,8 @@
 		17E7EDBF21BFEE0C001961C7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		526C702925C99AB100C7A164 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		588219FACC9F793A15BDEA33 /* Pods_OONIProbeUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OONIProbeUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		793587D22B8E081600038F88 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		793587B92B852EDD00038F88 /* OoniRunViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OoniRunViewUITests.swift; sourceTree = "<group>"; };
+		793587D22B8E081600038F88 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7940AA8828117E9000C0EB5D /* share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7940AA8A28117E9000C0EB5D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		7940AA8D28117E9000C0EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -233,6 +234,7 @@
 		79780FCE27E9F18E002A38B1 /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
 		79AA093C2A86E44400C23E27 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		79AA093D2A86E47600C23E27 /* my */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = my; path = my.lproj/Localizable.strings; sourceTree = "<group>"; };
+		79DB62332C2D8F020076FA0C /* TestOverviewViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestOverviewViewController+TableView.swift"; sourceTree = "<group>"; };
 		7A8CB0932ADDDAC1005AB2BC /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libcrypto.xcframework; path = Pods/libcrypto/libcrypto.xcframework; sourceTree = "<group>"; };
 		7A8CB0942ADDDAC1005AB2BC /* libevent.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libevent.xcframework; path = Pods/libevent/libevent.xcframework; sourceTree = "<group>"; };
 		7A8CB0952ADDDAC1005AB2BC /* libssl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libssl.xcframework; path = Pods/libssl/libssl.xcframework; sourceTree = "<group>"; };
@@ -720,6 +722,7 @@
 				ED0D8D6F20186742003DDF23 /* TestOverviewViewController.m */,
 				ED21D090269C93B900BB09D8 /* ProgressViewController.h */,
 				ED21D091269C93B900BB09D8 /* ProgressViewController.m */,
+				79DB62332C2D8F020076FA0C /* TestOverviewViewController+TableView.swift */,
 			);
 			path = RunTest;
 			sourceTree = "<group>";
@@ -1648,6 +1651,7 @@
 				EDA9F21E224255E7003D40E8 /* TestSummaryViewController.m in Sources */,
 				EDFE073D1F375E3C00960AF2 /* DictionaryUtility.m in Sources */,
 				ED2E066D21D4867B00E9B9EE /* WebConnectivity.m in Sources */,
+				79DB62342C2D8F020076FA0C /* TestOverviewViewController+TableView.swift in Sources */,
 				EDF4ED27248A9A64001A5406 /* Simple.m in Sources */,
 				EDF4ECF4248549BD001A5406 /* Engine.m in Sources */,
 				ED58CF7A1FEBB9A900E3C415 /* DashboardTableViewController.m in Sources */,

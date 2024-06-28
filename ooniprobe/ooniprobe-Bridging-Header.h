@@ -7,3 +7,4 @@
 #import "AbstractSuite.h"
 #import "Tests.h"
 #import "UIView+Toast.h"
+#import "LocalizationUtility.h"
