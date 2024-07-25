@@ -3,37 +3,58 @@ import SwiftUI
 
 struct OverviewContentView: View {
     let descriptor:OONIDescriptor
-    @State var runTestsAutomatically:Bool = false {
-            didSet {
-                updateNettests(runTestsAutomatically)
-            }
-        }
+    @State var runTestsAutomatically:Bool = false
+    
     @State var installUpdatesAutomatically:Bool = false
     
+    @State var nettests: [NettestStatus]
+    
     var body: some View {
+        
+        let runTestsAutomaticallyBinding = Binding(
+            get: { self.runTestsAutomatically },
+            set: {
+                runTestsAutomaticallyChanged($0)
+            }
+        )
+        
         HStack{
             VStack {
-                Text(descriptor.longDescription)
-                    .font(.callout)
-                    .padding()
+                Text(descriptor.longDescription).font(.callout)
                 Text("Test Settings")
                 Toggle("Install updates automatically", isOn: $installUpdatesAutomatically)
-                Toggle("Run tests automatically", isOn: $runTestsAutomatically).toggleStyle(iOSCheckboxToggleStyle())
-                UITableViewWrapper(nettests: descriptor.nettest)
-                    .frame(height: 1000)
+                Toggle("Run tests automatically", isOn: runTestsAutomaticallyBinding).toggleStyle(iOSCheckboxToggleStyle())
+                UITableViewWrapper(
+                    nettests: $nettests,
+                    didSelectRow: { indexPath in
+                        let allEnabled = nettests.allSatisfy({ nettest in
+                            nettest.isSelected
+                        })
+                        runTestsAutomatically = allEnabled
+                    })
+                .padding(.bottom)
+                .frame(height: 1000)
             }
         }
     }
-
-    func updateNettests(_ newValue: Bool) {
-        // ... update nettests array ...
+    
+    func runTestsAutomaticallyChanged(_ newState: Bool) {
+        nettests.forEach({ nettest in
+            nettest.isSelected = newState
+        })
+        //something async
+        self.runTestsAutomatically = newState
     }
 }
 
 extension TestOverviewViewController {
     open override func viewDidAppear(_ animated: Bool) {
         
-        let contentView = OverviewContentView(descriptor: self.descriptor as! OONIDescriptor)
+        guard let descriptor = self.descriptor as? OONIDescriptor else {
+            return
+        }
+        
+        let contentView = OverviewContentView(descriptor: descriptor,nettests: descriptor.nettest.map { nettest in NettestStatus(nettest: nettest) })
         
         let hostingController = UIHostingController(rootView: contentView)
         
@@ -55,10 +76,14 @@ extension TestOverviewViewController {
 // MARK: - NettestStatus
 
 /// A struct that represents the status of a Nettest.
-struct NettestStatus {
+class NettestStatus : ObservableObject {
     var nettest: Nettest
-    var isSelected: Bool = false
-    var isExpanded: Bool = false
+    @Published var isSelected: Bool = false
+    @Published var isExpanded: Bool = false
+    
+    init(nettest: Nettest) {
+        self.nettest = nettest
+    }
 }
 
 // MARK: - MarkdownLabel
@@ -80,13 +105,9 @@ struct MarkdownLabel: UIViewRepresentable {
 
 /// A SwiftUI view that wraps a UITableView.
 struct UITableViewWrapper: UIViewRepresentable {
-    var nettests: [NettestStatus]
+    @Binding var nettests: [NettestStatus]
+    var didSelectRow: ((IndexPath) -> Void) // Event listener closure
     
-    /// Initializes a new instance of the UITableViewWrapper struct.
-    /// - Parameter nettests: An array of Nettest objects.
-    init(nettests: [Nettest]) {
-        self.nettests = nettests.map { nettest in NettestStatus(nettest: nettest) }
-    }
     
     func makeUIView(context: Context) -> UITableView {
         let tableView = UITableView()
@@ -143,6 +164,9 @@ struct UITableViewWrapper: UIViewRepresentable {
                         //TODO: Save preference change to database
                         // Update the isSelected property of the NettestStatus object for the current section to the new value of the toggle.
                         self?.parent.nettests[indexPath.section].isSelected = newValue
+                        //self?.parent.nettests = self?.parent.nettests ?? []
+                        // Invoke the didSelectRow closure with the selected indexPath
+                        self?.parent.didSelectRow(indexPath)
                         tableView.reloadData()
                     }
                 )
@@ -168,12 +192,15 @@ struct UITableViewWrapper: UIViewRepresentable {
                 parent.nettests[indexPath.section].isExpanded = !parent.nettests[indexPath.section].isExpanded
             }
             
-            UIView.transition(with: tableView,
-                              duration: 0.35,
-                              options: .transitionCrossDissolve,
-                              animations: { tableView.reloadData() })
+            UIView.transition(
+                with: tableView,
+                duration: 0.35,
+                options: .transitionCrossDissolve,
+                animations: {
+                    tableView.reloadData()
+                }
+            )
             
-            print("\(indexPath.section)-\(indexPath.row)")
         }
     }
 }
@@ -188,9 +215,10 @@ struct iOSCheckboxToggleStyle: ToggleStyle {
             HStack {
                 configuration.label
                 Spacer()
-                Image(systemName: configuration.isOn ? "checkmark.square" : "square").padding()
+                Image(systemName: configuration.isOn ? "checkmark.square" : "square")
+                    .padding()
             }
-        })
+        }).foregroundColor(.black)
     }
 }
 
@@ -203,13 +231,15 @@ struct SectionTableCell: View {
     
     var body: some View {
         HStack {
-            Text(LocalizationUtility.getNameForTest(item.nettest.name)).padding()
+            Text(LocalizationUtility.getNameForTest(item.nettest.name))
+                .font(.callout)
+                .lineLimit(1)
+                .layoutPriority(1)
             if let inputs = item.nettest.inputs, !inputs.isEmpty {
                 Image(systemName: item.isExpanded ? "chevron.up" : "chevron.down")
             } else {
                 Spacer()
             }
-            Spacer()
             Toggle(isOn: $isOn) {}.toggleStyle(iOSCheckboxToggleStyle())
         }
     }
@@ -260,7 +290,7 @@ struct InputTableView: View {
     
     var body: some View {
         HStack {
-            Text(item).padding()
+            Text(item).font(.callout)
             Spacer()
         }
     }
