@@ -1,60 +1,18 @@
 import Foundation
 import SwiftUI
 
-struct OverviewContentView: View {
-    let descriptor:OONIDescriptor
-    @State var runTestsAutomatically:Bool = false
-    
-    @State var installUpdatesAutomatically:Bool = false
-    
-    @State var nettests: [NettestStatus]
-    
-    var body: some View {
-        
-        let runTestsAutomaticallyBinding = Binding(
-            get: { self.runTestsAutomatically },
-            set: {
-                runTestsAutomaticallyChanged($0)
-            }
-        )
-        
-        HStack{
-            VStack {
-                Text(descriptor.longDescription).font(.callout)
-                Text("Test Settings")
-                Toggle("Install updates automatically", isOn: $installUpdatesAutomatically)
-                Toggle("Run tests automatically", isOn: runTestsAutomaticallyBinding).toggleStyle(iOSCheckboxToggleStyle())
-                UITableViewWrapper(
-                    nettests: $nettests,
-                    didSelectRow: { indexPath in
-                        let allEnabled = nettests.allSatisfy({ nettest in
-                            nettest.isSelected
-                        })
-                        runTestsAutomatically = allEnabled
-                    })
-                .padding(.bottom)
-                .frame(height: 1000)
-            }
-        }
-    }
-    
-    func runTestsAutomaticallyChanged(_ newState: Bool) {
-        nettests.forEach({ nettest in
-            nettest.isSelected = newState
-        })
-        //something async
-        self.runTestsAutomatically = newState
-    }
-}
 
 extension TestOverviewViewController {
-    open override func viewDidAppear(_ animated: Bool) {
+    @objc private func setupDescriptorViews() {
         
         guard let descriptor = self.descriptor as? OONIDescriptor else {
             return
         }
         
-        let contentView = OverviewContentView(descriptor: descriptor,nettests: descriptor.nettest.map { nettest in NettestStatus(nettest: nettest) })
+        let contentView = OverviewContentView(
+            descriptor: descriptor,
+            nettests: descriptor.nettest.map { nettest in NettestStatus(nettest: nettest) }
+        )
         
         let hostingController = UIHostingController(rootView: contentView)
         
@@ -73,31 +31,54 @@ extension TestOverviewViewController {
     }
 }
 
-// MARK: - NettestStatus
-
-/// A struct that represents the status of a Nettest.
-class NettestStatus : ObservableObject {
-    var nettest: Nettest
-    @Published var isSelected: Bool = false
-    @Published var isExpanded: Bool = false
+struct OverviewContentView: View {
+    let descriptor:OONIDescriptor
+    @State var runTestsAutomatically:Bool = false
     
-    init(nettest: Nettest) {
-        self.nettest = nettest
+    @State var installUpdatesAutomatically:Bool = false
+    
+    @State var nettests: [NettestStatus]
+    
+    var body: some View {
+        
+        let runTestsAutomaticallyBinding = Binding(
+            get: { self.runTestsAutomatically },
+            set: {
+                runTestsAutomaticallyChanged($0)
+            }
+        )
+        
+        VStack(alignment: .leading, spacing: 8) {
+            Text(LocalizedStringKey(descriptor.longDescription))
+                .padding(.top)
+                .font(.custom("FiraSans-Regular", size: 14.0))
+                .foregroundColor(Color("color_gray9"))
+            Text("Test Settings")
+                .bold()
+                .padding(.top)
+                .padding(.bottom)
+            Toggle("Install updates automatically", isOn: $installUpdatesAutomatically)
+            Toggle("Run tests automatically", isOn: runTestsAutomaticallyBinding).toggleStyle(iOSCheckboxToggleStyle())
+            UITableViewWrapper(
+                nettests: $nettests,
+                didSelectRow: { indexPath in
+                    let allEnabled = nettests.allSatisfy({ nettest in
+                        nettest.isSelected
+                    })
+                    runTestsAutomatically = allEnabled
+                })
+            .padding(.bottom)
+            .frame(height: 1000)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
-}
-
-// MARK: - MarkdownLabel
-
-/// A SwiftUI view that displays a Markdown label.
-struct MarkdownLabel: UIViewRepresentable {
-    var rect: CGRect
     
-    func makeUIView(context: Context) -> RHMarkdownLabel {
-        return RHMarkdownLabel(frame: rect)
-    }
-    
-    func updateUIView(_ uiView: RHMarkdownLabel, context: Context) {
-        uiView.markdown = NSLocalizedString("Dashboard.InstantMessaging.Overview.Paragraph", comment: "")
+    func runTestsAutomaticallyChanged(_ newState: Bool) {
+        nettests.forEach({ nettest in
+            // TODO: save to database
+            nettest.isSelected = newState
+        })
+        self.runTestsAutomatically = newState
     }
 }
 
@@ -164,7 +145,6 @@ struct UITableViewWrapper: UIViewRepresentable {
                         //TODO: Save preference change to database
                         // Update the isSelected property of the NettestStatus object for the current section to the new value of the toggle.
                         self?.parent.nettests[indexPath.section].isSelected = newValue
-                        //self?.parent.nettests = self?.parent.nettests ?? []
                         // Invoke the didSelectRow closure with the selected indexPath
                         self?.parent.didSelectRow(indexPath)
                         tableView.reloadData()
@@ -201,125 +181,6 @@ struct UITableViewWrapper: UIViewRepresentable {
                 }
             )
             
-        }
-    }
-}
-
-
-/// A SwiftUI toggle style that uses a checkbox.
-struct iOSCheckboxToggleStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        Button(action: {
-            configuration.isOn.toggle()
-        }, label: {
-            HStack {
-                configuration.label
-                Spacer()
-                Image(systemName: configuration.isOn ? "checkmark.square" : "square")
-                    .padding()
-            }
-        }).foregroundColor(.black)
-    }
-}
-
-// MARK: - Nettests views and TableCell
-
-/// A SwiftUI view that represents a section in the table view.
-struct SectionTableCell: View {
-    var item: NettestStatus
-    @Binding var isOn: Bool
-    
-    var body: some View {
-        HStack {
-            Text(LocalizationUtility.getNameForTest(item.nettest.name))
-                .font(.callout)
-                .lineLimit(1)
-                .layoutPriority(1)
-            if let inputs = item.nettest.inputs, !inputs.isEmpty {
-                Image(systemName: item.isExpanded ? "chevron.up" : "chevron.down")
-            } else {
-                Spacer()
-            }
-            Toggle(isOn: $isOn) {}.toggleStyle(iOSCheckboxToggleStyle())
-        }
-    }
-}
-
-/// A UITableViewCell subclass that displays a section in the table view.
-class NettestTableViewCell: UITableViewCell {
-    private var hostingController: UIHostingController<SectionTableCell>?
-    
-    /// Configures the cell with the specified data.
-    /// - Parameters:
-    ///   - data: The NettestStatus object.
-    ///   - onToggleChange: A closure that is called when the toggle is changed.
-    func configure(with data: NettestStatus, onToggleChange: @escaping (Bool) -> Void) {
-        // Create a binding to pass the data to the SwiftUI view
-        let binding = Binding<Bool>(
-            get: { data.isSelected },
-            set: { newValue in
-                onToggleChange(newValue)
-            }
-        )
-        
-        let toggleCellView = SectionTableCell(item:data, isOn: binding)
-        
-        if let hostingController = hostingController {
-            hostingController.rootView = toggleCellView
-        } else {
-            hostingController = UIHostingController(rootView: toggleCellView)
-            if let hostingView = hostingController?.view {
-                hostingView.translatesAutoresizingMaskIntoConstraints = false
-                contentView.addSubview(hostingView)
-                NSLayoutConstraint.activate([
-                    hostingView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                    hostingView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                    hostingView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                    hostingView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                ])
-            }
-        }
-    }
-}
-
-// MARK: - Input views and TableCell
-
-/// A SwiftUI view that represents an input in the table view.
-struct InputTableView: View {
-    var item: String
-    
-    var body: some View {
-        HStack {
-            Text(item).font(.callout)
-            Spacer()
-        }
-    }
-}
-
-/// A UITableViewCell subclass that displays an input in the table view.
-class InputTableViewCell: UITableViewCell {
-    private var hostingController: UIHostingController<InputTableView>?
-    
-    /// Configures the cell with the specified data.
-    /// - Parameter data: The input string.
-    func configure(with data: String) {
-        
-        let toggleCellView = InputTableView(item:data)
-        
-        if let hostingController = hostingController {
-            hostingController.rootView = toggleCellView
-        } else {
-            hostingController = UIHostingController(rootView: toggleCellView)
-            if let hostingView = hostingController?.view {
-                hostingView.translatesAutoresizingMaskIntoConstraints = false
-                contentView.addSubview(hostingView)
-                NSLayoutConstraint.activate([
-                    hostingView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                    hostingView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                    hostingView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                    hostingView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                ])
-            }
         }
     }
 }

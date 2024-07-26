@@ -192,7 +192,17 @@ public class OONIDescriptor: NSObject {
                     name: "experimental",
                     title: NSLocalizedString("Test.Experimental.Fullname", comment: ""),
                     shortDescription: NSLocalizedString("Dashboard.Experimental.Card.Description", comment: ""),
-                    longDescription: NSLocalizedString("Dashboard.Experimental.Overview.Paragraph", comment: ""),
+                    longDescription: String.localizedStringWithFormat(
+                        NSLocalizedString("Dashboard.Experimental.Overview.Paragraph", comment: ""),
+                        """
+                        \n- [STUN Reachability](https://github.com/ooni/spec/blob/master/nettests/ts-025-stun-reachability.md)
+                        \n- [DNS Check](https://github.com/ooni/spec/blob/master/nettests/ts-028-dnscheck.md)
+                        \n- [RiseupVPN](https://ooni.org/nettest/riseupvpn/)
+                        \n- [ECH Check](https://github.com/ooni/spec/blob/master/nettests/ts-039-echcheck.md)
+                        \(String(format: "%@ (%@)", "\n- [Tor Snowflake](https://ooni.org/nettest/tor-snowflake/)", NSLocalizedString("Settings.TestOptions.LongRunningTest", comment: "")))
+                        \(String(format: "%@ (%@)", "\n- [Vanilla Tor](https://github.com/ooni/spec/blob/master/nettests/ts-016-vanilla-tor.md)", NSLocalizedString("Settings.TestOptions.LongRunningTest", comment: "")))
+                        """
+                    ) ,
                     icon: "experimental",
                     color: UIColor(named: "color_indigo1")!,
                     animation: "experimental",

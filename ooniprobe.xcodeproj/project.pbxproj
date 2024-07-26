@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,9 @@
 		7940AA9228117E9000C0EB5D /* share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7940AA8828117E9000C0EB5D /* share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7945903D2C21BFB1008116BF /* OONIDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7945903C2C21BFB1008116BF /* OONIDescriptor.swift */; };
 		79780FCF27E9F18E002A38B1 /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79780FCE27E9F18E002A38B1 /* Languages.plist */; };
+		79BC192B2C53AD890017B7EC /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC192A2C53AD890017B7EC /* InputTableViewCell.swift */; };
+		79BC192D2C53ADC20017B7EC /* NettestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC192C2C53ADC20017B7EC /* NettestTableViewCell.swift */; };
+		79BC192F2C53B3D10017B7EC /* NettestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC192E2C53B3D10017B7EC /* NettestStatus.swift */; };
 		79DB62342C2D8F020076FA0C /* TestOverviewViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DB62332C2D8F020076FA0C /* TestOverviewViewController+TableView.swift */; };
 		7AED19812A6EC9A2003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19802A6EC9A2003B265A /* libresolv.tbd */; };
 		7AED19832A6EC9C7003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19822A6EC9C7003B265A /* libresolv.tbd */; };
@@ -234,6 +237,9 @@
 		79780FCE27E9F18E002A38B1 /* Languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
 		79AA093C2A86E44400C23E27 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		79AA093D2A86E47600C23E27 /* my */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = my; path = my.lproj/Localizable.strings; sourceTree = "<group>"; };
+		79BC192A2C53AD890017B7EC /* InputTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
+		79BC192C2C53ADC20017B7EC /* NettestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NettestTableViewCell.swift; sourceTree = "<group>"; };
+		79BC192E2C53B3D10017B7EC /* NettestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NettestStatus.swift; sourceTree = "<group>"; };
 		79DB62332C2D8F020076FA0C /* TestOverviewViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestOverviewViewController+TableView.swift"; sourceTree = "<group>"; };
 		7A8CB0932ADDDAC1005AB2BC /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libcrypto.xcframework; path = Pods/libcrypto/libcrypto.xcframework; sourceTree = "<group>"; };
 		7A8CB0942ADDDAC1005AB2BC /* libevent.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libevent.xcframework; path = Pods/libevent/libevent.xcframework; sourceTree = "<group>"; };
@@ -608,6 +614,16 @@
 			path = share;
 			sourceTree = "<group>";
 		};
+		79BC19292C53AD470017B7EC /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				79BC192A2C53AD890017B7EC /* InputTableViewCell.swift */,
+				79BC192C2C53ADC20017B7EC /* NettestTableViewCell.swift */,
+				79BC192E2C53B3D10017B7EC /* NettestStatus.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
 		A226141514CB239FFA382514 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -716,6 +732,7 @@
 		ED0D8D6D201866D8003DDF23 /* RunTest */ = {
 			isa = PBXGroup;
 			children = (
+				79BC19292C53AD470017B7EC /* Rows */,
 				ED1CC80020159D970041089A /* TestRunningViewController.h */,
 				ED1CC80120159D970041089A /* TestRunningViewController.m */,
 				ED0D8D6E20186742003DDF23 /* TestOverviewViewController.h */,
@@ -1615,11 +1632,13 @@
 				ED41D8B82089E9C500543191 /* WebsitesDetailsViewController.m in Sources */,
 				ED3AE9F020341C8600DAAF36 /* ResultsHeaderViewController.m in Sources */,
 				EDDB0B761FFF6C8B00EFD9C8 /* Onboarding3ViewController.m in Sources */,
+				79BC192F2C53B3D10017B7EC /* NettestStatus.swift in Sources */,
 				EDF4ED20248A8B50001A5406 /* EventResult.m in Sources */,
 				ED4D1E60246315EF0087B36D /* BasicTableViewCell.m in Sources */,
 				EDF4ED31248FBFEC001A5406 /* CircumventionDetailsViewController.m in Sources */,
 				EDB3D64926203DC000724ECF /* ExperimentalSuite.m in Sources */,
 				EDB33B7E21838824002CEC34 /* CustomURLViewController.m in Sources */,
+				79BC192B2C53AD890017B7EC /* InputTableViewCell.swift in Sources */,
 				ED14B2342465411E009AA906 /* Psiphon.m in Sources */,
 				ED2E067121D4867B00E9B9EE /* NdtTest.m in Sources */,
 				ED9CCEF7252B3298004F8420 /* OONISessionConfig.m in Sources */,
@@ -1640,6 +1659,7 @@
 				ED2E066F21D4867B00E9B9EE /* HttpInvalidRequestLine.m in Sources */,
 				ED4DF7DA2609F0ED00521C5B /* BackgroundTask.m in Sources */,
 				ED4A00B526494F140083C8F6 /* ProxyViewController.m in Sources */,
+				79BC192D2C53ADC20017B7EC /* NettestTableViewCell.swift in Sources */,
 				ED9CCEE8252B30D3004F8420 /* OONIContext.m in Sources */,
 				ED21D092269C93B900BB09D8 /* ProgressViewController.m in Sources */,
 				ED58CF7E1FEBBE2800E3C415 /* TestUtility.m in Sources */,

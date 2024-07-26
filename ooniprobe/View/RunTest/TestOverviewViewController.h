@@ -12,7 +12,7 @@
     UIColor *defaultColor;
 }
 
-+ (void)loadSwiftUIViews;
++ (void)setupDescriptorViews;
 
 @property (nonatomic, strong) id descriptor;
 

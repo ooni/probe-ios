@@ -17,26 +17,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeConstraints) name:@"networkTestEndedUI" object:nil];
 
     [self.testNameLabel setText:[LocalizationUtility getNameForTest:[descriptor performSelector:@selector(name)]]];
-    NSString *testLongDesc = [LocalizationUtility getLongDescriptionForTest:[descriptor performSelector:@selector(name)]];
-    [self.testDescriptionLabel setFont:[UIFont fontWithName:@"FiraSans-Regular" size:14]];
-    [self.testDescriptionLabel setTextColor:[UIColor colorNamed:@"color_gray9"]];
     NSMutableDictionary *linkAttributes = [NSMutableDictionary dictionary];
     linkAttributes[(NSString *) kCTUnderlineStyleAttributeName] = @YES;
     linkAttributes[(NSString *) kCTForegroundColorAttributeName] = [UIColor colorNamed:@"color_base"];
-    self.testDescriptionLabel.linkAttributes = [NSDictionary dictionaryWithDictionary:linkAttributes];
-    [self.testDescriptionLabel setMarkdown:testLongDesc];
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0) {
-        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.view.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft) {
-            self.testDescriptionLabel.textAlignment = NSTextAlignmentRight;
-        }
-    } else {
-        if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
-            self.testDescriptionLabel.textAlignment = NSTextAlignmentRight;
-        }
-    }
-    [self.testDescriptionLabel setDidSelectLinkWithURLBlock:^(RHMarkdownLabel *label, NSURL *url) {
-        [[UIApplication sharedApplication] openURL:url];
-    }];
     [self.runButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.Run", nil)] forState:UIControlStateNormal];
     if ([[descriptor performSelector:@selector(name)] isEqualToString:@"websites"])
         [self.websitesButton setTitle:[NSString stringWithFormat:@"%@", NSLocalizedString(@"Dashboard.Overview.ChooseWebsites", nil)] forState:UIControlStateNormal];
@@ -51,10 +34,10 @@
     [NavigationBarUtility setNavigationBar:self.navigationController.navigationBar color:defaultColor];
     self.navigationController.navigationBar.topItem.title = @"";
 
-    [self loadSwiftUIViews];
+    [self setupDescriptorViews];
 }
 
-- (void)loadSwiftUIViews{}
+- (void)setupDescriptorViews{}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

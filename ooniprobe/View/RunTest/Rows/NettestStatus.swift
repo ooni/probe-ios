@@ -1,9 +1,12 @@
-//
-//  NettestStatus.swift
-//  ooniprobe
-//
-//  Created by Norbel Ambanumben on 26/07/2024.
-//  Copyright © 2024 OONI. All rights reserved.
-//
+// MARK: - NettestStatus
 
-import Foundation
+/// A struct that represents the status of a Nettest.
+class NettestStatus : ObservableObject {
+    var nettest: Nettest
+    @Published var isSelected: Bool = false
+    @Published var isExpanded: Bool = false
+    
+    init(nettest: Nettest) {
+        self.nettest = nettest
+    }
+}
