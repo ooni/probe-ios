@@ -7,3 +7,5 @@
 #import "AbstractSuite.h"
 #import "Tests.h"
 #import "UIView+Toast.h"
+#import "LocalizationUtility.h"
+#import "RunningTest.h"

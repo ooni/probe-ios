@@ -12,8 +12,12 @@
     UIColor *defaultColor;
 }
 
++ (void)setupDescriptorViews;
+
 @property (nonatomic, strong) id descriptor;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIImageView *testImage;
 @property (strong, nonatomic) IBOutlet UILabel *testNameLabel;
 @property (strong, nonatomic) IBOutlet ConfigureButton *websitesButton;
@@ -25,6 +29,5 @@
 @property (strong, nonatomic) IBOutlet RHMarkdownLabel *testDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableFooterConstraint;
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
