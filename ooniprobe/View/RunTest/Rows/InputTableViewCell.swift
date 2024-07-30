@@ -8,7 +8,9 @@ struct InputTableView: View {
     
     var body: some View {
         HStack {
-            Text(item).font(.callout)
+            Text(item)
+                .font(.custom("FiraSans-Regular", size: 14.0))
+                .foregroundColor(Color("color_gray9"))
             Spacer()
         }
     }

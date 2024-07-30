@@ -22,6 +22,7 @@
 		79BC192B2C53AD890017B7EC /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC192A2C53AD890017B7EC /* InputTableViewCell.swift */; };
 		79BC192D2C53ADC20017B7EC /* NettestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC192C2C53ADC20017B7EC /* NettestTableViewCell.swift */; };
 		79BC192F2C53B3D10017B7EC /* NettestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC192E2C53B3D10017B7EC /* NettestStatus.swift */; };
+		79BC19312C53C24E0017B7EC /* DashboardTableViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC19302C53C24E0017B7EC /* DashboardTableViewController+Actions.swift */; };
 		79DB62342C2D8F020076FA0C /* TestOverviewViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DB62332C2D8F020076FA0C /* TestOverviewViewController+TableView.swift */; };
 		7AED19812A6EC9A2003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19802A6EC9A2003B265A /* libresolv.tbd */; };
 		7AED19832A6EC9C7003B265A /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED19822A6EC9C7003B265A /* libresolv.tbd */; };
@@ -240,6 +241,7 @@
 		79BC192A2C53AD890017B7EC /* InputTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
 		79BC192C2C53ADC20017B7EC /* NettestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NettestTableViewCell.swift; sourceTree = "<group>"; };
 		79BC192E2C53B3D10017B7EC /* NettestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NettestStatus.swift; sourceTree = "<group>"; };
+		79BC19302C53C24E0017B7EC /* DashboardTableViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardTableViewController+Actions.swift"; sourceTree = "<group>"; };
 		79DB62332C2D8F020076FA0C /* TestOverviewViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestOverviewViewController+TableView.swift"; sourceTree = "<group>"; };
 		7A8CB0932ADDDAC1005AB2BC /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libcrypto.xcframework; path = Pods/libcrypto/libcrypto.xcframework; sourceTree = "<group>"; };
 		7A8CB0942ADDDAC1005AB2BC /* libevent.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libevent.xcframework; path = Pods/libevent/libevent.xcframework; sourceTree = "<group>"; };
@@ -767,6 +769,7 @@
 				ED0A61FF200B52A300235E70 /* OONIRun */,
 				EDDB0B561FFF32B900EFD9C8 /* Settings */,
 				EDDB0B631FFF6C8B00EFD9C8 /* Onboarding */,
+				79BC19302C53C24E0017B7EC /* DashboardTableViewController+Actions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1605,6 +1608,7 @@
 				EDBBB2DF203D2EF200B84F6F /* TestResultTableViewCell.m in Sources */,
 				ED90A92D2198DE5100204B46 /* Options.m in Sources */,
 				ED4D1E5D24629A870087B36D /* OONIApi.m in Sources */,
+				79BC19312C53C24E0017B7EC /* DashboardTableViewController+Actions.swift in Sources */,
 				D4A2F5DF1A6C3244001B8460 /* main.m in Sources */,
 				ED5F8A2A1F77C4AA0093C8F5 /* VersionUtility.m in Sources */,
 				ED4F77F5265E3C5A00C28AC0 /* ProxySettings.m in Sources */,

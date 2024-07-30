@@ -78,7 +78,7 @@ public class Nettest: NSObject {
 /// The class also provides a method to get the OONI descriptors for the OONI dashboard.
 /// The class also provides a method to get the test suite for the current descriptor.
 @objc(OONIDescriptor)
-public class OONIDescriptor: NSObject {
+public class OONIDescriptor: NSObject,Identifiable {
 
     // MARK: Initializers
     init(name: String,
