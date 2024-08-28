@@ -63,7 +63,7 @@
         return NSLocalizedFormatString(@"Dashboard.Experimental.Overview.Paragraph",
                 [NSString stringWithFormat:@"%@ %@ %@",
                         @"\n\n- [STUN Reachability](https://github.com/ooni/spec/blob/master/nettests/ts-025-stun-reachability.md) "
-                        "\n\n- [DNS Check](https://github.com/ooni/spec/blob/master/nettests/ts-028-dnscheck.md) "
+                        "\n\n- [OpenVPN](https://github.com/ooni/spec/blob/master/nettests/ts-040-openvpn.md) "
                         "\n\n- [RiseupVPN](https://ooni.org/nettest/riseupvpn/) "
                         "\n\n- [ECH Check](https://github.com/ooni/spec/blob/master/nettests/ts-039-echcheck.md)",
                         [NSString stringWithFormat:@"%@ ( %@ )", @"\n\n- [Tor Snowflake](https://ooni.org/nettest/tor-snowflake/) ",NSLocalizedFormatString(@"Settings.TestOptions.LongRunningTest",nil)],
