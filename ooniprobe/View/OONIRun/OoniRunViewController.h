@@ -16,6 +16,8 @@
 @property (nonatomic, strong) IBOutlet RunButton *runButton;
 
 @property (nonatomic, retain) NSString *testName;
+
+@property (nonatomic, retain) NSString *runId;
 @property (nonatomic, retain) NSDictionary *testArguments;
 @property (nonatomic, retain) NSString *testDescription;
 

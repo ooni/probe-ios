@@ -65,7 +65,8 @@
 -(IBAction)openExplorerUrl:(id)sender{
     NSString *url = [self getExplorerUrl];
     if (url != nil)
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:@{} completionHandler:nil];
+
 }
 
 -(NSString*)getExplorerUrl{

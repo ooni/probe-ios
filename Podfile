@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '12.0'
 use_frameworks!
 inhibit_all_warnings!
 
@@ -28,7 +28,7 @@ target 'ooniprobe' do
     pod 'DateTools'
     pod 'OCMapper', '2.0'
     pod 'Countly'
-    pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '6.1.4'
+    pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '8.35.0'
     pod 'Harpy'
 end
 

@@ -68,8 +68,12 @@
         if ([self checkMv:parameters]) {
             if ([parameters objectForKey:@"tn"] && [TestUtility getCategoryForTest:[parameters objectForKey:@"tn"]]) {
                 [self setTestName:[parameters objectForKey:@"tn"]];
-                if ([parameters objectForKey:@"ta"])
+                if ([parameters objectForKey:@"ta"]) {
                     [self setTestArguments:[parameters objectForKey:@"ta"]];
+                }
+                if ([parameters objectForKey:@"runId"]) {
+                    [self setRunId:[parameters objectForKey:@"runId"]];
+                }
                 [self showTestScreen];
             } else {
                 [self showErrorScreen];
@@ -275,6 +279,7 @@
         AbstractSuite *testSuite = [[AbstractSuite alloc] initSuite:testSuiteName];
         AbstractTest *test = [[AbstractTest alloc] initTest:testName];
         [test setAnnotation:YES];
+        [test setRunId:self.runId];
         [testSuite setTestList:[NSMutableArray arrayWithObject:test]];
         if ([testSuiteName isEqualToString:@"websites"] && [urls count] > 0)
             [(WebConnectivity*)test setInputs:urls];
