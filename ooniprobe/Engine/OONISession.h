@@ -34,4 +34,6 @@
  */
 - (OONICheckInResults*) checkIn:(OONIContext*) ctx config:(OONICheckInConfig*) config error:(NSError **)error;
 
+- (void)close:(NSError **)error;
+
 @end

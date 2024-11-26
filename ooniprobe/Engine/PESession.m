@@ -35,4 +35,7 @@
     return (r != nil) ? ([[OONICheckInResults alloc] initWithResults:r]) : nil;
 }
 
+- (void)close:(NSError **)error {
+    [self.session close:error];
+}
 @end
