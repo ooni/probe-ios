@@ -5,7 +5,7 @@ inhibit_all_warnings!
 
 
 def ooni_pods
-    ooni_version = "v3.23.0"
+    ooni_version = "v3.24.0"
     ooni_pods_location = "https://github.com/ooni/probe-cli/releases/download/#{ooni_version}"
 
     pod "libcrypto", :podspec => "#{ooni_pods_location}/libcrypto.podspec"

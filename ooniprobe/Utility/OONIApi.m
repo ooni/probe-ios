@@ -62,6 +62,9 @@
                                            }]);
         return;
     }
+
+    [session close:nil];
+
     successcb(urls);
 }
 
